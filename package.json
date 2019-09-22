@@ -1,0 +1,16 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "start": "node ./scripts/compile-packages.js --watch",
+    "build": "node ./scripts/compile-packages.js"
+  },
+  "devDependencies": {
+    "chalk": "^2.4.2",
+    "chokidar": "^3.1.0",
+    "eslint-config-rax": "^0.0.0",
+    "glob": "^7.1.4",
+    "lerna": "^3.13.2",
+    "minimist": "^1.2.0"
+  }
+}
