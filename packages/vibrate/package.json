@@ -1,0 +1,43 @@
+{
+  "name": "universal-vibrate",
+  "version": "1.0.0",
+  "description": "vibrate",
+  "keywords": [
+    "rax"
+  ],
+  "author": "solojiang <350740249@qq.com>",
+  "homepage": "",
+  "license": "BSD-3-Clause",
+  "main": "./lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "start": "rax-scripts start",
+    "build": "rax-scripts build",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "universal-env": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
+    "babel-eslint": "^10.0.1",
+    "driver-universal": "^1.0.1",
+    "eslint": "^5.15.1",
+    "eslint-config-rax": "^0.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-react": "^7.12.4",
+    "rax": "^1.0.4",
+    "rax-plugin-component": "^0.1.8",
+    "rax-scripts": "^2.0.1",
+    "rax-text": "^1.0.1",
+    "rax-view": "^1.0.2",
+    "typescript": "^3.4.5"
+  }
+}
