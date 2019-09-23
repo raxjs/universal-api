@@ -1,9 +1,9 @@
 import { Options, NetworkResult } from '../types';
 
-export const getNetworkTypeFactory = (platform: any) => {
+export const getNetworkTypeFactory = (api: any) => {
   return (options: Options = {}) => {
     return new Promise((resolve, reject): void => {
-      platform.getNetworkType({
+      api.getNetworkType({
         success: (res: NetworkResult) => {
           options['success'] && options['success'](res);
           resolve(res);
