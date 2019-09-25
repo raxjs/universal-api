@@ -7,14 +7,23 @@ export const addPhoneContactFactory = (api: any, account: string) => {
         options[account] = options.account;
         delete options.account;
       }
-      options.success = res => {
-        options.success && options.success(res);
-        resolve(res);
-      };
-      options.fail = err => {
-        options.fail && options.fail(err);
-        reject(err);
-      };
+      const callbacks = {};
+      ['success', 'fail', 'complete'].forEach(method => {
+        callbacks[method] = options[method];
+      });
+      Object.assign(options, {
+        success(res: any) {
+          callbacks['success'] && callbacks['success'](res);
+          resolve(res)
+        },
+        fail(res: any) {
+          callbacks['fail'] && callbacks['fail'](res);
+          reject(res)
+        },
+        complete(res: any) {
+          callbacks['complete'] && callbacks['complete'](res);
+        },
+      });
       api.addPhoneContact(options);
     });
   };
