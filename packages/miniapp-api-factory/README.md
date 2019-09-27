@@ -5,7 +5,7 @@ Each platform small program factory function, through the provided factory funct
 ## Installation
 
 ```bash
-$ npm install niversal-miniapp-api-factory --save
+$ npm install universal-miniapp-api-factory --save
 ```
 
 ## Usage
