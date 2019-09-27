@@ -15,8 +15,8 @@ export interface IEventCallback {
 export interface IProcess {
   method: string;
   processOptions?: (options: IOptions) => any;
-  processSuccess?: (res: any) => any;
-  processFail?: (err: any) => any;
+  processSuccessCallback?: (res: any) => any;
+  processFailCallback?: (err: any) => any;
 };
 
 export const miniAppEventHandlerFactory = (platformApi: any, process: IProcess) => {
