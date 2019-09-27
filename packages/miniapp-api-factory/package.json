@@ -1,12 +1,13 @@
 {
-  "name": "universal-network-type",
+  "name": "universal-miniapp-api-factory",
   "version": "1.0.0",
-  "description": "network type",
+  "description": "MiniApp api factory",
   "keywords": [
-    "rax"
+    "universal",
+    "api"
   ],
   "author": "balloonzzq <zqzhuang888@qq.com>",
-  "homepage": "",
+  "homepage": "https://github.com/raxjs/universal-api",
   "license": "BSD-3-Clause",
   "main": "./lib/index.js",
   "directories": {
@@ -21,7 +22,6 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "universal-env": "^2.0.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",

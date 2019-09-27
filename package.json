@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "start": "node ./scripts/compile-packages.js --watch",
     "build": "node ./scripts/compile-packages.js"
   },
