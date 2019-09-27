@@ -11,7 +11,7 @@ $ npm install niversal-miniapp-api-factory --save
 ## Usage
 
 ```js
-import { miniAppFactory, miniAppEventHandlerFactory } from 'niversal-miniapp-api-factory';
+import { miniAppFactory, miniAppEventHandlerFactory } from 'universal-miniapp-api-factory';
 
 const scanCode = miniAppFactory(my, {
   method: 'scan',
