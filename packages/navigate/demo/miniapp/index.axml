@@ -1,0 +1,5 @@
+<rax-demo className="testClass" style="height:300rpx;width:300rpx;background:red">
+  <view onTap="jump">jump</view>
+  <view onTap="pop">pop</view>
+  <view onTap="go">go -1</view>
+</rax-demo>

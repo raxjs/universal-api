@@ -1,0 +1,51 @@
+{
+  "name": "universal-animation",
+  "version": "1.0.1",
+  "description": "A universal animation API.",
+  "license": "BSD-3-Clause",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "rax-scripts start --type 'component' -p 8000",
+    "build": "rax-scripts build  --type 'component' ",
+    "test": "rax-scripts test",
+    "lint": "eslint --ext .js --ext .jsx ./src",
+    "prebuild": "npm run lint && npm run test",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raxjs/universal-animation.git"
+  },
+  "keywords": [
+    "universal",
+    "animation",
+    "bindingx"
+  ],
+  "bugs": {
+    "url": "https://github.com/alibaba/rax/issues"
+  },
+  "homepage": "https://github.com/alibaba/rax#readme",
+  "engines": {
+    "npm": ">=3.0.0"
+  },
+  "dependencies": {
+    "universal-env": "^2.0.0",
+    "universal-transition": "^1.0.0",
+    "weex-bindingx": "^0.0.49"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "debug": "^4.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-rax": "^0.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-react": "^7.12.4",
+    "pre-commit": "^1.2.2",
+    "rax": "0.6.7",
+    "rax-scripts": "^1.2.1"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ]
+}
