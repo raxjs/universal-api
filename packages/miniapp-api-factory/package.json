@@ -1,7 +1,7 @@
 {
-  "name": "universal-miniapp-api-factory",
+  "name": "universal-miniapp-api-visitor",
   "version": "1.0.0",
-  "description": "MiniApp api factory",
+  "description": "MiniApp api visitor",
   "keywords": [
     "universal",
     "api"

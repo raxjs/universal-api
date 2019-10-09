@@ -14,21 +14,21 @@ export interface IEventCallback {
 
 export interface IProcess {
   method: string;
-  processOptions?: (options: IOptions) => any;
-  processSuccessCallback?: (res: any) => any;
-  processFailCallback?: (err: any) => any;
+  optionsInterceptor?: (options: IOptions) => any;
+  successInterceptor?: (res: any) => any;
+  failInterceptor?: (err: any) => any;
 };
 
-export const miniAppEventHandlerFactory = (platformApi: any, process: IProcess) => {
+export const apiEventHandlerVisitor = (platformApi: any, process: IProcess) => {
   return (callback: IEventCallback) => {
     platformApi[process.method](callback);
   };
 };
 
-export const miniAppFactory = (platformApi: any, process: IProcess) => {
+export const apiVisitor = (platformApi: any, process: IProcess) => {
   return (options: IOptions = {}) => {
-    if (process.processOptions) {
-      options = process.processOptions(options);
+    if (process.optionsInterceptor) {
+      options = process.optionsInterceptor(options);
     }
     return new Promise((resolve, reject): void => {
       const callbacks = {};
@@ -37,15 +37,15 @@ export const miniAppFactory = (platformApi: any, process: IProcess) => {
       });
       Object.assign(options, {
         success: (res: any) => {
-          if (process.processSuccess) {
-            res = process.processSuccess(res);
+          if (process.successInterceptor) {
+            res = process.successInterceptor(res);
           }
           callbacks['success'] && callbacks['success'](res);
           resolve(res);
         },
         fail: (err: any): void => {
-          if (process.processFail) {
-            err = process.processFail(err);
+          if (process.failInterceptor) {
+            err = process.failInterceptor(err);
           }
           callbacks['fail'] && callbacks['fail'](err);
           reject(err);

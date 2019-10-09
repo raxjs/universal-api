@@ -1,33 +1,35 @@
-[![npm](https://img.shields.io/npm/v/universal-miniapp-api-factory.svg)](https://www.npmjs.com/package/universal-miniapp-api-factory)
+[![npm](https://img.shields.io/npm/v/universal-miniapp-api-interceptor.svg)](https://www.npmjs.com/package/universal-miniapp-api-interceptor)
 
-Each platform small program factory function, through the provided factory function can quickly access the multi-platform Mini App API.
+Each platform Mini App interceptor function, through the provided factory function can quickly access the multi-platform Mini App API.
 
 ## Installation
 
 ```bash
-$ npm install universal-miniapp-api-factory --save
+$ npm install universal-miniapp-api-interceptor --save
 ```
 
 ## Usage
 
 ```js
-import { miniAppFactory, miniAppEventHandlerFactory } from 'universal-miniapp-api-factory';
+import { apiInterceptor, apiEventHandlerInterceptor } from 'universal-miniapp-api-interceptor';
 
-const scanCode = miniAppFactory(my, {
+const scanCode = apiInterceptor(my, {
   method: 'scan',
-  processOptions: (options: IOptions) => {
-    if (options.type && Array.isArray(options.type)) {
-      options.type = options.type[0] as any;
-    }
+  optionsInterceptor: (options: IOptions) => {
+    // process options
     return options;
   },
-  processResult: (res: any) => {
-    res.result = res.code;
+  successInterceptor: (res: any) => {
+    // process success result
     return res;
+  },
+  failInterceptor: (err: any) => {
+    // process fail error
+    return err;
   }
 });
 
-const onAccelerometerChange = miniAppEventHandlerFactory(my, {
+const onAccelerometerChange = apiEventHandlerInterceptor(my, {
   method: 'onAccelerometerChange'
 });
 ```
