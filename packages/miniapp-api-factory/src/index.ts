@@ -19,13 +19,13 @@ export interface IProcess {
   failInterceptor?: (err: any) => any;
 };
 
-export const apiEventHandlerVisitor = (platformApi: any, process: IProcess) => {
+export const listenerInterceptor = (platformApi: any, process: IProcess) => {
   return (callback: IEventCallback) => {
     platformApi[process.method](callback);
   };
 };
 
-export const apiVisitor = (platformApi: any, process: IProcess) => {
+export const apiInterceptor = (platformApi: any, process: IProcess) => {
   return (options: IOptions = {}) => {
     if (process.optionsInterceptor) {
       options = process.optionsInterceptor(options);

@@ -29,7 +29,8 @@ const scanCode = apiInterceptor(my, {
   }
 });
 
-const onAccelerometerChange = apiEventHandlerInterceptor(my, {
+//
+const onAccelerometerChange = listenerInterceptor(my, {
   method: 'onAccelerometerChange'
 });
 ```
