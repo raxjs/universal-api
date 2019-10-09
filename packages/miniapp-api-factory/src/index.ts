@@ -8,6 +8,12 @@ export interface IOptions {
   complete?: ICallback;
 };
 
+export interface ICallbacks {
+  success?: ICallback;
+  fail?: ICallback;
+  complete?: ICallback;
+};
+
 export interface IEventCallback {
   (res: any): void;
 };
@@ -31,7 +37,7 @@ export const apiInterceptor = (platformApi: any, process: IProcess) => {
       options = process.optionsInterceptor(options);
     }
     return new Promise((resolve, reject): void => {
-      const callbacks = {};
+      const callbacks: ICallbacks = {};
       ['success', 'fail', 'complete'].forEach(k => {
         callbacks[k] = options[k];
       });
@@ -40,18 +46,18 @@ export const apiInterceptor = (platformApi: any, process: IProcess) => {
           if (process.successInterceptor) {
             res = process.successInterceptor(res);
           }
-          callbacks['success'] && callbacks['success'](res);
+          callbacks.success && callbacks.success(res);
           resolve(res);
         },
         fail: (err: any): void => {
           if (process.failInterceptor) {
             err = process.failInterceptor(err);
           }
-          callbacks['fail'] && callbacks['fail'](err);
+          callbacks.fail && callbacks.fail(err);
           reject(err);
         },
         complete: (res: any): void => {
-          callbacks['complete'] && callbacks['complete'](res);
+          callbacks.complete && callbacks.complete(res);
         }
       });
       platformApi[process.method](options);
