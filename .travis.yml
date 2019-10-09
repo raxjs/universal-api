@@ -10,7 +10,7 @@ node_js:
   - "12"
 
 before_script:
-  - npm run install
+  - npm install
 
 script:
   - npm run lint
