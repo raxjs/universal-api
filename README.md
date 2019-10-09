@@ -2,12 +2,12 @@
 
 To extend the capabilities of the Rax system, we provide a series of Universal apis that developers can use to quickly develop multiple applications.
 
-## quick-start
+## Quick-start
 ```bash
 $ npm run start
 ```
 
-## build
+## Build
 ```bash
 $ npm run build
 ```
