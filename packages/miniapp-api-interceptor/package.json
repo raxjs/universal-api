@@ -1,7 +1,7 @@
 {
-  "name": "universal-miniapp-api-visitor",
+  "name": "universal-miniapp-api-interceptor",
   "version": "1.0.0",
-  "description": "MiniApp api visitor",
+  "description": "MiniApp api interceptor",
   "keywords": [
     "universal",
     "api"
