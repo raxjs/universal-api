@@ -5,9 +5,6 @@
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "miniappConfig": {
-    "main": "lib/miniapp/index"
-  },
   "scripts": {
     "start": "rax-scripts start --type 'component' -p 8000",
     "start:miniapp": "rax-scripts start --type 'component-miniapp'",
@@ -45,11 +42,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/raxjs/universal-choose-image"
+    "url": "https://github.com/raxjs/universal-api.git"
   },
   "bugs": {
-    "url": "https://github.com/raxjs/universal-choose-image/issues"
+    "url": "https://github.com/raxjs/universal-api/issues"
   },
+  "homepage": "https://github.com/raxjs/universal-api#readme",
   "pre-commit": [
     "lint",
     "test"

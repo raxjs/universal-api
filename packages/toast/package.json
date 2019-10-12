@@ -42,10 +42,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/raxjs/universal-toast"
+    "url": "https://github.com/raxjs/universal-api.git"
   },
   "bugs": {
-    "url": "https://github.com/raxjs/universal-toast/issues"
+    "url": "https://github.com/raxjs/universal-api/issues"
   },
-  "homepage": "https://github.com/raxjs/universal-toast"
+  "homepage": "https://github.com/raxjs/universal-api#readme"
 }

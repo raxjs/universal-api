@@ -12,19 +12,19 @@
     "prebuild": "npm run lint && npm run test",
     "prepublish": "npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/raxjs/universal-animation.git"
-  },
   "keywords": [
     "universal",
     "animation",
     "bindingx"
   ],
-  "bugs": {
-    "url": "https://github.com/alibaba/rax/issues"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raxjs/universal-api.git"
   },
-  "homepage": "https://github.com/alibaba/rax#readme",
+  "bugs": {
+    "url": "https://github.com/raxjs/universal-api/issues"
+  },
+  "homepage": "https://github.com/raxjs/universal-api#readme",
   "engines": {
     "npm": ">=3.0.0"
   },

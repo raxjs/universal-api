@@ -40,9 +40,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/raxjs/universal-choose-image"
+    "url": "https://github.com/raxjs/universal-api.git"
   },
   "bugs": {
-    "url": "https://github.com/raxjs/universal-choose-image/issues"
-  }
+    "url": "https://github.com/raxjs/universal-api/issues"
+  },
+  "homepage": "https://github.com/raxjs/universal-api#readme"
 }

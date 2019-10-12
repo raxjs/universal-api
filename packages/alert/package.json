@@ -37,9 +37,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/raxjs/universal-alert"
+    "url": "https://github.com/raxjs/universal-api.git"
   },
   "bugs": {
-    "url": "https://github.com/raxjs/universal-alert/issues"
+    "url": "https://github.com/raxjs/universal-api/issues"
   }
 }
