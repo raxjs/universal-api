@@ -3,7 +3,7 @@ import { Options } from '../types';
 function inputCreateAndAppend(multiple: boolean) {
   const inputElement: any = document.createElement('INPUT');
   inputElement.name = 'file';
-  inputElement.id = 'input-' + (Math.random() * 1e8);
+  inputElement.id = 'input-' + Math.random() * 1e8;
   inputElement.type = 'file';
   multiple ? inputElement.setAttribute('multiple', 'multiple') : null;
   inputElement.style.display = 'none';

@@ -1,11 +1,4 @@
-import AsyncStorage from '../index';
-
-jest.mock('universal-env', (): object => {
-  return {
-    isWeex: false,
-    isWeb: true
-  };
-});
+import AsyncStorage from '../web';
 
 describe('asyncstorage', (): void => {
   it('setItem', (): Promise<void> => {

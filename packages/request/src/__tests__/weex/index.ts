@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/camelcase
+// eslint-disable-next-line
 (global as any).__weex_require__ = (path) => {
   return require(path);
 };

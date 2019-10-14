@@ -1,4 +1,4 @@
-import {isWeex} from 'universal-env';
+import { isWeex } from 'universal-env';
 
 let currentState = 'active';
 const eventHandlers = {
@@ -43,7 +43,7 @@ const AppState = {
     if (!eventHandlers[type].has(handler)) {
       return;
     }
-    eventHandlers[type].set(handler, () => {});
+    eventHandlers[type].set(handler, () => { });
   }
 };
 

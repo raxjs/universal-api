@@ -1,12 +1,4 @@
-import AsyncStorage from '../index';
-
-jest.mock('universal-env', (): object => {
-  return {
-    isWeex: false,
-    isWeb: false,
-    isMiniApp: true,
-  };
-});
+import AsyncStorage from '../miniapp';
 
 const storage = {};
 // eslint-disable-next-line

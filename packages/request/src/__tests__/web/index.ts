@@ -2,6 +2,7 @@ import request from '../../index';
 import { DATA_TYPE } from '../../types';
 
 const mockXMLHttpRequestFn = jest.fn();
+// eslint-disable-next-line
 (global as any).XMLHttpRequest = mockXMLHttpRequestFn;
 
 jest.mock('universal-env', () => {

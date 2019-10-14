@@ -28,7 +28,7 @@ export default function requestXHR(options: InnerRequestOptions): Promise<Respon
       withCredentials: true,
       method: 'GET',
       validateStatus: (status: number) => {
-        return (status >= 200 && status < 300) || status === 304;
+        return status >= 200 && status < 300 || status === 304;
       }
     }, options);
 

@@ -31,7 +31,7 @@ export default function weexRequest(options: WeexRequestOptions): Promise<Respon
     const requestOptions: WeexRequestOptions = Object.assign({}, options);
     let { url, method, data, dataType, headers } = requestOptions;
 
-    if ((method === 'GET' && data) || checkIsApplyDataToURL(headers)) {
+    if (method === 'GET' && data || checkIsApplyDataToURL(headers)) {
       requestOptions.url = applyParamToURL(data, url);
     } else if (data) {
       requestOptions.body = json2string(data);
