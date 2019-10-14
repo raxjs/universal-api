@@ -1,0 +1,8 @@
+<rax-demo className="testClass" style="height:300rpx;width:300rpx;background:red">
+  <view a:if="{{data}}">
+    <view>data: {{data}}</view>
+    <view>url: {{url}}</view>
+    <view>json: {{json}}</view>
+    <view>headers: {{headers}}</view>
+  </view>
+</rax-demo>
