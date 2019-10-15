@@ -1,4 +1,4 @@
-import { isWeb, isWeex, isMiniApp, isAndroid, isIOS } from 'universal-env';
+import { isWeb, isWeex, isMiniApp } from 'universal-env';
 import { MiniAppSystem } from './types';
 
 declare const my: any;
@@ -21,6 +21,8 @@ function getPlatform(): string {
     }
     return miniAppSystemInfo.platform;
   } else if (isWeb) {
+    const isAndroid = Boolean(navigator.userAgent.match(/android/i));
+    const isIOS = navigator.platform.toLowerCase() === 'ios';
     return isAndroid ? 'Android' : isIOS ? 'iOS' : navigator.platform;
   } else if (isWeex) {
     return navigator.platform;
@@ -55,12 +57,14 @@ const platform = getPlatform();
 const screenWidth = getScreenWidth();
 const screenHeight = getScreenHeight();
 
+const CALCULATION_ACCURACY = 6;
+
 function px2rpx(value: number): number {
-  return parseInt(String(750 * value / screenWidth), 10);
+  return Number((750 * value / screenWidth).toFixed(CALCULATION_ACCURACY));
 }
 
 function rpx2px(value: number): number {
-  return parseInt(String(screenWidth / 750 * value ), 10);
+  return Number((screenWidth / 750 * value).toFixed(CALCULATION_ACCURACY));
 }
 
 export {
