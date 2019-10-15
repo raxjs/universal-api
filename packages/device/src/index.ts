@@ -57,7 +57,7 @@ const platform = getPlatform();
 const screenWidth = getScreenWidth();
 const screenHeight = getScreenHeight();
 
-const CALCULATION_ACCURACY = 6;
+const CALCULATION_ACCURACY = 8;
 
 function px2rpx(value: number): number {
   return Number((750 * value / screenWidth).toFixed(CALCULATION_ACCURACY));
