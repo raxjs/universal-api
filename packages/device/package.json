@@ -1,7 +1,7 @@
 {
   "name": "universal-device",
   "author": "rax",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -21,7 +21,7 @@
     "npm": ">=3.0.0"
   },
   "dependencies": {
-    "universal-env": "1.0.1-beta.1"
+    "universal-env": "^2.0.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",
