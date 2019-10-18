@@ -1,0 +1,1 @@
+module.exports = new Promise(resolve => wx['onSocketClose'](resolve));

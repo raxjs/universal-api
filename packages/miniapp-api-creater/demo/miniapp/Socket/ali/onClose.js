@@ -1,0 +1,1 @@
+module.exports = new Promise(resolve => my['onSocketClose'](resolve));
