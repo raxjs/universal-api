@@ -1,4 +1,5 @@
 const fs = require('fs-extra');
+const path = require('path');
 const genListenerApiCode = require('./codegen/genListenerApiCode');
 const genSyncApiCode = require('./codegen/genSyncApiCode');
 const genPromisifyApiCode = require('./codegen/genPromisifyApiCode');
@@ -7,10 +8,11 @@ const promisifyFn = require('./promisifyFn');
 const { ROOT_PATH } = require('./constants');
 
 module.exports = function(configs) {
-  if (fs.pathExistsSync(ROOT_PATH)) {
-    fs.removeSync(ROOT_PATH);
+  const rootPath = path.resolve(process.cwd(), ROOT_PATH)
+  if (fs.pathExistsSync(rootPath)) {
+    fs.removeSync(rootPath);
   }
-  fs.ensureDirSync(ROOT_PATH);
+  fs.ensureDirSync(rootPath);
   const formatOriginalPath = `${ROOT_PATH}/formatOriginal.js`;
   const promisifyFnPath = `${ROOT_PATH}/promisifyFn.js`;
   // Write formatOriginal.js
