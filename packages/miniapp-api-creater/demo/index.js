@@ -1,4 +1,4 @@
-const creator = require('../src');
+const creater = require('../src');
 
 const listenerApis = {
   Socket: {
@@ -45,4 +45,4 @@ const configs = {
   },
 };
 
-creator(configs);
+creater(configs);

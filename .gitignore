@@ -14,3 +14,4 @@ examples/test
 yarn.lock
 yarn-error.log
 package-lock.json
+miniapp-api-creater/demo/miniapp
