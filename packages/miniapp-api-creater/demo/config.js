@@ -15,7 +15,7 @@ const syncApis = {
     getItemSync: 'getStorageSync',
     removeItemSync: 'removeStorageSync',
     clearSync: 'clearStorageSync',
-    getSystemInfoSync: 'getSystemInfoSync',
+    getInfoSync: 'getInfoSync',
   },
 };
 

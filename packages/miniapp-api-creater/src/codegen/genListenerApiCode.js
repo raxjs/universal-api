@@ -22,9 +22,9 @@ module.exports = function(platformName, listeners, overrideMap, rootPath) {
         ),
         apiName,
       );
-
+      const originalApiName = listeners[packageName][apiName];
       const overrideConfig =
-        overrideMap[packageName] && overrideMap[packageName][apiName];
+        overrideMap[packageName] && overrideMap[packageName][originalApiName];
       if (!overrideConfig) {
         handlePromise(
           fs.writeFile(
@@ -32,6 +32,7 @@ module.exports = function(platformName, listeners, overrideMap, rootPath) {
             generateNormal(platform, listeners[packageName][apiName]),
           ),
           apiName,
+          platformName
         );
       } else {
         const {
@@ -40,10 +41,11 @@ module.exports = function(platformName, listeners, overrideMap, rootPath) {
         } = overrideConfig;
         handlePromise(
           fs.writeFile(
-            `${dirName}/${name}.js`,
+            `${dirName}/${apiName}.js`,
             generateOverride(platform, name, responseMap),
           ),
           apiName,
+          platformName
         );
       }
     });

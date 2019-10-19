@@ -1,6 +1,6 @@
 const { listenerApis, syncApis, needPromisifyApis } = require('../native');
 
-const overrideMap = './overrideMap';
+const overrideMap = require('./overrideMap');
 
 module.exports = {
   platformName: 'ali',

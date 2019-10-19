@@ -1,6 +1,6 @@
 function generateNormal(platform, apiName) {
   return `const promisifyFn = require('../../promisifyFn');
-module.exports = options => promisifyFn(${platform}['${apiName}'], options)`;
+module.exports = options => promisifyFn(${platform}['${apiName}'], options);`;
 }
 
 function generateOverride(
@@ -14,8 +14,7 @@ function generateOverride(
     ? `options = formatOriginal(options, ${JSON.stringify(optionsMap)});`
     : '';
 
-  return `const formatOriginal = require('../../formatOriginal');
-const promisifyFn = require('../../promisifyFn');
+  return `const promisifyFn = require('../../promisifyFn');
 
 module.exports = options => {
   ${optionsTemplate}

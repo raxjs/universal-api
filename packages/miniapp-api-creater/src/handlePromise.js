@@ -1,9 +1,11 @@
 const log = require('./log');
 
-module.exports = function(promise, apiName) {
+module.exports = function(promise, apiName, platformName) {
   return promise
     .then(() => {
-      log.info(`Finished create ${apiName}`);
+      if (platformName) {
+        log.info(`Finished create ${platformName} ${apiName}`);
+      }
     })
     .catch(err => {
       log.error(err);

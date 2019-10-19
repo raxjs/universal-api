@@ -8,12 +8,17 @@ const platformMap = require('../platformMap');
 const handlePromise = require('../handlePromise');
 const initDir = require('../initDir');
 
-module.exports = function(platformName, needPromisifies, overrideMap, rootPath) {
+module.exports = function(
+  platformName,
+  needPromisifies,
+  overrideMap,
+  rootPath,
+) {
   const platform = platformMap[platformName];
   Object.keys(needPromisifies).map(packageName => {
     const dirName = initDir(rootPath, packageName, platformName);
     Object.keys(needPromisifies[packageName]).map(apiName => {
-      log.info(`Creating ${apiName}`);
+      log.info(`Creating ${platformName} ${apiName}`);
       handlePromise(
         fs.appendFile(
           `${dirName}/index.js`,
@@ -21,8 +26,9 @@ module.exports = function(platformName, needPromisifies, overrideMap, rootPath) 
         ),
         apiName,
       );
+      const originalApiName = needPromisifies[packageName][apiName];
       const overrideConfig =
-        overrideMap[packageName] && overrideMap[packageName][apiName];
+        overrideMap[packageName] && overrideMap[packageName][originalApiName];
       if (!overrideConfig) {
         handlePromise(
           fs.writeFile(
@@ -30,8 +36,10 @@ module.exports = function(platformName, needPromisifies, overrideMap, rootPath) 
             generateNormal(platform, needPromisifies[packageName][apiName]),
           ),
           apiName,
+          platformName,
         );
       } else {
+        console.log(needPromisifies[packageName][apiName]);
         const {
           name = needPromisifies[packageName][apiName],
           optionsMap,
@@ -40,10 +48,11 @@ module.exports = function(platformName, needPromisifies, overrideMap, rootPath) 
         } = overrideConfig;
         handlePromise(
           fs.writeFile(
-            `${dirName}/${name}.js`,
+            `${dirName}/${apiName}.js`,
             generateOverride(platform, name, optionsMap, responseMap, errorMap),
           ),
           apiName,
+          platformName,
         );
       }
     });
