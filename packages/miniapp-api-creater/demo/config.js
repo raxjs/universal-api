@@ -25,7 +25,7 @@ const promisifyApis = {
   }
 };
 
-const configs = {
+module.exports = {
   aliConfig: {
     platformName: 'ali',
     listenerApis,
@@ -44,5 +44,3 @@ const configs = {
     promisifyApis
   },
 };
-
-creater(configs);

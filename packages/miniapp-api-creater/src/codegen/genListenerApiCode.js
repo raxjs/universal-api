@@ -8,12 +8,12 @@ const platformMap = require('../platformMap');
 const handlePromise = require('../handlePromise');
 const initDir = require('../initDir');
 
-module.exports = function(platformName, listeners, overrideMap) {
+module.exports = function(platformName, listeners, overrideMap, rootPath) {
   const platform = platformMap[platformName];
   Object.keys(listeners).map(packageName => {
-    const dirName = initDir(packageName, platformName);
+    const dirName = initDir(rootPath, packageName, platformName);
     Object.keys(listeners[packageName]).map(apiName => {
-      log.info(`Creating ${apiName} in ${dirName}`);
+      log.info(`Creating ${apiName}`);
       // Append reference into index
       handlePromise(
         fs.appendFile(

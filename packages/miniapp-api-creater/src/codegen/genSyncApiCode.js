@@ -8,12 +8,12 @@ const platformMap = require('../platformMap');
 const handlePromise = require('../handlePromise');
 const initDir = require('../initDir');
 
-module.exports = function(platformName, syncs, overrideMap) {
+module.exports = function(platformName, syncs, overrideMap, rootPath) {
   const platform = platformMap[platformName];
   Object.keys(syncs).map(packageName => {
-    const dirName = initDir(packageName, platformName);
+    const dirName = initDir(rootPath, packageName, platformName);
     Object.keys(syncs[packageName]).map(apiName => {
-      log.info(`Creating ${apiName} in ${dirName}`);
+      log.info(`Creating ${apiName}`);
       handlePromise(
         fs.appendFile(
           `${dirName}/index.js`,

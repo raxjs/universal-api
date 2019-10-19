@@ -9,12 +9,24 @@ $ npm install miniapp-api-creater --save-dev
 
 ## Usage
 
-```bash
-$ npm start
+### Set script in package.json
+```json
+{
+  "scripts": {
+    "create-api": "create-api -c ./config"
+  }
+}
 ```
 
-## Build
+## Create
 
 ```bash
-$ npm run build
+$ npm run create-api
+```
+
+### Demo
+
+```bash
+$ cd ./demo
+$ ../bin/create-api.js -c ./config -d ./build
 ```

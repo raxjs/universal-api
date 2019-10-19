@@ -5,16 +5,11 @@ const genSyncApiCode = require('./codegen/genSyncApiCode');
 const genPromisifyApiCode = require('./codegen/genPromisifyApiCode');
 const formatOriginal = require('./formatOriginal');
 const promisifyFn = require('./promisifyFn');
-const { ROOT_PATH } = require('./constants');
 
-module.exports = function(configs) {
-  const rootPath = path.resolve(process.cwd(), ROOT_PATH)
-  if (fs.pathExistsSync(rootPath)) {
-    fs.removeSync(rootPath);
-  }
-  fs.ensureDirSync(rootPath);
-  const formatOriginalPath = `${ROOT_PATH}/formatOriginal.js`;
-  const promisifyFnPath = `${ROOT_PATH}/promisifyFn.js`;
+module.exports = function(configs, distDirectory) {
+  fs.ensureDirSync(distDirectory);
+  const formatOriginalPath = `${distDirectory}/formatOriginal.js`;
+  const promisifyFnPath = `${distDirectory}/promisifyFn.js`;
   // Write formatOriginal.js
   if (!fs.ensureFileSync(formatOriginalPath)) {
     fs.writeFileSync(formatOriginalPath, `modules.exports = ${formatOriginal}`);
@@ -32,13 +27,13 @@ module.exports = function(configs) {
       overrideMap = {},
     } = configs[configName];
     if (listenerApis) {
-      genListenerApiCode(platformName, listenerApis, overrideMap);
+      genListenerApiCode(platformName, listenerApis, overrideMap, distDirectory);
     }
     if (syncApis) {
-      genSyncApiCode(platformName, syncApis, overrideMap);
+      genSyncApiCode(platformName, syncApis, overrideMap, distDirectory);
     }
     if (needPromisifyApis) {
-      genPromisifyApiCode(platformName, needPromisifyApis, overrideMap);
+      genPromisifyApiCode(platformName, needPromisifyApis, overrideMap, distDirectory);
     }
   });
 };
