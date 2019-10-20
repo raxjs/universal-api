@@ -39,7 +39,6 @@ module.exports = function(
           platformName,
         );
       } else {
-        console.log(needPromisifies[packageName][apiName]);
         const {
           name = needPromisifies[packageName][apiName],
           optionsMap,
