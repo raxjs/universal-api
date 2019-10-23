@@ -4,4 +4,12 @@ module.exports = {
       name: 'showSharePanel',
     },
   },
+  Scan: {
+    scan: {
+      name: 'scan',
+      optionsMap: {
+        type: 'type'
+      }
+    }
+  }
 };

@@ -21,8 +21,8 @@ module.exports = function(
       log.info(`Creating ${platformName} ${apiName}`);
       handlePromise(
         fs.appendFile(
-          `${dirName}/index.js`,
-          `exports.${apiName} = require('./${apiName}');\n`,
+          `${dirName}/index.ts`,
+          `export * from './${apiName}';\n`,
         ),
         apiName,
       );
@@ -32,7 +32,7 @@ module.exports = function(
       if (!overrideConfig) {
         handlePromise(
           fs.writeFile(
-            `${dirName}/${apiName}.js`,
+            `${dirName}/${apiName}.ts`,
             generateNormal(platform, needPromisifies[packageName][apiName]),
           ),
           apiName,
@@ -47,7 +47,7 @@ module.exports = function(
         } = overrideConfig;
         handlePromise(
           fs.writeFile(
-            `${dirName}/${apiName}.js`,
+            `${dirName}/${apiName}.ts`,
             generateOverride(platform, name, optionsMap, responseMap, errorMap),
           ),
           apiName,

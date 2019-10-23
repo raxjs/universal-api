@@ -1,11 +1,12 @@
 function generateNormal(platform, apiName) {
-  return `module.exports = ${platform}['${apiName}'];`;
+  return `declare const ${platform}: any;\nexport default ${platform}['${apiName}'];`;
 }
 
 function generateOverride(platform, apiName, responseMap) {
-  return `const formatOriginal = require('../../formatOriginal');
+  return `import formatOriginal from '../formatOriginal';
 
-  module.exports = (...args) => {
+  declare const ${platform}: any;
+  export default (...args) => {
     const result = ${platform}['${apiName}'](...args);
     return formatOriginal(result, ${JSON.stringify(responseMap)});
   };`;

@@ -16,8 +16,8 @@ module.exports = function(platformName, syncs, overrideMap, rootPath) {
       log.info(`Creating ${apiName}`);
       handlePromise(
         fs.appendFile(
-          `${dirName}/index.js`,
-          `exports.${apiName} = require('./${apiName}');\n`,
+          `${dirName}/index.ts`,
+          `export * from './${apiName}';\n`,
         ),
         apiName,
       );
@@ -27,7 +27,7 @@ module.exports = function(platformName, syncs, overrideMap, rootPath) {
       if (!overrideConfig) {
         handlePromise(
           fs.writeFile(
-            `${dirName}/${apiName}.js`,
+            `${dirName}/${apiName}.ts`,
             generateNormal(platform, syncs[packageName][apiName]),
           ),
           apiName,
