@@ -1,0 +1,4 @@
+<rax-demo className="testClass" style="height:300rpx;width:300rpx;background:red">
+  <view onTap="writeText"> writeText </view>
+  <view onTap="readText"> readText </view>
+</rax-demo>

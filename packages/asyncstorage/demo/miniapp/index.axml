@@ -1,0 +1,7 @@
+<rax-demo className="testClass" style="height:300rpx;width:300rpx;background:red">
+  hello world
+  <view onTap="setItemClick"> setItemClick </view>
+  <view onTap="removeClick"> removeClick </view>
+  <view onTap="clearClick"> clearClick </view>
+  <view onTap="getAllKeysClick"> getAllKeysClick </view>
+</rax-demo>
