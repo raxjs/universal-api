@@ -1,17 +1,23 @@
 import { isWeb, isWeex, isMiniApp, isWeChatMiniprogram } from 'universal-env';
+import webModule from './web';
+import weexModule from './weex';
+import miniAppModule from './web';
+import weChatModule from './web';
 
-let alert: any = () => {};
+import { Alert } from './types';
+
+let alert: Alert = options => Promise.resolve(null);
 if (isWeb) {
-  alert = require('./web').default;
+  alert = webModule;
 }
 if (isWeex) {
-  alert = require('./weex').default;
+  alert = weexModule;
 }
 if (isMiniApp) {
-  alert = require('./miniapp/ali').default;
+  alert = miniAppModule;
 }
 if (isWeChatMiniprogram) {
-  alert = require('./miniapp/wechat').default;
+  alert = weChatModule;
 }
 
 export default alert;
