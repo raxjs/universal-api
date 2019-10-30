@@ -1,12 +1,12 @@
 import { isWeb, isWeex, isMiniApp, isWeChatMiniprogram } from 'universal-env';
 import webModule from './web';
 import weexModule from './weex';
-import miniAppModule from './web';
-import weChatModule from './web';
+import miniAppModule from './miniapp/ali';
+import weChatModule from './miniapp/wechat';
 
 import { Alert } from './types';
 
-let alert: Alert = options => Promise.resolve(null);
+let alert: Alert = () => Promise.resolve(null);
 if (isWeb) {
   alert = webModule;
 }
