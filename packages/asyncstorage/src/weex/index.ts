@@ -1,17 +1,17 @@
 import { AsyncStorage } from '../types';
-import { isWeex } from 'universal-env';
 
 // eslint-disable-next-line
 declare const __weex_require__: any;
-let storage = {} as any;
-if (isWeex) {
-  storage = __weex_require__('@weex-module/storage');
+let storage: any;
+
+function getStorage() {
+  return storage = storage || __weex_require__('@weex-module/storage');
 }
 
 const AsyncStorage: AsyncStorage = {
   getItem: (key: string): Promise<string | null> => {
     return new Promise((resolve, reject) => {
-      storage.getItem(key, ({ data, result }) => {
+      getStorage().getItem(key, ({ data, result }) => {
         if (result === 'success') {
           resolve(data);
         } else {
@@ -22,7 +22,7 @@ const AsyncStorage: AsyncStorage = {
   },
   setItem: (key: string, value: string): Promise<null> => {
     return new Promise((resolve, reject) => {
-      storage.setItem(key, value, ({ data, result }) => {
+      getStorage().setItem(key, value, ({ data, result }) => {
         if (result === 'success') {
           resolve(data);
         } else {
@@ -33,7 +33,7 @@ const AsyncStorage: AsyncStorage = {
   },
   removeItem: (key: string): Promise<null> => {
     return new Promise((resolve, reject) => {
-      storage.removeItem(key, ({ data, result }) => {
+      getStorage().removeItem(key, ({ data, result }) => {
         if (result === 'success') {
           resolve(data);
         } else {
@@ -44,7 +44,7 @@ const AsyncStorage: AsyncStorage = {
   },
   getAllKeys: (): Promise<string[]> => {
     return new Promise((resolve, reject) => {
-      storage.getAllKeys(({ data, result }) => {
+      getStorage().getAllKeys(({ data, result }) => {
         if (result === 'success') {
           resolve(data);
         } else {
@@ -64,7 +64,7 @@ const AsyncStorage: AsyncStorage = {
   },
   length: (): Promise<number> => {
     return new Promise((resolve, reject) => {
-      storage.length(({ data, result }) => {
+      getStorage().length(({ data, result }) => {
         if (result === 'success') {
           resolve(data);
         } else {
