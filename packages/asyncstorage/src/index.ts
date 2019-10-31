@@ -1,13 +1,26 @@
-import { isWeex, isMiniApp } from 'universal-env';
-import { AsyncStorageOptions } from './types';
+import { isWeb, isWeex, isMiniApp, isWeChatMiniprogram } from 'universal-env';
+import webModule from './web';
+import weexModule from './weex';
+import miniAppModule from './miniapp/ali';
+import weChatModule from './miniapp/wechat';
+import { AsyncStorage } from './types';
 
-let AsyncStorage: AsyncStorageOptions;
+let AsyncStorage: AsyncStorage;
+
+if (isWeb) {
+  AsyncStorage = webModule;
+}
+
 if (isWeex) {
-  AsyncStorage = require('./weex').default;
-} else if (isMiniApp) {
-  AsyncStorage = require('./miniapp').default;
-} else {
-  AsyncStorage = require('./web').default;
+  AsyncStorage = weexModule;
+}
+
+if (isMiniApp) {
+  AsyncStorage = miniAppModule;
+}
+
+if (isWeChatMiniprogram) {
+  AsyncStorage = weChatModule;
 }
 
 export default AsyncStorage;
