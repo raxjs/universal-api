@@ -1,9 +1,14 @@
-import { AsyncStorageOptions } from '../types';
+import { AsyncStorage } from '../types';
+import { isWeex } from 'universal-env';
 
-declare const weex: any;
-const storage = weex.requireModule('storage');
+// eslint-disable-next-line
+declare const __weex_require__: any;
+let storage = {} as any;
+if (isWeex) {
+  storage = __weex_require__('@weex-module/storage');
+}
 
-var AsyncStorage: AsyncStorageOptions = {
+const AsyncStorage: AsyncStorage = {
   getItem: (key: string): Promise<string | null> => {
     return new Promise((resolve, reject) => {
       storage.getItem(key, ({ data, result }) => {

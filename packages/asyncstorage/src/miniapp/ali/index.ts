@@ -1,8 +1,8 @@
-import { AsyncStorageOptions } from '../types';
+import { AsyncStorage } from '../../types';
 
 declare const my: any;
 
-const AsyncStorage: AsyncStorageOptions = {
+const AsyncStorage: AsyncStorage = {
   getItem: (key: string): Promise<string | null> => {
     return new Promise((resolve, reject): void => {
       my.getStorage({
@@ -80,6 +80,5 @@ const AsyncStorage: AsyncStorageOptions = {
     });
   }
 };
-
 
 export default AsyncStorage;
