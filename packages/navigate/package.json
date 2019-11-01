@@ -1,7 +1,7 @@
 {
   "name": "universal-navigate",
   "author": "rax",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.1-beta.1",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
