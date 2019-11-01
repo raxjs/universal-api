@@ -1,21 +1,29 @@
-import { isWeb, isWeex, isMiniApp } from 'universal-env';
+import { isWeb, isWeex, isMiniApp, isWeChatMiniprogram } from 'universal-env';
 import { MiniAppSystem } from './types';
 
 declare const my: any;
+declare const wx: any;
 let miniAppSystemInfo: MiniAppSystem;
+
 if (isMiniApp) {
   miniAppSystemInfo = my.getSystemInfoSync();
+}
+
+if (isWeChatMiniprogram) {
+  miniAppSystemInfo = wx.getSystemInfoSync();
 }
 function getAppName(): string {
   if (isMiniApp) {
     return miniAppSystemInfo.app;
+  } else if (isWeChatMiniprogram) {
+    return 'wechat';
   } else {
     return navigator && navigator.appName;
   }
 };
 
 function getPlatform(): string {
-  if (isMiniApp) {
+  if (isMiniApp || isWeChatMiniprogram) {
     if (miniAppSystemInfo.platform === 'iPhone OS') {
       return 'iOS';
     }
@@ -31,7 +39,7 @@ function getPlatform(): string {
 }
 
 function getScreenWidth(): number {
-  if (isMiniApp) {
+  if (isMiniApp || isWeChatMiniprogram) {
     return miniAppSystemInfo.screenWidth;
   } else if (isWeex) {
     return window.screen.width / window.devicePixelRatio;
@@ -42,7 +50,7 @@ function getScreenWidth(): number {
 }
 
 function getScreenHeight(): number {
-  if (isMiniApp) {
+  if (isMiniApp || isWeChatMiniprogram) {
     return miniAppSystemInfo.screenHeight;
   } else if (isWeex) {
     return window.screen.height / window.devicePixelRatio;
