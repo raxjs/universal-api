@@ -1,11 +1,16 @@
-declare const weex: any;
+// eslint-disable-next-line
+declare const __weex_require__: any;
 
-const clipboardModule = weex.requireModule('clipboard');
+let weexModule: any;
+function getClipboard() {
+  return weexModule = weexModule || __weex_require__('@weex-module/clipboard');
+}
+
 const clipboard: any = {
   readText(): Promise<string> {
     return new Promise((resolve, reject): void => {
       try {
-        clipboardModule.getString((ret): void => {
+        getClipboard().getString((ret): void => {
           resolve(ret.data);
         });
       } catch (error) {
@@ -16,7 +21,7 @@ const clipboard: any = {
   writeText(text: string): Promise<any> {
     return new Promise((resolve, reject): void => {
       try {
-        clipboardModule.setString(text);
+        getClipboard().setString(text);
         resolve(text);
       } catch (error) {
         reject(error);

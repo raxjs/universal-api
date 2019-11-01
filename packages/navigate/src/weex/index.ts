@@ -1,13 +1,17 @@
 import { PushOptions, PopOptions, GoOptions } from '../types';
 
-declare const weex: any;
+// eslint-disable-next-line
+declare const __weex_require__: any;
 
-const navigator = weex.requireModule('navigator');
+let weexModule: any;
+function getNavigator() {
+  return weexModule = weexModule || __weex_require__('@weex-module/navigator');
+}
 
 const push = (options: PushOptions): Promise<null> => {
   return new Promise((resolve): void => {
     const { url, animated = true } = options;
-    navigator.push({
+    getNavigator().push({
       url,
       animated: animated.toString()
     }, (): void => {
@@ -19,7 +23,7 @@ const push = (options: PushOptions): Promise<null> => {
 const pop = (options?: PopOptions): Promise<null> => {
   return new Promise((resolve): void => {
     const animated = options ? options.animated ? options.animated : true : true;
-    navigator.pop({
+    getNavigator().pop({
       animated: animated.toString()
     }, (): void => {
       resolve();
