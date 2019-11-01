@@ -3,3 +3,7 @@ export interface Options {
   content?: string;
   buttonText?: string;
 }
+
+export interface Alert {
+  (options: Options): Promise<null>;
+}
