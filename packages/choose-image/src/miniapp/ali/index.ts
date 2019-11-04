@@ -1,4 +1,4 @@
-import { Options } from '../types';
+import { Options } from '../../types';
 
 declare const my: any;
 

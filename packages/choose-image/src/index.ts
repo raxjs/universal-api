@@ -1,12 +1,28 @@
-import { isWeex, isMiniApp } from 'universal-env';
+import { isWeb, isWeex, isMiniApp, isWeChatMiniprogram } from 'universal-env';
+import webModule from './web';
+import weexModule from './weex';
+import miniAppModule from './miniapp/ali';
+import weChatModule from './miniapp/wechat';
 
-let universalModule: any;
-if (isWeex) {
-  universalModule = require('./weex').default;
-} else if (isMiniApp) {
-  universalModule = require('./miniapp').default;
-} else {
-  universalModule = require('./web').default;
+import { ChooseImage } from './types';
+
+
+let chooseImage: ChooseImage = () => Promise.resolve(null);
+
+if (isWeb) {
+  chooseImage = webModule;
 }
 
-export default universalModule;
+if (isWeex) {
+  chooseImage = weexModule;
+}
+
+if (isMiniApp) {
+  chooseImage = miniAppModule;
+}
+
+if (isWeChatMiniprogram) {
+  chooseImage = weChatModule;
+}
+
+export default chooseImage;
