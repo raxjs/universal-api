@@ -1,6 +1,6 @@
 {
   "name": "universal-request",
-  "version": "1.0.3",
+  "version": "1.0.3-beta.1",
   "description": "",
   "author": "rax",
   "main": "lib/index.js",

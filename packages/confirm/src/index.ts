@@ -1,22 +1,22 @@
 import { isWeex, isMiniApp, isWeb, isWeChatMiniprogram } from 'universal-env';
-import WebModule from './web';
-import WeexModule from './weex';
-import MiniAppModule from './miniapp/ali';
-import WeChatModule from './miniapp/wechat';
+import webModule from './web/index';
+import weexModule from './weex/index';
+import miniAppModule from './miniapp/ali/index';
+import weChatModule from './miniapp/wechat/index';
 
 let confirm: any = () => {};
 
 if (isWeex) {
-  confirm = WeexModule;
+  confirm = weexModule;
 }
 if (isWeb) {
-  confirm = WebModule;
+  confirm = webModule;
 }
 if (isMiniApp) {
-  confirm = MiniAppModule;
+  confirm = miniAppModule;
 }
 if (isWeChatMiniprogram) {
-  confirm = WeChatModule;
+  confirm = weChatModule;
 }
 
 export default confirm;

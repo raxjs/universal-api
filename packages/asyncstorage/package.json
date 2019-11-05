@@ -1,6 +1,6 @@
 {
   "name": "universal-asyncstorage",
-  "version": "1.0.1-beta.1",
+  "version": "1.0.1-beta.2",
   "description": "A universal AsyncStorage API.",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",

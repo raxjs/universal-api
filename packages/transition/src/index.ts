@@ -1,21 +1,18 @@
 import { isWeex, isMiniApp, isWeb, isWeChatMiniprogram } from 'universal-env';
-import WebModule from './web';
-import WeexModule from './weex';
-import MiniAppModule from './miniapp/ali';
-import WeChatModule from './miniapp/wechat';
+import webModule from './web/index';
+import weexModule from './weex/index';
+import miniAppModule from './miniapp/ali/index';
+import weChatModule from './miniapp/wechat/index';
 
 let transition: any = () => {};
 if (isWeb) {
-  transition = WebModule;
-}
-if (isWeex) {
-  transition = WeexModule;
-}
-if (isMiniApp) {
-  transition = MiniAppModule;
-}
-if (isWeChatMiniprogram) {
-  transition = WeChatModule;
+  transition = webModule;
+} else if (isWeex) {
+  transition = weexModule;
+} else if (isMiniApp) {
+  transition = miniAppModule;
+} else if (isWeChatMiniprogram) {
+  transition = weChatModule;
 }
 
 export default transition;
