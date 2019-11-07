@@ -1,4 +1,4 @@
-import { processStyle, processParams } from '../../process';
+import { processParams } from '../../process';
 
 declare const wx: any;
 
@@ -23,8 +23,6 @@ function parseTransform(transformValue) {
 
 export default function transition(node: any, styles: any, options: any, callback: any) {
   [options, callback] = processParams(options, callback);
-
-  styles = processStyle(styles);
 
   // eslint-disable-next-line no-undef
   let animation = wx.createAnimation(Object.assign({}, options, {
