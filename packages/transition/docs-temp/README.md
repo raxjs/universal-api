@@ -4,7 +4,7 @@ Used to create transition animation.
 
 ## Supported
 
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
 
 ## Install
 
@@ -35,16 +35,16 @@ transition(document.querySelector('#box'), {
 
 #### Supported
 
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
 
 #### Arguments
 
 | Property | Type | Description | Required | Default | Supported |
 | --- | --- | --- | --- | --- |  --- |
-| domNode | `DOMNode`  | Specified element，mini app does not support，see below for details[mini app instructions] | yes | - |  <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> |
+| domNode | `DOMNode`  | Specified element，mini app does not support，see below for details[mini app instructions] | yes | - |  __icon_web__ __icon_weex__ |
 | styles | `object`  | See below for details | yes | - |   |
 | options | `Object`  | options，See below for details | no | - |   |
-| callback | `function`  |  Triggered after the animation is complete，mini app does not support | no | - | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> |
+| callback | `function`  |  Triggered after the animation is complete，mini app does not support | no | - | __icon_web__ __icon_weex__ |
 
 The properties listed below are supported for each environment, and the properties not listed are not guaranteed for each environment.
 

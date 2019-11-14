@@ -4,7 +4,7 @@ Achieve timing animation, use `bindingx` first when the environment is allowed b
 
 ## Supported
 
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />
+__icon_web__ __icon_weex__ __icon_miniapp_mp__
 
 ## Install
 
@@ -38,14 +38,14 @@ animate({
 ### `animate(config, callback)`
 
 #### Supported
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />
+__icon_web__ __icon_weex__ __icon_miniapp_mp__
 
 #### Arguments
 
 | Property | Type | Description | Required | Default | Supported |
 | --- | --- | --- | --- | --- |  --- |
 | config.props | `array` | See below for details | yes | - |  |
-| callback | `function` | Triggered after the animation is complete | no | - | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> |
+| callback | `function` | Triggered after the animation is complete | no | - | __icon_web__ __icon_weex__ |
 
 config.props array member content:
 
@@ -63,7 +63,7 @@ config.props array member content:
 
 #### Supported
 
-<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />
+__icon_miniapp_mp__
 
 Because the mini app can't provide `DOMNode`, and the animation application is different. So the mini app uses this method to get the animation content and then manually bind to the element.
 

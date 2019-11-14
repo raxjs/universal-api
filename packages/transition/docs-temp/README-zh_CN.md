@@ -4,7 +4,7 @@
 
 ## 支持
 
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
 
 ## 安装
 
@@ -35,16 +35,16 @@ transition(document.querySelector('#box'), {
 
 #### 支持
 
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
 
 #### 入参
 
 | 成员 | 类型 | 描述 | 必选 |默认值 | 支持 |
 | --- | --- | --- | --- | --- | --- |
-| domNode | `DOMNode`  | 指定元素，小程序不支持，详细见下文[小程序使用说明] | 是 | - | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> |
+| domNode | `DOMNode`  | 指定元素，小程序不支持，详细见下文[小程序使用说明] | 是 | - | __icon_web__ __icon_weex__ |
 | styles | `object`  | 详细见下文 | 是 | - |   |
 | options | `Object`  | 动画参数，详细见下文 | 否 | - |   |
-| callback | `function`  |  动画完成后触发，小程序不支持 | 否 | - | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> |
+| callback | `function`  |  动画完成后触发，小程序不支持 | 否 | - | __icon_web__ __icon_weex__ |
 
 下面列出属性为各个端均支持，未列出属性不保证各个端兼容性。
 
