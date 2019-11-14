@@ -4,7 +4,7 @@ Choose image.
 
 
 ## Support
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
 
 ## Install
 
@@ -29,8 +29,8 @@ chooseImage().then(res => {
 | Property           | Type     | Description                     | require | Default           | Supported |
 | ------------------ | -------- | ------------------------------- | ------- | ----------------- | --------- |
 | options            | `object` | Options                         | false   | -                 |           |
-| options.count      | `number` | Maximum number of choices       | false   | `1`               | `mp`      |
-| options.sourceType | `array`  | Album selection or photo taking | false   | `[camera, album]` | `mp`      |
+| options.count      | `number` | Maximum number of choices       | false   | `1`               | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">      |
+| options.sourceType | `array`  | Album selection or photo taking | false   | `[camera, album]` | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">      |
 
 #### Returns
 | Property | Type              | Description                                 |

@@ -5,7 +5,8 @@
     "bootstrap": "lerna bootstrap",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./packages/*/src",
     "start": "node ./scripts/compile-packages.js --watch",
-    "build": "node ./scripts/compile-packages.js"
+    "build": "node ./scripts/compile-packages.js",
+    "transform:docs": "node scripts/compile-readme.js"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^1.7.0",
