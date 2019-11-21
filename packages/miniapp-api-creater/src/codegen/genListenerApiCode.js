@@ -20,13 +20,13 @@ module.exports = function(platformName, listeners, overrideMap, rootPath) {
       handlePromise(
         fs.appendFile(
           `${dirName}/index.ts`,
-          `export * from './${apiName}';\n`,
+          `export { default as ${apiName} } from './${apiName}';\n`,
         ),
         apiName,
       );
       const originalApiName = listeners[packageName][apiName];
       const overrideConfig =
-        overrideMap[packageName] && overrideMap[packageName][originalApiName];
+        overrideMap[packageName] && overrideMap[packageName][apiName];
       if (!overrideConfig) {
         handlePromise(
           fs.writeFile(
@@ -43,7 +43,7 @@ module.exports = function(platformName, listeners, overrideMap, rootPath) {
         } = overrideConfig;
         handlePromise(
           fs.writeFile(
-            `${dirName}/${apiName}.js`,
+            `${dirName}/${apiName}.ts`,
             generateOverride(platform, name, responseMap),
           ),
           apiName,

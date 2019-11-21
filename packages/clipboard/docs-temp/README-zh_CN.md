@@ -44,7 +44,7 @@ Clipboard.writeText('text').then(() => {
 #### 支持
 __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
 
-#### 入参
+#### 参数
 | 成员 | 类型     | 描述           | 默认值 |
 | ---- | -------- | -------------- | :----: |
 | text | `string` | 设置剪贴板数据 |   -    |

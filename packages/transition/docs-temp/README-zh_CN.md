@@ -37,7 +37,7 @@ transition(document.querySelector('#box'), {
 
 __icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
 
-#### 入参
+#### 参数
 
 | 成员 | 类型 | 描述 | 必选 |默认值 | 支持 |
 | --- | --- | --- | --- | --- | --- |

@@ -17,13 +17,13 @@ module.exports = function(platformName, syncs, overrideMap, rootPath) {
       handlePromise(
         fs.appendFile(
           `${dirName}/index.ts`,
-          `export * from './${apiName}';\n`,
+          `export { default as ${apiName} } from './${apiName}';\n`,
         ),
         apiName,
       );
       const originalApiName = syncs[packageName][apiName];
       const overrideConfig =
-        overrideMap[packageName] && overrideMap[packageName][originalApiName];
+        overrideMap[packageName] && overrideMap[packageName][apiName];
       if (!overrideConfig) {
         handlePromise(
           fs.writeFile(
@@ -40,7 +40,7 @@ module.exports = function(platformName, syncs, overrideMap, rootPath) {
         } = overrideConfig;
         handlePromise(
           fs.writeFile(
-            `${dirName}/${apiName}.js`,
+            `${dirName}/${apiName}.ts`,
             responseMap
               ? generateOverride(platform, name, responseMap)
               : generateNormal(platform, name),

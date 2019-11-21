@@ -1,5 +1,5 @@
 const listenerApis = {
-  Socket: {
+  websocket: {
     onOpen: 'onSocketOpen',
     onError: 'onSocketError',
     onMessage: 'onSocketMessage',
@@ -70,7 +70,7 @@ const syncApis = {
   },
   System: {
     getInfoSync: 'getSystemInfoSync',
-  },
+  }
 };
 
 const needPromisifyApis = {
@@ -84,7 +84,7 @@ const needPromisifyApis = {
     removeSaved: 'removeSavedFile',
     openDocument: 'openDocument',
   },
-  Socket: {
+  WebSocket: {
     connect: 'connectSocket',
     sendMessage: 'sendSocketMessage',
     close: 'closeSocket',
