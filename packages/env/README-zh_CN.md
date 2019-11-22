@@ -12,7 +12,7 @@ $ npm install universal-env --save
 
 ## 示例
 ```javascript
-import { isWeex, isWeb, isMiniApp, isNode, isWeChatMiniprogram } from 'universal-env';
+import { isWeex, isWeb, isMiniApp, isNode, isWeChatMiniProgram } from 'universal-env';
 
 ```
 
@@ -26,7 +26,7 @@ import { isWeex, isWeb, isMiniApp, isNode, isWeChatMiniprogram } from 'universal
 ### `isMiniApp: boolean`
 校验阿里小程序环境
 
-### `isWeChatMiniprogram: boolean`
+### `isWeChatMiniProgram: boolean`
 校验微信小程序环境
 
 ### `isNode: boolean`
@@ -34,7 +34,7 @@ import { isWeex, isWeb, isMiniApp, isNode, isWeChatMiniprogram } from 'universal
 
 ## 各容器内返回结果
 
-|                    | isMiniApp | isWeChatMiniprogram | isWeb | isWeex | isNode |
+|                    | isMiniApp | isWeChatMiniProgram | isWeb | isWeex | isNode |
 | ------------------ | --------- | ------------------- | ----- | ------ | ------ |
 | 阿里小程序         | ✔️         | ✘                   | ✘     | ✘      | ✘      |
 | 阿里小程序 WebView | ✔️         | ✘                   | ✔️     | ✘      | ✘      |
