@@ -38,8 +38,8 @@ Checks if environment is a Node.js environment.
 | ------------------ | --------- | ------------------- | ----- | ------ | ------ |
 | Alibaba MiniApp         | ✔️         | ✘                   | ✘     | ✘      | ✘      |
 | Alibaba MiniApp WebView | ✔️         | ✘                   | ✔️     | ✘      | ✘      |
-| Wechat Miniprogram         | ✘         | ✔️                   | ✘     | ✘      | ✘      |
-| Wechat Miniprogram WebView | ✘         | ✔️                   | ✔️     | ✘      | ✘      |
+| Wechat MiniProgram         | ✘         | ✔️                   | ✘     | ✘      | ✘      |
+| Wechat MiniProgram WebView | ✘         | ✔️                   | ✔️     | ✘      | ✘      |
 | Weex               | ✘         | ✘                   | ✘     | ✔️      | ✘      |
 | Node               | ✘         | ✘                   | ✘     | ✘      | ✔️      |
 | Web                | ✘         | ✘                   | ✔️     | ✘      | ✘      |
