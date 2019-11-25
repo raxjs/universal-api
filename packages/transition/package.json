@@ -1,6 +1,6 @@
 {
   "name": "universal-transition",
-  "version": "1.0.1-beta.3",
+  "version": "1.0.1",
   "description": "A universal transition API.",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
