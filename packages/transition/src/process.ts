@@ -1,7 +1,7 @@
 import { setRpx, convertUnit } from 'style-unit';
 import { isWeb } from 'universal-env';
 
-if (isWeb) {
+if (isWeb && typeof document !== 'undefined') {
   // Temporary compatibility with setRpx
   setRpx(document.documentElement.clientWidth / 750);
 }
