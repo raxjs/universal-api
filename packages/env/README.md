@@ -12,7 +12,7 @@ $ npm install universal-env --save
 
 ## Usage
 ```javascript
-import { isWeex, isWeb, isMiniApp, isNode, isWeChatMiniprogram } from 'universal-env';
+import { isWeex, isWeb, isMiniApp, isNode, isWeChatMiniProgram } from 'universal-env';
 
 ```
 
@@ -26,7 +26,7 @@ Checks if environment is a web environment.
 ### `isMiniApp: boolean`
 Checks if environment is an alibaba miniprogram environment.
 
-### `isWeChatMiniprogram: boolean`
+### `isWeChatMiniProgram: boolean`
 Checks if environment is a wechat miniprogram environment.
 
 ### `isNode: boolean`
@@ -34,12 +34,12 @@ Checks if environment is a Node.js environment.
 
 ## Results in each container
 
-|                    | isMiniApp | isWeChatMiniprogram | isWeb | isWeex | isNode |
+|                    | isMiniApp | isWeChatMiniProgram | isWeb | isWeex | isNode |
 | ------------------ | --------- | ------------------- | ----- | ------ | ------ |
 | Alibaba MiniApp         | ✔️         | ✘                   | ✘     | ✘      | ✘      |
 | Alibaba MiniApp WebView | ✔️         | ✘                   | ✔️     | ✘      | ✘      |
-| Wechat Miniprogram         | ✘         | ✔️                   | ✘     | ✘      | ✘      |
-| Wechat Miniprogram WebView | ✘         | ✔️                   | ✔️     | ✘      | ✘      |
+| Wechat MiniProgram         | ✘         | ✔️                   | ✘     | ✘      | ✘      |
+| Wechat MiniProgram WebView | ✘         | ✔️                   | ✔️     | ✘      | ✘      |
 | Weex               | ✘         | ✘                   | ✘     | ✔️      | ✘      |
 | Node               | ✘         | ✘                   | ✘     | ✘      | ✔️      |
 | Web                | ✘         | ✘                   | ✔️     | ✘      | ✘      |
