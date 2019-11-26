@@ -14,6 +14,6 @@ export const isNode =
 export const isWeex =
   !isUndef(typeof callNative) ||
   !isUndef(typeof WXEnvironment) && WXEnvironment.platform !== 'Web';
-export const isMiniApp = !isUndef(getApp) && !isUndef(typeof my) && !isUndef(my.navigateTo);
+export const isMiniApp = !isUndef(typeof getApp) && !isUndef(typeof my) && !isUndef(my.navigateTo);
 export const isWeChatMiniProgram =
-!isUndef(getApp) && !isUndef(typeof wx) && !isUndef(wx.navigateTo);
+!isUndef(typeof getApp) && !isUndef(typeof wx) && !isUndef(wx.navigateTo);
