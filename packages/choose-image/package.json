@@ -1,27 +1,27 @@
 {
   "name": "universal-choose-image",
   "author": "rax",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.2",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "start": "rax-scripts start --type 'component' -p 8000",
-    "start:miniapp": "rax-scripts start --type 'component-miniapp'",
-    "build": "rax-scripts build --type 'component'",
-    "test": "rax-scripts test",
+    "start": "rax-scripts start",
+    "build": "rax-scripts build",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src",
-    "prebuild": "npm run lint && npm run test",
+    "prebuild": "npm run lint",
     "prepublish": "npm run build"
   },
   "keywords": [
-    "Rax"
+    "Rax",
+    "Universal",
+    "API"
   ],
   "engines": {
     "npm": ">=3.0.0"
   },
   "dependencies": {
-    "universal-env": "^1.0.1"
+    "universal-env": "^2.0.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",
@@ -34,8 +34,8 @@
     "eslint-config-rax": "^0.0.0",
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-react": "^7.12.4",
-    "rax": "^1.0.4",
-    "rax-scripts": "1.2.1-beta.2",
+    "rax-plugin-component": "^0.1.8",
+    "rax-scripts": "^2.0.0",
     "typescript": "^3.4.5"
   },
   "repository": {

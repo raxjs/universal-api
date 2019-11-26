@@ -3,7 +3,7 @@
 > AsyncStorage
 
 ## 支持
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
 
 ## 安装
 
@@ -17,37 +17,25 @@ $ npm install universal-asyncstorage --save
 import AsyncStorage from 'universal-asyncstorage';
 
 // setItem(key, value)
-try {
-  await AsyncStorage.setItem('key', 'value');
-} catch (error) {
-}
+AsyncStorage.setItem('key', 'value').then(() => {});
 
 // getItem(key)
-try {
-  const value = await AsyncStorage.getItem('key');
+AsyncStorage.getItem('key').then(value => {
   if (value !== null){
     console.log(value);
   }
-} catch (error) {
-}
+});
 
 // removeItem(key)
-try {
-  await AsyncStorage.removeItem('key');
-} catch (error) {
-}
+AsyncStorage.removeItem('key').then(res => {});
 
 // getAllKeys()
-try {
-  await AsyncStorage.getAllKeys();
-} catch (error) {
-}
+AsyncStorage.getAllKeys().then(res => {
+  console.log(res.join());
+});
 
 // clear()
-try {
-  await AsyncStorage.clear();
-} catch (error) {
-}
+AsyncStorage.clear().then(() => {});
 ```
 
 ## 方法

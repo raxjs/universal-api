@@ -1,4 +1,4 @@
-import {LONG_DELAY, SHORT_DELAY} from '../utils';
+import {LONG_DELAY, SHORT_DELAY} from '../utils/index';
 import { ToastOption } from '../types';
 
 declare const weex: any;

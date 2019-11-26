@@ -1,4 +1,4 @@
-import { AsyncStorageOptions } from '../types';
+import { AsyncStorage } from '../types';
 
 let storage: any = {};
 
@@ -6,7 +6,7 @@ if (typeof localStorage !== 'undefined' && localStorage) {
   storage = localStorage;
 }
 
-const AsyncStorage: AsyncStorageOptions = {
+const AsyncStorage: AsyncStorage = {
   getItem: (key: string): Promise<string | null> => {
     return new Promise((resolve, reject): void => {
       if (storage.getItem) {
@@ -70,6 +70,5 @@ const AsyncStorage: AsyncStorageOptions = {
     });
   }
 };
-
 
 export default AsyncStorage;

@@ -4,6 +4,10 @@ import {
   DEFAULT_REQUEST_OPTIONS
 } from './types';
 import { normalizeHeaders } from './utils';
+import webModule from './web/index';
+import weexModule from './weex/index';
+import miniAppModule from './miniapp/index';
+import weChatModule from './weapp/index';
 
 function dutyChain(...fns) {
   for (let i = 0; i < fns.length; i++) {
@@ -16,7 +20,7 @@ function dutyChain(...fns) {
 
 function handleWeb(afterOptions) {
   if (isWeb) {
-    const request = require('./web/').default;
+    const request = webModule;
     return request(afterOptions);
   }
   return false;
@@ -24,7 +28,7 @@ function handleWeb(afterOptions) {
 
 function handleMiniApp(afterOptions) {
   if (isMiniApp) {
-    const request = require('./miniapp/').default;
+    const request = miniAppModule;
     return request(afterOptions);
   }
   return false;
@@ -32,7 +36,7 @@ function handleMiniApp(afterOptions) {
 
 function handleWeex(afterOptions) {
   if (isWeex) {
-    const request = require('./weex/').default;
+    const request = weexModule;
     return request(afterOptions);
   }
   return false;
@@ -40,7 +44,7 @@ function handleWeex(afterOptions) {
 
 function handleWeChatMiniprogram(afterOptions) {
   if (isWeChatMiniprogram) {
-    const request = require('./weapp/').default;
+    const request = weChatModule;
     return request(afterOptions);
   }
   return false;

@@ -1,12 +1,27 @@
-import { isWeex, isMiniApp } from 'universal-env';
+import { isWeb, isWeex, isMiniApp, isWeChatMiniprogram } from 'universal-env';
+import webModule from './web/index';
+import weexModule from './weex/index';
+import miniAppModule from './miniapp/ali/index';
+import weChatModule from './miniapp/wechat/index';
 
-let navigate;
-if (isWeex) {
-  navigate = require('./weex').default;
-} else if (isMiniApp) {
-  navigate = require('./miniapp').default;
-} else {
-  navigate = require('./web').default;
+import { Navigate } from './types';
+
+let Navigate: Navigate;
+
+if (isWeb) {
+  Navigate = webModule;
 }
 
-export default navigate;
+if (isWeex) {
+  Navigate = weexModule;
+}
+
+if (isMiniApp) {
+  Navigate = miniAppModule;
+}
+
+if (isWeChatMiniprogram) {
+  Navigate = weChatModule;
+}
+
+export default Navigate;

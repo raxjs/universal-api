@@ -17,5 +17,6 @@ export const isWeex =
 export const isPHA =
   !isUndef(typeof PHAEnvironment) && PHAEnvironment.platform !== 'Web';
 export const isMiniApp = !isUndef(typeof my) && !isUndef(my.navigateTo);
-export const isWeChatMiniprogram =
+export const isWeChatMiniProgram =
   !isUndef(typeof wx) && !isUndef(wx.navigateTo);
+export const isWeChatMiniprogram = isWeChatMiniProgram;
