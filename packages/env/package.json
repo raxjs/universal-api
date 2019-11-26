@@ -1,7 +1,7 @@
 {
   "name": "universal-env",
   "author": "rax",
-  "version": "2.0.1-beta.1",
+  "version": "3.0.0",
   "license": "BSD-3-Clause",
   "main": "index.js",
   "types": "lib/index.d.ts",
