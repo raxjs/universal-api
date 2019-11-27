@@ -1,5 +1,6 @@
 declare const callNative: any;
 declare const WXEnvironment: any;
+declare const __kraken__: any;
 declare const my: any;
 declare const wx: any;
 
@@ -13,5 +14,6 @@ export const isNode =
 export const isWeex =
   !isUndef(typeof callNative) ||
   !isUndef(typeof WXEnvironment) && WXEnvironment.platform !== 'Web';
+export const isKraken = !isUndef(typeof __kraken__);
 export const isMiniApp = !isUndef(typeof my) && my !== null && !isUndef(my.alert);
 export const isWeChatMiniProgram = !isUndef(typeof wx) && wx !== null && (!isUndef(wx.login) || !isUndef(wx.miniProgram));
