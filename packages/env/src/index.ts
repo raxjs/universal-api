@@ -1,5 +1,6 @@
 declare const callNative: any;
 declare const WXEnvironment: any;
+declare const __kraken__: any;
 declare const my: any;
 declare const wx: any;
 
@@ -13,6 +14,7 @@ export const isNode =
 export const isWeex =
   !isUndef(typeof callNative) ||
   !isUndef(typeof WXEnvironment) && WXEnvironment.platform !== 'Web';
+export const isKraken = !isUndef(typeof __kraken__);
 export const isMiniApp = !isUndef(typeof my) && my !== null && !isUndef(my.alert);
 // In wechat mini program, wx.login is a function
 // In wechat mini propgram webview, there is no wx.login, but exist wx.miniProgram
