@@ -1,3 +1,4 @@
+import webModule from '../web';
 
 jest.mock('universal-env', (): object => {
   return {
@@ -7,13 +8,11 @@ jest.mock('universal-env', (): object => {
 });
 
 describe('In web', (): void => {
-  // eslint-disable-next-line
-  const { screenWidth, screenHeight } = require('../web').default;
   it('Get screen width', () => {
-    expect(screenWidth).toEqual(0);
+    expect(webModule.screenWidth).toEqual(0);
   });
 
   it('Get screen height', () => {
-    expect(screenHeight).toEqual(0);
+    expect(webModule.screenHeight).toEqual(0);
   });
 });

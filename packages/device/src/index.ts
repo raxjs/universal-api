@@ -17,28 +17,28 @@ function handleWeb() {
   if (isWeb) {
     return webModule;
   }
-  return false;
+  return null;
 }
 
 function handleWeex() {
   if (isWeex) {
     return weexModule;
   }
-  return false;
+  return null;
 }
 
 function handleMiniApp() {
   if (isMiniApp) {
     return miniappModule;
   }
-  return false;
+  return null;
 }
 
 function handleWeChat() {
   if (isWeChatMiniProgram) {
     return wechatModule;
   }
-  return false;
+  return null;
 }
 
 const deviceInfo = dutyChain(
