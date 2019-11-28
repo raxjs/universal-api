@@ -1,4 +1,4 @@
-import { platform, appName, screenWidth, screenHeight, px2rpx } from '../index';
+import weexModule from '../weex';
 
 jest.mock('universal-env', (): object => {
   return {
@@ -21,6 +21,6 @@ jest.mock('universal-env', (): object => {
 
 describe('In a weex environment', (): void => {
   it('Get screen width', () => {
-    expect(screenWidth).toBe(0);
+    expect(weexModule.screenWidth).toBe(0);
   });
 });

@@ -8,7 +8,7 @@ jest.mock('universal-env', (): object => {
 
 describe('In web', (): void => {
   // eslint-disable-next-line
-  const { platform, appName, screenWidth, screenHeight, px2rpx} = require('../index');
+  const { screenWidth, screenHeight } = require('../web').default;
   it('Get screen width', () => {
     expect(screenWidth).toEqual(0);
   });
