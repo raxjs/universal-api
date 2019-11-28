@@ -15,7 +15,7 @@ export const isWeex =
   !isUndef(typeof callNative) ||
   !isUndef(typeof WXEnvironment) && WXEnvironment.platform !== 'Web';
 export const isKraken = !isUndef(typeof __kraken__);
-export const isMiniApp = !isUndef(typeof my) && !isUndef(my.navigateTo);
-export const isWeChatMiniProgram =
-  !isUndef(typeof wx) && !isUndef(wx.navigateTo);
-export const isWeChatMiniprogram = isWeChatMiniProgram;
+export const isMiniApp = !isUndef(typeof my) && my !== null && !isUndef(my.alert);
+// In wechat mini program, wx.login is a function
+// In wechat mini propgram webview, there is no wx.login, but exist wx.miniProgram
+export const isWeChatMiniProgram = !isUndef(typeof wx) && wx !== null && (!isUndef(wx.login) || !isUndef(wx.miniProgram));
