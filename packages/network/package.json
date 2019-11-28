@@ -1,5 +1,5 @@
 {
-  "name": "universal-loading",
+  "name": "universal-network",
   "author": "rax",
   "version": "1.0.0-beta.1",
   "description": "",
@@ -29,7 +29,7 @@
     "rax": "^1.0.8",
     "rax-plugin-api": "^0.2.0",
     "rax-scripts": "^2.0.0",
-    "@types/eslint-visitor-keys": "^1.0.0",
-    "@types/json-schema": "^7.0.3"
+    "@types/json-schema": "^7.0.3",
+    "@types/eslint-visitor-keys": "^1.0.0"
   }
 }
