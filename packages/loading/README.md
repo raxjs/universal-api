@@ -1,6 +1,6 @@
-# universal-action-sheet [![npm](https://img.shields.io/npm/v/universal-action-sheet.svg)](https://www.npmjs.com/package/universal-action-sheet)
+[![npm](https://img.shields.io/npm/v/universal-loading.svg)](https://www.npmjs.com/package/universal-loading)
 
-Action sheet.
+Load the transition effect of the prompt.
 
 ## Support
 <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
@@ -8,36 +8,42 @@ Action sheet.
 ## Install
 
 ```bash
-$ npm install universal-action-sheet --save
+$ npm install universal-loading --save
 ```
 
 ## Methods
 
 ### `show(options)`
 
-Display action sheet.
+Display loading prompt box.
 
 #### Parameters
-| Property | Type     | Default | Description    |       Support       |
-| -------- | -------- | ------- | -------------- | ----------------- |
-| title    | `String` | -       | The menu title | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> |
-| items    | `Array` | -       | Menu button text array | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
-| cancelButtonText    | `String` | `取消`       | Cancel button | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> |
+| Property | Type      | Default | Required | Description                                                      | Support                                 |
+| -------- | --------- | ------- | -------- | ---------------------------------------------------------------- | --------------------------------------- |
+| content  | `String`  |         | √        | The content in the prompt                                        | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
+| delay    | `Number`  | `0`     | x        | Delay display, unit ms                                           | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />                     |
+| mask     | `Boolean` | `false` | x        | Whether to display transparent mask to prevent touch penetration | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">                     |
+
+### `hide(options)`
+
+Hide loading prompt box.
+
+#### Parameters
+| Property | Type     | Default | Required | Description                                  | Support             |
+| -------- | -------- | ------- | -------- | -------------------------------------------- | ------------------- |
+| page     | `Object` |         | x        | Specific refers to the current page instance | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> |
 
 ## Example
 
 ```js
-import ActionSheet from 'universal-action-sheet';
+import Loading from 'universal-loading';
 
-ActionSheet.show({
-  items: ['one', 'two', 'three'],
-  success: res => {
-    console.log(res.index);
-  },
-  fail: res => {
-    console.log(res.errMsg);
-  }
+Loading.show({
+  content: 'content'
 });
+setTimeout(() => {
+  Loading.hide();
+}, 1000);
 
 ```
 
