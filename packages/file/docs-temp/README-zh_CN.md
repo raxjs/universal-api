@@ -87,7 +87,7 @@ $ npm install universal-file --save
 | 属性   | 类型     | 默认值 | 必选 | 描述             | 支持                                    |
 | ------ | -------- | ------ | ---- | ---------------- | --------------------------------------- |
 | url    | `String` |        | √    | 下载文件地址     | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| header | `object` |        | x    | HTTP 请求 Header | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| header | `Object` |        | x    | HTTP 请求 Header | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
 ## 示例
 

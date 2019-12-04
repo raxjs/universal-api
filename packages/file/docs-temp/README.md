@@ -89,7 +89,7 @@ Download file resources locally.
 | Property | Type     | Default | Required | Description             | Support                                 |
 | -------- | -------- | ------- | -------- | ----------------------- | --------------------------------------- |
 | url      | `String` |         | √        | Download file address   | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| header   | `object` |         | x        | The HTTP request Header | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| header   | `Object` |         | x        | The HTTP request Header | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
 ## Example
 
