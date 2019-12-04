@@ -1,4 +1,5 @@
 import { processParams } from '../../process';
+import { rpx2px } from 'universal-device';
 
 declare const wx: any;
 
@@ -35,7 +36,19 @@ export default function transition(node: any, styles: any, options: any, callbac
       animation = animation[property](styles[property]);
     }
     if (property === 'transform') {
-      const transformList = parseTransform(styles[property]);
+      const transformList = parseTransform(styles[property]) as any;
+      // 微信不支持 translate rpx
+      Object.keys(transformList).forEach(key => {
+        if (Array.isArray(transformList[key])) {
+          transformList[key] = transformList[key].map(v => {
+            if (/rpx$/.test(v)) {
+              return rpx2px(parseFloat(v));
+            }
+            return v;
+          });
+        }
+      });
+
       Object.keys(transformList).forEach(key => {
         if (animation[key]) {
           animation = animation[key](...transformList[key]);

@@ -1,4 +1,6 @@
-import animate, { getInitProperty, transformEasing, transformProperty } from '../';
+import animate, { getInitProperty } from '../';
+import transformEasing from '../transformEasing';
+import transformProperty from '../transformProperty';
 import debug from 'debug';
 
 const log = debug('universal-animation');
@@ -58,7 +60,7 @@ describe('Test transformEasing method', () => {
 
 describe('Test transformProperty method', () => {
   test('Should return transform', () => {
-    expect(transformProperty('transform.translateY', '100')).toEqual({'transform': ['translateY(100rem)'], 'webkitTransform': ['translateY(100rem)']});
+    expect(transformProperty('transform.translateY', '100')).toEqual({'transform': ['translateY(100rpx)'], 'webkitTransform': ['translateY(100rpx)']});
   });
   test('Should return itself', () => {
     expect(transformProperty('test', '200')).toEqual({'test': '200'});
