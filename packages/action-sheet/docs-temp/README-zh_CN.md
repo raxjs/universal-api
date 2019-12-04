@@ -22,7 +22,7 @@ $ npm install universal-action-sheet --save
 | ---------------- | -------- | ------ | ---------------- | --------------------------------------- |
 | title            | `String` | -      | 菜单标题         | __icon_miniapp_mp__                     |
 | items            | `Array`  | -      | 菜单按钮文字数组 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| cancelButtonText | `String` | `取消` | 取消按钮文案     | __icon_miniapp_mp__                     |
+| cancelButtonText | `String` | 取消 | 取消按钮文案     | __icon_miniapp_mp__                     |
 
 
 ## 示例

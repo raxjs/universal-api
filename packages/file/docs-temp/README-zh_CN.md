@@ -21,7 +21,7 @@ $ npm install universal-file --save
 | 属性            | 类型     | 默认值 | 必选 | 描述                       | 支持                                    |
 | --------------- | -------- | ------ | ---- | -------------------------- | --------------------------------------- |
 | filePath        | `String` |        | √    | 文件路径                   | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| digestAlgorithm | `String` | `md5`  | x    | 摘要算法，支持 md5 和 sha1 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| digestAlgorithm | `String` | md5  | x    | 摘要算法，支持 md5 和 sha1 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
 ### `getSavedInfo(options)`
 
@@ -35,9 +35,6 @@ $ npm install universal-file --save
 ### `getSavedList(options)`
 
 获取保存的所有文件信息。
-
-#### 支持
-__icon_miniapp_mp__ __icon_miniapp_wx__
 
 ### `openDocument(options)`
 

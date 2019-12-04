@@ -21,7 +21,7 @@ $ npm install universal-file --save
 | 属性            | 类型     | 默认值 | 必选 | 描述                       | 支持                                    |
 | --------------- | -------- | ------ | ---- | -------------------------- | --------------------------------------- |
 | filePath        | `String` |        | √    | 文件路径                   | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
-| digestAlgorithm | `String` | `md5`  | x    | 摘要算法，支持 md5 和 sha1 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
+| digestAlgorithm | `String` | md5  | x    | 摘要算法，支持 md5 和 sha1 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
 
 ### `getSavedInfo(options)`
 
@@ -35,9 +35,6 @@ $ npm install universal-file --save
 ### `getSavedList(options)`
 
 获取保存的所有文件信息。
-
-#### 支持
-<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
 
 ### `openDocument(options)`
 

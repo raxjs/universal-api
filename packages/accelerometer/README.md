@@ -26,18 +26,15 @@ Monitoring acceleration data, the callback interval is 500ms, the interface call
 
 Stop listening for acceleration data.
 
-#### Support
-<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
-
 ## Example
 
 ```js
 import Accelerometer from 'universal-accelerometer';
 
 Accelerometer.onChange(res => {
-    console.log(res.x);
-    console.log(res.y);
-    console.log(res.z);
+  console.log(res.x);
+  console.log(res.y);
+  console.log(res.z);
 });
 
 Accelerometer.offChange();

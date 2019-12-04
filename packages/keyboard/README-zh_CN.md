@@ -17,9 +17,6 @@ $ npm install universal-keyboard --save
 
 隐藏键盘。
 
-#### 支持
-<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
-
 ## 示例
 
 ```js

@@ -26,18 +26,15 @@ $ npm install universal-accelerometer --save
 
 停止监听加速度数据
 
-#### 支持
-<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
-
 ## 示例
 
 ```js
 import Accelerometer from 'universal-accelerometer';
 
 Accelerometer.onChange(res => {
-    console.log(res.x);
-    console.log(res.y);
-    console.log(res.z);
+  console.log(res.x);
+  console.log(res.y);
+  console.log(res.z);
 });
 
 Accelerometer.offChange();

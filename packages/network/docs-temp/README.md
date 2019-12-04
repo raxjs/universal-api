@@ -15,8 +15,6 @@ $ npm install universal-network --save
 
 ### `getType(options)`
 
-__icon_miniapp_mp__ __icon_miniapp_wx__
-
 Gets the current network state.
 
 #### Success return

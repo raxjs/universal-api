@@ -20,9 +20,9 @@ Dynamically sets the background color of the window.
 #### Parameters
 | Property    | Type     | Default | Required | Description            | Support                                 |
 | ----------- | -------- | ------- | -------- | ---------------------- | --------------------------------------- |
-| color       | `String` |         | x    | The background color of the window must be a hexadecimal color value | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| topColor    | `String` |         | x    | Background color of top window, must be hexadecimal color value, supported by iOS only | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| bottomColor | `String` |         | x    |Bottom window background color, must be hexadecimal color value, iOS only support| __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| color       | `String` |   -      | x    | The background color of the window must be a hexadecimal color value | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| topColor    | `String` |   -      | x    | Background color of top window, must be hexadecimal color value, supported by iOS only | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| bottomColor | `String` |    -     | x    |Bottom window background color, must be hexadecimal color value, iOS only support| __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
 ### `setTextStyle(options)`
 

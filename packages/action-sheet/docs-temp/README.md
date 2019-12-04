@@ -22,7 +22,7 @@ Display action sheet.
 | -------- | -------- | ------- | -------------- | ----------------- |
 | title    | `String` | -       | The menu title | __icon_miniapp_mp__ |
 | items    | `Array` | -       | Menu button text array | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| cancelButtonText    | `String` | `取消`       | Cancel button | __icon_miniapp_mp__ |
+| cancelButtonText    | `String` | 取消       | Cancel button | __icon_miniapp_mp__ |
 
 ## Example
 

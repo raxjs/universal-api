@@ -22,7 +22,7 @@ $ npm install universal-action-sheet --save
 | ---------------- | -------- | ------ | ---------------- | --------------------------------------- |
 | title            | `String` | -      | 菜单标题         | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />                     |
 | items            | `Array`  | -      | 菜单按钮文字数组 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
-| cancelButtonText | `String` | `取消` | 取消按钮文案     | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />                     |
+| cancelButtonText | `String` | 取消 | 取消按钮文案     | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />                     |
 
 
 ## 示例

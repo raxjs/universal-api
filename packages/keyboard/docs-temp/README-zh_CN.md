@@ -17,9 +17,6 @@ $ npm install universal-keyboard --save
 
 隐藏键盘。
 
-#### 支持
-__icon_miniapp_mp__ __icon_miniapp_wx__
-
 ## 示例
 
 ```js

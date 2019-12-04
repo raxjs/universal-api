@@ -17,9 +17,6 @@ $ npm install universal-keyboard --save
 
 Hide the keyboard.
 
-#### Support
-__icon_miniapp_mp__ __icon_miniapp_wx__
-
 ## Example
 
 ```js

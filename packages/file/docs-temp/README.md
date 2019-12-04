@@ -21,7 +21,7 @@ Get file information.
 | Property        | Type     | Default | Required | Description                                                  | Support                                 |
 | --------------- | -------- | ------- | -------- | ------------------------------------------------------------ | --------------------------------------- |
 | filePath        | `String` |         | √        | The file path                                                | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| digestAlgorithm | `String` | `md5`   | x        | The algorithm to calculate the file summary can be md5, sha1 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| digestAlgorithm | `String` | md5   | x        | The algorithm to calculate the file summary can be md5, sha1 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
 
 ### `getSavedInfo(options)`
@@ -36,9 +36,6 @@ Gets saved file information.
 ### `getSavedList(options)`
 
 Gets all saved file information.
-
-#### Support
-__icon_miniapp_mp__ __icon_miniapp_wx__
 
 ### `openDocument(options)`
 
