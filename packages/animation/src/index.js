@@ -106,7 +106,6 @@ class Animation {
       // make transition groupby element
       let transitionMap = [];
       let miniAppResult = {};
-      console.log('options.props: ', options.props);
       map(options.props, (prop) => {
         if (prop && prop.element) {
           let transitionProps = transformProperty(prop.property, prop.end);
