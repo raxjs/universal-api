@@ -37,7 +37,7 @@ export default function transition(node: any, styles: any, options: any, callbac
     }
     if (property === 'transform') {
       const transformList = parseTransform(styles[property]) as any;
-      // 微信不支持 translate rpx
+      // WeChat does not support translate rpx units
       Object.keys(transformList).forEach(key => {
         if (Array.isArray(transformList[key])) {
           transformList[key] = transformList[key].map(v => {

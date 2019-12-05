@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "universal-env": "^3.0.0",
-    "universal-transition": "1.0.2-beta.1",
+    "universal-transition": "^1.0.1",
     "weex-bindingx": "^0.0.49"
   },
   "devDependencies": {
