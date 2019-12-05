@@ -1,2 +1,2 @@
 declare const wx: any;
-export default typeof wx !== 'undefined' && wx['offAccelerometerChange'];
+export default typeof wx !== 'undefined' && wx.offAccelerometerChange;

@@ -1,2 +1,2 @@
 declare const my: any;
-export default typeof my !== 'undefined' && my['offNetworkStatusChange'];
+export default typeof my !== 'undefined' && my.offNetworkStatusChange;

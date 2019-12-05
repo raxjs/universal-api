@@ -1,2 +1,2 @@
 declare const my: any;
-export default my['onSocketMessage'];
+export default my.onSocketMessage;

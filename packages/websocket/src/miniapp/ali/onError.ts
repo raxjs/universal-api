@@ -1,2 +1,2 @@
 declare const my: any;
-export default my['onSocketError'];
+export default my.onSocketError;

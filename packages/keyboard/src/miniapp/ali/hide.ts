@@ -1,2 +1,2 @@
 declare const my: any;
-export default my['hideKeyboard'];
+export default my.hideKeyboard;

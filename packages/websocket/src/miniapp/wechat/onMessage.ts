@@ -1,2 +1,2 @@
 declare const wx: any;
-export default wx['onSocketMessage'];
+export default wx.onSocketMessage;

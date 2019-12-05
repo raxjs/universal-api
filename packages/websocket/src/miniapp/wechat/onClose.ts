@@ -1,2 +1,2 @@
 declare const wx: any;
-export default wx['onSocketClose'];
+export default wx.onSocketClose;

@@ -18,11 +18,8 @@ export interface CallbackOptions {
   [propName: string]: any;
 }
 
-export interface getTypeOptions extends CallbackOptions {
-}
-
 export interface Network {
-  getType(options: getTypeOptions): Promise<any>;
+  getType(options: CallbackOptions): Promise<any>;
   onStatusChange(callback: Callback): void;
   offStatusChange(callback: Callback): void;
 }

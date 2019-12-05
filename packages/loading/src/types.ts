@@ -18,29 +18,29 @@ export interface CallbackOptions {
   [propName: string]: any;
 }
 
-export interface showOptions extends CallbackOptions {
+export interface ShowOptions extends CallbackOptions {
   /**
    * Content of the prompt.
    */
-  content: String;
+  content: string;
   /**
    * Whether to display transparent mask to prevent touch penetration.
    */
-  mask?: String;
+  mask?: string;
   /**
    * Delay display, unit ms
    */
-  delay?: Number;
+  delay?: number;
 }
 
-export interface hideOptions extends CallbackOptions {
+export interface HideOptions extends CallbackOptions {
   /**
    * Specific refers to the current page instance.
    */
-  page?: Object;
+  page?: Record<string, any>;
 }
 
 export interface Loading {
-  show(options: showOptions): Promise<any>;
-  hide(options?: hideOptions): Promise<any>;
+  show(options: ShowOptions): Promise<any>;
+  hide(options?: HideOptions): Promise<any>;
 }

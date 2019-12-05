@@ -1,3 +1,4 @@
 import promisifyFn from '../promisifyFn';
+
 declare const wx: any;
-export default () => promisifyFn(wx['hideLoading'], {});
+export default () => promisifyFn(wx.hideLoading, {});

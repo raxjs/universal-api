@@ -4,4 +4,4 @@ import offChange from './offChange';
 export {
   onChange,
   offChange
-}
+};

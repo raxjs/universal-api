@@ -25,9 +25,6 @@ export interface SaveOptions extends CallbackOptions {
   filePath: string;
 }
 
-export interface GetSaveListOptions extends CallbackOptions {
-}
-
 export interface FileList {
   /**
    * The file path
@@ -81,7 +78,7 @@ export interface RemoveSavedOptions extends CallbackOptions {
   filePath: string;
 }
 
-export interface uploadOption extends CallbackOptions {
+export interface UploadOption extends CallbackOptions {
   /**
    * Developer server address
    */
@@ -108,7 +105,7 @@ export interface uploadOption extends CallbackOptions {
   formData?: object;
 }
 
-export interface downloadOption extends CallbackOptions {
+export interface DownloadOption extends CallbackOptions {
   /**
    * Download file address
    */
@@ -134,7 +131,7 @@ export interface File {
    * Gets all saved file information.
    * @param options File options
    */
-  getSavedList(options: GetSaveListOptions): Promise<any>;
+  getSavedList(options: CallbackOptions): Promise<any>;
   /**
    * Open a file preview on the new page.
    * @param options File options
@@ -154,10 +151,10 @@ export interface File {
    * Upload local resources to the developer server.
    * @param options File options
    */
-  upload(options: uploadOption): Promise<any>;
+  upload(options: UploadOption): Promise<any>;
   /**
    * Download file resources locally.
    * @param options
    */
-  download(options: downloadOption): Promise<any>;
+  download(options: DownloadOption): Promise<any>;
 }

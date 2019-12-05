@@ -1,2 +1,2 @@
 declare const wx: any;
-export default wx['onSocketError'];
+export default wx.onSocketError;

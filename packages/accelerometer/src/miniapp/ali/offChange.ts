@@ -1,2 +1,2 @@
 declare const my: any;
-export default typeof my !== 'undefined' && my['offAccelerometerChange'];
+export default typeof my !== 'undefined' && my.offAccelerometerChange;

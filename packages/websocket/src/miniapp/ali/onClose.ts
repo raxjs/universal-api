@@ -1,2 +1,2 @@
 declare const my: any;
-export default my['onSocketClose'];
+export default my.onSocketClose;

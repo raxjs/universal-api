@@ -1,2 +1,2 @@
 declare const wx: any;
-export default wx['hideKeyboard'];
+export default wx.hideKeyboard;
