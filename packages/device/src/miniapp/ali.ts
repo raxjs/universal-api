@@ -3,7 +3,7 @@ declare const my: any;
 let systemInfo;
 
 function getSystemInfo() {
-  systemInfo = my.getSystemInfoSync();
+  if (!systemInfo) return systemInfo = my.getSystemInfoSync();
   return systemInfo;
 }
 const module = {};
@@ -20,6 +20,9 @@ const module = {};
 }, {
   key: 'screenHeight',
   getFn: () => getSystemInfo().screenHeight
+}, {
+  key: 'appVersion',
+  getFn: () => getSystemInfo().version
 }].forEach(({key, getFn}) => {
   Object.defineProperty(module, key, {
     get: getFn

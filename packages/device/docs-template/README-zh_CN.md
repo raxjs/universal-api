@@ -13,32 +13,22 @@ $ npm install universal-device --save
 ## 使用
 
 ```javascript
-import { platform, appName, screenWidth, screenHeight, px2rpx  } from 'universal-device';
-
+import { platform, appName, screenWidth, screenHeight, appVersion } from 'universal-device';
 ```
 
 ## APIS
 
-### `appName: string`
+### `appName: String`
 app 名称或浏览器名称。
 
-### `platform: string`
+### `appVersion: String`
+app 版本号或浏览器版本信息。
+
+### `platform: String`
 平台： 'Android'、'iOS'、'MacIntel' 等。
 
-### `screenWidth: number`
+### `screenWidth: Number`
 屏幕宽度，单位为px。
 
-### `screenHeight: number`
+### `screenHeight: Number`
 屏幕高度，单位为px。
-
-### `px2rpx(val)`
-px 转 rpx 方法。
-
-### `rpx2px(val)`
-rpx 转 px 方法。
-
-#### 参数
-| 成员 | 类型     | 描述  | 默认值 | 支持  |
-| ---- | -------- | ----- | :----: | :---: |
-| val  | `number` | px 值 |   -    |       |
-

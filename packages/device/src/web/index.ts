@@ -1,5 +1,5 @@
 function getPlatform() {
-  const platform = navigator && navigator.platform;
+  const platform = navigator.platform;
   if (platform) {
     if (/(iphone|ipod|ipad)/.test(navigator.userAgent)) return 'iOS';
     if (/android/.test(navigator.userAgent)) return 'Android';
@@ -13,7 +13,7 @@ let platform;
 
 [{
   key: 'appName',
-  getFn: () => navigator && navigator.appName
+  getFn: () => navigator.appName
 }, {
   key: 'platform',
   getFn: () => {
@@ -28,6 +28,9 @@ let platform;
 }, {
   key: 'screenHeight',
   getFn: () => window.screen.height
+}, {
+  key: 'appVersion',
+  getFn: () => navigator.appVersion
 }].forEach(({key, getFn}) => {
   Object.defineProperty(module, key, {
     get: getFn

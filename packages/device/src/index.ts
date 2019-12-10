@@ -48,32 +48,16 @@ const deviceInfo = dutyChain(
   handleWeChat
 );
 
-
 const appName = deviceInfo.appName;
+const appVersion = deviceInfo.appVersion;
 const platform = deviceInfo.platform;
 const screenWidth = deviceInfo.screenWidth;
 const screenHeight = deviceInfo.screenHeight;
 
-function wrapper(fn, screenWidth) {
-  return function(value: number) {
-    return fn(screenWidth, value);
-  };
-}
-
-const CALCULATION_ACCURACY = 8;
-const px2rpx = wrapper((screenWidth: number, value: number): number => {
-  return Number((750 * value / screenWidth).toFixed(CALCULATION_ACCURACY));
-}, screenWidth);
-
-const rpx2px = wrapper((screenWidth: number, value: number): number => {
-  return Number((screenWidth / 750 * value).toFixed(CALCULATION_ACCURACY));
-}, screenWidth);
-
 export {
   appName,
+  appVersion,
   platform,
   screenWidth,
   screenHeight,
-  px2rpx,
-  rpx2px
 };
