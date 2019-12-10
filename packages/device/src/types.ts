@@ -3,7 +3,6 @@ export interface Device {
   appName: string;
   screenWidth: number;
   screenHeight: number;
-  px2rpx(val: number): number;
 }
 
 export interface MiniAppSystem {

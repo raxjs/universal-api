@@ -8,7 +8,7 @@ const chalk = require('chalk');
 const parseArgs = require('minimist');
 const chokidar = require('chokidar');
 
-const DOCS_TEMP_DIR = 'docs-temp';
+const DOCS_TEMP_DIR = 'docs-template';
 
 const args = parseArgs(process.argv);
 const customPackages = args.packages;

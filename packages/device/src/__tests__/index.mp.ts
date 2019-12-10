@@ -18,6 +18,6 @@ jest.mock('universal-env', (): object => {
 
 test('Choose image can return a promise in a mini app environment', (): void => {
   // eslint-disable-next-line
-  const { platform, appName, screenWidth, screenHeight, px2rpx} = require('../index');
+  const { platform, appName, screenWidth, screenHeight} = require('../index');
   expect(screenWidth).toBe(750);
 });

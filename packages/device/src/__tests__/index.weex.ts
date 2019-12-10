@@ -1,4 +1,4 @@
-import { platform, appName, screenWidth, screenHeight, px2rpx } from '../index';
+import { platform, appName, screenWidth, screenHeight } from '../index';
 
 jest.mock('universal-env', (): object => {
   return {

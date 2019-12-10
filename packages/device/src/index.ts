@@ -65,21 +65,9 @@ const platform = getPlatform();
 const screenWidth = getScreenWidth();
 const screenHeight = getScreenHeight();
 
-const CALCULATION_ACCURACY = 8;
-
-function px2rpx(value: number): number {
-  return Number((750 * value / screenWidth).toFixed(CALCULATION_ACCURACY));
-}
-
-function rpx2px(value: number): number {
-  return Number((screenWidth / 750 * value).toFixed(CALCULATION_ACCURACY));
-}
-
 export {
   appName,
   platform,
   screenWidth,
   screenHeight,
-  px2rpx,
-  rpx2px
 };
