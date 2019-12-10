@@ -13,7 +13,7 @@ $ npm install universal-device --save
 ## Usage
 
 ```javascript
-import { platform, appName, screenWidth, screenHeight } from 'universal-device';
+import { platform, appName, screenWidth, screenHeight, appVersion } from 'universal-device';
 
 ```
 
@@ -21,6 +21,9 @@ import { platform, appName, screenWidth, screenHeight } from 'universal-device';
 
 ### `appName: String`
 app name or browser name
+
+### `appVersion: String`
+app version or browser version info
 
 ### `platform: String`
 platform: 'Android'、'iOS'、'MacIntel', etc.

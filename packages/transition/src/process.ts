@@ -1,4 +1,10 @@
-import { convertUnit } from 'style-unit';
+import { setRpx, convertUnit } from 'style-unit';
+import { isWeb } from 'universal-env';
+
+if (isWeb && typeof document !== 'undefined') {
+  // Temporary compatibility with setRpx
+  setRpx(document.documentElement.clientWidth / 750);
+}
 
 export function processStyle(styles: any) {
   for (let prop in styles) {

@@ -13,13 +13,16 @@ $ npm install universal-device --save
 ## 使用
 
 ```javascript
-import { platform, appName, screenWidth, screenHeight } from 'universal-device';
+import { platform, appName, screenWidth, screenHeight, appVersion } from 'universal-device';
 ```
 
 ## APIS
 
 ### `appName: String`
 app 名称或浏览器名称。
+
+### `appVersion: String`
+app 版本号或浏览器版本信息。
 
 ### `platform: String`
 平台： 'Android'、'iOS'、'MacIntel' 等。
