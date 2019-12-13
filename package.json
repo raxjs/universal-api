@@ -6,11 +6,13 @@
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./packages/*/src",
     "start": "node ./scripts/compile-packages.js --watch",
     "build": "node ./scripts/compile-packages.js",
+    "check-and-publish": "node ./scripts/check-and-publish.js",
     "transform:docs": "node scripts/compile-readme.js"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^1.7.0",
     "@typescript-eslint/parser": "^1.7.0",
+    "axios": "^0.19.0",
     "babel-eslint": "^10.0.1",
     "chalk": "^2.4.2",
     "chokidar": "^3.1.0",
@@ -22,6 +24,7 @@
     "lerna": "^3.13.2",
     "minimist": "^1.2.0",
     "rax-scripts": "^2.0.2",
+    "semver": "^6.3.0",
     "typescript": "^3.6.3"
   }
 }
