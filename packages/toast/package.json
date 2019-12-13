@@ -1,7 +1,7 @@
 {
   "name": "universal-toast",
   "author": "rax",
-  "version": "1.0.2-beta.5",
+  "version": "1.0.2",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
