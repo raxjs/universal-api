@@ -13,32 +13,23 @@ $ npm install universal-device --save
 ## Usage
 
 ```javascript
-import { platform, appName, screenWidth, screenHeight, px2rpx  } from 'universal-device';
+import { platform, appName, screenWidth, screenHeight, appVersion } from 'universal-device';
 
 ```
 
 ## APIS
 
-### `appName: string`
+### `appName: String`
 app name or browser name
 
-### `platform: string`
+### `appVersion: String`
+app version or browser version info
+
+### `platform: String`
 platform: 'Android'、'iOS'、'MacIntel', etc.
 
-### `screenWidth: number`
+### `screenWidth: Number`
 Screen width in px
 
-### `screenHeight: number`
+### `screenHeight: Number`
 Screen height in px
-
-### `px2rpx(val)`
-px to rpx method
-
-### `rpx2px(val)`
-rpx to px method
-
-#### Arguments
-| Property | Type     | Describes | Default | Supports |
-| -------- | -------- | --------- | :-----: | :------: |
-| val      | `number` | px value  |    -    |          |
-

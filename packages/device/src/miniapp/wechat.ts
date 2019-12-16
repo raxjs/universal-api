@@ -2,7 +2,7 @@ declare const wx: any;
 let systemInfo;
 
 function getSystemInfo() {
-  systemInfo = wx.getSystemInfoSync();
+  if (!systemInfo) return systemInfo = wx.getSystemInfoSync();
   return systemInfo;
 }
 const module = {};
@@ -19,6 +19,9 @@ const module = {};
 }, {
   key: 'screenHeight',
   getFn: () => getSystemInfo().screenHeight
+}, {
+  key: 'appVersion',
+  getFn: () => getSystemInfo().version
 }].forEach(({key, getFn}) => {
   Object.defineProperty(module, key, {
     get: getFn

@@ -44,7 +44,7 @@ Clipboard.writeText('text').then(() => {
 #### 支持
 <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
 
-#### 入参
+#### 参数
 | 成员 | 类型     | 描述           | 默认值 |
 | ---- | -------- | -------------- | :----: |
 | text | `string` | 设置剪贴板数据 |   -    |

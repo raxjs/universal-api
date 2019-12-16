@@ -41,7 +41,7 @@ animate({
 
 <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />
 
-#### 入参
+#### 参数
 
 | 成员 | 类型 | 描述 | 必选 |默认值 | 支持 |
 | --- | --- | --- | --- | --- |  --- |
@@ -68,7 +68,7 @@ config.props数组成员内容:
 
 因为小程序无法提供`DOMNode`，并且动画应用方式也有差异。所以小程序中使用该方法获取动画内容，然后手动绑定到元素。
 
-#### 入参
+#### 参数
 
 无
 
