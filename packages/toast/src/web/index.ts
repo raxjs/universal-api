@@ -36,29 +36,23 @@ let styles = {
 function showToastWindow(message: string): void {
   if (!toastWin) {
     toastWin = document.createElement('div');
-
     for (let key in styles.container) {
       toastWin.style[key] = styles.container[key];
     }
-
     document.body.appendChild(toastWin);
   }
 
   toastWin.textContent = message;
   toastWin.style.transform = 'translateX(-50%)';
   toastWin.style.webkitTransform = 'translateX(-50%)';
-
-  // setTimeout(() => {
-  //   toastWin.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
-  // }, 0);
 }
 
 function hideToastWindow(): void {
-  if (!toastWin) return;
-
   setTimeout((): void => {
-    toastWin.style.transform = 'translateX(-50%) scale(0.8)';
-    toastWin.style.webkitTransform = 'translateX(-50%) scale(0.8)';
+    if (toastWin && toastWin.style) {
+      toastWin.style.transform = 'translateX(-50%) scale(0.8)';
+      toastWin.style.webkitTransform = 'translateX(-50%) scale(0.8)';
+    }
   }, 0);
 }
 
