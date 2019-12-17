@@ -1,6 +1,6 @@
 {
   "name": "universal-animation",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A universal animation API.",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
@@ -29,8 +29,8 @@
     "npm": ">=3.0.0"
   },
   "dependencies": {
-    "universal-env": "^2.0.0",
-    "universal-transition": "^1.0.0",
+    "universal-env": "^3.0.0",
+    "universal-transition": "^1.0.1",
     "weex-bindingx": "^0.0.49"
   },
   "devDependencies": {

@@ -1,47 +1,55 @@
 'use strict';
-
+import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram } from 'universal-env';
 import binding from 'weex-bindingx';
-import { isWeex, isMiniApp } from 'universal-env';
 import transition from 'universal-transition';
+import transformProperty from './transformProperty';
+import transformEasing from './transformEasing';
+import formatBezier from './formatBezier';
+import { find, map, forEach } from './utils';
 
-let isSupportBinding = binding.isSupportNewBinding;
+const inMiniApp = isMiniApp || isWeChatMiniProgram;
 
-function find(o, condition) {
-  let result = null;
-  forEach(o, (v, k) => {
-    if (typeof condition === 'function') {
-      if (condition(v, k)) {
-        result = v;
-      }
-    } else {
-      let propName = Object.keys(condition)[0];
-      if (propName && v[propName] === condition[propName]) {
-        result = v;
-      }
+function getSupportBinding() {
+  return binding && binding.isSupportNewBinding;
+}
+
+function initDefaultProps(props) {
+  map(props, prop => {
+    prop.delay = prop.delay > 0 ? prop.delay : 0;
+    prop.duration = prop.duration >= 0 ? prop.duration : 350;
+  });
+  return props;
+}
+
+function getMaxDuration(props) {
+  let maxDuration = 0;
+  map(props, prop => {
+    if (prop.duration + prop.delay > maxDuration) {
+      maxDuration = prop.duration + prop.delay;
     }
   });
-  return result;
+  return maxDuration;
 }
 
-function forEach(o, fn) {
-  if (o instanceof Array) {
-    return Array.prototype.forEach.call(o, fn);
+export function getInitProperty(el, name) {
+  if (!el) return 0;
+  name = name.replace(/transform\./, '');
+  let style = binding.getComputedStyle(isWeex ? el.ref : el);
+  switch (name) {
+    case 'scale':
+      name = 'scaleX';
+      break;
+    case 'translate':
+      name = 'translateX';
+      break;
+    case 'rotate':
+      name = 'rotateZ';
+      break;
   }
-  Object.keys(o).forEach((key) => {
-    fn(o[key], key);
-  });
-}
-
-function map(o, fn) {
-  if (o instanceof Array) {
-    return Array.prototype.map.call(o, fn);
-  } else {
-    let result = [];
-    forEach(o, (v, k) => {
-      result.push(fn(v, k));
-    });
-    return result;
+  if (style && undefined !== style[name]) {
+    return style[name];
   }
+  return 0;
 }
 
 class Animation {
@@ -56,46 +64,45 @@ class Animation {
     let maxDuration = 0;
     let callbackFlag = false;
 
-    map(options.props, (prop) => {
-      prop.delay = prop.delay > 0 ? prop.delay : 0;
-      prop.duration = prop.duration >= 0 ? prop.duration : 350;
-      // get max duration
-      if (prop.duration + prop.delay > maxDuration) {
-        maxDuration = prop.duration + prop.delay;
-      }
-      // let {start} = prop;
-      let start = undefined !== prop.start ? prop.start : getInitProperty(prop.element, prop.property);
-      // TODO start should be optional
-      // let start = binding.getComputedStyle(prop.element)[prop.property.replace(/transform\./, '')];
-      // console.error(binding.getComputedStyle(prop.element),prop.property,start)
-      // TODO cubicBezier support
-      // let bezier = formatBezier(easing);
-      let bezier = formatBezier(prop.easing || easing);
-      let expression = bezier && bezier.length === 4 ?
-        `cubicBezier(t-${prop.delay},${start},${prop.end - start},${prop.duration},${bezier.join(',')})`
-        : `${prop.easing || easing}(t-${prop.delay},${start},${prop.end - start},${prop.duration})`;
-      if (prop && prop.element) {
-        props.push({
-          element: isWeex ? prop.element.ref : prop.element,
-          expression: `t>=${prop.delay}?${expression}:${start}`,
-          property: prop.property
-        });
-      }
-    });
+    options.props = initDefaultProps(options.props);
+    maxDuration = getMaxDuration(options.props);
 
-    if (isSupportBinding && !options.forceTransition && !isMiniApp) {
-      let res = binding.bind({
-        eventType: 'timing',
-        exitExpression: `t>${maxDuration}`,
-        props
-      }, (e) => {
-        if (e && e.state === 'exit') {
-          callback && callback(e);
+    // web || weex
+    if (getSupportBinding()) {
+      map(options.props, (prop) => {
+        // let {start} = prop;
+        let start = undefined !== prop.start ? prop.start : getInitProperty(prop.element, prop.property);
+        // TODO start should be optional
+        // let start = binding.getComputedStyle(prop.element)[prop.property.replace(/transform\./, '')];
+        // console.error(binding.getComputedStyle(prop.element),prop.property,start)
+        // TODO cubicBezier support
+        // let bezier = formatBezier(easing);
+        let bezier = formatBezier(prop.easing || easing);
+        let expression = bezier && bezier.length === 4 ?
+          `cubicBezier(t-${prop.delay},${start},${prop.end - start},${prop.duration},${bezier.join(',')})`
+          : `${prop.easing || easing}(t-${prop.delay},${start},${prop.end - start},${prop.duration})`;
+        if (prop && prop.element) {
+          props.push({
+            element: isWeex ? prop.element.ref : prop.element,
+            expression: `t>=${prop.delay}?${expression}:${start}`,
+            property: prop.property
+          });
         }
       });
+      if (!options.forceTransition) {
+        let res = binding.bind({
+          eventType: 'timing',
+          exitExpression: `t>${maxDuration}`,
+          props
+        }, (e) => {
+          if (e && e.state === 'exit') {
+            callback && callback(e);
+          }
+        });
 
-      this.token = res && res.token;
-    } else {
+        this.token = res && res.token;
+      }
+    } else if (inMiniApp) {
       // make transition groupby element
       let transitionMap = [];
       let miniAppResult = {};
@@ -124,7 +131,6 @@ class Animation {
           }
         }
       });
-
       map(transitionMap, (o) => {
         let transitionProps = {
           ...o.props,
@@ -133,34 +139,21 @@ class Animation {
             webkitTransform: o.props.transform.join(' ')
           } : {}
         };
-        if (isMiniApp) {
-          miniAppResult[o.element] = transition('', transitionProps, {
-            duration: o.duration,
-            timingFunction: o.easing,
-            delay: o.delay
-          }).export();
-        } else {
-          transition(o.element, transitionProps, {
-            duration: o.duration,
-            timingFunction: o.easing,
-            delay: o.delay
-          }, (e) => {
-            if (o.duration === maxDuration && !callbackFlag) {
-              callback && callback(e);
-              callbackFlag = true;
-            }
-          });
-        }
+        miniAppResult[o.element] = transition('', transitionProps, {
+          duration: o.duration,
+          timingFunction: o.easing,
+          delay: o.delay
+        }).export();
       });
 
-      if (isMiniApp) {
+      if (inMiniApp) {
         this.miniAppResult = miniAppResult;
       }
     }
   }
 
   stop() {
-    if (isSupportBinding && this.token) {
+    if (getSupportBinding() && this.token) {
       return binding.unbind({
         eventType: 'timing',
         token: this.token
@@ -172,99 +165,6 @@ class Animation {
   export() {
     return this.miniAppResult || '';
   }
-}
-
-export function getInitProperty(el, name) {
-  if (!el) return 0;
-  name = name.replace(/transform\./, '');
-  let style = binding.getComputedStyle(isWeex ? el.ref : el);
-  switch (name) {
-    case 'scale':
-      name = 'scaleX';
-      break;
-    case 'translate':
-      name = 'translateX';
-      break;
-    case 'rotate':
-      name = 'rotateZ';
-      break;
-  }
-  if (style && undefined !== style[name]) {
-    return style[name];
-  }
-  return 0;
-}
-
-
-function formatBezier(easing) {
-  if (easing) {
-    let m = easing.match(/cubicBezier\((.+),(.+),(.+),(.+)\)/);
-    return m && [m[1], m[4], m[3], m[4]];
-  }
-}
-
-// transform easing from binding to transition timingFunction
-export function transformEasing(easing) {
-  let bezier = formatBezier(easing);
-
-  if (bezier && bezier.length === 4) {
-    return `cubic-bezier(${bezier.join(',')})`;
-  }
-
-  let map = {
-    'easeInSine': 'ease-in',
-    'easeOutSine': 'ease-out',
-    'easeInOutSine': 'ease-in-out',
-    'linear': 'linear'
-  };
-
-
-  return map[easing] || 'ease-out';
-}
-
-// transform property from binding to transition
-export function transformProperty(propName, propVal) {
-  let key;
-  let value;
-  let result = {};
-  switch (propName) {
-    case 'transform.translateX':
-      key = 'transform';
-      value = ['translateX(' + propVal + 'rem)'];
-      break;
-    case 'transform.translateY':
-      key = 'transform';
-      value = ['translateY(' + propVal + 'rem)'];
-      break;
-    case 'transform.scaleX':
-      key = 'transform';
-      value = ['scaleX(' + propVal + ')'];
-      break;
-    case 'transform.scaleY':
-      key = 'transform';
-      value = ['scaleY(' + propVal + ')'];
-      break;
-    case 'transform.scale':
-      key = 'transform';
-      value = ['scale(' + propVal + ')'];
-      break;
-    case 'transform.rotate':
-      key = 'transform';
-      value = ['rotate(' + propVal + 'deg)'];
-      break;
-    default:
-      key = propName;
-      value = propVal;
-      break;
-  }
-  if (key && value !== undefined) {
-    result[key] = value;
-    // solve in old version browser
-    if (key == 'transform') {
-      result.webkitTransform = value;
-    }
-  }
-  return result;
 }
 
 function animate(options = {}, callback) {

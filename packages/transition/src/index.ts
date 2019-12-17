@@ -1,4 +1,4 @@
-import { isWeex, isMiniApp, isWeb, isWeChatMiniprogram } from 'universal-env';
+import { isWeex, isMiniApp, isWeb, isWeChatMiniProgram } from 'universal-env';
 import webModule from './web/index';
 import weexModule from './weex/index';
 import miniAppModule from './miniapp/ali/index';
@@ -11,7 +11,7 @@ if (isWeb) {
   transition = weexModule;
 } else if (isMiniApp) {
   transition = miniAppModule;
-} else if (isWeChatMiniprogram) {
+} else if (isWeChatMiniProgram) {
   transition = weChatModule;
 }
 

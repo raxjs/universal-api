@@ -25,7 +25,8 @@
   "homepage": "https://github.com/raxjs/universal-api#readme",
   "dependencies": {
     "style-unit": "^2.0.0",
-    "universal-env": "^2.0.0"
+    "universal-device": "^1.0.3",
+    "universal-env": "^3.0.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.18",
