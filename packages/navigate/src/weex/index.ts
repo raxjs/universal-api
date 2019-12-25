@@ -1,4 +1,4 @@
-import { PushOptions, PopOptions, GoOptions } from '../types';
+import { IPushOptions, IPopOptions, IGoOptions } from '../types';
 
 // eslint-disable-next-line
 declare const __weex_require__: any;
@@ -8,7 +8,7 @@ function getNavigator() {
   return weexModule = weexModule || __weex_require__('@weex-module/navigator');
 }
 
-const push = (options: PushOptions): Promise<null> => {
+const push = (options: IPushOptions): Promise<null> => {
   return new Promise((resolve): void => {
     const { url, animated = true } = options;
     getNavigator().push({
@@ -20,7 +20,7 @@ const push = (options: PushOptions): Promise<null> => {
   });
 };
 
-const pop = (options?: PopOptions): Promise<null> => {
+const pop = (options?: IPopOptions): Promise<null> => {
   return new Promise((resolve): void => {
     const animated = options ? options.animated ? options.animated : true : true;
     getNavigator().pop({
@@ -31,7 +31,7 @@ const pop = (options?: PopOptions): Promise<null> => {
   });
 };
 
-const go = (options: GoOptions): Promise<null> => {
+const go = (options: IGoOptions): Promise<null> => {
   return new Promise((resolve, reject): void => {
     const { step, animated = true } = options;
     if (step < 0) {

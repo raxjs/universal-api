@@ -1,19 +1,19 @@
-export interface PushOptions {
+export interface IPushOptions {
   url: string;
   animated?: boolean;
 }
 
-export interface PopOptions {
+export interface IPopOptions {
   animated?: boolean;
 }
 
-export interface GoOptions {
+export interface IGoOptions {
   step: number;
   animated?: boolean;
 }
 
-export interface Navigate {
-  push(options: PushOptions): Promise<null>;
-  go(options: GoOptions): Promise<null>;
-  pop(options: GoOptions): Promise<null>;
+export interface INavigate {
+  push(options: IPushOptions): Promise<null>;
+  go(options: IGoOptions): Promise<null>;
+  pop(options: IGoOptions): Promise<null>;
 }
