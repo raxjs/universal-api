@@ -1,27 +1,60 @@
-import { isWeb, isWeex, isMiniApp, isWeChatMiniprogram } from 'universal-env';
+import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram } from 'universal-env';
 import webModule from './web/index';
 import weexModule from './weex/index';
 import miniAppModule from './miniapp/ali/index';
 import weChatModule from './miniapp/wechat/index';
 
-import { Navigate } from './types';
+import { INavigate } from './types';
 
-let Navigate: Navigate;
-
-if (isWeb) {
-  Navigate = webModule;
+function dutyChain(...fns) {
+  for (let i = 0; i < fns.length; i++) {
+    const result = fns[i]();
+    if (result) {
+      return result;
+    }
+  }
 }
 
-if (isWeex) {
-  Navigate = weexModule;
+function handleWeb() {
+  if (isWeb) {
+    return webModule;
+  }
+  return null;
 }
 
-if (isMiniApp) {
-  Navigate = miniAppModule;
+function handleWeex() {
+  if (isWeex) {
+    return weexModule;
+  }
+  return null;
 }
 
-if (isWeChatMiniprogram) {
-  Navigate = weChatModule;
+function handleMiniApp() {
+  if (isMiniApp) {
+    return miniAppModule;
+  }
+  return null;
 }
 
+function handleWeChat() {
+  if (isWeChatMiniProgram) {
+    return weChatModule;
+  }
+  return null;
+}
+
+// Default module is web
+function handleDefault() {
+  return webModule;
+}
+
+const Navigate: INavigate = dutyChain(
+  handleWeb,
+  handleWeex,
+  handleMiniApp,
+  handleWeChat,
+  handleDefault
+);
+
+// Web should be first
 export default Navigate;
