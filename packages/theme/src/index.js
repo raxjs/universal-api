@@ -15,5 +15,5 @@ export function setTheme(config) {
 }
 
 export function getCSSVariable() {
-	return store;
+	return store.theme;
 }
