@@ -1,0 +1,35 @@
+{
+  "name": "universal-theme",
+  "author": "yacheng",
+  "version": "0.0.1-1",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "src/index.js",
+  "files": [
+    "src",
+    "lib",
+    "dist"
+  ],
+  "scripts": {
+    "start": "build-scripts start",
+    "build": "build-scripts build"
+  },
+  "pre-commit": ["lint"],
+  "keywords": [
+    "Rax"
+  ],
+  "engines": {
+    "npm": ">=3.0.0"
+  },
+  "dependencies": {
+    "@rax-ui/core": "1.0.0-beta.26"
+  },
+  "devDependencies": {
+    "driver-universal": "^3.0.0",
+    "rax": "^1.1.0",
+    "rax-text": "^1.0.1",
+    "rax-view": "^1.0.2",
+    "build-plugin-rax-component": "^0.1.0",
+    "@alib/build-scripts": "^0.1.0"
+  }
+}

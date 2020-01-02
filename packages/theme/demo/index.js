@@ -1,0 +1,19 @@
+import { createElement, render } from 'rax';
+import UniversalDriver from 'driver-universal';
+import View from 'rax-view';
+import Text from 'rax-text';
+import api from '../src/index';
+
+function App () {
+  const handleClick = () => {
+    api().then(() => {
+      alert('click!');
+    });
+  }
+
+  return (<View>
+    <Text onClick={handleClick}>Click</Text>
+  </View>);
+}
+
+render(<App />, document.body, { driver: UniversalDriver });
