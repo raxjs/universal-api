@@ -5,14 +5,14 @@ let store = {
 };
 
 export function setTheme(config) {
-	store = {
-	  theme: {
-	    ...store.theme,
-	    ...config,
-	  }
-	};
+  store = {
+    theme: {
+      ...store.theme,
+      ...config,
+    }
+  };
 }
 
 export function getCSSVariables() {
-	return store.theme;
+  return store.theme;
 }
