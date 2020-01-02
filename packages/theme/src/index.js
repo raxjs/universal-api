@@ -1,12 +1,11 @@
 import raxUICore from '@rax-ui/core';
 
-var store = {
+let store = {
   theme: raxUICore,
 };
 
 export function setTheme(config) {
 	store = {
-	  ...store,
 	  theme: {
 	    ...store.theme,
 	    ...config,
