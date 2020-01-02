@@ -1,6 +1,6 @@
 # universal-theme [![npm](https://img.shields.io/npm/v/universal-theme.svg)](https://www.npmjs.com/package/universal-theme)
 
-Universal theme, you can customize your theme with CSS variables
+你可以通过使用 CSS 变量的方式定制你的主题
 
 ## Support
 <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" />
@@ -13,8 +13,8 @@ $ npm install universal-theme --save
 
 ## Usage
 
-use `build-plugin-rax-theme` in your build.json
-Note that the value of `forceInline` must be true
+在 build.json 中需要配置 `build-plugin-rax-theme`。
+注意：`forceInline` 的值需要设置为 true。
 
 `
 {
@@ -32,7 +32,7 @@ Note that the value of `forceInline` must be true
 }
 `
 
-in css
+CSS 变量的使用
 
 ```css
 .text {
@@ -40,7 +40,7 @@ in css
 }
 ```
 
-in js
+JS 中定义变量值
 
 ```js
 import { setTheme, getCSSVariables } from 'universal-theme';
@@ -59,8 +59,8 @@ setTheme(themeConfig);
 #### Arguments
 | Property | Type     | Description                                 | Default |
 | -------- | -------- | ------------------------------------------- | :-----: |
-| themeConfig  | `object` | customize your theme with CSS variables     |    -    |
+| themeConfig  | `object` | 传入皮肤对象     |    -    |
 
 ### `getCSSVariables()`
 
-get all CSS variables.
+获取全部 CSS 变量
