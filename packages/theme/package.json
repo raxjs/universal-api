@@ -2,7 +2,7 @@
   "name": "universal-theme",
   "author": "yacheng",
   "version": "0.0.1",
-  "description": "",
+  "description": "rax theme with css variables",
   "main": "lib/index.js",
   "module": "src/index.js",
   "files": [
