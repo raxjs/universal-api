@@ -1,14 +1,17 @@
 import raxUICore from '@rax-ui/core';
 
 const PREFIX = '--';
-const bodyStyle = document.body && document.body.style;
-const isThemeWeb = typeof window === 'object' && typeof window.getComputedStyle === 'function' && typeof bodyStyle.setProperty === 'function';
+const bodyStyle = typeof document === 'object' && typeof document.body === 'object' && document.body.style;
+let canUseComputedStyle = false;
+if (bodyStyle) {
+	canUseComputedStyle = typeof window === 'object' && typeof window.getComputedStyle === 'function' && typeof bodyStyle.setProperty === 'function';
+}
 
 // use the base theme
 let pageTheme = { ...raxUICore };
 
 // use the window.getComputedStyle 
-if (isThemeWeb) {
+if (canUseComputedStyle) {
   // Using CSS custom properties (variables)
   // Create CSS variables on body
   for (let key in pageTheme) {
@@ -19,8 +22,7 @@ if (isThemeWeb) {
   window.getComputedStyle = () => {
     return {
       getPropertyValue: (key) => {
-        console.log('getPropertyValue', key);
-        return pageTheme[key.substr(2)]
+        return pageTheme[key.substr(2)];
       }
     }
   };
@@ -28,7 +30,7 @@ if (isThemeWeb) {
 
 // set new CSS variables
 export function setCSSVariables(config) {
-  if (isThemeWeb) {
+  if (canUseComputedStyle) {
     for (let key in config) {
       bodyStyle.setProperty(PREFIX + key, config[key]);
     }
@@ -42,7 +44,7 @@ export function setCSSVariables(config) {
 
 // set new CSS variable
 export function setCSSVariable(key, value) {
-  if (isThemeWeb) {
+  if (canUseComputedStyle) {
     bodyStyle.setProperty(PREFIX + key, value);
   } else {
     pageTheme[key] = value;
