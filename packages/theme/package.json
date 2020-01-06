@@ -1,6 +1,6 @@
 {
   "name": "universal-theme",
-  "author": "yacheng",
+  "author": "rax",
   "version": "0.0.1",
   "description": "rax theme with css variables",
   "main": "lib/index.js",
