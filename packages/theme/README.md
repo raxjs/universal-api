@@ -43,24 +43,29 @@ in css
 in js
 
 ```js
-import { setTheme, getCSSVariables } from 'universal-theme';
+import { setCSSVariables, getCSSVariable } from 'universal-theme';
 
 const themeConfig = {
   'color-error-1': 'red'
 };
 
-setTheme(themeConfig);
+setCSSVariables(themeConfig);
 ```
 
 ## Methods
 
-### `setTheme(themeConfig: object)`
+### `setCSSVariables(themeConfig: object)`
 
 #### Arguments
 | Property | Type     | Description                                 | Default |
 | -------- | -------- | ------------------------------------------- | :-----: |
 | themeConfig  | `object` | customize your theme with CSS variables     |    -    |
 
-### `getCSSVariables()`
 
-get all CSS variables.
+### `setCSSVariable(key: string, value: string)`
+
+set CSS variable.
+
+### `getCSSVariable(key: string)`
+
+get CSS variable.

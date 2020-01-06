@@ -43,24 +43,28 @@ CSS 变量的使用
 JS 中定义变量值
 
 ```js
-import { setTheme, getCSSVariables } from 'universal-theme';
+import { setCSSVariables, getCSSVariable } from 'universal-theme';
 
 const themeConfig = {
   'color-error-1': 'red'
 };
 
-setTheme(themeConfig);
+setCSSVariables(themeConfig);
 ```
 
 ## Methods
 
-### `setTheme(themeConfig: object)`
+### `setCSSVariables(themeConfig: object)`
 
 #### Arguments
 | Property | Type     | Description                                 | Default |
 | -------- | -------- | ------------------------------------------- | :-----: |
 | themeConfig  | `object` | 传入皮肤对象     |    -    |
 
-### `getCSSVariables()`
+### `setCSSVariable(key: string, value: string)`
 
-获取全部 CSS 变量
+设置单个 CSS 变量
+
+### `getCSSVariable(key: string)`
+
+获取单个 CSS 变量
