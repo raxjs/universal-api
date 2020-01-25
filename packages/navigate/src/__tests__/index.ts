@@ -8,7 +8,6 @@ jest.mock('universal-env', (): object => {
 
 describe('navigate to in web', (): void => {
   it('Push works with resolves', (): void => {
-    // eslint-disable-next-line
     (global as any).window = Object.create(window);
     const url = 'https://github.com/';
     Object.defineProperty(window, 'location', {
@@ -22,7 +21,6 @@ describe('navigate to in web', (): void => {
   });
 
   it('Pop works with resolves', (): void => {
-    // eslint-disable-next-line
     (global as any).window.history = {
       go: (): void => {}
     };
@@ -30,7 +28,6 @@ describe('navigate to in web', (): void => {
   });
 
   it('works step value of -1 with resolves', (): void => {
-    // eslint-disable-next-line
     (global as any).window.history = {
       go: (): void => {}
     };

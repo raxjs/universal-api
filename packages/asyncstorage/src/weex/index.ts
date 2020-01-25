@@ -1,6 +1,6 @@
 import { AsyncStorage } from '../types';
 
-// eslint-disable-next-line
+
 declare const __weex_require__: any;
 let storage: any;
 

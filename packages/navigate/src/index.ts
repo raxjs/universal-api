@@ -4,7 +4,7 @@ import weexModule from './weex/index';
 import miniAppModule from './miniapp/ali/index';
 import weChatModule from './miniapp/wechat/index';
 
-import { INavigate } from './types';
+import { Navigate } from './types';
 
 function dutyChain(...fns) {
   for (let i = 0; i < fns.length; i++) {
@@ -48,7 +48,7 @@ function handleDefault() {
   return webModule;
 }
 
-const Navigate: INavigate = dutyChain(
+const Navigate: Navigate = dutyChain(
   handleWeb,
   handleWeex,
   handleMiniApp,

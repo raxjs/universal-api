@@ -9,6 +9,7 @@
     "start": "rax-scripts start",
     "build": "rax-scripts build",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src",
+    "test": "rax-scripts test",
     "prebuild": "npm run lint",
     "prepublish": "npm run build"
   },
@@ -18,18 +19,19 @@
   "engines": {
     "npm": ">=3.0.0"
   },
-  "dependencies": {},
+  "peerDependencies": {
+    "rax": "^1.0.4",
+    "driver-dom": "^1.0.0"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.13",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
     "@typescript-eslint/parser": "^1.7.0",
     "babel-eslint": "^10.0.1",
-    "driver-dom": "^1.0.0",
     "eslint": "^5.15.1",
     "eslint-config-rax": "^0.0.0",
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-react": "^7.12.4",
-    "rax": "^1.0.4",
     "rax-plugin-api-builder": "^0.0.1",
     "rax-plugin-component": "^0.1.5",
     "rax-scripts": "^2.0.0",

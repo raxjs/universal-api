@@ -11,7 +11,6 @@ jest.mock('universal-env', (): object => {
 describe('Toast in miniapp', (): void => {
   it('show works with call', (): void => {
     const mockShow = jest.fn();
-    // eslint-disable-next-line
     (global as any).my = {
       showToast: mockShow
     };

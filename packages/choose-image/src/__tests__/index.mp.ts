@@ -8,7 +8,7 @@ jest.mock('universal-env', (): object => {
   };
 });
 
-// eslint-disable-next-line
+
 (global as any).my = {
   chooseImage: (options): void => {
     options.success({

@@ -1,8 +1,8 @@
-import { IPushOptions, IGoOptions } from '../../types';
+import { PushOptions, GoOptions } from '../../types';
 
 declare const my: any;
 
-const push = (options: IPushOptions): Promise<null> => {
+const push = (options: PushOptions): Promise<null> => {
   return new Promise((resolve, reject): void => {
     const { url } = options;
     my.navigateTo({
@@ -23,7 +23,7 @@ const pop = (): Promise<null> => {
   });
 };
 
-const go = (options: IGoOptions): Promise<null> => {
+const go = (options: GoOptions): Promise<null> => {
   return new Promise((resolve, reject): void => {
     const { step } = options;
     if (step < 0) {

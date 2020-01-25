@@ -69,7 +69,6 @@ let toast = {
     // All messages had been toasted already, so remove the toast window,
     if (!queue.length) {
       if (toastWin) {
-        // eslint-disable-next-line
         (toastWin as any).parentNode.removeChild(toastWin);
       }
       (toastWin as any) = null;

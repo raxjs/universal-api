@@ -7,11 +7,11 @@ jest.mock('universal-env', (): object => {
   };
 });
 
-// eslint-disable-next-line
+
 (global as any).weex = {
   requireModule: require
 };
-// eslint-disable-next-line
+
 (global as any).window = {
   screen: {
     width: 750

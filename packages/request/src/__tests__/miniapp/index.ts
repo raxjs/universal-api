@@ -12,7 +12,7 @@ jest.mock('universal-env', () => {
 
 const mockRequestFn = jest.fn();
 
-// eslint-disable-next-line
+
 (global as any).my = {
   request: mockRequestFn
 };

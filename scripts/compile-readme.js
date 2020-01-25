@@ -27,7 +27,7 @@ function buildPackage(packagesDir, packageDir) {
   let mdFileNames = [];
   try {
     mdFileNames = fs.readdirSync(path.resolve(packageDir, DOCS_TEMP_DIR));
-  } catch(e) {};
+  } catch (e) {};
   const iconArr = ['__icon_web__', '__icon_weex__', '__icon_miniapp_mp__', '__icon_miniapp_wx__'];
   const iconMap = {
     __icon_web__: '<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" />',
@@ -51,7 +51,6 @@ function buildPackage(packagesDir, packageDir) {
       process.stdout.write(`[  ${chalk.green('OK')}  ]\n`);
     });
   });
-
 }
 
 function getPackages(packagesDir, customPackages) {

@@ -78,6 +78,6 @@ module.exports = function compile(packagesName = 'packages') {
     getPackages(packagesDir, customPackages).forEach(buildPackage.bind(null, packagesDir));
     process.stdout.write('\n');
   }
-}
+};
 
 // spawnSync('mkdir', ['-p', '/Users/balloon/Desktop/workSpace/raxjs/universal-api/packages/universal-network-type/dist']);

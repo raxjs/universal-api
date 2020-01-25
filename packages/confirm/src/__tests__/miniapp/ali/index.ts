@@ -1,7 +1,7 @@
 import confirm from '../../../miniapp/ali';
 import { Options } from '../../../types';
 
-// eslint-disable-next-line
+
 (global as any).my = {
   confirm: (options): void => {
     options.success({confirm: true});

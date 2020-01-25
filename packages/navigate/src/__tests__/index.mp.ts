@@ -6,7 +6,6 @@ jest.mock('universal-env', (): object => {
 
 describe('navigate to in mini app', (): void => {
   it('Push works with promises', (): Promise<void> => {
-    // eslint-disable-next-line
     (global as any).my = {
       navigateTo: (options): void => {
         options.success();
@@ -19,7 +18,6 @@ describe('navigate to in mini app', (): void => {
   });
 
   it('Pop works with promises', (): Promise<void> => {
-    // eslint-disable-next-line
     (global as any).my = {
       navigateBack: (options): void => {
         options.success();
@@ -31,7 +29,6 @@ describe('navigate to in mini app', (): void => {
 
 
   it('tests error with promises', (): void => {
-    // eslint-disable-next-line
     (global as any).my = {
       navigateTo: (options): void => {
         options.fail();
@@ -44,7 +41,6 @@ describe('navigate to in mini app', (): void => {
   });
 
   it('works step value of -1 with resolves', (): void => {
-    // eslint-disable-next-line
     (global as any).my = {
       navigateBack: (options): void => {
         options.success();

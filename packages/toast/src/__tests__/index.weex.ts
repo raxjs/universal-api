@@ -6,7 +6,7 @@ jest.mock('universal-env', (): object => {
     isWeb: false
   };
 });
-// eslint-disable-next-line
+
 (global as any).weex = {
   requireModule: require
 };

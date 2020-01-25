@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/camelcase
 global.__weex_require__ = (path) => {
   return require(path);
 };
@@ -30,7 +29,6 @@ describe('AppState in weex', () => {
   });
 
   it('AppState addEventListener', () => {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const globalEvent = require('@weex-module/globalEvent');
     const mockFn = jest.fn();
     AppState.addEventListener('change', mockFn);
@@ -39,7 +37,6 @@ describe('AppState in weex', () => {
   });
 
   it('AppState addEventListener error', () => {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const globalEvent = require('@weex-module/globalEvent');
     const mockFn = jest.fn();
     AppState.addEventListener('error', mockFn);
@@ -48,7 +45,6 @@ describe('AppState in weex', () => {
   });
 
   it('AppState removeEventListener', () => {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const globalEvent = require('@weex-module/globalEvent');
     const mockFn = jest.fn();
     AppState.addEventListener('change', mockFn);
@@ -58,7 +54,6 @@ describe('AppState in weex', () => {
   });
 
   it('AppState removeEventListener error', () => {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const globalEvent = require('@weex-module/globalEvent');
     const mockFn = jest.fn();
     AppState.removeEventListener('change', mockFn);

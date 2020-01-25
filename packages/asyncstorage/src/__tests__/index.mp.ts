@@ -1,7 +1,7 @@
 import AsyncStorage from '../miniapp';
 
 const storage = {};
-// eslint-disable-next-line
+
 (global as any).my = {
   getStorage: (options): void => {
     options.success({data: storage[options.key]});

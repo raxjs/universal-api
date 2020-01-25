@@ -1,7 +1,7 @@
 import confirm from '../../../miniapp/wechat';
 import { Options } from '../../../types';
 
-// eslint-disable-next-line
+
 (global as any).wx = {
   showModal: (options): void => {
     options.success({confirm: true});

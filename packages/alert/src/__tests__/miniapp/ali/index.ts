@@ -9,7 +9,7 @@ jest.mock('universal-env', (): object => {
   };
 });
 
-// eslint-disable-next-line
+
 (global as any).my = {
   alert: (options): void => {
     options.success();

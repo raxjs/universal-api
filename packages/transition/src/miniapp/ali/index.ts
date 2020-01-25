@@ -24,7 +24,6 @@ function parseTransform(transformValue) {
 export default function transition(node: any, styles: any, options: any, callback: any) {
   [options, callback] = processParams(options, callback);
 
-  // eslint-disable-next-line no-undef
   let animation = my.createAnimation(Object.assign({}, options, {
     timeFunction: options.timingFunction || 'ease',
   }));

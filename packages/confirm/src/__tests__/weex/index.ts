@@ -1,7 +1,7 @@
 import confirm from '../../weex';
 import { Options } from '../../types';
 
-// eslint-disable-next-line
+
 (global as any).weex = {
   requireModule: require
 };
