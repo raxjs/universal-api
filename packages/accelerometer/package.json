@@ -1,17 +1,18 @@
 {
-  "name": "universal-accelerometer",
+  "name": "accelerometer",
   "author": "rax",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "lib/index.js",
+  "module": "src/index.js",
   "files": [
     "src",
     "lib",
     "dist"
   ],
   "scripts": {
-    "start": "rax-scripts start",
-    "build": "rax-scripts build"
+    "start": "build-scripts start",
+    "build": "build-scripts build"
   },
   "pre-commit": [
     "lint"
@@ -22,12 +23,13 @@
   "engines": {
     "npm": ">=3.0.0"
   },
-  "dependencies": {
-    "universal-env": "^2.0.0"
-  },
   "devDependencies": {
-    "rax": "^1.0.8",
-    "rax-plugin-api": "^0.2.0",
-    "rax-scripts": "^2.0.0"
+    "@alib/build-scripts": "^0.1.0",
+    "build-plugin-rax-component": "^0.1.0",
+    "driver-universal": "^3.0.0",
+    "rax": "^1.1.0",
+    "rax-text": "^1.0.1",
+    "rax-view": "^1.0.2",
+    "universal-env": "^3.0.0"
   }
 }

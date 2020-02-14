@@ -2,8 +2,6 @@
   "compilerOptions": {
     "module": "esNext",
     "target": "es5",
-    "jsx": "preserve",
-    "jsxFactory": "createElement",
 
     "moduleResolution": "node",
     "baseUrl": ".",
