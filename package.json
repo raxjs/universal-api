@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./ --fix",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ./",
+    "lint-fix": "eslint --ext .js,.jsx,.ts,.tsx ./ --fix",
     "start": "node ./scripts/compile-packages.js --watch",
     "build": "node ./scripts/compile-packages.js",
     "check-and-publish": "node ./scripts/check-and-publish.js",
@@ -24,7 +25,6 @@
     "glob": "^7.1.4",
     "lerna": "^3.13.2",
     "minimist": "^1.2.0",
-    "rax-scripts": "^2.0.2",
     "semver": "^6.3.0",
     "typescript": "^3.6.3"
   }
