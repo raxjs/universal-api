@@ -1,4 +1,5 @@
-import { isMiniApp, isWeChatMiniprogram } from 'universal-env';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { isMiniApp, isWeChatMiniProgram } from 'universal-env';
 import * as miniAppModule from './miniapp/ali';
 import * as weChatModule from './miniapp/wechat';
 
@@ -8,7 +9,7 @@ let ActionSheet: ActionSheet;
 if (isMiniApp) {
   ActionSheet = miniAppModule;
 }
-if (isWeChatMiniprogram) {
+if (isWeChatMiniProgram) {
   ActionSheet = weChatModule;
 }
 
