@@ -1,4 +1,4 @@
-# universal-dom-info [![npm](https://img.shields.io/npm/v/universal-dom-info.svg)](https://www.npmjs.com/package/universal-dom-info)
+# universal-dom [![npm](https://img.shields.io/npm/v/universal-dom.svg)](https://www.npmjs.com/package/universal-dom)
 
 获取 DOM 节点的信息.
 
@@ -8,14 +8,14 @@
 ## 安装
 
 ```bash
-$ npm install universal-dom-info --save
+$ npm install universal-dom --save
 ```
 
 ## 使用
 
 ```js
 import { createElement, useEffect, Fragment } from 'rax';
-import { getScrollOffset, getBoundingClientRect } from 'universal-dom-info';
+import { getScrollOffset, getBoundingClientRect } from 'universal-dom';
 
 function App() {
   useEffect({

@@ -1,21 +1,21 @@
-# universal-dom-info [![npm](https://img.shields.io/npm/v/universal-dom-info.svg)](https://www.npmjs.com/package/universal-dom-info)
+# universal-dom [![npm](https://img.shields.io/npm/v/universal-dom.svg)](https://www.npmjs.com/package/universal-dom)
 
 Get dom info.
 
 ## Support
-<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" />
+__icon_miniapp_mp__ __icon_miniapp_wx__ __icon_web__
 
 ## Install
 
 ```bash
-$ npm install universal-dom-info --save
+$ npm install universal-dom --save
 ```
 
 ## Usage
 
 ```js
 import { createElement, useEffect, Fragment } from 'rax';
-import { getScrollOffset, getBoundingClientRect } from 'universal-dom-info';
+import { getScrollOffset, getBoundingClientRect } from 'universal-dom';
 
 function App() {
   useEffect({
