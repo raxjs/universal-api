@@ -1,4 +1,4 @@
 export interface DomInfo {
-  getScrollOffset: (string) => Promise<Array<any>>,
-  getBoundingClientRect: (string) => Promise<Array<any>>,
+  getScrollOffset: (string) => Promise<any[]>;
+  getBoundingClientRect: (string) => Promise<any[]>;
 }

@@ -1,10 +1,10 @@
-// eslint disable import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { isWeb, isMiniApp, isWeChatMiniProgram } from 'universal-env';
 import miniapp from './miniapp';
 import web from './web';
 import { DomInfo } from './types';
 
-let domInfo:DomInfo;
+let domInfo: DomInfo;
 
 if ((isMiniApp || isWeChatMiniProgram) && !isWeb) {
   // For cased that import wechat or miniapp sdk in web

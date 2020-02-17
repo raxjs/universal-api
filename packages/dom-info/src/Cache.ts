@@ -1,8 +1,8 @@
-// eslint disable import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { isWeb, isMiniApp, isWeChatMiniProgram } from 'universal-env';
 
-declare const my :any;
-declare const wx :any;
+declare const my: any;
+declare const wx: any;
 export default class Cache {
   private cache = {};
   public getInfo(selector) {

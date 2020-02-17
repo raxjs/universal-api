@@ -2,7 +2,7 @@ import Cache from '../Cache';
 
 const cache = new Cache();
 
-function getScrollOffset(selector: string) :Promise<Array<any>> {
+function getScrollOffset(selector: string): Promise<any[]> {
   return new Promise(resolve => {
     cache.getInfo(selector).scrollOffset().exec(ret => {
       resolve(ret);
@@ -10,7 +10,7 @@ function getScrollOffset(selector: string) :Promise<Array<any>> {
   });
 }
 
-function getBoundingClientRect(selector: string) :Promise<Array<any>> {
+function getBoundingClientRect(selector: string): Promise<any[]> {
   return new Promise(resolve => {
     cache.getInfo(selector).boundingClientRect().exec(ret => {
       resolve(ret);
@@ -21,4 +21,4 @@ function getBoundingClientRect(selector: string) :Promise<Array<any>> {
 export default {
   getScrollOffset,
   getBoundingClientRect
-}
+};
