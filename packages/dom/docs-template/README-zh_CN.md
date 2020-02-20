@@ -1,4 +1,4 @@
-# universal-dom [![npm](https://img.shields.io/npm/v/universal-dom.svg)](https://www.npmjs.com/package/universal-dom)
+# universal-element [![npm](https://img.shields.io/npm/v/universal-element.svg)](https://www.npmjs.com/package/universal-element)
 
 获取 DOM 节点的信息.
 
@@ -8,14 +8,14 @@ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_web__
 ## 安装
 
 ```bash
-$ npm install universal-dom --save
+$ npm install universal-element --save
 ```
 
 ## 使用
 
 ```js
 import { createElement, useEffect, Fragment } from 'rax';
-import { getScrollOffset, getBoundingClientRect } from 'universal-dom';
+import { getScrollOffset, getBoundingClientRect } from 'universal-element';
 
 function App() {
   useEffect({

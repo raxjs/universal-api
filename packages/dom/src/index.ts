@@ -2,20 +2,20 @@
 import { isWeb, isMiniApp, isWeChatMiniProgram } from 'universal-env';
 import miniapp from './miniapp';
 import web from './web';
-import { Dom } from './types';
+import { Element } from './types';
 
-let dom: Dom;
+let element: Element;
 
 if ((isMiniApp || isWeChatMiniProgram) && !isWeb) {
   // For cased that import wechat or miniapp sdk in web
-  dom = miniapp;
+  element = miniapp;
 } else {
   // Web as default
-  dom = web;
+  element = web;
 }
 
-const getScrollOffset = dom.getScrollOffset;
-const getBoundingClientRect = dom.getBoundingClientRect;
+const getScrollOffset = element.getScrollOffset;
+const getBoundingClientRect = element.getBoundingClientRect;
 
 export {
   getScrollOffset,
