@@ -1,21 +1,21 @@
-# universal-dom [![npm](https://img.shields.io/npm/v/universal-dom.svg)](https://www.npmjs.com/package/universal-dom)
+# universal-element [![npm](https://img.shields.io/npm/v/universal-element.svg)](https://www.npmjs.com/package/universal-element)
 
-获取 DOM 节点的信息.
+Get dom info.
 
-## 支持
+## Support
 <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" />
 
-## 安装
+## Install
 
 ```bash
-$ npm install universal-dom --save
+$ npm install universal-element --save
 ```
 
-## 使用
+## Usage
 
 ```js
 import { createElement, useEffect, Fragment } from 'rax';
-import { getScrollOffset, getBoundingClientRect } from 'universal-dom';
+import { getScrollOffset, getBoundingClientRect } from 'universal-element';
 
 function App() {
   useEffect({
@@ -36,11 +36,11 @@ function App() {
 }
 ```
 
-## 方法
+## Methods
 
 ### `getScrollOffset()`
 
-在阿里小程序中, 不存在 `scrollWidth`, `scrollHeight`。
+In MiniApp, there isn't `scrollWidth`, `scrollHeight`.
 
 ```js
 getScrollOffet('#container').then((ret) => {
@@ -51,7 +51,7 @@ getScrollOffet('#container').then((ret) => {
 
 ### `getBoundingClientRect()`
 
-在所有小程序中， 不存在 `x`, `y`。
+In MiniApp or WechatMiniProgram, there isn't `x`, `y`.
 
 ```js
 getBoundingClientRect().then((ret) => {
