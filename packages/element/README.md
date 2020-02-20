@@ -1,4 +1,4 @@
-# universal-dom [![npm](https://img.shields.io/npm/v/universal-dom.svg)](https://www.npmjs.com/package/universal-dom)
+# universal-element [![npm](https://img.shields.io/npm/v/universal-element.svg)](https://www.npmjs.com/package/universal-element)
 
 Get dom info.
 
@@ -8,14 +8,14 @@ Get dom info.
 ## Install
 
 ```bash
-$ npm install universal-dom --save
+$ npm install universal-element --save
 ```
 
 ## Usage
 
 ```js
 import { createElement, useEffect, Fragment } from 'rax';
-import { getScrollOffset, getBoundingClientRect } from 'universal-dom';
+import { getScrollOffset, getBoundingClientRect } from 'universal-element';
 
 function App() {
   useEffect({
