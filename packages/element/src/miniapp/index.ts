@@ -5,7 +5,7 @@ const cache = new Cache();
 function getScrollOffset(selector: string): Promise<any[]> {
   return new Promise(resolve => {
     cache.getInfo(selector).scrollOffset().exec(ret => {
-      resolve(ret);
+      resolve(ret[0]);
     });
   });
 }
@@ -13,7 +13,7 @@ function getScrollOffset(selector: string): Promise<any[]> {
 function getBoundingClientRect(selector: string): Promise<any[]> {
   return new Promise(resolve => {
     cache.getInfo(selector).boundingClientRect().exec(ret => {
-      resolve(ret);
+      resolve(ret[0]);
     });
   });
 }

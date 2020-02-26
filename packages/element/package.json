@@ -1,10 +1,9 @@
 {
   "name": "universal-element",
   "author": "rax",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "lib/index.js",
-  "module": "src/index.js",
   "files": [
     "src",
     "lib",
