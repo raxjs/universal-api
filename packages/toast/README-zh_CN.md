@@ -1,17 +1,17 @@
 # universal-toast [![npm](https://img.shields.io/npm/v/universal-toast.svg)](https://www.npmjs.com/package/universal-toast)
 
-Universal toast, you can choose how many seconds after disappearing
+通用弱提示，可选择多少秒之后消失
 
-## Support
+## 支持
 <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
 
-## Install
+## 安装
 
 ```bash
 $ npm install universal-toast --save
 ```
 
-## Usage
+## 示例
 
 ```js
 import Toast from 'universal-toast';
@@ -19,12 +19,12 @@ import Toast from 'universal-toast';
 Toast.show('Hi');
 ```
 
-## Methods
+## 方法
 
 ### `Toast.show(message: string, duration?: number)`
 
-#### Arguments
-| Property | Type     | Description                                 | Default |
-| -------- | -------- | ------------------------------------------- | :-----: |
-| message  | `string` | content of the message                      |    -    |
-| duration | `number` | Time in millisecond before Toast is closed. |  2000   |
+#### 参数
+| 成员     | 类型     | 描述                | 默认值 |
+| -------- | -------- | ------------------- | :----: |
+| message  | `string` | 文字内容            |   -    |
+| duration | `number` | 显示时长，单位为 ms |  2000  |
