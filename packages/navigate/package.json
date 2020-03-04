@@ -1,9 +1,12 @@
 {
   "name": "universal-navigate",
   "author": "rax",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
+  "quickappConfig": {
+    "main": "lib/quickapp/index"
+  },
   "types": "lib/index.d.ts",
   "scripts": {
     "start": "rax-scripts start",
