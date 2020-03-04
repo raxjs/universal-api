@@ -1,10 +1,9 @@
 {
-  "name": "toast",
+  "name": "universal-toast",
   "author": "rax",
   "version": "1.0.4",
   "description": "",
   "main": "lib/index.js",
-  "module": "src/index.js",
   "files": [
     "src",
     "lib",
