@@ -59,5 +59,5 @@ Navigate.go({
 | Property         | Type      | Description                                                                                                      | required | Default | Supported |
 | ---------------- | --------- | ---------------------------------------------------------------------------------------------------------------- | :------: | :-----: | :---------: |
 | options          | `object`  | Go function arguments                                                                                            |   true   |    -    |             |
-| options.step     | `number`  | The number of forward steps is positive and only supports the web, and the number of backward steps is negative. |   true   |    -    |             |
+| options.step     | `number`  | The number of forward steps is positive and only supports the web, and the number of backward steps is negative. Step only supports values of -1 on quickapp|   true   |    -    |             |
 | options.animated | `boolean` | Support only in weex, whether animated effects are required when pages are pressed                               |  false   | `true`  |<img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" />  |

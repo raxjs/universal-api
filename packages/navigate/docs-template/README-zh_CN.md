@@ -3,7 +3,7 @@
 路由导航能力实现
 
 ## 支持
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_miniapp_qa__
 
 ## Install
 ```bash
@@ -56,6 +56,6 @@ Navigate.go({
 | 成员             | 类型      | 描述                                                                                | 必选  | 默认值 | 支持  |
 | ---------------- | --------- | ----------------------------------------------------------------------------------- | :---: | :----: | :---: |
 | options          | `object`  | go 参数                                                                             |  是   |   -    |       |
-| options.step     | `number`  | 前进步数为正值且仅支持web，后退步数为负值，若大于现有打开的页面数，则返回到起始页。 |  是   |   -    |       |
+| options.step     | `number`  | 前进步数为正值且仅支持web，后退步数为负值，若大于现有打开的页面数，则返回到起始页。其中快应用只支持后退步数值为-1 |  是   |   -    |       |
 | options.animated | `boolean` | 仅weex中支持，页面压入时是否需要动画效果。                                          |  否   | `true` |__icon_weex__|
 

@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "driver-weex": "^1.0.0",
-    "qs": "^6.9.1",
     "universal-env": "^3.0.0"
   },
   "devDependencies": {
