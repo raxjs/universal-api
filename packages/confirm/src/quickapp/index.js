@@ -4,8 +4,8 @@ const confirm = (options = {}) => {
   const {
     title = '',
     content = '',
-    confirmButtonText = '确定',
-    cancelButtonText = '取消',
+    confirmButtonText = 'ok',
+    cancelButtonText = 'cancel',
   } = options;
   const buttons = [
     {
