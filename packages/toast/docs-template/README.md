@@ -3,7 +3,7 @@
 Universal toast, you can choose how many seconds after disappearing
 
 ## Support
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quickapp__
 
 ## Install
 

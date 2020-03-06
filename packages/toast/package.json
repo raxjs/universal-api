@@ -1,7 +1,7 @@
 {
   "name": "universal-toast",
   "author": "rax",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -46,6 +46,9 @@
   },
   "bugs": {
     "url": "https://github.com/raxjs/universal-api/issues"
+  },
+  "quickappConfig": {
+    "main": "lib/quickapp/index"
   },
   "homepage": "https://github.com/raxjs/universal-api#readme"
 }
