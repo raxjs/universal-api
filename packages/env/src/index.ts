@@ -8,10 +8,8 @@ function isUndef(type): boolean {
 }
 
 export const isWeb = !isUndef(typeof window) && 'onload' in window;
-export const isNode =
-  !isUndef(typeof process) && !!(process.versions && process.versions.node);
-export const isWeex =
-  !isUndef(typeof WXEnvironment) && WXEnvironment.platform !== 'Web';
+export const isNode = !isUndef(typeof process) && !!(process.versions && process.versions.node);
+export const isWeex = !isUndef(typeof WXEnvironment) && WXEnvironment.platform !== 'Web';
 export const isKraken = !isUndef(typeof __kraken__);
 export const isMiniApp = !isUndef(typeof my) && my !== null && !isUndef(typeof my.alert);
 // In wechat mini program, wx.login is a function
