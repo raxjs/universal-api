@@ -43,7 +43,8 @@ Checks if environment is a Node.js environment.
 | Alibaba MiniApp WebView      | ✔️         | ✘                   | ✘          | ✔️     | ✘      | ✘      |
 | Wechat MiniProgram           | ✘         | ✔️                   | ✘          | ✘     | ✘      | ✘      |
 | Wechat MiniProgram WebView   | ✘         | ✔️                   | ✘          | ✔️     | ✘      | ✘      |
-| QuickApp                     | ✘         | ✘                   | ✔️           | ✔️     | ✔️      | ✘      |
+| QuickApp                     | ✘         | ✘                   | ✔️           | ✘     | ✘      | ✘      |
+| QuickApp Webview             | ✘         | ✘                   | ✘           | ✔️     | ✘      | ✘      |
 | Weex                         | ✘         | ✘                   | ✘           | ✘     | ✔️      | ✘      |
 | Node                         | ✘         | ✘                   | ✘           | ✘     | ✘      | ✔️      |
 | Web                          | ✘         | ✘                   | ✘           | ✔️     | ✘      | ✘      |
