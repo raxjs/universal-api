@@ -11,6 +11,7 @@ coverage/
 node_modules/
 examples/test
 .idea/
+.history/
 yarn.lock
 yarn-error.log
 package-lock.json

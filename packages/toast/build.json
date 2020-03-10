@@ -4,10 +4,8 @@
       "build-plugin-rax-component",
       {
         "type": "rax",
-        "targets": ["web", "weex"]
-      }, [
-        "build-plugin-rax-api-builder"
-      ]
+        "targets": ["web"]
+      }
     ]
   ]
 }
