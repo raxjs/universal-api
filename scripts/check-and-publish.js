@@ -1,7 +1,7 @@
 /**
  * Scripts to check unpublished version and run publish
  */
-const { existsSync, readdirSync, readFileSync, existsSync } = require('fs');
+const { existsSync, readdirSync, readFileSync } = require('fs');
 const { join } = require('path');
 const { spawnSync } = require('child_process');
 const axios = require('axios');
