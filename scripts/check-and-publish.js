@@ -1,7 +1,7 @@
 /**
  * Scripts to check unpublished version and run publish
  */
-const { existsSync, readdirSync, readFileSync } = require('fs');
+const { existsSync, readdirSync, readFileSync, existsSync } = require('fs');
 const { join } = require('path');
 const { spawnSync } = require('child_process');
 const axios = require('axios');
@@ -76,15 +76,17 @@ function publish(pkg, workDir, version, shouldBuild, tag) {
     });
   }
 
-  // npm publish
-  spawnSync('npm', [
-    'publish',
-    '--tag=' + tag,
-    // use default registry
-  ], {
-    stdio: 'inherit',
-    cwd: workDir,
-  });
+  if (existsSync(join(workDir, 'lib')) || existsSync(join(workDir, 'build'))) {
+    // npm publish
+    spawnSync('npm', [
+      'publish',
+      '--tag=' + tag,
+      // use default registry
+    ], {
+      stdio: 'inherit',
+      cwd: workDir,
+    });
+  }
 }
 
 function isPrerelease(v) {
