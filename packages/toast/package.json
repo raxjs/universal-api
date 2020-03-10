@@ -1,51 +1,37 @@
 {
   "name": "universal-toast",
   "author": "rax",
-  "version": "1.0.3",
-  "license": "BSD-3-Clause",
+  "version": "1.0.4",
+  "description": "",
   "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "files": [
+    "src",
+    "lib",
+    "dist"
+  ],
   "scripts": {
-    "start": "rax-scripts start --type 'component' -p 8000",
-    "start:miniapp": "rax-scripts start --type 'component-miniapp'",
-    "build": "rax-scripts build --type 'component'",
-    "test": "rax-scripts test",
-    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src",
-    "prebuild": "npm run lint && npm run test",
-    "prepublish": "npm run build"
+    "start": "build-scripts start",
+    "build": "build-scripts build"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "keywords": [
     "Rax"
   ],
   "engines": {
     "npm": ">=3.0.0"
   },
-  "dependencies": {
-    "driver-weex": "^1.0.0",
-    "universal-env": "2.0.0"
-  },
   "devDependencies": {
-    "@types/jest": "^24.0.12",
-    "@typescript-eslint/eslint-plugin": "^1.7.0",
-    "@typescript-eslint/parser": "^1.7.0",
-    "babel-eslint": "^10.0.1",
-    "driver-dom": "^1.0.0",
-    "eslint": "^5.15.1",
-    "eslint-config-rax": "^0.0.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-react": "^7.12.4",
-    "rax": "^1.0.4",
-    "rax-scripts": "1.2.1-beta.2",
-    "rax-text": "^1.0.0",
-    "rax-view": "^1.0.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.7.5",
+    "driver-universal": "^3.0.0",
+    "rax": "^1.1.0",
+    "rax-text": "^1.0.1",
+    "rax-view": "^1.0.2",
+    "build-plugin-rax-component": "^0.1.0",
+    "@alib/build-scripts": "^0.1.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/raxjs/universal-api.git"
-  },
-  "bugs": {
-    "url": "https://github.com/raxjs/universal-api/issues"
-  },
-  "homepage": "https://github.com/raxjs/universal-api#readme"
+  "dependencies": {
+    "universal-env": "^3.0.0"
+  }
 }
