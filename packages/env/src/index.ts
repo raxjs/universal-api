@@ -2,6 +2,7 @@ declare const WXEnvironment: any;
 declare const __kraken__: any;
 declare const my: any;
 declare const wx: any;
+declare const global: any;
 
 function isUndef(type): boolean {
   return type === 'undefined';
@@ -15,3 +16,4 @@ export const isMiniApp = !isUndef(typeof my) && my !== null && !isUndef(typeof m
 // In wechat mini program, wx.login is a function
 // In wechat mini propgram webview, there is no wx.login, but exist wx.miniProgram
 export const isWeChatMiniProgram = !isUndef(typeof wx) && wx !== null && (!isUndef(typeof wx.login) || !isUndef(typeof wx.miniProgram));
+export const isQuickApp = !isUndef(typeof global) && global !== null && !isUndef(typeof global.callNative) && !isWeex;
