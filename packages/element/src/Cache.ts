@@ -5,20 +5,19 @@ declare const my: any;
 declare const wx: any;
 export default class Cache {
   private cache = {};
-  public getInfo(selector) {
-    if (this.cache[selector]) return this.cache[selector];
+  public getSelector(selector) {
     if (isMiniApp && !isWeb) {
       const selectorQuery = my.createSelectorQuery().selectAll(selector);
-      this.cache[selector] = selectorQuery;
       return selectorQuery;
     } else if (isWeChatMiniProgram && !isWeb) {
       const selectorQuery = wx.createSelectorQuery().selectAll(selector);
-      this.cache[selector] = selectorQuery;
       return selectorQuery;
     } else {
-      const nodes = document.querySelectorAll(selector);
+      if (this.cache[selector]) return this.cache[selector];
+      // Transform NodeList to Array
+      const nodes = Array.from(document.querySelectorAll(selector));
       this.cache[selector] = nodes;
-      return document.querySelectorAll(selector);
+      return nodes;
     }
   }
 }
