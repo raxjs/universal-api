@@ -67,27 +67,38 @@ function publish(pkg, workDir, version, shouldBuild, tag) {
 
   if (shouldBuild) {
     // npm run build
-    spawnSync('npm', [
+    const { status } = spawnSync('npm', [
       'run',
       'build',
     ], {
       stdio: 'inherit',
       cwd: workDir,
     });
-  }
 
-  if (existsSync(join(workDir, 'lib')) || existsSync(join(workDir, 'build'))) {
+    if (status === 0) {
+      // npm publish
+      spawnSync('npm', [
+        'publish',
+        '--tag=' + tag,
+      // use default registry
+      ], {
+        stdio: 'inherit',
+        cwd: workDir,
+      });
+    }
+  } else {
     // npm publish
     spawnSync('npm', [
       'publish',
       '--tag=' + tag,
-      // use default registry
+    // use default registry
     ], {
       stdio: 'inherit',
       cwd: workDir,
     });
   }
 }
+
 
 function isPrerelease(v) {
   const semVer = semver.parse(v);
