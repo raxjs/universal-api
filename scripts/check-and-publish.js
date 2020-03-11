@@ -76,15 +76,17 @@ function publish(pkg, workDir, version, shouldBuild, tag) {
     });
   }
 
-  // npm publish
-  spawnSync('npm', [
-    'publish',
-    '--tag=' + tag,
-    // use default registry
-  ], {
-    stdio: 'inherit',
-    cwd: workDir,
-  });
+  if (existsSync(join(workDir, 'lib')) || existsSync(join(workDir, 'build'))) {
+    // npm publish
+    spawnSync('npm', [
+      'publish',
+      '--tag=' + tag,
+      // use default registry
+    ], {
+      stdio: 'inherit',
+      cwd: workDir,
+    });
+  }
 }
 
 function isPrerelease(v) {
