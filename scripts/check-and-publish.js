@@ -54,6 +54,17 @@ function checkVersionExists(pkg, version) {
     .catch(err => false);
 }
 
+function npmPublish(tag, workDir) {
+  spawnSync('npm', [
+    'publish',
+    '--tag=' + tag,
+  // use default registry
+  ], {
+    stdio: 'inherit',
+    cwd: workDir,
+  });
+}
+
 function publish(pkg, workDir, version, shouldBuild, tag) {
   console.log('[PUBLISH]', `${pkg}@${version}`);
 
@@ -67,25 +78,21 @@ function publish(pkg, workDir, version, shouldBuild, tag) {
 
   if (shouldBuild) {
     // npm run build
-    spawnSync('npm', [
+    const { status } = spawnSync('npm', [
       'run',
       'build',
     ], {
       stdio: 'inherit',
       cwd: workDir,
     });
-  }
 
-  if (existsSync(join(workDir, 'lib')) || existsSync(join(workDir, 'build'))) {
+    if (status === 0) {
+      // npm publish
+      npmPublish(tag, workDir);
+    }
+  } else {
     // npm publish
-    spawnSync('npm', [
-      'publish',
-      '--tag=' + tag,
-      // use default registry
-    ], {
-      stdio: 'inherit',
-      cwd: workDir,
-    });
+    npmPublish(tag, workDir);
   }
 }
 
