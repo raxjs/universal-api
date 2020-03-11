@@ -54,6 +54,17 @@ function checkVersionExists(pkg, version) {
     .catch(err => false);
 }
 
+function npmPublish(tag, workDir) {
+  spawnSync('npm', [
+    'publish',
+    '--tag=' + tag,
+  // use default registry
+  ], {
+    stdio: 'inherit',
+    cwd: workDir,
+  });
+}
+
 function publish(pkg, workDir, version, shouldBuild, tag) {
   console.log('[PUBLISH]', `${pkg}@${version}`);
 
@@ -77,28 +88,13 @@ function publish(pkg, workDir, version, shouldBuild, tag) {
 
     if (status === 0) {
       // npm publish
-      spawnSync('npm', [
-        'publish',
-        '--tag=' + tag,
-      // use default registry
-      ], {
-        stdio: 'inherit',
-        cwd: workDir,
-      });
+      npmPublish(tag, workDir);
     }
   } else {
     // npm publish
-    spawnSync('npm', [
-      'publish',
-      '--tag=' + tag,
-    // use default registry
-    ], {
-      stdio: 'inherit',
-      cwd: workDir,
-    });
+    npmPublish(tag, workDir);
   }
 }
-
 
 function isPrerelease(v) {
   const semVer = semver.parse(v);
