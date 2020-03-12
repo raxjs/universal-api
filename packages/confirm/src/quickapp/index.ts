@@ -1,6 +1,10 @@
-import prompt from '@system.prompt';
+import { Options } from '../types';
 
-const confirm = (options = {}) => {
+export interface Response {
+  index: number;
+}
+
+const confirm = (options: Options): Promise<boolean> => {
   const {
     title = '',
     content = '',
@@ -16,13 +20,14 @@ const confirm = (options = {}) => {
       text: confirmButtonText,
     },
   ];
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, reject): void => {
+    const prompt = require('@system.prompt');
     prompt.showDialog({
       title,
       message: content,
       autocancel: false,
       buttons,
-      success: (res) => {
+      success: (res: Response) => {
         const { index } = res;
         resolve(Number(index) === 1);
       },

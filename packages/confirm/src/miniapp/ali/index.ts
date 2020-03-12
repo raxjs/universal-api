@@ -1,10 +1,15 @@
-import { Options } from '../../types';
+import { Options } from "../../types";
 
 declare const my: any;
 
 const confirm = (options: Options): Promise<boolean> => {
   return new Promise((resolve, reject): void => {
-    const { title = '', content = '', confirmButtonText = '', cancelButtonText = '' } = options;
+    const {
+      title = "",
+      content = "",
+      confirmButtonText = "",
+      cancelButtonText = ""
+    } = options;
     my.confirm({
       title,
       content,
