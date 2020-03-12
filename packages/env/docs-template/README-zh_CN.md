@@ -45,7 +45,7 @@ import { isWeex, isWeb, isMiniApp, isNode, isWeChatMiniProgram, isQuickApp } fro
 | 微信小程序 WebView   | ✘         | ✔️                   | ✘          | ✔️     | ✘      | ✘      |
 | 快应用              | ✘         | ✘                   | ✔️           | ✘     | ✘      | ✘      |
 | 快应用 WebView      | ✘         | ✘                   | ✘           | ✔️     | ✘      | ✘      |
-| Weex               | ✘         | ✘                   | ✘           | ✘     | ✔️      | ✘      |
+| Weex               | ✘         | ✘                   | ✘           | ✔️     | ✔️      | ✘      |
 | Node               | ✘         | ✘                   | ✘           | ✘     | ✘      | ✔️      |
 | Web                | ✘         | ✘                   | ✘           | ✔️     | ✘      | ✘      |
 

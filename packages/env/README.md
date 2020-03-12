@@ -45,7 +45,7 @@ Checks if environment is a Node.js environment.
 | Wechat MiniProgram WebView   | ✘         | ✔️                   | ✘          | ✔️     | ✘      | ✘      |
 | QuickApp                     | ✘         | ✘                   | ✔️           | ✘     | ✘      | ✘      |
 | QuickApp WebView             | ✘         | ✘                   | ✘           | ✔️     | ✘      | ✘      |
-| Weex                         | ✘         | ✘                   | ✘           | ✘     | ✔️      | ✘      |
+| Weex                         | ✘         | ✘                   | ✘           | ✔️     | ✔️      | ✘      |
 | Node                         | ✘         | ✘                   | ✘           | ✘     | ✘      | ✔️      |
 | Web                          | ✘         | ✘                   | ✘           | ✔️     | ✘      | ✘      |
 
