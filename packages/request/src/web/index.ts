@@ -7,7 +7,9 @@ import {
 import {
   applyParamToURL,
   json2string,
-  checkIsApplyDataToURL
+  checkIsApplyDataToURL,
+  isObject,
+  isPlainObject
 } from '../utils';
 
 export default function requestXHR(options: InnerRequestOptions): Promise<ResponseData> {
@@ -94,6 +96,11 @@ export default function requestXHR(options: InnerRequestOptions): Promise<Respon
     } else {
       requestData = data;
     }
-    xhr.send(json2string(requestData));
+
+    if (isObject(requestData) && isPlainObject(requestData)) {
+      requestData = json2string(requestData);
+    }
+
+    xhr.send(requestData);
   });
 }

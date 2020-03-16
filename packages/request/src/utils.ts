@@ -75,3 +75,9 @@ export function checkIsApplyDataToURL(headers: AsObject | undefined) {
   }
   return String(headers['Content-Type']).toLowerCase().indexOf('application/x-www-form-urlencoded') > -1;
 }
+
+const EMPTY_OBJECT = {};
+
+export function isPlainObject(obj) {
+  return EMPTY_OBJECT.toString.call(obj) === '[object Object]';
+}
