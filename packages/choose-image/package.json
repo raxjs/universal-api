@@ -21,7 +21,8 @@
     "npm": ">=3.0.0"
   },
   "dependencies": {
-    "universal-env": "^2.0.0"
+    "build-plugin-rax-quickapp-api": "^1.0.0",
+    "universal-env": "^3.1.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",

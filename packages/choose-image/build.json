@@ -6,6 +6,7 @@
         "enableTypescript": true,
         "targets": ["web", "weex"]
       }
-    ]
+    ],
+    "build-plugin-rax-quickapp-api"
   ]
 }
