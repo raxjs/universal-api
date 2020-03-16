@@ -1,4 +1,4 @@
-import { isWeex, isMiniApp, isWeChatMiniprogram, isWeb } from 'universal-env';
+import { isWeex, isMiniApp, isWeChatMiniProgram, isWeb } from 'universal-env';
 import {
   RequestOptions,
   DEFAULT_REQUEST_OPTIONS
@@ -43,7 +43,7 @@ function handleWeex(afterOptions) {
 }
 
 function handleWeChatMiniprogram(afterOptions) {
-  if (isWeChatMiniprogram) {
+  if (isWeChatMiniProgram) {
     const request = weChatModule;
     return request(afterOptions);
   }
