@@ -26,5 +26,8 @@
     "rax-scripts": "^2.0.2",
     "semver": "^6.3.0",
     "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "build-plugin-rax-quickapp-api": "^1.0.0"
   }
 }
