@@ -16,7 +16,8 @@
   },
   "miniappConfig": {
     "main": "lib/miniapp/index",
-    "main:wechat": "lib/wechat-miniprogram/index"
+    "main:wechat": "lib/wechat-miniprogram/index",
+    "main:quickapp": "lib/quickapp/index"
   },
   "keywords": [
     "Rax",
@@ -37,7 +38,6 @@
   "devDependencies": {
     "@alib/build-scripts": "^0.1.0",
     "build-plugin-rax-component": "^0.1.0",
-    "build-plugin-rax-quickapp-api": "^1.0.0",
     "driver-universal": "^2.0.0",
     "rax": "^1.0.0"
   }
