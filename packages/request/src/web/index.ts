@@ -6,7 +6,7 @@ import {
 } from '../types';
 import {
   applyParamToURL,
-  json2string,
+  object2json,
   checkIsApplyDataToURL,
   isObject,
   isPlainObject
@@ -98,7 +98,7 @@ export default function requestXHR(options: InnerRequestOptions): Promise<Respon
     }
 
     if (isObject(requestData) && isPlainObject(requestData)) {
-      requestData = json2string(requestData);
+      requestData = object2json(requestData);
     }
 
     xhr.send(requestData);
