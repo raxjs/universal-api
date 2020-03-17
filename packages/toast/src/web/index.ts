@@ -1,4 +1,4 @@
-import {LONG_DELAY, SHORT_DELAY} from '../utils/index';
+import { LONG_DELAY, SHORT_DELAY } from '../utils/index';
 import { ToastOption } from '../types';
 
 interface QueueOption {
@@ -36,6 +36,7 @@ let styles = {
 function showToastWindow(message: string): void {
   if (!toastWin) {
     toastWin = document.createElement('div');
+    toastWin.setAttribute('role', 'alert');
     for (let key in styles.container) {
       toastWin.style[key] = styles.container[key];
     }

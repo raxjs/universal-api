@@ -1,13 +1,13 @@
 {
   "plugins": [
     [
-      "rax-plugin-component",
+      "build-plugin-rax-component",
       {
-        "enableTypescript": true,
+        "type": "rax",
         "targets": ["web", "weex"]
-      }
-    ], [
-      "rax-plugin-api-builder"
+      }, [
+        "build-plugin-rax-api-builder"
+      ]
     ]
   ]
 }

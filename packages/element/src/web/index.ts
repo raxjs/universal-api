@@ -4,7 +4,7 @@ const cache = new Cache();
 
 function getScrollOffset(selector: string): Promise<any[]> {
   return new Promise(resolve => {
-    resolve(cache.getInfo(selector).map(node => ({
+    resolve(cache.getSelector(selector).map(node => ({
       scrollTop: node.scrollTop,
       scrollLeft: node.scrollLeft,
       scrollWidth: node.scrollWidth,
@@ -15,7 +15,7 @@ function getScrollOffset(selector: string): Promise<any[]> {
 
 function getBoundingClientRect(selector: string): Promise<any[]> {
   return new Promise(resolve => {
-    resolve(cache.getInfo(selector).map(node => node.getBoundingClientRect()));
+    resolve(cache.getSelector(selector).map(node => node.getBoundingClientRect()));
   });
 }
 

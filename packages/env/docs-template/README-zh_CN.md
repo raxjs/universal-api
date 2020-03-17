@@ -3,7 +3,7 @@
 判断和获取运行时环境
 
 ## 支持
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
 
 ## 安装
 ```bash
@@ -12,7 +12,7 @@ $ npm install universal-env --save
 
 ## 示例
 ```javascript
-import { isWeex, isWeb, isMiniApp, isNode, isWeChatMiniProgram } from 'universal-env';
+import { isWeex, isWeb, isMiniApp, isNode, isWeChatMiniProgram, isQuickApp } from 'universal-env';
 
 ```
 
@@ -29,20 +29,25 @@ import { isWeex, isWeb, isMiniApp, isNode, isWeChatMiniProgram } from 'universal
 ### `isWeChatMiniProgram: boolean`
 校验微信小程序环境
 
+### `isQuickApp: boolean`
+校验快应用环境
+
 ### `isNode: boolean`
 校验 Node.js 环境
 
 ## 各容器内返回结果
 
-|                    | isMiniApp | isWeChatMiniProgram | isWeb | isWeex | isNode |
-| ------------------ | --------- | ------------------- | ----- | ------ | ------ |
-| 阿里小程序         | ✔️         | ✘                   | ✘     | ✘      | ✘      |
-| 阿里小程序 WebView | ✔️         | ✘                   | ✔️     | ✘      | ✘      |
-| 微信小程序         | ✘         | ✔️                   | ✘     | ✘      | ✘      |
-| 微信小程序 WebView | ✘         | ✔️                   | ✔️     | ✘      | ✘      |
-| Weex               | ✘         | ✘                   | ✘     | ✔️      | ✘      |
-| Node               | ✘         | ✘                   | ✘     | ✘      | ✔️      |
-| Web                | ✘         | ✘                   | ✔️     | ✘      | ✘      |
+|                    | isMiniApp | isWeChatMiniProgram | isQuickApp | isWeb | isWeex | isNode |
+| ------------------ | --------- | ------------------- | ---------- | ----- | ------ | ------ |
+| 阿里小程序           | ✔️         | ✘                   | ✘          | ✘     | ✘      | ✘      |
+| 阿里小程序 WebView   | ✔️         | ✘                   | ✘          | ✔️     | ✘      | ✘      |
+| 微信小程序           | ✘         | ✔️                   | ✘          | ✘     | ✘      | ✘      |
+| 微信小程序 WebView   | ✘         | ✔️                   | ✘          | ✔️     | ✘      | ✘      |
+| 快应用              | ✘         | ✘                   | ✔️           | ✘     | ✘      | ✘      |
+| 快应用 WebView      | ✘         | ✘                   | ✘           | ✔️     | ✘      | ✘      |
+| Weex               | ✘         | ✘                   | ✘           | ✘     | ✔️      | ✘      |
+| Node               | ✘         | ✘                   | ✘           | ✘     | ✘      | ✔️      |
+| Web                | ✘         | ✘                   | ✘           | ✔️     | ✘      | ✘      |
 
 
 
