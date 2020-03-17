@@ -1,12 +1,9 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
-const { spawnSync } = require('child_process');
 
-const glob = require('glob');
 const chalk = require('chalk');
 const parseArgs = require('minimist');
-const chokidar = require('chokidar');
 
 const DOCS_TEMP_DIR = 'docs-template';
 
