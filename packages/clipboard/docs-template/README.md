@@ -42,7 +42,7 @@ Get clipboard value.
 Set clipboard value (Web side is not supported).
 
 #### Support
-__icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
+__icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
 
 #### Arguments
 | Property | Type     | Description         | Default |
