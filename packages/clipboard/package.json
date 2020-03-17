@@ -2,9 +2,9 @@
   "name": "universal-clipboard",
   "author": "rax",
   "version": "1.1.0",
-  "description": "",
+  "license": "BSD-3-Clause",
   "main": "lib/index.js",
-  "module": "src/index.js",
+  "types": "lib/index.d.ts",
   "miniappConfig": {
     "main": "lib/miniapp/index",
     "main:wechat": "lib/wechat-miniprogram/index",
