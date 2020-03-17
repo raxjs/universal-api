@@ -1,7 +1,11 @@
 {
   "plugins": [
     [
-      "rax-plugin-api"
+      "build-plugin-rax-component",
+      {
+        "type": "rax",
+        "targets": ["web", "weex"]
+      }
     ]
   ]
 }
