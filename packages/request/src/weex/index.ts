@@ -7,7 +7,7 @@ import {
 } from '../types';
 import {
   applyParamToURL,
-  json2string,
+  object2json,
   checkIsApplyDataToURL
 } from '../utils';
 
@@ -34,7 +34,7 @@ export default function weexRequest(options: WeexRequestOptions): Promise<Respon
     if (method === 'GET' && data || checkIsApplyDataToURL(headers)) {
       requestOptions.url = applyParamToURL(data, url);
     } else if (data) {
-      requestOptions.body = json2string(data);
+      requestOptions.body = object2json(data);
     }
 
     if (requestOptions.isJSONP) {
@@ -70,13 +70,13 @@ export default function weexRequest(options: WeexRequestOptions): Promise<Respon
       } catch (error) {
         reject({
           code: ERROR_REQUEST_ABORT.code,
-          message: json2string(error)
+          message: object2json(error)
         });
       }
     }, (progress) => {
       if (progress.status === 'FAILED') reject({
         code: ERROR_REQUEST_ABORT.code,
-        message: json2string(progress)
+        message: object2json(progress)
       });
     });
   });
