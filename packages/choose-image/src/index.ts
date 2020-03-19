@@ -1,4 +1,4 @@
-import { isWeb, isWeex, isMiniApp, isWeChatMiniprogram, isQuickApp } from 'universal-env';
+import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram, isQuickApp } from 'universal-env';
 import webModule from './web/index';
 import weexModule from './weex/index';
 import miniAppModule from './miniapp/ali/index';
@@ -22,7 +22,7 @@ if (isMiniApp) {
   chooseImage = miniAppModule;
 }
 
-if (isWeChatMiniprogram) {
+if (isWeChatMiniProgram) {
   chooseImage = weChatModule;
 }
 
