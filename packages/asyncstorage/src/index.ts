@@ -1,9 +1,8 @@
-import { isWeb, isWeex, isMiniApp, isWeChatMiniprogram, isQuickApp } from 'universal-env';
+import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram } from 'universal-env';
 import webModule from './web/index';
 import weexModule from './weex/index';
 import miniAppModule from './miniapp/ali/index';
 import weChatModule from './miniapp/wechat/index';
-import quickAppModule from './quickapp/index';
 import { AsyncStorage } from './types';
 
 let AsyncStorage: AsyncStorage;
@@ -20,12 +19,8 @@ if (isMiniApp) {
   AsyncStorage = miniAppModule;
 }
 
-if (isWeChatMiniprogram) {
+if (isWeChatMiniProgram) {
   AsyncStorage = weChatModule;
-}
-
-if (isQuickApp) {
-  AsyncStorage = quickAppModule;
 }
 
 export default AsyncStorage;
