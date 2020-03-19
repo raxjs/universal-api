@@ -1,4 +1,4 @@
-import { isWeex, isMiniApp, isWeChatMiniProgram, isWeb } from 'universal-env';
+import { isWeex, isMiniApp, isWeChatMiniProgram, isWeb, isQuickApp } from 'universal-env';
 import {
   RequestOptions,
   DEFAULT_REQUEST_OPTIONS
@@ -8,6 +8,7 @@ import webModule from './web/index';
 import weexModule from './weex/index';
 import miniAppModule from './miniapp/index';
 import weChatModule from './weapp/index';
+import QuickModule from './quickapp/index';
 
 function dutyChain(...fns) {
   for (let i = 0; i < fns.length; i++) {
@@ -50,6 +51,14 @@ function handleWeChatMiniprogram(afterOptions) {
   return false;
 }
 
+function handleQuickApp(afterOptions) {
+  if (isQuickApp) {
+    const request = QuickModule;
+    return request(afterOptions);
+  }
+  return false;
+}
+
 export default function(options: RequestOptions) {
   let afterOptions: RequestOptions = Object.assign({},
     DEFAULT_REQUEST_OPTIONS,
@@ -64,4 +73,5 @@ export default function(options: RequestOptions) {
     handleWeb.bind(null, afterOptions),
     handleMiniApp.bind(null, afterOptions),
     handleWeChatMiniprogram.bind(null, afterOptions));
+    handleQuickApp.bind(null, afterOptions);
 }
