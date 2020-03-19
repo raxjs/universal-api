@@ -1,7 +1,7 @@
 {
-  "name": "choose-image",
-  "author": "qianxin.yy",
-  "version": "0.0.0",
+  "name": "universal-choose-image",
+  "author": "rax",
+  "version": "1.0.1",
   "description": "",
   "main": "lib/index.js",
   "module": "src/index.js",
