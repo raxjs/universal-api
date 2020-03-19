@@ -1,10 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { createElement, render, useState, useEffect } from 'rax';
-import * as DriverWeex from 'driver-weex';
-import * as DriverDom from 'driver-dom';
-import { isWeex } from 'universal-env';
+import DriverUniversal from 'driver-universal';
 
-import request from '../src/';
+import request from '../src';
 
 const Request = () => {
   const [data, setData] = useState('');
@@ -47,4 +45,4 @@ const Request = () => {
   }
 };
 
-render(<Request />, document.body, { driver: isWeex ? DriverWeex : DriverDom });
+render(<Request />, document.body, { driver: DriverUniversal });
