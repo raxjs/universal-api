@@ -1,12 +1,9 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
-const { spawnSync } = require('child_process');
 
-const glob = require('glob');
 const chalk = require('chalk');
 const parseArgs = require('minimist');
-const chokidar = require('chokidar');
 
 const DOCS_TEMP_DIR = 'docs-template';
 
@@ -27,13 +24,14 @@ function buildPackage(packagesDir, packageDir) {
   let mdFileNames = [];
   try {
     mdFileNames = fs.readdirSync(path.resolve(packageDir, DOCS_TEMP_DIR));
-  } catch(e) {};
-  const iconArr = ['__icon_web__', '__icon_weex__', '__icon_miniapp_mp__', '__icon_miniapp_wx__'];
+  } catch (e) {};
+  const iconArr = ['__icon_web__', '__icon_weex__', '__icon_miniapp_mp__', '__icon_miniapp_wx__', '__icon_quick_app__'];
   const iconMap = {
     __icon_web__: '<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" />',
     __icon_weex__: '<img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" />',
     __icon_miniapp_mp__: '<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />',
     __icon_miniapp_wx__: '<img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">',
+    __icon_quick_app__: '<img alt="quickApp" src="https://gw.alicdn.com/tfs/TB1MP7EwQT2gK0jSZPcXXcKkpXa-200-200.svg" width="25px" height="25px">'
   };
   mdFileNames.forEach(mdFileName => {
     const mdFile = path.resolve(packageDir, DOCS_TEMP_DIR, mdFileName);
@@ -51,7 +49,6 @@ function buildPackage(packagesDir, packageDir) {
       process.stdout.write(`[  ${chalk.green('OK')}  ]\n`);
     });
   });
-
 }
 
 function getPackages(packagesDir, customPackages) {

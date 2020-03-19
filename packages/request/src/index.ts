@@ -7,7 +7,7 @@ import { normalizeHeaders } from './utils';
 import webModule from './web/index';
 import weexModule from './weex/index';
 import miniAppModule from './miniapp/index';
-import weChatModule from './weapp/index';
+import weChatModule from './wechat-miniprogram/index';
 import QuickModule from './quickapp/index';
 
 function dutyChain(...fns) {
@@ -24,7 +24,7 @@ function handleWeb(afterOptions) {
     const request = webModule;
     return request(afterOptions);
   }
-  return false;
+  return null;
 }
 
 function handleMiniApp(afterOptions) {
@@ -32,7 +32,7 @@ function handleMiniApp(afterOptions) {
     const request = miniAppModule;
     return request(afterOptions);
   }
-  return false;
+  return null;
 }
 
 function handleWeex(afterOptions) {
@@ -40,7 +40,7 @@ function handleWeex(afterOptions) {
     const request = weexModule;
     return request(afterOptions);
   }
-  return false;
+  return null;
 }
 
 function handleWeChatMiniprogram(afterOptions) {
@@ -48,7 +48,7 @@ function handleWeChatMiniprogram(afterOptions) {
     const request = weChatModule;
     return request(afterOptions);
   }
-  return false;
+  return null;
 }
 
 function handleQuickApp(afterOptions) {
