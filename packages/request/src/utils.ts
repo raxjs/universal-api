@@ -36,7 +36,7 @@ export function applyParamToURL(param: AsObject | void, url: string): string {
   return `${url}${url.indexOf('?') === -1 ? '?' : '&'}${stringifyQS(param)}`;
 }
 
-export function json2string(obj: any) {
+export function object2json(obj: any) {
   try {
     return JSON.stringify(obj);
   } catch (e) {
@@ -74,4 +74,10 @@ export function checkIsApplyDataToURL(headers: AsObject | undefined) {
     return false;
   }
   return String(headers['Content-Type']).toLowerCase().indexOf('application/x-www-form-urlencoded') > -1;
+}
+
+const EMPTY_OBJECT = {};
+
+export function isPlainObject(obj) {
+  return EMPTY_OBJECT.toString.call(obj) === '[object Object]';
 }

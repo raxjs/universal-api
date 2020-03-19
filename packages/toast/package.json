@@ -4,18 +4,17 @@
   "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
-  "module": "src/index.js",
-  "miniappConfig": {
-    "main": "lib/miniapp/index",
-    "main:wechat": "lib/wechat-miniprogram/index",
-    "main:quickapp": "lib/quickapp/index"
-  },
   "files": [
-    "dist",
-    "es",
-    "lib",
     "src",
-    "types"
+    "lib",
+    "dist"
+  ],
+  "scripts": {
+    "start": "build-scripts start",
+    "build": "build-scripts build"
+  },
+  "pre-commit": [
+    "lint"
   ],
   "keywords": [
     "Rax",
@@ -26,10 +25,6 @@
   },
   "peerDependencies": {
     "rax": "^1.1.0"
-  },
-  "scripts": {
-    "start": "build-scripts start",
-    "build": "build-scripts build"
   },
   "dependencies": {
     "universal-env": "^3.1.0"

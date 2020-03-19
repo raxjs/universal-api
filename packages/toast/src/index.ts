@@ -15,6 +15,7 @@ import { ToastOption } from "./types";
 let Toast: ToastOption = {} as any;
 
 if (isWeb) {
+  // Aviod includes wechat or alipay sdk
   Toast = webModule;
 } else if (isWeex) {
   Toast = weexModule;
