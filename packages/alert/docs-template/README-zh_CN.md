@@ -4,7 +4,7 @@ alert 警告框
 
 
 ## 支持
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quickapp__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
 
 ## 安装
 
@@ -34,6 +34,6 @@ Alert({
 | 成员               | 类型     | 描述                              |  默认值   |     支持     |
 | ------------------ | -------- | --------------------------------- | :-------: | :----------: |
 | options            | `object` | alert 参数                        |     -     |      -       |
-| options.title      | `string` | alert 标题，仅在小程序中支持      |  -  | __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quickapp__ |
+| options.title      | `string` | alert 标题，仅在小程序中支持      |  -  | __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__ |
 | options.content    | `string` | alert 内容                        | - |              |
-| options.buttonText | `string` | alert 确认按钮文字，不支持web环境 | - | __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quickapp__ |
+| options.buttonText | `string` | alert 确认按钮文字，不支持web环境 | - | __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__ |

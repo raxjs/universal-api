@@ -6,11 +6,8 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "start": "rax-scripts start",
-    "build": "rax-scripts build",
-    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src",
-    "prebuild": "npm run lint",
-    "prepublish": "npm run build"
+    "start": "build-scripts start",
+    "build": "build-scripts build"
   },
   "keywords": [
     "Rax"
@@ -19,21 +16,16 @@
     "npm": ">=3.0.0"
   },
   "dependencies": {
-    "universal-env": "^2.0.0"
+    "universal-env": "^3.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.12",
-    "@typescript-eslint/eslint-plugin": "^1.7.0",
-    "@typescript-eslint/parser": "^1.7.0",
-    "babel-eslint": "^10.0.1",
-    "driver-universal": "^1.0.1",
-    "eslint": "^5.15.1",
-    "eslint-config-rax": "^0.0.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-react": "^7.12.4",
-    "rax-plugin-component": "^0.1.8",
-    "rax-scripts": "^2.0.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.7.5",
+    "driver-universal": "^3.0.0",
+    "rax": "^1.1.0",
+    "rax-text": "^1.0.1",
+    "rax-view": "^1.0.2",
+    "build-plugin-rax-component": "^0.1.0",
+    "@alib/build-scripts": "^0.1.0"
   },
   "repository": {
     "type": "git",
