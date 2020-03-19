@@ -6,7 +6,6 @@
         "type": "rax",
         "targets": ["web"]      
       }
-    ],
-    "build-plugin-rax-quickapp-api"
+    ]
   ]
 }

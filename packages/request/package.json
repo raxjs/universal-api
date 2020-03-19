@@ -5,10 +5,6 @@
   "description": "",
   "main": "lib/index.js",
   "module": "src/index.js",
-  "miniappConfig": {
-    "main": "lib/miniapp/index",
-    "main:wechat": "lib/wechat-miniprogram/index"
-  },
   "files": [
     "dist",
     "es",
@@ -31,7 +27,7 @@
     "build": "build-scripts build"
   },
   "devDependencies": {
-    "build-plugin-rax-component": "^0.1.4",
+    "build-plugin-rax-component": "^0.2.2",
     "driver-universal": "^3.1.0",
     "rax": "^1.1.0",
     "rax-test-renderer": "^1.0.0",
@@ -45,7 +41,6 @@
   "dependencies": {
     "@ali/lib-mtop": "^2.5.7",
     "@ali/universal-tracker": "^2.2.9",
-    "build-plugin-rax-quickapp-api": "^1.0.0",
     "qs": "^6.9.1",
     "universal-env": "^3.1.0"
   },
