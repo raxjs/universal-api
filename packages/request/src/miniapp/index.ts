@@ -4,7 +4,7 @@ import {
   ERROR_REQUEST_ABORT
 } from '../types';
 import {
-  json2string
+  object2json
 } from '../utils';
 
 declare const my: any;
@@ -25,7 +25,7 @@ export default function(options: RequestOptions): Promise<ResponseData> {
       fail: function(res) {
         reject({
           code: ERROR_REQUEST_ABORT.code,
-          message: json2string(res)
+          message: object2json(res)
         });
       }
     });
