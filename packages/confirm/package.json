@@ -14,11 +14,6 @@
     "start": "build-scripts start",
     "build": "build-scripts build"
   },
-  "miniappConfig": {
-    "main": "lib/miniapp/index",
-    "main:wechat": "lib/wechat-miniprogram/index",
-    "main:quickapp": "lib/quickapp/index"
-  },
   "keywords": [
     "Rax",
     "rax-component"
@@ -28,8 +23,6 @@
   },
   "dependencies": {
     "jsx2mp-runtime": "^0.3.24",
-    "rax-text": "^1.0.0",
-    "rax-view": "^1.0.0",
     "universal-env": "^3.1.0"
   },
   "peerDependencies": {
@@ -40,5 +33,13 @@
     "build-plugin-rax-component": "^0.1.0",
     "driver-universal": "^2.0.0",
     "rax": "^1.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raxjs/universal-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raxjs/universal-api/issues"
+  },
+  "homepage": "https://github.com/raxjs/universal-api#readme"
 }
