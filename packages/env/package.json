@@ -1,7 +1,7 @@
 {
   "name": "universal-env",
   "author": "rax",
-  "version": "3.1.0",
+  "version": "3.2.0-0",
   "description": "",
   "main": "lib/index.js",
   "files": [
