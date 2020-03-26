@@ -18,4 +18,4 @@ export const isMiniApp = !isUndef(typeof my) && my !== null && !isUndef(typeof m
 // In wechat mini propgram webview, there is no wx.login, but exist wx.miniProgram
 export const isWeChatMiniProgram = !isUndef(typeof wx) && wx !== null && (!isUndef(typeof wx.login) || !isUndef(typeof wx.miniProgram));
 export const isQuickApp = !isUndef(typeof global) && global !== null && !isUndef(typeof global.callNative) && !isWeex;
-export const isByteDance = !isUndef(typeof tt) && tt !== null && !isUndef(typeof tt) && !isUndef(tt.showToast);
+export const isByteDanceMicroApp = !isUndef(typeof tt) && tt !== null && !isUndef(typeof tt) && !isUndef(tt.showToast);
