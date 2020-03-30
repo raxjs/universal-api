@@ -1,8 +1,9 @@
-import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram } from 'universal-env';
+import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram, isByteDanceMicroApp } from 'universal-env';
 import webModule from './web/index';
 import weexModule from './weex/index';
 import miniAppModule from './miniapp/ali/index';
 import weChatModule from './miniapp/wechat/index';
+import byteDanceModule from './miniapp/byteDance/index';
 
 import { INavigate } from './types';
 
@@ -43,6 +44,13 @@ function handleWeChat() {
   return null;
 }
 
+function handleByteDance() {
+  if (isByteDanceMicroApp) {
+    return byteDanceModule;
+  }
+  return null;
+}
+
 // Default module is web
 function handleDefault() {
   return webModule;
@@ -53,6 +61,7 @@ const Navigate: INavigate = dutyChain(
   handleWeex,
   handleMiniApp,
   handleWeChat,
+  handleByteDance,
   handleDefault
 );
 
