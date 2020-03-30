@@ -1,0 +1,39 @@
+declare const global: any;
+
+let systemInfo;
+
+function getSystemInfo() {
+  if (!systemInfo) {
+    systemInfo = global.globalSystemInfo || {};
+  }
+  return systemInfo;
+}
+
+const module = {};
+
+[
+  {
+    key: 'appName',
+    getFn: () => getSystemInfo().appName
+  },
+  {
+    key: 'platform',
+    getFn: () => getSystemInfo().platform
+  },
+  {
+    key: 'screenWidth',
+    getFn: () => getSystemInfo().screenWidth
+  },
+  {
+    key: 'screenHeight',
+    getFn: () => getSystemInfo().screenHeight
+  },
+  {
+    key: 'appVersion',
+    getFn: () => getSystemInfo().version
+  }
+].forEach(({ key, getFn }) => {
+  Object.defineProperty(module, key, { get: getFn });
+});
+
+export default module;

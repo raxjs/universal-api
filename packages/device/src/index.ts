@@ -1,8 +1,9 @@
-import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram } from 'universal-env';
+import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram, isQuickApp } from 'universal-env';
 import webModule from './web';
 import weexModule from './weex';
 import miniappModule from './miniapp/ali';
 import wechatModule from './miniapp/wechat';
+import quickAppModule from './quickapp';
 
 function dutyChain(...fns) {
   for (let i = 0; i < fns.length; i++) {
@@ -41,11 +42,16 @@ function handleWeChat() {
   return null;
 }
 
+function handleQuickApp() {
+  return isQuickApp ? quickAppModule : null;
+}
+
 const deviceInfo = dutyChain(
   handleWeb,
   handleWeex,
   handleMiniApp,
-  handleWeChat
+  handleWeChat,
+  handleQuickApp
 );
 
 const appName = deviceInfo.appName;
@@ -54,10 +60,4 @@ const platform = deviceInfo.platform;
 const screenWidth = deviceInfo.screenWidth;
 const screenHeight = deviceInfo.screenHeight;
 
-export {
-  appName,
-  appVersion,
-  platform,
-  screenWidth,
-  screenHeight,
-};
+export { appName, appVersion, platform, screenWidth, screenHeight };
