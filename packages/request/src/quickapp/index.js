@@ -14,7 +14,7 @@ export default function request(params) {
     return;
   }
 
-  let { url, method, data = {}, dataType = 'json', headers } = options;
+  let { url, method, data = {}, dataType = 'json', headers } = params;
   return new Promise((resolve, reject) => {
     fetch.fetch({
       url: url,
