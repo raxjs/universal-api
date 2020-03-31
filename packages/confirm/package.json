@@ -22,7 +22,6 @@
     "npm": ">=3.0.0"
   },
   "dependencies": {
-    "jsx2mp-runtime": "^0.3.24",
     "universal-env": "^3.1.0"
   },
   "peerDependencies": {
