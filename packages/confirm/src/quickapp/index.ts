@@ -21,6 +21,7 @@ const confirm = (options: Options): Promise<boolean> => {
     },
   ];
   return new Promise((resolve, reject): void => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const prompt = require('@system.prompt');
     prompt.showDialog({
       title,
