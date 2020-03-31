@@ -1,10 +1,11 @@
 const clipboardObj: any = {
   readText(): Promise<string> {
     return new Promise((reslove, reject): void => {
-      const clipboard = require("@system.clipboard");
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const clipboard = require('@system.clipboard');
       clipboard.get({
         success: ({ text }): void => {
-          reslove(text || "");
+          reslove(text || '');
         },
         fail: (): void => {
           reject();
@@ -14,9 +15,10 @@ const clipboardObj: any = {
   },
   writeText(text: string): Promise<string> {
     return new Promise((reslove, reject): void => {
-      const clipboard = require("@system.clipboard");
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const clipboard = require('@system.clipboard');
       clipboard.set({
-        text: text || "",
+        text: text || '',
         success: (): void => {
           reslove(text);
         },
