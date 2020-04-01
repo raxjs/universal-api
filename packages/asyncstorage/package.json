@@ -43,9 +43,6 @@
     "rax-scripts": "^2.0.0",
     "rax-test-renderer": "^1.0.0"
   },
-  "publishConfig": {
-    "registry": "https://registry.npm.alibaba-inc.com"
-    },
   "pre-commit": [
     "lint",
     "test"
