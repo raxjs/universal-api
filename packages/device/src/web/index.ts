@@ -31,6 +31,9 @@ let platform;
 }, {
   key: 'appVersion',
   getFn: () => navigator.appVersion
+}, {
+  key: 'devicePixelRatio',
+  getFn: () => window.devicePixelRatio
 }].forEach(({key, getFn}) => {
   Object.defineProperty(module, key, {
     get: getFn
