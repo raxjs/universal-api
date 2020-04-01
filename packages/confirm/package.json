@@ -1,7 +1,7 @@
 {
-  "name": "universal-confirm",
+  "name": "@ali/tt-universal-confirm",
   "author": "rax",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -15,6 +15,9 @@
   "keywords": [
     "Rax"
   ],
+  "publishConfig": {
+    "registry": "https://registry.npm.alibaba-inc.com"
+  },
   "engines": {
     "npm": ">=3.0.0"
   },
