@@ -35,4 +35,4 @@ Screen width in px
 Screen height in px
 
 ### `devicePixelRatio: number`
- The ratio of the resolution in physical pixels to the resolution in CSS pixels for the current display device.(Not supported in Weex)
+ The ratio of the resolution in physical pixels to the resolution in CSS pixels for the current display device.
