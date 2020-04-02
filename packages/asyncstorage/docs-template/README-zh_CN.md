@@ -1,77 +1,61 @@
-# universal-asyncstorage [![npm](https://img.shields.io/npm/v/universal-asyncstorage.svg)](https://www.npmjs.com/package/universal-asyncstorage)
+# universal-navigate
 
-> AsyncStorage
+路由导航能力实现
 
 ## 支持
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
 
-## 安装
-
+## Install
 ```bash
-$ npm install universal-asyncstorage --save
+$ npm install universal-navigate --save
 ```
 
-## 使用
+## Usage
+```javascript
+import Navigate from 'universal-navigate';
 
-```js
-import AsyncStorage from 'universal-asyncstorage';
-
-// setItem(key, value)
-AsyncStorage.setItem('key', 'value').then(() => {});
-
-// getItem(key)
-AsyncStorage.getItem('key').then(value => {
-  if (value !== null){
-    console.log(value);
-  }
+Navigate.push({
+  url: 'https://www.taobao.com/',
+  animated: true // 仅 weex 中支持
+}).then(() => {
 });
 
-// removeItem(key)
-AsyncStorage.removeItem('key').then(res => {});
-
-// getAllKeys()
-AsyncStorage.getAllKeys().then(res => {
-  console.log(res.join());
+Navigate.pop({
+  animated: false // 仅 weex 中支持
+}).then(() => {
 });
 
-// clear()
-AsyncStorage.clear().then(() => {});
+Navigate.go({
+  step: -1,
+  animated: false // 仅 weex 中支持
+}).then(() => {
+});
+
 ```
-
 ## 方法
-
-### `setItem(key: string, value: string): Promise<null>`
-
-#### 参数
-| 成员  | 类型     | 描述          | 默认值 |
-| ----- | -------- | ------------- | :----: |
-| key   | `string` | Storage key   |   -    |
-| value | `string` | Storage value |   -    |
-
-### `getItem(key: string): Promise<string | null>`
+### `push(options)`
 
 #### 参数
-| 成员 | 类型     | 描述        | 默认值 |
-| ---- | -------- | ----------- | :----: |
-| key  | `string` | Storage key |   -    |
+| 成员             | 类型      | 描述                                       | 必选  | 默认值 | 支持  |
+| ---------------- | --------- | ------------------------------------------ | :---: | :----: | :---: |
+| options          | `object`  | push 参数                                  |  是   |   -    |   -   |
+| options.url      | `string`  | 页面 URL.                                  |  是   |   -    |   -   |
+| options.animated | `boolean` | 仅weex中支持，页面压入时是否需要动画效果。 |  否   | `true` |__icon_weex__ |
 
-#### 返回值
-| 成员   | 类型            | 描述          |
-| ------ | --------------- | ------------- |
-| result | `string | null` | Storage value |
-
-### `removeItem(key: string): Promise<null>`
+### `pop(options)`
 
 #### 参数
-| 成员 | 类型     | 描述        | 默认值 |
-| ---- | -------- | ----------- | :----: |
-| key  | `string` | Storage key |   -    |
+| 成员             | 类型      | 描述                                       | 必选  | 默认值 | 支持  |
+| ---------------- | --------- | ------------------------------------------ | :---: | :----: | :---: |
+| options          | `object`  | pop 参数                                   |  否   |   -    |       |
+| options.animated | `boolean` | 仅weex中支持，页面压入时是否需要动画效果。 |  否   | `true` |__icon_weex__ |
 
-### `getAllKeys(): Promise<string[]>`
+### `go(options)`
 
-#### 返回值
-| 成员   | 类型       | 描述             |
-| ------ | ---------- | ---------------- |
-| result | `string[]` | Storage all keys |
+#### 参数
+| 成员             | 类型      | 描述                                                                                | 必选  | 默认值 | 支持  |
+| ---------------- | --------- | ----------------------------------------------------------------------------------- | :---: | :----: | :---: |
+| options          | `object`  | go 参数                                                                             |  是   |   -    |       |
+| options.step     | `number`  | 前进步数为正值且仅支持web，后退步数为负值，若大于现有打开的页面数，则返回到起始页。 |  是   |   -    |       |
+| options.animated | `boolean` | 仅weex中支持，页面压入时是否需要动画效果。                                          |  否   | `true` |__icon_weex__|
 
-### `clear(): Promise<null>`

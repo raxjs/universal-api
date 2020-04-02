@@ -2,30 +2,36 @@
   "name": "universal-asyncstorage",
   "version": "1.0.2",
   "description": "A universal AsyncStorage API.",
-  "license": "BSD-3-Clause",
   "main": "lib/index.js",
-  "scripts": {
-    "start": "rax-scripts start",
-    "build": "rax-scripts build",
-    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src",
-    "prebuild": "npm run lint && npm run test",
-    "prepublish": "npm run build"
-  },
-  "keywords": [
-    "universal"
+  "module": "src/index.js",
+  "files": [
+    "dist",
+    "es",
+    "lib",
+    "src",
+    "types"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/raxjs/universal-api.git"
+  "keywords": [
+    "Rax",
+    "rax-component"
+  ],
+  "engines": {
+    "npm": ">=3.0.0"
   },
-  "bugs": {
-    "url": "https://github.com/raxjs/universal-api/issues"
+  "peerDependencies": {
+    "rax": "^1.1.0"
   },
-  "homepage": "https://github.com/raxjs/universal-api#readme",
+  "scripts": {
+    "start": "build-scripts start",
+    "build": "build-scripts build"
+  },
   "dependencies": {
-    "universal-env": "^2.0.0"
+    "universal-env": "^3.1.0"
   },
   "devDependencies": {
+    "@alib/build-scripts": "^0.1.0",
+    "build-plugin-rax-component": "^0.1.4",
+    "driver-universal": "^3.1.0",
     "@types/jest": "^24.0.12",
     "@types/node": "^12.0.2",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
@@ -42,6 +48,9 @@
     "rax-plugin-component": "^0.1.20",
     "rax-scripts": "^2.0.0",
     "rax-test-renderer": "^1.0.0"
+  },
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
   },
   "pre-commit": [
     "lint",

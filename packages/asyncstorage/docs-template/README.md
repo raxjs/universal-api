@@ -1,77 +1,63 @@
-# universal-asyncstorage [![npm](https://img.shields.io/npm/v/universal-asyncstorage.svg)](https://www.npmjs.com/package/universal-asyncstorage)
+# universal-navigate [![npm](https://img.shields.io/npm/v/universal-navigate.svg)](https://www.npmjs.com/package/universal-navigate)
 
-> AsyncStorage
+Route navigation capability implementation.
 
 ## Support
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
 
 ## Install
 
 ```bash
-$ npm install universal-asyncstorage --save
+$ npm install universal-navigate --save
 ```
 
 ## Usage
 
 ```js
-import AsyncStorage from 'universal-asyncstorage';
+import Navigate from 'universal-navigate';
 
-// setItem(key, value)
-AsyncStorage.setItem('key', 'value').then(() => {});
-
-// getItem(key)
-AsyncStorage.getItem('key').then(value => {
-  if (value !== null){
-    console.log(value);
-  }
+Navigate.push({
+  url: 'https://www.taobao.com/',
+  animated: true // Only supported in weex
+}).then(() => {
 });
 
-// removeItem(key)
-AsyncStorage.removeItem('key').then(res => {});
-
-// getAllKeys()
-AsyncStorage.getAllKeys().then(res => {
-  console.log(res.join());
+Navigate.pop({
+  animated: false // Only supported in weex
+}).then(() => {
 });
 
-// clear()
-AsyncStorage.clear().then(() => {});
+Navigate.go({
+  step: -1,
+  animated: false // Only supported in weex
+}).then(() => {
+});
 ```
 
 ## Methods
 
-### `setItem(key: string, value: string): Promise<null>`
+### `push(options)`
 
 #### Arguments
-| Property | Type     | Description   | Default |
-| -------- | -------- | ------------- | :-----: |
-| key      | `string` | Storage key   |    -    |
-| value    | `string` | Storage value |    -    |
+| Property         | Type      | Description                                                                        | required | Default | Supported |
+| ---------------- | --------- | ---------------------------------------------------------------------------------- | :------: | :-----: | :---------: |
+| options          | `object`  | Push function arguments                                                            |   true   |    -    |             |
+| options.url      | `string`  | The page URL.                                                                      |   true   |    -    |             |
+| options.animated | `boolean` | Support only in weex, whether animated effects are required when pages are pressed |  false   | `true`  |__icon_weex__  |
 
-### `getItem(key: string): Promise<string | null>`
-
-#### Arguments
-| Property | Type     | Description | Default |
-| -------- | -------- | ----------- | :-----: |
-| key      | `string` | Storage key |    -    |
-
-#### Returns
-| Property | Type            | Description   |
-| -------- | --------------- | ------------- |
-| result   | `string | null` | Storage value |
-
-### `removeItem(key: string): Promise<null>`
+### `pop(options)`
 
 #### Arguments
-| Property | Type     | Description | Default |
-| -------- | -------- | ----------- | :-----: |
-| key      | `string` | Storage key |    -    |
+| Property         | Type      | Description                                                                        | required | Default | Supported |
+| ---------------- | --------- | ---------------------------------------------------------------------------------- | :------: | :-----: | :---------: |
+| options          | `object`  | Pop function arguments                                                             |  false   |    -    |             |
+| options.animated | `boolean` | Support only in weex, whether animated effects are required when pages are pressed |  false   | `true`  |__icon_weex__  |
 
-### `getAllKeys(): Promise<string[]>`
+### `go(options)`
 
-#### Returns
-| Property | Type       | Description      |
-| -------- | ---------- | ---------------- |
-| result   | `string[]` | Storage all keys |
-
-### `clear(): Promise<null>`
+#### Arguments
+| Property         | Type      | Description                                                                                                      | required | Default | Supported |
+| ---------------- | --------- | ---------------------------------------------------------------------------------------------------------------- | :------: | :-----: | :---------: |
+| options          | `object`  | Go function arguments                                                                                            |   true   |    -    |             |
+| options.step     | `number`  | The number of forward steps is positive and only supports the web, and the number of backward steps is negative. |   true   |    -    |             |
+| options.animated | `boolean` | Support only in weex, whether animated effects are required when pages are pressed                               |  false   | `true`  |__icon_weex__  |
