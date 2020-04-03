@@ -1,14 +1,10 @@
 {
   "name": "universal-navigate",
   "author": "rax",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
   "module": "src/index.js",
-  "miniappConfig": {
-    "main": "lib/miniapp/index",
-    "main:wechat": "lib/wechat-miniprogram/index"
-  },
   "files": [
     "dist",
     "es",
@@ -52,8 +48,5 @@
     "rax-plugin-component": "^0.1.8",
     "rax-scripts": "^2.0.0",
     "typescript": "^3.4.5"
-  },
-  "publishConfig": {
-    "registry": "http://registry.npm.alibaba-inc.com"
   }
 }
