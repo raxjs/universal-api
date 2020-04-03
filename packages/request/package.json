@@ -43,8 +43,5 @@
     "@ali/universal-tracker": "^2.2.9",
     "qs": "^6.9.1",
     "universal-env": "^3.1.0"
-  },
-  "publishConfig": {
-    "registry": "http://registry.npm.alibaba-inc.com"
   }
 }
