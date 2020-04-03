@@ -1,6 +1,6 @@
 {
   "name": "universal-asyncstorage",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A universal AsyncStorage API.",
   "main": "lib/index.js",
   "module": "src/index.js",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.0",
-    "build-plugin-rax-component": "^0.1.4",
+    "build-plugin-rax-component": "^0.2.2",
     "driver-universal": "^3.1.0",
     "@types/jest": "^24.0.12",
     "@types/node": "^12.0.2",
@@ -48,9 +48,6 @@
     "rax-plugin-component": "^0.1.20",
     "rax-scripts": "^2.0.0",
     "rax-test-renderer": "^1.0.0"
-  },
-  "publishConfig": {
-    "registry": "http://registry.npm.alibaba-inc.com"
   },
   "pre-commit": [
     "lint",
