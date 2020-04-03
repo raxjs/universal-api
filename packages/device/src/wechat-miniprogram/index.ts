@@ -9,7 +9,7 @@ const module = {};
 
 [{
   key: 'appName',
-  getFn: () => getSystemInfo().app
+  getFn: () => 'wechat'
 }, {
   key: 'platform',
   getFn: () => getSystemInfo().platform
@@ -22,6 +22,9 @@ const module = {};
 }, {
   key: 'appVersion',
   getFn: () => getSystemInfo().version
+}, {
+  key: 'devicePixelRatio',
+  getFn: () => getSystemInfo().pixelRatio
 }].forEach(({key, getFn}) => {
   Object.defineProperty(module, key, {
     get: getFn
