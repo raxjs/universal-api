@@ -48,8 +48,5 @@
     "rax-plugin-component": "^0.1.8",
     "rax-scripts": "^2.0.0",
     "typescript": "^3.4.5"
-  },
-  "publishConfig": {
-    "registry": "http://registry.npm.alibaba-inc.com"
   }
 }

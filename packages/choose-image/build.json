@@ -4,6 +4,8 @@
       "build-plugin-rax-component",
       {
         "type": "rax",
-        "targets": ["web"]      }
-    ]  ]
+        "targets": ["web"]      
+      }
+    ]
+  ]
 }
