@@ -1,4 +1,4 @@
-import { Options } from "../types";
+import { Options } from '../types';
 
 const confirm = (options: Options): Promise<boolean> => {
   return new Promise((resolve): void => {
