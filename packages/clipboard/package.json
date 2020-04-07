@@ -5,11 +5,6 @@
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "miniappConfig": {
-    "main": "lib/miniapp/index",
-    "main:wechat": "lib/wechat-miniprogram/index",
-    "main:quickapp": "lib/quickapp/index"
-  },
   "files": [
     "dist",
     "es",
