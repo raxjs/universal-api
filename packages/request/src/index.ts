@@ -1,4 +1,4 @@
-import { isWeex, isMiniApp, isWeChatMiniprogram, isWeb } from 'universal-env';
+import { isWeex, isMiniApp, isWeChatMiniProgram, isWeb } from 'universal-env';
 import {
   RequestOptions,
   DEFAULT_REQUEST_OPTIONS
@@ -7,7 +7,7 @@ import { normalizeHeaders } from './utils';
 import webModule from './web/index';
 import weexModule from './weex/index';
 import miniAppModule from './miniapp/index';
-import weChatModule from './weapp/index';
+import weChatModule from './wechat-miniprogram/index';
 
 function dutyChain(...fns) {
   for (let i = 0; i < fns.length; i++) {
@@ -23,7 +23,7 @@ function handleWeb(afterOptions) {
     const request = webModule;
     return request(afterOptions);
   }
-  return false;
+  return null;
 }
 
 function handleMiniApp(afterOptions) {
@@ -31,7 +31,7 @@ function handleMiniApp(afterOptions) {
     const request = miniAppModule;
     return request(afterOptions);
   }
-  return false;
+  return null;
 }
 
 function handleWeex(afterOptions) {
@@ -39,15 +39,15 @@ function handleWeex(afterOptions) {
     const request = weexModule;
     return request(afterOptions);
   }
-  return false;
+  return null;
 }
 
 function handleWeChatMiniprogram(afterOptions) {
-  if (isWeChatMiniprogram) {
+  if (isWeChatMiniProgram) {
     const request = weChatModule;
     return request(afterOptions);
   }
-  return false;
+  return null;
 }
 
 export default function(options: RequestOptions) {
