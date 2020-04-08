@@ -7,9 +7,8 @@
   "scripts": {
     "start": "rax-scripts start",
     "build": "rax-scripts build",
-    "test": "rax-scripts test",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src",
-    "prebuild": "npm run lint && npm run test",
+    "prebuild": "npm run lint",
     "prepublish": "npm run build"
   },
   "keywords": [
