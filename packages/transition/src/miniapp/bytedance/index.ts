@@ -1,5 +1,5 @@
 import { processParams } from '../../process';
-import { rpx2px } from 'universal-device';
+import { rpx2px } from 'universal-unit-tool';
 
 declare const tt: any;
 
