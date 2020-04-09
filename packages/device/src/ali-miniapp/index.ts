@@ -23,6 +23,9 @@ const module = {};
 }, {
   key: 'appVersion',
   getFn: () => getSystemInfo().version
+}, {
+  key: 'devicePixelRatio',
+  getFn: () => getSystemInfo().pixelRatio
 }].forEach(({key, getFn}) => {
   Object.defineProperty(module, key, {
     get: getFn
