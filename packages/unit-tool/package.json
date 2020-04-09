@@ -5,8 +5,8 @@
   "description": "A universal tool API.",
   "main": "lib/index.js",
   "scripts": {
-    "start": "rax-scripts start",
-    "build": "rax-scripts build",
+    "start": "build-scripts start",
+    "build": "build-scripts build",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src",
     "prebuild": "npm run lint",
     "prepublish": "npm run build"
@@ -33,8 +33,9 @@
     "eslint-plugin-react": "^7.12.4",
     "pre-commit": "^1.2.2",
     "rax": "^1.0.8",
-    "rax-plugin-component": "^0.1.9",
-    "rax-scripts": "^2.0.0"
+    "build-plugin-rax-component": "^0.2.0",
+    "@alib/build-scripts": "^0.1.0"
+
   },
   "pre-commit": [
     "lint",
