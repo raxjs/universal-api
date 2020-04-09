@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/raxjs/universal-api#readme",
   "dependencies": {
-    "@ali/tt-universal-device": "^1.0.0",
     "universal-device": "^2.1.1"
   },
   "devDependencies": {
