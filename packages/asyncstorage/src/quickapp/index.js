@@ -6,11 +6,9 @@ function setItem(key, value) {
       key,
       value,
       success: function(data) {
-        console.log('success', data);
         resolve(data);
       },
       fail: function(data, code) {
-        console.log(`handling fail, code = ${code}`);
         reject(`handling fail, code = ${code}`);
       }
     });
@@ -22,11 +20,9 @@ function getItem(key) {
     storage.get({
       key,
       success: function(data) {
-        console.log('success', data);
         resolve(data);
       },
       fail: function(data, code) {
-        console.log(`handling fail, code = ${code}`);
         reject(`handling fail, code = ${code}`);
       }
     });
@@ -38,11 +34,9 @@ function removeItem(key) {
     storage.delete({
       key,
       success: function(data) {
-        console.log('success', data);
         resolve(data);
       },
       fail: function(data, code) {
-        console.log(`handling fail, code = ${code}`);
         reject(`handling fail, code = ${code}`);
       }
     });
@@ -53,11 +47,9 @@ function clear() {
   return new Promise(function(resolve, reject) {
     storage.clear({
       success: function(data) {
-        console.log('success', data);
         resolve(data);
       },
       fail: function(data, code) {
-        console.log(`handling fail, code = ${code}`);
         reject(`handling fail, code = ${code}`);
       }
     });
