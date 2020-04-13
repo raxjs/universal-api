@@ -8,7 +8,7 @@ import webModule from './web/index';
 import weexModule from './weex/index';
 import miniAppModule from './miniapp/index';
 import weChatModule from './wechat-miniprogram/index';
-import QuickModule from './quickapp/index';
+
 
 function dutyChain(...fns) {
   for (let i = 0; i < fns.length; i++) {
@@ -53,7 +53,7 @@ function handleWeChatMiniprogram(afterOptions) {
 
 function handleQuickApp(afterOptions) {
   if (isQuickApp) {
-    const request = QuickModule;
+    const request = require('./quickapp/index');
     return request(afterOptions);
   }
   return false;
