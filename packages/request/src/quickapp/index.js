@@ -1,5 +1,3 @@
-import fetch from '@system.fetch';
-
 function json2string(obj) {
   try {
     return JSON.stringify(obj);
@@ -16,6 +14,7 @@ export default function request(params) {
 
   let { url, method, data = {}, dataType = 'json', headers } = params;
   return new Promise((resolve, reject) => {
+    const fetch = require('@system.fetch');
     fetch.fetch({
       url: url,
       responseType: dataType,
