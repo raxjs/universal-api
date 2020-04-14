@@ -1,8 +1,7 @@
-import media from '@system.media';
-
 export default function chooseImage(options) {
   if ( options.sourceType && options.sourceType.indexOf('camera') > -1 ) {
     return new Promise(function(resolve, reject) {
+      const media = require('@system.media');
       media.takePhoto({
         success: function(res) {
           const { uris = [] } = res;
@@ -24,6 +23,7 @@ export default function chooseImage(options) {
     });
   } else {
     return new Promise(function(resolve, reject) {
+      const media = require('@system.media');
       media.pickImages({
         success: function(res) {
           const { uris = [] } = res;
