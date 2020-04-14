@@ -15,6 +15,7 @@ function setItem(key, value) {
   });
 }
 
+
 function getItem(key) {
   return new Promise(function(resolve, reject) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
