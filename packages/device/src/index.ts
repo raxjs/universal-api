@@ -41,11 +41,16 @@ function handleWeChat() {
   return null;
 }
 
+function handleDefault() {
+  return {};
+}
+
 const deviceInfo = dutyChain(
   handleWeb,
   handleWeex,
   handleMiniApp,
-  handleWeChat
+  handleWeChat,
+  handleDefault
 );
 
 const appName = deviceInfo.appName;
