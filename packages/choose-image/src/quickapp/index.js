@@ -1,6 +1,7 @@
 export default function chooseImage(options) {
   if ( options.sourceType && options.sourceType.indexOf('camera') > -1 ) {
     return new Promise(function(resolve, reject) {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
       const media = require('@system.media');
       media.takePhoto({
         success: function(res) {
@@ -23,6 +24,7 @@ export default function chooseImage(options) {
     });
   } else {
     return new Promise(function(resolve, reject) {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
       const media = require('@system.media');
       media.pickImages({
         success: function(res) {
