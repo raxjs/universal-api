@@ -1,8 +1,7 @@
-import router from '@system.router';
-
 export default {
   push: (param) => {
     return new Promise((resolve, reject) => {
+      const router = require('@system.router');
       if (param.url && param.url !== '') {
         router.push({
           uri: param.url,
@@ -15,6 +14,7 @@ export default {
   },
   go: (param) => {
     return new Promise((resolve, reject) => {
+      const router = require('@system.router');
       if (param.step === -1) {
         resolve('success');
         router.back();
@@ -25,6 +25,7 @@ export default {
   },
   pop: () => {
     return new Promise((resolve, reject) => {
+      const router = require('@system.router');
       resolve('success');
       router.back();
     });
