@@ -1,19 +1,20 @@
 function json2string(obj) {
   try {
-    return JSON.stringify(obj);
+    return JSON.stringify(obj)
   } catch (e) {
-    return obj || '';
+    return obj || ''
   }
 }
 
 export default function request(params) {
   if (!params.url || params.url === '') {
-    throw 'lack of url';
-    return;
+    throw 'lack of url'
+    return
   }
 
   let { url, method, data = {}, dataType = 'json', headers } = params;
   return new Promise((resolve, reject) => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const fetch = require('@system.fetch');
     fetch.fetch({
       url: url,
