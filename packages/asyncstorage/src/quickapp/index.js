@@ -1,6 +1,7 @@
 function setItem(key, value) {
   return new Promise(function(resolve, reject) {
-    const storage =  require('@system.storage');
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const storage = require('@system.storage');
     storage.set({
       key,
       value,
@@ -16,7 +17,8 @@ function setItem(key, value) {
 
 function getItem(key) {
   return new Promise(function(resolve, reject) {
-    const storage =  require('@system.storage');
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const storage = require('@system.storage');
     storage.get({
       key,
       success: function(data) {
@@ -31,7 +33,8 @@ function getItem(key) {
 
 function removeItem(key) {
   return new Promise(function(resolve, reject) {
-    const storage =  require('@system.storage');
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const storage = require('@system.storage');
     storage.delete({
       key,
       success: function(data) {
@@ -46,7 +49,8 @@ function removeItem(key) {
 
 function clear() {
   return new Promise(function(resolve, reject) {
-    const storage =  require('@system.storage');
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const storage = require('@system.storage');
     storage.clear({
       success: function(data) {
         resolve(data);
