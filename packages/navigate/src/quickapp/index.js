@@ -1,6 +1,7 @@
 export default {
   push: (param) => {
     return new Promise((resolve, reject) => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
       const router = require('@system.router');
       if (param.url && param.url !== '') {
         router.push({
@@ -14,6 +15,7 @@ export default {
   },
   go: (param) => {
     return new Promise((resolve, reject) => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
       const router = require('@system.router');
       if (param.step === -1) {
         resolve('success');
@@ -25,6 +27,7 @@ export default {
   },
   pop: () => {
     return new Promise((resolve, reject) => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
       const router = require('@system.router');
       resolve('success');
       router.back();
