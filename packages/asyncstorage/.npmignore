@@ -1,10 +1,5 @@
-*.swp
-*.log
-
-.DS_Store
-.idea/
-package-lock.json
-yarn.lock
-coverage/
-node_modules/
-build/
+demo
+.eslintignore
+.eslintrc.js
+.travis.yml
+.tsconfig.json
