@@ -3,7 +3,6 @@ import webModule from './web/index';
 import weexModule from './weex/index';
 import miniAppModule from './miniapp/ali/index';
 import weChatModule from './miniapp/wechat/index';
-import quickAppModule from './quickapp/index';
 
 import { Alert } from './types';
 
@@ -21,7 +20,7 @@ if (isWeChatMiniProgram) {
   alert = weChatModule;
 }
 if(isQuickApp){
-  alert = quickAppModule;
+  alert = require('./quickapp/index');
 }
 
 export default alert;
