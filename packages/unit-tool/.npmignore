@@ -4,10 +4,7 @@
 .DS_Store
 .idea/
 package-lock.json
-yarn.lock
 coverage/
 node_modules/
 build/
-dist/
-lib/
-_miniapp/
+demo/
