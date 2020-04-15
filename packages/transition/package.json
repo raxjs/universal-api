@@ -1,20 +1,27 @@
 {
   "name": "universal-transition",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A universal transition API.",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
-  "scripts": {
-    "start": "rax-scripts start",
-    "build": "rax-scripts build",
-    "test": "rax-scripts test",
-    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src",
-    "prebuild": "npm run lint && npm run test",
-    "prepublish": "npm run build"
-  },
-  "keywords": [
-    "universal"
+  "files": [
+    "src",
+    "lib",
+    "dist"
   ],
+  "scripts": {
+    "start": "build-scripts start",
+    "build": "build-scripts build"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "keywords": [
+    "Rax"
+  ],
+  "engines": {
+    "npm": ">=3.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/raxjs/universal-api.git"
@@ -29,21 +36,9 @@
     "universal-env": "^3.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.18",
-    "@typescript-eslint/eslint-plugin": "^1.7.0",
-    "@typescript-eslint/parser": "^1.7.0",
-    "babel-eslint": "^10.0.2",
-    "eslint": "5.15.1",
-    "eslint-config-rax": "^0.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-react": "^7.12.4",
     "pre-commit": "^1.2.2",
     "rax": "^1.0.8",
-    "rax-plugin-component": "^0.1.9",
-    "rax-scripts": "^2.0.0"
-  },
-  "pre-commit": [
-    "lint",
-    "test"
-  ]
+    "build-plugin-rax-component": "^0.1.0",
+    "@alib/build-scripts": "^0.1.0"
+  }
 }
