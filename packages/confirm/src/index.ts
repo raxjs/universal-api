@@ -1,4 +1,10 @@
-import { isWeex, isMiniApp, isWeb, isWeChatMiniProgram } from 'universal-env';
+import {
+  isWeex,
+  isMiniApp,
+  isWeb,
+  isWeChatMiniProgram,
+  isQuickApp
+} from 'universal-env';
 import webModule from './web/index';
 import weexModule from './weex/index';
 import miniAppModule from './miniapp/ali/index';
@@ -17,6 +23,9 @@ if (isMiniApp) {
 }
 if (isWeChatMiniProgram) {
   confirm = weChatModule;
+}
+if (isQuickApp) {
+  confirm = require('./quickapp/index');
 }
 
 export default confirm;

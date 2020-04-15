@@ -3,7 +3,7 @@
 Confirm component for feedback.
 
 ## Support
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
 
 ## Install
 
@@ -34,7 +34,7 @@ confirm({
 | Property                  | Type     | Description                                | required |  Default  |
 | ------------------------- | -------- | ------------------------------------------ | :------: | :-------: |
 | options                   | `object` | alert arguments                            |  false   |     -     |
-| options.title             | `string` | alert title，support only in mini app      |  false   |  -  |
+| options.title             | `string` | alert title，support in mini and quick app     |  false   |  -  |
 | options.content           | `string` | alert content                              |  false   | - |
 | options.confirmButtonText | `string` | confirm button text，web are not supported |  false   | - |
 | options.cancelButtonText  | `string` | cancel button text，web are not supported  |  false   | -  |
