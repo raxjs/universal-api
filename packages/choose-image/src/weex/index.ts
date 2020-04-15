@@ -1,6 +1,4 @@
-import { Options } from '../types';
-
-const choose = (options: Options = {}): Promise<null> => {
+const choose = (): Promise<null> => {
   return Promise.reject();
 };
 
