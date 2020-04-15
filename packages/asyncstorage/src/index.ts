@@ -9,21 +9,13 @@ import { AsyncStorage } from './types';
 let AsyncStorage: AsyncStorage;
 if (isQuickApp) {
   AsyncStorage = quickModule;
-}
-
-if (isWeb) {
+} else if (isWeb) {
   AsyncStorage = webModule;
-}
-
-if (isWeex) {
+} else if (isWeex) {
   AsyncStorage = weexModule;
-}
-
-if (isMiniApp) {
+} else if (isMiniApp) {
   AsyncStorage = miniAppModule;
-}
-
-if (isWeChatMiniProgram) {
+} else if (isWeChatMiniProgram) {
   AsyncStorage = weChatModule;
 }
 
