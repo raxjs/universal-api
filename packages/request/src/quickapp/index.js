@@ -1,15 +1,15 @@
 function json2string(obj) {
   try {
-    return JSON.stringify(obj)
+    return JSON.stringify(obj);
   } catch (e) {
-    return obj || ''
+    return obj || '';
   }
 }
 
 export default function request(params) {
   if (!params.url || params.url === '') {
-    throw 'lack of url'
-    return
+    throw 'lack of url';
+    return;
   }
 
   let { url, method, data = {}, dataType = 'json', headers } = params;
