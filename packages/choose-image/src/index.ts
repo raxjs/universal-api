@@ -6,27 +6,18 @@ import weChatModule from './miniapp/wechat/index';
 import quickAppModule from './quickapp/index';
 import { ChooseImage } from './types';
 
-
 let chooseImage: ChooseImage = () => Promise.resolve(null);
-
-if (isWeb) {
-  chooseImage = webModule;
-}
-
-if (isWeex) {
-  chooseImage = weexModule;
-}
-
-if (isMiniApp) {
-  chooseImage = miniAppModule;
-}
-
-if (isWeChatMiniProgram) {
-  chooseImage = weChatModule;
-}
 
 if (isQuickApp) {
   chooseImage = quickAppModule;
+} else if (isWeb) {
+  chooseImage = webModule;
+} else if (isWeex) {
+  chooseImage = weexModule;
+} else if (isMiniApp) {
+  chooseImage = miniAppModule;
+} else if (isWeChatMiniProgram) {
+  chooseImage = weChatModule;
 }
 
 export default chooseImage;
