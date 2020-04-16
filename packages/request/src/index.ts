@@ -1,4 +1,4 @@
-import { isWeex, isMiniApp, isWeChatMiniProgram, isWeb } from 'universal-env';
+import { isWeex, isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from 'universal-env';
 import {
   RequestOptions,
   DEFAULT_REQUEST_OPTIONS
@@ -8,6 +8,7 @@ import webModule from './web/index';
 import weexModule from './weex/index';
 import miniAppModule from './miniapp/index';
 import weChatModule from './wechat-miniprogram/index';
+import bytedanceModule from './miniapp-bytedance/index';
 
 function dutyChain(...fns) {
   for (let i = 0; i < fns.length; i++) {
@@ -49,7 +50,12 @@ function handleWeChatMiniprogram(afterOptions) {
   }
   return null;
 }
-
+function handleBytedanceMiniprogram(afterOptions) {
+  if (isByteDanceMicroApp) {
+    const request = bytedanceModule;
+    return request(afterOptions);
+  }
+}
 export default function(options: RequestOptions) {
   let afterOptions: RequestOptions = Object.assign({},
     DEFAULT_REQUEST_OPTIONS,
@@ -63,5 +69,6 @@ export default function(options: RequestOptions) {
     handleWeex.bind(null, afterOptions),
     handleWeb.bind(null, afterOptions),
     handleMiniApp.bind(null, afterOptions),
+    handleBytedanceMiniprogram.bind(null, afterOptions),
     handleWeChatMiniprogram.bind(null, afterOptions));
 }
