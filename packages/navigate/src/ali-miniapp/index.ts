@@ -1,4 +1,4 @@
-import { IPushOptions, IGoOptions } from '../../types';
+import { IPushOptions, IGoOptions } from '../types';
 
 declare const my: any;
 
