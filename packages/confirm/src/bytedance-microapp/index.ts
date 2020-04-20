@@ -1,11 +1,11 @@
-import { Options } from '../../types';
+import { Options } from '../types';
 
-declare const wx: any;
+declare const tt: any;
 
 const confirm = (options: Options): Promise<boolean> => {
   return new Promise((resolve, reject): void => {
     const { title = '', content = '', confirmButtonText = '确定', cancelButtonText = '取消' } = options;
-    wx.showModal({
+    tt.showModal({
       title,
       content,
       confirmText: confirmButtonText,
