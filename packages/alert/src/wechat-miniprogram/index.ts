@@ -1,14 +1,15 @@
-import { Options } from '../../types';
+import { Options } from '../types';
 
-declare const my: any;
+declare const wx: any;
 
 const alert = (options: Options): Promise<null> => {
   return new Promise((resolve, reject): void => {
-    const { title, content, buttonText = '确定' } = options;
-    my.alert({
+    const { title = '', content = '', buttonText = '确定' } = options;
+    wx.showModal({
       title,
       content,
-      buttonText,
+      showCancel: false,
+      confirmText: buttonText,
       success: (): void => {
         resolve();
       },

@@ -1,15 +1,14 @@
-import { Options } from '../../types';
+import { Options } from '../types';
 
-declare const tt: any;
+declare const my: any;
 
 const alert = (options: Options): Promise<null> => {
   return new Promise((resolve, reject): void => {
-    const { title = '', content = '', buttonText = '确定' } = options;
-    tt.showModal({
+    const { title, content, buttonText = '确定' } = options;
+    my.alert({
       title,
       content,
-      showCancel: false,
-      confirmText: buttonText,
+      buttonText,
       success: (): void => {
         resolve();
       },

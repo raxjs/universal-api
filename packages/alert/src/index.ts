@@ -1,9 +1,9 @@
 import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram, isByteDanceMicroApp } from 'universal-env';
 import webModule from './web/index';
 import weexModule from './weex/index';
-import miniAppModule from './miniapp/ali/index';
-import weChatModule from './miniapp/wechat/index';
-import byteDanceModule from './miniapp/byteDance/index';
+import miniAppModule from './ali-miniapp/index';
+import weChatModule from './wechat-miniprogram/index';
+import byteDanceModule from './bytedance-microapp/index';
 
 import { Alert } from './types';
 
