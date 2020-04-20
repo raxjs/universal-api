@@ -1,7 +1,7 @@
 import { processParams } from '../../process';
 import { rpx2px } from 'universal-unit-tool';
 
-declare const wx: any;
+declare const tt: any;
 
 function parseTransform(transformValue) {
   const keyValueMap = {};
@@ -26,7 +26,7 @@ export default function transition(node: any, styles: any, options: any, callbac
   [options, callback] = processParams(options, callback);
 
   // eslint-disable-next-line no-undef
-  let animation = wx.createAnimation(Object.assign({}, options, {
+  let animation = tt.createAnimation(Object.assign({}, options, {
     timeFunction: options.timingFunction || 'ease',
   }));
   const properties = Object.keys(styles);

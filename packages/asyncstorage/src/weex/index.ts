@@ -15,7 +15,7 @@ const AsyncStorage: AsyncStorage = {
         if (result === 'success') {
           resolve(data);
         } else {
-          resolve(null);
+          reject(null);
         }
       });
     });
