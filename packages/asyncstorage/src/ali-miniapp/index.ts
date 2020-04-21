@@ -1,4 +1,4 @@
-import { AsyncStorage } from '../../types';
+import { AsyncStorage } from '../types';
 
 declare const my: any;
 

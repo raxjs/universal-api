@@ -2,9 +2,9 @@ import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram, isByteDanceMicroApp } fr
 
 import webModule from './web/index';
 import weexModule from './weex/index';
-import miniAppModule from './miniapp/ali/index';
-import weChatModule from './miniapp/wechat/index';
-import bytedanceModule from './miniapp/bytedance/index';
+import miniAppModule from './ali-miniapp/index';
+import weChatModule from './wechat-miniprogram/index';
+import bytedanceModule from './bytedance-microapp/index';
 
 import { AsyncStorage } from './types';
 
