@@ -1,11 +1,11 @@
-import { AsyncStorage } from '../../types';
+import { AsyncStorage } from '../types';
 
-declare const tt: any;
+declare const wx: any;
 
 const AsyncStorage: AsyncStorage = {
   getItem: (key: string): Promise<string | null> => {
     return new Promise((resolve, reject): void => {
-      tt.getStorage({
+      wx.getStorage({
         key,
         success: (res): void => {
           resolve(res.data);
@@ -18,7 +18,7 @@ const AsyncStorage: AsyncStorage = {
   },
   setItem: (key: string, value: object | string): Promise<null> => {
     return new Promise((resolve, reject): void => {
-      tt.setStorage({
+      wx.setStorage({
         key,
         data: value,
         success: (): void => {
@@ -32,7 +32,7 @@ const AsyncStorage: AsyncStorage = {
   },
   removeItem: (key: string): Promise<null> => {
     return new Promise((resolve, reject): void => {
-      tt.removeStorage({
+      wx.removeStorage({
         key,
         success: (): void => {
           resolve(null);
@@ -45,7 +45,7 @@ const AsyncStorage: AsyncStorage = {
   },
   getAllKeys: (): Promise<string[]> => {
     return new Promise((resolve, reject): void => {
-      tt.getStorageInfo({
+      wx.getStorageInfo({
         success: (res): void => {
           resolve(res.keys);
         },
@@ -57,7 +57,7 @@ const AsyncStorage: AsyncStorage = {
   },
   clear: (): Promise<null> => {
     return new Promise((resolve, reject): void => {
-      tt.clearStorage({
+      wx.clearStorage({
         success: (): void => {
           resolve(null);
         },
@@ -69,7 +69,7 @@ const AsyncStorage: AsyncStorage = {
   },
   length: (): Promise<number> => {
     return new Promise((resolve, reject): void => {
-      tt.getStorageInfo({
+      wx.getStorageInfo({
         success: (res): void => {
           resolve(res.keys.length);
         },

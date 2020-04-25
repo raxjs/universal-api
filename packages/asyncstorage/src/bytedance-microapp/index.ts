@@ -1,11 +1,11 @@
-import { AsyncStorage } from '../../types';
+import { AsyncStorage } from '../types';
 
-declare const my: any;
+declare const tt: any;
 
 const AsyncStorage: AsyncStorage = {
   getItem: (key: string): Promise<string | null> => {
     return new Promise((resolve, reject): void => {
-      my.getStorage({
+      tt.getStorage({
         key,
         success: (res): void => {
           resolve(res.data);
@@ -18,7 +18,7 @@ const AsyncStorage: AsyncStorage = {
   },
   setItem: (key: string, value: object | string): Promise<null> => {
     return new Promise((resolve, reject): void => {
-      my.setStorage({
+      tt.setStorage({
         key,
         data: value,
         success: (): void => {
@@ -32,7 +32,7 @@ const AsyncStorage: AsyncStorage = {
   },
   removeItem: (key: string): Promise<null> => {
     return new Promise((resolve, reject): void => {
-      my.removeStorage({
+      tt.removeStorage({
         key,
         success: (): void => {
           resolve(null);
@@ -45,7 +45,7 @@ const AsyncStorage: AsyncStorage = {
   },
   getAllKeys: (): Promise<string[]> => {
     return new Promise((resolve, reject): void => {
-      my.getStorageInfo({
+      tt.getStorageInfo({
         success: (res): void => {
           resolve(res.keys);
         },
@@ -57,7 +57,7 @@ const AsyncStorage: AsyncStorage = {
   },
   clear: (): Promise<null> => {
     return new Promise((resolve, reject): void => {
-      my.clearStorage({
+      tt.clearStorage({
         success: (): void => {
           resolve(null);
         },
@@ -69,7 +69,7 @@ const AsyncStorage: AsyncStorage = {
   },
   length: (): Promise<number> => {
     return new Promise((resolve, reject): void => {
-      my.getStorageInfo({
+      tt.getStorageInfo({
         success: (res): void => {
           resolve(res.keys.length);
         },
