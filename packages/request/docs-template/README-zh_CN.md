@@ -13,6 +13,9 @@ $ npm install universal-request --save
 ```javascript
 import request from 'universal-request';
 
+// 快应用中的引入方法
+// import chooseImage from 'universal-request/lib/quickapp;
+
 request({
   url: 'https://alibaba.github.io/rax/',
   method: 'POST',
