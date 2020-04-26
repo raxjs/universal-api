@@ -1,3 +1,8 @@
+import { isQuickApp } from 'universal-env';
+import otherModule from '../index';
+
+let exportModule;
+
 function json2string(obj) {
   try {
     return JSON.stringify(obj);
@@ -6,7 +11,7 @@ function json2string(obj) {
   }
 }
 
-export default function request(params) {
+function quickModule(params) {
   if (!params.url || params.url === '') {
     throw 'lack of url';
     return;
@@ -34,3 +39,11 @@ export default function request(params) {
     });
   });
 }
+
+if (isQuickApp) {
+  exportModule = quickModule
+} else {
+  exportModule = otherModule;
+}
+
+export default exportModule;
