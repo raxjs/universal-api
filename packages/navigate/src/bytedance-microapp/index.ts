@@ -1,11 +1,11 @@
-import { IPushOptions, IGoOptions } from '../../types';
+import { IPushOptions, IGoOptions } from '../types';
 
-declare const wx: any;
+declare const tt: any;
 
 const push = (options: IPushOptions): Promise<null> => {
   return new Promise((resolve, reject): void => {
     const { url } = options;
-    wx.navigateTo({
+    tt.navigateTo({
       url,
       success: resolve,
       fail: reject
@@ -15,7 +15,7 @@ const push = (options: IPushOptions): Promise<null> => {
 
 const pop = (): Promise<null> => {
   return new Promise((resolve, reject): void => {
-    wx.navigateBack({
+    tt.navigateBack({
       delta: 1,
       success: resolve,
       fail: reject
@@ -27,7 +27,7 @@ const go = (options: IGoOptions): Promise<null> => {
   return new Promise((resolve, reject): void => {
     const { step } = options;
     if (step < 0) {
-      wx.navigateBack({
+      tt.navigateBack({
         delta: Math.abs(step),
         success: resolve,
         fail: reject

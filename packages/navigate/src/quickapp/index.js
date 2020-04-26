@@ -1,4 +1,9 @@
-export default {
+import { isQuickApp } from 'universal-env';
+import otherModule from '../index';
+
+let exportModule;
+
+const quickModule =  {
   push: (param) => {
     return new Promise((resolve, reject) => {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -34,3 +39,11 @@ export default {
     });
   }
 };
+
+if (isQuickApp) {
+  exportModule = quickModule
+} else {
+  exportModule = otherModule;
+}
+
+export default exportModule;
