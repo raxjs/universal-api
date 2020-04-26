@@ -17,6 +17,9 @@ $ npm install universal-navigate --save
 ```js
 import Navigate from 'universal-navigate';
 
+// 快应用中的引入方法
+// import chooseImage from 'universal-navigate/lib/quickapp;
+
 Navigate.push({
   url: 'https://www.taobao.com/',
   animated: true // Only supported in weex
