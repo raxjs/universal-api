@@ -17,6 +17,9 @@ $ npm install universal-choose-image --save
 ```js
 import chooseImage from 'universal-choose-image';
 
+// 快应用中的引入方法
+// import chooseImage from 'universal-choose-image/lib/quickapp;
+
 chooseImage().then(res => {
 })
 ```
