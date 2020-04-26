@@ -12,7 +12,6 @@
   ],
   "keywords": [
     "Rax",
-    "rax-component"
   ],
   "engines": {
     "npm": ">=3.0.0"
@@ -37,7 +36,6 @@
     "eslint-plugin-react": "~7.11.1"
   },
   "dependencies": {
-    "qs": "^6.9.1",
     "universal-env": "^3.1.0"
   }
 }
