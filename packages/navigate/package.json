@@ -27,7 +27,6 @@
     "build": "build-scripts build"
   },
   "dependencies": {
-    "driver-weex": "^1.0.0",
     "universal-env": "^3.1.0"
   },
   "devDependencies": {
@@ -45,8 +44,6 @@
     "eslint-config-rax": "^0.0.0",
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-react": "^7.12.4",
-    "rax-plugin-component": "^0.1.8",
-    "rax-scripts": "^2.0.0",
     "typescript": "^3.4.5"
   }
 }

@@ -1,4 +1,3 @@
-
 import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram, isByteDanceMicroApp } from 'universal-env';
 import webModule from './web/index';
 import weexModule from './weex/index';
