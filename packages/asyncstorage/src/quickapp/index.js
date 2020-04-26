@@ -1,3 +1,8 @@
+import { isQuickApp } from 'universal-env';
+import otherModule from '../index';
+
+let exportModule;
+
 function setItem(key, value) {
   return new Promise(function(resolve, reject) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -62,9 +67,15 @@ function clear() {
   });
 }
 
-module.exports = {
-  setItem,
-  getItem,
-  removeItem,
-  clear
-};
+if (isQuickApp) {
+  exportModule = {
+    setItem,
+    getItem,
+    removeItem,
+    clear
+  }
+} else {
+  exportModule = otherModule;
+}
+
+export default exportModule;
