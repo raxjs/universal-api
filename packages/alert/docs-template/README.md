@@ -4,7 +4,7 @@ Alert component for feedback.
 
 
 ## Support
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__
 
 ## Install
 
@@ -34,6 +34,6 @@ Alert({
 | Property           | Type     | Description                                           |  Default  |  Supported   |
 | ------------------ | -------- | ----------------------------------------------------- | :-------: | :----------: |
 | options            | `object` | alert arguments                                       |     -     |              |
-| options.title      | `string` | alert title，support only in mini app                 |  -  |     __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| options.title      | `string` | alert title，support only in mini app                 |  -  |     __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__ |
 | options.content    | `string` | alert content                                         | - |              |
-| options.buttonText | `string` | alert button text，web environments are not supported | - | __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| options.buttonText | `string` | alert button text，web environments are not supported | - | __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__ |
