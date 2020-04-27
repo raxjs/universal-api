@@ -3,7 +3,7 @@ import otherModule from '../index';
 
 let exportModule;
 
-const quickModule =  {
+const quickModule = {
   push: (param) => {
     return new Promise((resolve, reject) => {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -41,7 +41,7 @@ const quickModule =  {
 };
 
 if (isQuickApp) {
-  exportModule = quickModule
+  exportModule = quickModule;
 } else {
   exportModule = otherModule;
 }
