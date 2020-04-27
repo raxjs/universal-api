@@ -11,7 +11,7 @@
     "types"
   ],
   "keywords": [
-    "Rax",
+    "Rax"
   ],
   "engines": {
     "npm": ">=3.0.0"
@@ -28,7 +28,6 @@
     "driver-universal": "^3.1.0",
     "rax": "^1.1.0",
     "rax-test-renderer": "^1.0.0",
-    "@ali/build-plugin-pegasus-base": "^1.0.0",
     "@alib/build-scripts": "^0.1.5",
     "eslint": "^5.10.0",
     "eslint-config-rax": "^0.0.3",
