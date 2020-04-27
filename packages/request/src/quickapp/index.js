@@ -11,7 +11,7 @@ function json2string(obj) {
   }
 }
 
-function quickModule(params) {
+function request(params) {
   if (!params.url || params.url === '') {
     throw 'lack of url';
     return;
@@ -41,7 +41,7 @@ function quickModule(params) {
 }
 
 if (isQuickApp) {
-  exportModule = quickModule
+  exportModule = request;
 } else {
   exportModule = otherModule;
 }
