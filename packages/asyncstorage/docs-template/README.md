@@ -17,7 +17,7 @@ $ npm install universal-asyncstorage --save
 ```js
 import AsyncStorage from 'universal-asyncstorage';
 
-// 快应用中的引入方法
+// How to use it in quickapp
 // import chooseImage from 'universal-asyncstorage/lib/quickapp;
 
 // setItem(key, value)
