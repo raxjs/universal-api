@@ -3,7 +3,7 @@ import otherModule from '../index';
 
 let exportModule;
 
-function quickModule (options) {
+function chooseImage (options) {
   if ( options.sourceType && options.sourceType.indexOf('camera') > -1 ) {
     return new Promise(function(resolve, reject) {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -54,7 +54,7 @@ function quickModule (options) {
 }
 
 if (isQuickApp) {
-  exportModule = quickModule;
+  exportModule = chooseImage;
 } else {
   exportModule = otherModule;
 }
