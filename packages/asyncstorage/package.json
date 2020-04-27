@@ -3,7 +3,6 @@
   "version": "1.3.0",
   "description": "A universal AsyncStorage API.",
   "main": "lib/index.js",
-  "module": "src/index.js",
   "files": [
     "dist",
     "es",
@@ -12,8 +11,7 @@
     "types"
   ],
   "keywords": [
-    "Rax",
-    "rax-component"
+    "Rax"
   ],
   "engines": {
     "npm": ">=3.0.0"
