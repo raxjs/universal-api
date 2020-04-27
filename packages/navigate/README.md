@@ -17,7 +17,7 @@ $ npm install universal-navigate --save
 ```js
 import Navigate from 'universal-navigate';
 
-// 快应用中的引入方法
+// How to use it in quickapp
 // import chooseImage from 'universal-navigate/lib/quickapp;
 
 Navigate.push({
