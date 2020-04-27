@@ -13,7 +13,7 @@ $ npm install universal-request --save
 ```javascript
 import request from 'universal-request';
 
-// 快应用中的引入方法
+// How to use it in quickapp
 // import chooseImage from 'universal-request/lib/quickapp;
 
 request({
