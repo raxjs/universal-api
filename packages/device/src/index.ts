@@ -1,9 +1,9 @@
-import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram, isQuickApp } from 'universal-env';
+import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram, isByteDanceMicroApp } from 'universal-env';
 import webModule from './web';
 import weexModule from './weex';
 import miniappModule from './ali-miniapp';
 import wechatModule from './wechat-miniprogram';
-import quickAppModule from './quickapp';
+import byteDanceModule from './bytedance-microapp';
 
 function dutyChain(...fns) {
   for (let i = 0; i < fns.length; i++) {
@@ -42,9 +42,11 @@ function handleWeChat() {
   return null;
 }
 
-function handleQuickApp() {
-  return isQuickApp ? quickAppModule : null;
-
+function handleByteDance() {
+  if (isByteDanceMicroApp) {
+    return byteDanceModule;
+  }
+  return null;
 }
 
 function handleDefault() {
@@ -56,7 +58,7 @@ const deviceInfo = dutyChain(
   handleWeex,
   handleMiniApp,
   handleWeChat,
-  handleQuickApp,
+  handleByteDance,
   handleDefault
 );
 

@@ -3,7 +3,7 @@
 系统信息。
 
 ## 支持
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__ __icon_quick_app__
 
 ## 安装
 ```bash
@@ -13,6 +13,10 @@ $ npm install universal-device --save
 ## 使用
 
 ```javascript
+
+// 快应用中的引入方法
+// import { platform, appName, screenWidth, screenHeight, appVersion } from 'universal-device/lib/quickapp;
+
 import { platform, appName, screenWidth, screenHeight, appVersion } from 'universal-device';
 ```
 

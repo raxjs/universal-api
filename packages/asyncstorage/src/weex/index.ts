@@ -15,7 +15,8 @@ const AsyncStorage: AsyncStorage = {
         if (result === 'success') {
           resolve(data);
         } else {
-          reject(null);
+          // In weex, if there is no storage, result is also false
+          resolve(null);
         }
       });
     });
