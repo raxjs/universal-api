@@ -13,7 +13,8 @@
   ],
   "keywords": [
     "Rax",
-    "rax-component"
+    "Universal",
+    "API"
   ],
   "engines": {
     "npm": ">=3.0.0"
