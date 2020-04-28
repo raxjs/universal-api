@@ -15,6 +15,9 @@ $ npm install universal-clipboard --save
 ```javascript
 import Clipboard from 'universal-clipboard';
 
+// How to use it in quickapp
+// import Clipboard from 'universal-clipboard/lib/quickapp;
+
 Clipboard.readText().then(text => {
 
 }).catch(() => {

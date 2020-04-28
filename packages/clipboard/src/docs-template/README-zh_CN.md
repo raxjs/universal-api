@@ -15,6 +15,9 @@ $ npm install universal-clipboard --save
 ```javascript
 import Clipboard from 'universal-clipboard';
 
+// 快应用中的引入方法
+// import Clipboard from 'universal-clipboard/lib/quickapp;
+
 Clipboard.readText().then(text => {
 
 }).catch(() => {

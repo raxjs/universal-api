@@ -1,7 +1,7 @@
 {
   "name": "universal-clipboard",
   "author": "rax",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -31,10 +31,11 @@
     "universal-env": "^3.1.0"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.12",
     "typescript": "^3.7.5",
     "@rax-types/rax": "^1.0.6",
     "@alib/build-scripts": "^0.1.0",
-    "build-plugin-rax-component": "^0.2.0",
+    "build-plugin-rax-component": "^0.2.2",
     "driver-universal": "^3.1.0",
     "rax": "^1.1.0",
     "rax-test-renderer": "^1.0.0"

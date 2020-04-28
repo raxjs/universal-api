@@ -1,3 +1,8 @@
+import { isQuickApp } from 'universal-env';
+import otherModule from '../index';
+
+let exportModule = {};
+
 const clipboardObj: any = {
   readText(): Promise<string> {
     return new Promise((reslove, reject): void => {
@@ -30,4 +35,10 @@ const clipboardObj: any = {
   }
 };
 
-export default clipboardObj;
+if(isQuickApp) {
+  exportModule = clipboardObj;
+}else{
+  exportModule = otherModule;
+}
+
+export default exportModule;
