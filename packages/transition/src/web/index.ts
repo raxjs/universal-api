@@ -31,9 +31,11 @@ export default function transition(node: any, styles: any, options: any, callbac
     node.addEventListener('transitionend', transitionEndHandler);
   }
 
-  for (const key in styles) {
-    // TODO add vendor prefix
-    let value = styles[key];
-    node.style[key] = value;
-  }
+  setTimeout(() => {
+    for (const key in styles) {
+      // TODO add vendor prefix
+      let value = styles[key];
+      node.style[key] = value;
+    }
+  }, 0);
 }
