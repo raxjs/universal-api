@@ -1,4 +1,4 @@
-import AsyncStorage from '../miniapp';
+import AsyncStorage from '../ali-miniapp';
 
 const storage = {};
 // eslint-disable-next-line

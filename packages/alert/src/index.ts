@@ -1,8 +1,15 @@
-import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram ,isQuickApp} from 'universal-env';
+import {
+  isWeb,
+  isWeex,
+  isMiniApp,
+  isWeChatMiniProgram,
+  isByteDanceMicroApp,
+} from 'universal-env';
 import webModule from './web/index';
 import weexModule from './weex/index';
-import miniAppModule from './miniapp/ali/index';
-import weChatModule from './miniapp/wechat/index';
+import miniAppModule from './ali-miniapp/index';
+import weChatModule from './wechat-miniprogram/index';
+import byteDanceModule from './bytedance-microapp/index';
 
 import { Alert } from './types';
 
@@ -19,8 +26,8 @@ if (isMiniApp) {
 if (isWeChatMiniProgram) {
   alert = weChatModule;
 }
-if(isQuickApp){
-  alert = require('./quickapp/index');
+if (isByteDanceMicroApp) {
+  alert = byteDanceModule;
 }
 
 export default alert;

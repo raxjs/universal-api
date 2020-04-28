@@ -1,4 +1,8 @@
 import { Options } from '../types';
+import {  isQuickApp } from 'universal-env';
+import otherModule from '../index';
+
+let exportModule = {};
 
 const alert = (options: Options = {}): Promise<null> => {
   const { title = '', content = '', buttonText = '确定' } = options;
@@ -25,4 +29,10 @@ const alert = (options: Options = {}): Promise<null> => {
   });
 };
 
-export default alert;
+if(isQuickApp) {
+  exportModule = alert;
+}else{
+  exportModule = otherModule;
+}
+
+export default exportModule;
