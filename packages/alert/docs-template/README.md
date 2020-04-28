@@ -18,7 +18,7 @@ $ npm install universal-alert --save
 import Alert from 'universal-alert';
 
 // How to use it in quickapp
-// import chooseImage from 'universal-alert/lib/quickapp;
+// import Alert from 'universal-alert/lib/quickapp;
 
 Alert({
   title: 'alert title',

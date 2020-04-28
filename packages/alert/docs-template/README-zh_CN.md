@@ -18,7 +18,7 @@ $ npm install universal-alert --save
 import Alert from 'universal-alert';
 
 // 快应用中的引入方法
-// import chooseImage from 'universal-alert/lib/quickapp;
+// import Alert from 'universal-alert/lib/quickapp;
 
 Alert({
   title: 'alert框的标题',
