@@ -1,8 +1,13 @@
 import { Options } from '../types';
 
+import {  isQuickApp } from 'universal-env';
+import otherModule from '../index';
+
 export interface Response {
   index: number;
 }
+
+let exportModule = {};
 
 const confirm = (options: Options): Promise<boolean> => {
   const {
@@ -37,4 +42,10 @@ const confirm = (options: Options): Promise<boolean> => {
   });
 };
 
-export default confirm;
+if(isQuickApp) {
+  exportModule = confirm;
+}else{
+  exportModule = otherModule;
+}
+
+export default exportModule;

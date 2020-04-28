@@ -3,7 +3,7 @@
 confirm 确认框
 
 ## 支持
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__ __icon_microapp_tt__
 
 ## 安装
 
@@ -15,6 +15,9 @@ $ npm install universal-confirm --save
 
 ```js
 import confirm from 'universal-confirm';
+
+// 快应用中的引入方法
+// import confirm from 'universal-confirm/lib/quickapp;
 
 confirm({
   title: 'confirm 标题',

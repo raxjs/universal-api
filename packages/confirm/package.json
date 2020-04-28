@@ -1,7 +1,7 @@
 {
   "name": "universal-confirm",
   "author": "rax",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.0",
-    "build-plugin-rax-component": "^0.1.0",
+    "build-plugin-rax-component": "^0.2.2",
     "driver-universal": "^2.0.0",
     "rax": "^1.0.0"
   },

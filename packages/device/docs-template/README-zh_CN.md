@@ -3,7 +3,7 @@
 系统信息。
 
 ## 支持
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__
 
 ## 安装
 ```bash
@@ -18,17 +18,20 @@ import { platform, appName, screenWidth, screenHeight, appVersion } from 'univer
 
 ## APIS
 
-### `appName: String`
+### `appName: string`
 app 名称或浏览器名称。
 
-### `appVersion: String`
+### `appVersion: string`
 app 版本号或浏览器版本信息。
 
-### `platform: String`
+### `platform: string`
 平台： 'Android'、'iOS'、'MacIntel' 等。
 
-### `screenWidth: Number`
+### `screenWidth: number`
 屏幕宽度，单位为px。
 
-### `screenHeight: Number`
+### `screenHeight: number`
 屏幕高度，单位为px。
+
+### `devicePixelRatio: number`
+当前显示设备的物理像素分辨率与CSS像素分辨率的比值。
