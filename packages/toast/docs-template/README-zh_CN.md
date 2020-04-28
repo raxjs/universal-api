@@ -3,7 +3,7 @@
 通用弱提示，可选择多少秒之后消失
 
 ## 支持
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_miniapp_tt__ __icon_quick_app__
 
 ## 安装
 

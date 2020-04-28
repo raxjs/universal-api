@@ -1,16 +1,10 @@
-import {
-  isWeex,
-  isMiniApp,
-  isWeb,
-  isWeChatMiniProgram,
-  isQuickApp
-} from "universal-env";
-import webModule from "./web/index";
-import weexModule from "./weex/index";
-import miniAppModule from "./miniapp/ali/index";
-import weChatModule from "./miniapp/wechat/index";
-import quickappModule from "./quickapp/index";
-import { ToastOption } from "./types";
+import { isWeex, isMiniApp, isWeb, isWeChatMiniProgram, isByteDanceMicroApp } from 'universal-env';
+import webModule from './web/index';
+import weexModule from './weex/index';
+import miniAppModule from './miniapp/ali-miniapp/index';
+import weChatModule from './miniapp/wechat-miniprogram/index';
+import byteDanceModule from './miniapp/bytedance-microapp/index';
+import { ToastOption } from './types';
 
 let Toast: ToastOption = {} as any;
 
@@ -23,8 +17,11 @@ if (isWeb) {
   Toast = miniAppModule;
 } else if (isWeChatMiniProgram) {
   Toast = weChatModule;
-} else if (isQuickApp) {
-  Toast = quickappModule;
+} else if (isByteDanceMicroApp) {
+  Toast = byteDanceModule;
+} else {
+  // Web as default
+  Toast = webModule;
 }
 
 export default Toast;

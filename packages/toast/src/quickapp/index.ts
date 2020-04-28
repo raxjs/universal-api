@@ -1,5 +1,8 @@
 import { ToastOption } from '../types';
+import { isQuickApp } from 'universal-env';
+import otherModule from '../index';
 
+let exportModule = {};
 const LONG_DELAY = 1;
 const SHORT_DELAY = 0;
 
@@ -20,4 +23,10 @@ const Toast: ToastOption = {
   }
 };
 
-export default Toast;
+if(isQuickApp){
+  exportModule = Toast;
+}else{
+  exportModule = otherModule;
+}
+
+export default exportModule;
