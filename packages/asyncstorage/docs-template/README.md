@@ -3,7 +3,8 @@
 > AsyncStorage
 
 ## Support
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__
+
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__ __icon_microapp_tt__
 
 ## Install
 
@@ -15,6 +16,9 @@ $ npm install universal-asyncstorage --save
 
 ```js
 import AsyncStorage from 'universal-asyncstorage';
+
+// How to use it in quickapp
+// import chooseImage from 'universal-asyncstorage/lib/quickapp;
 
 // setItem(key, value)
 AsyncStorage.setItem('key', 'value').then(() => {});
