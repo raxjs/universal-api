@@ -6,7 +6,6 @@ import weChatModule from './miniapp/wechat/index';
 
 import { ChooseImage } from './types';
 
-
 let chooseImage: ChooseImage = () => Promise.resolve(null);
 
 if (isWeb) {
