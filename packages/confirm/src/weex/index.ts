@@ -1,11 +1,13 @@
 import { Options } from '../types';
 
-declare const weex: any;
+// eslint-disable-next-line
+declare const __weex_require__: any;
 
 const confirm = (options: Options): Promise<boolean> => {
   return new Promise((resolve): void => {
     const { content = '', confirmButtonText, cancelButtonText } = options;
-    const modal = weex.requireModule('modal');
+    // @typescript-eslint/camelcase
+    const modal = __weex_require__('modal');
     modal.confirm({
       message: content,
       okTitle: confirmButtonText,
