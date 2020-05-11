@@ -7,18 +7,13 @@ import bytedanceModule from './miniapp/bytedance-microapp/index';
 
 import { ChooseImage } from './types';
 
-
 let chooseImage: ChooseImage = () => Promise.resolve(null);
 
 if (isWeb) {
   chooseImage = webModule;
-}
-
-if (isWeex) {
+} else if (isWeex) {
   chooseImage = weexModule;
-}
-
-if (isMiniApp) {
+} else if (isMiniApp) {
   chooseImage = miniAppModule;
 }
 
