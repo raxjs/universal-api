@@ -3,7 +3,8 @@
 > AsyncStorage
 
 ## 支持
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__
+
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__ __icon_microapp_tt__
 
 ## 安装
 
@@ -15,6 +16,9 @@ $ npm install universal-asyncstorage --save
 
 ```js
 import AsyncStorage from 'universal-asyncstorage';
+
+// 快应用中的引入方法
+// import chooseImage from 'universal-asyncstorage/lib/quickapp;
 
 // setItem(key, value)
 AsyncStorage.setItem('key', 'value').then(() => {});
