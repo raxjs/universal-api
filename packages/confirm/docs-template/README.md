@@ -37,7 +37,7 @@ confirm({
 | Property                  | Type     | Description                                | required |  Default  |
 | ------------------------- | -------- | ------------------------------------------ | :------: | :-------: |
 | options                   | `object` | alert arguments                            |  false   |     -     |
-| options.title             | `string` | alert title，support in mini and quick app     |  false   |  -  |
+| options.title             | `string` | alert title，support in miniapp and quick app     |  false   |  -  |
 | options.content           | `string` | alert content                              |  false   | - |
 | options.confirmButtonText | `string` | confirm button text，web are not supported |  false   | - |
 | options.cancelButtonText  | `string` | cancel button text，web are not supported  |  false   | -  |
