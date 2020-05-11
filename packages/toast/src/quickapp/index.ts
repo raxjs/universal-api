@@ -23,9 +23,9 @@ const Toast: ToastOption = {
   }
 };
 
-if(isQuickApp){
+if (isQuickApp) {
   exportModule = Toast;
-}else{
+} else {
   exportModule = otherModule;
 }
 
