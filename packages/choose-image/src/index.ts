@@ -15,13 +15,9 @@ if (isWeb) {
   chooseImage = weexModule;
 } else if (isMiniApp) {
   chooseImage = miniAppModule;
-}
-
-if (isByteDanceMicroApp) {
+} else if (isByteDanceMicroApp) {
   chooseImage = bytedanceModule;
-}
-
-if (isWeChatMiniprogram) {
+} else if (isWeChatMiniprogram) {
   chooseImage = weChatModule;
 }
 
