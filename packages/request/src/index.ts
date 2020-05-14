@@ -50,12 +50,14 @@ function handleWeChatMiniprogram(afterOptions) {
   }
   return null;
 }
+
 function handleBytedanceMiniprogram(afterOptions) {
   if (isByteDanceMicroApp) {
     const request = bytedanceModule;
     return request(afterOptions);
   }
 }
+
 export default function(options: RequestOptions) {
   let afterOptions: RequestOptions = Object.assign({},
     DEFAULT_REQUEST_OPTIONS,
