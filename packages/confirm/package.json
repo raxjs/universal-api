@@ -31,7 +31,10 @@
     "@alib/build-scripts": "^0.1.0",
     "build-plugin-rax-component": "^0.2.2",
     "driver-universal": "^2.0.0",
-    "rax": "^1.0.0"
+    "rax": "^1.0.0",
+    "rax-text": "^1.3.1",
+    "rax-view": "^1.1.2",
+    "typescript": "^3.4.5"
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 import { Options } from '../types';
 
-import {  isQuickApp } from 'universal-env';
+import { isQuickApp } from 'universal-env';
 import otherModule from '../index';
 
 export interface Response {
@@ -42,9 +42,9 @@ const confirm = (options: Options): Promise<boolean> => {
   });
 };
 
-if(isQuickApp) {
+if (isQuickApp) {
   exportModule = confirm;
-}else{
+} else {
   exportModule = otherModule;
 }
 
