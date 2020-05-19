@@ -37,5 +37,6 @@ export default function transition(node: any, styles: any, options: any, callbac
       let value = styles[key];
       node.style[key] = value;
     }
-  }, 0);
+    // node.style.transition couldn't be set sync with target transition style, so there should settimeout 30ms
+  }, 30);
 }
