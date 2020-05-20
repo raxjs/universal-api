@@ -3,7 +3,7 @@
 Universal toast, you can choose how many seconds after disappearing
 
 ## Support
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_miniapp_tt__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__ __icon_quick_app__
 
 ## Install
 
@@ -15,6 +15,9 @@ $ npm install universal-toast --save
 
 ```js
 import Toast from 'universal-toast';
+
+// How to use it in quickapp
+// import Toast from 'universal-toast/lib/quickapp;
 
 Toast.show('Hi');
 ```
