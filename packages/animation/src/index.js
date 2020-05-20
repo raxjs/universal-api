@@ -126,24 +126,42 @@ class Animation {
               easing: transformEasing(prop.easing || easing),
               duration: prop.duration,
               props: transitionProps,
+              startState: transformProperty(prop.property, prop.start),
               delay: prop.delay || 0
             });
           }
         }
       });
       map(transitionMap, (o) => {
-        let transitionProps = {
+        // For loop animation, from start to end.
+        const transitionToStartState = transition('', {
+          ...o.startState,
+          ...o.startState.transform ? {
+            transform: o.startState.transform.join(' '),
+            webkitTransform: o.startState.transform.join(' ')
+          } : {}
+        }, {
+          duration: 1, // Set 0 is not word in miniApp IDE.
+          delay: 0
+        }).export() || [];
+        const transitionToEndState = transition('', {
           ...o.props,
           ...o.props.transform ? {
             transform: o.props.transform.join(' '),
             webkitTransform: o.props.transform.join(' ')
           } : {}
-        };
-        miniAppResult[o.element] = transition('', transitionProps, {
+        }, {
           duration: o.duration,
           timingFunction: o.easing,
           delay: o.delay
-        }).export();
+        }).export() || [];
+
+        if (transitionToStartState.concat) {
+          miniAppResult[o.element] = transitionToStartState.concat(transitionToEndState);
+        } else {
+          // Keep the original logic
+          miniAppResult[o.element] = transitionToEndState;
+        }
       });
 
       if (inMiniApp) {
