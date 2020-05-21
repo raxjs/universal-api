@@ -15,12 +15,13 @@ $ npm install universal-clipboard --save
 ```javascript
 import Clipboard from 'universal-clipboard';
 
+// Web side is not supported
 Clipboard.readText().then(text => {
 
 }).catch(() => {
 
 });
-// Web side is not supported
+
 Clipboard.writeText('text').then(() => {
 
 }).catch(() => {
@@ -33,6 +34,9 @@ Clipboard.writeText('text').then(() => {
 ### `readText(): Promise.<text>`
 Get clipboard value.
 
+#### Support
+<img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
+
 #### Arguments
 | Property | Type     | Description         | Default |
 | -------- | -------- | ------------------- | :-----: |
@@ -42,7 +46,7 @@ Get clipboard value.
 Set clipboard value (Web side is not supported).
 
 #### Support
-<img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
 
 #### Arguments
 | Property | Type     | Description         | Default |
