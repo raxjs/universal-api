@@ -1,7 +1,7 @@
 import { CallbackOptions, DownloadOption, GetInfoOptions, GetSaveInfoOptions, OpenOptions, RemoveSavedOptions, SaveOptions } from '../types';
 export { default as upload } from './upload';
 
-// 不支持的API列表
+// Not support
 export function getInfo(_: GetInfoOptions) {
   return Promise.reject('Not support getInfo');
 }

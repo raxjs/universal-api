@@ -52,7 +52,7 @@ function uploadFile(param: UploadOption): Promise<UploadFileResult> {
       'Accept': 'application/json, text/plain, */*',
       ...(param.header || {})
     }
-    // xhr 相关处理
+    // initialize xhr
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
       if (!xhr || xhr.readyState !== 4) {
@@ -61,7 +61,7 @@ function uploadFile(param: UploadOption): Promise<UploadFileResult> {
       if (!validateStatus(xhr.status)) {
         return reject(xhr.status);
       }
-      // xhr header 处理
+      // process response headers
       const headers = xhr.getAllResponseHeaders();
       const arr = headers.trim().split(/[\r\n]+/);
       const headerMap = {};
@@ -83,7 +83,7 @@ function uploadFile(param: UploadOption): Promise<UploadFileResult> {
         headers: headerMap,
       });
     };
-    // 检查是否需要加跨域头
+    // check if need add withCredentials
     if (!param.url.includes(window.location.host)) {
       xhr.withCredentials = true;
     }
@@ -91,6 +91,7 @@ function uploadFile(param: UploadOption): Promise<UploadFileResult> {
     Object.keys(header).forEach(key => {
       xhr.setRequestHeader(key, String(header[key]));
     });
+    // send request
     xhr.send(body);
   });
 }
