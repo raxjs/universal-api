@@ -10,7 +10,12 @@ import { find, map, forEach } from './utils';
 const inMiniApp = isMiniApp || isWeChatMiniProgram || isByteDanceMicroApp;
 
 function getSupportBinding() {
-  return binding && binding.isSupportNewBinding;
+  if (inMiniApp) {
+    // weex-bindingx 'isSupportNewBinding' in MiniApp return true, fix it.
+    return false;
+  } else {
+    return binding && binding.isSupportNewBinding;
+  }
 }
 
 function initDefaultProps(props) {
@@ -119,7 +124,7 @@ class Animation {
               transform = [...transform, ...transitionProps.transform];
             }
 
-            exist.props = {...exist.props, ...transitionProps, ...{transform}};
+            exist.props = { ...exist.props, ...transitionProps, ...{ transform } };
           } else {
             transitionMap.push({
               element: prop.element,

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 // @ts-ignore
 import { createElement, render } from 'rax';
 import DriverUniversal from 'driver-universal';
