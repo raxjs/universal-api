@@ -3,7 +3,7 @@
 粘贴板快捷操作能力实现
 
 ## 支持
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
 
 ## 安装
 ```bash
@@ -45,7 +45,7 @@ Clipboard.writeText('text').then(() => {
 设置剪贴板数据
 
 #### 支持
-__icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
+__icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__
 
 #### 参数
 | 成员 | 类型     | 描述           | 默认值 |
