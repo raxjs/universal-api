@@ -36,6 +36,9 @@ Clipboard.writeText('text').then(() => {
 ### `readText(): Promise.<text>`
 获取剪贴板数据
 
+#### 支持
+__icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
+
 #### 出参
 | 成员 | 类型     | 描述       | 默认值 |
 | ---- | -------- | ---------- | :----: |
@@ -45,7 +48,7 @@ Clipboard.writeText('text').then(() => {
 设置剪贴板数据
 
 #### 支持
-__icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
 
 #### 参数
 | 成员 | 类型     | 描述           | 默认值 |
