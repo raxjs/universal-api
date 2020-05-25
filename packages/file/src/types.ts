@@ -1,5 +1,5 @@
 export interface Callback {
-  (): void;
+  (result?: any): void;
 }
 
 export interface CallbackOptions {

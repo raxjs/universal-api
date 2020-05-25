@@ -81,13 +81,14 @@ function uploadFile(param: UploadOption): Promise<UploadFileResult> {
         // ignore
       }
       // success
-      param.success && param.success();
-      param.complete && param.complete();
-      resolve({
+      const result = {
         data,
         status: xhr.status,
         headers: headerMap,
-      });
+      };
+      param.success && param.success(result);
+      param.complete && param.complete();
+      resolve(result);
     };
     // check if need add withCredentials
     if (!param.url.includes(window.location.host)) {
