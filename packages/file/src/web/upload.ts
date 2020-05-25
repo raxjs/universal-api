@@ -58,7 +58,10 @@ function uploadFile(param: UploadOption): Promise<UploadFileResult> {
       if (!xhr || xhr.readyState !== 4) {
         return;
       }
+      // fail
       if (!validateStatus(xhr.status)) {
+        param.fail && param.fail();
+        param.complete && param.complete();
         return reject(xhr.status);
       }
       // process response headers
@@ -77,6 +80,9 @@ function uploadFile(param: UploadOption): Promise<UploadFileResult> {
       } catch (e) {
         // ignore
       }
+      // success
+      param.success && param.success();
+      param.complete && param.complete();
       resolve({
         data,
         status: xhr.status,
