@@ -1,5 +1,5 @@
 export interface Callback {
-  (): void;
+  (result?: any): void;
 }
 
 export interface CallbackOptions {
@@ -86,7 +86,7 @@ export interface UploadOption extends CallbackOptions {
   /**
    * The path to upload the file resource
    */
-  filePath: string;
+  filePath: string | File;
   /**
    * File name, that is, the corresponding key, the developer in the server side through this key can get the binary content of the file.
    */
@@ -94,7 +94,7 @@ export interface UploadOption extends CallbackOptions {
   /**
    * File type supports image, video, audio (image/video/audio)
    */
-  fileType: string;
+  fileType?: string;
   /**
    * The HTTP request Header
    */
