@@ -95,8 +95,7 @@ __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__
 | -------- | -------- | ------- | -------- | ------------------------------------ | --------------------------------------- |
 | url      | `String` |         | √        | Developer server address             | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
 | filePath | `String` |         | √        | The path to upload the file resource. In web browser, it can be either base64 string or a File object. | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| fileName | `String` |         | √        | File name, that is, the corresponding key,
-the developer in the server side through this key can get the binary content of the file.             | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| fileName | `String` |         | √        | File name, that is, the corresponding key, the developer in the server side through this key can get the binary content of the file.             | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
 | fileType | `String` |         | √        | File type supports image, video, audio (image/video/audio). Not required in browser. | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 | header | `Object` |         | x        | The HTTP request Header | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
 | formData | `Object` |         | x        | Additional form data in the HTTP request | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
