@@ -14,15 +14,36 @@ $ npm install universal-unit-tool --save
 ## Usage
 
 ```js
-import { px2rpx, rpx2px } from 'universal-unit-tool';
+import { px2rpx, rpx2px, vw2px, px2vw } from 'universal-unit-tool';
 ```
 
 ## APIS
 ### `px2rpx(val)`
 px to rpx method
 
+#### Arguments
+| Property | Type     | Describes | Default | Supports |
+| -------- | -------- | --------- | :-----: | :------: |
+| val      | `number` | px value  |    -    |          |
+
 ### `rpx2px(val)`
 rpx to px method
+
+#### Arguments
+| Property | Type     | Describes | Default | Supports |
+| -------- | -------- | --------- | :-----: | :------: |
+| val      | `number` | rpx value  |    -    |          |
+
+### `vw2px(val)`
+vw to px method
+
+#### Arguments
+| Property | Type     | Describes | Default | Supports |
+| -------- | -------- | --------- | :-----: | :------: |
+| val      | `number` | vw value  |    -    |          |
+
+### `px2vw(val)`
+px to vw method
 
 #### Arguments
 | Property | Type     | Describes | Default | Supports |

@@ -1,6 +1,6 @@
 {
   "name": "universal-unit-tool",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "BSD-3-Clause",
   "description": "A universal tool API.",
   "main": "lib/index.js",

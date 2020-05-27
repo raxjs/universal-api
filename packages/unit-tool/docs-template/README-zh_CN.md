@@ -14,17 +14,43 @@ $ npm install universal-unit-tool --save
 ## 示例
 
 ```js
-import { px2rpx, rpx2px } from 'universal-unit-tool';
+import { px2rpx, rpx2px, vw2px, px2vw } from 'universal-unit-tool';
 ```
 
 ## 方法
 ### `px2rpx(val)`
 px 转 rpx 方法。
 
+#### 入参
+| 成员 | 类型     | 描述  | 默认值 | 支持  |
+| ---- | -------- | ----- | :----: | :---: |
+| val  | `number` | px 值 |   -    |       |
+
 ### `rpx2px(val)`
 rpx 转 px 方法。
+
+
+#### 入参
+| 成员 | 类型     | 描述  | 默认值 | 支持  |
+| ---- | -------- | ----- | :----: | :---: |
+| val  | `number` | rpx 值 |   -    |       |
+
+### `vw2px(val)`
+vw 转 px 方法。
+
+
+#### 入参
+| 成员 | 类型     | 描述  | 默认值 | 支持  |
+| ---- | -------- | ----- | :----: | :---: |
+| val  | `number` | vw 值 |   -    |       |
+
+### `px2vw(val)`
+px 转 vw 方法。
+
 
 #### 入参
 | 成员 | 类型     | 描述  | 默认值 | 支持  |
 | ---- | -------- | ----- | :----: | :---: |
 | val  | `number` | px 值 |   -    |       |
+
+
