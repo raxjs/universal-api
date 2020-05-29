@@ -15,5 +15,5 @@ export interface IGoOptions {
 export interface INavigate {
   push(options: IPushOptions): Promise<null>;
   go(options: IGoOptions): Promise<null>;
-  pop(options: IGoOptions): Promise<null>;
+  pop(options: IPopOptions): Promise<null>;
 }
