@@ -37,6 +37,9 @@ function showToastWindow(message: string): void {
   if (!toastWin) {
     toastWin = document.createElement('div');
     toastWin.setAttribute('role', 'alert');
+    // support for ARIA, add tabindex for focus
+    // https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/tabindex
+    toastWin.setAttribute('tabindex', '-1');
     for (let key in styles.container) {
       toastWin.style[key] = styles.container[key];
     }
