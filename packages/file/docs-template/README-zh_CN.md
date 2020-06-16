@@ -93,7 +93,7 @@ __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__
 | 属性     | 类型     | 默认值 | 必选 | 描述                                                                        | 支持                                    |
 | -------- | -------- | ------ | ---- | --------------------------------------------------------------------------- | --------------------------------------- |
 | url      | `String` |        | √    | 开发者服务器地址                                                            | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| filePath | `String` |        | √    | 要上传文件资源的本地定位符，Web下支持base64字符串或File对象                       | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| filePath | File Object | `String` |        | √    | 要上传文件资源的本地定位符，Web下支持base64字符串或File对象                       | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
 | fileName | `String` |        | √    | 文件名，即对应的 key，开发者在服务器端通过这个 key 可以获取到文件二进制内容 | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
 | fileType | `String` |        | √    | 文件类型支持图片、视频、音频（ image / video / audio），Web下无需传入            | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 | header   | `Object` |        | x    | HTTP 请求 Header                                                            | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
