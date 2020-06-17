@@ -16,7 +16,7 @@ $ npm install universal-canvas --save
 
 ```js
 import { createElement, useEffect, Fragment } from 'rax';
-import { createContext } from 'universal-element';
+import { createContext } from 'universal-canvas';
 
 function App() {
   useEffect({
