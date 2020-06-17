@@ -6,3 +6,16 @@ export interface Canvas {
     options: object
   ) => Promise<CanvasContext>;
 }
+
+export interface ContextAttributes {
+  antialias?: boolean,
+  depth?: boolean,
+  alpha?: boolean,
+  willReadFrequently?: boolean,
+  storage?: string,
+  failIfMajorPerformanceCaveat?: boolean,
+  powerPreference?: string,
+  premultipliedAlpha?: string,
+  preserveDrawingBuffer?: string,
+  stencil?: string
+}

@@ -1,11 +1,11 @@
-import { CanvasContext } from '../types'
+import { CanvasContext, ContextAttributes } from '../types'
 
 declare const wx: any;
 
 function createContext(
   selector: string,
   type: string = '2d',
-  options: object = {}
+  options: ContextAttributes = {}
 ): Promise<CanvasContext> {
   return new Promise((resolve, reject) => {
     const query = wx.createSelectorQuery();
