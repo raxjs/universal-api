@@ -15,7 +15,7 @@ export interface ContextAttributes {
   storage?: string,
   failIfMajorPerformanceCaveat?: boolean,
   powerPreference?: string,
-  premultipliedAlpha?: string,
-  preserveDrawingBuffer?: string,
-  stencil?: string
+  premultipliedAlpha?: boolean,
+  preserveDrawingBuffer?: boolean,
+  stencil?: boolean
 }
