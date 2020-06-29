@@ -3,7 +3,7 @@
 选取图片
 
 ## 支持
-__icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
+__icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_miniapp_tt__  __icon_quick_app__
 
 ## 安装
 ```bash
@@ -31,8 +31,8 @@ chooseImage().then(res => {
 | 成员               | 类型     | 描述             | 必选 | 默认值          | 支持 |
 | ------------------ | -------- | ---------------- | ---- | --------------- | ---- |
 | options            | `object` | 选取照片参数     | 否   | -               |      |
-| options.count      | `number` | 最大可选照片数   | 否   | `1`             | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| options.sourceType | `array`  | 相册选取或者拍照 | 否   | `camera, album` | __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__|
+| options.count      | `number` | 最大可选照片数   | 否   | `1`             | __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_miniapp_tt__ |
+| options.sourceType | `array`  | 相册选取或者拍照 | 否   | `camera, album` | __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_miniapp_tt__ __icon_quick_app__ |
 
 #### 返回值
 | 成员     | 类型              | 描述                                       |

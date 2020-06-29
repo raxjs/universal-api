@@ -3,7 +3,7 @@ import otherModule from '../index';
 
 let exportModule;
 
-function chooseImage (options) {
+function chooseImage(options) {
   if ( options.sourceType && options.sourceType.indexOf('camera') > -1 ) {
     return new Promise(function(resolve, reject) {
       // eslint-disable-next-line @typescript-eslint/no-var-requires

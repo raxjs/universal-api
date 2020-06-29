@@ -1,7 +1,7 @@
 {
   "name": "universal-device",
   "author": "rax",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "files": [
@@ -29,7 +29,7 @@
     "rax": "^1.1.0",
     "rax-text": "^1.0.1",
     "rax-view": "^1.0.2",
-    "build-plugin-rax-component": "^0.2.0",
+    "build-plugin-rax-component": "^0.2.2",
     "@alib/build-scripts": "^0.1.0"
   }
 }

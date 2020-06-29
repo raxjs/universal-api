@@ -7,6 +7,7 @@ import {
 import {
   object2json
 } from '../utils';
+
 declare const tt: any;
 
 export default function(options: RequestOptions): Promise<ResponseData> {
