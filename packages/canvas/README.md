@@ -19,8 +19,8 @@ import { createElement, useEffect, Fragment } from 'rax';
 import { createContext } from 'universal-canvas';
 
 function App() {
-  useEffect({
-    createContext('canvas', '2d').then(context => {
+  useEffect(() => {
+    createContext('canvasId', '2d').then(context => {
       context.fillStyle = 'red';
       context.fillRect(0, 0, 100, 100);
       context.draw();
@@ -28,7 +28,7 @@ function App() {
   }, []);
 
   return (<>
-    <canvas id='canvas'></canvas>
+    <canvas id='canvasId'></canvas>
   </>)
 }
 ```
@@ -40,7 +40,7 @@ function App() {
 Only in MiniApp, the return `context` has valid `draw` method.
 
 ```js
-createContext("canvas").then((context) => {
+createContext("canvasId").then((context) => {
   context.fillStyle = 'red';
   context.fillRect(0, 0, 100, 100);
   // Only in alibaba miniapp, draw isn't an empty function
