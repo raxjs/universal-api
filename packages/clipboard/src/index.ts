@@ -1,4 +1,4 @@
-import { isWeb, isWeex, isMiniApp, isWeChatMiniprogram } from 'universal-env';
+import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram } from 'universal-env';
 import webModule from './web/index';
 import weexModule from './weex/index';
 import miniAppModule from './miniapp/ali/index';
@@ -19,7 +19,7 @@ if (isMiniApp) {
   Clipboard = miniAppModule;
 }
 
-if (isWeChatMiniprogram) {
+if (isWeChatMiniProgram) {
   Clipboard = weChatModule;
 }
 

@@ -4,7 +4,7 @@ alert 警告框
 
 
 ## 支持
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__ __icon_microapp_tt__
 
 ## 安装
 
@@ -16,6 +16,9 @@ $ npm install universal-alert --save
 
 ```js
 import Alert from 'universal-alert';
+
+// 快应用中的引入方法
+// import Alert from 'universal-alert/lib/quickapp;
 
 Alert({
   title: 'alert框的标题',
@@ -34,6 +37,6 @@ Alert({
 | 成员               | 类型     | 描述                              |  默认值   |     支持     |
 | ------------------ | -------- | --------------------------------- | :-------: | :----------: |
 | options            | `object` | alert 参数                        |     -     |      -       |
-| options.title      | `string` | alert 标题，仅在小程序中支持      |  -  | __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__ |
+| options.title      | `string` | alert 标题，仅在小程序中支持      |  -  | __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__ __icon_quick_app__ |
 | options.content    | `string` | alert 内容                        | - |              |
-| options.buttonText | `string` | alert 确认按钮文字，不支持web环境 | - | __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__ |
+| options.buttonText | `string` | alert 确认按钮文字，不支持web环境 | - | __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__ __icon_quick_app__ |

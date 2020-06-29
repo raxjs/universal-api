@@ -1,42 +1,41 @@
 {
   "name": "universal-clipboard",
   "author": "rax",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "scripts": {
-    "start": "rax-scripts start",
-    "build": "rax-scripts build",
-    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src",
-    "prebuild": "npm run lint",
-    "prepublish": "npm run build"
-  },
+  "files": [
+    "dist",
+    "es",
+    "lib",
+    "src",
+    "types"
+  ],
   "keywords": [
-    "Rax"
+    "Rax",
+    "rax-component"
   ],
   "engines": {
     "npm": ">=3.0.0"
   },
+  "peerDependencies": {
+    "rax": "^1.1.0"
+  },
+  "scripts": {
+    "start": "build-scripts start",
+    "build": "build-scripts build"
+  },
   "dependencies": {
-    "driver-weex": "^1.0.0",
-    "universal-env": "^2.0.0"
+    "universal-env": "^3.1.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",
-    "@types/node": "^12.0.2",
-    "@typescript-eslint/eslint-plugin": "^1.7.0",
-    "@typescript-eslint/parser": "^1.7.0",
-    "babel-eslint": "^10.0.1",
-    "driver-dom": "^1.0.0",
-    "eslint": "^5.15.1",
-    "eslint-config-rax": "^0.0.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-react": "^7.12.4",
-    "rax": "^1.0.4",
-    "rax-plugin-component": "^0.1.8",
-    "rax-scripts": "^2.0.0",
-    "typescript": "^3.4.5"
+    "@types/rax": "^1.0.6",
+    "typescript": "^3.7.5",
+    "@alib/build-scripts": "^0.1.0",
+    "build-plugin-rax-component": "^0.2.2",
+    "rax": "^1.1.0"
   },
   "repository": {
     "type": "git",

@@ -4,10 +4,8 @@
     "target": "es2015",
     "jsx": "preserve",
     "jsxFactory": "createElement",
-
     "moduleResolution": "node",
     "baseUrl": ".",
-
     "rootDir": "src",
     "downlevelIteration": true,
     "alwaysStrict": true,

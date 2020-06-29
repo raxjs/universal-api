@@ -3,7 +3,7 @@
 System info.
 
 ## Supported
-__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__
+__icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__ __icon_microapp_tt__
 
 ## Install
 ```bash
@@ -13,6 +13,10 @@ $ npm install universal-device --save
 ## Usage
 
 ```javascript
+
+// How to use it in quickapp
+// import { platform, appName, screenWidth, screenHeight, appVersion } from 'universal-device/lib/quickapp;
+
 import { platform, appName, screenWidth, screenHeight, appVersion } from 'universal-device';
 
 ```
