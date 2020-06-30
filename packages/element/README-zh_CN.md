@@ -18,7 +18,7 @@ import { createElement, useEffect, Fragment } from 'rax';
 import { getScrollOffset, getBoundingClientRect } from 'universal-element';
 
 function App() {
-  useEffect({
+  useEffect(() => {
     getScrollOffset('#container').then((ret) => {
       const { scrollTop, scrollLeft } = ret[0];
       console.log(scrollTop, scrollLeft);
