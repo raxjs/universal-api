@@ -114,8 +114,8 @@ class Animation {
       map(options.props, (prop) => {
         if (prop && prop.element) {
           let transitionProps = transformProperty(prop.property, prop.end);
-          let exist = find(transitionMap, (o) => {
-            return o && o.element === prop.element;
+          let exist = find(transitionMap, (transitionItem) => {
+            return transitionItem && transitionItem.element === prop.element;
           });
 
           if (exist) {
@@ -131,24 +131,42 @@ class Animation {
               easing: transformEasing(prop.easing || easing),
               duration: prop.duration,
               props: transitionProps,
+              startState: transformProperty(prop.property, prop.start),
               delay: prop.delay || 0
             });
           }
         }
       });
-      map(transitionMap, (o) => {
-        let transitionProps = {
-          ...o.props,
-          ...o.props.transform ? {
-            transform: o.props.transform.join(' '),
-            webkitTransform: o.props.transform.join(' ')
+      map(transitionMap, (transitionItem) => {
+        // For loop animation, from start to end.
+        const transitionToStartState = transition('', {
+          ...transitionItem.startState,
+          ...transitionItem.startState.transform ? {
+            transform: transitionItem.startState.transform.join(' '),
+            webkitTransform: transitionItem.startState.transform.join(' ')
           } : {}
-        };
-        miniAppResult[o.element] = transition('', transitionProps, {
-          duration: o.duration,
-          timingFunction: o.easing,
-          delay: o.delay
-        }).export();
+        }, {
+          duration: 1, // Set 0 is not word in miniApp IDE.
+          delay: 0
+        }).export() || [];
+        const transitionToEndState = transition('', {
+          ...transitionItem.props,
+          ...transitionItem.props.transform ? {
+            transform: transitionItem.props.transform.join(' '),
+            webkitTransform: transitionItem.props.transform.join(' ')
+          } : {}
+        }, {
+          duration: transitionItem.duration,
+          timingFunction: transitionItem.easing,
+          delay: transitionItem.delay
+        }).export() || [];
+
+        if (transitionToStartState.concat) {
+          miniAppResult[transitionItem.element] = transitionToStartState.concat(transitionToEndState);
+        } else {
+          // Keep the original logic
+          miniAppResult[transitionItem.element] = transitionToEndState;
+        }
       });
 
       if (inMiniApp) {
