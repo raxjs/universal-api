@@ -14,6 +14,7 @@ let Toast: ToastOption = {
    */
   show(message: string = '', duration: number = SHORT_DELAY): void {
     tt.showToast({
+      icon: 'none',
       title: message,
       duration
     });
