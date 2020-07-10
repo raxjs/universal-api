@@ -1,8 +1,8 @@
 {
-  "name": "universal-canvas",
+  "name": "universal-canvas-context",
   "author": "Rax Team",
   "version": "1.0.0",
-  "description": "Universal canvas api",
+  "description": "Universal canvas context api",
   "main": "lib/index.js",
   "files": [
     "src",

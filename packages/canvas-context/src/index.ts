@@ -3,22 +3,22 @@ import { isWeb, isMiniApp, isWeChatMiniProgram } from 'universal-env';
 import aliMiniApp from './ali-miniapp';
 import wechatMiniProgram from './wechat-miniprogram';
 import web from './web';
-import { Canvas } from './types';
+import { CanvasContext } from './types';
 
-let canvas: Canvas;
+let createContext: (
+  selector: string,
+  type?: string,
+  options?: object
+) => Promise<CanvasContext>;
 
 if (isMiniApp && !isWeb) {
   // For cased that import wechat or miniapp sdk in web
-  canvas = aliMiniApp;
+  createContext = aliMiniApp;
 } else if (isWeChatMiniProgram && !isWeb) {
-  canvas = wechatMiniProgram;
+  createContext = wechatMiniProgram;
 } else {
   // Web as default
-  canvas = web;
+  createContext = web;
 }
 
-const createContext = canvas.createContext;
-
-export {
-  createContext
-};
+export default createContext;
