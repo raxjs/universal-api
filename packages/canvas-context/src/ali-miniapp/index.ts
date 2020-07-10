@@ -17,6 +17,4 @@ function createContext(selector: string): Promise<CanvasContext> {
   });
 }
 
-export default {
-  createContext,
-};
+export default createContext;

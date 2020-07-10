@@ -1,22 +1,22 @@
-# universal-canvas [![npm](https://img.shields.io/npm/v/universal-canvas.svg)](https://www.npmjs.com/package/universal-canvas)
+# universal-canvas-context [![npm](https://img.shields.io/npm/v/universal-canvas-context.svg)](https://www.npmjs.com/package/universal-canvas-context)
 
 一个适配多端的 canvas api。
 
 ## 支持
 
-**icon_miniapp_mp** **icon_miniapp_wx** **icon_web**
+__ icon_miniapp_mp__  __ icon_miniapp_wx__  __ icon_web__
 
 ## 安装
 
 ```bash
-$ npm install universal-canvas --save
+$ npm install universal-canvas-context --save
 ```
 
 ## 使用
 
 ```js
 import { createElement, useEffect, Fragment } from 'rax';
-import { createContext } from 'universal-canvas';
+import createContext from 'universal-canvas-context';
 
 function App() {
   useEffect(() => {

@@ -1,22 +1,22 @@
-# universal-canvas [![npm](https://img.shields.io/npm/v/universal-canvas.svg)](https://www.npmjs.com/package/universal-canvas)
+# universal-canvas-context [![npm](https://img.shields.io/npm/v/universal-canvas-context.svg)](https://www.npmjs.com/package/universal-canvas-context)
 
 Universal canvas api.
 
 ## Support
 
-**icon_miniapp_mp** **icon_miniapp_wx** **icon_web**
+<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> __ icon_web__
 
 ## Install
 
 ```bash
-$ npm install universal-canvas --save
+$ npm install universal-canvas-context --save
 ```
 
 ## Usage
 
 ```js
 import { createElement, useEffect, Fragment } from 'rax';
-import { createContext } from 'universal-canvas';
+import createContext from 'universal-canvas-context';
 
 function App() {
   useEffect(() => {

@@ -23,6 +23,4 @@ function createContext(
   });
 }
 
-export default {
-  createContext,
-};
+export default createContext;
