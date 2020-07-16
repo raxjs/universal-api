@@ -12,11 +12,12 @@ let Toast: ToastOption = {
    * @param duration {Number}
    * @param userStyle {Object} user defined style
    */
-  show(message: string = '', duration: number = SHORT_DELAY): void {
+  show(message: string = '', duration: number = SHORT_DELAY, options: object = {}): void {
     tt.showToast({
       icon: 'none',
       title: message,
-      duration
+      duration,
+      ...options
     });
   },
 };
