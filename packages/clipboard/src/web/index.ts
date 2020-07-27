@@ -8,7 +8,6 @@ const clipboard: any = {
       input.setAttribute('readonly', 'readonly');
       input.setAttribute('value', text);
       input.style.position = 'fixed';
-      input.style.height = '0px';
       document.body.appendChild(input);
       input.focus();
       input.setSelectionRange(0, 9999);

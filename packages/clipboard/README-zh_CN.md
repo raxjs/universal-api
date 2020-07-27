@@ -23,7 +23,7 @@ Clipboard.readText().then(text => {
 }).catch(() => {
 
 });
-// 不支持Web端
+
 Clipboard.writeText('text').then(() => {
 
 }).catch(() => {

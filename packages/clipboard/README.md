@@ -23,7 +23,7 @@ Clipboard.readText().then(text => {
 }).catch(() => {
 
 });
-// Web side is not supported
+
 Clipboard.writeText('text').then(() => {
 
 }).catch(() => {
