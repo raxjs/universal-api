@@ -22,8 +22,8 @@ import confirm from 'universal-confirm';
 confirm({
   title: 'confirm 标题',
   content: 'confirm 内容',
-  confirmButtonText: '确认按钮',
-  cancelButtonText: '取消按钮'
+  confirmButtonText: '确认按钮文字，默认confirm',
+  cancelButtonText: '取消按钮文字，默认cancel'
 }).then((confirm) => {
   console.log(confirm);
 });
