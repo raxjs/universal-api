@@ -54,7 +54,18 @@ getScrollOffet('#container').then((ret) => {
 在所有小程序中， 不存在 `x`, `y`。
 
 ```js
-getBoundingClientRect().then((ret) => {
+getBoundingClientRect('#container').then((ret) => {
+  const { width, height, top, left, right, bottom, x, y } = ret[0];
+  console.log(width, height, top, left, right, bottom, x, y);
+});
+```
+
+### 注意
+所有方法在微信小程序的自定义组件中使用的时候，都需要添加第二个参数来指定自定义组件实例：
+
+```js
+// 在 Rax 小程序编译时链路参数为 this._internal
+getBoundingClientRect('#container', this).then((ret) => {
   const { width, height, top, left, right, bottom, x, y } = ret[0];
   console.log(width, height, top, left, right, bottom, x, y);
 });
