@@ -13,7 +13,7 @@ function getSystemInfo() {
 
 let module = {};
 
-if(isQuickApp) {
+if (isQuickApp) {
   [
     {
       key: 'appName',
@@ -38,7 +38,7 @@ if(isQuickApp) {
   ].forEach(({ key, getFn }) => {
     Object.defineProperty(module, key, { get: getFn });
   });
-}else{
+} else {
   module = otherModule;
 }
 

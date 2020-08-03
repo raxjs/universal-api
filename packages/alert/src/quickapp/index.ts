@@ -1,5 +1,5 @@
 import { Options } from '../types';
-import {  isQuickApp } from 'universal-env';
+import { isQuickApp } from 'universal-env';
 import otherModule from '../index';
 
 let exportModule = {};
@@ -29,9 +29,9 @@ const alert = (options: Options = {}): Promise<null> => {
   });
 };
 
-if(isQuickApp) {
+if (isQuickApp) {
   exportModule = alert;
-}else{
+} else {
   exportModule = otherModule;
 }
 

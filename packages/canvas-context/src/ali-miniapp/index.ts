@@ -1,4 +1,4 @@
-import { CanvasContext } from '../types'
+import { CanvasContext } from '../types';
 
 declare const my: any;
 

@@ -35,9 +35,9 @@ const clipboardObj: any = {
   }
 };
 
-if(isQuickApp) {
+if (isQuickApp) {
   exportModule = clipboardObj;
-}else{
+} else {
   exportModule = otherModule;
 }
 

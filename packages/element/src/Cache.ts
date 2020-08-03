@@ -6,7 +6,7 @@ declare const my: any;
 declare const wx: any;
 export default class Cache {
   private cache = {};
-  public getSelector(selector :string, context ?: Context) {
+  public getSelector(selector: string, context?: Context) {
     if (isMiniApp && !isWeb) {
       const selectorQuery = my.createSelectorQuery().selectAll(selector);
       return selectorQuery;
@@ -14,7 +14,7 @@ export default class Cache {
       if (!context) {
         context = wx;
       }
-      const selectorQuery = context!.createSelectorQuery().selectAll(selector);
+      const selectorQuery = context?.createSelectorQuery().selectAll(selector);
       return selectorQuery;
     } else {
       if (this.cache[selector]) return this.cache[selector];

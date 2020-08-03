@@ -1,4 +1,4 @@
-import { CanvasContext, ContextAttributes } from '../types'
+import { CanvasContext, ContextAttributes } from '../types';
 
 function createContext(
   selector: string,
@@ -10,7 +10,7 @@ function createContext(
       selector
     ) as HTMLCanvasElement;
     if (!canvasNode) reject('The canvas node may not exist.');
-    const context :CanvasContext = canvasNode.getContext(type, options);
+    const context: CanvasContext = canvasNode.getContext(type, options);
     // For fallback
     context.draw = function() {};
     resolve(context);
