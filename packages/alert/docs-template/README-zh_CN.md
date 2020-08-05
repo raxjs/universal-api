@@ -40,3 +40,7 @@ Alert({
 | options.title      | `string` | alert 标题，仅在小程序中支持      |  -  | __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__ __icon_quick_app__ |
 | options.content    | `string` | alert 内容                        | - |              |
 | options.buttonText | `string` | alert 确认按钮文字，不支持web环境 | - | __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__ __icon_quick_app__ |
+
+#### 注意
+
+部分选项仅微信小程序支持，如 `confirmColor` 等。用户可直接在 options 中传入，但是不会在其他小程序端生效。

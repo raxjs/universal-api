@@ -40,3 +40,7 @@ Alert({
 | options.title      | `string` | alert title，support only in mini app                 |  -  |     __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__ __icon_microapp_tt__ |
 | options.content    | `string` | alert content                                         | - |              |
 | options.buttonText | `string` | alert button text，web environments are not supported | - | __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__ __icon_microapp_tt__ |
+
+#### Attention
+
+Options that only supported by WeChat MiniProgram like `confirmColor` can also be passed but will not effect in other miniapp platforms.
