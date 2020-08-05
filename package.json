@@ -19,7 +19,7 @@
     "eslint": "^5.15.1",
     "eslint-config-rax": "^0.0.0",
     "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react": "7.20.3",
     "glob": "^7.1.4",
     "lerna": "^3.13.2",
     "minimist": "^1.2.0",
