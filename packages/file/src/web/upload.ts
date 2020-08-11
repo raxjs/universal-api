@@ -1,6 +1,6 @@
-import { UploadOption } from "../types";
+import { UploadOption } from '../types';
 
-function base64toFile(dataUrl: string, fileName: string = "") {
+function base64toFile(dataUrl: string, fileName: string = '') {
   const dataURLtoBlob = function(base64Data: string) {
     const arr = base64Data.split(',');
     let mimeStr = 'image/png';
@@ -47,11 +47,11 @@ function uploadFile(param: UploadOption): Promise<UploadFileResult> {
         body.append(k, param.formData[k]);
       }
     }
-    body.append(param.fileName || "file", file);
+    body.append(param.fileName || 'file', file);
     const header = {
       'Accept': 'application/json, text/plain, */*',
-      ...(param.header || {})
-    }
+      ...param.header || {}
+    };
     // initialize xhr
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {

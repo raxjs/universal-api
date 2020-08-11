@@ -43,6 +43,4 @@ Alert({
 
 #### 注意
 
-#### Attention
-
 部分选项仅微信小程序支持，如 `confirmColor` 等。用户可直接在 options 中传入，但是不会在其他小程序端生效。

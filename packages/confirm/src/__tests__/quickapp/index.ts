@@ -8,8 +8,8 @@ import { Options } from '../../types';
   },
 };
 
-test('Confirm in a mini app environment can return a Promise', async (): Promise<
-  void
+test('Confirm in a mini app environment can return a Promise', async(): Promise<
+void
 > => {
   const options: Options = {
     title: 'Confirm title',

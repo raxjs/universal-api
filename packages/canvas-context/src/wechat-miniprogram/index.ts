@@ -1,4 +1,4 @@
-import { CanvasContext, ContextAttributes } from '../types'
+import { CanvasContext, ContextAttributes } from '../types';
 
 declare const wx: any;
 
@@ -14,8 +14,8 @@ function createContext(
       .fields({ node: true, size: true })
       .exec((res) => {
         if (!res[0] || !res[0].node) reject('The canvas node may not exist.');
-        const canvasNode :HTMLCanvasElement = res[0].node;
-        const context :CanvasContext = canvasNode.getContext(type, options);
+        const canvasNode: HTMLCanvasElement = res[0].node;
+        const context: CanvasContext = canvasNode.getContext(type, options);
         // For fallback
         context.draw = function() {};
         resolve(context);

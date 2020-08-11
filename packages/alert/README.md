@@ -34,7 +34,6 @@ Alert({
 ### `Alert(options)`
 
 #### Arguments
-
 | Property           | Type     | Description                                           |  Default  |  Supported   |
 | ------------------ | -------- | ----------------------------------------------------- | :-------: | :----------: |
 | options            | `object` | alert arguments                                       |     -     |              |
