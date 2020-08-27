@@ -1,7 +1,7 @@
 {
   "name": "universal-device",
   "author": "rax",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "files": [
