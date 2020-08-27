@@ -1,8 +1,8 @@
 function getPlatform() {
   const platform = navigator.platform;
   if (platform) {
-    if (/(iphone|ipod|ipad)/.test(navigator.userAgent)) return 'iOS';
-    if (/android/.test(navigator.userAgent)) return 'Android';
+    if (/(iphone|ipod|ipad)/.test(navigator.userAgent.toLowerCase())) return 'iOS';
+    if (/android/.test(navigator.userAgent.toLowerCase())) return 'Android';
     return platform;
   }
   return;
