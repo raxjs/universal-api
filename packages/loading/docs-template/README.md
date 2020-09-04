@@ -3,7 +3,7 @@
 Load the transition effect of the prompt.
 
 ## Support
-__icon_miniapp_mp__ __icon_miniapp_wx__
+__icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__
 
 ## Install
 
@@ -20,7 +20,7 @@ Display loading prompt box.
 #### Parameters
 | Property | Type      | Default | Required | Description                                                      | Support                                 |
 | -------- | --------- | ------- | -------- | ---------------------------------------------------------------- | --------------------------------------- |
-| content  | `String`  |         | √        | The content in the prompt                                        | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| content  | `String`  |         | √        | The content in the prompt                                        | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
 | delay    | `Number`  | `0`     | x        | Delay display, unit ms                                           | __icon_miniapp_mp__                     |
 | mask     | `Boolean` | `false` | x        | Whether to display transparent mask to prevent touch penetration | __icon_miniapp_wx__                     |
 
