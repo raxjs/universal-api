@@ -10,7 +10,7 @@ let queue: QueueOption[] = [];
 let isProcessing = false;
 let toastWin: HTMLElement;
 
-let styles = {
+const styles = {
   container: {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     boxSizing: 'border-box',
@@ -60,7 +60,8 @@ function hideToastWindow(): void {
   }, 0);
 }
 
-let toast = {
+let hideTimer = null;
+const toast = {
   push(message: string, duration: number): void {
     queue.push({
       message,
@@ -86,15 +87,16 @@ let toast = {
 
     let toastInfo: QueueOption = queue.shift() as QueueOption;
     showToastWindow(toastInfo.message);
-    setTimeout((): void => {
+    hideTimer = setTimeout(() => {
       hideToastWindow();
       isProcessing = false;
-      setTimeout((): void => this.show(), 600);
+      setTimeout(() => this.show(), 500);
+      hideTimer = null;
     }, toastInfo.duration);
   }
 };
 
-let Toast: ToastOption = {
+const Toast: ToastOption = {
   SHORT: SHORT_DELAY,
   LONG: LONG_DELAY,
 
@@ -109,10 +111,14 @@ let Toast: ToastOption = {
 
   hide() {
     // remove all queued messages
-    while (queue.length) queue.pop();
+    queue = [];
+    if (hideTimer) {
+      clearTimeout(hideTimer);
+      hideTimer = null;
+    }
     hideToastWindow();
     isProcessing = false;
-    toast.show();
+    setTimeout(() => toast.show(), 500);
   }
 };
 
