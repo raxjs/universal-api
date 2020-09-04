@@ -112,6 +112,7 @@ let Toast: ToastOption = {
     while (queue.length) queue.pop();
     hideToastWindow();
     isProcessing = false;
+    toast.show();
   }
 };
 
