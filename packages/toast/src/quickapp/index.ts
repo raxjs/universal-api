@@ -20,6 +20,10 @@ const Toast: ToastOption = {
       message,
       duration
     });
+  },
+
+  hide() {
+    console.error('hide toast not supported yet');
   }
 };
 

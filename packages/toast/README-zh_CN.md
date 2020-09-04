@@ -33,3 +33,7 @@ Toast.show('Hi');
 | message  | `string` | 文字内容            |   -    |
 | duration | `number` | 显示时长，单位为 ms |  2000  |
 | options | `object` | 其他参数，微信小程序/字节跳动小程序平台可用配置，参考[文档](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html)  |  {}   |
+
+### `Toast.hide()`
+
+隐藏Toast

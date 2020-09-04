@@ -20,6 +20,8 @@ import Toast from 'universal-toast';
 // import Toast from 'universal-toast/lib/quickapp;
 
 Toast.show('Hi');
+
+Toast.hide();
 ```
 
 ## Methods
@@ -32,3 +34,7 @@ Toast.show('Hi');
 | message  | `string` | content of the message                      |    -    |
 | duration | `number` | Time in millisecond before Toast is closed. |  2000   |
 | options | `object` | Other options used by WeChat MiniProgram/ByteDance MicroApp, see [docs](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html)  |  {}   |
+
+### `Toast.hide()`
+
+Hide toast

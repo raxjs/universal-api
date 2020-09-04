@@ -20,6 +20,10 @@ let Toast: ToastOption = {
       ...options
     });
   },
+
+  hide() {
+    tt.hideToast();
+  }
 };
 
 export default Toast;

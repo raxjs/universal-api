@@ -20,6 +20,10 @@ let Toast: ToastOption = {
       ...options
     });
   },
+
+  hide() {
+    wx.hideToast();
+  }
 };
 
 export default Toast;

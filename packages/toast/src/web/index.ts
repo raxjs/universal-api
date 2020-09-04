@@ -106,6 +106,13 @@ let Toast: ToastOption = {
   show(message: string, duration: number = SHORT_DELAY): void {
     toast.push(message, duration);
   },
+
+  hide() {
+    // remove all queued messages
+    while (queue.length) queue.pop();
+    hideToastWindow();
+    isProcessing = false;
+  }
 };
 
 export default Toast;
