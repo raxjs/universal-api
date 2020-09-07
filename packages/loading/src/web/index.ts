@@ -61,12 +61,15 @@ const styles = `.${clsPrefix} {
 /*
  * @param message {String}
  */
+let styleElement : HTMLElement | null = null;
 export function show({ content = "" }): Promise<any> {
-  if (!loadingWin) {
+  if (!styleElement) {
     // create a style tag for keyframes
-    const style = document.createElement("style");
-    style.innerHTML = styles;
-    document.body.appendChild(style);
+    styleElement = document.createElement("style");
+    styleElement.innerHTML = styles;
+    document.body.appendChild(styleElement);
+  }
+  if (!loadingWin) {
     // create loading win
     loadingWin = document.createElement("div");
     loadingWin.className = clsPrefix;
