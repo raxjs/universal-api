@@ -37,4 +37,7 @@ Toast.hide();
 
 ### `Toast.hide()`
 
+#### Support
+__icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__
+
 Hide toast
