@@ -60,47 +60,48 @@ function hideToastWindow(): void {
   }, 0);
 }
 
-let hideTimer = null;
-function push(message: string, duration: number): void {
-  queue.push({
-    message,
-    duration
-  });
-  show();
-}
-
-// Switch to next message
-// This function will hide current, and call `show()` to display next
-// If queue is empty, DOM will be clear in `show()`
-function switchToNext() {
-  hideToastWindow();
-  isProcessing = false;
-  setTimeout(() => show(), 500);
-  if (hideTimer) {
-    clearTimeout(hideTimer);
-    hideTimer = null;
-  }
-}
-
-function show() {
-  // All messages had been toasted already, so remove the toast window,
-  if (!queue.length) {
-    if (toastWin) {
-      // eslint-disable-next-line
-      (toastWin as any).parentNode.removeChild(toastWin);
+const innerToast = {
+  hideTimer: null,
+  show() {
+    // All messages had been toasted already, so remove the toast window,
+    if (!queue.length) {
+      if (toastWin) {
+        // eslint-disable-next-line
+        (toastWin as any).parentNode.removeChild(toastWin);
+      }
+      (toastWin as any) = null;
+      return;
     }
-    (toastWin as any) = null;
-    return;
+
+    // the previous toast is not ended yet.
+    if (isProcessing) return;
+    isProcessing = true;
+
+    let toastInfo: QueueOption = queue.shift() as QueueOption;
+    showToastWindow(toastInfo.message);
+    innerToast.hideTimer = setTimeout(() => innerToast.switchToNext(), toastInfo.duration);
+  },
+  push(message: string, duration: number): void {
+    queue.push({
+      message,
+      duration
+    });
+    innerToast.show();
+  },
+  // Switch to next message
+  // This function will hide current, and call `show()` to display next
+  // If queue is empty, DOM will be clear in `show()`
+  switchToNext() {
+    hideToastWindow();
+    isProcessing = false;
+    setTimeout(() => innerToast.show(), 500);
+    if (innerToast.hideTimer) {
+      clearTimeout(innerToast.hideTimer);
+      innerToast.hideTimer = null;
+    }
   }
+}
 
-  // the previous toast is not ended yet.
-  if (isProcessing) return;
-  isProcessing = true;
-
-  let toastInfo: QueueOption = queue.shift() as QueueOption;
-  showToastWindow(toastInfo.message);
-  hideTimer = setTimeout(() => switchToNext(), toastInfo.duration);
-};
 
 const Toast: ToastOption = {
   SHORT: SHORT_DELAY,
@@ -112,13 +113,13 @@ const Toast: ToastOption = {
    * @param userStyle {Object} user defined style
    */
   show(message: string, duration: number = SHORT_DELAY): void {
-    push(message, duration);
+    innerToast.push(message, duration);
   },
 
   hide() {
     // remove all queued messages
     queue = [];
-    switchToNext();
+    innerToast.switchToNext();
   }
 };
 
