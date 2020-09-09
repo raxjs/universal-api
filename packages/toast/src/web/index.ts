@@ -61,39 +61,45 @@ function hideToastWindow(): void {
 }
 
 let hideTimer = null;
-const toast = {
-  push(message: string, duration: number): void {
-    queue.push({
-      message,
-      duration
-    });
-    this.show();
-  },
+function push(message: string, duration: number): void {
+  queue.push({
+    message,
+    duration
+  });
+  show();
+}
 
-  show(): void {
-    // All messages had been toasted already, so remove the toast window,
-    if (!queue.length) {
-      if (toastWin) {
-        // eslint-disable-next-line
-        (toastWin as any).parentNode.removeChild(toastWin);
-      }
-      (toastWin as any) = null;
-      return;
-    }
-
-    // the previous toast is not ended yet.
-    if (isProcessing) return;
-    isProcessing = true;
-
-    let toastInfo: QueueOption = queue.shift() as QueueOption;
-    showToastWindow(toastInfo.message);
-    hideTimer = setTimeout(() => {
-      hideToastWindow();
-      isProcessing = false;
-      setTimeout(() => this.show(), 500);
-      hideTimer = null;
-    }, toastInfo.duration);
+// Switch to next message
+// This function will hide current, and call `show()` to display next
+// If queue is empty, DOM will be clear in `show()`
+function switchToNext() {
+  hideToastWindow();
+  isProcessing = false;
+  setTimeout(() => show(), 500);
+  if (hideTimer) {
+    clearTimeout(hideTimer);
+    hideTimer = null;
   }
+}
+
+function show() {
+  // All messages had been toasted already, so remove the toast window,
+  if (!queue.length) {
+    if (toastWin) {
+      // eslint-disable-next-line
+      (toastWin as any).parentNode.removeChild(toastWin);
+    }
+    (toastWin as any) = null;
+    return;
+  }
+
+  // the previous toast is not ended yet.
+  if (isProcessing) return;
+  isProcessing = true;
+
+  let toastInfo: QueueOption = queue.shift() as QueueOption;
+  showToastWindow(toastInfo.message);
+  hideTimer = setTimeout(() => switchToNext(), toastInfo.duration);
 };
 
 const Toast: ToastOption = {
@@ -106,19 +112,13 @@ const Toast: ToastOption = {
    * @param userStyle {Object} user defined style
    */
   show(message: string, duration: number = SHORT_DELAY): void {
-    toast.push(message, duration);
+    push(message, duration);
   },
 
   hide() {
     // remove all queued messages
     queue = [];
-    if (hideTimer) {
-      clearTimeout(hideTimer);
-      hideTimer = null;
-    }
-    hideToastWindow();
-    isProcessing = false;
-    setTimeout(() => toast.show(), 500);
+    switchToNext();
   }
 };
 
