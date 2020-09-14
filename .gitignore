@@ -7,6 +7,7 @@ npm-debug.log*
 lib/
 dist/
 build/
+es/
 coverage/
 node_modules/
 examples/test
