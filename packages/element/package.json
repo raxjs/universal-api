@@ -1,7 +1,7 @@
 {
   "name": "universal-element",
   "author": "rax",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "main": "lib/index.js",
   "files": [
@@ -22,9 +22,11 @@
   "engines": {
     "npm": ">=3.0.0"
   },
+  "dependencies": {
+    "universal-env": "^3.0.0"
+  },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.0",
-    "build-plugin-rax-component": "^0.1.0",
-    "universal-env": "^3.0.0"
+    "build-plugin-rax-component": "^0.1.0"
   }
 }
