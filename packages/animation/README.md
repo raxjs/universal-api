@@ -1,18 +1,18 @@
 # universal-animation [![npm](https://img.shields.io/npm/v/universal-animation.svg)](https://www.npmjs.com/package/universal-animation)
 
-Achieve timing animation, use `bindingx` first when the environment is allowed by [weex-bindingx](https://www.npmjs.com/package/weex-bindingx), and use [universal-transition](https://www.npmjs.com/package/universal-transition) if the environment is not met, call the animation API implementation provided by Weex or browser or mini app.
+实现动画，通过 [weex-bindingx](https://www.npmjs.com/package/weex-bindingx) 环境允许的前提下优先使用 `bindingx`，不满足环境要求则使用 [universal-transition](https://www.npmjs.com/package/universal-transition) 调用Weex或浏览器或小程序提供的动画API实现。
 
-## Supported
+## 支持
 
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />  <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
 
-## Install
+## 安装
 
 ```bash
 $ npm install universal-animation --save
 ```
 
-## Usage
+## 示例
 
 ```js
 import animate from 'universal-animation';
@@ -33,52 +33,53 @@ animate({
 
 ```
 
-## Methods
+## 方法
 
 ### `animate(config, callback)`
 
-#### Supported
+#### 支持
+
 <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />
 
-#### Arguments
+#### 参数
 
-| Property | Type | Description | Required | Default | Supported |
+| 成员 | 类型 | 描述 | 必选 |默认值 | 支持 |
 | --- | --- | --- | --- | --- |  --- |
-| config.props | `array` | See below for details | yes | - |  |
-| callback | `function` | Triggered after the animation is complete | no | - | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> |
+| config.props | `array` | 详见下文描述 | 是 | - |  |
+| callback | `function` | 动画完成后触发 | 否 | - | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> |
 
-config.props array member content:
+config.props数组成员内容:
 
-| Property | Type | Description | Required | Default | Supported |
+| 成员 | 类型 | 描述 | 必选 |默认值 | 支持 |
 | --- | --- | --- | --- | --- |  --- |
-| element | `DOMNode|string` | DOM element， The mimi app environment is a `string` type identifier, see details`export()` | yes | - | |
-| property | `string` | Animation property, see details [bindingx properties support](https://alibaba.github.io/bindingx/guide/cn_api_attributes) | yes | - |   |
-| start | `value` | start value | no | - |   |
-| end | `value` | end value | yes | - |   |
-| duration | `number` | Animation duration | no | 0 |  |
-| delay | `number` | Animation delay time | 否 | 0 |  |
-| easing | `string` | Animation effect，see details [bindingx easing support](https://alibaba.github.io/bindingx/guide/cn_api_interpolator) | 否 | `easeOutSine` |   |
+| element | `DOMNode|string` | DOM 元素， 小程序环境为一个`string` 类型的标志符，详细见`export()` | 是 | - | |
+| property | `string` | 动画属性，详见[bindingx properties support](https://alibaba.github.io/bindingx/guide/cn_api_attributes) | 是 | - |   |
+| start | `value` | 初始值 | 否 | - |   |
+| end | `value` | 结束值 | 是 | - |   |
+| duration | `number` | 动画持续时间 | 否 | 0 |  |
+| delay | `number` | 动画延迟时间 | 否 | 0 |  |
+| easing | `string` | 动画属性，详见[bindingx easing support](https://alibaba.github.io/bindingx/guide/cn_api_interpolator) | 否 | `easeOutSine` |   |
 
-### `export()`
+### export()
 
-#### Supported
+#### 支持
 
 <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />
 
-Because the mini app can't provide `DOMNode`, and the animation application is different. So the mini app uses this method to get the animation content and then manually bind to the element.
+因为小程序无法提供`DOMNode`，并且动画应用方式也有差异。所以小程序中使用该方法获取动画内容，然后手动绑定到元素。
 
-#### Arguments
+#### 参数
 
-no
+无
 
-#### Return
+#### 返回
 
-| Property | Type | Description |
+| 成员 | 类型 | 描述 |
 | --- | --- | --- |
-| result | `object` | return object |
-| result[key] | `array` | `key` is config.props[n].element，`value` is the mini app animation content, bind the value to the element  |
+| result | `object` | 返回的对象 |
+| result[key] | `array` | `key` 为 config.props[n].element，`value` 为小程序动画内容，将该值绑定到元素  |
 
-#### Usage
+#### 实例
 
 ```html
 <view animation="{{animationInfo1}}" style="background:red;height:100rpx;width:100rpx"></view>

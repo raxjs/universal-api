@@ -1,19 +1,19 @@
 # universal-request [![npm](https://img.shields.io/npm/v/universal-request.svg)](https://www.npmjs.com/package/universal-request)
 
-Used to initiate a network request
+用于发起网络请求
 
-## Install
+## 安装
 
 ```bash
 $ npm install universal-request --save
 ```
 
-## Usage
+## 示例
 
 ```javascript
 import request from 'universal-request';
 
-// How to use it in quickapp
+// 快应用中的引入方法
 // import chooseImage from 'universal-request/lib/quickapp;
 
 request({
@@ -28,49 +28,49 @@ request({
 
 ```
 
-## Methods
+## 方法
 
 ### `request(options)`
 
-#### Supported
+#### 支持
 
 <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
 
-#### Arguments
+#### 参数
 
-| Property | Type | Description | required | Default |
+| 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
-| options | `object`  |  | true | - |
-| opthons.url | `string`  | Required，the request url | true | - |
-| opthons.headers | `object`  | The request headers | false | {<br />  'Content-Type': 'application/json'<br />} |
-| options.method | `string`  | Values：GET/POST/PUT/DELETE/PATCH/HEAD,mini app only support GET/POST | false | `GET`  |
-| options.data | `object`  | <br />- GET or POST set headers['content-Type'] is equal to `application/x-www-form-urlencoded` data will apply to URL<br />- In other cases, the data will be converted to a JSON string as request body to the server.<br /> | false | - |
-| options.timeout | `number`  | timeout | false| 20000 (ms) |
-| options.dataType | `string`  | Set return data type, `json` or `text`, If the conversion fails, returns as it is | false | `json`  |
+| options | `object`  |  | 是 | - |
+| opthons.url | `string`  | 请求的URL地址 | 是 |  - |
+| opthons.headers | `object`  | 设置请求的头部 | 否 | {<br />  'Content-Type': 'application/json'<br />} |
+| options.method | `string`  | 可用的值有：GET/POST/PUT/DELETE/PATCH/HEAD，小程序中仅支持GET/POST | 否 |  `GET`  |
+| options.data | `object`  | <br />- GET请求或POST请求设置headers['content-Type'] 为 `application/x-www-form-urlencoded`时会拼接到URL中<br />- 其他情况请求会转换为JSON字符串以请求体的形式给服务端<br /> | 否 | - |
+| options.timeout | `number`  | 超时时间 | 否 | 20000 (ms) |
+| options.data类型 | `string`  | 期望返回的数据格式， `json` 或者 `text` ，若转换失败，则原样返回 | 否 | `json`  |
 
-#### Return
+#### 返回
 
-Success return：`Promise<Response>`
+请求成功返回：`Promise<Response>`
 
-| Property | Type | Description |
+| 成员 | 类型 | 描述 |
 | --- | --- | --- |
 | response | `object` | - |
-| response.data | `string`  | The data returned by the request is converted according to the type declared in the dataType. If the conversion fails, it is returned as it is |
-| response.headers | `object`  | Response headers ，JSONP request has no value |
-| response.status | `number`  | Response status，JSONP request has no value |
+| response.data | `string`  | 请求返回数据，按照dataType中声明的类型转换，若转换失败则原样返回 |
+| response.headers | `object`  | 请求的返回头部，JSONP请求无值 |
+| response.status | `number`  | 请求返回的状态码，JSONP请求无值 |
 
-Fail return：
+请求失败返回：
 
-| Property | Type | Description |
+| 成员 | 类型 | 描述 |
 | --- | --- | --- |
 | error | `object` | - |
-| error.code | `number`  | Error code |
-| error.message | `string`  | Error message |
+| error.code | `number`  | 错误码 |
+| error.message | `string`  | 错误说明 |
 
-error code：
+错误码：
 
-| code | message | Description |
+| code | message | 说明 |
 | --- | --- | --- |
-| 0 | Reason of failure | Request failed except for the listed below |
-| 1 | Request timeout | timeout |
-| 2 | Request not support this platform | not support this platform  |
+| 0 | 请求失败的详细说明 | 除以下列出请求外的，请求失败 |
+| 1 | Request timeout | 请求超时 |
+| 2 | Request not support this platform | 不支持该平台 |

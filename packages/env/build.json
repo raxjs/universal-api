@@ -9,5 +9,6 @@
         "build-plugin-rax-api-builder"
       ]
     ]
-  ]
+  ],
+  "mockNodeEnv": false
 }

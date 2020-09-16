@@ -1,42 +1,41 @@
 # universal-device [![npm](https://img.shields.io/npm/v/universal-device.svg)](https://www.npmjs.com/package/universal-device)
 
-System info.
+系统信息。
 
-## Supported
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="quickApp" src="https://gw.alicdn.com/tfs/TB1MP7EwQT2gK0jSZPcXXcKkpXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
+## 支持
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> <img alt="quickApp" src="https://gw.alicdn.com/tfs/TB1MP7EwQT2gK0jSZPcXXcKkpXa-200-200.svg" width="25px" height="25px">
 
-## Install
+## 安装
 ```bash
 $ npm install universal-device --save
 ```
 
-## Usage
+## 使用
 
 ```javascript
 
-// How to use it in quickapp
+// 快应用中的引入方法
 // import { platform, appName, screenWidth, screenHeight, appVersion } from 'universal-device/lib/quickapp;
 
 import { platform, appName, screenWidth, screenHeight, appVersion } from 'universal-device';
-
 ```
 
 ## APIS
 
 ### `appName: string`
-app name or browser name
+app 名称或浏览器名称。
 
 ### `appVersion: string`
-app version or browser version info
+app 版本号或浏览器版本信息。
 
 ### `platform: string`
-platform: 'Android'、'iOS'、'MacIntel', etc.
+平台： 'Android'、'iOS'、'MacIntel' 等。
 
 ### `screenWidth: number`
-Screen width in px
+屏幕宽度，单位为px。
 
 ### `screenHeight: number`
-Screen height in px
+屏幕高度，单位为px。
 
 ### `devicePixelRatio: number`
- The ratio of the resolution in physical pixels to the resolution in CSS pixels for the current display device.
+当前显示设备的物理像素分辨率与CSS像素分辨率的比值。
