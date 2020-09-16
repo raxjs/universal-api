@@ -1,67 +1,65 @@
-# universal-navigate [![npm](https://img.shields.io/npm/v/universal-navigate.svg)](https://www.npmjs.com/package/universal-navigate)
+# universal-navigate
 
-Route navigation capability implementation.
+路由导航能力实现
 
-## Support
+## 支持
 
 __icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__ __icon_microapp_tt__
 
 ## Install
-
 ```bash
 $ npm install universal-navigate --save
 ```
 
 ## Usage
-
-```js
+```javascript
 import Navigate from 'universal-navigate';
 
-// How to use it in quickapp
+// 快应用中的引入方法
 // import chooseImage from 'universal-navigate/lib/quickapp;
 
 Navigate.push({
   url: 'https://www.taobao.com/',
-  animated: true // Only supported in weex
+  animated: true // 仅 weex 中支持
 }).then(() => {
 });
 
 Navigate.pop({
-  animated: false // Only supported in weex
+  animated: false // 仅 weex 中支持
 }).then(() => {
 });
 
 Navigate.go({
   step: -1,
-  animated: false // Only supported in weex
+  animated: false // 仅 weex 中支持
 }).then(() => {
 });
+
 ```
-
-## Methods
-
+## 方法
 ### `push(options)`
 
-#### Arguments
-| Property         | Type      | Description                                                                        | required | Default | Supported |
-| ---------------- | --------- | ---------------------------------------------------------------------------------- | :------: | :-----: | :---------: |
-| options          | `object`  | Push function arguments                                                            |   true   |    -    |             |
-| options.url      | `string`  | The page URL.                                                                      |   true   |    -    |             |
-| options.animated | `boolean` | Support only in weex, whether animated effects are required when pages are pressed |  false   | `true`  |__icon_weex__  |
+#### 参数
+| 成员             | 类型      | 描述                                       | 必选  | 默认值 | 支持  |
+| ---------------- | --------- | ------------------------------------------ | :---: | :----: | :---: |
+| options          | `object`  | push 参数                                  |  是   |   -    |   -   |
+| options.url      | `string`  | 页面 URL.                                  |  是   |   -    |   -   |
+| options.animated | `boolean` | 仅weex中支持，页面压入时是否需要动画效果。 |  否   | `true` |__icon_weex__ |
 
 ### `pop(options)`
 
-#### Arguments
-| Property         | Type      | Description                                                                        | required | Default | Supported |
-| ---------------- | --------- | ---------------------------------------------------------------------------------- | :------: | :-----: | :---------: |
-| options          | `object`  | Pop function arguments                                                             |  false   |    -    |             |
-| options.animated | `boolean` | Support only in weex, whether animated effects are required when pages are pressed |  false   | `true`  |__icon_weex__  |
+#### 参数
+| 成员             | 类型      | 描述                                       | 必选  | 默认值 | 支持  |
+| ---------------- | --------- | ------------------------------------------ | :---: | :----: | :---: |
+| options          | `object`  | pop 参数                                   |  否   |   -    |       |
+| options.animated | `boolean` | 仅weex中支持，页面压入时是否需要动画效果。 |  否   | `true` |__icon_weex__ |
 
 ### `go(options)`
 
-#### Arguments
-| Property         | Type      | Description                                                                                                      | required | Default | Supported |
-| ---------------- | --------- | ---------------------------------------------------------------------------------------------------------------- | :------: | :-----: | :---------: |
-| options          | `object`  | Go function arguments                                                                                            |   true   |    -    |             |
-| options.step     | `number`  | The number of forward steps is positive and only supports the web, and the number of backward steps is negative. |   true   |    -    |             |
-| options.animated | `boolean` | Support only in weex, whether animated effects are required when pages are pressed                               |  false   | `true`  |__icon_weex__  |
+#### 参数
+| 成员             | 类型      | 描述                                                                                | 必选  | 默认值 | 支持  |
+| ---------------- | --------- | ----------------------------------------------------------------------------------- | :---: | :----: | :---: |
+| options          | `object`  | go 参数                                                                             |  是   |   -    |       |
+| options.step     | `number`  | 前进步数为正值且仅支持web，后退步数为负值，若大于现有打开的页面数，则返回到起始页。 |  是   |   -    |       |
+| options.animated | `boolean` | 仅weex中支持，页面压入时是否需要动画效果。                                          |  否   | `true` |__icon_weex__|
+

@@ -1,48 +1,48 @@
 [![npm](https://img.shields.io/npm/v/universal-network.svg)](https://www.npmjs.com/package/universal-network)
 
-Network status and monitoring.
+网络状态与监听。
 
-## Support
+## 支持
 __icon_miniapp_mp__ __icon_miniapp_wx__
 
-## Install
+## 安装
 
 ```bash
 $ npm install universal-network --save
 ```
 
-## Methods
+## 方法
 
 ### `getType(options)`
 
-Gets the current network state.
+获取当前网络状态。
 
-#### Success return
-| Property         | Type      | Description             | Support                                 |
-| ---------------- | --------- | ----------------------- | --------------------------------------- |
-| networkType      | `String`  | Network type            | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| networkAvailable | `Boolean` | Availability of network | __icon_miniapp_mp__                     |
+#### success 返回
+| 属性             | 类型      | 描述         | 支持                                    |
+| ---------------- | --------- | ------------ | --------------------------------------- |
+| networkType      | `String`  | 网络类型     | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| networkAvailable | `Boolean` | 网络是否可用 | __icon_miniapp_mp__                     |
 
 ### `onStatusChange(callback)`
 
-Start listening for changes in network status.
+开始监听网络状态变化。
 
-#### Callback return
-| Property    | Type      | Description             | Support                                 |
-| ----------- | --------- | ----------------------- | --------------------------------------- |
-| isConnected | `Boolean` | Availability of network | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| networkType | `String`  | Network type            | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+#### callback 返回
+| 属性        | 类型      | 描述         | 支持                                    |
+| ----------- | --------- | ------------ | --------------------------------------- |
+| isConnected | `Boolean` | 网络是否可用 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| networkType | `String`  | 网络类型     | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
 ### `offStatusChange(callback)`
 
-Cancels all event monitoring if the parameter is empty.
+取消监听网络状态变化，参数为空，则取消所有的事件监听。
 
-#### Parameters
-| Property | Type       | Default | Required | Description                                       | Support             |
-| -------- | ---------- | ------- | -------- | ------------------------------------------------- | ------------------- |
-| callback | `Function` |         | x        | Callback function for network state change events | __icon_miniapp_mp__ |
+#### 参数
+| 属性     | 类型       | 默认值 | 必选 | 描述                       | 支持                                    |
+| -------- | ---------- | ------ | ---- | -------------------------- | --------------------------------------- |
+| callback | `Function` |        | x    | 网络状态变化事件的回调函数 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
-## Example
+## 示例
 
 ```js
 import Network from 'universal-network';
@@ -58,4 +58,3 @@ setTimeout(() => {
 }, 1000);
 
 ```
-

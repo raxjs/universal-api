@@ -1,120 +1,119 @@
 # universal-file [![npm](https://img.shields.io/npm/v/universal-file.svg)](https://www.npmjs.com/package/universal-file)
 
-File operations.
+文件操作.
 
-## Support
+## 支持
 __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__
 
-## Install
+## 安装
 
 ```bash
 $ npm install universal-file --save
 ```
 
-## Methods
+## 方法
 
 ### `getInfo(options)`
 
-Get file information.
+获取文件信息。
 
-#### Support
+#### 支持
 __icon_miniapp_mp__ __icon_miniapp_wx__
 
-#### Parameters
-| Property        | Type     | Default | Required | Description                                                  | Support                                 |
-| --------------- | -------- | ------- | -------- | ------------------------------------------------------------ | --------------------------------------- |
-| filePath        | `String` |         | √        | The file path                                                | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| digestAlgorithm | `String` | md5   | x        | The algorithm to calculate the file summary can be md5, sha1 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-
+#### 参数
+| 属性            | 类型     | 默认值 | 必选 | 描述                       | 支持                                    |
+| --------------- | -------- | ------ | ---- | -------------------------- | --------------------------------------- |
+| filePath        | `String` |        | √    | 文件路径                   | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| digestAlgorithm | `String` | md5  | x    | 摘要算法，支持 md5 和 sha1 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
 ### `getSavedInfo(options)`
 
-Gets saved file information.
+获取保存的文件信息。
 
-#### Support
+#### 支持
 __icon_miniapp_mp__ __icon_miniapp_wx__
 
-#### Parameters
-| Property | Type     | Default | Required | Description   | Support                                 |
-| -------- | -------- | ------- | -------- | ------------- | --------------------------------------- |
-| filePath | `String` |         | √        | The file path | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+#### 参数
+| 属性     | 类型     | 默认值 | 必选 | 描述     | 支持                                    |
+| -------- | -------- | ------ | ---- | -------- | --------------------------------------- |
+| filePath | `String` |        | √    | 文件路径 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
 ### `getSavedList(options)`
 
-Gets all saved file information.
+获取保存的所有文件信息。
 
-#### Support
+#### 支持
 __icon_miniapp_mp__ __icon_miniapp_wx__
 
 ### `openDocument(options)`
 
-Open a file preview on the new page.
+在新页面打开文件预览。
 
-#### Support
+#### 支持
 __icon_miniapp_mp__ __icon_miniapp_wx__
 
-#### Parameters
-| Property | Type     | Default | Required | Description   | Support                                 |
-| -------- | -------- | ------- | -------- | ------------- | --------------------------------------- |
-| filePath | `String` |         | √        | The file path | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| fileType | `String` |         | x        | The file Type | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+#### 参数
+| 属性     | 类型     | 默认值 | 必选 | 描述     | 支持                                    |
+| -------- | -------- | ------ | ---- | -------- | --------------------------------------- |
+| filePath | `String` |        | √    | 文件路径 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| fileType | `String` |        | x    | 文件类型 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
 ### `removeSaved(options)`
 
-Delete a saved file.
+删除某个保存的文件。
 
-#### Support
+#### 支持
 __icon_miniapp_mp__ __icon_miniapp_wx__
 
-#### Parameters
-| Property | Type     | Default | Required | Description   | Support                                 |
-| -------- | -------- | ------- | -------- | ------------- | --------------------------------------- |
-| filePath | `String` |         | √        | The file path | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+#### 参数
+| 属性     | 类型     | 默认值 | 必选 | 描述     | 支持                                    |
+| -------- | -------- | ------ | ---- | -------- | --------------------------------------- |
+| filePath | `String` |        | √    | 文件路径 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
 ### `save(options)`
 
-Save the file locally.
+保存文件到本地。
 
-#### Support
+#### 支持
 __icon_miniapp_mp__ __icon_miniapp_wx__
 
-#### Parameters
-| Property | Type     | Default | Required | Description   | Support                                 |
-| -------- | -------- | ------- | -------- | ------------- | --------------------------------------- |
-| filePath | `String` |         | √        | The file path | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+#### 参数
+| 属性     | 类型     | 默认值 | 必选 | 描述     | 支持                                    |
+| -------- | -------- | ------ | ---- | -------- | --------------------------------------- |
+| filePath | `String` |        | √    | 文件路径 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
 ### `upload(options)`
 
-Upload local resources to the developer server.
+上传本地资源到开发者服务器。
 
-#### Support
+#### 支持
 __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__
 
-#### Parameters
-| Property | Type     | Default | Required | Description                          | Support                                 |
-| -------- | -------- | ------- | -------- | ------------------------------------ | --------------------------------------- |
-| url      | `String` |         | √        | Developer server address             | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| filePath | `String | File Object` |         | √        | The path to upload the file resource. In web browser, it can be either base64 string or a File object. | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| fileName | `String` |         | √        | File name, that is, the corresponding key, the developer in the server side through this key can get the binary content of the file.             | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| fileType | `String` |         | √        | File type supports image, video, audio (image/video/audio). Not required in browser. | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| header | `Object` |         | x        | The HTTP request Header | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| formData | `Object` |         | x        | Additional form data in the HTTP request | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
+#### 参数
+| 属性     | 类型     | 默认值 | 必选 | 描述                                                                        | 支持                                    |
+| -------- | -------- | ------ | ---- | --------------------------------------------------------------------------- | --------------------------------------- |
+| url      | `String` |        | √    | 开发者服务器地址                                                            | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| filePath | File Object | `String` |        | √    | 要上传文件资源的本地定位符，Web下支持base64字符串或File对象                       | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| fileName | `String` |        | √    | 文件名，即对应的 key，开发者在服务器端通过这个 key 可以获取到文件二进制内容 | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| fileType | `String` |        | √    | 文件类型支持图片、视频、音频（ image / video / audio），Web下无需传入            | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| header   | `Object` |        | x    | HTTP 请求 Header                                                            | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| formData | `Object` |        | x    | HTTP 请求中其他额外的 form 数据                                             | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
 
 ### `download(options)`
 
-Download file resources locally.
+下载文件资源到本地。
 
-#### Support
+#### 支持
 __icon_miniapp_mp__ __icon_miniapp_wx__
 
-#### Parameters
-| Property | Type     | Default | Required | Description             | Support                                 |
-| -------- | -------- | ------- | -------- | ----------------------- | --------------------------------------- |
-| url      | `String` |         | √        | Download file address   | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| header   | `Object` |         | x        | The HTTP request Header | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+#### 参数
+| 属性   | 类型     | 默认值 | 必选 | 描述             | 支持                                    |
+| ------ | -------- | ------ | ---- | ---------------- | --------------------------------------- |
+| url    | `String` |        | √    | 下载文件地址     | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| header | `Object` |        | x    | HTTP 请求 Header | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
-## Example
+## 示例
 
 ```js
 import File from 'universal-file';

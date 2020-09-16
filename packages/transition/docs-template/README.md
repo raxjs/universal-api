@@ -1,18 +1,18 @@
 # universal-transition [![npm](https://img.shields.io/npm/v/universal-transition.svg)](https://www.npmjs.com/package/universal-transition)
 
-Used to create transition animation.
+用于创建过度动画
 
-## Supported
+## 支持
 
 __icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__
 
-## Install
+## 安装
 
 ```bash
 $ npm install universal-transition --save
 ```
 
-## Usage
+## 示例
 
 ```js
 import transition from 'universal-transition';
@@ -29,60 +29,60 @@ transition(document.querySelector('#box'), {
 });
 ```
 
-## Methods
+## 方法
 
 ### `transition(domNode, styles, options, callback)`
 
-#### Supported
+#### 支持
 
 __icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_miniapp_bytedance__
 
-#### Arguments
+#### 参数
 
-| Property | Type | Description | Required | Default | Supported |
-| --- | --- | --- | --- | --- |  --- |
-| domNode | `DOMNode`  | Specified element，mini app does not support，see below for details[mini app instructions] | yes | - |  __icon_web__ __icon_weex__ |
-| styles | `object`  | See below for details | yes | - |   |
-| options | `Object`  | options，See below for details | no | - |   |
-| callback | `function`  |  Triggered after the animation is complete，mini app does not support | no | - | __icon_web__ __icon_weex__ |
+| 成员 | 类型 | 描述 | 必选 |默认值 | 支持 |
+| --- | --- | --- | --- | --- | --- |
+| domNode | `DOMNode`  | 指定元素，小程序不支持，详细见下文[小程序使用说明] | 是 | - | __icon_web__ __icon_weex__ |
+| styles | `object`  | 详细见下文 | 是 | - |   |
+| options | `Object`  | 动画参数，详细见下文 | 否 | - |   |
+| callback | `function`  |  动画完成后触发，小程序不支持 | 否 | - | __icon_web__ __icon_weex__ |
 
-The properties listed below are supported for each environment, and the properties not listed are not guaranteed for each environment.
+下面列出属性为各个端均支持，未列出属性不保证各个端兼容性。
 
-styles supported attributes and situation description：
+styles 支持的属性及情况描述：
 
-| Property | Type | Description | Default |
+| 成员 | 类型 | 描述 | 默认值 |
 | --- | --- | --- | --- |
-| styles.backgroundColor |  `color` | background color | - |
-| styles.height | `length` | Length value | - |
-| styles.width | `length` | Length value | - |
-| styles.opacity | `number` | Opacity 0-1 | - |
-| styles.transform | `string` | transform type，see below for details | - |
+| styles.backgroundColor |  `color` | 背景色 | - |
+| styles.height | `length` | 长度值 | - |
+| styles.width | `length` | 长度值 | - |
+| styles.opacity | `number` | 透明度 0-1 | - |
+| styles.transform | `string` | 变换类型，具体见下表 | - |
 
-styles.transform supported attributes：
+styles.transform 支持的属性：
 
-| Property | Type | Description | Default |
+| 成员 | 类型 | 描述 | 默认值 |
 | --- | --- | --- | --- |
-| translate、translateX、translateY | `number | percentage` | Specify where the element is moved to | 0 |
-| rotate、rotateX、rotateY | `angle` | Specifies the angle at which the element is deflected | 0 |
-| scale、scaleX、scaleY| `number` | Specify multiples of zoomed in and out elements | 1 |
+| translate、translateX、translateY | `number | percentage` | 指定元素移动到的位置 | 0 |
+| rotate、rotateX、rotateY | `angle` | 指定元素偏转的角度 | 0 |
+| scale、scaleX、scaleY| `number` | 指定放大缩小元素的倍数 | 1 |
 
 options：
 
-| Property | Type | Description | Default |
+| 成员 | 类型 | 描述 | 默认值 |
 | --- | --- | --- | --- |
-| options.timingFunction |  `string` | Animation effect，valid values are："linear","ease","ease-in","ease-in-out","ease-out"(Unlisted values, there may be compatibility issues) | ease |
-| options.delay |  `number` | Animation delay time | 0 |
-| options.duration |  `number` | Animation duration | 0 |
+| options.timingFunction |  `string` | 动画的效果，有效值有："linear","ease","ease-in","ease-in-out","ease-out"(未列出的值，可能存在兼容问题) | ease |
+| options.delay |  `number` | 动画延迟时间 | 0 |
+| options.duration |  `number` | 动画持续时间 | 0 |
 
-#### Return
+#### 返回
 
-Mini app return `export()`，other cases return `undefined`
+小程序返回 `export()`，其他返回 `undefined`
 
-## Mini app instructions：
+## 小程序使用说明：
 
-Because the mini app can't provide `DOMNode`, and use animation way is different. So the mini app needs to get the animation content by the `export()` method and then manually bind to the element.
+因为小程序无法提供`DOMNode`，并且动画应用方式也有差异。所以小程序需要通过`export()`方法获取动画内容，然后手动绑定到元素。
 
-### Usage
+### 示例
 
 ```html
 <view animation="{{transitionInfo}}"></view>
