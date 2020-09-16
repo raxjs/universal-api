@@ -1,30 +1,30 @@
 # universal-unit-tool [![npm](https://img.shields.io/npm/v/universal-unit-tool.svg)](https://www.npmjs.com/package/universal-unit-tool)
 
-Unit tool
+工具库
 
-## Supported
+## 支持
 
 __icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__ __icon_quick_app__
 
-## Install
+## 安装
 
 ```bash
 $ npm install universal-unit-tool --save
 ```
-## Usage
+## 示例
 
 ```js
 import { px2rpx, rpx2px } from 'universal-unit-tool';
 ```
 
-## APIS
+## 方法
 ### `px2rpx(val)`
-px to rpx method
+px 转 rpx 方法。
 
 ### `rpx2px(val)`
-rpx to px method
+rpx 转 px 方法。
 
-#### Arguments
-| Property | Type     | Describes | Default | Supports |
-| -------- | -------- | --------- | :-----: | :------: |
-| val      | `number` | px value  |    -    |          |
+#### 入参
+| 成员 | 类型     | 描述  | 默认值 | 支持  |
+| ---- | -------- | ----- | :----: | :---: |
+| val  | `number` | px 值 |   -    |       |

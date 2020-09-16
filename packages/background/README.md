@@ -1,45 +1,46 @@
 # universal-background [![npm](https://img.shields.io/npm/v/universal-background.svg)](https://www.npmjs.com/package/universal-background)
 
-Dynamic setting window background color and so on.
+动态设置窗口的背景等.
 
-## Support
+## 支持
 <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
 
-## Install
+## 安装
 
 ```bash
 $ npm install universal-background --save
 ```
 
-## Methods
+## 方法
 
 ### `setColor(options)`
 
-Dynamically sets the background color of the window.
+动态设置窗口的背景色。
 
-#### Parameters
-| Property    | Type     | Default | Required | Description            | Support                                 |
-| ----------- | -------- | ------- | -------- | ---------------------- | --------------------------------------- |
-| color       | `String` |   -      | x    | The background color of the window must be a hexadecimal color value | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
-| topColor    | `String` |   -      | x    | Background color of top window, must be hexadecimal color value, supported by iOS only | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
-| bottomColor | `String` |    -     | x    |Bottom window background color, must be hexadecimal color value, iOS only support| <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
+#### 参数
+| 属性        | 类型     | 默认值 | 必选 | 描述                          | 支持                                    |
+| ----------- | -------- | ------ | ---- | ----------------------------- | --------------------------------------- |
+| color       | `String` |    -    | x    | 窗口的背景色                  | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
+| topColor    | `String` |    -    | x    | 顶部窗口的背景色，仅 iOS 支持 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
+| bottomColor | `String` |    -    | x    | 底部窗口的背景色，仅 iOS 支持 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
 
 ### `setTextStyle(options)`
 
-Dynamic Settings drop - down background font, loading map style.
+动态设置窗口的背景色。
 
-#### Parameters
-| Property    | Type     | Default | Required | Description            | Support                                 |
-| ----------- | -------- | ------- | -------- | ---------------------- | --------------------------------------- |
-| style       | `String` |         | √    | Drop down background font, loading diagram style, value: dark, light | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
+#### 参数
+| 属性  | 类型     | 默认值 | 必选 | 描述                                                     | 支持                                    |
+| ----- | -------- | ------ | ---- | -------------------------------------------------------- | --------------------------------------- |
+| style | `String` |        | √    | 下拉背景字体、loading 图的样式，仅支持 'dark', 'light'。 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
 
-## Example
+
+## 示例
 
 ```js
 import Background from 'universal-background';
 
 Background.setColor({
-    color: #000000,
+    color: '#000000',
     success: res => {
     },
     fail: res => {
@@ -55,4 +56,3 @@ Background.setTextStyle({
 });
 
 ```
-

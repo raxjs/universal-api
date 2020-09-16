@@ -35,7 +35,7 @@ function buildPackage(packagesDir, packageDir) {
     __icon_quick_app__: '<img alt="quickApp" src="https://gw.alicdn.com/tfs/TB1MP7EwQT2gK0jSZPcXXcKkpXa-200-200.svg" width="25px" height="25px">'
   };
   mdFileNames.forEach(mdFileName => {
-    const mdFile = path.resolve(packageDir, DOCS_TEMP_DIR, mdFileName);
+    let mdFile = path.resolve(packageDir, DOCS_TEMP_DIR, mdFileName);
     fs.readFile(mdFile, 'utf8', function(err, data) {
       if (!data) {
         return;
@@ -43,6 +43,7 @@ function buildPackage(packagesDir, packageDir) {
       process.stdout.write(
         fixedWidth(`${path.basename(packageDir)}: ${mdFileName}\n`)
       );
+
       iconArr.forEach(icon => {
         data = data.replace(new RegExp(`${icon}`, 'g'), iconMap[icon]);
       });

@@ -1,23 +1,23 @@
 # universal-keyboard [![npm](https://img.shields.io/npm/v/universal-keyboard.svg)](https://www.npmjs.com/package/universal-keyboard)
 
-keyboard operation.
+键盘操作。
 
-## Support
+## 支持
 <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
 
-## Install
+## 安装
 
 ```bash
 $ npm install universal-keyboard --save
 ```
 
-## Methods
+## 方法
 
 ### `hide()`
 
-Hide the keyboard.
+隐藏键盘。
 
-## Example
+## 示例
 
 ```js
 import Keyboard from 'universal-keyboard';

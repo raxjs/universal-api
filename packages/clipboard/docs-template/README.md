@@ -1,21 +1,21 @@
 # universal-clipboard [![npm](https://img.shields.io/npm/v/universal-clipboard.svg)](https://www.npmjs.com/package/universal-clipboard)
 
-clipboard ability to achieve.
+粘贴板快捷操作能力实现
 
-## Support
+## 支持
 __icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
 
-## Install
+## 安装
 ```bash
 $ npm install universal-clipboard --save
 ```
 
-## Usage
+## 使用
 
 ```javascript
 import Clipboard from 'universal-clipboard';
 
-// How to use it in quickapp
+// 快应用中的引入方法
 // import Clipboard from 'universal-clipboard/lib/quickapp;
 
 Clipboard.readText().then(text => {
@@ -23,7 +23,7 @@ Clipboard.readText().then(text => {
 }).catch(() => {
 
 });
-// Web side is not supported
+// 不支持Web端
 Clipboard.writeText('text').then(() => {
 
 }).catch(() => {
@@ -31,26 +31,26 @@ Clipboard.writeText('text').then(() => {
 });
 ```
 
-## Methods
+## 方法
 
 ### `readText(): Promise.<text>`
-Get clipboard value.
+获取剪贴板数据
 
-#### Support
+#### 支持
 __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
 
-#### Arguments
-| Property | Type     | Description         | Default |
-| -------- | -------- | ------------------- | :-----: |
-| text     | `string` | get clipboard value |    -    |
+#### 出参
+| 成员 | 类型     | 描述       | 默认值 |
+| ---- | -------- | ---------- | :----: |
+| text | `string` | 剪贴板数据 |   -    |
 
 ### `writeText(text: string): Promise.<>`
-Set clipboard value.
+设置剪贴板数据
 
-#### Support
+#### 支持
 __icon_web__ __icon_weex__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_quick_app__
 
-#### Arguments
-| Property | Type     | Description         | Default |
-| -------- | -------- | ------------------- | :-----: |
-| text     | `string` | set clipboard value |    -    |
+#### 参数
+| 成员 | 类型     | 描述           | 默认值 |
+| ---- | -------- | -------------- | :----: |
+| text | `string` | 设置剪贴板数据 |   -    |

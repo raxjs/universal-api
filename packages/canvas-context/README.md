@@ -1,18 +1,18 @@
 # universal-canvas-context [![npm](https://img.shields.io/npm/v/universal-canvas-context.svg)](https://www.npmjs.com/package/universal-canvas-context)
 
-Universal canvas api.
+一个适配多端的 canvas api。
 
-## Support
+## 支持
 
-<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> __ icon_web__
+__ icon_miniapp_mp__  __ icon_miniapp_wx__  __ icon_web__
 
-## Install
+## 安装
 
 ```bash
 $ npm install universal-canvas-context --save
 ```
 
-## Usage
+## 使用
 
 ```js
 import { createElement, useEffect, Fragment } from 'rax';
@@ -33,17 +33,17 @@ function App() {
 }
 ```
 
-## Methods
+## 方法
 
 ### `createContext(canvasId, type, options)`
 
-Only in MiniApp, the return `context` has valid `draw` method.
+只有在阿里系小程序中，返回的 `context` 中才含有有实际作用的 `draw` 方法。
 
 ```js
 createContext("canvasId").then((context) => {
   context.fillStyle = 'red';
   context.fillRect(0, 0, 100, 100);
-  // Only in alibaba miniapp, draw isn't an empty function
+  // 在除了阿里小程序的其它容器中，draw 方法是一个空函数
 	context.draw();
 });
 ```

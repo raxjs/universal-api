@@ -1,69 +1,70 @@
 # universal-image [![npm](https://img.shields.io/npm/v/universal-image.svg)](https://www.npmjs.com/package/universal-image)
 
-Image operation.
+图片操作.
 
-## Support
+## 支持
 __icon_miniapp_mp__ __icon_miniapp_wx__
 
-## Install
+## 安装
 
 ```bash
 $ npm install universal-image --save
 ```
 
-## Methods
+## 方法
 
 ### `choose(options)`
 
-Take a photo or select an image from a local album.
+拍照或从本地相册中选择图片。
 
-#### Parameters
-| Property   | Type           | Default                    | Required | Description                                     | Support                                 |
-| ---------- | -------------- | -------------------------- | -------- | ----------------------------------------------- | --------------------------------------- |
-| count      | `Number`       | 1                          | x        | Maximum number of optional photos               | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| sizeType   | `String Array` | ['original', 'compressed'] | x        | Compressed original picture, compressed picture | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| sourceType | `String Array` | ['camera', 'album']        | x        | Photo album selection or photo taking           | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+#### 参数
+| 属性       | 类型           | 默认值                     | 必选 | 描述                             | 支持                                    |
+| ---------- | -------------- | -------------------------- | ---- | -------------------------------- | --------------------------------------- |
+| count      | `Number`       | 1                          | x    | 最大可选照片数                   | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| sizeType   | `String Array` | ['original', 'compressed'] | x    | original 原图，compressed 压缩图 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| sourceType | `String Array` | ['camera', 'album']        | x    | 相册选取或者拍照                 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
 ### `preview(options)`
 
-preview image.
+预览图片。
 
-#### Parameters
-| Property | Type     | Default | Required | Description                    | Support                                 |
-| -------- | -------- | ------- | -------- | ------------------------------ | --------------------------------------- |
-| urls  | `String Array` |       | √        | A list of images to preview | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| current  | `Number` | 0       | x        | Currently displays image index | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+#### 参数
+| 属性    | 类型           | 默认值 | 必选 | 描述                 | 支持                                    |
+| ------- | -------------- | ------ | ---- | -------------------- | --------------------------------------- |
+| urls    | `String Array` |        | √    | 要预览的图片链接列表 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| current | `Number`       | 0      | x    | 当前显示图片索引     | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+
 
 ### `getInfo(options)`
 
-Get image information.
+获取图片信息。
 
-#### Parameters
-| Property | Type     | Default | Required | Description                    | Support                                 |
-| -------- | -------- | ------- | -------- | ------------------------------ | --------------------------------------- |
-| src  | `String` |       | √        | Image path, can be relative path, temporary file path, storage file path, network image path | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+#### 参数
+| 属性 | 类型     | 默认值 | 必选 | 描述                                                                 | 支持                                    |
+| ---- | -------- | ------ | ---- | -------------------------------------------------------------------- | --------------------------------------- |
+| src  | `String` |        | √    | 图片的路径，可以是相对路径，临时文件路径，存储文件路径，网络图片路径 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
 
 ### `compress(options)`
 
-Compress image.
+压缩图片，可选压缩质量。
 
-#### Parameters
-| Property | Type     | Default | Required | Description                    | Support                                 |
-| -------- | -------- | ------- | -------- | ------------------------------ | --------------------------------------- |
-| filePaths  | `String Array` |     | √ | An array of image addresses to compress | __icon_miniapp_mp__  |
-| src  | `String` |       | √        | Image path, can be relative path, temporary file path, storage file path, network image path | __icon_miniapp_wx__ |
-| compressLevel  | `Number` | 4       | x   | Compression level, support 0 ~ 4 integer | __icon_miniapp_mp__ |
-| quality  | `Number` | 80       | x   | Compression mass, range 0 ~ 100, the smaller the value, the lower the mass | __icon_miniapp_wx__ |
+#### 参数
+| 属性          | 类型           | 默认值 | 必选 | 描述                                                                | 支持                |
+| ------------- | -------------- | ------ | ---- | ------------------------------------------------------------------- | ------------------- |
+| filePaths     | `String Array` |        | √    | 要压缩的图片地址数组                                                | __icon_miniapp_mp__ |
+| src           | `String`       |        | √    | 图片路径，图片的路径，可以是相对路径、临时文件路径、存储文件路径    | __icon_miniapp_wx__ |
+| compressLevel | `Number`       | 4      | x    | 压缩级别，支持 0 ~ 4 的整数，默认为 4                               | __icon_miniapp_mp__ |
+| quality       | `Number`       | 80     | x    | 压缩质量，范围0～100，数值越小，质量越低，压缩率越高（仅对jpg有效） | __icon_miniapp_wx__ |
 
 ### `save(options)`
 
-Save Image.
+保存图片到系统相册。
 
-#### Parameters
-| Property | Type     | Default | Required | Description                    | Support                                 |
-| -------- | -------- | ------- | -------- | ------------------------------ | --------------------------------------- |
-| url  | `String` |     | √ | Image file path | __icon_miniapp_mp__ __icon_miniapp_wx__ |
-| showActionSheet  | `Boolean` |  `true`    | x | Whether to display picture action menu | __icon_miniapp_mp__ |
+#### 参数
+| 属性            | 类型      | 默认值 | 必选 | 描述                 | 支持                                    |
+| --------------- | --------- | ------ | ---- | -------------------- | --------------------------------------- |
+| url             | `String`  |        | √    | 要保存的图片链接     | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| showActionSheet | `Boolean` | `true` | x    | 是否显示图片操作菜单 | __icon_miniapp_mp__                     |
 
 ## Example
 
@@ -76,8 +77,8 @@ Image.choose({
   success: (res) => {
     console.log(res.filePaths);
   },
-  fail: () => {
-    console.log('fail');
+  fail: (err) => {
+    console.log(err);
   }
 });
 
@@ -97,10 +98,19 @@ Image.getInfo({
   }
 });
 
-Image.compress({
-  filePaths: [''],
-  success: data => {
-    console.log(data);
+Image.choose({
+  sourceType: ['camera','album'],
+  success: (res) => {
+    Image.compress({
+      src: res.filePaths[0],
+      filePaths: res.filePaths,
+      success: data => {
+        console.log(data.filePaths);
+      }
+    });
+  },
+  fail: (err) => {
+    console.log('fail: ', err);
   }
 });
 
