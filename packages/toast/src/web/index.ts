@@ -10,7 +10,7 @@ let queue: QueueOption[] = [];
 let isProcessing = false;
 let toastWin: HTMLElement;
 
-let styles = {
+const styles = {
   container: {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     boxSizing: 'border-box',
@@ -60,16 +60,9 @@ function hideToastWindow(): void {
   }, 0);
 }
 
-let toast = {
-  push(message: string, duration: number): void {
-    queue.push({
-      message,
-      duration
-    });
-    this.show();
-  },
-
-  show(): void {
+const innerToast = {
+  hideTimer: null,
+  show() {
     // All messages had been toasted already, so remove the toast window,
     if (!queue.length) {
       if (toastWin) {
@@ -86,15 +79,31 @@ let toast = {
 
     let toastInfo: QueueOption = queue.shift() as QueueOption;
     showToastWindow(toastInfo.message);
-    setTimeout((): void => {
-      hideToastWindow();
-      isProcessing = false;
-      setTimeout((): void => this.show(), 600);
-    }, toastInfo.duration);
+    innerToast.hideTimer = setTimeout(() => innerToast.switchToNext(), toastInfo.duration);
+  },
+  push(message: string, duration: number): void {
+    queue.push({
+      message,
+      duration
+    });
+    innerToast.show();
+  },
+  // Switch to next message
+  // This function will hide current, and call `show()` to display next
+  // If queue is empty, DOM will be clear in `show()`
+  switchToNext() {
+    hideToastWindow();
+    isProcessing = false;
+    setTimeout(() => innerToast.show(), 500);
+    if (innerToast.hideTimer) {
+      clearTimeout(innerToast.hideTimer);
+      innerToast.hideTimer = null;
+    }
   }
-};
+}
 
-let Toast: ToastOption = {
+
+const Toast: ToastOption = {
   SHORT: SHORT_DELAY,
   LONG: LONG_DELAY,
 
@@ -104,8 +113,14 @@ let Toast: ToastOption = {
    * @param userStyle {Object} user defined style
    */
   show(message: string, duration: number = SHORT_DELAY): void {
-    toast.push(message, duration);
+    innerToast.push(message, duration);
   },
+
+  hide() {
+    // remove all queued messages
+    queue = [];
+    innerToast.switchToNext();
+  }
 };
 
 export default Toast;

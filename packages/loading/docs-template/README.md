@@ -3,7 +3,7 @@
 加载提示的过渡效果。
 
 ## 支持
-__icon_miniapp_mp__ __icon_miniapp_wx__
+__icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__
 
 ## 安装
 
@@ -20,7 +20,7 @@ $ npm install universal-loading --save
 #### 参数
 | 属性     | 类型     | 默认值 | 必选 | 描述     | 支持                                    |
 | -------- | -------- | ------ | ---- | -------- | --------------------------------------- |
-| content | `String` |        | √    | 提示中的文字内容 | __icon_miniapp_mp__ __icon_miniapp_wx__ |
+| content | `String` |        | √    | 提示中的文字内容 | __icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ |
 | delay | `Number` |   `0`     | x    | 延迟显示，单位 ms | __icon_miniapp_mp__ |
 | mask | `Boolean` |   `false`     | x    | 是否显示透明蒙层，防止触摸穿透 | __icon_miniapp_wx__ |
 

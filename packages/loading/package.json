@@ -1,7 +1,7 @@
 {
   "name": "universal-loading",
   "author": "rax",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "",
   "main": "lib/index.js",
   "files": [
@@ -33,8 +33,11 @@
     "@alib/build-scripts": "^0.1.0",
     "@types/rax": "^1.0.1",
     "build-plugin-rax-component": "^0.2.0",
+    "driver-universal": "^3.1.0",
     "rax": "^1.1.0",
     "rax-test-renderer": "^1.0.0",
+    "rax-text": "^1.3.1",
+    "rax-view": "^1.1.2",
     "typescript": "^3.7.5"
   }
 }

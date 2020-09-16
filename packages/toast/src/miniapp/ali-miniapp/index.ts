@@ -19,6 +19,10 @@ let Toast: ToastOption = {
       duration
     });
   },
+
+  hide() {
+    my.hideToast();
+  }
 };
 
 export default Toast;

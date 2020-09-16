@@ -21,6 +21,7 @@ import Toast from 'universal-toast';
 
 Toast.show('Hi');
 
+Toast.hide();
 ```
 
 ## 方法
@@ -33,3 +34,10 @@ Toast.show('Hi');
 | message  | `string` | 文字内容            |   -    |
 | duration | `number` | 显示时长，单位为 ms |  2000  |
 | options | `object` | 其他参数，微信小程序/字节跳动小程序平台可用配置，参考[文档](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html)  |  {}   |
+
+### `Toast.hide()`
+
+#### 支持
+__icon_web__ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__
+
+隐藏Toast

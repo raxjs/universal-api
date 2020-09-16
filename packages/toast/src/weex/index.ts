@@ -22,6 +22,10 @@ let Toast: ToastOption = {
       });
     }
   },
+
+  hide() {
+    console.error('hide toast not supported yet');
+  }
 };
 
 export default Toast;
