@@ -25,7 +25,7 @@
   "devDependencies": {
     "@alib/build-scripts": "^0.1.0",
     "build-plugin-rax-api-builder": "^0.1.0",
-    "build-plugin-rax-component": "^0.1.0",
+    "build-plugin-rax-component": "^0.2.0",
     "driver-universal": "^3.0.0",
     "rax": "^1.1.0",
     "rax-text": "^1.0.1",
