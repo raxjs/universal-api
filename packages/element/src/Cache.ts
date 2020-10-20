@@ -17,10 +17,8 @@ export default class Cache {
       const selectorQuery = context?.createSelectorQuery().selectAll(selector);
       return selectorQuery;
     } else {
-      if (this.cache[selector]) return this.cache[selector];
       // Transform NodeList to Array
       const nodes = Array.from(document.querySelectorAll(selector));
-      this.cache[selector] = nodes;
       return nodes;
     }
   }
