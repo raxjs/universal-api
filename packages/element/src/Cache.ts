@@ -5,7 +5,6 @@ import { Context } from './types';
 declare const my: any;
 declare const wx: any;
 export default class Cache {
-  private cache = {};
   public getSelector(selector: string, context?: Context) {
     if (isMiniApp && !isWeb) {
       const selectorQuery = my.createSelectorQuery().selectAll(selector);
