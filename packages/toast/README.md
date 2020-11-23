@@ -21,6 +21,7 @@ import Toast from 'universal-toast';
 
 Toast.show('Hi');
 
+Toast.hide();
 ```
 
 ## 方法
