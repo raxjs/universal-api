@@ -1,4 +1,4 @@
-import { isWeb, isMiniApp, isWeChatMiniprogram } from 'universal-env';
+import { isWeb, isMiniApp, isWeChatMiniProgram } from 'universal-env';
 import * as webModule from './web';
 import * as miniAppModule from './miniapp/ali';
 import * as weChatModule from './miniapp/wechat';
@@ -12,7 +12,7 @@ if (isWeb) {
 if (isMiniApp) {
   File = miniAppModule;
 }
-if (isWeChatMiniprogram) {
+if (isWeChatMiniProgram) {
   File = weChatModule;
 }
 

@@ -5,7 +5,7 @@ module.exports = {
   'main': 'index.js',
   'module': 'index.es.js',
   'unpkg': 'index.umd.js',
-  'typings': 'index.d.ts',
+  'typings': 'types/index.d.ts',
   'dependencies': {
     'universal-env': '^2.0.0',
     '@babel/runtime-corejs3': '^7.11.0'

@@ -1,11 +1,11 @@
 'use strict';
-import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram, isByteDanceMicroApp } from 'universal-env';
+import { isWeex, isMiniApp, isWeChatMiniProgram, isByteDanceMicroApp } from 'universal-env';
 import binding from 'weex-bindingx';
 import transition from 'universal-transition';
 import transformProperty from './transformProperty';
 import transformEasing from './transformEasing';
 import formatBezier from './formatBezier';
-import { find, map, forEach } from './utils';
+import { find, map } from './utils';
 
 const inMiniApp = isMiniApp || isWeChatMiniProgram || isByteDanceMicroApp;
 

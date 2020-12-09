@@ -16,7 +16,9 @@
     "transform:docs": "node scripts/compile-readme.js"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.11.0"
+    "@babel/runtime-corejs3": "^7.12.5",
+    "style-unit": "^3.0.0",
+    "weex-bindingx": "^0.0.49"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",

@@ -5,3 +5,4 @@ declare const wx: any;
 declare const tt: any;
 declare const global: any;
 declare const process: any;
+declare const __weex_require__: any;

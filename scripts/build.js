@@ -9,6 +9,7 @@ const packageTpl = require('./source/package-tpl');
 const compose = require('koa-compose');
 const chalk = require('chalk');
 const fs = require('fs-extra');
+// const buildDTS = require('./buildDTS');
 
 const root = process.cwd();
 const outputDir = 'dist/';
@@ -33,10 +34,10 @@ function logger( text = '', opts = { status: 'INFO' } ) {
   console.log(logText);
 }
 const compiler = async(config, packageInfo, _outputPath) => {
-  const inputOptions = config;
-  const outputOptions = config.output;
+  const inputOptions = config[0];
+  
   const isMain = inputOptions.input.indexOf('packages/index.ts') !== -1;
-  logger(`开始编译 ${inputOptions.input}`);
+  logger(`开始编译 ${packageInfo.name}`);
   // 写入当前组件包的依赖
   packageTpl.version = packageInfo.version;
   packageTpl.name = packageInfo.name;
@@ -47,32 +48,64 @@ const compiler = async(config, packageInfo, _outputPath) => {
 
   // packageTpl.dependencies[componentPackage.name] = path.relative(distDir, root) + '/';
   await fs.outputJSON(path.resolve(root, _outputPath + 'package.json'), packageTpl);
-
+  if (packageInfo.dependencies) {
+    Object.keys(packageInfo.dependencies).forEach(name => {
+      const filePath = path.resolve(root, `types/${name}.d.ts`);
+      if (!fs.pathExistsSync(filePath)) {
+        const DTSFileContent = `declare module '${name}';`;
+        fs.writeFileSync(filePath, DTSFileContent);
+      }
+    });
+  }
+  
   // create a bundle
-  const bundle = await rollup.rollup(inputOptions);
+ 
   const list = [];
-  outputOptions.forEach((i) => {
+  config.forEach((i) => {
+    const inputOptions = i;
+    const outputOptions = i.output;
     list.push(async(ctx, next) => {
-      await bundle.generate(i);
+      const bundle = await rollup.rollup(inputOptions);
+      await bundle.generate(outputOptions);
       // or write the bundle to disk
-      await bundle.write(i);
-      logger(`编译结束 ${i.file}`);
+      await bundle.write(outputOptions);
+      logger(`编译结束 ${outputOptions.file}`);
       await next();
     });
   });
   await compose(list)();
+
+  // await bundle.generate(outputOptions);
+  // // or write the bundle to disk
+  // await bundle.write(outputOptions);
+  // logger(`编译结束 ${outputOptions.file}`);
+  // await next();
 };
 const release = (sourcePath, packageInfo, outputPath) => {
   return async function(ctx, next) {
     const config = getRollupConfig(sourcePath, outputPath, sourceMap);
     const _outputPath = outputDir + outputPath;
-    const inputOptions = config;
-    const tsPath = inputOptions.input.replace('.ts', '.d.ts');
-
+    const inputOptions = config[0];
+    const tsPath = inputOptions.input.replace(/\.(t|j)s/, '.d.ts');
+    const isMain = inputOptions.input.indexOf('packages/index.ts') !== -1;
+    const typesPath = path.resolve(root, inputOptions.input.replace("index.ts", "types.ts"));
     rm.sync(path.resolve(root, _outputPath));
     await compiler(config, packageInfo, _outputPath);
-    fs.copyFileSync(path.resolve(root, _outputPath, tsPath), path.resolve(root, _outputPath, 'index.d.ts'));
-    rm.sync(path.resolve(root, _outputPath, 'packages'));
+    // await compiler(config[1], packageInfo, _outputPath);
+    // await compiler(config[2], packageInfo, _outputPath);
+
+    // 移动对应的types文件
+    if (isMain) {
+      fs.moveSync(path.resolve(root, _outputPath, 'packages'), path.resolve(root, _outputPath, 'types'));
+      // rm.sync(path.resolve(root, _outputPath, 'packages'));
+    } else {
+      fs.moveSync(path.resolve(root, _outputPath, tsPath), path.resolve(root, _outputPath, 'types/index.d.ts'));
+      rm.sync(path.resolve(root, _outputPath, 'packages'));
+      if (fs.pathExistsSync(typesPath)) {
+        fs.copyFileSync(typesPath, path.resolve(root, _outputPath, 'types/types.d.ts'));
+      }
+    }
+    
     await next();
   };
 };
@@ -94,15 +127,20 @@ const allTask = () => {
   });
 };
 const mainTask = () => {
+  const buildDts = async (ctx, next) => {
+    // buildDTS(Object.entries(sourceMap).map(([key, value]) => value.path), path.resolve(root, outputDir, 'main'));
+    await next();
+  };
+  
   const indexFileContent = Object.entries(sourceMap).map(([key, value]) => {
-    return `export * as ${key} from '${value.path.replace('packages/', './').replace('.ts', '')}';`;
+    return `export * as ${key} from '${value.path.replace('packages/', './').replace(/\.(t|j)s/, '')}';`;
   }).join('\r\n');
   fs.writeFileSync('packages/index.ts', indexFileContent);
   taskList.push(
     release('packages/index.ts', {
       version: mainPkg.version,
       name: mainPkg.name,
-    }, 'main/')
+    }, 'main/'), buildDts
   );
 };
 

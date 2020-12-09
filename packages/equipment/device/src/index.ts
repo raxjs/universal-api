@@ -63,12 +63,12 @@ const deviceInfo = dutyChain(
   handleDefault
 );
 
-const appName = deviceInfo.appName;
-const appVersion = deviceInfo.appVersion;
-const platform = deviceInfo.platform;
-const screenWidth = deviceInfo.screenWidth;
-const screenHeight = deviceInfo.screenHeight;
-const devicePixelRatio = deviceInfo.devicePixelRatio;
+const appName: string = deviceInfo.appName;
+const appVersion: string = deviceInfo.appVersion;
+const platform: string = deviceInfo.platform;
+const screenWidth: number = deviceInfo.screenWidth;
+const screenHeight: number = deviceInfo.screenHeight;
+const devicePixelRatio: number = deviceInfo.devicePixelRatio;
 
 export {
   appName,
