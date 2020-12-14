@@ -77,7 +77,7 @@ no
 
 #### Usage
 
-```jsx
+```jsx | pure
 import { createElement, useState, useEffect, useRef, Fragment } from 'rax';
 import animate from 'universal-animation';
 import findDOMNode from 'rax-find-dom-node';

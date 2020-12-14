@@ -55,7 +55,7 @@ config.props数组成员内容:
 
 ## 示例
 
-```jsx
+```jsx | pure
 import { createElement, useState, useEffect, useRef, Fragment } from 'rax';
 import animate from 'universal-animation';
 import findDOMNode from 'rax-find-dom-node';
