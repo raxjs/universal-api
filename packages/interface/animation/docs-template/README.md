@@ -55,7 +55,7 @@ __icon_miniapp_mp__ __icon_miniapp_wx__ __icon_microapp_tt__ __icon_quick_app__
 
 ## 示例
 
-```jsx
+```jsx | pure
 import { createElement, useState, useEffect, useRef, Fragment } from 'rax';
 import animate from 'universal-animation';
 import findDOMNode from 'rax-find-dom-node';
