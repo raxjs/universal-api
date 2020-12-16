@@ -62,7 +62,7 @@ module.exports = (inputPath, itemOutputPath, sourceMap) => {
       output: outputMap[format],
       external: [format == 'umd' ? '' : /@babel\/runtime/],
       plugins: [
-        progress(),
+        // progress(),
         alias(format == 'umd' || isMain ? {
           entries: [...aliasEntries],
         } : {}),

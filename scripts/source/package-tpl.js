@@ -1,5 +1,5 @@
 module.exports = {
-  'name': 'guie',
+  'name': 'evapi',
   'version': '1.0.0',
   'description': '',
   'main': 'index.js',

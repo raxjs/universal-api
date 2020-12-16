@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "path": "/home",
+      "source": "pages/Home/index",
+      "window": {
+        "title": "蜂耘农商"
+      }
+    }
+  ],
+  "window": {
+    "title": ""
+  }
+}
