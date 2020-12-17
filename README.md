@@ -1,10 +1,10 @@
 ---
 hero:
     image: https://img.alicdn.com/tfs/TB1H2Kcb1H2gK0jSZFEXXcqMpXa-70-72.png
-    title: universal-api
+    title: evapi
     desc: 一个跨端的API库
     actions:
-    - text: Getting Started
+    - text: 快速开始
       link: /packages
 features:
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/d60657df-0822-4631-9d7c-e7a869c2f21c/k79dmz3q_w126_h126.png
@@ -15,12 +15,12 @@ features:
     desc: 提供丰富完善的`api`
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/d1ee0c6f-5aed-4a45-a507-339a4bfe076c/k7bjsocq_w144_h144.png
     title: 文档完善
-    desc: 详尽的api文档 
+    desc: 详尽的api文档及示例 
 ---
 
-# universal-api
+# evapi
 
-To extend the capabilities of the Rax system, we provide a series of Universal apis that developers can use to quickly develop multiple applications.
+基于Rax应用生态，我们提供一系列跨端api帮助用户快速开发多端应用。
 
 ```jsx | inline
 /**
@@ -36,12 +36,12 @@ export default () => (
 );
 ```
 
-## Quick-start
+## 快速开始
 ```bash
 $ npm i evapi
 ```
 
-## Build
+## 构建
 ```全部构建
 $ npm run build
 ```
@@ -66,7 +66,7 @@ $ npm run build env
 大包的构建根据api-config中配置的api自动生成index，大包只有一个依赖：@babel/runtime-corejs3
 
 
-## publish
+## 发布
 ```全部发布
 $ npm run pub
 ```

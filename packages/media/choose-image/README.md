@@ -1,3 +1,9 @@
+---
+group:
+  title: 媒体
+title: choose-image
+---
+
 # universal-choose-image [![npm](https://img.shields.io/npm/v/universal-choose-image.svg)](https://www.npmjs.com/package/universal-choose-image)
 
 选取图片

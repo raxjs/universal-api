@@ -1,3 +1,9 @@
+---
+group:
+  title: 文件
+title: file
+---
+
 # universal-file [![npm](https://img.shields.io/npm/v/universal-file.svg)](https://www.npmjs.com/package/universal-file)
 
 文件操作.

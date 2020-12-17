@@ -1,3 +1,9 @@
+---
+group:
+  title: 网络
+title: request
+---
+
 # universal-request [![npm](https://img.shields.io/npm/v/universal-request.svg)](https://www.npmjs.com/package/universal-request)
 
 用于发起网络请求

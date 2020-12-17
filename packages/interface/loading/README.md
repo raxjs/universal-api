@@ -1,4 +1,8 @@
-[![npm](https://img.shields.io/npm/v/universal-loading.svg)](https://www.npmjs.com/package/universal-loading)
+---
+title: loading
+---
+
+# universal-loading[![npm](https://img.shields.io/npm/v/universal-loading.svg)](https://www.npmjs.com/package/universal-loading)
 
 加载提示的过渡效果。
 

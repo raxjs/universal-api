@@ -1,3 +1,9 @@
+---
+group:
+  title: 路由
+title: navigate
+---
+
 # universal-navigate
 
 路由导航能力实现

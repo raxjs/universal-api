@@ -4,22 +4,22 @@ title: clipboard
 
 # universal-clipboard [![npm](https://img.shields.io/npm/v/universal-clipboard.svg)](https://www.npmjs.com/package/universal-clipboard)
 
-粘贴板快捷操作能力实现
+clipboard ability to achieve.
 
-## 支持
+## Support
 <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="quickApp" src="https://gw.alicdn.com/tfs/TB1MP7EwQT2gK0jSZPcXXcKkpXa-200-200.svg" width="25px" height="25px">
 
-## 安装
+## Install
 ```bash
 $ npm install universal-clipboard --save
 ```
 
-## 使用
+## Usage
 
 ```javascript
 import Clipboard from 'universal-clipboard';
 
-// 快应用中的引入方法
+// How to use it in quickapp
 // import Clipboard from 'universal-clipboard/lib/quickapp;
 
 Clipboard.readText().then(text => {
@@ -27,7 +27,7 @@ Clipboard.readText().then(text => {
 }).catch(() => {
 
 });
-// 不支持Web端
+// Web side is not supported
 Clipboard.writeText('text').then(() => {
 
 }).catch(() => {
@@ -35,26 +35,26 @@ Clipboard.writeText('text').then(() => {
 });
 ```
 
-## 方法
+## Methods
 
 ### `readText(): Promise.<text>`
-获取剪贴板数据
+Get clipboard value.
 
-#### 支持
+#### Support
 <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="quickApp" src="https://gw.alicdn.com/tfs/TB1MP7EwQT2gK0jSZPcXXcKkpXa-200-200.svg" width="25px" height="25px">
 
-#### 出参
-| 成员 | 类型     | 描述       | 默认值 |
-| ---- | -------- | ---------- | :----: |
-| text | `string` | 剪贴板数据 |   -    |
+#### Arguments
+| Property | Type     | Description         | Default |
+| -------- | -------- | ------------------- | :-----: |
+| text     | `string` | get clipboard value |    -    |
 
 ### `writeText(text: string): Promise.<>`
-设置剪贴板数据
+Set clipboard value.
 
-#### 支持
+#### Support
 <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="quickApp" src="https://gw.alicdn.com/tfs/TB1MP7EwQT2gK0jSZPcXXcKkpXa-200-200.svg" width="25px" height="25px">
 
-#### 参数
-| 成员 | 类型     | 描述           | 默认值 |
-| ---- | -------- | -------------- | :----: |
-| text | `string` | 设置剪贴板数据 |   -    |
+#### Arguments
+| Property | Type     | Description         | Default |
+| -------- | -------- | ------------------- | :-----: |
+| text     | `string` | set clipboard value |    -    |

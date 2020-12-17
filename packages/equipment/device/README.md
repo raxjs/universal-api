@@ -1,3 +1,7 @@
+---
+title: device
+---
+
 # universal-device [![npm](https://img.shields.io/npm/v/universal-device.svg)](https://www.npmjs.com/package/universal-device)
 
 系统信息。

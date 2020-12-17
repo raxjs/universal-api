@@ -1,3 +1,9 @@
+---
+group:
+  title: 界面
+title: action-sheet
+---
+
 # universal-action-sheet [![npm](https://img.shields.io/npm/v/universal-action-sheet.svg)](https://www.npmjs.com/package/universal-action-sheet)
 
 显示操作菜单.

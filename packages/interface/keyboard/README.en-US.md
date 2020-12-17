@@ -4,24 +4,24 @@ title: keyboard
 
 # universal-keyboard [![npm](https://img.shields.io/npm/v/universal-keyboard.svg)](https://www.npmjs.com/package/universal-keyboard)
 
-键盘操作。
+keyboard operation.
 
-## 支持
+## Support
 <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
 
-## 安装
+## Install
 
 ```bash
 $ npm install universal-keyboard --save
 ```
 
-## 方法
+## Methods
 
 ### `hide()`
 
-隐藏键盘。
+Hide the keyboard.
 
-## 示例
+## Example
 
 ```js
 import Keyboard from 'universal-keyboard';
