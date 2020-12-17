@@ -1,21 +1,45 @@
-# universal-request [![npm](https://img.shields.io/npm/v/universal-request.svg)](https://www.npmjs.com/package/universal-request)
+# request 
+
+[![npm](https://img.shields.io/npm/v/universal-request.svg)](https://www.npmjs.com/package/universal-request)
+[![npm](https://img.shields.io/npm/v/evapi-request.svg)](https://www.npmjs.com/package/evapi-request)
+[![npm](https://img.shields.io/npm/v/evapi.svg)](https://www.npmjs.com/package/evapi)
 
 用于发起网络请求
 
 ## 安装
 
 ```bash
-$ npm install universal-request --save
+$ npm install evapi-request --save
 ```
-
+or
+```bash
+$ npm install evapi --save
+```
 ## 示例
 
 ```javascript
-import request from 'universal-request';
+import { request } from 'evapi';
 
 // 快应用中的引入方法
 // import chooseImage from 'universal-request/lib/quickapp;
-
+request({
+  url: 'https://alibaba.github.io/rax/',
+  method: 'POST',
+  data: {
+    from: 'Rax',
+  },
+  dataType: 'json',
+  success: (res) => {
+    console.log('success', res);
+  },
+  fail: (res) => {
+    console.log('fail', res);
+  },
+  complete: (res) => {
+    console.log('complete', res);
+  }
+});
+// Promise调用
 request({
   url: 'https://alibaba.github.io/rax/',
   method: 'POST',
@@ -24,7 +48,8 @@ request({
   },
   dataType: 'json'
 }).then(response => {})
-  .catch(error => {});
+  .catch(error => {})
+  .finally(res => {});
 
 ```
 
@@ -34,7 +59,7 @@ request({
 
 #### 支持
 
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
 
 #### 参数
 
@@ -47,6 +72,9 @@ request({
 | options.data | `object`  | <br />- GET请求或POST请求设置headers['content-Type'] 为 `application/x-www-form-urlencoded`时会拼接到URL中<br />- 其他情况请求会转换为JSON字符串以请求体的形式给服务端<br /> | 否 | - |
 | options.timeout | `number`  | 超时时间 | 否 | 20000 (ms) |
 | options.data类型 | `string`  | 期望返回的数据格式， `json` 或者 `text` ，若转换失败，则原样返回 | 否 | `json`  |
+| options.success | `Function`  | 成功的回调 | 否 | - |
+| options.fail | `Function`  | 失败的回调 | 否 | - |
+| options.complete | `Function`  | 结束的回调 | 否 | - |
 
 #### 返回
 
@@ -66,11 +94,11 @@ request({
 | error | `object` | - |
 | error.code | `number`  | 错误码 |
 | error.message | `string`  | 错误说明 |
-
+<!-- 
 错误码：
 
 | code | message | 说明 |
 | --- | --- | --- |
 | 0 | 请求失败的详细说明 | 除以下列出请求外的，请求失败 |
 | 1 | Request timeout | 请求超时 |
-| 2 | Request not support this platform | 不支持该平台 |
+| 2 | Request not support this platform | 不支持该平台 | -->

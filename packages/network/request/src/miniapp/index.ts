@@ -1,33 +1,29 @@
 import {
   RequestOptions,
   ResponseData,
-  ERROR_REQUEST_ABORT
 } from '../types';
-import {
-  object2json
-} from '../utils';
 
-declare const my: any;
-
-export default function(options: RequestOptions): Promise<ResponseData> {
-  return new Promise((resolve, reject) => {
-    let { url, method, data, dataType, headers, timeout } = options;
-    my.request({
-      url,
-      headers,
-      method,
-      data,
-      timeout,
-      dataType,
-      success: function(res: ResponseData) {
-        resolve(res);
-      },
-      fail: function(res) {
-        reject({
-          code: ERROR_REQUEST_ABORT.code,
-          message: object2json(res)
-        });
-      }
-    });
+export default function(options: RequestOptions) {
+  // return new Promise((resolve, reject) => {
+  let { url, method, data, dataType, headers, timeout, success, fail, complete, onSuccess, onFail, onComplete } = options;
+  my.request({
+    url,
+    headers,
+    method,
+    data,
+    timeout,
+    dataType,
+    success: function(res: ResponseData) {
+      success && success(res);
+      onSuccess && onSuccess(res);
+    },
+    fail: function(res) {
+      fail && fail(res);
+      onFail && onFail(res);
+    },
+    complete(res) {
+      complete && complete(res);
+      onComplete && onComplete(res);
+    }
   });
 }

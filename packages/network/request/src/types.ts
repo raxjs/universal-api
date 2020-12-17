@@ -33,23 +33,13 @@ export interface RequestOptions {
   data?: AsObject;
   timeout?: number;
   dataType?: DATA_TYPE;
+  success?: (res) => any;
+  onSuccess?: (res) => any;
+  fail?: (res) => any;
+  onFail?: (res) => any;
+  complete?: (res) => any;
+  onComplete?: (res) => any;
 }
-
-export interface InnerRequestOptions extends RequestOptions {
-  headers: AsObject;
-  method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'HEAD';
-  data: AsObject;
-  timeout: number;
-  dataType: DATA_TYPE;
-}
-
-export const DEFAULT_REQUEST_OPTIONS: RequestOptions = {
-  url: '',
-  headers: { 'Content-Type': 'application/json' },
-  method: 'GET',
-  timeout: DEFAULT_TIMEOUT,
-  dataType: DATA_TYPE.json
-};
 
 /**
  * Response

@@ -1,6 +1,6 @@
 import {createElement} from 'rax';
 import View from 'rax-view';
-import appJson from '../app.json';
+import appJson from '../../app.json';
 
 const Index = ({history}) => {
   const clickHandler = (path) => {

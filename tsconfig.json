@@ -69,6 +69,6 @@
       "types/*": ["types/*"],
     }
 	},
-	// "exclude": [ "dist"],
+	"exclude": [ "scripts/*"],
 	"include": ["./packages/**/*", "types/**/*", "types"]
 }

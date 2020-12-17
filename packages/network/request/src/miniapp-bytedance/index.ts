@@ -1,46 +1,29 @@
 import {
   RequestOptions,
   ResponseData,
-  ERROR_REQUEST_TIMEOUT,
-  ERROR_REQUEST_ABORT
 } from '../types';
-import {
-  object2json
-} from '../utils';
 
-declare const tt: any;
-
-export default function(options: RequestOptions): Promise<ResponseData> {
-  return new Promise((resolve, reject) => {
-    let { url, method, data, dataType, headers, timeout } = options;
-    let timeoutTimer;
-    let requestTask = tt.request({
-      url,
-      headers,
-      method,
-      data,
-      timeout,
-      dataType,
-      success: function(res: ResponseData) {
-        resolve(res);
-      },
-      fail: function(res) {
-        reject({
-          code: ERROR_REQUEST_ABORT.code,
-          message: object2json(res)
-        });
-      },
-      complete() {
-        if (timeoutTimer) {
-          clearTimeout(timeoutTimer);
-        }
-      }
-    });
-    if (timeout) {
-      timeoutTimer = setTimeout(() => {
-        requestTask.abort();
-        reject(ERROR_REQUEST_TIMEOUT);
-      }, timeout);
+export default function(options: RequestOptions) {
+  // return new Promise((resolve, reject) => {
+  let { url, method, data, dataType, headers, timeout, success, fail, complete, onSuccess, onFail, onComplete } = options;
+  tt.request({
+    url,
+    headers,
+    method,
+    data,
+    timeout,
+    dataType,
+    success: function(res: ResponseData) {
+      success && success(res);
+      onSuccess && onSuccess(res);
+    },
+    fail: function(res) {
+      fail && fail(res);
+      onFail && onFail(res);
+    },
+    complete(res) {
+      complete && complete(res);
+      onComplete && onComplete(res);
     }
   });
 }

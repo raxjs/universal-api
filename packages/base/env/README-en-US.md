@@ -1,4 +1,4 @@
-# universal-env [![npm](https://img.shields.io/npm/v/universal-env.svg)](https://www.npmjs.com/package/universal-env)
+# evapi-env（universal-env） [![npm](https://img.shields.io/npm/v/evapi-env.svg)](https://www.npmjs.com/package/evapi-env)
 
 Judge runtime environment
 
@@ -7,12 +7,12 @@ Judge runtime environment
 
 ## Install
 ```bash
-$ npm install universal-env --save
+$ npm install evapi-env --save
 ```
 
 ## Usage
 ```javascript
-import { isWeex, isWeb, isMiniApp, isNode, isWeChatMiniProgram, isByteDanceMicroApp, isQuickApp } from 'universal-env';
+import { isWeex, isWeb, isMiniApp, isNode, isWeChatMiniProgram, isByteDanceMicroApp, isQuickApp } from 'evapi-env';
 
 ```
 
