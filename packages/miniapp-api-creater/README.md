@@ -1,4 +1,10 @@
-[![npm](https://img.shields.io/npm/v/miniapp-api-creater.svg)](https://www.npmjs.com/package/universal-miniapp-api-creater)
+---
+group:
+  title: api-creater
+title: creater
+---
+
+# miniapp-api-creater[![npm](https://img.shields.io/npm/v/miniapp-api-creater.svg)](https://www.npmjs.com/package/universal-miniapp-api-creater)
 
 
 ## Installation

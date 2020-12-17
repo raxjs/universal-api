@@ -1,3 +1,7 @@
+---
+title: image
+---
+
 # universal-image [![npm](https://img.shields.io/npm/v/universal-image.svg)](https://www.npmjs.com/package/universal-image)
 
 图片操作.

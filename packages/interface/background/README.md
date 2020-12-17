@@ -1,3 +1,7 @@
+---
+title: background
+---
+
 # universal-background [![npm](https://img.shields.io/npm/v/universal-background.svg)](https://www.npmjs.com/package/universal-background)
 
 动态设置窗口的背景等.

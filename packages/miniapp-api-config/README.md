@@ -1,4 +1,10 @@
-[![npm](https://img.shields.io/npm/v/miniapp-api-config.svg)](https://www.npmjs.com/package/miniapp-api-config)
+---
+group:
+  title: api-config
+title: config
+---
+
+# miniapp-api-config[![npm](https://img.shields.io/npm/v/miniapp-api-config.svg)](https://www.npmjs.com/package/miniapp-api-config)
 
 ## Installation
 

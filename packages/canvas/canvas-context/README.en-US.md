@@ -1,24 +1,22 @@
 ---
-group:
-  title: 画布
 title: canvas-context
 ---
 
 # universal-canvas-context [![npm](https://img.shields.io/npm/v/universal-canvas-context.svg)](https://www.npmjs.com/package/universal-canvas-context)
 
-一个适配多端的 canvas api。
+Universal canvas api.
 
-## 支持
+## Support
 
 <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
 
-## 安装
+## Install
 
 ```bash
 $ npm install universal-canvas-context --save
 ```
 
-## 使用
+## Usage
 
 ```js
 import { createElement, useEffect, Fragment } from 'rax';
@@ -39,17 +37,17 @@ function App() {
 }
 ```
 
-## 方法
+## Methods
 
 ### `createContext(canvasId, type, options)`
 
-只有在阿里系小程序中，返回的 `context` 中才含有有实际作用的 `draw` 方法。
+Only in MiniApp, the return `context` has valid `draw` method.
 
 ```js
 createContext("canvasId").then((context) => {
   context.fillStyle = 'red';
   context.fillRect(0, 0, 100, 100);
-  // 在除了阿里小程序的其它容器中，draw 方法是一个空函数
+  // Only in alibaba miniapp, draw isn't an empty function
 	context.draw();
 });
 ```

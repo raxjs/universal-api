@@ -1,3 +1,7 @@
+---
+title: appstate
+---
+
 # universal-appstate [![npm](https://img.shields.io/npm/v/universal-appstate.svg)](https://www.npmjs.com/package/universal-appstate)
 Obtain application becoming foreground or background
 
