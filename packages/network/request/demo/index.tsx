@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { createElement, useState, useEffect } from 'rax';
 
-import request from 'evapi-request';
+import request from 'universal-request';
 
 export default () => {
   const [data, setData] = useState('');

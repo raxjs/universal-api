@@ -1,5 +1,5 @@
 {
-  "name": "evapi",
+  "name": "universal-api",
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",

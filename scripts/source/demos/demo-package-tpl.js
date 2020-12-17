@@ -3,6 +3,11 @@ module.exports = {
   'version': '1.0.0',
   'description': '',
   'typings': 'types/index.d.ts',
+  "scripts": {
+    "build": "build-scripts build",
+    "start": "build-scripts start",
+    "lint": "eslint --ext .js --ext .jsx ./"
+  },
   'dependencies': {
     "rax": "1.1.4",
     "rax-app": "2.2.2",

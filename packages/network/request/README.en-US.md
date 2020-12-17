@@ -1,24 +1,24 @@
 # request 
 
 [![npm](https://img.shields.io/npm/v/universal-request.svg)](https://www.npmjs.com/package/universal-request)
-[![npm](https://img.shields.io/npm/v/evapi-request.svg)](https://www.npmjs.com/package/evapi-request)
-[![npm](https://img.shields.io/npm/v/evapi.svg)](https://www.npmjs.com/package/evapi)
+[![npm](https://img.shields.io/npm/v/universal-request.svg)](https://www.npmjs.com/package/universal-request)
+[![npm](https://img.shields.io/npm/v/universal-api.svg)](https://www.npmjs.com/package/universal-api)
 
 Used to initiate a network request
 
 ## Install
 
 ```bash
-$ npm install evapi-request --save
+$ npm install universal-request --save
 ```
 or
 ```bash
-$ npm install evapi --save
+$ npm install universal-api --save
 ```
 ## Usage
 
 ```javascript
-import { request } from 'evapi';
+import { request } from 'universal-api';
 
 // 快应用中的引入方法
 // import chooseImage from 'universal-request/lib/quickapp;
