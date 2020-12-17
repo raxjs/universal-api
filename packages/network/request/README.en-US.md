@@ -1,25 +1,45 @@
----
-title: request
----
+# request 
 
-# universal-request [![npm](https://img.shields.io/npm/v/universal-request.svg)](https://www.npmjs.com/package/universal-request)
+[![npm](https://img.shields.io/npm/v/universal-request.svg)](https://www.npmjs.com/package/universal-request)
+[![npm](https://img.shields.io/npm/v/evapi-request.svg)](https://www.npmjs.com/package/evapi-request)
+[![npm](https://img.shields.io/npm/v/evapi.svg)](https://www.npmjs.com/package/evapi)
 
 Used to initiate a network request
 
 ## Install
 
 ```bash
-$ npm install universal-request --save
+$ npm install evapi-request --save
 ```
-
+or
+```bash
+$ npm install evapi --save
+```
 ## Usage
 
 ```javascript
-import request from 'universal-request';
+import { request } from 'evapi';
 
-// How to use it in quickapp
+// 快应用中的引入方法
 // import chooseImage from 'universal-request/lib/quickapp;
-
+request({
+  url: 'https://alibaba.github.io/rax/',
+  method: 'POST',
+  data: {
+    from: 'Rax',
+  },
+  dataType: 'json',
+  success: (res) => {
+    console.log('success', res);
+  },
+  fail: (res) => {
+    console.log('fail', res);
+  },
+  complete: (res) => {
+    console.log('complete', res);
+  }
+});
+// Promise调用
 request({
   url: 'https://alibaba.github.io/rax/',
   method: 'POST',
@@ -28,7 +48,8 @@ request({
   },
   dataType: 'json'
 }).then(response => {})
-  .catch(error => {});
+  .catch(error => {})
+  .finally(res => {});
 
 ```
 
@@ -51,6 +72,9 @@ request({
 | options.data | `object`  | <br />- GET or POST set headers['content-Type'] is equal to `application/x-www-form-urlencoded` data will apply to URL<br />- In other cases, the data will be converted to a JSON string as request body to the server.<br /> | false | - |
 | options.timeout | `number`  | timeout | false| 20000 (ms) |
 | options.dataType | `string`  | Set return data type, `json` or `text`, If the conversion fails, returns as it is | false | `json`  |
+| options.success | `Function`  | 成功的回调 | 否 | - |
+| options.fail | `Function`  | 失败的回调 | 否 | - |
+| options.complete | `Function`  | 结束的回调 | 否 | - |
 
 #### Return
 
@@ -71,10 +95,10 @@ Fail return：
 | error.code | `number`  | Error code |
 | error.message | `string`  | Error message |
 
-error code：
+<!-- error code：
 
 | code | message | Description |
 | --- | --- | --- |
 | 0 | Reason of failure | Request failed except for the listed below |
 | 1 | Request timeout | timeout |
-| 2 | Request not support this platform | not support this platform  |
+| 2 | Request not support this platform | not support this platform  | -->

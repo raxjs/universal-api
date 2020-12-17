@@ -6,7 +6,7 @@ import {
 export default function(options: RequestOptions) {
   // return new Promise((resolve, reject) => {
   let { url, method, data, dataType, headers, timeout, success, fail, complete, onSuccess, onFail, onComplete } = options;
-  wx.request({
+  dd.httpRequest({
     url,
     headers,
     method,
