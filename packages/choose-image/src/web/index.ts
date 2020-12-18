@@ -17,12 +17,12 @@ function transformBase64(files: any[]): Promise<string[]> {
     !files.length ? reject() : null;
     const base64Array: string[] = [];
     let count = 0;
-    files.forEach(file => {
+    files.forEach((file, index) => {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = e => {
         // @ts-ignore
-        base64Array.push(e.target.result);
+        base64Array[index] = e.target.result;
       };
       reader.onloadend = () => {
         count++;
