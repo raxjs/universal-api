@@ -2,7 +2,7 @@
 title: canvas-context
 ---
 
-# universal-canvas-context [![npm](https://img.shields.io/npm/v/universal-canvas-context.svg)](https://www.npmjs.com/package/universal-canvas-context)
+# canvas-context [![npm](https://img.shields.io/npm/v/universal-canvas-context.svg)](https://www.npmjs.com/package/universal-canvas-context)
 
 Universal canvas api.
 
@@ -36,7 +36,11 @@ function App() {
   </>)
 }
 ```
+也可以从大包中引入：
 
+```js
+import {canvasContext} from 'universal-api';
+```
 ## Methods
 
 ### `createContext(canvasId, type, options)`

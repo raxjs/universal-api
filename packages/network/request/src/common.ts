@@ -1,4 +1,5 @@
-import { DATA_TYPE, AsObject } from './types';
+import { DATA_TYPE, AsObject, RequestOptions } from './types';
+import { promisify } from '../../../utils/promisify';
 
 export function getDataWithType(data: any, type: DATA_TYPE) {
   if (type === DATA_TYPE.json) {
@@ -80,4 +81,32 @@ const EMPTY_OBJECT = {};
 
 export function isPlainObject(obj) {
   return EMPTY_OBJECT.toString.call(obj) === '[object Object]';
+}
+export function styleOptions(options) {
+  const DEFAULT_TIMEOUT = 20000;
+  enum DATA_TYPE {
+    json = 'json',
+    text = 'text'
+  }
+  const DEFAULT_REQUEST_OPTIONS: RequestOptions = {
+    url: '',
+    headers: { 'Content-Type': 'application/json' },
+    method: 'GET',
+    timeout: DEFAULT_TIMEOUT,
+    dataType: DATA_TYPE.json
+  };
+  let afterOptions: RequestOptions = Object.assign({},
+    DEFAULT_REQUEST_OPTIONS,
+    options,
+    {
+      method: (options.method || 'GET').toUpperCase(),
+      headers: normalizeHeaders(options.headers || {})
+    });
+  return afterOptions;
+}
+export function initApi(api) {
+  return (options) => {
+    const afterOptions = styleOptions(options);
+    return promisify(api)(afterOptions);
+  };
 }

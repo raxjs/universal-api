@@ -21,4 +21,3 @@ export * as chooseImage from './media/choose-image/src/index';
 export * as navigate from './navigate/src/index';
 export * as request from './network/request/src/index';
 export * as asyncstorage from './storage/asyncstorage/src/index';
-export * as appstate from './old-api/appstate/src/index';

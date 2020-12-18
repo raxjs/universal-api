@@ -39,11 +39,17 @@ module.exports = (inputPath, itemOutputPath, sourceMap) => {
       file: path.resolve(root, outputPath + 'index.js'),
       format: 'cjs',
       sourcemap: false,
+      // plugins: isMain ? [
+      //   terser()
+      // ] : []
     },
     esm: {
       exports: 'named',
       file: path.resolve(root, outputPath + 'index.es.js'),
       format: 'esm',
+      // plugins: isMain ? [
+      //   terser()
+      // ] : []
     },
     umd: {
         exports: 'named',
@@ -155,7 +161,7 @@ module.exports = (inputPath, itemOutputPath, sourceMap) => {
           ],
         }),
         visualizer(),
-        // filesize(),
+        filesize(),
       ],
     }
   }

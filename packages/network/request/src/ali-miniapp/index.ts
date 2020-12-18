@@ -2,11 +2,14 @@ import {
   RequestOptions,
   ResponseData,
 } from '../types';
+import { isDingdingMiniapp } from 'universal-env';
+import {initApi} from '../common';
 
-export default function(options: RequestOptions) {
+function request(options: RequestOptions) {
   // return new Promise((resolve, reject) => {
   let { url, method, data, dataType, headers, timeout, success, fail, complete, onSuccess, onFail, onComplete } = options;
-  tt.request({
+  const request = isDingdingMiniapp ? dd.httpRequest : my.request;
+  request({
     url,
     headers,
     method,
@@ -27,3 +30,4 @@ export default function(options: RequestOptions) {
     }
   });
 }
+export default initApi(request);

@@ -107,7 +107,7 @@ module.exports = {
     ]
   },
   'animation': {
-    path: 'packages/interface/animation/src/index.js',
+    path: 'packages/interface/animation/src/index.ts',
     pkgInfo: [
       {
         version: '1.2.0',
@@ -218,14 +218,5 @@ module.exports = {
         name: 'universal-asyncstorage',
       }
     ]
-  },
-  'appstate': {
-    path: 'packages/old-api/appstate/src/index.js',
-    pkgInfo: [
-      {
-        version: '0.7.0',
-        name: 'universal-appstate',
-      }
-    ]
-  },
+  }
 };

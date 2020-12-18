@@ -2,8 +2,9 @@ import {
   RequestOptions,
   ResponseData,
 } from '../types';
+import {initApi} from '../common';
 
-export default function(options: RequestOptions) {
+function request(options: RequestOptions) {
   // return new Promise((resolve, reject) => {
   let { url, method, data, dataType, headers, timeout, success, fail, complete, onSuccess, onFail, onComplete } = options;
   wx.request({
@@ -27,3 +28,4 @@ export default function(options: RequestOptions) {
     }
   });
 }
+export default initApi(request);

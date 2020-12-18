@@ -10,7 +10,7 @@ function getTransform(propName) {
 export default function transformProperty(propName, propVal) {
   let key;
   let value;
-  let result = {};
+  let result: any = {};
   propName = getTransform(propName);
 
   switch (propName) {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-member-accessibility */
 'use strict';
 import { isWeex, isMiniApp, isWeChatMiniProgram, isByteDanceMicroApp } from 'universal-env';
 import binding from 'weex-bindingx';
@@ -58,6 +59,9 @@ export function getInitProperty(el, name) {
 }
 
 class Animation {
+  public token: any;
+  public miniAppResult: any;
+
   constructor(options, callback) {
     this.run(options, callback);
   }
@@ -113,7 +117,7 @@ class Animation {
       let miniAppResult = {};
       map(options.props, (prop) => {
         if (prop && prop.element) {
-          let transitionProps = transformProperty(prop.property, prop.end);
+          let transitionProps: any = transformProperty(prop.property, prop.end);
           let exist = find(transitionMap, (transitionItem) => {
             return transitionItem && transitionItem.element === prop.element;
           });

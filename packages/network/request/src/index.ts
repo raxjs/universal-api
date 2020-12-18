@@ -1,48 +1,21 @@
-import { isMiniApp, isDingdingMiniapp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from 'universal-env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from 'universal-env';
 import {
   RequestOptions
 } from './types';
-import { normalizeHeaders } from './utils';
 import webModule from './web/index';
-import ddModule from './miniapp-dingding/index';
-import miniAppModule from './miniapp/index';
-import weChatModule from './wechat-miniprogram/index';
-import bytedanceModule from './miniapp-bytedance/index';
-import { promisify } from '../../../utils/promisify';
+import aliMiniAppModule from './ali-miniapp/index';
+import weChatModule from './wechat-miniapp/index';
+import bytedanceModule from './byte-miniapp/index';
 
-const DEFAULT_TIMEOUT = 20000;
-enum DATA_TYPE {
-  json = 'json',
-  text = 'text'
-}
-const DEFAULT_REQUEST_OPTIONS: RequestOptions = {
-  url: '',
-  headers: { 'Content-Type': 'application/json' },
-  method: 'GET',
-  timeout: DEFAULT_TIMEOUT,
-  dataType: DATA_TYPE.json
-};
-
-export default (options) => {
-  let afterOptions: RequestOptions = Object.assign({},
-    DEFAULT_REQUEST_OPTIONS,
-    options,
-    {
-      method: (options.method || 'GET').toUpperCase(),
-      headers: normalizeHeaders(options.headers || {})
-    });
-
-  // options.headers = normalizeHeaders(options.headers || {});
-  if (isDingdingMiniapp) {
-    return promisify(ddModule)(afterOptions);
-  } else if (isWeChatMiniProgram) {
-    return promisify(weChatModule)(afterOptions);
+export default (options: RequestOptions) => {
+  if (isWeChatMiniProgram) {
+    return weChatModule(options);
   } else if (isByteDanceMicroApp) {
-    return promisify(bytedanceModule)(afterOptions);
+    return bytedanceModule(options);
   } else if (isMiniApp) {
-    return promisify(miniAppModule)(afterOptions);
+    return aliMiniAppModule(options);
   } else if (isWeb) {
-    return promisify(webModule)(afterOptions);
+    return webModule(options);
   }
 };
 

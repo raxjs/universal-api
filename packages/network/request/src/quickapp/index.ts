@@ -1,4 +1,9 @@
-function request(params) {
+import {initApi} from '../common';
+import {
+  RequestOptions,
+} from '../types';
+
+function request(params: RequestOptions) {
   if (!params.url || params.url === '') {
     throw 'lack of url';
     return;
@@ -28,5 +33,4 @@ function request(params) {
   });
   // });
 }
-
-export default request;
+export default initApi(request);

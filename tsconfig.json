@@ -69,6 +69,6 @@
       "types/*": ["types/*"],
     }
 	},
-	"exclude": [ "scripts/*"],
+	"exclude": [ "scripts/*", "**/demo/index.tsx"],
 	"include": ["./packages/**/*", "types/**/*", "types"]
 }

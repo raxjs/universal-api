@@ -8,10 +8,11 @@ import {
   object2json,
   checkIsApplyDataToURL,
   isObject,
-  isPlainObject
-} from '../utils';
+  isPlainObject,
+  initApi
+} from '../common';
 
-export default function requestXHR(options: RequestOptions) {
+function requestXHR(options: RequestOptions) {
   options.headers = Object.assign({
     'Accept': 'application/json, text/plain, */*'
   }, options.headers);
@@ -152,3 +153,4 @@ export default function requestXHR(options: RequestOptions) {
   xhr.send(requestData);
   // });
 }
+export default initApi(requestXHR);

@@ -4,7 +4,8 @@ group:
 title: canvas-context
 ---
 
-# universal-canvas-context [![npm](https://img.shields.io/npm/v/universal-canvas-context.svg)](https://www.npmjs.com/package/universal-canvas-context)
+# canvas-context 
+[![npm](https://img.shields.io/npm/v/universal-canvas-context.svg)](https://www.npmjs.com/package/universal-canvas-context)
 
 一个适配多端的 canvas api。
 
@@ -37,6 +38,11 @@ function App() {
     <canvas id='canvasId'></canvas>
   </>)
 }
+```
+也可以从大包中引入：
+
+```js
+import {canvasContext} from 'universal-api';
 ```
 
 ## 方法
