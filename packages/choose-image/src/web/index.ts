@@ -1,18 +1,18 @@
-import { Options } from '../types';
+import { ChooseResult, Options } from '../types';
 
-function inputCreateAndAppend(multiple: boolean) {
+function inputCreateAndAppend(multiple: boolean, accept?: string) {
   const inputElement: any = document.createElement('INPUT');
   inputElement.name = 'file';
   inputElement.id = 'input-' + Math.random() * 1e8;
   inputElement.type = 'file';
   multiple ? inputElement.setAttribute('multiple', 'multiple') : null;
   inputElement.style.display = 'none';
-  inputElement.setAttribute('accept', 'image/*');
+  inputElement.setAttribute('accept', accept || 'image/*');
   document.body.appendChild(inputElement);
   return inputElement;
 }
 
-function transformBase64(files: any[]) {
+function transformBase64(files: any[]): Promise<string[]> {
   return new Promise((resolve, reject) => {
     !files.length ? reject() : null;
     const base64Array: string[] = [];
@@ -34,10 +34,10 @@ function transformBase64(files: any[]) {
   });
 }
 
-const choose = (options: Options = {}): Promise<any> => {
+const choose = (options: Options = {}): Promise<ChooseResult> => {
   return new Promise((resolve, reject): void => {
     const { count = 1 } = options;
-    const inputElement = inputCreateAndAppend(count > 1);
+    const inputElement = inputCreateAndAppend(count > 1, options.accept);
     let files: any[] = [];
     inputElement.addEventListener(
       'change',
@@ -45,7 +45,8 @@ const choose = (options: Options = {}): Promise<any> => {
         files = e.target.files && Array.from(e.target.files).slice(0, count);
         transformBase64(files).then(base64Array => {
           resolve({
-            data: base64Array
+            data: base64Array,
+            files,
           });
         }).catch(reject).finally(() => inputElement.remove && inputElement.remove());
       },
