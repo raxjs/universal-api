@@ -38,17 +38,25 @@ const choose = (options: Options = {}): Promise<ChooseResult> => {
   return new Promise((resolve, reject): void => {
     const { count = 1 } = options;
     const inputElement = inputCreateAndAppend(count > 1, options.accept);
-    let files: any[] = [];
     inputElement.addEventListener(
       'change',
       e => {
-        files = e.target.files && Array.from(e.target.files).slice(0, count);
-        transformBase64(files).then(base64Array => {
+        const files = e.target.files && Array.from(e.target.files).slice(0, count);
+        if (options.disableConvert) {
           resolve({
-            data: base64Array,
+            data: [],
             files,
           });
-        }).catch(reject).finally(() => inputElement.remove && inputElement.remove());
+          inputElement.remove && inputElement.remove();
+        } else {
+          transformBase64(files)
+            .then(base64Array => resolve({
+              data: base64Array,
+              files,
+            }))
+            .catch(reject)
+            .finally(() => inputElement.remove && inputElement.remove());
+        }
       },
       false
     );

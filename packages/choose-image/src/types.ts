@@ -2,6 +2,7 @@ export interface Options {
   count?: number;
   sourceType?: string[];
   accept?: string;
+  disableConvert?: string;
   [name: string]: any;
 }
 
