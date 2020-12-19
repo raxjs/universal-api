@@ -1,10 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { createElement, render, useState, useEffect } from 'rax';
-import DriverUniversal from 'driver-universal';
+import { createElement, useState, useEffect } from 'rax';
 
-import request from '../src';
+import request from 'universal-request';
 
-const Request = () => {
+export default () => {
   const [data, setData] = useState('');
   const [error, setError] = useState('');
 
@@ -44,5 +43,3 @@ const Request = () => {
     return <text>loading</text>;
   }
 };
-
-render(<Request />, document.body, { driver: DriverUniversal });
