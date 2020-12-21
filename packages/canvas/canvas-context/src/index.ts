@@ -1,24 +1,21 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { isWeb, isMiniApp, isWeChatMiniProgram } from 'universal-env';
-import aliMiniApp from './ali-miniapp';
-import wechatMiniProgram from './wechat-miniprogram';
-import web from './web';
-import { CanvasContext } from './types';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from 'universal-env';
+import webModule from './web/index';
+import aliMiniAppModule from './ali-miniapp/index';
+import weChatModule from './wechat-miniapp/index';
+import bytedanceModule from './byte-miniapp/index';
 
-let createContext: (
-  selector: string,
-  type?: string,
-  options?: object
-) => Promise<CanvasContext>;
+export default (options) => {
+  if (isWeChatMiniProgram) {
+    return weChatModule(options);
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule(options);
+  } else if (isMiniApp) {
+    return aliMiniAppModule(options);
+  } else if (isWeb) {
+    return webModule(options);
+  } else {
+    throw new Error('universal-api：canvas暂不支持');
+  }
+};
 
-if (isMiniApp && !isWeb) {
-  // For cased that import wechat or miniapp sdk in web
-  createContext = aliMiniApp;
-} else if (isWeChatMiniProgram && !isWeb) {
-  createContext = wechatMiniProgram;
-} else {
-  // Web as default
-  createContext = web;
-}
-
-export default createContext;

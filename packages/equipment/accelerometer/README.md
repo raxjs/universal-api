@@ -9,7 +9,7 @@ title: accelerometer
 加速度监听与取消.
 
 ## 支持
-<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
+<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
 
 ## 安装
 
@@ -31,6 +31,18 @@ $ npm install universal-accelerometer --save
 ### `offChange(): void`
 
 停止监听加速度数据
+
+#### 是否需要传 callback 值
+不传递 callback 值，则会移除监听所有的事件回调。示例代码如下：
+
+```
+Accelerometer.offChange();
+```
+传递 callback 值，只移除对应的 callback 事件。示例代码如下：
+
+```
+Accelerometer.offChange(this.callback);
+```
 
 ## 示例
 

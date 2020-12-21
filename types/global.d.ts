@@ -6,6 +6,7 @@ declare const tt: any;
 declare const dd: any;
 declare const getApp: any;
 declare const getCurrentPages: any;
+declare const getLaunchOptionsSync: any;
 declare const global: any;
 declare const process: any;
 declare const __weex_require__: any;

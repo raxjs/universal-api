@@ -1,5 +1,10 @@
+export interface CallbackArgs {
+  x: number;
+  y: number;
+  z: number;
+}
 export interface Callback {
-  (): void;
+  (res: CallbackArgs): void;
 }
 
 /**
@@ -15,5 +20,5 @@ export interface Accelerometer{
    * Stop listening for acceleration data.
    * @param callback The callback function
    */
-  offChange(callback: Callback): void;
+  offChange(callback?: Callback): void;
 }

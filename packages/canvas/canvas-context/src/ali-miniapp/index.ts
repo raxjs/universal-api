@@ -1,7 +1,5 @@
 import { CanvasContext } from '../types';
 
-declare const my: any;
-
 function createContext(selector: string): Promise<CanvasContext> {
   return new Promise((resolve) => {
     const context = my.createCanvasContext(selector);
