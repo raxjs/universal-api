@@ -9,6 +9,7 @@ module.exports = {
     'wx': 'readonly',
     'tt': 'readonly',
     'getCurrentPages': 'readonly',
+    'getLaunchOptionsSync': 'readonly',
     'getApp': 'readonly'
   },
   rules: {

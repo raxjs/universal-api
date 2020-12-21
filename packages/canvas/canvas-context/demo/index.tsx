@@ -1,10 +1,10 @@
 import { createElement, useEffect } from 'rax';
 import View from 'rax-view';
-import createContext from 'universal-canvas-context';
+import createCanvasContext from 'universal-canvas-context';
 
 export default function() {
   useEffect(() => {
-    createContext('canvas', '2d').then((canvasContext) => {
+    createCanvasContext('canvas').then((canvasContext) => {
       canvasContext.fillStyle = 'red';
       canvasContext.fillRect(0, 0, 100, 100);
       // Only valid in miniapp

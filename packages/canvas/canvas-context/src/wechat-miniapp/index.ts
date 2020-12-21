@@ -1,7 +1,5 @@
 import { CanvasContext, ContextAttributes } from '../types';
 
-declare const wx: any;
-
 function createContext(
   selector: string,
   type: string = '2d',
@@ -17,7 +15,7 @@ function createContext(
         const canvasNode: HTMLCanvasElement = res[0].node;
         const context: CanvasContext = canvasNode.getContext(type, options);
         // For fallback
-        context.draw = function() {};
+        // context.draw = function() {};
         resolve(context);
       });
   });

@@ -51,7 +51,7 @@ const compiler = async(config, packageInfo, _outputPath) => {
   if (isMain) {
     delete packageTpl.dependencies['universal-env'];
   }
-
+  console.log('111', _outputPath)
   // packageTpl.dependencies[componentPackage.name] = path.relative(distDir, root) + '/';
   await fs.outputJSON(path.resolve(root, _outputPath + 'package.json'), packageTpl);
   if (packageInfo.dependencies) {
@@ -99,9 +99,9 @@ const compiler = async(config, packageInfo, _outputPath) => {
   logger(`编译结束 ${packageInfo.name}`);
   // await next();
 };
-const release = (sourcePath, packageInfo, outputPath) => {
+const release = (sourcePath, packageInfo, outputPath, apiInfo) => {
   return async function(ctx, next) {
-    const config = getRollupConfig(sourcePath, outputPath, sourceMap);
+    const config = getRollupConfig(sourcePath, outputPath, sourceMap, apiInfo);
     const _outputPath = outputDir + outputPath;
     const inputOptions = config[0];
     // const tsPath = inputOptions.input.replace(/\.(t|j)s/, '.d.ts');
@@ -119,10 +119,10 @@ const getConfList = (apiName) => {
   let res = [];
   if (Array.isArray(sourceMap[apiName].pkgInfo)) {
     sourceMap[apiName].pkgInfo.forEach(i => res.push(
-      release(sourceMap[apiName].path, i, getItemOutputPath(i.name, sourceMap[apiName].outputDir))
+      release(sourceMap[apiName].path, i, getItemOutputPath(i.name, sourceMap[apiName].outputDir), sourceMap[apiName])
     ));
   } else {
-    res.push(release(sourceMap[apiName].path, sourceMap[apiName].pkgInfo, getItemOutputPath(sourceMap[apiName].pkgInfo.name, sourceMap[apiName].outputDir)));
+    res.push(release(sourceMap[apiName].path, sourceMap[apiName].pkgInfo, getItemOutputPath(sourceMap[apiName].pkgInfo.name, sourceMap[apiName].outputDir), sourceMap[apiName]));
   }
   return res;
 };
@@ -152,7 +152,7 @@ const mainTask = () => {
     release('packages/index.ts', {
       version: mainPkg.version,
       name: mainPkg.name,
-    }, 'main/')
+    }, 'main/', {unNeedSplit: false})
   );
 };
 let shellRes = '';

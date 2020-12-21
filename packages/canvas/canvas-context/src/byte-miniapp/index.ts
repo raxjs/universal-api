@@ -2,7 +2,7 @@ import { CanvasContext } from '../types';
 
 function createContext(selector: string): Promise<CanvasContext> {
   return new Promise((resolve) => {
-    const context = my.createCanvasContext(selector);
+    const context = tt.createCanvasContext(selector);
     Object.defineProperty(context, 'fillStyle', {
       get() {
         return context.setFillStyle;

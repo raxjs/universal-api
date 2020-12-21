@@ -1,6 +1,8 @@
 module.exports = {
   env: {
     path: 'packages/base/env/src/index.ts',
+    // 是否可以按环境拆包
+    unNeedSplit: true,
     pkgInfo: [
       {
         version: '3.2.2',
@@ -10,6 +12,7 @@ module.exports = {
   },
   'unitTool': {
     path: 'packages/base/unit-tool/src/index.ts',
+    unNeedSplit: true,
     pkgInfo: [
       {
         version: '1.0.0',
@@ -20,7 +23,7 @@ module.exports = {
       }
     ]
   },
-  'canvasContext': {
+  'createCanvasContext': {
     path: 'packages/canvas/canvas-context/src/index.ts',
     pkgInfo: [
       {
