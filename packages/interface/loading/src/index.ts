@@ -1,19 +1,38 @@
-import { isMiniApp, isWeChatMiniProgram, isWeb } from 'universal-env';
-import * as miniAppModule from './miniapp/ali';
-import * as weChatModule from './miniapp/wechat';
-import * as webModule from './web';
+import { isMiniApp, isDingdingMiniapp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from 'universal-env';
+import aliMiniAppModule from './ali-miniapp/index';
+import webModule from './web/index';
+import weChatModule from './wechat-miniapp/index';
+import bytedanceModule from './byte-miniapp/index';
 
-import { Loading } from './types';
+export const showLoading = (() => {
+  if (isWeChatMiniProgram) {
+    return weChatModule.showLoading;
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.showLoading;
+  } else if (isMiniApp || isDingdingMiniapp) {
+    return aliMiniAppModule.showLoading;
+  } else if (isWeb) {
+    return webModule.showLoading;
+  } else {
+    throw new Error('universal-api：showLoading暂不支持');
+  }
+})();
 
-let Loading: Loading;
-if (isMiniApp) {
-  Loading = miniAppModule;
-}
-if (isWeChatMiniProgram) {
-  Loading = weChatModule;
-}
-if (isWeb) {
-  Loading = webModule;
-}
+export const hideLoading = (() => {
+  if (isWeChatMiniProgram) {
+    return weChatModule.hideLoading;
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.hideLoading;
+  } else if (isMiniApp || isDingdingMiniapp) {
+    return aliMiniAppModule.hideLoading;
+  } else if (isWeb) {
+    return webModule.hideLoading;
+  } else {
+    throw new Error('universal-api：hideLoading暂不支持');
+  }
+})();
 
-export default Loading;
+export default {
+  showLoading,
+  hideLoading
+};

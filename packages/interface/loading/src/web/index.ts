@@ -1,3 +1,5 @@
+import { initApiShow, initApiHide } from '../common';
+
 let loadingWin: HTMLElement | null = null;
 
 const clsPrefix = "__universal_loading";
@@ -62,53 +64,69 @@ const styles = `.${clsPrefix} {
  * @param message {String}
  */
 let styleElement : HTMLElement | null = null;
-export function show({ content = "" }): Promise<any> {
-  if (!styleElement) {
-    // create a style tag for keyframes
-    styleElement = document.createElement("style");
-    styleElement.innerHTML = styles;
-    document.body.appendChild(styleElement);
+
+export const showLoading = initApiShow(({ content = "", success = () => {}, fail = () => {}, complete = () => {}}) => {
+  try {    
+    if (!styleElement) {
+      // create a style tag for keyframes
+      styleElement = document.createElement("style");
+      styleElement.innerHTML = styles;
+      document.body.appendChild(styleElement);
+    }
+    if (!loadingWin) {
+      // create loading win
+      loadingWin = document.createElement("div");
+      loadingWin.className = clsPrefix;
+      loadingWin.setAttribute("role", "alert");
+      // support for ARIA, add tabindex for focus
+      // https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/tabindex
+      loadingWin.setAttribute("tabindex", "-1");
+      // add a circle element
+      const circle = document.createElement("div");
+      circle.className = `${clsPrefix}_circle`;
+      loadingWin.appendChild(circle);
+      // add text element
+      const text = document.createElement("div");
+      text.className = `${clsPrefix}_text`;
+      loadingWin.appendChild(text);
+
+      document.body.appendChild(loadingWin);
+    }
+
+    const text = loadingWin.querySelector(`.${clsPrefix}_text`) as HTMLDivElement;
+    if (content) {
+      text.style.display = "block";
+      text.innerText = content;
+    } else {
+      text.style.display = "none";
+      text.innerText = "";
+    }
+
+    success();
+    complete();
+ } catch (error) {
+    fail();
+    complete();
   }
-  if (!loadingWin) {
-    // create loading win
-    loadingWin = document.createElement("div");
-    loadingWin.className = clsPrefix;
-    loadingWin.setAttribute("role", "alert");
-    // support for ARIA, add tabindex for focus
-    // https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/tabindex
-    loadingWin.setAttribute("tabindex", "-1");
-    // add a circle element
-    const circle = document.createElement("div");
-    circle.className = `${clsPrefix}_circle`;
-    loadingWin.appendChild(circle);
-    // add text element
-    const text = document.createElement("div");
-    text.className = `${clsPrefix}_text`;
-    loadingWin.appendChild(text);
+});
 
-    document.body.appendChild(loadingWin);
-  }
-
-  const text = loadingWin.querySelector(`.${clsPrefix}_text`) as HTMLDivElement;
-  if (content) {
-    text.style.display = "block";
-    text.innerText = content;
-  } else {
-    text.style.display = "none";
-    text.innerText = "";
-  }
-
-  return Promise.resolve();
-}
-
-export function hide(): Promise<any> {
-  return new Promise((resolve) => {
+export const hideLoading = initApiHide(({success = () => {}, fail = () => {}, complete = () => {}}) => {
+  try {
     setTimeout(() => {
       if (loadingWin && loadingWin.parentNode) {
         loadingWin.parentNode.removeChild(loadingWin);
       }
       loadingWin = null;
-      resolve();
+      success();
+      complete();
     }, 0);
-  });
+  } catch (error) {
+    fail();
+    complete();
+  }
+});
+
+export default {
+  showLoading,
+  hideLoading
 }

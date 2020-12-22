@@ -1,53 +1,86 @@
----
-title: loading
----
+# showLoading 
 
-# universal-loading[![npm](https://img.shields.io/npm/v/universal-loading.svg)](https://www.npmjs.com/package/universal-loading)
+[![npm](https://img.shields.io/npm/v/evapi.svg)](https://www.npmjs.com/package/evapi)
+[![npm](https://img.shields.io/npm/v/evapi-showLoading.svg)](https://www.npmjs.com/package/evapi-showLoading)
 
-Load the transition effect of the prompt.
-
-## Support
-<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">
+Displays the loading prompt box.
 
 ## Install
 
 ```bash
-$ npm install universal-loading --save
+$ npm install universal-showLoading --save
+```
+or
+```bash
+$ npm install universal-api --save
+```
+## Usage
+
+```javascript
+import showLoading from 'universal-showLoading';
+
+showLoading({
+  content: 'loading...'
+});
+
 ```
 
 ## Methods
 
-### `show(options)`
+### `showLoading(options)`
 
-Display loading prompt box.
+#### Supported
 
-#### Parameters
-| Property | Type      | Default | Required | Description                                                      | Support                                 |
-| -------- | --------- | ------- | -------- | ---------------------------------------------------------------- | --------------------------------------- |
-| content  | `String`  |         | √        | The content in the prompt                                        | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
-| delay    | `Number`  | `0`     | x        | Delay display, unit ms                                           | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" />                     |
-| mask     | `Boolean` | `false` | x        | Whether to display transparent mask to prevent touch penetration | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px">                     |
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
 
-### `hide(options)`
+#### Arguments
 
-Hide loading prompt box.
+| Property | Type | Description | required | Default |
+| --- | --- | --- | --- | --- |
+| options | `object`  |  | ✔️ | - |
+| options.content | `string` | Prompt content | ✔️ | - |
+| options.success | `Function`  | The callback function for a successful API call | ✘ | - |
+| options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
+| options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
 
-#### Parameters
-| Property | Type     | Default | Required | Description                                  | Support             |
-| -------- | -------- | ------- | -------- | -------------------------------------------- | ------------------- |
-| page     | `Object` |         | x        | Specific refers to the current page instance | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> |
+# hideLoading 
 
-## Example
+[![npm](https://img.shields.io/npm/v/evapi.svg)](https://www.npmjs.com/package/evapi)
+[![npm](https://img.shields.io/npm/v/evapi-hideLoading.svg)](https://www.npmjs.com/package/evapi-hideLoading)
 
-```js
-import Loading from 'universal-loading';
+Hides the loading prompt box.
 
-Loading.show({
-  content: 'content'
-});
-setTimeout(() => {
-  Loading.hide();
-}, 1000);
+## Install
+
+```bash
+$ npm install universal-hideLoading --save
+```
+or
+```bash
+$ npm install universal-api --save
+```
+## Usage
+
+```javascript
+import hideLoading from 'universal-hideLoading';
+
+hideLoading();
 
 ```
 
+## Methods
+
+### `hideLoading(options)`
+
+#### Supported
+
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
+
+#### Arguments
+
+| Property | Type | Description | required | Default |
+| --- | --- | --- | --- | --- |
+| options | `object`  |  | ✔️ | - |
+| options.success | `Function`  | The callback function for a successful API call | ✘ | - |
+| options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
+| options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
