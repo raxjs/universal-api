@@ -1,19 +1,21 @@
 /* eslint-disable import/no-extraneous-dependencies */
+// @ts-ignore
 import { createElement, render } from 'rax';
 import DriverUniversal from 'driver-universal';
 import View from 'rax-view';
 import Text from 'rax-text';
-import confirm from '../src';
+import Loading from '../src/';
 
 const App = () => {
   const handleClick = () => {
-    confirm({
-      content: 'Confirm success!'
+    Loading.show({
+      content: 'Loading, please wait'
     });
+    setTimeout(() => Loading.hide(), 3000);
   };
   return (
     <View onClick={handleClick}>
-      <Text>click it!</Text>
+      <Text>Start loading</Text>
     </View>
   );
 };
