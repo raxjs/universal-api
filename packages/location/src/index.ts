@@ -4,31 +4,31 @@ import webModule from './web/index';
 import weChatModule from './wechat-miniapp/index';
 import bytedanceModule from './byte-miniapp/index';
 
-export const getLocation = (() => {
+export const getLocation = (args) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.getLocation;
+    return weChatModule.getLocation(args);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.getLocation;
+    return bytedanceModule.getLocation(args);
   } else if (isMiniApp || isDingdingMiniapp) {
-    return aliMiniAppModule.getLocation;
+    return aliMiniAppModule.getLocation(args);
   } else if (isWeb) {
-    return webModule.getLocation;
+    return webModule.getLocation(args);
   } else {
     throw new Error('universal-api：getLocation暂不支持');
   }
-})();
+};
 
-export const openLocation = (() => {
+export const openLocation = (args) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.openLocation;
+    return weChatModule.openLocation(args);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.openLocation;
+    return bytedanceModule.openLocation(args);
   } else if (isMiniApp || isDingdingMiniapp) {
-    return aliMiniAppModule.openLocation;
+    return aliMiniAppModule.openLocation(args);
   } else {
     throw new Error('universal-api：openLocation暂不支持');
   }
-})();
+};
 
 export default {
   getLocation,

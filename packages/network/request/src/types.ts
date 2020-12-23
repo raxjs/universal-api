@@ -34,11 +34,8 @@ export interface RequestOptions {
   timeout?: number;
   dataType?: DATA_TYPE;
   success?: (res) => any;
-  onSuccess?: (res) => any;
   fail?: (res) => any;
-  onFail?: (res) => any;
   complete?: (res) => any;
-  onComplete?: (res) => any;
 }
 
 /**

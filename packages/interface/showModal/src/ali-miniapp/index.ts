@@ -6,9 +6,9 @@ const alert = isDingdingMiniapp ? dd.alert : my.alert;
 
 const showModal = (args) => {
   if (args.showCancel) {
-    confirm(args);
+    confirm({...args, confirmButtonText: args.confirmText, cancelButtonText: args.cancelText});
   } else {
-    alert({args, buttonText: args.confirmButtonText});
+    alert({...args, buttonText: args.confirmText});
   }
 };
 

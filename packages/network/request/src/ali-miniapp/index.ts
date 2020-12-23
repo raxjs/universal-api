@@ -7,7 +7,7 @@ import {initApi} from '../common';
 
 function request(options: RequestOptions) {
   // return new Promise((resolve, reject) => {
-  let { url, method, data, dataType, headers, timeout, success, fail, complete, onSuccess, onFail, onComplete } = options;
+  let { url, method, data, dataType, headers, timeout, success, fail, complete } = options;
   const request = isDingdingMiniapp ? dd.httpRequest : my.request;
   request({
     url,
@@ -18,15 +18,12 @@ function request(options: RequestOptions) {
     dataType,
     success: function(res: ResponseData) {
       success && success(res);
-      onSuccess && onSuccess(res);
     },
     fail: function(res) {
       fail && fail(res);
-      onFail && onFail(res);
     },
     complete(res) {
       complete && complete(res);
-      onComplete && onComplete(res);
     }
   });
 }

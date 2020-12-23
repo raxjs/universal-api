@@ -3,12 +3,13 @@ import {initApi} from '../common';
 
 const alert = (options: Options): void => {
   const { title, content, buttonText, success, fail, complete } = options;
-  my.alert({
+  wx.showModal({
+    showCancel: false,
     title,
     content,
-    buttonText,
-    success: function() {
-      success && success();
+    confirmText: buttonText,
+    success: function(res) {
+      success && success(res);
     },
     fail: function(res) {
       fail && fail(res);
