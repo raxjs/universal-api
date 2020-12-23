@@ -15,7 +15,7 @@ export const onChange = (cb: Callback) => {
     throw new Error('universal-api：Accelerometer暂不支持');
   }
 };
-export const offChange = (cb: () => void) => {
+export const offChange = (cb?: Callback) => {
   if (isWeChatMiniProgram) {
     return weChatModule.offChange(cb);
   } else if (isByteDanceMicroApp) {

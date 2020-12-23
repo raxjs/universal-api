@@ -72,9 +72,9 @@ request({
 | options.data | `object`  | <br />- GET or POST set headers['content-Type'] is equal to `application/x-www-form-urlencoded` data will apply to URL<br />- In other cases, the data will be converted to a JSON string as request body to the server.<br /> | false | - |
 | options.timeout | `number`  | timeout | false| 20000 (ms) |
 | options.dataType | `string`  | Set return data type, `json` or `text`, If the conversion fails, returns as it is | false | `json`  |
-| options.success | `Function`  | 成功的回调 | 否 | - |
-| options.fail | `Function`  | 失败的回调 | 否 | - |
-| options.complete | `Function`  | 结束的回调 | 否 | - |
+| options.success | `Function`  | The callback function for a successful API call | 否 | - |
+| options.fail | `Function`  | The callback function for a failed API call | 否 | - |
+| options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | 否 | - |
 
 #### Return
 

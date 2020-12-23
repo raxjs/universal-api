@@ -25,7 +25,7 @@ function requestXHR(options: RequestOptions) {
     data,
     timeout,
     dataType,
-    success, fail, complete, onSuccess, onFail, onComplete,
+    success, fail, complete,
   } = Object.assign(
     {
       withCredentials: true,
@@ -47,9 +47,7 @@ function requestXHR(options: RequestOptions) {
     () => {
       clean();
       fail && fail(ERROR_REQUEST_TIMEOUT);
-      onFail && onFail(ERROR_REQUEST_TIMEOUT);
       complete && complete(ERROR_REQUEST_TIMEOUT);
-      onComplete && onComplete(ERROR_REQUEST_TIMEOUT);
       // reject(ERROR_REQUEST_TIMEOUT);
       xhr.abort();
     },
@@ -68,19 +66,7 @@ function requestXHR(options: RequestOptions) {
           status: xhr.status
         })}`
       });
-      onFail && onFail({
-        code: ERROR_REQUEST_ABORT.code,
-        message: `${JSON.stringify({
-          status: xhr.status
-        })}`
-      });
       complete && complete({
-        code: ERROR_REQUEST_ABORT.code,
-        message: `${JSON.stringify({
-          status: xhr.status
-        })}`
-      });
-      onComplete && onComplete({
         code: ERROR_REQUEST_ABORT.code,
         message: `${JSON.stringify({
           status: xhr.status
@@ -107,17 +93,7 @@ function requestXHR(options: RequestOptions) {
       status: xhr.status,
       headers: headerMap,
     });
-    onSuccess && onSuccess({
-      data: xhr.response,
-      status: xhr.status,
-      headers: headerMap,
-    });
     complete && complete({
-      data: xhr.response,
-      status: xhr.status,
-      headers: headerMap,
-    });
-    onComplete && onComplete({
       data: xhr.response,
       status: xhr.status,
       headers: headerMap,

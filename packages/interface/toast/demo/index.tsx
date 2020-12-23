@@ -1,35 +1,29 @@
 /* eslint-disable import/no-extraneous-dependencies */
 // @ts-ignore
-import { createElement, render } from 'rax';
-import DriverUniversal from 'driver-universal';
+import { createElement } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import Toast from '../src/';
+import Toast from 'universal-toast';
 
-const App = () => {
-  let count = 0;
-  const handleClick = () => {
-    Toast.show('Hi ' + count++);
-  };
-  const handleShowLong = () => {
-    Toast.show('A long time toast', 300000);
-  };
-  const handleHide = () => {
-    Toast.hide();
-  };
+const Index = () => {
   return (
     <View>
-      <View onClick={handleClick}>
-        <Text>click it!</Text>
+      <View onClick={() => Toast.show('默认提示')}>
+        <Text>点击弹出普通弹窗</Text>
       </View>
-      <View onClick={handleShowLong}>
-        <Text>show a long time toast</Text>
+      <View onClick={() => Toast.show({type: 'success', message: 'success提示'})}>
+        <Text>点击弹出success弹窗</Text>
       </View>
-      <View onClick={handleHide}>
-        <Text>hide toast</Text>
+      <View onClick={() => Toast.show({type: 'fail', message: 'fail提示'})}>
+        <Text>点击弹出fail弹窗</Text>
+      </View>
+      <View onClick={() => Toast.show({type: 'none', message: '5s提示', duration: 5000})}>
+        <Text>点击弹出5s弹窗</Text>
+      </View>
+      <View onClick={() => Toast.hide()}>
+        <Text>点击关闭弹窗</Text>
       </View>
     </View>
   );
 };
-
-render(<App />, document.body, { driver: DriverUniversal });
+export default Index;
