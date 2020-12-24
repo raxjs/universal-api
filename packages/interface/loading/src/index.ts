@@ -4,33 +4,33 @@ import webModule from './web/index';
 import weChatModule from './wechat-miniapp/index';
 import bytedanceModule from './byte-miniapp/index';
 
-export const showLoading = (() => {
+export const showLoading = (args) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.showLoading;
+    return weChatModule.showLoading(args);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.showLoading;
+    return bytedanceModule.showLoading(args);
   } else if (isMiniApp || isDingdingMiniapp) {
-    return aliMiniAppModule.showLoading;
+    return aliMiniAppModule.showLoading(args);
   } else if (isWeb) {
-    return webModule.showLoading;
+    return webModule.showLoading(args);
   } else {
     throw new Error('universal-api：showLoading暂不支持');
   }
-})();
+};
 
-export const hideLoading = (() => {
+export const hideLoading = (args) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.hideLoading;
+    return weChatModule.hideLoading(args);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.hideLoading;
+    return bytedanceModule.hideLoading(args);
   } else if (isMiniApp || isDingdingMiniapp) {
-    return aliMiniAppModule.hideLoading;
+    return aliMiniAppModule.hideLoading(args);
   } else if (isWeb) {
-    return webModule.hideLoading;
+    return webModule.hideLoading(args);
   } else {
     throw new Error('universal-api：hideLoading暂不支持');
   }
-})();
+};
 
 export default {
   showLoading,

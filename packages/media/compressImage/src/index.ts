@@ -3,16 +3,16 @@ import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniapp/index';
 import bytedanceModule from './byte-miniapp/index';
 
-const compressImage = (() => {
+const compressImage = (args) => {
   if (isWeChatMiniProgram) {
-    return weChatModule;
+    return weChatModule(args);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule;
+    return bytedanceModule(args);
   } else if (isMiniApp || isDingdingMiniapp) {
-    return aliMiniAppModule;
+    return aliMiniAppModule(args);
   } else {
     throw new Error('evapi：compressImage暂不支持');
   }
-})();
+};
 
 export default compressImage;

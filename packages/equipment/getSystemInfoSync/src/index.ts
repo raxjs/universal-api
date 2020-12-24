@@ -4,18 +4,18 @@ import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniapp/index';
 import bytedanceModule from './byte-miniapp/index';
 
-const getSystemInfoSync = (() => {
+const getSystemInfoSync = () => {
   if (isWeChatMiniProgram) {
-    return weChatModule;
+    return weChatModule();
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule;
+    return bytedanceModule();
   } else if (isMiniApp || isDingdingMiniapp) {
-    return aliMiniAppModule;
+    return aliMiniAppModule();
   } else if (isWeb) {
-    return webModule;
+    return webModule();
   } else {
     throw new Error('evapi：getSystemInfoSync暂不支持');
   }
-})();
+};
 
 export default getSystemInfoSync;

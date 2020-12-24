@@ -1,26 +1,37 @@
-import { isWeb, isWeex, isMiniApp, isWeChatMiniProgram } from 'universal-env';
+import { isMiniApp, isDingdingMiniapp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from 'universal-env';
+import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
-import weexModule from './weex/index';
-import miniAppModule from './miniapp/ali/index';
-import weChatModule from './miniapp/wechat/index';
-import { Clipboard } from './types';
+import weChatModule from './wechat-miniapp/index';
+import bytedanceModule from './byte-miniapp/index';
 
-let Clipboard: Clipboard;
+// web 暂不支持这个功能
+export const getClipboard = (args) => {
+  if (isWeChatMiniProgram) {
+    return weChatModule.getClipboard(args);
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.getClipboard(args);
+  } else if (isMiniApp || isDingdingMiniapp) {
+    return aliMiniAppModule.getClipboard(args);
+  } else {
+    throw new Error('evapi：getClipboard暂不支持');
+  }
+};
 
-if (isWeb) {
-  Clipboard = webModule;
-}
+export const setClipboard = (args) => {
+  if (isWeChatMiniProgram) {
+    return weChatModule.setClipboard(args);
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.setClipboard(args);
+  } else if (isMiniApp || isDingdingMiniapp) {
+    return aliMiniAppModule.setClipboard(args);
+  } else if (isWeb) {
+    return webModule.setClipboard(args);
+  } else {
+    throw new Error('evapi：setClipboard暂不支持');
+  }
+};
 
-if (isWeex) {
-  Clipboard = weexModule;
-}
-
-if (isMiniApp) {
-  Clipboard = miniAppModule;
-}
-
-if (isWeChatMiniProgram) {
-  Clipboard = weChatModule;
-}
-
-export default Clipboard;
+export default {
+  getClipboard,
+  setClipboard
+};

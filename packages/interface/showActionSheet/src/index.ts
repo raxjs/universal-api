@@ -3,16 +3,16 @@ import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniapp/index';
 import bytedanceModule from './byte-miniapp/index';
 
-export const showActionSheet = (() => {
+export const showActionSheet = (args) => {
   if (isWeChatMiniProgram) {
-    return weChatModule;
+    return weChatModule(args);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule;
+    return bytedanceModule(args);
   } else if (isMiniApp || isDingdingMiniapp) {
-    return aliMiniAppModule;
+    return aliMiniAppModule(args);
   } else {
     throw new Error('universal-api：showActionSheet暂不支持');
   }
-})();
+};
 
 export default showActionSheet;
