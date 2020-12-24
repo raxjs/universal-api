@@ -116,7 +116,7 @@ export interface DownloadOption extends CallbackOptions {
   header?: object;
 }
 
-export interface File {
+export interface FileAPI {
   /**
    * Get file information.
    * @param options File options

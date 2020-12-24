@@ -1,4 +1,6 @@
-const choose = (): Promise<null> => {
+import { ChooseResult } from "../types";
+
+const choose = (): Promise<ChooseResult> => {
   return Promise.reject();
 };
 

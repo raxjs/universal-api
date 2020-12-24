@@ -3,9 +3,9 @@ import * as webModule from './web';
 import * as miniAppModule from './miniapp/ali';
 import * as weChatModule from './miniapp/wechat';
 
-import { File } from './types';
+import { FileAPI } from './types';
 
-let File: File;
+let File: FileAPI;
 if (isWeb) {
   File = webModule;
 }
@@ -16,4 +16,5 @@ if (isWeChatMiniprogram) {
   File = weChatModule;
 }
 
+// @ts-ignore
 export default File;

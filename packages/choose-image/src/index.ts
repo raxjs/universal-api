@@ -7,7 +7,7 @@ import bytedanceModule from './miniapp/bytedance-microapp/index';
 
 import { ChooseImage } from './types';
 
-let chooseImage: ChooseImage = () => Promise.resolve(null);
+let chooseImage: ChooseImage = () => Promise.reject();
 
 if (isWeb) {
   chooseImage = webModule;

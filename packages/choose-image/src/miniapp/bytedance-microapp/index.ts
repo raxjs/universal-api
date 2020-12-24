@@ -1,8 +1,8 @@
-import { Options } from '../../types';
+import { ChooseResult, Options } from '../../types';
 
 declare const tt: any;
 
-const choose = (options: Options = {}): Promise<null> => {
+const choose = (options: Options = {}): Promise<ChooseResult> => {
   return new Promise((resolve, reject): void => {
     const { count = 1, sourceType = ['camera', 'album'], sizeType }: Options = options;
     tt.chooseImage({
