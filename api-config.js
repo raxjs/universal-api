@@ -1,5 +1,43 @@
 module.exports = {
-  env: {
+  // application
+  'errorEvent': {
+    path: 'packages/application/errorEvent/src/index.ts',
+    pkgInfo: [
+      {
+        version: '2.0.0',
+        name: 'universal-error-event',
+      }
+    ]
+  },
+  'getApp': {
+    path: 'packages/application/getApp/src/index.ts',
+    pkgInfo: [
+      {
+        version: '2.0.0',
+        name: 'universal-getapp',
+      }
+    ]
+  },
+  'getCurrentPages': {
+    path: 'packages/application/getCurrentPages/src/index.ts',
+    pkgInfo: [
+      {
+        version: '2.0.0',
+        name: 'universal-getcurrentpages',
+      }
+    ]
+  },
+  'getLaunchOptionsSync': {
+    path: 'packages/application/getLaunchOptionsSync/src/index.ts',
+    pkgInfo: [
+      {
+        version: '2.0.0',
+        name: 'universal-getlaunchoptionssync',
+      }
+    ]
+  },
+  // base
+  'env': {
     path: 'packages/base/env/src/index.ts',
     // 是否可以按环境拆包
     unNeedSplit: true,
@@ -10,6 +48,7 @@ module.exports = {
       }
     ]
   },
+
   'unitTool': {
     path: 'packages/base/unit-tool/src/index.ts',
     unNeedSplit: true,
@@ -23,6 +62,7 @@ module.exports = {
       }
     ]
   },
+  // canvas
   'createCanvasContext': {
     path: 'packages/canvas/canvas-context/src/index.ts',
     pkgInfo: [
@@ -32,6 +72,7 @@ module.exports = {
       }
     ]
   },
+  // equipment
   'accelerometer': {
     path: 'packages/equipment/accelerometer/src/index.ts',
     pkgInfo: [
@@ -45,29 +86,30 @@ module.exports = {
     path: 'packages/equipment/clipboard/src/index.ts',
     pkgInfo: [
       {
-        version: '1.2.0',
+        version: '2.0.0',
         name: 'universal-clipboard',
       }
     ]
   },
-  'device': {
-    path: 'packages/equipment/device/src/index.ts',
+  'getSystemInfoSync': {
+    path: 'packages/equipment/getSystemInfoSync/src/index.ts',
     pkgInfo: [
       {
-        version: '2.3.1',
-        name: 'universal-device',
+        version: '2.0.0',
+        name: 'universal-getsysteminfosync',
       }
     ]
   },
-  'networkInfo': {
-    path: 'packages/equipment/network-info/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.0.0',
-        name: 'universal-network',
-      }
-    ]
-  },
+  // 'networkInfo': {
+  //   path: 'packages/equipment/network-info/src/index.ts',
+  //   pkgInfo: [
+  //     {
+  //       version: '1.0.0',
+  //       name: 'universal-network',
+  //     }
+  //   ]
+  // },
+  // file
   'file': {
     path: 'packages/file/src/index.ts',
     pkgInfo: [
@@ -168,15 +210,15 @@ module.exports = {
       }
     ]
   },
-  'background': {
-    path: 'packages/interface/background/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.0.0',
-        name: 'universal-background',
-      }
-    ]
-  },
+  // 'background': {
+  //   path: 'packages/interface/background/src/index.ts',
+  //   pkgInfo: [
+  //     {
+  //       version: '1.0.0',
+  //       name: 'universal-background',
+  //     }
+  //   ]
+  // },
   'image': {
     path: 'packages/media/image/src/index.ts',
     pkgInfo: [

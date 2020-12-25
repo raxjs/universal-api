@@ -2,9 +2,16 @@
 title: element
 ---
 
-# universal-element [![npm](https://img.shields.io/npm/v/universal-element.svg)](https://www.npmjs.com/package/universal-element)
+# universal-element 
+
+[![npm](https://img.shields.io/npm/v/universal-element.svg)](https://www.npmjs.com/package/universal-element)
 
 Get dom info.
+
+This API needs to be used after DOM loading is successful. You can refer to the following usage scenarios:
+
+- When entering the page, get the instance of the node object Page.onReady  Use in
+- Get node instance after switching component state through SetData, and use it in SetData callback
 
 ## Support
 <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" />
@@ -44,16 +51,14 @@ function App() {
 
 ### `getScrollOffset()`
 
-In MiniApp, there isn't `scrollWidth`, `scrollHeight`.
-
 ```js
 getScrollOffet('#container').then((ret) => {
-  const { scrollTop, scrollLeft, scrollWidth, scrollHeight } = ret[0];
-  console.log(scrollTop, scrollLeft, scrollWidth, scrollHeight);
+  const { scrollTop, scrollLeft } = ret[0];
+  console.log(scrollTop, scrollLeft);
 });
 ```
 
-### `getBoundingClientRect()`
+<!-- ### `getBoundingClientRect()`
 
 In MiniApp or WechatMiniProgram, there isn't `x`, `y`.
 
@@ -62,4 +67,4 @@ getBoundingClientRect().then((ret) => {
   const { width, height, top, left, right, bottom, x, y } = ret[0];
   console.log(width, height, top, left, right, bottom, x, y);
 });
-```
+``` -->

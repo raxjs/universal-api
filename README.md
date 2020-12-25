@@ -1,7 +1,7 @@
 ---
 hero:
     image: https://img.alicdn.com/tfs/TB1H2Kcb1H2gK0jSZFEXXcqMpXa-70-72.png
-    title: evapi
+    title: universal-api
     desc: 一个跨端的API库
     actions:
     - text: 快速开始
@@ -9,7 +9,7 @@ hero:
 features:
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/d60657df-0822-4631-9d7c-e7a869c2f21c/k79dmz3q_w126_h126.png
     title: 多端统一
-    desc: 支持`h5、小程序、weex`应用
+    desc: 支持`h5、小程序`应用
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/881dc458-f20b-407b-947a-95104b5ec82b/k79dm8ih_w144_h144.png
     title: API丰富
     desc: 提供丰富完善的`api`

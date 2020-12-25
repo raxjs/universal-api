@@ -1,6 +1,6 @@
 ---
 group:
-  title: 基础
+  title: 应用级事件
 title: getApp
 ---
 
