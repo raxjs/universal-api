@@ -1,6 +1,11 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import { createElement, useState, useEffect } from 'rax';
+import { createElement } from 'rax';
+import View from 'rax-view';
+import Text from 'rax-text';
 
-export default () => {
-  return <div>storage</div>
-};
+export default function() {
+  return (
+    <View>
+      demo
+    </View>
+  );
+}

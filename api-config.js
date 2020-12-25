@@ -77,8 +77,8 @@ module.exports = {
       }
     ]
   },
-  'actionSheet': {
-    path: 'packages/interface/action-sheet/src/index.ts',
+  'actionsheet': {
+    path: 'packages/interface/showActionSheet/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.1',
@@ -186,12 +186,30 @@ module.exports = {
       }
     ]
   },
-  'chooseImage': {
-    path: 'packages/media/choose-image/src/index.ts',
+  'chooseimage': {
+    path: 'packages/media/chooseImage/src/index.ts',
     pkgInfo: [
       {
-        version: '1.2.0',
+        version: '1.2.1',
         name: 'universal-choose-image',
+      }
+    ]
+  },
+  'compressimage': {
+    path: 'packages/media/compressImage/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: 'universal-compress-image',
+      }
+    ]
+  },
+  'getimageinfo': {
+    path: 'packages/media/getImageInfo/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: 'universal-getimageinfo',
       }
     ]
   },
@@ -213,12 +231,48 @@ module.exports = {
       }
     ]
   },
-  'asyncstorage': {
-    path: 'packages/storage/asyncstorage/src/index.ts',
+  'storage': {
+    path: 'packages/storage/src/index.ts',
     pkgInfo: [
       {
-        version: '1.3.0',
-        name: 'universal-asyncstorage',
+        version: '1.0.10',
+        name: 'universal-storage',
+      }
+    ]
+  },
+  'systeminfo': {
+    path: 'packages/equipment/getSystemInfoSync/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: 'universal-systeminfo',
+      }
+    ]
+  },
+  'location': {
+    path: 'packages/location/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: 'universal-location',
+      }
+    ]
+  },
+  'intersectionobserver': {
+    path: 'packages/interface/intersectionObserver/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: 'universal-intersectionobserver',
+      }
+    ]
+  },
+  'modal': {
+    path: 'packages/interface/showModal/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: 'universal-modal',
       }
     ]
   }

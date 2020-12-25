@@ -1,11 +1,10 @@
-import { createElement, useEffect, render } from 'rax';
-import UniversalDriver from 'driver-universal';
+import { createElement, useEffect } from 'rax';
 import View from 'rax-view';
-import { createContext } from '../src/index';
+import createCanvasContext from 'universal-canvas-context';
 
-function App() {
+export default function() {
   useEffect(() => {
-    createContext('canvas', '2d').then((canvasContext) => {
+    createCanvasContext('canvas').then((canvasContext) => {
       canvasContext.fillStyle = 'red';
       canvasContext.fillRect(0, 0, 100, 100);
       // Only valid in miniapp
@@ -18,5 +17,3 @@ function App() {
     </View>
   );
 }
-
-render(<App />, document.body, { driver: UniversalDriver });

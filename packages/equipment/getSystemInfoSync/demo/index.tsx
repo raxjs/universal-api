@@ -1,20 +1,11 @@
-/* eslint-disable import/no-extraneous-dependencies */
-// @ts-ignore
-import { createElement, render } from 'rax';
-import DriverUniversal from 'driver-universal';
+import { createElement } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import { platform, appName, screenWidth, screenHeight } from '../src';
 
-const App = () => {
+export default function() {
   return (
     <View>
-      <Text>{platform}</Text>
-      <Text>{appName}</Text>
-      <Text>{screenWidth}</Text>
-      <Text>{screenHeight}</Text>
+      demo
     </View>
   );
-};
-
-render(<App />, document.body, { driver: DriverUniversal });
+}
