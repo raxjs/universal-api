@@ -14,7 +14,7 @@ export default () => {
   } else if (isWeb) {
     return webModule();
   } else {
-    throw new Error('evapi：getCurrentPages暂不支持');
+    throw new Error('universal-api：getLaunchOptionsSync暂不支持');
   }
 };
 

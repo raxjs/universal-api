@@ -1,15 +1,15 @@
 ---
 group:
-  title: Base
-title: getApp
+  title: Application
+title: getCurrentPages
 ---
 
-# getApp 
+# getCurrentPages 
 
 [![npm](https://img.shields.io/npm/v/universal-api.svg)](https://www.npmjs.com/package/universal-api)
-[![npm](https://img.shields.io/npm/v/universal-getapp.svg)](https://www.npmjs.com/package/universal-getapp)
+[![npm](https://img.shields.io/npm/v/universal-getcurrentpages.svg)](https://www.npmjs.com/package/universal-getCurrentPages)
 
-Gets the globally unique App instance of the Mini Program.
+Gets the current page stack. In the array, the first element is the homepage and the last element is the current page.
 
 ## Support
 
@@ -18,18 +18,18 @@ Gets the globally unique App instance of the Mini Program.
 ## Install
 
 ```bash
-$ npm install universal-getapp --save
+$ npm install universal-getcurrentpages --save
 ```
 
 ## Usage
 
 ```js
 import { createElement, useEffect, Fragment } from 'rax';
-import getApp from 'universal-getapp';
+import getCurrentPages from 'universal-getcurrentpages';
 
 function App() {
   useEffect(() => {
-    const app = getApp();
+    const app = getCurrentPages();
   }, []);
 
   return (<>
@@ -40,5 +40,10 @@ function App() {
 It can also be imported from the big package:
 
 ```js
-import {getApp} from 'universal-api';
+import {getCurrentPages} from 'universal-api';
 ```
+
+## Note:
+
+- Do not modify the page stack as this will lead to routing and page status errors.
+- Do not call getCurrentPages() when App.onLaunch is called since page is not generated.

@@ -8,8 +8,8 @@ const alert = (options: Options): void => {
     title,
     content,
     confirmText: buttonText,
-    success: function(res) {
-      success && success(res);
+    success: function() {
+      success && success();
     },
     fail: function(res) {
       fail && fail(res);

@@ -1,33 +1,22 @@
-import {
-  isWeb,
-  isWeex,
-  isMiniApp,
-  isWeChatMiniProgram,
-  isByteDanceMicroApp,
-} from 'universal-env';
+import { isMiniApp, isDingdingMiniapp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from 'universal-env';
+import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
-import weexModule from './weex/index';
-import miniAppModule from './ali-miniapp/index';
-import weChatModule from './wechat-miniprogram/index';
-import byteDanceModule from './bytedance-microapp/index';
+import weChatModule from './wechat-miniapp/index';
+import bytedanceModule from './byte-miniapp/index';
+import {Options, Alert} from './types';
 
-import { Alert } from './types';
-
-let alert: Alert = () => Promise.resolve(null);
-if (isWeb) {
-  alert = webModule;
-}
-if (isWeex) {
-  alert = weexModule;
-}
-if (isMiniApp) {
-  alert = miniAppModule;
-}
-if (isWeChatMiniProgram) {
-  alert = weChatModule;
-}
-if (isByteDanceMicroApp) {
-  alert = byteDanceModule;
-}
+export const alert: Alert = (args: Options) => {
+  if (isWeChatMiniProgram) {
+    return weChatModule(args);
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule(args);
+  } else if (isMiniApp || isDingdingMiniapp) {
+    return aliMiniAppModule(args);
+  } else if (isWeb) {
+    return webModule(args);
+  } else {
+    throw new Error('universal-api：alert暂不支持');
+  }
+};
 
 export default alert;

@@ -1,35 +1,35 @@
 ---
 group:
-  title: 基础
-title: getCurrentPages
+  title: Application
+title: getApp
 ---
 
-# getCurrentPages 
+# getApp 
 
 [![npm](https://img.shields.io/npm/v/universal-api.svg)](https://www.npmjs.com/package/universal-api)
-[![npm](https://img.shields.io/npm/v/universal-getcurrentpages.svg)](https://www.npmjs.com/package/universal-getCurrentPages)
+[![npm](https://img.shields.io/npm/v/universal-getapp.svg)](https://www.npmjs.com/package/universal-getapp)
 
-获取当前页面栈。数组中第一个元素为首页，最后一个元素为当前页面。
+Gets the globally unique App instance of the Mini Program.
 
-## 支持
+## Support
 
 <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
 
-## 安装
+## Install
 
 ```bash
-$ npm install universal-getcurrentpages --save
+$ npm install universal-getapp --save
 ```
 
-## 使用
+## Usage
 
 ```js
 import { createElement, useEffect, Fragment } from 'rax';
-import getCurrentPages from 'universal-getcurrentpages';
+import getApp from 'universal-getapp';
 
 function App() {
   useEffect(() => {
-    const app = getCurrentPages();
+    const app = getApp();
   }, []);
 
   return (<>
@@ -37,13 +37,8 @@ function App() {
   </>)
 }
 ```
-也可以从大包中引入：
+It can also be imported from the big package:
 
 ```js
-import {getCurrentPages} from 'universal-api';
+import {getApp} from 'universal-api';
 ```
-
-## 注意：
-
-- 不要尝试修改页面栈，会导致路由以及页面状态错误。
-- 不要在 App.onLaunch 的时候调用 getCurrentPages()，此时 page 还没有生成。

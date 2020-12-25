@@ -2,7 +2,9 @@ export interface Options {
   title?: string;
   content?: string;
   buttonText?: string;
-  [propName: string]: any;
+  success?: () => any;
+  fail?: (res) => any;
+  complete?: (res?) => any;
 }
 
 export interface Alert {

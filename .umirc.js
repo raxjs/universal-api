@@ -2,7 +2,7 @@ export default {
   base: '/universal-api',
   publicPath: '/universal-api/',
   outputPath: 'docs-dist',
-  title: 'evapi',
+  title: 'universal-api',
   logo: 'https://img.alicdn.com/tfs/TB1H2Kcb1H2gK0jSZFEXXcqMpXa-70-72.png',
   favicon: 'https://img.alicdn.com/tfs/TB1H2Kcb1H2gK0jSZFEXXcqMpXa-70-72.png',
   locales: [
