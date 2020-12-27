@@ -3,7 +3,7 @@ import View from 'rax-view';
 import Text from 'rax-text';
 import TextInput from 'rax-textinput';
 import {getClipboard, setClipboard} from 'universal-clipboard';
-import showModal from 'universal-modal';
+import showModal from 'universal-show-modal';
 
 const styles = {
   flex: {

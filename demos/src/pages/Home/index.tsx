@@ -11,7 +11,7 @@ const styles = {
     padding: '20rpx',
     background: 'rgb(38, 115, 67)',
     color: '#fff',
-    fontSize: '26rpx'
+    fontSize: '26rpx',
   },
   input: {
     border: '1px solid #eee',

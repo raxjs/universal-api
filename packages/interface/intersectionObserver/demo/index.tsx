@@ -2,7 +2,7 @@ import { createElement } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import ScrollView from 'rax-scrollview';
-import createIntersectionObserver from 'universal-intersectionobserver';
+import createIntersectionObserver from 'universal-intersection-observer';
 
 const styles = {
   block: {

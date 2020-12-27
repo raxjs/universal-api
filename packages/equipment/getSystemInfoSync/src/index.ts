@@ -6,7 +6,6 @@ import bytedanceModule from './byte-miniapp/index';
 
 const getSystemInfoSync = () => {
   if (isWeChatMiniProgram) {
-    console.log('wechat')
     return weChatModule();
   } else if (isByteDanceMicroApp) {
     return bytedanceModule();

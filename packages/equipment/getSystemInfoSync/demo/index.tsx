@@ -1,7 +1,7 @@
 import { createElement, useState } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import getSystemInfoSync from 'universal-systeminfo';
+import getSystemInfoSync from 'universal-getsysteminfosync';
 
 const styles = {
   flex: {

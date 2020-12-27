@@ -1,7 +1,7 @@
 import { createElement } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import showModal from 'universal-modal';
+import showModal from 'universal-show-modal';
 import toast from 'universal-toast';
 
 const styles = {

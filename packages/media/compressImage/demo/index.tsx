@@ -4,7 +4,7 @@ import Text from 'rax-text';
 import TextInput from 'rax-textinput';
 import Image from 'rax-image';
 import compressImage from 'universal-compress-image';
-import showModal from 'universal-modal';
+import showModal from 'universal-show-modal';
 import chooseImage from 'universal-choose-image';
 
 const styles = {
