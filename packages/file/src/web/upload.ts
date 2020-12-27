@@ -1,4 +1,4 @@
-import { UploadOption } from '../types';
+import { UploadOptions } from '../types';
 
 function base64toFile(dataUrl: string, fileName: string = '') {
   const dataURLtoBlob = function(base64Data: string) {
@@ -33,74 +33,70 @@ function validateStatus(status: number) {
   return status >= 200 && status < 300 || status === 304;
 }
 
-interface UploadFileResult {
-  status: number;
-  headers: { [x: string]: any };
-  data: string | any;
-}
-function uploadFile(param: UploadOption): Promise<UploadFileResult> {
-  return new Promise((resolve, reject) => {
-    const file = typeof param.filePath === 'string' ? base64toFile(param.filePath) : param.filePath;
-    const body = new FormData();
-    if (param.formData) {
-      for (const k in param.formData) {
-        body.append(k, param.formData[k]);
-      }
+function uploadFile(param: UploadOptions) {
+  // return new Promise((resolve, reject) => {
+  const file = typeof param.filePath === 'string' ? base64toFile(param.filePath) : param.filePath;
+  const body = new FormData();
+  if (param.formData) {
+    for (const k in param.formData) {
+      body.append(k, param.formData[k]);
     }
-    body.append(param.fileName || 'file', file);
-    const header = {
-      'Accept': 'application/json, text/plain, */*',
-      ...param.header || {}
-    };
+  }
+  body.append(param.fileName || 'file', file);
+  const header = {
+    'Accept': 'application/json, text/plain, */*',
+    ...param.header || {}
+  };
     // initialize xhr
-    const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = () => {
-      if (!xhr || xhr.readyState !== 4) {
-        return;
-      }
-      // fail
-      if (!validateStatus(xhr.status)) {
-        param.fail && param.fail();
-        param.complete && param.complete();
-        return reject(xhr.status);
-      }
-      // process response headers
-      const headers = xhr.getAllResponseHeaders();
-      const arr = headers.trim().split(/[\r\n]+/);
-      const headerMap = {};
-      arr.forEach(function(line) {
-        var parts = line.split(': ');
-        var header = parts.shift();
-        var value = parts.join(': ');
-        headerMap[header as string] = value;
-      });
-      let data: any = xhr.response;
-      try {
-        data = JSON.parse(data);
-      } catch (e) {
-        // ignore
-      }
-      // success
-      const result = {
-        data,
-        status: xhr.status,
-        headers: headerMap,
-      };
-      param.success && param.success(result);
-      param.complete && param.complete();
-      resolve(result);
-    };
-    // check if need add withCredentials
-    if (!param.url.includes(window.location.host)) {
-      xhr.withCredentials = true;
+  const xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = () => {
+    if (!xhr || xhr.readyState !== 4) {
+      return;
     }
-    xhr.open('POST', param.url, true);
-    Object.keys(header).forEach(key => {
-      xhr.setRequestHeader(key, String(header[key]));
+    // fail
+    if (!validateStatus(xhr.status)) {
+      param.fail && param.fail({errMsg: '上传失败'});
+      param.complete && param.complete({errMsg: '上传失败'});
+      return;
+      // return reject(xhr.status);
+    }
+    // process response headers
+    const headers = xhr.getAllResponseHeaders();
+    const arr = headers.trim().split(/[\r\n]+/);
+    const headerMap = {};
+    arr.forEach(function(line) {
+      var parts = line.split(': ');
+      var header = parts.shift();
+      var value = parts.join(': ');
+      headerMap[header as string] = value;
     });
-    // send request
-    xhr.send(body);
+    let data: any = xhr.response;
+    try {
+      data = JSON.parse(data);
+    } catch (e) {
+      // ignore
+    }
+    // success
+    const result = {
+      data,
+      statusCode: xhr.status,
+      header: headerMap,
+    };
+    param.success && param.success(result);
+    param.complete && param.complete(result);
+    // resolve(result);
+  };
+  // check if need add withCredentials
+  if (!param.url.includes(window.location.host)) {
+    xhr.withCredentials = true;
+  }
+  xhr.open('POST', param.url, true);
+  Object.keys(header).forEach(key => {
+    xhr.setRequestHeader(key, String(header[key]));
   });
+  // send request
+  xhr.send(body);
+  // });
 }
 
 export default uploadFile;

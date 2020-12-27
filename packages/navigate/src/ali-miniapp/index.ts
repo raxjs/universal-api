@@ -1,45 +1,78 @@
-import { IPushOptions, IGoOptions } from '../types';
+import { IPushOptions, IGoOptions, IPopOptions, IReplaceOptions } from '../types';
+import {initApi} from '../common';
 
-declare const my: any;
-
-const push = (options: IPushOptions): Promise<null> => {
-  return new Promise((resolve, reject): void => {
-    const { url } = options;
-    my.navigateTo({
-      url,
-      success: resolve,
-      fail: reject
-    });
-  });
-};
-
-const pop = (): Promise<null> => {
-  return new Promise((resolve, reject): void => {
-    my.navigateBack({
-      delta: 1,
-      success: resolve,
-      fail: reject
-    });
-  });
-};
-
-const go = (options: IGoOptions): Promise<null> => {
-  return new Promise((resolve, reject): void => {
-    const { step } = options;
-    if (step < 0) {
-      my.navigateBack({
-        delta: Math.abs(step),
-        success: resolve,
-        fail: reject
-      });
-    } else {
-      reject();
+const push = initApi.push((options: IPushOptions) => {
+  const { url, success, fail, complete } = options;
+  my.navigateTo({
+    url,
+    success: function() {
+      success && success();
+    },
+    fail: function(res) {
+      fail && fail(res);
+    },
+    complete(res) {
+      complete && complete(res);
     }
   });
-};
+});
+
+const pop = initApi.pop((options?: IPopOptions) => {
+  const { success, fail, complete } = options || {};
+  my.navigateBack({
+    delta: 1,
+    success: function() {
+      success && success();
+    },
+    fail: function(res) {
+      fail && fail(res);
+    },
+    complete(res) {
+      complete && complete(res);
+    }
+  });
+});
+
+const replace = initApi.replace((options?: IReplaceOptions) => {
+  const { url, success, fail, complete } = options || {};
+  my.redirectTo({
+    url,
+    success: function() {
+      success && success();
+    },
+    fail: function(res) {
+      fail && fail(res);
+    },
+    complete(res) {
+      complete && complete(res);
+    }
+  });
+});
+
+const go = initApi.go((options: IGoOptions) => {
+  const { step, success, fail, complete } = options;
+  if (step < 0) {
+    my.navigateBack({
+      delta: Math.abs(step),
+      success: function() {
+        success && success();
+      },
+      fail: function(res) {
+        fail && fail(res);
+      },
+      complete(res) {
+        complete && complete(res);
+      }
+    });
+  } else {
+    fail && fail({errMsg: 'step不能大于或等于0'});
+    complete && complete({errMsg: 'step不能大于或等于0'});
+  }
+});
 
 export default {
   push,
   pop,
+  replace,
   go
 };

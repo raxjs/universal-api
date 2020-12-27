@@ -91,15 +91,15 @@ module.exports = {
       }
     ]
   },
-  // 'getSystemInfoSync': {
-  //   path: 'packages/equipment/getSystemInfoSync/src/index.ts',
-  //   pkgInfo: [
-  //     {
-  //       version: '2.0.0',
-  //       name: 'universal-getsysteminfosync',
-  //     }
-  //   ]
-  // },
+  'getSystemInfoSync': {
+    path: 'packages/equipment/getSystemInfoSync/src/index.ts',
+    pkgInfo: [
+      {
+        version: '2.0.0',
+        name: 'universal-getsysteminfosync',
+      }
+    ]
+  },
   // 'networkInfo': {
   //   path: 'packages/equipment/network-info/src/index.ts',
   //   pkgInfo: [
@@ -114,11 +114,12 @@ module.exports = {
     path: 'packages/file/src/index.ts',
     pkgInfo: [
       {
-        version: '1.1.1',
+        version: '2.0.0',
         name: 'universal-file',
       }
     ]
   },
+  // interface
   'actionsheet': {
     path: 'packages/interface/showActionSheet/src/index.ts',
     pkgInfo: [
@@ -132,44 +133,44 @@ module.exports = {
     path: 'packages/interface/alert/src/index.ts',
     pkgInfo: [
       {
-        version: '1.2.1',
+        version: '2.0.0',
         name: 'universal-alert',
       }
     ]
   },
-  'transition': {
-    path: 'packages/interface/transition/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.1.1',
-        name: 'universal-transition',
-        dependencies: {
-          'universal-unit-tool': '^1.0.0',
-          'style-unit': '^2.0.0',
-          'universal-device': '^1.0.3',
-        },
-      }
-    ]
-  },
-  'animation': {
-    path: 'packages/interface/animation/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.2.0',
-        name: 'universal-animation',
-        dependencies: {
-          'universal-transition': '^1.0.1',
-          'weex-bindingx': '^0.0.49'
-        },
-      }
-    ]
-  },
+  // 'transition': {
+  //   path: 'packages/interface/transition/src/index.ts',
+  //   pkgInfo: [
+  //     {
+  //       version: '1.1.1',
+  //       name: 'universal-transition',
+  //       dependencies: {
+  //         'universal-unit-tool': '^1.0.0',
+  //         'style-unit': '^2.0.0',
+  //         'universal-device': '^1.0.3',
+  //       },
+  //     }
+  //   ]
+  // },
+  // 'animation': {
+  //   path: 'packages/interface/animation/src/index.ts',
+  //   pkgInfo: [
+  //     {
+  //       version: '1.2.0',
+  //       name: 'universal-animation',
+  //       dependencies: {
+  //         'universal-transition': '^1.0.1',
+  //         'weex-bindingx': '^0.0.49'
+  //       },
+  //     }
+  //   ]
+  // },
 
   'toast': {
     path: 'packages/interface/toast/src/index.ts',
     pkgInfo: [
       {
-        version: '1.2.3',
+        version: '2.0.0',
         name: 'universal-toast',
       }
     ]
@@ -178,35 +179,53 @@ module.exports = {
     path: 'packages/interface/loading/src/index.ts',
     pkgInfo: [
       {
-        version: '1.1.0',
+        version: '2.0.0',
         name: 'universal-loading',
       }
     ]
   },
-  'keyboard': {
-    path: 'packages/interface/keyboard/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.0.1',
-        name: 'universal-keyboard',
-      }
-    ]
-  },
-  // 'element': {
-  //   path: 'packages/interface/element/src/index.ts',
+  // 'keyboard': {
+  //   path: 'packages/interface/keyboard/src/index.ts',
   //   pkgInfo: [
   //     {
-  //       version: '0.0.6',
-  //       name: 'universal-element',
+  //       version: '1.0.1',
+  //       name: 'universal-keyboard',
   //     }
   //   ]
   // },
+  'element': {
+    path: 'packages/interface/element/src/index.ts',
+    pkgInfo: [
+      {
+        version: '2.0.0',
+        name: 'universal-element',
+      }
+    ]
+  },
   'confirm': {
     path: 'packages/interface/confirm/src/index.ts',
     pkgInfo: [
       {
-        version: '1.2.1',
+        version: '2.0.0',
         name: 'universal-confirm',
+      }
+    ]
+  },
+  'intersectionObserver': {
+    path: 'packages/interface/intersectionObserver/src/index.ts',
+    pkgInfo: [
+      {
+        version: '2.0.0',
+        name: 'universal-intersection-observer',
+      }
+    ]
+  },
+  'showModal': {
+    path: 'packages/interface/showModal/src/index.ts',
+    pkgInfo: [
+      {
+        version: '2.0.0',
+        name: 'universal-show-modal',
       }
     ]
   },
@@ -219,103 +238,81 @@ module.exports = {
   //     }
   //   ]
   // },
-  'image': {
-    path: 'packages/media/image/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.0.1',
-        name: 'universal-image',
-      }
-    ]
-  },
-  'chooseimage': {
-    path: 'packages/media/chooseImage/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.2.1',
-        name: 'universal-choose-image',
-      }
-    ]
-  },
-  'compressimage': {
-    path: 'packages/media/compressImage/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.0.0',
-        name: 'universal-compress-image',
-      }
-    ]
-  },
-  'getimageinfo': {
-    path: 'packages/media/getImageInfo/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.0.0',
-        name: 'universal-getimageinfo',
-      }
-    ]
-  },
-  'navigate': {
-    path: 'packages/navigate/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.2.1',
-        name: 'universal-navigate',
-      }
-    ]
-  },
-  'request': {
-    path: 'packages/network/request/src/index.ts',
-    pkgInfo: [
-      {
-        version: '2.2.0',
-        name: 'universal-request',
-      }
-    ]
-  },
-  'storage': {
-    path: 'packages/storage/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.0.10',
-        name: 'universal-storage',
-      }
-    ]
-  },
-  'systeminfo': {
-    path: 'packages/equipment/getSystemInfoSync/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.0.0',
-        name: 'universal-systeminfo',
-      }
-    ]
-  },
+  // 'image': {
+  //   path: 'packages/media/image/src/index.ts',
+  //   pkgInfo: [
+  //     {
+  //       version: '1.0.1',
+  //       name: 'universal-image',
+  //     }
+  //   ]
+  // },
+  // location
   'location': {
     path: 'packages/location/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0',
+        version: '2.0.0',
         name: 'universal-location',
       }
     ]
   },
-  'intersectionobserver': {
-    path: 'packages/interface/intersectionObserver/src/index.ts',
+  // media
+  'chooseImage': {
+    path: 'packages/media/chooseImage/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0',
-        name: 'universal-intersectionobserver',
+        version: '2.0.0',
+        name: 'universal-choose-image',
       }
     ]
   },
-  'modal': {
-    path: 'packages/interface/showModal/src/index.ts',
+  'compressImage': {
+    path: 'packages/media/compressImage/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0',
-        name: 'universal-modal',
+        version: '2.0.0',
+        name: 'universal-compress-image',
       }
     ]
-  }
+  },
+  'getImageInfo': {
+    path: 'packages/media/getImageInfo/src/index.ts',
+    pkgInfo: [
+      {
+        version: '2.0.0',
+        name: 'universal-getimageinfo',
+      }
+    ]
+  },
+  // navigate
+  'navigate': {
+    path: 'packages/navigate/src/index.ts',
+    pkgInfo: [
+      {
+        version: '2.0.0',
+        name: 'universal-navigate',
+      }
+    ]
+  },
+  // network
+  'request': {
+    path: 'packages/network/request/src/index.ts',
+    pkgInfo: [
+      {
+        version: '2.2.1',
+        name: 'universal-request',
+      }
+    ]
+  },
+  // storage
+  'storage': {
+    path: 'packages/storage/src/index.ts',
+    pkgInfo: [
+      {
+        version: '2.0.0',
+        name: 'universal-storage',
+      }
+    ]
+  },
 };

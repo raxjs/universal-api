@@ -1,160 +1,101 @@
-export interface Callback {
-  (result?: any): void;
-}
-
-export interface CallbackOptions {
-  /**
-   * Interface to invoke a successful callback function.
-   */
-  success?: Callback;
-  /**
-   * Interface to call a failed callback function.
-   */
-  fail?: Callback;
-  /**
-   * Interface callback function at the end of the call (executed on success and failure).
-   */
-  complete?: Callback;
-  [propName: string]: any;
-}
-
-export interface SaveOptions extends CallbackOptions {
-  /**
-   * The file path
-   */
+export interface UploadOptions {
+  url: string;
   filePath: string;
+  fileName: string;
+  fileType: 'image' | 'video' | 'audio';
+  hideLoading?: boolean;
+  header?: object;
+  formData?: object;
+  success?: (res: UploadResponseData) => void;
+  fail?: (res: any) => void;
+  complete?: (res: UploadResponseData | any) => void;
 }
 
-export interface FileList {
-  /**
-   * The file path
-   */
-  fileList: any[];
+export interface UploadResponseData {
+  data: string;
+  statusCode: string | number;
+  header?: object;
+}
+export interface DownloadResponseData {
+  tempFilePath: string;
+}
+export interface DownloadOptions {
+  url: string;
+  header?: object;
+  success?: (res: DownloadResponseData) => void;
+  fail?: (res: Error) => void;
+  complete?: (res: DownloadResponseData | Error) => void;
 }
 
-export interface GetSaveInfoOptions extends CallbackOptions {
-  /**
-   * The file path
-   */
-  filePath: string;
-}
-
-export interface SaveFileInfo {
-  size: number;
-  createTime: number;
-}
-
-export interface GetInfoOptions extends CallbackOptions {
-  /**
-   * The file path
-   */
-  filePath: string;
-  /**
-   * The algorithm to calculate the file summary can be md5, sha1, the default value md5
-   */
-  digestAlgorithm?: string;
-}
-
-export interface FileInfo {
+export interface GetInfoResponseData {
   size: number;
   digest: string;
 }
-
-export interface OpenOptions extends CallbackOptions {
-  /**
-   * The file path
-   */
+export interface GetInfoOptions {
   filePath: string;
-  /**
-   * The file type
-   */
-  fileType?: string;
+  digestAlgorithm?: 'md5' | 'sha1';
+  success?: (res: GetInfoResponseData) => void;
+  fail?: (res: Error) => void;
+  complete?: (res: GetInfoResponseData | Error) => void;
 }
 
-export interface RemoveSavedOptions extends CallbackOptions {
-  /**
-   * The file path
-   */
+export interface GetSavedInfoResponseData {
+  size: number;
+  createTime: number;
+}
+export interface GetSavedInfoOptions {
+  filePath: string;
+  success?: (res: GetSavedInfoResponseData) => void;
+  fail?: (res: Error) => void;
+  complete?: (res: GetSavedInfoResponseData | Error) => void;
+}
+
+export interface GetSavedListResponseData {
+  fileList: GetSavedListResponseItemData[];
+};
+export interface GetSavedListResponseItemData {
+  size: number;
+  createTime: number;
   filePath: string;
 }
-
-export interface UploadOption extends CallbackOptions {
-  /**
-   * Developer server address
-   */
-  url: string;
-  /**
-   * The path to upload the file resource
-   */
-  filePath: string | File;
-  /**
-   * File name, that is, the corresponding key, the developer in the server side through this key can get the binary content of the file.
-   */
-  fileName: string;
-  /**
-   * File type supports image, video, audio (image/video/audio)
-   */
-  fileType?: string;
-  /**
-   * The HTTP request Header
-   */
-  header?: object;
-  /**
-   * Additional form data in the HTTP request
-   */
-  formData?: object;
+export interface GetSavedListOptions {
+  success?: (res: GetSavedListResponseData) => void;
+  fail?: (res: Error) => void;
+  complete?: (res: GetSavedListResponseData | Error) => void;
 }
 
-export interface DownloadOption extends CallbackOptions {
-  /**
-   * Download file address
-   */
-  url: string;
-  /**
-   * The HTTP request Header
-   */
-  header?: object;
+export interface SaveResponseData {
+  savedFilePath: string;
+}
+export interface SaveOptions {
+  tempFilePath: string;
+  success?: (res: SaveResponseData) => void;
+  fail?: (res: Error) => void;
+  complete?: (res: SaveResponseData | Error) => void;
 }
 
-export interface File {
-  /**
-   * Get file information.
-   * @param options File options
-   */
-  getInfo(options: GetInfoOptions): Promise<any>;
-  /**
-   * Gets saved file information
-   * @param options File options
-   */
-  getSavedInfo(options: GetSaveInfoOptions): Promise<any>;
-  /**
-   * Gets all saved file information.
-   * @param options File options
-   */
-  getSavedList(options: CallbackOptions): Promise<any>;
-  /**
-   * Open a file preview on the new page.
-   * @param options File options
-   */
-  openDocument(options: OpenOptions): Promise<any>;
-  /**
-   * Delete a saved file.
-   * @param options File options
-   */
-  removeSaved(options: RemoveSavedOptions): Promise<any>;
-  /**
-   * Save the file locally.
-   * @param options File options
-   */
-  save(options: SaveOptions): Promise<any>;
-  /**
-   * Upload local resources to the developer server.
-   * @param options File options
-   */
-  upload(options: UploadOption): Promise<any>;
-  /**
-   * Download file resources locally.
-   * @param options
-   */
-  download(options: DownloadOption): Promise<any>;
+export interface RemoveSavedOptions {
+  filePath: string;
+  success?: () => void;
+  fail?: (res: Error) => void;
+  complete?: (res?: Error) => void;
+}
+
+export interface OpenDocumentOptions {
+  filePath: string;
+  fileType: 'pdf';
+  success?: () => void;
+  fail?: (res: Error) => void;
+  complete?: (res?: Error) => void;
+}
+
+export interface IFile {
+  upload(options: UploadOptions): Promise<null>;
+  download(options: DownloadOptions): Promise<null>;
+  getInfo(options: GetInfoOptions): Promise<null>;
+  getSavedInfo(options: GetSavedInfoOptions): Promise<null>;
+  getSavedList(options: GetSavedListOptions): Promise<null>;
+  save(options: SaveOptions): Promise<null>;
+  removeSaved(options: RemoveSavedOptions): Promise<null>;
+  openDocument(options: OpenDocumentOptions): Promise<null>;
 }
