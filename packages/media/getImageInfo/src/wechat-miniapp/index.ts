@@ -1,3 +1,3 @@
 import { initApi } from '../common';
 
-export default initApi(wx.getImageInfo);
+export default initApi((args) => wx.getImageInfo(args));

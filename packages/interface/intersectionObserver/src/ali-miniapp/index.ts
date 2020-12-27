@@ -1,3 +1,3 @@
 import { isDingdingMiniapp } from 'universal-env';
 
-export default isDingdingMiniapp ? dd.createIntersectionObserver : my.createIntersectionObserver;
+export default (...args) => isDingdingMiniapp ? dd.createIntersectionObserver(...args) : my.createIntersectionObserver(...args);

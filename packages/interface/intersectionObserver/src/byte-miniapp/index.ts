@@ -1,1 +1,1 @@
-export default tt.createIntersectionObserver;
+export default (...args) => tt.createIntersectionObserver(...args);

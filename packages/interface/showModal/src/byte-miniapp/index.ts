@@ -1,3 +1,3 @@
 import { initApi } from '../common';
 
-export default initApi(tt.showModal);
+export default initApi((args) => tt.showModal(args));

@@ -8,7 +8,7 @@ import { ShowModalOptions, showModalRes } from './types';
  */
 const formatResponse = (res): showModalRes => {
   // success用于兼容支付宝alert
-  const confirm = res && (res.confirm || res.success) ? true : false;
+  const confirm = res.confirm != undefined ? res.confirm : true;
   const result = {
     confirm,
     cancel: !confirm
@@ -20,13 +20,13 @@ const formatResponse = (res): showModalRes => {
  * modal参数格式化
  * @param options
  */
-function styleOptions(options: ShowModalOptions) {
+function styleOptions(options: ShowModalOptions = {}) {
   const args: any = {
     title: options.title || '',
     content: options.content || '',
-    showCancel: options.showCancel || true,
+    showCancel: options.showCancel != undefined ? options.showCancel : true,
     confirmText: options.confirmText || '确定',
-    cancelText: options.confirmText || '取消',
+    cancelText: options.cancelText || '取消',
   };
   return {
     ...args,
@@ -34,7 +34,7 @@ function styleOptions(options: ShowModalOptions) {
       options.success && options.success(formatResponse(res));
     },
     complete: res => {
-      options.complete && options.complete(formatResponse(res));
+      options.complete && options.complete(res);
     },
     fail: err => {
       options.fail && options.fail(err);

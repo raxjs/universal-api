@@ -1,3 +1,3 @@
 import { initApi } from '../common';
 
-export default initApi(tt.chooseImage);
+export default initApi((args) => tt.chooseImage(args));

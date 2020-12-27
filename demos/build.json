@@ -1,21 +1,10 @@
 {
-  "inlineStyle": false,
+  "targets": [
+    "web",
+    "miniapp",
+    "wechat-miniprogram"
+  ],
   "plugins": [
-    [
-      "build-plugin-rax-app",
-      {
-        "targets": [
-          "web",
-          "miniapp"
-        ],
-        "miniapp": {
-          "buildType": "runtime"
-        },
-      }
-    ],
-    "build-plugin-rax-compat-react",
-    "@ali/build-plugin-rax-app-def",
-    "build-plugin-rax-fly"
+    "@ali/build-plugin-rax-app-def"
   ]
 }
-

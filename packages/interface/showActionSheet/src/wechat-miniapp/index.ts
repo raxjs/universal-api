@@ -1,3 +1,3 @@
 import { initApi } from '../common';
 
-export default initApi(wx.showActionSheet)
+export default initApi((args) => wx.showActionSheet(args))

@@ -1,3 +1,3 @@
 import { initApi } from '../common';
 
-export default initApi(wx.chooseImage);
+export default initApi((args) => wx.chooseImage(args));

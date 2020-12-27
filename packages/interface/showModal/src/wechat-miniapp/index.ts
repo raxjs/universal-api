@@ -1,3 +1,3 @@
 import { initApi } from '../common';
 
-export default initApi(wx.showModal);
+export default initApi((args) => wx.showModal(args));

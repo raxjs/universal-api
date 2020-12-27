@@ -1,1 +1,1 @@
-export default wx.createIntersectionObserver;
+export default (...args) => wx.createIntersectionObserver(...args);

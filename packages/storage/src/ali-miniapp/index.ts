@@ -1,17 +1,17 @@
 import { isDingdingMiniapp } from 'universal-env';
 import { initApiGetOrRemove, initApiSet } from '../common';
 
-export const getStorage = initApiGetOrRemove(isDingdingMiniapp ? dd.getStorage : my.getStorage);
+export const getStorage = initApiGetOrRemove((args) => isDingdingMiniapp ? dd.getStorage(args) : my.getStorage(args));
 
-export const getStorageSync = isDingdingMiniapp ? dd.getStorageSync : my.getStorageSync;
+export const getStorageSync = (args) => isDingdingMiniapp ? dd.getStorageSync(args) : my.getStorageSync(args);
 
-export const setStorage = initApiSet(isDingdingMiniapp ? dd.setStorage : my.setStorage);
+export const setStorage = initApiSet((args) => isDingdingMiniapp ? dd.setStorage(args) : my.setStorage(args));
 
-export const setStorageSync = isDingdingMiniapp ? dd.setStorageSync : my.setStorageSync;
+export const setStorageSync = (args) => isDingdingMiniapp ? dd.setStorageSync(args) : my.setStorageSync(args);
 
-export const removeStorage = initApiGetOrRemove(isDingdingMiniapp ? dd.removeStorage : my.removeStorage);
+export const removeStorage = initApiGetOrRemove((args) => isDingdingMiniapp ? dd.removeStorage(args) : my.removeStorage(args));
 
-export const removeStorageSync = isDingdingMiniapp ? dd.removeStorageSync : my.removeStorageSync;
+export const removeStorageSync = (args) => isDingdingMiniapp ? dd.removeStorageSync(args) : my.removeStorageSync(args);
 
 export default {
   getStorage,

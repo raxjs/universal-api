@@ -1,3 +1,3 @@
 import { initApi } from '../common';
 
-export default initApi(tt.getImageInfo);
+export default initApi((args) => tt.getImageInfo(args));

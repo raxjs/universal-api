@@ -9,7 +9,7 @@ const formatResponse = (res): RESPONSE_STRUCT => {
   return result;
 }
 
-function styleOptions(options: OPTION_STRUCT): OPTION_STRUCT {
+function styleOptions(options: OPTION_STRUCT = {}): OPTION_STRUCT {
   return {
     ...options,
     // 默认一张
@@ -18,7 +18,7 @@ function styleOptions(options: OPTION_STRUCT): OPTION_STRUCT {
       options.success && options.success(formatResponse(res));
     },
     complete: res => {
-      options.complete && options.complete(formatResponse(res));
+      options.complete && options.complete(res);
     }
   }
 }

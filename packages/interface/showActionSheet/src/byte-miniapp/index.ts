@@ -1,3 +1,3 @@
 import { initApi } from '../common';
 
-export default initApi(tt.showActionSheet)
+export default initApi((args) => tt.showActionSheet(args))

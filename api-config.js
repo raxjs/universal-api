@@ -91,15 +91,15 @@ module.exports = {
       }
     ]
   },
-  'getSystemInfoSync': {
-    path: 'packages/equipment/getSystemInfoSync/src/index.ts',
-    pkgInfo: [
-      {
-        version: '2.0.0',
-        name: 'universal-getsysteminfosync',
-      }
-    ]
-  },
+  // 'getSystemInfoSync': {
+  //   path: 'packages/equipment/getSystemInfoSync/src/index.ts',
+  //   pkgInfo: [
+  //     {
+  //       version: '2.0.0',
+  //       name: 'universal-getsysteminfosync',
+  //     }
+  //   ]
+  // },
   // 'networkInfo': {
   //   path: 'packages/equipment/network-info/src/index.ts',
   //   pkgInfo: [
@@ -192,15 +192,15 @@ module.exports = {
       }
     ]
   },
-  'element': {
-    path: 'packages/interface/element/src/index.ts',
-    pkgInfo: [
-      {
-        version: '0.0.6',
-        name: 'universal-element',
-      }
-    ]
-  },
+  // 'element': {
+  //   path: 'packages/interface/element/src/index.ts',
+  //   pkgInfo: [
+  //     {
+  //       version: '0.0.6',
+  //       name: 'universal-element',
+  //     }
+  //   ]
+  // },
   'confirm': {
     path: 'packages/interface/confirm/src/index.ts',
     pkgInfo: [

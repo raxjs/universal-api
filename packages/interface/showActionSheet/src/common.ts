@@ -14,7 +14,7 @@ const formatResponse = (res): ShowActionSheetRes => {
  * actionsheet参数格式化
  * @param options 
  */
-function styleOptions(options: ShowActionSheetOptions) {
+function styleOptions(options: ShowActionSheetOptions = {}) {
   if (isDingdingMiniapp || isMiniApp) {
     options.items = options.itemList;
     delete options.itemList;
@@ -25,7 +25,7 @@ function styleOptions(options: ShowActionSheetOptions) {
       options.success && options.success(formatResponse(res));
     },
     complete: res => {
-      options.complete && options.complete(formatResponse(res));
+      options.complete && options.complete(res);
     },
     fail: err => {
       options.fail && options.fail(err);

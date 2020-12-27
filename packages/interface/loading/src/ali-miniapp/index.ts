@@ -1,9 +1,9 @@
 import { isDingdingMiniapp } from 'universal-env';
 import { initApiShow, initApiHide } from '../common';
 
-export const showLoading = initApiShow(isDingdingMiniapp ? dd.showLoading : my.showLoading);
+export const showLoading = initApiShow((args) => isDingdingMiniapp ? dd.showLoading(args) : my.showLoading(args));
 
-export const hideLoading = initApiHide(isDingdingMiniapp ? dd.hideLoading : my.hideLoading);
+export const hideLoading = initApiHide((args) => isDingdingMiniapp ? dd.hideLoading(args) : my.hideLoading(args));
 
 export default {
   showLoading,

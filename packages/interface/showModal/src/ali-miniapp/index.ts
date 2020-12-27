@@ -1,8 +1,8 @@
 import { isDingdingMiniapp } from 'universal-env';
 import { initApi } from '../common';
 
-const confirm = isDingdingMiniapp ? dd.confirm : my.confirm;
-const alert = isDingdingMiniapp ? dd.alert : my.alert;
+const confirm = (args) => isDingdingMiniapp ? dd.confirm(args) : my.confirm(args);
+const alert = (args) => isDingdingMiniapp ? dd.alert(args) : my.alert(args);
 
 const showModal = (args) => {
   if (args.showCancel) {
