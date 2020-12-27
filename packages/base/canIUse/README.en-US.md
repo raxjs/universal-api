@@ -40,7 +40,7 @@ canIUse('storage.getStorageInfo');
 
 #### Arguments
 
-| Property | Type | Description | Required | Support | Default |
+| Property | Type | Description | Support | Default |
 | --- | --- | --- | --- | --- |
 | api | `string` | ${package}.${method} | ✔️ | - |
 
