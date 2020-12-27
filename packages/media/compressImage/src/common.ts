@@ -2,7 +2,6 @@ import { promisify } from '../../../utils/promisify';
 import { OPTION_STRUCT, RESPONSE_STRUCT } from './types';
 
 const formatResponse = (res): RESPONSE_STRUCT => {
-  console.log(res);
   const result: RESPONSE_STRUCT = {
     tempFilePath: res.tempFilePath || (res.filePaths || [])[0] || (res.apFilePaths || [])[0] || ''
   };
@@ -10,7 +9,6 @@ const formatResponse = (res): RESPONSE_STRUCT => {
 }
 
 function styleOptions(options: OPTION_STRUCT = {src: ''}) {
-  console.log(options);
   const args: any = {
     ...options,
     success: res => {

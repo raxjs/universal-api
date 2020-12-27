@@ -14,7 +14,7 @@ const formatResponse = (res): ShowActionSheetRes => {
  * actionsheet参数格式化
  * @param options 
  */
-function styleOptions(options: ShowActionSheetOptions = {}) {
+function styleOptions(options: ShowActionSheetOptions = {itemList: []}) {
   if (isDingdingMiniapp || isMiniApp) {
     options.items = options.itemList;
     delete options.itemList;

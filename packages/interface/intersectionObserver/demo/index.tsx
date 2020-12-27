@@ -1,4 +1,4 @@
-import { createElement } from 'rax';
+import { createElement, useEffect } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import ScrollView from 'rax-scrollview';
@@ -29,11 +29,14 @@ const styles = {
 
 export default function() {
 
-  const intersectionObserver = createIntersectionObserver();
+  useEffect(() => {
+    const intersectionObserver = createIntersectionObserver();
 
-  intersectionObserver.relativeTo('#block').observe('#circle', res => {
-    console.log(res);
-  });
+    intersectionObserver.relativeTo('#block').observe('#circle', res => {
+      console.log(res);
+    });
+  }, []);
+  
 
   return (
     <View>
