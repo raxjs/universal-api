@@ -44,11 +44,11 @@ intersectionObserver.relativeTo('.box').observe('.circle', res => {
 
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
-| component | `object`  | Custom component instance | ✘ | - |
 | options | `object`  |  | ✘ | - |
 | options.thresholds | `Array<number>` | An array of values, which​contains all thresholds | ✘ | [0] |
 | options.initialRatio | `number` | The initial intersection ratio. If the intersection ratio detected at the time of the call is not equal to this value and reaches the threshold, the callback function of the listener is triggered.	 | ✘ | 0 |
 | options.observeAll | `boolean` | Indicates whether to observe more than one target node simultaneously. If the value is set to "true", the targetSelector of observe will select multiple nodes. (Note: selecting too many nodes at the same time will affect rendering performance.) | ✘ | false |
+| component | `object`  | Custom component instance | ✘ | - |
 
 #### Return
 

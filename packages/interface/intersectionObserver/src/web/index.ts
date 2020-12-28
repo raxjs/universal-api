@@ -62,7 +62,7 @@ IntersectionObservers.prototype.disconnect = function (targetSelector: string, c
   return this;
 }
 
-const createIntersectionObserver: CreateIntersectionObserver = (component?, options?) => {
+const createIntersectionObserver: CreateIntersectionObserver = (options?, component?) => {
   return new IntersectionObservers(options);
 }
 

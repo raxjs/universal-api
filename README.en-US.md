@@ -36,13 +36,3 @@ export default () => (
     }} src='http://herbox-embed-dev.site.alipay.net/p/universal-api/-daily'></iframe>
 );
 ```
-
-## Quick-start
-```bash
-$ npm run start
-```
-
-## Build
-```bash
-$ npm run build
-```
