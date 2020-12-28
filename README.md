@@ -32,6 +32,6 @@ export default () => (
       boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
       width: '100%',
       height: '700px'
-    }} src='http://herbox-embed-dev.site.alipay.net/p/universal-api/-daily'></iframe>
+    }} src='https://herbox.online/p/109000004/app_ZQfEMJN1h?previewZoom=100'></iframe>
 );
 ```

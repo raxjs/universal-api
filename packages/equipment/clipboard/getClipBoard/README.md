@@ -31,7 +31,7 @@ export default () => (
       boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
       width: '375px',
       height: '700px'
-    }} src='http://herbox-embed-dev.site.alipay.net/p/universal-api/-daily?view=preview&defaultPage=pages/universal-clipboard/index'></iframe>
+    }} src='https://herbox.online/p/109000004/app_ZQfEMJN1h?previewZoom=100&view=preview&defaultPage=pages/universal-clipboard/index'></iframe>
 );
 ```
 
@@ -49,6 +49,15 @@ getClipboard().then(res => {
   console.log(res.text);
 });
 
+```
+
+你也可以从大包引入：
+```js
+import { clipboard } from 'universal-api';
+
+clipboard.getClipboard().then(res => {
+  console.log(res.text);
+});
 ```
 
 ## 方法

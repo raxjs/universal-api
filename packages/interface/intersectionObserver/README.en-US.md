@@ -32,6 +32,21 @@ intersectionObserver.relativeTo('.box').observe('.circle', res => {
 
 ```
 
+你也可以从大包引入：
+```js
+import { intersectionObserver } from 'universal-api';
+
+const observer = intersectionObserver({
+  options: {
+    thresholds: [0]
+  }
+});
+
+observer.relativeTo('.box').observe('.circle', res => {
+  console.log(res);
+});
+```
+
 ## Methods
 
 ### `createIntersectionObserver(component, options)`
@@ -151,3 +166,12 @@ Specifies the target node and starts listening on changes in the intersection st
 ### `IntersectionObserver.disconnect()`
 
 Stops listening, and the callback function will no longer be triggered.
+
+## 注意
+
+所有方法在微信小程序的自定义组件中使用的时候，都需要添加第二个参数来指定自定义组件实例：
+
+```js
+// 在 Rax 小程序编译时链路参数为 this._internal
+createIntersectionObserver({thresholds: [0]}, this);
+```

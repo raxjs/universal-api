@@ -49,6 +49,21 @@ setStorage({
 
 ```
 
+你也可以从大包引入：
+```js
+import { storage } from 'universal-api';
+
+storage.setStorage({
+  key: "key",
+  data: {
+    value: 'value'
+  }
+}).then(response => {})
+  .catch(error => {})
+  .finally(res => {});
+
+```
+
 ## 方法
 
 ### `setStorage(options)`

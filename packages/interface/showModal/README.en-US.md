@@ -45,6 +45,12 @@ showModal({
 
 ```
 
+
+你也可以从大包引入：
+```js
+import { showModal } from 'universal-api';
+```
+
 ## Methods
 
 ### `showModal(options)`

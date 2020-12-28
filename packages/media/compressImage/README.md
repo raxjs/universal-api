@@ -43,6 +43,11 @@ compressImage({
 
 ```
 
+你也可以从大包引入：
+```js
+import { compressImage } from 'universal-api';
+```
+
 ## 方法
 
 ### `compressImage(options)`

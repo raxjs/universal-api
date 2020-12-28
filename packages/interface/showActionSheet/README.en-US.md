@@ -38,6 +38,11 @@ showActionSheet({
 
 ```
 
+你也可以从大包引入：
+```js
+import { showActionSheet } from 'universal-api';
+```
+
 ## Methods
 
 ### `showActionSheet(options)`
