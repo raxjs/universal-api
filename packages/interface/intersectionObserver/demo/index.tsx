@@ -1,4 +1,4 @@
-import { createElement, useEffect } from 'rax';
+import { createElement, useState, useEffect } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import ScrollView from 'rax-scrollview';
@@ -12,28 +12,29 @@ const styles = {
   },
   inner: {
     height: '1000rpx',
-    position: 'relative'
+    position: 'relative',
+    alignItems: 'center'
+  },
+  fill: {
+    height: '450rpx'
   },
   circle: {
     background: 'red',
     borderRadius: '50%',
     width: '100rpx',
     height: '100rpx',
-    position: 'absolute',
-    bottom: '100rpx',
-    left: 0,
-    right: 0,
-    margin: 'auto'
+    marginTop: '100rpx'
   }
 }
 
 export default function() {
+  const [appear, setAppear] = useState(false);
 
   useEffect(() => {
     const intersectionObserver = createIntersectionObserver();
 
     intersectionObserver.relativeTo('#block').observe('#circle', res => {
-      console.log(res);
+      setAppear(res.intersectionRatio > 0);
     });
   }, []);
   
@@ -42,6 +43,9 @@ export default function() {
     <View>
       <ScrollView style={styles.block} id="block">
         <View style={styles.inner}>
+          <View>向上滑动</View>
+          <View style={styles.fill}></View>
+          <View>{appear ? '小球出现' : '小球消失'}</View>
           <View style={styles.circle} id="circle"></View>
         </View>
       </ScrollView>
