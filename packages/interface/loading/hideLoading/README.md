@@ -1,4 +1,7 @@
-
+---
+  group:
+    path: /packages/interface
+---
 # hideLoading 
 
 [![npm](https://img.shields.io/npm/v/evapi.svg)](https://www.npmjs.com/package/evapi)

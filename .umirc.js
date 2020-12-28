@@ -3,8 +3,8 @@ export default {
   publicPath: '/universal-api/',
   outputPath: 'docs-dist',
   title: 'universal-api',
-  logo: 'https://img.alicdn.com/tfs/TB1H2Kcb1H2gK0jSZFEXXcqMpXa-70-72.png',
-  favicon: 'https://img.alicdn.com/tfs/TB1H2Kcb1H2gK0jSZFEXXcqMpXa-70-72.png',
+  logo: 'https://img.alicdn.com/imgextra/i3/O1CN01eGRjPe1LHzdKs6S7e_!!6000000001275-2-tps-200-200.png',
+  favicon: 'https://img.alicdn.com/imgextra/i3/O1CN01eGRjPe1LHzdKs6S7e_!!6000000001275-2-tps-200-200.png',
   locales: [
     ['zh-CN', '中文'],
     ['en-US', 'English']
@@ -36,7 +36,7 @@ export default {
     }]
   },
   theme: {
-    '@c-primary': '#f29718',
+    '@c-primary': '#22CD96',
     '@c-heading': '#454d64',
     '@c-text': '#454d64',
     '@c-secondary': '#717484',

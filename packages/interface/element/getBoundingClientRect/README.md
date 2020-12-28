@@ -1,3 +1,7 @@
+---
+  group:
+    path: /packages/interface
+---
 
 # getBoundingClientRect
 [![npm](https://img.shields.io/npm/v/universal-element.svg)](https://www.npmjs.com/package/universal-element)

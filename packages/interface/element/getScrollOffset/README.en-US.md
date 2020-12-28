@@ -1,3 +1,8 @@
+---
+  group:
+    path: /en-US/packages/interface
+---
+
 # getScrollOffset
 
 [![npm](https://img.shields.io/npm/v/universal-element.svg)](https://www.npmjs.com/package/universal-element)

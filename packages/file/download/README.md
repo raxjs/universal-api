@@ -1,3 +1,8 @@
+---
+group:
+  title: 文件
+---
+
 # download
 [![npm](https://img.shields.io/npm/v/universal-file.svg)](https://www.npmjs.com/package/universal-file)
 

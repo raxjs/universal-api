@@ -1,4 +1,7 @@
-
+---
+  group:
+    path: /packages/equipment
+---
 
 # getClipboard 
 

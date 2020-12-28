@@ -1,6 +1,6 @@
 ---
 hero:
-    image: https://img.alicdn.com/tfs/TB1H2Kcb1H2gK0jSZFEXXcqMpXa-70-72.png
+    image: https://img.alicdn.com/imgextra/i3/O1CN01eGRjPe1LHzdKs6S7e_!!6000000001275-2-tps-200-200.png
     title: universal-api
     desc: 一个跨端的API库
     actions:
@@ -18,11 +18,11 @@ features:
     desc: 详尽的api文档及示例 
 ---
 
-# evapi
+# universal-api
 
-基于Rax应用生态，我们提供一系列跨端api帮助用户快速开发多端应用。
+基于rax应用生态，我们提供一系列跨端api帮助用户快速开发多端应用。
 
-```jsx | inline
+<!-- ```jsx | inline
 /**
  * iframe: true
  */
@@ -34,11 +34,11 @@ export default () => (
       height: '700px'
     }} src='https://herbox-embed.alipay.com/p/MiniappComponent/title'></iframe>
 );
-```
+``` -->
 
 ## 快速开始
 ```bash
-$ npm i evapi
+$ npm i universal-api
 ```
 
 ## 构建
