@@ -1,9 +1,5 @@
----
-group:
-  title: 界面
-title: element
----
-# universal-element [![npm](https://img.shields.io/npm/v/universal-element.svg)](https://www.npmjs.com/package/universal-element)
+# getScrollOffset
+[![npm](https://img.shields.io/npm/v/universal-element.svg)](https://www.npmjs.com/package/universal-element)
 
 获取 DOM 节点的信息.
 
@@ -33,11 +29,6 @@ function App() {
       const { scrollTop, scrollLeft } = ret[0];
       console.log(scrollTop, scrollLeft);
     });
-
-    getBoundingClientRect('#container').then((ret) => {
-      const { width, height, top, left, right, bottom } = ret[0];
-      console.log(width, height, top, left, right, bottom);
-    });
   }, []);
 
   return (<>
@@ -56,23 +47,3 @@ getScrollOffet('#container').then((ret) => {
   console.log(scrollTop, scrollLeft);
 });
 ```
-
-### `getBoundingClientRect()`
-
-```js
-getBoundingClientRect('#container').then((ret) => {
-  const { width, height, top, left, right, bottom } = ret[0];
-  console.log(width, height, top, left, right, bottom);
-});
-```
-
-<!-- ### 注意
-所有方法在微信小程序的自定义组件中使用的时候，都需要添加第二个参数来指定自定义组件实例：
-
-```js
-// 在 Rax 小程序编译时链路参数为 this._internal
-getBoundingClientRect('#container', this).then((ret) => {
-  const { width, height, top, left, right, bottom, x, y } = ret[0];
-  console.log(width, height, top, left, right, bottom, x, y);
-});
-``` -->

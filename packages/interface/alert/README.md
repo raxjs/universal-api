@@ -1,7 +1,8 @@
 ---
+group:
+  title: 界面
 title: alert
 ---
-
 # universal-alert [![npm](https://img.shields.io/npm/v/universal-alert.svg)](https://www.npmjs.com/package/universal-alert)
 
 alert 警告框

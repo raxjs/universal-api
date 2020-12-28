@@ -1,3 +1,8 @@
+---
+group:
+  title: 界面
+title: showModal
+---
 # showModal 
 
 [![npm](https://img.shields.io/npm/v/evapi.svg)](https://www.npmjs.com/package/evapi)

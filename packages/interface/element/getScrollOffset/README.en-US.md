@@ -1,10 +1,4 @@
----
-group:
-  title: interface
-title: element
----
-
-# universal-element 
+# getScrollOffset
 
 [![npm](https://img.shields.io/npm/v/universal-element.svg)](https://www.npmjs.com/package/universal-element)
 
@@ -36,11 +30,6 @@ function App() {
       const { scrollTop, scrollLeft } = ret[0];
       console.log(scrollTop, scrollLeft);
     });
-
-    getBoundingClientRect('#container').then((ret) => {
-      const { width, height, top, left, right, bottom } = ret[0];
-      console.log(width, height, top, left, right, bottom);
-    });
   }, []);
 
   return (<>
@@ -59,14 +48,3 @@ getScrollOffet('#container').then((ret) => {
   console.log(scrollTop, scrollLeft);
 });
 ```
-
-<!-- ### `getBoundingClientRect()`
-
-In MiniApp or WechatMiniProgram, there isn't `x`, `y`.
-
-```js
-getBoundingClientRect().then((ret) => {
-  const { width, height, top, left, right, bottom, x, y } = ret[0];
-  console.log(width, height, top, left, right, bottom, x, y);
-});
-``` -->
