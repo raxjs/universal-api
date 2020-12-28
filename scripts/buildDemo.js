@@ -68,8 +68,8 @@ const allTask = async () => {
             "title": i.name
           }
         });
-        packageContent.dependencies[i.name] = path.resolve(root, outputDir, i.name);
       }
+      packageContent.dependencies[i.name] = path.resolve(root, outputDir, i.name);
     });
     
     // res.push(`npm run build ${key}`);
