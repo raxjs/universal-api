@@ -8,17 +8,39 @@ import {download, getInfo, save, openDocument} from 'universal-file';
 import alert from 'universal-alert';
 import chooseImage from 'universal-choose-image';
 
+const styles = {
+  flex: {
+    flexDirection: 'row'
+  },
+  button: {
+    margin: '10rpx',
+    padding: '20rpx',
+    background: 'rgb(38, 115, 67)',
+    color: '#fff',
+    fontSize: '26rpx',
+    textAlign: 'center'
+  },
+  input: {
+    border: '1px solid #eee',
+    margin: '10rpx'
+  }
+};
 const Index = () => {
   const [img2, setImg2] = useState('');
   const getFileInfoHandler = () => {
     download({
-      url: 'https://s3.pstatp.com/toutiao/resource/developer/static/img/main-logo.8e3a839.png',
+      url: 'https://gw.alicdn.com/tfs/TB18EuDjGNj0u4jSZFyXXXgMVXa-225-225.jpg',
       success(res) {
         // 获取下载的文件信息
-        getInfo({apFilePath: res.apFilePath});
+        getInfo({filePath: res.tempFilePath, success: (res) => {
+          alert({
+            title: '提示',
+            content: '下载文件的信息为' + JSON.stringify(res),
+          });
+        }});
       },
       fail(res) {
-        console.log('下载失败', res.errMsg);
+        console.log('下载失败' + res.errMsg);
       },
     });
   };
@@ -30,20 +52,36 @@ const Index = () => {
         if (tempFilePaths[0]) {
           // 保存到用户目录
           save({tempFilePath: tempFilePaths[0], success: (res) => {
-            alert('文件保存成功：' + res.savedFilePath);
+            alert({
+              title: '提示',
+              content: '文件保存成功：' + res.savedFilePath,
+            });
+          }, fail: (e) => {
+            alert({
+              title: '提示',
+              content: '文件保存失败：' + JSON.stringify(e),
+            });
           }});
         }
       },
-    });
+      fail: (e) => {
+        alert({
+          title: '提示',
+          content: '文件保存失败：' + JSON.stringify(e),
+        });
+      }
+    }).then(e => console.log(e)).catch(e => console.log(e));
   };
   const downloadHandler = () => {
     download({
-      // 仅为示例 url，并非真实地址
       url: 'https://gw.alicdn.com/tfs/TB18EuDjGNj0u4jSZFyXXXgMVXa-225-225.jpg',
       success: function(res) {
         const filePath = res.tempFilePath;
         setImg2(filePath);
-        alert('下载成功', res.tempFilePath);
+        alert({
+          title: '提示',
+          content: '下载成功' + res.tempFilePath,
+        });
       },
     });
   };
@@ -64,18 +102,21 @@ const Index = () => {
   };
   return (
     <View>
-      <View onClick={getFileInfoHandler}>
-        <Text>点击获取文件信息</Text>
+      <View style={styles.button} onClick={getFileInfoHandler}>
+        点击获取文件信息
       </View>
-      <View onClick={saveHandler}>
-        <Text>点击保存临时文件</Text>
+      <View style={styles.button} onClick={saveHandler}>
+        点击保存临时文件
       </View>
-      <View onClick={openDocumentHandler}>
-        <Text>点击打开pdf文件</Text>
+      <View style={styles.button} onClick={openDocumentHandler}>
+       点击打开pdf文件
       </View>
-      <Image x-if={img2} source={{uri: img2}} />
-      <View onClick={downloadHandler}>
-        <Text>点击下载图片</Text>
+      <View x-if={img2} style={{flexDirection: 'row', justifyContent: 'center'}}>
+        <Image resizeMode="cover"
+          mode="aspectFill" source={{uri: img2}} />
+      </View>
+      <View style={styles.button} onClick={downloadHandler}>
+       点击下载图片
       </View>
     </View>
   );

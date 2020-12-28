@@ -83,7 +83,7 @@ export interface RemoveSavedOptions {
 
 export interface OpenDocumentOptions {
   filePath: string;
-  fileType: 'pdf';
+  fileType?: 'pdf';
   success?: () => void;
   fail?: (res: Error) => void;
   complete?: (res?: Error) => void;

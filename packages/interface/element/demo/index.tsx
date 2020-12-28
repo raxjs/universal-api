@@ -1,7 +1,31 @@
 import { createElement, useState } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import {getScrollOffet, getBoundingClientRect} from 'universal-element';
+import {getScrollOffset, getBoundingClientRect} from 'universal-element';
+
+const styles = {
+  flex: {
+    flexDirection: 'row'
+  },
+  button: {
+    margin: '10rpx',
+    padding: '20rpx',
+    background: 'rgb(38, 115, 67)',
+    color: '#fff',
+    fontSize: '26rpx',
+    textAlign: 'center'
+  },
+  demo1: {
+    border: '1px solid #eee',
+    padding: '20rpx',
+    fontSize: '26rpx',
+    textAlign: 'center',
+    margin: '20rpx'
+  },
+  preview: {
+    padding: '20rpx',
+  }
+};
 
 const Index = () => {
   const [demoInfo, setDemoInfo] = useState({
@@ -10,10 +34,10 @@ const Index = () => {
   });
   return (
     <View>
-      <View id="demo1">
+      <View id="demo1" style={styles.demo1}>
         <Text>我是demo1</Text>
       </View>
-      <View onClick={() => getScrollOffet('#demo1').then((ret) => {
+      <View style={styles.button} onClick={() => getScrollOffset('#demo1').then((ret) => {
         const { scrollTop, scrollLeft } = ret[0];
         console.log(scrollTop, scrollLeft);
         setDemoInfo(state => ({
@@ -22,25 +46,26 @@ const Index = () => {
           scrollLeft,
         }));
       })}>
-        <Text>点击获取demo1的scrollTop和scrollLeft</Text>
+        点击获取demo1的scrollTop和scrollLeft
       </View>
-      <View onClick={() => getBoundingClientRect('#demo1').then((ret) => {
+      <View style={styles.button} onClick={() => getBoundingClientRect('#demo1').then((ret) => {
+        console.log(ret[0]);
         setDemoInfo(state => ({
           ...state,
           ...ret[0]
         }));
       })}>
-        <Text>点击获取demo1的boundingClientRect</Text>
+        点击获取demo1的boundingClientRect
       </View>
-      <View>
-        <View>scrollTop: {demoInfo.scrollTop}</View>
-        <View>scrollLeft: {demoInfo.scrollLeft}</View>
-        <View>width: {demoInfo.width}</View>
-        <View>height: {demoInfo.height}</View>
-        <View>left: {demoInfo.left}</View>
-        <View>right: {demoInfo.right}</View>
-        <View>top: {demoInfo.top}</View>
-        <View>bottom: {demoInfo.bottom}</View>
+      <View style={styles.preview}>
+        <View style={styles.preview}>scrollTop: {demoInfo.scrollTop}</View>
+        <View style={styles.preview}>scrollLeft: {demoInfo.scrollLeft}</View>
+        <View style={styles.preview}>width: {demoInfo.width}</View>
+        <View style={styles.preview}>height: {demoInfo.height}</View>
+        <View style={styles.preview}>left: {demoInfo.left}</View>
+        <View style={styles.preview}>right: {demoInfo.right}</View>
+        <View style={styles.preview}>top: {demoInfo.top}</View>
+        <View style={styles.preview}>bottom: {demoInfo.bottom}</View>
       </View>
     </View>
   );

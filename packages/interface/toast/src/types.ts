@@ -19,8 +19,8 @@ export interface HideToastOption {
 }
 
 export interface WebQueueOption {
-  message: string;
-  duration: number;
+  content: string;
+  duration?: number;
   icon?: 'success' | 'fail' | 'none';
   success?: () => void;
   fail?: (res) => void;

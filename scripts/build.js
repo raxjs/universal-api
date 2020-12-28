@@ -201,6 +201,9 @@ if (apiName) {
     console.log(err);
   });
 } else {
+  allTask();
+  shellRes = shellResList.join(' && ');
+  shelljs.exec(shellRes);
   // let res = [];
   // Object.entries(sourceMap).map(([key, value]) => {
   //   res.push(`npm run build ${key}`);

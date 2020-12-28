@@ -5,22 +5,39 @@ import View from 'rax-view';
 import Text from 'rax-text';
 import Toast from 'universal-toast';
 
+const styles = {
+  flex: {
+    flexDirection: 'row'
+  },
+  button: {
+    margin: '10rpx',
+    padding: '20rpx',
+    background: 'rgb(38, 115, 67)',
+    color: '#fff',
+    fontSize: '26rpx',
+    textAlign: 'center'
+  },
+  input: {
+    border: '1px solid #eee',
+    margin: '10rpx'
+  }
+};
 const Index = () => {
   return (
     <View>
-      <View onClick={() => Toast.show('默认提示')}>
+      <View style={styles.button} onClick={() => Toast.show('默认提示')}>
         <Text>点击弹出普通弹窗</Text>
       </View>
-      <View onClick={() => Toast.show({type: 'success', message: 'success提示'})}>
+      <View style={styles.button} onClick={() => Toast.show({type: 'success', content: 'success提示'})}>
         <Text>点击弹出success弹窗</Text>
       </View>
-      <View onClick={() => Toast.show({type: 'fail', message: 'fail提示'})}>
+      <View style={styles.button} onClick={() => Toast.show({type: 'fail', content: 'fail提示'})}>
         <Text>点击弹出fail弹窗</Text>
       </View>
-      <View onClick={() => Toast.show({type: 'none', message: '5s提示', duration: 5000})}>
+      <View style={styles.button} onClick={() => Toast.show({type: 'none', content: '5s提示', duration: 5000})}>
         <Text>点击弹出5s弹窗</Text>
       </View>
-      <View onClick={() => Toast.hide()}>
+      <View style={styles.button} onClick={() => Toast.hide()}>
         <Text>点击关闭弹窗</Text>
       </View>
     </View>

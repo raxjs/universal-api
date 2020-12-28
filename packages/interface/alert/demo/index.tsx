@@ -3,17 +3,34 @@ import View from 'rax-view';
 import Text from 'rax-text';
 import alert from 'universal-alert';
 
+const styles = {
+  flex: {
+    flexDirection: 'row'
+  },
+  button: {
+    margin: '10rpx',
+    padding: '20rpx',
+    background: 'rgb(38, 115, 67)',
+    color: '#fff',
+    fontSize: '26rpx',
+    textAlign: 'center'
+  },
+  input: {
+    border: '1px solid #eee',
+    margin: '10rpx'
+  }
+};
 const Index = () => {
   return (
     <View>
-      <View onClick={() => alert({
+      <View style={styles.button} onClick={() => alert({
         content: '我是一个弹窗',
         title: '弹窗',
         buttonText: '确定'
       })}>
-        <Text>点击弹出普通弹窗</Text>
+        点击弹出普通弹窗
       </View>
-      <View onClick={() => alert({
+      <View style={styles.button} onClick={() => alert({
         content: '我是一个弹窗',
         title: '弹窗',
         buttonText: '确定',
@@ -25,7 +42,7 @@ const Index = () => {
           });
         }
       })}>
-        <Text>点击监听点击</Text>
+       点击监听点击
       </View>
     </View>
   );

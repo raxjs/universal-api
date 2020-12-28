@@ -4,14 +4,31 @@ import Text from 'rax-text';
 import getApp from 'universal-getapp';
 import {show} from 'universal-toast';
 
+const styles = {
+  flex: {
+    flexDirection: 'row'
+  },
+  button: {
+    margin: '10rpx',
+    padding: '20rpx',
+    background: 'rgb(38, 115, 67)',
+    color: '#fff',
+    fontSize: '26rpx',
+    textAlign: 'center'
+  },
+  input: {
+    border: '1px solid #eee',
+    margin: '10rpx'
+  }
+};
+
 export default function() {
   return (
     <View>
-      <Text>errorEvent</Text>
-      <View onClick={() => {
+      <View style={styles.button} onClick={() => {
         getApp().globalData = 'I am global data';
       }}>设置全局属性</View>
-      <View onClick={() => {
+      <View style={styles.button} onClick={() => {
         show(getApp().globalData);
       }}>获取全局属性</View>
     </View>
