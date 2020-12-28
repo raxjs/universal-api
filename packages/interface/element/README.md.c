@@ -1,7 +1,8 @@
 ---
 title: element
 ---
-# universal-element [![npm](https://img.shields.io/npm/v/universal-element.svg)](https://www.npmjs.com/package/universal-element)
+# universal-element 
+[![npm](https://img.shields.io/npm/v/universal-element.svg)](https://www.npmjs.com/package/universal-element)
 
 获取 DOM 节点的信息.
 
