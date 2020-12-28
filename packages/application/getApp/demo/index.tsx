@@ -2,7 +2,7 @@ import { createElement, useEffect, useState, useRef } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import getApp from 'universal-getapp';
-import {showToast} from 'universal-toast';
+import {show} from 'universal-toast';
 
 export default function() {
   return (
@@ -12,7 +12,7 @@ export default function() {
         getApp().globalData = 'I am global data';
       }}>设置全局属性</View>
       <View onClick={() => {
-        showToast(getApp().globalData);
+        show(getApp().globalData);
       }}>获取全局属性</View>
     </View>
   );

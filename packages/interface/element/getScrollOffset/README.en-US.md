@@ -53,3 +53,15 @@ getScrollOffet('#container').then((ret) => {
   console.log(scrollTop, scrollLeft);
 });
 ```
+
+## Note
+
+When all methods are used in the custom component of the WeChat applet, you need to add a second parameter to specify the custom component instance:
+
+```js
+// When compiling the Rax applet, the link parameters are this._internal
+getScrollOffet('#container', this).then((ret) => {
+  const { scrollTop, scrollLeft } = ret[0];
+  console.log(scrollTop, scrollLeft);
+});
+```

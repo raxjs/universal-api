@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 // @ts-ignore
-import { createElement } from 'rax';
+import { createElement, useState } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import Image from 'rax-image';
@@ -12,13 +12,13 @@ const Index = () => {
   const [img2, setImg2] = useState('');
   const getFileInfoHandler = () => {
     download({
-      url: 'https://s3.pstatp.com/toutiao/resource/developer/static/img/main-logo.8e3a839.png',
+      url: 'https://gw.alicdn.com/tfs/TB18EuDjGNj0u4jSZFyXXXgMVXa-225-225.jpg',
       success(res) {
         // 获取下载的文件信息
         getInfo({apFilePath: res.apFilePath});
       },
       fail(res) {
-        console.log('下载失败', res.errMsg);
+        console.log('下载失败' + res.errMsg);
       },
     });
   };
@@ -38,12 +38,11 @@ const Index = () => {
   };
   const downloadHandler = () => {
     download({
-      // 仅为示例 url，并非真实地址
       url: 'https://gw.alicdn.com/tfs/TB18EuDjGNj0u4jSZFyXXXgMVXa-225-225.jpg',
       success: function(res) {
         const filePath = res.tempFilePath;
         setImg2(filePath);
-        alert('下载成功', res.tempFilePath);
+        alert('下载成功:' + res.tempFilePath);
       },
     });
   };

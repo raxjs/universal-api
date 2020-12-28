@@ -1,6 +1,6 @@
 export interface Element {
-  getScrollOffset: (string) => Promise<any[]>;
-  getBoundingClientRect: (string) => Promise<any[]>;
+  getScrollOffset: (selector: string, context?: any) => Promise<any[]>;
+  getBoundingClientRect: (selector: string, context?: any) => Promise<any[]>;
 }
 
 export interface Context {

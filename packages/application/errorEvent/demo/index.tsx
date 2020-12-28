@@ -2,11 +2,11 @@ import { createElement, useEffect, useState, useRef } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import errorEvent from 'universal-error-event';
-import {showToast} from 'universal-toast';
+import {show} from 'universal-toast';
 
 export default function() {
   const ref = useRef((res) => {
-    showToast('捕获到一个错误');
+    show('捕获到一个错误');
   });
   return (
     <View>
