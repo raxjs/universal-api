@@ -4,7 +4,7 @@ group:
 title: errorEvent
 ---
 
-# universal-error-event 
+# errorEvent 
 [![npm](https://img.shields.io/npm/v/universal-error-event.svg)](https://www.npmjs.com/package/universal-error-event)
 
 错误事件的监听与取消

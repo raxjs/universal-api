@@ -1,8 +1,9 @@
 ---
-title: canvas-context
+title: createCanvasContext
 ---
 
-# canvas-context [![npm](https://img.shields.io/npm/v/universal-canvas-context.svg)](https://www.npmjs.com/package/universal-canvas-context)
+# createCanvasContext 
+[![npm](https://img.shields.io/npm/v/universal-canvas-context.svg)](https://www.npmjs.com/package/universal-canvas-context)
 
 Universal canvas api.
 

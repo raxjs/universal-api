@@ -2,7 +2,8 @@
 title: unit-tool
 ---
 
-# universal-unit-tool [![npm](https://img.shields.io/npm/v/universal-unit-tool.svg)](https://www.npmjs.com/package/universal-unit-tool)
+# unitTool 
+[![npm](https://img.shields.io/npm/v/universal-unit-tool.svg)](https://www.npmjs.com/package/universal-unit-tool)
 
 Unit tool
 

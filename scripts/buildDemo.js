@@ -43,8 +43,8 @@ const allTask = async () => {
   
   const demoPath = path.resolve(root, demoOutputDir);
   
-  const appJsonContent = require(path.resolve(root, 'scripts/source/demos/src/app.json'));
-  const packageContent = require(path.resolve(root, 'scripts/source/demos/demo-package-tpl.js'));
+  const appJsonContent = require(path.resolve(root, 'scripts/source/demosSource/src/app.json'));
+  const packageContent = require(path.resolve(root, 'scripts/source/demosSource/demo-package-tpl.js'));
   if (!fs.pathExistsSync(path.resolve(demoPath, 'src/pages'))) {
     fs.mkdirSync(path.resolve(demoPath, 'src/pages'));
   }
@@ -78,15 +78,15 @@ const allTask = async () => {
   // fs.mkdirSync(path.resolve(demoPath, 'src/pages'));
   await fs.outputJSON(path.resolve(root, demoPath, 'package.json'), packageContent);
   await fs.outputJSON(path.resolve(root, demoPath, 'src/app.json'), appJsonContent);
-  fs.copyFileSync(path.resolve(root, 'scripts/source/demos/src/app.js'), path.resolve(demoPath, 'src/app.js'));
+  fs.copyFileSync(path.resolve(root, 'scripts/source/demosSource/src/app.js'), path.resolve(demoPath, 'src/app.js'));
   // fs.copyFileSync(path.resolve(root, 'scripts/demos/src/app.json'), path.resolve(demoPath, 'src/app.js'));
   if (!fs.pathExistsSync(path.resolve(demoPath, 'src/pages/Home'))) {
     fs.mkdirSync(path.resolve(demoPath, 'src/pages/Home'));
   }
-  fs.copyFileSync(path.resolve(root, 'scripts/source/demos/src/pages/index.tsx'), path.resolve(demoPath, 'src/pages/Home/index.tsx'));
-  fs.copyFileSync(path.resolve(root, 'scripts/source/demos/build.json'), path.resolve(demoPath, 'build.json'));
-  fs.copyFileSync(path.resolve(root, 'scripts/source/demos/herbox.json'), path.resolve(demoPath, 'herbox.json'));
-  fs.copyFileSync(path.resolve(root, 'scripts/source/demos/herbox.js'), path.resolve(demoPath, 'herbox.js'));
+  fs.copyFileSync(path.resolve(root, 'scripts/source/demosSource/src/pages/index.tsx'), path.resolve(demoPath, 'src/pages/Home/index.tsx'));
+  fs.copyFileSync(path.resolve(root, 'scripts/source/demosSource/build.json'), path.resolve(demoPath, 'build.json'));
+  fs.copyFileSync(path.resolve(root, 'scripts/source/demosSource/herbox.json'), path.resolve(demoPath, 'herbox.json'));
+  fs.copyFileSync(path.resolve(root, 'scripts/source/demosSource/herbox.js'), path.resolve(demoPath, 'herbox.js'));
   // shellResList.push(...res);
   // shellRes = res.join(' && ');
   logger('END', {status: 'SUCCESS'});

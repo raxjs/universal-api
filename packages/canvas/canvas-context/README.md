@@ -1,10 +1,10 @@
 ---
 group:
   title: 画布
-title: canvas-context
+title: createCanvasContext
 ---
 
-# canvas-context 
+# createCanvasContext 
 [![npm](https://img.shields.io/npm/v/universal-canvas-context.svg)](https://www.npmjs.com/package/universal-canvas-context)
 
 一个适配多端的 canvas api。
