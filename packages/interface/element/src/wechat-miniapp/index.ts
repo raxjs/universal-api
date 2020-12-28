@@ -2,7 +2,7 @@ import {styleBoundingClientRectResponse} from '../common';
 
 export const getScrollOffset = (selector: string): Promise<any[]> => {
   return new Promise(resolve => {
-    const ele = document.querySelector(selector);
+    const ele: any = document.querySelector(selector);
     if (!ele || !ele._internal) {
       console.warn('element not found', selector);
       resolve([]);
@@ -15,7 +15,7 @@ export const getScrollOffset = (selector: string): Promise<any[]> => {
 
 export const getBoundingClientRect = (selector: string): Promise<any[]> => {
   return new Promise(resolve => {
-    const ele = document.querySelector(selector);
+    const ele: any = document.querySelector(selector);
     if (!ele || !ele._internal) {
       console.warn('element not found', selector);
       resolve([]);

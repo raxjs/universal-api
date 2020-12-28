@@ -19,7 +19,7 @@ const root = process.cwd();
 const outputDir = 'dist/';
 
 module.exports = (inputPath, itemOutputPath, sourceMap, apiInfo) => {
-  const isMain = inputPath.indexOf('packages/index.ts') !== -1;
+  const isMain = inputPath.indexOf('packages/main/index.ts') !== -1;
   const sourcePath = isMain ? inputPath.replace(/\/index\.(t|j)s/, '') : inputPath.replace(/\/src\/.*/, '');
   const outputPath = outputDir + itemOutputPath;
   // const typesPath = path.resolve(root, inputPath.replace("index.ts", "types.ts"));
@@ -70,7 +70,7 @@ module.exports = (inputPath, itemOutputPath, sourceMap, apiInfo) => {
           input: _inputPath,
           output: outputMap[format],
           external: [format == 'umd' ? '' : /@babel\/runtime/],
-          plugins: [
+          plugins: [...(isMain ? [progress()] : []),...[
             // progress(),
             alias(format == 'umd' || isMain ? {
               entries: [...aliasEntries],
@@ -164,8 +164,8 @@ module.exports = (inputPath, itemOutputPath, sourceMap, apiInfo) => {
               ],
             }),
             visualizer(),
-            filesize(),
-          ],
+            // filesize(),
+          ]],
         }
       }
     )

@@ -1,4 +1,4 @@
-import { initApiSet } from '../common';
+import { initApiSet, initApiGet } from '../common';
 import { PARAMS } from '../types';
 
 export const setClipboard = initApiSet((args: PARAMS) => {
@@ -29,7 +29,10 @@ export const setClipboard = initApiSet((args: PARAMS) => {
     fail();
   }
 });
-
+export const getClipboard = initApiGet(() => {
+  throw new Error('universal-api: getClipboard不支持');
+});
 export default {
-  setClipboard
+  setClipboard,
+  getClipboard
 };

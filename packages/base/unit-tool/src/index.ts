@@ -1,5 +1,6 @@
-import { screenWidth } from 'universal-device';
+import getSystemInfoSync from 'universal-getsysteminfosync';
 
+const {screenWidth} = getSystemInfoSync();
 const CALCULATION_ACCURACY = 8;
 
 export const px2rpx = (value: number) => {

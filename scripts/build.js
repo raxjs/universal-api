@@ -36,13 +36,13 @@ function logger( text = '', opts = { status: 'INFO' } ) {
   }
   console.log(logText);
 }
-const compiler = async(config, packageInfo, _outputPath) => {
+const compiler = async(config, packageInfo, _outputPath, needType = true, needReadme = true) => {
   const inputOptions = config[0];
   
-  const isMain = inputOptions.input.indexOf('packages/index.ts') !== -1;
+  const isMain = inputOptions.input.indexOf('packages/main/index.ts') !== -1;
   const tsPath = inputOptions.input.replace(/\.(t|j)s/, '.d.ts');
   const typesPath = path.resolve(root, inputOptions.input.replace("index.ts", "types.ts"));
-  logger(`开始编译 ${packageInfo.name}`);
+  logger(`---------- 开始编译 ${packageInfo.name} ----------`);
   
   // 写入当前组件包的依赖
   packageTpl.version = packageInfo.version;
@@ -51,7 +51,6 @@ const compiler = async(config, packageInfo, _outputPath) => {
   if (isMain) {
     delete packageTpl.dependencies['universal-env'];
   }
-  console.log('111', _outputPath)
   // packageTpl.dependencies[componentPackage.name] = path.relative(distDir, root) + '/';
   await fs.outputJSON(path.resolve(root, _outputPath + 'package.json'), packageTpl);
   if (packageInfo.dependencies) {
@@ -77,7 +76,7 @@ const compiler = async(config, packageInfo, _outputPath) => {
       await bundle.write(outputOptions);
       bundle = null;
       // spinner.succeed(`编译结束 ${outputOptions.file}`);
-      // logger(`编译结束 ${outputOptions.file}`);
+      logger(`编译结束 ${outputOptions.file}`);
       await next();
     });
   });
@@ -96,7 +95,7 @@ const compiler = async(config, packageInfo, _outputPath) => {
   // // or write the bundle to disk
   // await bundle.write(outputOptions);
   // spinner.succeed(`编译结束`);
-  logger(`编译结束 ${packageInfo.name}`);
+  logger(`---------- 编译结束 ${packageInfo.name} ----------`);
   // await next();
 };
 const release = (sourcePath, packageInfo, outputPath, apiInfo) => {
@@ -139,20 +138,43 @@ const allTask = () => {
   // shellRes = res.join(' && ');
 };
 const mainTask = () => {
-  // const buildDts = async (ctx, next) => {
-  //   // buildDTS(Object.entries(sourceMap).map(([key, value]) => value.path), path.resolve(root, outputDir, 'main'));
-  //   await next();
-  // };
-  
   const indexFileContent = Object.entries(sourceMap).map(([key, value]) => {
-    return `export * as ${key} from '${value.path.replace('packages/', './').replace(/\.(t|j)s/, '')}';`;
+    return `export * as ${key} from '${value.path.replace('packages/', '../').replace(/\.(t|j)s/, '')}';`;
   }).join('\r\n');
-  fs.writeFileSync('packages/index.ts', indexFileContent);
+  const wechatFileContent = Object.entries(sourceMap).map(([key, value]) => {
+    if (value.unNeedSplit) {
+      return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\.(t|j)s/, '')}';`;
+    }
+    return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\/src/, '/src/wechat-miniapp').replace(/\.(t|j)s/, '')}';`;
+  }).join('\r\n');
+  const aliFileContent = Object.entries(sourceMap).map(([key, value]) => {
+    if (value.unNeedSplit) {
+      return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\.(t|j)s/, '')}';`;
+    }
+    return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\/src/, '/src/ali-miniapp').replace(/\.(t|j)s/, '')}';`;
+  }).join('\r\n');
+  const byteFileContent = Object.entries(sourceMap).map(([key, value]) => {
+    if (value.unNeedSplit) {
+      return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\.(t|j)s/, '')}';`;
+    }
+    return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\/src/, '/src/byte-miniapp').replace(/\.(t|j)s/, '')}';`;
+  }).join('\r\n');
+  const webFileContent = Object.entries(sourceMap).map(([key, value]) => {
+    if (value.unNeedSplit) {
+      return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\.(t|j)s/, '')}';`;
+    }
+    return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\/src/, '/src/web').replace(/\.(t|j)s/, '')}';`;
+  }).join('\r\n');
+  fs.writeFileSync('packages/main/index.ts', indexFileContent);
+  fs.writeFileSync('packages/main/wechat-miniapp/index.ts', wechatFileContent);
+  fs.writeFileSync('packages/main/ali-miniapp/index.ts', aliFileContent);
+  fs.writeFileSync('packages/main/byte-miniapp/index.ts', byteFileContent);
+  fs.writeFileSync('packages/main/web/index.ts', webFileContent);
   taskList.push(
-    release('packages/index.ts', {
+    release('packages/main/index.ts', {
       version: mainPkg.version,
       name: mainPkg.name,
-    }, 'main/', {unNeedSplit: false})
+    }, 'main/', {unNeedSplit: false}),
   );
 };
 let shellRes = '';
@@ -168,24 +190,8 @@ if (apiName) {
   });
 } else if (process.env.BUILD_TYPE === 'all') {
   allTask();
-  // const spinner = ora('Loading unicorns');
-  // spinner.start(`开始编译 ${process.argv[2] || process.env.BUILD_TYPE || 'evapi'}`);
-  // shellResList.forEach(i => {
-  //   // logger(`开始编译 ${i}`);
-  //   shelljs.exec(i, {async: false, slient: false}, () => {
-  //     logger('END', {status: 'SUCCESS'});
-  //   });
-  // });
-  // let res = [];
-  // Object.entries(sourceMap).map(([key, value]) => {
-  //   res.push(`npm run build ${key}`);
-  //   // taskList.push(...getConfList(key));
-  // });
-  // shellRes = 'parallelshell "' + shellResList.join('" "') + '"';
   shellRes = shellResList.join(' && ');
-  shelljs.exec(shellRes, {async: true, slient: false}, (code, stdout, stderr) => {
-    console.log('编译完成')
-  });
+  shelljs.exec(shellRes);
   // allTask();
 } else if (process.env.BUILD_TYPE === 'main') {
   mainTask();
@@ -195,14 +201,14 @@ if (apiName) {
     console.log(err);
   });
 } else {
-  let res = [];
-  Object.entries(sourceMap).map(([key, value]) => {
-    res.push(`npm run build ${key}`);
-    // taskList.push(...getConfList(key));
-  });
-  shellRes = res.join(' && ');
-  shellRes += ' && npm run build:main';
-  shelljs.exec(shellRes);
+  // let res = [];
+  // Object.entries(sourceMap).map(([key, value]) => {
+  //   res.push(`npm run build ${key}`);
+  //   // taskList.push(...getConfList(key));
+  // });
+  // shellRes = res.join(' && ');
+  // shellRes += ' && npm run build:main';
+  // shelljs.exec(shellRes);
   // 默认构建全部api
   // allTask();
   // mainTask();
