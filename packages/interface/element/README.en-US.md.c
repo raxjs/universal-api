@@ -57,14 +57,3 @@ getScrollOffet('#container').then((ret) => {
   console.log(scrollTop, scrollLeft);
 });
 ```
-
-<!-- ### `getBoundingClientRect()`
-
-In MiniApp or WechatMiniProgram, there isn't `x`, `y`.
-
-```js
-getBoundingClientRect().then((ret) => {
-  const { width, height, top, left, right, bottom, x, y } = ret[0];
-  console.log(width, height, top, left, right, bottom, x, y);
-});
-``` -->

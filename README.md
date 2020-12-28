@@ -22,7 +22,7 @@ features:
 
 基于rax应用生态，我们提供一系列跨端api帮助用户快速开发多端应用。
 
-<!-- ```jsx | inline
+```jsx | inline
 /**
  * iframe: true
  */
@@ -32,9 +32,9 @@ export default () => (
       boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
       width: '100%',
       height: '700px'
-    }} src='https://herbox-embed.alipay.com/p/MiniappComponent/title'></iframe>
+    }} src='http://herbox-embed-dev.site.alipay.net/p/universal-api/-daily'></iframe>
 );
-``` -->
+```
 
 ## 快速开始
 ```bash

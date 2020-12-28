@@ -1,5 +1,5 @@
 module.exports = {
-  'name': 'evapi',
+  'name': 'universal-api',
   'version': '1.0.0',
   'description': '',
   'main': 'index.js',

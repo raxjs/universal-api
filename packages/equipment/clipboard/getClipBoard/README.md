@@ -21,6 +21,20 @@ $ npm install universal-api --save
 ```
 ## 示例
 
+```jsx | inline
+/**
+ * iframe: true
+ */
+import React from 'react';
+export default () => (
+  <iframe style={{
+      boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
+      width: '375px',
+      height: '700px'
+    }} src='http://herbox-embed-dev.site.alipay.net/p/universal-api/-daily?view=preview&defaultPage=pages/universal-clipboard/index'></iframe>
+);
+```
+
 ```javascript
 import getClipboard from 'universal-getClipboard';
 

@@ -13,6 +13,7 @@ const copy = require('rollup-plugin-copy');
 const alias = require('@rollup/plugin-alias');
 const {terser} = require("rollup-plugin-terser");
 const filesize = require("rollup-plugin-filesize");
+const fs = require('fs-extra');
 const conf = require('./config');
 // const del = require("rollup-plugin-delete");
 const root = process.cwd();
@@ -159,8 +160,11 @@ module.exports = (inputPath, itemOutputPath, sourceMap, apiInfo) => {
             json(),
             copy({
               targets: [
-                { src: isMain ? path.resolve(root, 'README.md') : path.resolve(root, sourcePath + '/README.md'), dest: path.resolve(root, outputPath)},
-                { src: isMain ? path.resolve(root, 'README-en-US.md') : path.resolve(root, sourcePath + '/README-en-US.md'), dest: path.resolve(root, outputPath)}
+                { src: isMain ? 
+                  path.resolve(root, 'README.md') : 
+                  (fs.pathExistsSync(path.resolve(root, sourcePath + '/README.md')) ? path.resolve(root, sourcePath + '/README.md') : path.resolve(root, sourcePath + '/README.md.c')), 
+                  dest: path.resolve(root, outputPath), rename: 'README.md'},
+                { src: isMain ? path.resolve(root, 'README.en-US.md') : (fs.pathExistsSync(path.resolve(root, sourcePath + '/README.en-US.md')) ? path.resolve(root, sourcePath + '/README.en-US.md') : path.resolve(root, sourcePath + '/README.en-US.md.c')), dest: path.resolve(root, outputPath), rename: 'README.en-US.md'}
               ],
             }),
             visualizer(),

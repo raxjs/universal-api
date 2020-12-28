@@ -1,11 +1,13 @@
 module.exports = {
-  'name': 'evapi',
+  'name': 'universal-api',
   'version': '1.0.0',
   'description': '',
   'typings': 'types/index.d.ts',
   "scripts": {
     "start": "rax-app start",
     "build": "rax-app build",
+    "herbox":"node herbox.js",
+    "herbox:online":"node herbox.js --prod",
     "lint": "eslint --ext .js --ext .jsx ./"
   },
   'dependencies': {
@@ -23,6 +25,7 @@ module.exports = {
     '@babel/runtime-corejs3': '^7.11.0'
   },
   "devDependencies": {
+    "@alipay/herbox-cli": "^0.10.1",
     "rax-app": "^3.0.0",
     "@iceworks/spec": "^1.0.0",
     "@types/rax": "^1.0.0",

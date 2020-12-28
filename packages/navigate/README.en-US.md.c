@@ -2,7 +2,8 @@
 title: navigate
 ---
 
-# universal-navigate [![npm](https://img.shields.io/npm/v/universal-navigate.svg)](https://www.npmjs.com/package/universal-navigate)
+# navigate 
+[![npm](https://img.shields.io/npm/v/universal-navigate.svg)](https://www.npmjs.com/package/universal-navigate)
 
 Route navigation capability implementation.
 
@@ -19,25 +20,25 @@ $ npm install universal-navigate --save
 ## Usage
 
 ```js
-import Navigate from 'universal-navigate';
+import navigate from 'universal-navigate';
 
 // How to use it in quickapp
 // import chooseImage from 'universal-navigate/lib/quickapp;
 
-Navigate.push({
+navigate.push({
   url: 'https://www.taobao.com/'
 }).then(() => {
 });
 
-Navigate.pop().then(() => {
+navigate.pop().then(() => {
 });
 
-Navigate.go({
+navigate.go({
   step: -1
 }).then(() => {
 });
 
-Navigate.replace({
+navigate.replace({
   url: 'https://www.taobao.com/'
 }).then(() => {
 });

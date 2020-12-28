@@ -2,7 +2,8 @@
 title: accelerometer
 ---
 
-# universal-accelerometer [![npm](https://img.shields.io/npm/v/universal-accelerometer.svg)](https://www.npmjs.com/package/universal-accelerometer)
+# accelerometer 
+[![npm](https://img.shields.io/npm/v/universal-accelerometer.svg)](https://www.npmjs.com/package/universal-accelerometer)
 
 Accelerometer monitor and cancel.
 

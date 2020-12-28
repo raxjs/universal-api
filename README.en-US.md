@@ -22,6 +22,21 @@ features:
 
 To extend the capabilities of the Rax system, we provide a series of Universal apis that developers can use to quickly develop multiple applications.
 
+
+```jsx | inline
+/**
+ * iframe: true
+ */
+import React from 'react';
+export default () => (
+  <iframe style={{
+      boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
+      width: '100%',
+      height: '700px'
+    }} src='http://herbox-embed-dev.site.alipay.net/p/universal-api/-daily'></iframe>
+);
+```
+
 ## Quick-start
 ```bash
 $ npm run start

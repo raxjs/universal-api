@@ -85,6 +85,8 @@ const allTask = async () => {
   }
   fs.copyFileSync(path.resolve(root, 'scripts/source/demos/src/pages/index.tsx'), path.resolve(demoPath, 'src/pages/Home/index.tsx'));
   fs.copyFileSync(path.resolve(root, 'scripts/source/demos/build.json'), path.resolve(demoPath, 'build.json'));
+  fs.copyFileSync(path.resolve(root, 'scripts/source/demos/herbox.json'), path.resolve(demoPath, 'herbox.json'));
+  fs.copyFileSync(path.resolve(root, 'scripts/source/demos/herbox.js'), path.resolve(demoPath, 'herbox.js'));
   // shellResList.push(...res);
   // shellRes = res.join(' && ');
   logger('END', {status: 'SUCCESS'});
