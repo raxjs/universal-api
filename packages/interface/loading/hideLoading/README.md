@@ -1,19 +1,14 @@
----
-group:
-  title: 多媒体
----
-
-# chooseImage 
+# hideLoading 
 
 [![npm](https://img.shields.io/npm/v/evapi.svg)](https://www.npmjs.com/package/evapi)
-[![npm](https://img.shields.io/npm/v/evapi-chooseImage.svg)](https://www.npmjs.com/package/evapi-chooseImage)
+[![npm](https://img.shields.io/npm/v/evapi-hideLoading.svg)](https://www.npmjs.com/package/evapi-hideLoading)
 
-从本地相册选择图片或使用相机拍照。
+隐藏 loading 提示框。
 
 ## 安装
 
 ```bash
-$ npm install universal-chooseImage --save
+$ npm install universal-hideLoading --save
 ```
 or
 ```bash
@@ -22,29 +17,15 @@ $ npm install universal-api --save
 ## 示例
 
 ```javascript
-import chooseImage from 'universal-chooseImage';
+import hideLoading from 'universal-hideLoading';
 
-chooseImage({
-  count: 1,
-  sourceType: ['album', 'camera'],
-  success (res) {
-    const tempFilePaths = res.tempFilePaths
-  }
-});
-
-// promise
-chooseImage({
-  count: 1,
-  sourceType: ['album', 'camera']
-}).then(res => {
-  const tempFilePaths = res.tempFilePaths
-});
+hideLoading();
 
 ```
 
 ## 方法
 
-### `chooseImage(options)`
+### `hideLoading(options)`
 
 #### 支持
 
@@ -55,14 +36,6 @@ chooseImage({
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.count | `number` | 最大可选照片数，默认1张 | ✔️ | 1 |
-| opthons.sourceType | `Array<string>`  | 相册选取或者拍照，默认 ['camera','album']，`h5不支持拍照` | ✔️ | ['album', 'camera'] |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
-
-#### 返回
-
-| 成员 | 类型 | 描述 |
-| --- | --- | --- |
-| tempFilePaths | `Array<string>`  | 图片的本地临时文件路径列表，h5为base64图片数据列表 |

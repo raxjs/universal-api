@@ -1,31 +1,25 @@
----
-group:
-  title: 缓存
----
-
-# getStorage 
+# getLocation 
 
 [![npm](https://img.shields.io/npm/v/evapi.svg)](https://www.npmjs.com/package/evapi)
-[![npm](https://img.shields.io/npm/v/evapi-getStorage.svg)](https://www.npmjs.com/package/evapi-getStorage)
+[![npm](https://img.shields.io/npm/v/evapi-getLocation.svg)](https://www.npmjs.com/package/evapi-getLocation)
 
-从本地缓存中异步获取指定 key 的内容。
+Gets current geographic location（WGS84）.
 
-## 安装
+## Install
 
 ```bash
-$ npm install universal-getStorage --save
+$ npm install universal-getLocation --save
 ```
 or
 ```bash
 $ npm install universal-api --save
 ```
-## 示例
+## Usage
 
 ```javascript
-import getStorage from 'universal-getStorage';
+import getLocation from 'universal-getLocation';
 
-getStorage({
-  key: 'key',
+getLocation({
   success: (res) => {
     console.log('success', res);
   },
@@ -38,34 +32,34 @@ getStorage({
 });
 
 // promise
-getStorage({
-  key: "key"
-}).then(response => {})
+getLocation().then(response => {})
   .catch(error => {})
   .finally(res => {});
 
 ```
 
-## 方法
+## Methods
 
-### `getStorage(options)`
+### `getLocation(options)`
 
-#### 支持
+#### Supported
 
 <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
 
-#### 参数
+#### Arguments
 
-| 成员 | 类型 | 描述 | 必选 | 默认值 |
+| Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.key | `string`  | 本地缓存中指定的 key | ✔️ |  - |
-| options.success | `Function`  | 成功的回调 | ✘ | - |
-| options.fail | `Function`  | 失败的回调 | ✘ | - |
-| options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
+| options.success | `Function`  | The callback function for a successful API call | ✘ | - |
+| options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
+| options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
 
-#### 返回
+#### Return
 
-| 成员 | 类型 | 描述 |
+| Property | Type | Description |
 | --- | --- | --- |
-| data | `any`  | key对应的内容 |
+| latitude | `number`  | Latitude |
+| longitude | `number`  | Longitude |
+| accuracy | `number`  | Location accuracy	|
+
