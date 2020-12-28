@@ -32,6 +32,19 @@ setStorageSync({
 
 ```
 
+你也可以从大包引入：
+```js
+import { storage } from 'universal-api';
+
+storage.setStorageSync({
+  key: 'key',
+  data: {
+    value: 'value'
+  }
+});
+
+```
+
 ## 方法
 
 ### `setStorageSync(options)`

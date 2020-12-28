@@ -43,6 +43,15 @@ getLocation().then(response => {})
 
 ```
 
+你也可以从大包引入：
+```js
+import { location } from 'universal-api';
+
+location.getLocation().then(response => {})
+  .catch(error => {})
+  .finally(res => {});
+```
+
 ## 方法
 
 ### `getLocation(options)`

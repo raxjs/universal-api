@@ -37,6 +37,11 @@ chooseImage({
 
 ```
 
+你也可以从大包引入：
+```js
+import { chooseImage } from 'universal-api';
+```
+
 ## Methods
 
 ### `chooseImage(options)`

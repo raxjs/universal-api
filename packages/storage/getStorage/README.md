@@ -43,6 +43,24 @@ getStorage({
 }).then(response => {})
   .catch(error => {})
   .finally(res => {});
+```
+
+你也可以从大包引入：
+```js
+import { storage } from 'universal-api';
+
+storage.getStorage({
+  key: 'key',
+  success: (res) => {
+    console.log('success', res);
+  },
+  fail: (res) => {
+    console.log('fail', res);
+  },
+  complete: (res) => {
+    console.log('complete', res);
+  }
+});
 
 ```
 

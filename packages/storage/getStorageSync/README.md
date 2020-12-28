@@ -25,6 +25,16 @@ let res = getStorageSync({
 
 ```
 
+你也可以从大包引入：
+```js
+import { storage } from 'universal-api';
+
+let res = storage.getStorageSync({
+  key: 'key'
+});
+
+```
+
 ## 方法
 
 ### `getStorageSync(options)`

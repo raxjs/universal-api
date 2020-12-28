@@ -40,6 +40,17 @@ setClipboard({
 
 ```
 
+你也可以从大包引入：
+```js
+import { clipboard } from 'universal-api';
+
+clipboard.setClipboard({
+  text: 'text'
+}).then(res => {
+  console.log(res);
+});
+```
+
 ## Methods
 
 ### `setClipboard()`

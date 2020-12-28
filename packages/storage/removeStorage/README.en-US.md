@@ -41,6 +41,18 @@ removeStorage({
 
 ```
 
+你也可以从大包引入：
+```js
+import { storage } from 'universal-api';
+
+storage.removeStorage({
+  key: "key"
+}).then(response => {})
+  .catch(error => {})
+  .finally(res => {});
+
+```
+
 ## Methods
 
 ### `removeStorage(options)`

@@ -30,6 +30,15 @@ showLoading({
 
 ```
 
+你也可以从大包引入：
+```js
+import { loading } from 'universal-api';
+
+loading.showLoading({
+  content: '加载中',
+});
+```
+
 ## Methods
 
 ### `showLoading(options)`

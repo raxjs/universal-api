@@ -51,6 +51,15 @@ getClipboard().then(res => {
 
 ```
 
+你也可以从大包引入：
+```js
+import { clipboard } from 'universal-api';
+
+clipboard.getClipboard().then(res => {
+  console.log(res.text);
+});
+```
+
 ## 方法
 
 ### `getClipboard()`

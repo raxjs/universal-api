@@ -20,7 +20,6 @@ $ npm install universal-api --save
 import createIntersectionObserver from 'universal-intersectionObserver';
 
 const intersectionObserver = createIntersectionObserver({
-  component: null,
   options: {
     thresholds: [0]
   }
@@ -30,6 +29,21 @@ intersectionObserver.relativeTo('.box').observe('.circle', res => {
   console.log(res);
 });
 
+```
+
+你也可以从大包引入：
+```js
+import { intersectionObserver } from 'universal-api';
+
+const observer = intersectionObserver({
+  options: {
+    thresholds: [0]
+  }
+});
+
+observer.relativeTo('.box').observe('.circle', res => {
+  console.log(res);
+});
 ```
 
 ## 方法
@@ -151,3 +165,13 @@ intersectionObserver.relativeTo('.box').observe('.circle', res => {
 ### `IntersectionObserver.disconnect()`
 
 停止监听。回调函数将不再触发
+
+
+## 注意
+
+所有方法在微信小程序的自定义组件中使用的时候，都需要添加第二个参数来指定自定义组件实例：
+
+```js
+// 在 Rax 小程序编译时链路参数为 this._internal
+createIntersectionObserver({thresholds: [0]}, this);
+```
