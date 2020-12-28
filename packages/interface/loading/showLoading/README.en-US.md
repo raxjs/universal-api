@@ -1,7 +1,3 @@
----
-  group:
-    path: /packages/interface
----
 
 # showLoading 
 

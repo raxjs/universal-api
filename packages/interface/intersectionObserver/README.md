@@ -1,8 +1,3 @@
----
-group:
-  title: 界面
----
-
 # intersectionObserver 
 
 [![npm](https://img.shields.io/npm/v/evapi.svg)](https://www.npmjs.com/package/evapi)

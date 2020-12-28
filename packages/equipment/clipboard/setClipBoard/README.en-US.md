@@ -1,7 +1,4 @@
----
-  group:
-    path: /packages/equipment
----
+
 
 # setClipboard 
 
