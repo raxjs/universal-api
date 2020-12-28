@@ -57,7 +57,7 @@ module.exports = {
         version: '1.0.0',
         name: 'universal-unit-tool',
         dependencies: {
-          'universal-device': '^2.1.1'
+          'universal-getsysteminfosync': '^2.0.0'
         },
       }
     ]
@@ -199,15 +199,6 @@ module.exports = {
       {
         version: '2.0.0',
         name: 'universal-element',
-      }
-    ]
-  },
-  'confirm': {
-    path: 'packages/interface/confirm/src/index.ts',
-    pkgInfo: [
-      {
-        version: '2.0.0',
-        name: 'universal-confirm',
       }
     ]
   },

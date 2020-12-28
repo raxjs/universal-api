@@ -1,13 +1,13 @@
 import { OPTION_STRUCT } from '../types';
-import { initApiGetLocation } from '../common';
+import { initApiGetLocation, initApiOpenLocation } from '../common';
 
 export const getLocation = initApiGetLocation((args: OPTION_STRUCT) => {
   const { success = () => {}, fail = () => {}, complete = () => {}} = args;
-  if ("geolocation" in navigator) {
+  if ('geolocation' in navigator) {
     /* 地理位置服务可用 */
     navigator.geolocation.getCurrentPosition(position => {
       success(position.coords);
-      complete(position.coords)
+      complete(position.coords);
     }, err => {
       fail(err);
       complete(err);
@@ -19,7 +19,10 @@ export const getLocation = initApiGetLocation((args: OPTION_STRUCT) => {
     complete(err);
   }
 });
-
+const openLocation = initApiOpenLocation(() => {
+  throw new Error('universal-api: openLocation不支持');
+});
 export default {
-  getLocation
+  getLocation,
+  openLocation
 };
