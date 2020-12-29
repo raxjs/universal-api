@@ -6,8 +6,10 @@ module.exports = {
   'module': 'index.es.js',
   'unpkg': 'index.umd.js',
   'typings': 'types/index.d.ts',
+  'peerDependencies': {
+    'universal-env': '^4.0.0',
+  },
   'dependencies': {
-    'universal-env': '^2.0.0',
     '@babel/runtime-corejs3': '^7.11.0'
   },
   'license': 'BSD-3-Clause',

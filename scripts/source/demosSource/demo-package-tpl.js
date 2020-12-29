@@ -8,7 +8,6 @@ module.exports = {
     "build": "rax-app build",
     "herbox":"node herbox.js",
     "herbox:online":"node herbox.js --prod",
-    "lint": "eslint --ext .js --ext .jsx ./"
   },
   'dependencies': {
     "rax": "^1.1.0",
@@ -27,11 +26,7 @@ module.exports = {
   "devDependencies": {
     "@alipay/herbox-cli": "^0.10.1",
     "rax-app": "^3.0.0",
-    "@iceworks/spec": "^1.0.0",
     "@types/rax": "^1.0.0",
-    "eslint": "^6.8.0",
-    "prettier": "^2.1.2",
-    "stylelint": "^13.7.2",
     "@ali/build-plugin-rax-app-def": "^2.0.0"
   },
   'license': 'BSD-3-Clause',

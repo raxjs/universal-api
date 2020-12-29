@@ -47,10 +47,19 @@ const compiler = async(config, packageInfo, _outputPath, needType = true, needRe
   // 写入当前组件包的依赖
   packageTpl.version = packageInfo.version;
   packageTpl.name = packageInfo.name;
-  packageTpl.dependencies = {...packageTpl.dependencies, ...packageInfo.dependencies};
-  if (isMain) {
-    delete packageTpl.dependencies['universal-env'];
+  if (process.env.NPM_TYPE === 'prod') {
+    packageTpl.dependencies = {...packageTpl.peerDependencies, ...packageInfo.dependencies};
+    delete packageTpl.peerDependencies;
+    if (isMain || packageInfo.name == 'universal-env') {
+      delete packageTpl.dependencies['universal-env'];
+    }
+  } else {
+    packageTpl.peerDependencies = {...packageTpl.peerDependencies, ...packageInfo.dependencies};
+    if (isMain || packageInfo.name == 'universal-env') {
+      delete packageTpl.peerDependencies['universal-env'];
+    }
   }
+  
   // packageTpl.dependencies[componentPackage.name] = path.relative(distDir, root) + '/';
   await fs.outputJSON(path.resolve(root, _outputPath + 'package.json'), packageTpl);
   if (packageInfo.dependencies) {

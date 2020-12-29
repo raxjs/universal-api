@@ -6,6 +6,8 @@
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./packages/*/src --fix",
     "start": "node ./scripts/compile-packages.js --watch",
     "build:demo": "cross-env BUILD_TYPE=all node ./scripts/buildDemo.js",
+    "build:puball": "cross-env NPM_TYPE=prod BUILD_TYPE=all node ./scripts/build.js",
+    "build:pubmain": "cross-env NPM_TYPE=prod BUILD_TYPE=main node ./scripts/build.js",
     "build": "cross-env node ./scripts/build.js",
     "build:all": "cross-env BUILD_TYPE=all node ./scripts/build.js",
     "build:main": "cross-env BUILD_TYPE=main node ./scripts/build.js",
