@@ -72,3 +72,7 @@ location.getLocation().then(response => {})
 | longitude | `number`  | Longitude |
 | accuracy | `number`  | Location accuracy	|
 
+## 注意
+
+微信中使用地理位置相关的api，需要在app.json配置中打开权限
+

@@ -81,3 +81,8 @@ location.openLocation({
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
+
+## 注意
+
+微信中使用地理位置相关的api，需要在app.json配置中打开权限
+

@@ -24,7 +24,7 @@ const styles = {
 }
 
 export default function() {
-  const [src, setSrc] = useState('https://inews.gtimg.com/newsapp_bt/0/9761777632/641');
+  const [src, setSrc] = useState('https://pic2.zhimg.com/v2-2a0434dd4e4bb7a638b8df699a505ca1_b.jpg');
 
   return (
     <View>

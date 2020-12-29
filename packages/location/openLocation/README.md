@@ -81,3 +81,7 @@ location.openLocation({
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
+
+## 注意
+
+微信中使用地理位置相关的api，需要在app.json配置中打开权限

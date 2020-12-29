@@ -7,7 +7,7 @@ import { ShowActionSheetOptions, ShowActionSheetRes } from './types';
  * @param res 
  */
 const formatResponse = (res): ShowActionSheetRes => {
-  return {tapIndex: res.tapIndex || res.index};
+  return {tapIndex: res.tapIndex != undefined ? res.tapIndex : res.index};
 }
 
 /**

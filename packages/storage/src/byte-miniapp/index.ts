@@ -4,7 +4,7 @@ import { GET_OR_REMOVE_SYNC_OPTION_STRUCT, SET_SYNC_OPTION_STRUCT } from '../typ
 export const getStorage = initApiGetOrRemove((args) => tt.getStorage(args));
 
 export const getStorageSync = (arg: GET_OR_REMOVE_SYNC_OPTION_STRUCT) => {
-  return tt.getStorageSync(arg.key);
+  return {data: tt.getStorageSync(arg.key)};
 }
 
 export const setStorage = initApiSet((args) => tt.setStorage(args));
