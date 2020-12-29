@@ -39,9 +39,16 @@ function logger( text = '', opts = { status: 'INFO' } ) {
   console.log(logText);
 }
 const allTask = async () => {
-  // fs.mkdirSync(path.resolve(demoPath, 'src'));
-  
   const demoPath = path.resolve(root, demoOutputDir);
+  // fs.mkdirSync(path.resolve(demoPath, 'src'));
+  if (!fs.pathExistsSync(demoPath)) {
+    fs.mkdirSync(demoPath);
+    fs.mkdirSync(path.resolve(demoPath, 'src'));
+  } else {
+    rm.sync(demoPath);
+    fs.mkdirSync(demoPath);
+    fs.mkdirSync(path.resolve(demoPath, 'src'));
+  }
   
   const appJsonContent = require(path.resolve(root, 'scripts/source/demosSource/src/app.json'));
   const packageContent = require(path.resolve(root, 'scripts/source/demosSource/demo-package-tpl.js'));
@@ -110,36 +117,37 @@ const mainTask = () => {
     }, 'main/')
   );
 };
-let shellRes = '';
-const apiName = process.argv[2];
+allTask();
+// let shellRes = '';
+// const apiName = process.argv[2];
 
-if (apiName) {
+// if (apiName) {
   
-  taskList = getConfList(apiName);
-  compose(taskList)().then(function() {
-    // logger('END', {status: 'SUCCESS'});
-  }).catch(function(err) {
-    console.log(err);
-  });
-} else if (process.env.BUILD_TYPE === 'all') {
-  allTask();
-} else if (process.env.BUILD_TYPE === 'main') {
-  mainTask();
-  compose(taskList)().then(function() {
-    // logger('END', {status: 'SUCCESS'});
-  }).catch(function(err) {
-    console.log(err);
-  });
-} else {
-  let res = [];
-  Object.entries(sourceMap).map(([key, value]) => {
-    res.push(`npm run build ${key}`);
-    // taskList.push(...getConfList(key));
-  });
-  shellRes = res.join(' && ');
-  shellRes += ' && npm run build:main';
-  shelljs.exec(shellRes);
-  // 默认构建全部api
-  // allTask();
-  // mainTask();
-}
+//   taskList = getConfList(apiName);
+//   compose(taskList)().then(function() {
+//     // logger('END', {status: 'SUCCESS'});
+//   }).catch(function(err) {
+//     console.log(err);
+//   });
+// } else if (process.env.BUILD_TYPE === 'all') {
+//   allTask();
+// } else if (process.env.BUILD_TYPE === 'main') {
+//   mainTask();
+//   compose(taskList)().then(function() {
+//     // logger('END', {status: 'SUCCESS'});
+//   }).catch(function(err) {
+//     console.log(err);
+//   });
+// } else {
+//   let res = [];
+//   Object.entries(sourceMap).map(([key, value]) => {
+//     res.push(`npm run build ${key}`);
+//     // taskList.push(...getConfList(key));
+//   });
+//   shellRes = res.join(' && ');
+//   shellRes += ' && npm run build:main';
+//   shelljs.exec(shellRes);
+//   // 默认构建全部api
+//   // allTask();
+//   // mainTask();
+// }

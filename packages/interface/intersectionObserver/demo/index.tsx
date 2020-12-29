@@ -25,28 +25,30 @@ const styles = {
     height: '100rpx',
     marginTop: '100rpx'
   }
-}
+};
 
 export default function() {
   const [appear, setAppear] = useState(false);
 
   useEffect(() => {
-    const intersectionObserver = createIntersectionObserver();
+    const node = document.querySelector('#circle');
+    const intersectionObserver = createIntersectionObserver({}, node._internal);
 
     intersectionObserver.relativeTo('#block').observe('#circle', res => {
+      console.log(res);
       setAppear(res.intersectionRatio > 0);
     });
   }, []);
-  
+
 
   return (
     <View>
       <ScrollView style={styles.block} id="block">
         <View style={styles.inner}>
           <View>向上滑动</View>
-          <View style={styles.fill}></View>
+          <View style={styles.fill} />
           <View>{appear ? '小球出现' : '小球消失'}</View>
-          <View style={styles.circle} id="circle"></View>
+          <View style={styles.circle} id="circle" />
         </View>
       </ScrollView>
     </View>
