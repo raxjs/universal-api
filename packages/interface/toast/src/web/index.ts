@@ -95,7 +95,7 @@ const innerToast = {
 
     let toastInfo: WebQueueOption = queue.shift() as WebQueueOption;
     try {
-      showToastWindow(toastInfo.message, toastInfo.icon);
+      showToastWindow(toastInfo.content, toastInfo.icon);
     } catch (e) {
       toastInfo.fail && toastInfo.fail(e);
       toastInfo.complete && toastInfo.complete(e);
@@ -143,7 +143,7 @@ const Toast: ToastOption = {
       none: ''
     };
     innerToast.push({
-      message: content,
+      content,
       duration,
       icon: iconMap[type] || '',
       success: function() {
