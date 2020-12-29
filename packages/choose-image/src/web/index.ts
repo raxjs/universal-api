@@ -41,7 +41,7 @@ const choose = (options: Options = {}): Promise<ChooseResult> => {
     inputElement.addEventListener(
       'change',
       e => {
-        const files = e.target.files && Array.from(e.target.files).slice(0, count);
+        const files: any[] = e.target.files && Array.from(e.target.files).slice(0, count);
         if (options.disableConvert) {
           resolve({
             data: [],
