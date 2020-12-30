@@ -75,3 +75,14 @@ errorEvent.onError(e => {
 errorEvent.offError();
 ```
 
+You can also import from the big package:
+
+```js
+import {errorEvent} from 'universal-api';
+
+errorEvent.onError(e => {
+  console.log(e);
+});
+
+errorEvent.offError();
+```

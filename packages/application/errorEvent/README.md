@@ -75,3 +75,14 @@ errorEvent.onError(e => {
 errorEvent.offError();
 ```
 
+你也可以从大包引入：
+
+```js
+import {errorEvent} from 'universal-api';
+
+errorEvent.onError(e => {
+  console.log(e);
+});
+
+errorEvent.offError();
+```

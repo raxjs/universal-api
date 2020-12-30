@@ -38,7 +38,8 @@ showActionSheet({
 
 ```
 
-你也可以从大包引入：
+You can also import from the big package:
+
 ```js
 import { showActionSheet } from 'universal-api';
 ```

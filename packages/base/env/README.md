@@ -22,6 +22,11 @@ $ npm install universal-env --save
 import { isWeex, isWeb, isMiniApp, isNode, isWeChatMiniProgram, isByteDanceMicroApp, isQuickApp } from 'universal-env';
 
 ```
+你也可以从大包引入：
+
+```js
+import {env} from 'universal-api';
+```
 
 ## APIS
 ### `isWeex: boolean`

@@ -35,25 +35,31 @@ Stop listening for acceleration data.
 If the callback value is not passed, all event callbacks will be removed. The sample code is as follows:
 
 ```
-Accelerometer.offChange();
+accelerometer.offChange();
 ```
 Pass the callback value and only remove the corresponding callback event. The sample code is as follows:
 
 ```
-Accelerometer.offChange(this.callback);
+accelerometer.offChange(this.callback);
 ```
 
 ## Example
 
 ```js
-import Accelerometer from 'universal-accelerometer';
+import accelerometer from 'universal-accelerometer';
 
-Accelerometer.onChange(res => {
+accelerometer.onChange(res => {
   console.log(res.x);
   console.log(res.y);
   console.log(res.z);
 });
 
-Accelerometer.offChange();
+accelerometer.offChange();
+```
+
+You can also import from the big package:
+
+```js
+import {accelerometer} from 'universal-api';
 ```
 

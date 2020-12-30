@@ -42,6 +42,14 @@ function App() {
 }
 ```
 
+你也可以从大包引入：
+
+```js
+import { element } from 'universal-api';
+const { getScrollOffset, getBoundingClientRect } = element;
+
+```
+
 ## 方法
 
 ### `getScrollOffset()`

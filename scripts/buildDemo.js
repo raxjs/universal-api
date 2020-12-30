@@ -69,7 +69,7 @@ const allTask = async () => {
         
         fs.copyFileSync(fromPath, path.resolve(root, outputPath, 'index.tsx'));
         appJsonContent.routes.push({
-          "path": i.name,
+          "path": '/' + i.name,
           "source": `pages/${i.name}/index`,
           "window": {
             "title": i.name

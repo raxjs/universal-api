@@ -37,7 +37,7 @@ function App() {
   </>)
 }
 ```
-也可以从大包中引入：
+You can also import from the big package:
 
 ```js
 import {createCanvasContext} from 'universal-api';

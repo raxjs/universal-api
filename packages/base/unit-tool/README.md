@@ -22,6 +22,13 @@ $ npm install universal-unit-tool --save
 import { px2rpx, rpx2px } from 'universal-unit-tool';
 ```
 
+你也可以从大包引入：
+
+```js
+import {unitTool} from 'universal-api';
+const { px2rpx, rpx2px } = unitTool;
+```
+
 ## 方法
 ### `px2rpx(val)`
 px 转 rpx 方法。

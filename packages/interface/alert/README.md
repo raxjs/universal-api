@@ -20,18 +20,24 @@ $ npm install universal-alert --save
 ## 示例
 
 ```js
-import Alert from 'universal-alert';
+import alert from 'universal-alert';
 
 // 快应用中的引入方法
 // import Alert from 'universal-alert/lib/quickapp;
 
-Alert({
+alert({
   title: 'alert框的标题',
   content: 'alert框的内容',
   buttonText: '按钮文字，默认confirm'
 }).then(() => {
   console.log('确定');
 });
+```
+你也可以从大包引入：
+
+```js
+import { alert } from 'universal-api';
+
 ```
 
 ## 方法

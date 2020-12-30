@@ -22,6 +22,13 @@ $ npm install universal-unit-tool --save
 import { px2rpx, rpx2px } from 'universal-unit-tool';
 ```
 
+You can also import from the big package:
+
+```js
+import {unitTool} from 'universal-api';
+const { px2rpx, rpx2px } = unitTool;
+```
+
 ## APIS
 ### `px2rpx(val)`
 px to rpx method

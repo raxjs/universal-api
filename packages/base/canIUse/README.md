@@ -30,6 +30,12 @@ canIUse('storage.getStorageInfo');
 
 ```
 
+你也可以从大包引入：
+
+```js
+import {canIUse} from 'universal-api';
+```
+
 ## 方法
 
 ### `canIUse(options)`

@@ -37,25 +37,29 @@ $ npm install universal-accelerometer --save
 不传递 callback 值，则会移除监听所有的事件回调。示例代码如下：
 
 ```
-Accelerometer.offChange();
+accelerometer.offChange();
 ```
 传递 callback 值，只移除对应的 callback 事件。示例代码如下：
 
 ```
-Accelerometer.offChange(this.callback);
+accelerometer.offChange(this.callback);
 ```
 
 ## 示例
 
 ```js
-import Accelerometer from 'universal-accelerometer';
+import accelerometer from 'universal-accelerometer';
 
-Accelerometer.onChange(res => {
+accelerometer.onChange(res => {
   console.log(res.x);
   console.log(res.y);
   console.log(res.z);
 });
 
-Accelerometer.offChange();
+accelerometer.offChange();
 ```
+你也可以从大包引入：
 
+```js
+import {accelerometer} from 'universal-api';
+```

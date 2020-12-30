@@ -30,6 +30,12 @@ canIUse('storage.getStorageInfo');
 
 ```
 
+You can also import from the big package:
+
+```js
+import {canIUse} from 'universal-api';
+```
+
 ## Methods
 
 ### `canIUse(options)`

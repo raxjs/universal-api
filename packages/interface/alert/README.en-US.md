@@ -20,18 +20,24 @@ $ npm install universal-alert --save
 ## Usage
 
 ```js
-import Alert from 'universal-alert';
+import alert from 'universal-alert';
 
 // How to use it in quickapp
 // import Alert from 'universal-alert/lib/quickapp;
 
-Alert({
+alert({
   title: 'alert title',
   content: 'alert content',
   buttonText: 'button text，default value is confirm'
 }).then(() => {
   console.log('confirm');
 });
+```
+You can also import from the big package:
+
+```js
+import { alert } from 'universal-api';
+
 ```
 
 ## Methods

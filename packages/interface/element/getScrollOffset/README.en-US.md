@@ -42,6 +42,13 @@ function App() {
   </>)
 }
 ```
+You can also import from the big package:
+
+```js
+import { element } from 'universal-api';
+const { getScrollOffset, getBoundingClientRect } = element;
+
+```
 
 ## Methods
 

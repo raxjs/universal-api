@@ -20,6 +20,11 @@ $ npm install evapi-env --save
 import { isWeex, isWeb, isMiniApp, isNode, isWeChatMiniProgram, isByteDanceMicroApp, isQuickApp } from 'evapi-env';
 
 ```
+You can also import from the big package:
+
+```js
+import {env} from 'universal-api';
+```
 
 ## APIS
 ### `isWeex: boolean`
