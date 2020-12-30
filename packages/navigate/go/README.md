@@ -29,9 +29,13 @@ navigate.go({
   step: -1
 }).then(() => {
 });
-
-
 ```
+
+你也可以从大包引入：
+```javascript
+import { navigate } from 'universal-navigate';
+```
+
 ## 方法
 ### `go(options)`
 

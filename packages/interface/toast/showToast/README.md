@@ -30,6 +30,12 @@ Toast.show('Hi');
 Toast.hide();
 ```
 
+你也可以从大包引入：
+```js
+import { toast } from 'universal-api';
+toast.show('Hi')
+```
+
 ## 方法
 
 ### `Toast.show(options?: object)`

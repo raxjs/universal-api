@@ -29,6 +29,12 @@ navigate.pop().then(() => {
 
 
 ```
+
+你也可以从大包引入：
+```javascript
+import { navigate } from 'universal-navigate';
+```
+
 ## 方法
 
 ### `pop(options)`

@@ -25,6 +25,12 @@ import Toast from 'universal-toast';
 Toast.show('Hi');
 ```
 
+你也可以从大包引入：
+```js
+import { toast } from 'universal-api';
+toast.show('Hi')
+```
+
 ## Methods
 
 ### `Toast.show(options: object | string)`

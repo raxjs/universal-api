@@ -21,13 +21,13 @@ $ npm install universal-toast --save
 
 ```js
 import Toast from 'universal-toast';
-
-// 快应用中的引入方法
-// import Toast from 'universal-toast/lib/quickapp;
-
-Toast.show('Hi');
-
 Toast.hide();
+```
+
+你也可以从大包引入：
+```js
+import { toast } from 'universal-api';
+toast.hide()
 ```
 
 ## 方法
