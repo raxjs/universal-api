@@ -25,8 +25,8 @@ const Index = ({history}) => {
   }
   return (
     <View>
-      {appJson.routes.map(i => 
-        <View key={i.path} x-if={i.path != '/'} style={styles.button} onClick={() => clickHandler(i.path)}>
+      {appJson.routes.filter(i => i.path != '/').map(i => 
+        <View key={i.path} style={styles.button} onClick={() => clickHandler(i.path)}>
           {i.window.title}
         </View>  
       )}
