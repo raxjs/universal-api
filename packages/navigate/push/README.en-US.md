@@ -32,10 +32,10 @@ navigate.push({
 ### `push(options)`
 
 #### Arguments
-| Property         | Type      | Description                                                                        | required | Default |
-| ---------------- | --------- | ---------------------------------------------------------------------------------- | :------: | :-----: |
-| options          | `object`  | Push function arguments                                                            |   true   |    -    |
-| options.url      | `string`  | The page URL.                                                                      |   true   |    -    |
+| Property         | Type      | Description  | required | Default |
+| ---------------- | --------- | ----------- | :------: | :-----: |
+| options          | `object`  | Push function arguments  | true   |    -    |
+| options.url      | `string`  | The page URL. |   true   |    -    |
 | options.success | `Function`  | The callback function for a successful API call | false | - |
 | options.fail | `Function`  | The callback function for a failed API call | false | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | 否 | - |

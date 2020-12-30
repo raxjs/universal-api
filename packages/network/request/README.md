@@ -100,11 +100,3 @@ request({
 | error | `object` | - |
 | error.code | `number`  | 错误码 |
 | error.message | `string`  | 错误说明 |
-<!-- 
-错误码：
-
-| code | message | 说明 |
-| --- | --- | --- |
-| 0 | 请求失败的详细说明 | 除以下列出请求外的，请求失败 |
-| 1 | Request timeout | 请求超时 |
-| 2 | Request not support this platform | 不支持该平台 | -->

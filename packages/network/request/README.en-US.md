@@ -95,10 +95,3 @@ Fail return：
 | error.code | `number`  | Error code |
 | error.message | `string`  | Error message |
 
-<!-- error code：
-
-| code | message | Description |
-| --- | --- | --- |
-| 0 | Reason of failure | Request failed except for the listed below |
-| 1 | Request timeout | timeout |
-| 2 | Request not support this platform | not support this platform  | -->
