@@ -36,9 +36,9 @@ import { navigate } from 'universal-navigate';
 ### `pop(options)`
 
 #### Arguments
-| Property         | Type      | Description                                                                        | required | Default |
-| ---------------- | --------- | ---------------------------------------------------------------------------------- | :------: | :-----: |
-| options          | `object`  | Pop function arguments                                                             |  false   |    -    | 
+| Property         | Type      | Description | required | Default |
+| ---------------- | --------- | --------- | :------: | :-----: |
+| options          | `object`  | Pop function arguments |  false   |    -    | 
 | options.success | `Function`  | The callback function for a successful API call | false | - |
 | options.fail | `Function`  | The callback function for a failed API call | false | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | 否 | - |

@@ -41,10 +41,10 @@ import { navigate } from 'universal-navigate';
 ### `replace(options)`
 
 #### 参数
-| 成员             | 类型      | 描述                                                                                | 必选  | 默认值 |
-| ---------------- | --------- | ----------------------------------------------------------------------------------- | :---: | :----: | :---: |
-| options          | `object`  | go 参数                                                                             |  是   |   -    |
-| options.url      | `string`  | 页面 URL.                                  |  是   |   -    |
+| 成员             | 类型      | 描述    | 必选  | 默认值 |
+| ---------------- | --------- | ------ | :---: | :----: |
+| options          | `object`  | go 参数    |  是   |   -    |
+| options.url      | `string`  | 页面 URL.  |  是   |   -    |
 | options.success | `Function`  | 成功的回调 | 否 | - |
 | options.fail | `Function`  | 失败的回调 | 否 | - |
 | options.complete | `Function`  | 结束的回调 | 否 | - |

@@ -40,9 +40,9 @@ import { navigate } from 'universal-navigate';
 ### `pop(options)`
 
 #### 参数
-| 成员             | 类型      | 描述                                       | 必选  | 默认值 |
-| ---------------- | --------- | ------------------------------------------ | :---: | :----: | :---: |
-| options          | `object`  | pop 参数                                   |  否   |   -    |
+| 成员             | 类型      | 描述   | 必选  | 默认值 |
+| ---------------- | --------- | ------- | :---: | :----: |
+| options          | `object`  | pop 参数  |  否   |   -    |
 | options.success | `Function`  | 成功的回调 | 否 | - |
 | options.fail | `Function`  | 失败的回调 | 否 | - |
 | options.complete | `Function`  | 结束的回调 | 否 | - |

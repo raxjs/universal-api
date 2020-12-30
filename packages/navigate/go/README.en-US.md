@@ -38,9 +38,9 @@ import { navigate } from 'universal-navigate';
 ### `go(options)`
 
 #### Arguments
-| Property         | Type      | Description                                                                                                      | required | Default |
-| ---------------- | --------- | ---------------------------------------------------------------------------------------------------------------- | :------: | :-----: |
-| options          | `object`  | Go function arguments                                                                                            |   true   |    -    |
+| Property         | Type      | Description  | required | Default |
+| ---------------- | --------- | --- | :------: | :-----: |
+| options          | `object`  | Go function arguments |   true |-    |
 | options.step     | `number`  | The number of forward steps is positive and only supports the web, and the number of backward steps is negative. |   true   |    -    |
 | options.success | `Function`  | The callback function for a successful API call | false | - |
 | options.fail | `Function`  | The callback function for a failed API call | false | - |
