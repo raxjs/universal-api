@@ -36,7 +36,7 @@ export default {
     }]
   },
   theme: {
-    '@c-primary': '#22CD96',
+    '@c-primary': '#17BD88',
     '@c-heading': '#454d64',
     '@c-text': '#454d64',
     '@c-secondary': '#717484',

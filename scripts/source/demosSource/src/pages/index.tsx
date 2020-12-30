@@ -9,7 +9,7 @@ const styles = {
   button: {
     margin: '10rpx',
     padding: '20rpx',
-    background: 'rgb(38, 115, 67)',
+    background: '#17BD88',
     color: '#fff',
     fontSize: '26rpx',
   },
