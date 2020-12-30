@@ -53,6 +53,11 @@ request({
 
 ```
 
+You can also import from the big package:
+```javascript
+import { request } from 'universal-api';
+```
+
 ## Methods
 
 ### `request(options)`

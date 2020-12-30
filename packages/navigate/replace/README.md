@@ -34,7 +34,7 @@ navigate.replace({
 
 你也可以从大包引入：
 ```javascript
-import { navigate } from 'universal-navigate';
+import { navigate } from 'universal-api';
 ```
 
 ## 方法

@@ -10,6 +10,9 @@
 
 Gets the content on the system clipboard.
 
+<div style="display: flex;flex-direction: row;justify-content: space-between;">
+<div style="margin-right: 20px;">
+
 ## Install
 
 ```bash
@@ -70,3 +73,22 @@ clipboard.getClipboard().then(res => {
 | res | `object` |  |
 | res.text | `string` | The clipboard content |
 
+</div>
+<div>
+
+```jsx | inline
+/**
+ * iframe: true
+ */
+import React from 'react';
+export default () => (
+  <iframe style={{
+      boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
+      width: '375px',
+      height: '700px'
+    }} src='https://herbox.online/p/109000004/app_ZQfEMJN1h?previewZoom=100&view=preview&defaultPage=pages/universal-clipboard/index&topSlider=false'></iframe>
+);
+```
+
+</div>
+</div>

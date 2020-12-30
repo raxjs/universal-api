@@ -28,9 +28,9 @@ navigate.go({
 
 ```
 
-你也可以从大包引入：
+You can also import from the big package:
 ```javascript
-import { navigate } from 'universal-navigate';
+import { navigate } from 'universal-api';
 ```
 
 ## Methods

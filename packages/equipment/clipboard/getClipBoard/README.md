@@ -10,6 +10,9 @@
 
 获取系统剪贴板的内容
 
+<div style="display: flex;flex-direction: row;justify-content: space-between;">
+<div style="margin-right: 20px;">
+
 ## 安装
 
 ```bash
@@ -20,20 +23,6 @@ or
 $ npm install universal-api --save
 ```
 ## 示例
-
-```jsx | inline
-/**
- * iframe: true
- */
-import React from 'react';
-export default () => (
-  <iframe style={{
-      boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
-      width: '375px',
-      height: '700px'
-    }} src='https://herbox.online/p/109000004/app_ZQfEMJN1h?previewZoom=100&view=preview&defaultPage=pages/universal-clipboard/index&topSlider=false'></iframe>
-);
-```
 
 ```javascript
 import getClipboard from 'universal-getClipboard';
@@ -86,3 +75,22 @@ h5 暂不支持此方法
 | res | `object` |  |
 | res.text | `string` | 剪贴板的内容 |
 
+</div>
+<div>
+
+```jsx | inline
+/**
+ * iframe: true
+ */
+import React from 'react';
+export default () => (
+  <iframe style={{
+      boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
+      width: '375px',
+      height: '700px'
+    }} src='https://herbox.online/p/109000004/app_ZQfEMJN1h?previewZoom=100&view=preview&defaultPage=pages/universal-clipboard/index&topSlider=false'></iframe>
+);
+```
+
+</div>
+</div>

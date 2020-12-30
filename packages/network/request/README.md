@@ -24,7 +24,7 @@ $ npm install universal-api --save
 ## 示例
 
 ```javascript
-import { request } from 'universal-api';
+import request from 'universal-request';
 
 // 快应用中的引入方法
 // import chooseImage from 'universal-request/lib/quickapp;
@@ -57,6 +57,11 @@ request({
   .catch(error => {})
   .finally(res => {});
 
+```
+
+你也可以从大包引入：
+```javascript
+import { request } from 'universal-api';
 ```
 
 ## 方法
