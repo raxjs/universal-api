@@ -31,8 +31,7 @@ export default function() {
   const [appear, setAppear] = useState(false);
 
   useEffect(() => {
-    const node = document.querySelector('#circle');
-    const intersectionObserver = createIntersectionObserver({}, node._internal);
+    const intersectionObserver = createIntersectionObserver();
 
     intersectionObserver.relativeTo('#block').observe('#circle', res => {
       console.log(res);

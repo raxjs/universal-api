@@ -15,7 +15,7 @@ let Toast: ToastOption = {
     let iconMap = {
       success: 'success',
       fail: 'error',
-      none: ''
+      none: 'none'
     };
     tt.showToast({
       icon: iconMap[type] || '',

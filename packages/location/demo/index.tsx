@@ -31,7 +31,7 @@ export default function() {
           setLocation(res);
         });
       }}>获取当前定位</View>
-      {Object.keys(location).map(key => <View style={styles.flex}>
+      {Object.keys(location).map(key => <View key={key} style={styles.flex}>
         <View>{key}: </View>
         <View>{location[key]}</View>
       </View>)}

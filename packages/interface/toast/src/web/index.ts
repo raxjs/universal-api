@@ -40,6 +40,7 @@ const styles = {
 };
 function showToastWindow(message: string, iconUrl?: string): void {
   if (!toastWin) {
+    toastIcon = null;
     toastWin = document.createElement('div');
     toastWin.setAttribute('role', 'alert');
     // support for ARIA, add tabindex for focus
@@ -48,20 +49,25 @@ function showToastWindow(message: string, iconUrl?: string): void {
     for (let key in styles.container) {
       toastWin.style[key] = styles.container[key];
     }
-    if (iconUrl) {
-      toastIcon = document.createElement('img');
-      // toastIcon.setAttribute('src', iconUrl);
-      for (let key in styles.icon) {
-        toastIcon.style[key] = styles.icon[key];
-      }
-      toastWin.appendChild(toastIcon);
-    }
     toastContent = document.createElement('div');
     toastWin.appendChild(toastContent);
 
     document.body.appendChild(toastWin);
   }
-  toastIcon.setAttribute('src', iconUrl);
+  // 创建icon
+  if (toastIcon && !iconUrl) {
+    toastWin.removeChild(toastIcon);
+    toastIcon = null;
+  } else if (toastIcon && iconUrl) {
+    toastIcon.setAttribute('src', iconUrl);
+  } else if (!toastIcon && iconUrl) {
+    toastIcon = document.createElement('img');
+    toastIcon.setAttribute('src', iconUrl);
+    for (let key in styles.icon) {
+      toastIcon.style[key] = styles.icon[key];
+    }
+    toastWin.insertBefore(toastIcon, toastContent);
+  }
   toastContent.textContent = message;
   toastWin.style.transform = 'translateX(-50%)';
   toastWin.style.webkitTransform = 'translateX(-50%)';

@@ -15,7 +15,7 @@ let Toast: ToastOption = {
     let iconMap = {
       success: 'success',
       fail: 'error',
-      none: ''
+      none: 'none'
     };
     wx.showToast({
       icon: iconMap[type] || '',
