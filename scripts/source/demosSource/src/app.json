@@ -1,7 +1,7 @@
 {
   "routes": [
     {
-      "path": "/home",
+      "path": "/",
       "source": "pages/Home/index",
       "window": {
         "title": "universal-api"

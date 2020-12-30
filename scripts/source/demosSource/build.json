@@ -4,7 +4,12 @@
     "miniapp",
     "wechat-miniprogram"
   ],
-  "plugins": [
-    "@ali/build-plugin-rax-app-def"
-  ]
+  "wechat-miniprogram": {
+    "nativeConfig": {
+      "appId": "wxd2baa67ef3251bd9"
+    }
+  },
+  "web": {
+    "doctype": "<!DOCTYPE html>"
+  }
 }

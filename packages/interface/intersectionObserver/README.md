@@ -174,4 +174,15 @@ observer.relativeTo('.box').observe('.circle', res => {
 ```js
 // 在 Rax 小程序编译时链路参数为 this._internal
 createIntersectionObserver({thresholds: [0]}, this);
+
+// rax小程序基于kbone的运行时方案，不支持relativeTo，微信端使用时需要按下方示例方式传入实例
+useEffect(() => {
+  const node = document.querySelector('#circle');
+  const intersectionObserver = createIntersectionObserver({}, node._internal);
+
+  intersectionObserver.relativeToViewport().observe('#circle', res => {
+    console.log(res);
+    setAppear(res.intersectionRatio > 0);
+  });
+}, []);
 ```

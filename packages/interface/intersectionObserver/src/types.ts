@@ -26,7 +26,7 @@ export interface CallbackOptions {
 
 export interface IntersectionObserver {
   relativeTo: (selector: string, margins?: RECT) => IntersectionObserver;
-  relativeToView: (margins?: RECT) => IntersectionObserver;
+  relativeToViewport: (margins?: RECT) => IntersectionObserver;
   observe: (targetSelector: string, callback: (res: CallbackOptions) => any) => IntersectionObserver;
   disconnect: () => void;
 }

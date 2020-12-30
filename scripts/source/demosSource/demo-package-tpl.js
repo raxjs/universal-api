@@ -26,8 +26,7 @@ module.exports = {
   "devDependencies": {
     "@alipay/herbox-cli": "^0.10.1",
     "rax-app": "^3.0.0",
-    "@types/rax": "^1.0.0",
-    "@ali/build-plugin-rax-app-def": "^2.0.0"
+    "@types/rax": "^1.0.0"
   },
   'license': 'BSD-3-Clause',
   'author': 'rax',
