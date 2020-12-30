@@ -15,10 +15,12 @@ function IntersectionObservers (options?: OPTIONS) {
 function relative (root: Element | null, self, margins?: RECT) {
   const options = {
     root,
-    rootMargin: margins ? buildMarginStr(margins) : '0',
+    rootMargin: margins ? buildMarginStr(margins) : '0px',
     threshold: self.thresholds
   }
-  self.observers.push(new IntersectionObserver(self.callBack, options));
+  self.observers.push(new IntersectionObserver((...args) => {
+    self.callBack(...args)
+  }, options));
 }
 
 IntersectionObservers.prototype.relativeTo = function (selector: string, margins?: RECT) {
@@ -41,7 +43,7 @@ IntersectionObservers.prototype.observe = function (targetSelector: string, call
   }
   this.callBack = (entries, observer) => {
     entries.forEach(entry => {
-      callback({
+      callback && typeof callback === 'function' && callback({
         boundingClientRect: entry.boundingClientRect,
         intersectionRatio: entry.intersectionRatio,
         intersectionRect: entry.intersectionRect,
