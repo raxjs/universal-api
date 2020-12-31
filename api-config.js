@@ -54,7 +54,7 @@ module.exports = {
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '1.0.0',
+        version: '2.0.0',
         name: 'universal-unit-tool',
         dependencies: {
           'universal-getsysteminfosync': '^2.0.0'
@@ -67,7 +67,7 @@ module.exports = {
     path: 'packages/canvas/canvas-context/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0',
+        version: '2.0.0',
         name: 'universal-canvas-context',
       }
     ]
@@ -77,7 +77,7 @@ module.exports = {
     path: 'packages/equipment/accelerometer/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '2.0.0',
         name: 'universal-accelerometer',
       }
     ]
@@ -124,7 +124,7 @@ module.exports = {
     path: 'packages/interface/showActionSheet/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '2.0.0',
         name: 'universal-action-sheet',
       }
     ]
@@ -291,7 +291,7 @@ module.exports = {
     path: 'packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '2.2.1',
+        version: '3.0.0',
         name: 'universal-request',
       }
     ]
