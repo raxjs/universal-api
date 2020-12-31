@@ -13,6 +13,9 @@
 - 进入页面时获取节点对象实例，在 Page.onReady 中使用
 - 通过 setData 切换组件状态后获取节点实例，在 setData 回调中使用
 
+<div style="display: flex;flex-direction: row;justify-content: space-between;">
+<div style="margin-right: 20px;">
+
 ## 支持
 <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" />
 
@@ -72,3 +75,30 @@ getScrollOffet('#container', this).then((ret) => {
   console.log(scrollTop, scrollLeft);
 });
 ```
+
+</div>
+<div>
+
+```jsx | inline
+/**
+ * iframe: true
+ */
+import React from 'react';
+export default () => (
+  <iframe style={{
+      boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
+      width: '375px',
+      height: '700px'
+    }} src='https://herbox.online/p/109000004/app_ZalJy1DSm?previewZoom=100&view=preview&defaultPage=pages/universal-element/index&topSlider=false'></iframe>
+);
+```
+
+<div style="display: flex;margin-top: 50px;">
+  <div>
+    <img src="https://img.alicdn.com/imgextra/i2/O1CN014nu4sC28KCibY5kmN_!!6000000007913-0-tps-678-648.jpg" width="200" height="200" />
+    <div style="text-align: center;">微信小程序</div>
+  </div>
+</div>
+
+</div>
+</div>

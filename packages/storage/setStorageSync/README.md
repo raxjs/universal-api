@@ -9,6 +9,13 @@
 
 > 同步数据IO操作可能会影响小程序流畅度，建议使用异步接口，或谨慎处理调用异常。
 
+<div style="display: flex;flex-direction: row;justify-content: space-between;">
+<div style="margin-right: 20px;">
+
+## 支持
+
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
+
 ## 安装
 
 ```bash
@@ -49,10 +56,6 @@ storage.setStorageSync({
 
 ### `setStorageSync(options)`
 
-#### 支持
-
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
-
 #### 参数
 
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
@@ -60,3 +63,30 @@ storage.setStorageSync({
 | options | `object`  |  | ✔️ | - |
 | opthons.key | `string`  | 本地缓存中指定的 key | ✔️ |  - |
 | opthons.data | `object`  | 需要存储的内容。只支持原生类型、Date、及能够通过JSON.stringify序列化的对象。 | ✔️ | - |
+
+</div>
+<div>
+
+```jsx | inline
+/**
+ * iframe: true
+ */
+import React from 'react';
+export default () => (
+  <iframe style={{
+      boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
+      width: '375px',
+      height: '700px'
+    }} src='https://herbox.online/p/109000004/app_ZalJy1DSm?previewZoom=100&view=preview&defaultPage=pages/universal-storage/index&topSlider=false'></iframe>
+);
+```
+
+<div style="display: flex;margin-top: 50px;">
+  <div>
+    <img src="https://img.alicdn.com/imgextra/i2/O1CN01uDGumH1UwbI5mxYOZ_!!6000000002582-0-tps-646-638.jpg" width="200" height="200" />
+    <div style="text-align: center;">微信小程序</div>
+  </div>
+</div>
+
+</div>
+</div>

@@ -5,6 +5,13 @@
 
 Displays the modal dialog box.
 
+<div style="display: flex;flex-direction: row;justify-content: space-between;">
+<div style="margin-right: 20px;">
+
+## Supported
+
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
+
 ## Install
 
 ```bash
@@ -56,10 +63,6 @@ import { showModal } from 'universal-api';
 
 ### `showModal(options)`
 
-#### Supported
-
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
-
 #### Arguments
 
 | Property | Type | Description | required | Default |
@@ -80,3 +83,30 @@ import { showModal } from 'universal-api';
 | --- | --- | --- |
 | confirm | `boolean`  | When the value is "true", it indicates that the user tapped the "OK" button. |
 | cancel | `boolean`  | When the value is "true", it indicates that the user tapped the "Cancel" button. (this is used for Android system to distinguish whether "Mask" or "Cancel" is tapped) |
+
+</div>
+<div>
+
+```jsx | inline
+/**
+ * iframe: true
+ */
+import React from 'react';
+export default () => (
+  <iframe style={{
+      boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
+      width: '375px',
+      height: '700px'
+    }} src='https://herbox.online/p/109000004/app_ZalJy1DSm?previewZoom=100&view=preview&defaultPage=pages/universal-show-modal/index&topSlider=false'></iframe>
+);
+```
+
+<div style="display: flex;margin-top: 50px;">
+  <div>
+    <img src="https://img.alicdn.com/imgextra/i4/O1CN01RnrL8i1MP9RAdNEXP_!!6000000001426-0-tps-738-662.jpg" width="200" height="200" />
+    <div style="text-align: center;">wechat miniprogram</div>
+  </div>
+</div>
+
+</div>
+</div>

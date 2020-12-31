@@ -104,9 +104,16 @@ export default () => (
       boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
       width: '375px',
       height: '700px'
-    }} src='https://herbox.online/p/109000004/app_ZQfEMJN1h?previewZoom=100&view=preview&defaultPage=pages/universal-error-event/index&topSlider=false'></iframe>
+    }} src='https://herbox.online/p/109000004/app_ZalJy1DSm?previewZoom=100&view=preview&defaultPage=pages/universal-error-event/index&topSlider=false'></iframe>
 );
 ```
+
+<div style="display: flex;margin-top: 50px;">
+  <div>
+    <img src="https://img.alicdn.com/imgextra/i4/O1CN01HrOhz21r6bUKtdIOe_!!6000000005582-0-tps-622-634.jpg" width="200" height="200" />
+    <div style="text-align: center;">wechat miniprogram</div>
+  </div>
+</div>
 
 </div>
 </div>

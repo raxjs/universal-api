@@ -3,8 +3,8 @@ export default {
   publicPath: '/universal-api/',
   outputPath: 'docs-dist',
   title: 'universal-api',
-  logo: 'https://img.alicdn.com/imgextra/i3/O1CN01eGRjPe1LHzdKs6S7e_!!6000000001275-2-tps-200-200.png',
-  favicon: 'https://img.alicdn.com/imgextra/i3/O1CN01eGRjPe1LHzdKs6S7e_!!6000000001275-2-tps-200-200.png',
+  logo: 'https://img.alicdn.com/imgextra/i3/O1CN01lt5FH71VubB3j3Okd_!!6000000002713-2-tps-412-412.png',
+  favicon: 'https://img.alicdn.com/imgextra/i3/O1CN01lt5FH71VubB3j3Okd_!!6000000002713-2-tps-412-412.png',
   locales: [
     ['zh-CN', '中文'],
     ['en-US', 'English']

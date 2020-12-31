@@ -5,6 +5,13 @@
 
 Obtains image information. For network images, it only takes effect when the download domain name is configured.
 
+<div style="display: flex;flex-direction: row;justify-content: space-between;">
+<div style="margin-right: 20px;">
+
+## Supported
+
+<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
+
 ## Install
 
 ```bash
@@ -41,7 +48,7 @@ getImageInfo({
 
 ```
 
-你也可以从大包引入：
+You can also import from the big package：
 ```js
 import { getImageInfo } from 'universal-api';
 ```
@@ -49,10 +56,6 @@ import { getImageInfo } from 'universal-api';
 ## Methods
 
 ### `getImageInfo(options)`
-
-#### Supported
-
-<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
 
 #### Arguments
 
@@ -71,3 +74,30 @@ import { getImageInfo } from 'universal-api';
 | width | `number`  | The original width of the image (in px). |
 | height | `number`  | The original height of the image (in px).  |
 | path | `number`  | The local path to the image		|
+
+</div>
+<div>
+
+```jsx | inline
+/**
+ * iframe: true
+ */
+import React from 'react';
+export default () => (
+  <iframe style={{
+      boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
+      width: '375px',
+      height: '700px'
+    }} src='https://herbox.online/p/109000004/app_ZalJy1DSm?previewZoom=100&view=preview&defaultPage=pages/universal-getimageinfo/index&topSlider=false'></iframe>
+);
+```
+
+<div style="display: flex;margin-top: 50px;">
+  <div>
+    <img src="https://img.alicdn.com/imgextra/i4/O1CN018P0jBN1Spc1Asc3d4_!!6000000002296-0-tps-690-618.jpg" width="200" height="200" />
+    <div style="text-align: center;">wechat miniprogram</div>
+  </div>
+</div>
+
+</div>
+</div>
