@@ -4,7 +4,7 @@ module.exports = {
     path: 'packages/application/errorEvent/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-error-event',
       }
     ]
@@ -13,7 +13,7 @@ module.exports = {
     path: 'packages/application/getApp/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-getapp',
       }
     ]
@@ -22,7 +22,7 @@ module.exports = {
     path: 'packages/application/getCurrentPages/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-getcurrentpages',
       }
     ]
@@ -31,7 +31,7 @@ module.exports = {
     path: 'packages/application/getLaunchOptionsSync/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-getlaunchoptionssync',
       }
     ]
@@ -43,7 +43,7 @@ module.exports = {
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '4.0.0',
+        version: '4.0.0-beta',
         name: 'universal-env',
       }
     ]
@@ -54,7 +54,7 @@ module.exports = {
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-unit-tool',
         dependencies: {
           'universal-getsysteminfosync': '^2.0.0'
@@ -67,7 +67,7 @@ module.exports = {
     path: 'packages/canvas/canvas-context/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-canvas-context',
       }
     ]
@@ -77,7 +77,7 @@ module.exports = {
     path: 'packages/equipment/accelerometer/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-accelerometer',
       }
     ]
@@ -86,7 +86,7 @@ module.exports = {
     path: 'packages/equipment/clipboard/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-clipboard',
       }
     ]
@@ -95,7 +95,7 @@ module.exports = {
     path: 'packages/equipment/getSystemInfoSync/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-getsysteminfosync',
       }
     ]
@@ -114,7 +114,7 @@ module.exports = {
     path: 'packages/file/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-file',
       }
     ]
@@ -124,7 +124,7 @@ module.exports = {
     path: 'packages/interface/showActionSheet/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-action-sheet',
       }
     ]
@@ -133,7 +133,7 @@ module.exports = {
     path: 'packages/interface/alert/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-alert',
       }
     ]
@@ -170,7 +170,7 @@ module.exports = {
     path: 'packages/interface/toast/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-toast',
       }
     ]
@@ -179,7 +179,7 @@ module.exports = {
     path: 'packages/interface/loading/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-loading',
       }
     ]
@@ -197,7 +197,7 @@ module.exports = {
     path: 'packages/interface/element/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-element',
       }
     ]
@@ -206,7 +206,7 @@ module.exports = {
     path: 'packages/interface/intersectionObserver/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-intersection-observer',
       }
     ]
@@ -215,7 +215,7 @@ module.exports = {
     path: 'packages/interface/showModal/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-show-modal',
       }
     ]
@@ -243,7 +243,7 @@ module.exports = {
     path: 'packages/location/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-location',
       }
     ]
@@ -253,7 +253,7 @@ module.exports = {
     path: 'packages/media/chooseImage/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-choose-image',
       }
     ]
@@ -262,7 +262,7 @@ module.exports = {
     path: 'packages/media/compressImage/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-compress-image',
       }
     ]
@@ -271,7 +271,7 @@ module.exports = {
     path: 'packages/media/getImageInfo/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-getimageinfo',
       }
     ]
@@ -281,7 +281,7 @@ module.exports = {
     path: 'packages/navigate/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-navigate',
       }
     ]
@@ -291,7 +291,7 @@ module.exports = {
     path: 'packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '3.0.0',
+        version: '3.0.0-beta',
         name: 'universal-request',
       }
     ]
@@ -301,7 +301,7 @@ module.exports = {
     path: 'packages/storage/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0',
+        version: '2.0.0-beta',
         name: 'universal-storage',
       }
     ]

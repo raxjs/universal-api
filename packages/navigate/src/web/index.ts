@@ -6,9 +6,14 @@ import {initApi} from '../common';
 const push = initApi.push((options: IPushOptions) => {
   const { url, success, fail, complete } = options;
   setTimeout((): void => {
-    location.href = url;
-    success && success();
-    complete && complete();
+    try {
+      location.href = url;
+      success && success();
+      complete && complete();
+    } catch (e) {
+      fail && fail(e);
+      complete && complete(e);
+    }
   });
 });
 
