@@ -1,7 +1,7 @@
-import { OPTION_STRUCT } from '../types';
+import { optionStruct } from '../types';
 import { initApiGetLocation, initApiOpenLocation } from '../common';
 
-export const getLocation = initApiGetLocation((args: OPTION_STRUCT) => {
+export const getLocation = initApiGetLocation((args: optionStruct) => {
   const { success = () => {}, fail = () => {}, complete = () => {}} = args;
   if ('geolocation' in navigator) {
     /* 地理位置服务可用 */

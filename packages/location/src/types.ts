@@ -1,19 +1,19 @@
 // getLocation params
-export interface OPTION_STRUCT {
+export interface optionStruct {
   success?: (res) => any;
   fail?: (res) => any;
   complete?: (res) => any;
 }
 
 // getLocation result
-export interface RESPONSE_STRUCT {
+export interface responseStruct {
   latitude: number;
   longitude: number;
   accuracy: number;
 }
 
 // openLocation params
-export interface OPEN_OPTION_STRUCT {
+export interface openOptionStruct {
   latitude: number;
   longtitude: number;
   name: string;

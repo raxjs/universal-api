@@ -1,15 +1,15 @@
-export interface GET_OR_REMOVE_OPTION_STRUCT {
+export interface getOrRemoveOptionStruct {
   key: string;
   success?: (res) => any;
   fail?: (res) => any;
   complete?: (res) => any;
 }
 
-export interface GET_OR_REMOVE_SYNC_OPTION_STRUCT {
+export interface getOrRemoveSyncOptionStruct {
   key: string;
 }
 
-export interface SET_OPTION_STRUCT {
+export interface setOptionStruct {
   key: string;
   data: undefined | null | String | Object | Array<any> | Number | Date | Boolean;
   success?: (res) => any;
@@ -17,7 +17,7 @@ export interface SET_OPTION_STRUCT {
   complete?: (res) => any;
 }
 
-export interface SET_SYNC_OPTION_STRUCT {
+export interface setSyncOptionStruct {
   key: string;
   data: undefined | null | String | Object | Array<any> | Number | Date | Boolean;
 }
