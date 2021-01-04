@@ -1,25 +1,25 @@
-export interface getOrRemoveOptionStruct {
+export interface GetOrRemoveOptionStruct {
   key: string;
   success?: (res) => any;
   fail?: (res) => any;
   complete?: (res) => any;
 }
 
-export interface getOrRemoveSyncOptionStruct {
+export interface GetOrRemoveSyncOptionStruct {
   key: string;
 }
 
-export interface setOptionStruct {
+export interface SetOptionStruct {
   key: string;
-  data: undefined | null | String | Object | Array<any> | Number | Date | Boolean;
+  data: undefined | null | string | Record<string, any> | any[] | number | Date | boolean;
   success?: (res) => any;
   fail?: (res) => any;
   complete?: (res) => any;
 }
 
-export interface setSyncOptionStruct {
+export interface SetSyncOptionStruct {
   key: string;
-  data: undefined | null | String | Object | Array<any> | Number | Date | Boolean;
+  data: undefined | null | string | Record<string, any> | any[] | number | Date | boolean;
 }
 
 

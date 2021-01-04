@@ -1,20 +1,20 @@
 import { promisify } from '../../utils/promisify';
-import { optionStruct, responseStruct, openOptionStruct } from './types';
+import { OptionStruct, ResponseStruct, OpenOptionStruct } from './types';
 
 /**
  * getLocation返回值格式化
- * @param res 
+ * @param res
  */
-const formatResponse = (res): responseStruct => {
-  const result: responseStruct = {
+const formatResponse = (res): ResponseStruct => {
+  const result: ResponseStruct = {
     latitude: res.latitude,
     longitude: res.longitude,
     accuracy: res.accuracy
-  }
+  };
   return result;
-}
+};
 
-function styleOptions(options: optionStruct = {}): optionStruct {
+function styleOptions(options: OptionStruct = {}): OptionStruct {
   return {
     ...options,
     success: res => {
@@ -23,21 +23,21 @@ function styleOptions(options: optionStruct = {}): optionStruct {
     complete: res => {
       options.complete && options.complete(res);
     }
-  }
+  };
 }
 
 export function initApiGetLocation(api) {
-  return (args: optionStruct) => {
+  return (args: OptionStruct) => {
     return promisify(api)(styleOptions(args)).then(formatResponse);
   };
 }
 
 /**
  * openLocation
- * @param api 
+ * @param api
  */
 export function initApiOpenLocation(api) {
-  return (args: openOptionStruct) => {
+  return (args: OpenOptionStruct) => {
     return promisify(api)(args);
-  }
+  };
 }

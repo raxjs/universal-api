@@ -1,11 +1,11 @@
 import { initApiGetOrRemove, initApiSet } from '../common';
-import { getOrRemoveSyncOptionStruct, setSyncOptionStruct } from '../types';
+import { GetOrRemoveSyncOptionStruct, SetSyncOptionStruct } from '../types';
 
 export const getStorage = initApiGetOrRemove((args) => {
   const {success = () => {}, fail = () => {}, complete = () => {}} = args || {};
   try {
     if (Object.prototype.toString.call(args) !== '[object Object]') {
-      throw new Error('the Function need a param of Object type')
+      throw new Error('the Function need a param of Object type');
     }
     if (!args.hasOwnProperty('key')) {
       throw new Error('the first param of this Function must contain a property named "key"');
@@ -23,9 +23,9 @@ export const getStorage = initApiGetOrRemove((args) => {
   }
 });
 
-export const getStorageSync = (args: getOrRemoveSyncOptionStruct) => {
+export const getStorageSync = (args: GetOrRemoveSyncOptionStruct) => {
   if (Object.prototype.toString.call(args) !== '[object Object]') {
-    throw new Error('the Function need a param of Object type')
+    throw new Error('the Function need a param of Object type');
   }
   if (!args.hasOwnProperty('key')) {
     throw new Error('the first param of this Function must contain a property named "key"');
@@ -40,7 +40,7 @@ export const setStorage = initApiSet((args) => {
   const {success = () => {}, fail = () => {}, complete = () => {}} = args || {};
   try {
     if (Object.prototype.toString.call(args) !== '[object Object]') {
-      throw new Error('the Function need a param of Object type')
+      throw new Error('the Function need a param of Object type');
     }
     if (!args.hasOwnProperty('key')) {
       throw new Error('the first param of this Function must contain a property named "key"');
@@ -60,9 +60,9 @@ export const setStorage = initApiSet((args) => {
   }
 });
 
-export const setStorageSync = (args: setSyncOptionStruct) => {
+export const setStorageSync = (args: SetSyncOptionStruct) => {
   if (Object.prototype.toString.call(args) !== '[object Object]') {
-    throw new Error('the Function need a param of Object type')
+    throw new Error('the Function need a param of Object type');
   }
   if (!args.hasOwnProperty('key')) {
     throw new Error('the first param of this Function must contain a property named "key"');
@@ -80,7 +80,7 @@ export const removeStorage = initApiGetOrRemove((args) => {
   const {success = () => {}, fail = () => {}, complete = () => {}} = args || {};
   try {
     if (Object.prototype.toString.call(args) !== '[object Object]') {
-      throw new Error('the Function need a param of Object type')
+      throw new Error('the Function need a param of Object type');
     }
     if (!args.hasOwnProperty('key')) {
       throw new Error('the first param of this Function must contain a property named "key"');
@@ -97,9 +97,9 @@ export const removeStorage = initApiGetOrRemove((args) => {
   }
 });
 
-export const removeStorageSync = (args: getOrRemoveSyncOptionStruct) => {
+export const removeStorageSync = (args: GetOrRemoveSyncOptionStruct) => {
   if (Object.prototype.toString.call(args) !== '[object Object]') {
-    throw new Error('the Function need a param of Object type')
+    throw new Error('the Function need a param of Object type');
   }
   if (!args.hasOwnProperty('key')) {
     throw new Error('the first param of this Function must contain a property named "key"');
