@@ -1,5 +1,5 @@
 import { initApiGetOrRemove, initApiSet } from '../common';
-import { GET_OR_REMOVE_SYNC_OPTION_STRUCT, SET_SYNC_OPTION_STRUCT } from '../types';
+import { getOrRemoveSyncOptionStruct, setSyncOptionStruct } from '../types';
 
 export const getStorage = initApiGetOrRemove((args) => {
   const {success = () => {}, fail = () => {}, complete = () => {}} = args || {};
@@ -23,7 +23,7 @@ export const getStorage = initApiGetOrRemove((args) => {
   }
 });
 
-export const getStorageSync = (args: GET_OR_REMOVE_SYNC_OPTION_STRUCT) => {
+export const getStorageSync = (args: getOrRemoveSyncOptionStruct) => {
   if (Object.prototype.toString.call(args) !== '[object Object]') {
     throw new Error('the Function need a param of Object type')
   }
@@ -60,7 +60,7 @@ export const setStorage = initApiSet((args) => {
   }
 });
 
-export const setStorageSync = (args: SET_SYNC_OPTION_STRUCT) => {
+export const setStorageSync = (args: setSyncOptionStruct) => {
   if (Object.prototype.toString.call(args) !== '[object Object]') {
     throw new Error('the Function need a param of Object type')
   }
@@ -97,7 +97,7 @@ export const removeStorage = initApiGetOrRemove((args) => {
   }
 });
 
-export const removeStorageSync = (args: GET_OR_REMOVE_SYNC_OPTION_STRUCT) => {
+export const removeStorageSync = (args: getOrRemoveSyncOptionStruct) => {
   if (Object.prototype.toString.call(args) !== '[object Object]') {
     throw new Error('the Function need a param of Object type')
   }
