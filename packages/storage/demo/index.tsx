@@ -50,6 +50,7 @@ export default function() {
           storage.getStorage({key}).then(res => {
             showModal({title: '获取缓存', showCancel: false, content: key + ':' + res.data})
           });
+          // storage.getStorage({key, fail: err => {console.log(err)}, success: (res) => {console.log(res, 'suc')}})
         }}>getStorage</View>
         <View style={styles.button} onClick={() => {
           storage.removeStorage({key}).then(res => {
