@@ -11,5 +11,10 @@
   },
   "web": {
     "doctype": "<!DOCTYPE html>"
-  }
+  },
+  "plugins" : [
+    [
+      "build-plugin-rax-api-import"
+    ]
+  ]
 }

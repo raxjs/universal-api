@@ -42,6 +42,7 @@ const compiler = async(config, packageInfo, _outputPath, needType = true, needRe
   const isMain = inputOptions.input.indexOf('packages/main/index.ts') !== -1;
   const tsPath = inputOptions.input.replace(/\.(t|j)s/, '.d.ts');
   const typesPath = path.resolve(root, inputOptions.input.replace("index.ts", "types.ts"));
+  const npmrcPath = path.resolve(root, ".npmrc");
   logger(`---------- 开始编译 ${packageInfo.name} ----------`);
   
   // 写入当前组件包的依赖
@@ -59,9 +60,10 @@ const compiler = async(config, packageInfo, _outputPath, needType = true, needRe
       delete packageTpl.peerDependencies['universal-env'];
     }
   }
-  
+ 
   // packageTpl.dependencies[componentPackage.name] = path.relative(distDir, root) + '/';
   await fs.outputJSON(path.resolve(root, _outputPath + 'package.json'), packageTpl);
+  fs.copyFileSync(npmrcPath, path.resolve(root, _outputPath, '.npmrc'));
   if (packageInfo.dependencies) {
     Object.keys(packageInfo.dependencies).forEach(name => {
       const filePath = path.resolve(root, `types/${name}.d.ts`);

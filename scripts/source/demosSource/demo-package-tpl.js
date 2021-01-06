@@ -11,6 +11,7 @@ module.exports = {
   },
   'dependencies': {
     "rax": "^1.1.0",
+    "rax-app": "3.2.0",
     "rax-document": "^0.1.0",
     "rax-image": "^2.0.0",
     "rax-link": "^1.0.1",
@@ -24,8 +25,8 @@ module.exports = {
     '@babel/runtime-corejs3': '^7.11.0'
   },
   "devDependencies": {
+    "build-plugin-rax-api-import": "^1.0.0",
     "@alipay/herbox-cli": "^0.10.1",
-    "rax-app": "^3.0.0",
     "@types/rax": "^1.0.0"
   },
   'license': 'BSD-3-Clause',

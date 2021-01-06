@@ -1,5 +1,5 @@
 import { LONG_DELAY, SHORT_DELAY, initApi } from '../utils/index';
-import { ToastOption, WebQueueOption, ShowToastOption, HideToastOption } from '../types';
+import { WebQueueOption, ShowToastOption, HideToastOption } from '../types';
 
 let queue: WebQueueOption[] = [];
 let isProcessing = false;
@@ -131,51 +131,47 @@ const innerToast = {
   }
 };
 
-
-const Toast: ToastOption = {
-  SHORT: SHORT_DELAY,
-  LONG: LONG_DELAY,
-
-  /*
-   * @param message {String}
-   * @param duration {Number}
-   * @param userStyle {Object} user defined style
-   */
-  show: initApi((options: ShowToastOption): void => {
-    const { type, content, duration, success, fail, complete } = options;
-    const iconMap = {
-      success: 'https://gw.alicdn.com/imgextra/i1/O1CN01h684sE1Td4mwYyChK_!!6000000002404-2-tps-200-200.png',
-      fail: 'https://gw.alicdn.com/imgextra/i1/O1CN01yOywus1et4ORJzafk_!!6000000003928-2-tps-200-200.png',
-      none: ''
-    };
-    innerToast.push({
-      content,
-      duration,
-      icon: iconMap[type] || '',
-      success: function() {
-        success && success();
-      },
-      fail: function(res) {
-        fail && fail(res);
-      },
-      complete(res) {
-        complete && complete(res);
-      }
-    });
-  }),
-  hide: initApi((options?: HideToastOption): void => {
-    const { success, fail, complete } = options;
-    // remove all queued messages
-    try {
-      queue = [];
-      innerToast.switchToNext();
+export const show = initApi((options: ShowToastOption): void => {
+  const { type, content, duration, success, fail, complete } = options;
+  const iconMap = {
+    success: 'https://gw.alicdn.com/imgextra/i1/O1CN01h684sE1Td4mwYyChK_!!6000000002404-2-tps-200-200.png',
+    fail: 'https://gw.alicdn.com/imgextra/i1/O1CN01yOywus1et4ORJzafk_!!6000000003928-2-tps-200-200.png',
+    none: ''
+  };
+  innerToast.push({
+    content,
+    duration,
+    icon: iconMap[type] || '',
+    success: function() {
       success && success();
-      complete && complete();
-    } catch (e) {
-      fail && fail(e);
-      complete && complete(e);
+    },
+    fail: function(res) {
+      fail && fail(res);
+    },
+    complete(res) {
+      complete && complete(res);
     }
-  }),
-};
+  });
+});
+export const hide = initApi((options?: HideToastOption): void => {
+  const { success, fail, complete } = options;
+  // remove all queued messages
+  try {
+    queue = [];
+    innerToast.switchToNext();
+    success && success();
+    complete && complete();
+  } catch (e) {
+    fail && fail(e);
+    complete && complete(e);
+  }
+});
+export const SHORT = SHORT_DELAY;
+export const LONG = LONG_DELAY;
 
-export default Toast;
+export default {
+  SHORT,
+  LONG,
+  show,
+  hide,
+};

@@ -57,7 +57,7 @@ module.exports = {
         version: '2.0.0-beta',
         name: 'universal-unit-tool',
         dependencies: {
-          'universal-getsysteminfosync': '^2.0.0'
+          'universal-getsysteminfosync': '^2.0.0-beta'
         },
       }
     ]

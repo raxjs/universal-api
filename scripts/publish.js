@@ -1,5 +1,6 @@
 const sourceMap = require('../api-config');
 const shell = require('shelljs');
+const path = require('path');
 
 const root = process.cwd();
 const outputDir = 'dist/';
@@ -17,23 +18,31 @@ const mainPublishFun = () => {
 };
 const allPublishFun = () => {
   Object.entries(sourceMap).map(([key, value]) => {
-    const relativeOutputPath = getItemOutputPath(value.pkgInfo.name, value.outputDir);
+    value.pkgInfo.forEach(i => {
+      const relativeOutputPath = getItemOutputPath(i.name);
 
-    resShell.push(`cd ${path.resolve(root, relativeOutputPath)} && ${publishType} publish && cd ..`);
+      resShell.push(`cd ${path.resolve(root, relativeOutputPath)} && ${publishType} publish && cd ..`);
+    });
+    
   });
 };
 if (apiName) {
-  const relativeOutputPath = getItemOutputPath(sourceMap[apiName].pkgInfo.name, sourceMap[apiName].outputDir);
+  sourceMap[apiName].pkgInfo.forEach(i => {
+    const relativeOutputPath = getItemOutputPath(i.name, i.outputDir);
 
-  resShell.push(`cd ${path.resolve(root, relativeOutputPath)} && ${publishType} publish && cd ..`);
+    resShell.push(`cd ${path.resolve(root, relativeOutputPath)} && ${publishType} publish && cd ..`);
+  });
+  // const relativeOutputPath = getItemOutputPath(sourceMap[apiName].pkgInfo.name, sourceMap[apiName].outputDir);
+
+  // resShell.push(`cd ${path.resolve(root, relativeOutputPath)} && ${publishType} publish && cd ..`);
 } else if (process.env.BUILD_TYPE === 'all') {
   allPublishFun();
 } else if (process.env.BUILD_TYPE === 'main') {
   mainPublishFun();
 } else {
   // 默认发布全部api
-  allPublishFun();
-  mainPublishFun();
+  // allPublishFun();
+  // mainPublishFun();
 }
 shell.exec(resShell.join(' && '));
 
