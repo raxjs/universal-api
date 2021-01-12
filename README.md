@@ -26,7 +26,7 @@ features:
 
 # universal-api
 
-基于rax应用生态，我们提供一系列跨端api帮助用户快速开发多端应用。
+基于rax应用生态，我们提供一系列跨端api帮助用户快速开发多端应用
 
 ```jsx | inline
 /**
