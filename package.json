@@ -17,7 +17,7 @@
     "build1": "node ./scripts/compile-packages.js",
     "docs:dev": "cross-env dumi dev",
     "docs:build": "cross-env dumi build",
-    "docs:deploy": "gh-pages -d docs-dist",
+    "docs:deploy": "gh-pages -ad docs-dist",
     "check-and-publish": "node ./scripts/check-and-publish.js",
     "transform:docs": "node scripts/compile-readme.js"
   },
