@@ -69,6 +69,7 @@ getBoundingClientRect('#container').then((ret) => {
 
 ```js
 // 在 Rax 小程序编译时链路参数为 this._internal
+// 在 Rax 小程序运行时可通过document.querySelector('#container')._internal 获取this
 getBoundingClientRect('#container', this).then((ret) => {
   const { width, height, top, left, right, bottom } = ret[0];
   console.log(width, height, top, left, right, bottom);

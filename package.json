@@ -1,6 +1,7 @@
 {
   "name": "universal-api",
   "private": true,
+  "version": "2.0.0",
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./packages/*/src --fix",

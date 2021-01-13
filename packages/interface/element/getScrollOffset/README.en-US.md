@@ -70,6 +70,7 @@ When all methods are used in the custom component of the WeChat applet, you need
 
 ```js
 // When compiling the Rax applet, the link parameters are this._internal
+// When compiling the Rax runtime，the link parameters are document.querySelector('#container')._internal
 getScrollOffet('#container', this).then((ret) => {
   const { scrollTop, scrollLeft } = ret[0];
   console.log(scrollTop, scrollLeft);

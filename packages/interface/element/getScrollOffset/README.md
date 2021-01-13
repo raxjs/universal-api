@@ -70,6 +70,7 @@ getScrollOffet('#container').then((ret) => {
 
 ```js
 // 在 Rax 小程序编译时链路参数为 this._internal
+// 在 Rax 小程序运行时可通过document.querySelector('#container')._internal 获取this
 getScrollOffet('#container', this).then((ret) => {
   const { scrollTop, scrollLeft } = ret[0];
   console.log(scrollTop, scrollLeft);

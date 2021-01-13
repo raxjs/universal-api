@@ -17,7 +17,7 @@ export default function() {
       console.log(res.z);
     });
 
-    Accelerometer.offChange();
+    // Accelerometer.offChange();
   }, []);
   return (
     <View>

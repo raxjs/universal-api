@@ -37,24 +37,32 @@ const Index = () => {
       <View id="demo1" style={styles.demo1}>
         <Text>我是demo1</Text>
       </View>
-      <View style={styles.button} onClick={() => getScrollOffset('#demo1').then((ret) => {
-        const { scrollTop, scrollLeft } = ret[0];
-        console.log(scrollTop, scrollLeft);
-        setDemoInfo(state => ({
-          ...state,
-          scrollTop,
-          scrollLeft,
-        }));
-      })}>
+      <View style={styles.button} onClick={() => {
+        const node = document.querySelector('#demo1');
+        getScrollOffset('#demo1', node._internal).then((ret) => {
+          const { scrollTop, scrollLeft } = ret[0];
+          console.log(scrollTop, scrollLeft);
+          setDemoInfo(state => ({
+            ...state,
+            scrollTop,
+            scrollLeft,
+          }));
+        })
+        ;
+      }}>
         点击获取demo1的scrollTop和scrollLeft
       </View>
-      <View style={styles.button} onClick={() => getBoundingClientRect('#demo1').then((ret) => {
-        console.log(ret[0]);
-        setDemoInfo(state => ({
-          ...state,
-          ...ret[0]
-        }));
-      })}>
+      <View style={styles.button} onClick={() => {
+        const node = document.querySelector('#demo1');
+        getBoundingClientRect('#demo1', node._internal).then((ret) => {
+          console.log(ret[0]);
+          setDemoInfo(state => ({
+            ...state,
+            ...ret[0]
+          }));
+        })
+        ;
+      }}>
         点击获取demo1的boundingClientRect
       </View>
       <View style={styles.preview}>
