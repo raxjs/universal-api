@@ -1,4 +1,4 @@
-import getSystemInfoSync from 'universal-getsysteminfosync';
+import getSystemInfoSync from '@uni/getsysteminfosync';
 
 const {screenWidth} = getSystemInfoSync();
 const CALCULATION_ACCURACY = 8;

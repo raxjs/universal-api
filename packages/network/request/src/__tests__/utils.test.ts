@@ -1,4 +1,4 @@
-import { normalizeHeaders } from '../utils';
+import { normalizeHeaders } from '../common';
 
 describe('Test normalizeHeaders', () => {
   test('Accept、Content-Type', () => {

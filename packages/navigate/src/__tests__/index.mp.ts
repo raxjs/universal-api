@@ -1,4 +1,4 @@
-jest.mock('universal-env', (): object => {
+jest.mock('@uni/env', (): object => {
   return {
     isMiniApp: true
   };

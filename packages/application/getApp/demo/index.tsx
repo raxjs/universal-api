@@ -1,8 +1,8 @@
 import { createElement, useEffect, useState, useRef } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import getApp from 'universal-getapp';
-import {show} from 'universal-toast';
+import getApp from '@uni/getapp';
+import {show} from '@uni/toast';
 
 const styles = {
   flex: {

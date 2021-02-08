@@ -1,4 +1,4 @@
-import { isDingdingMiniapp } from 'universal-env';
+import { isDingdingMiniapp } from '@uni/env';
 import {Callback, RejectCallback} from '../types';
 
 export const onError = (cb: Callback) => {

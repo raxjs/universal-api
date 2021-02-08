@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { createElement, useState, useEffect } from 'rax';
 import View from 'rax-view';
-import request from 'universal-request';
+import request from '@uni/request';
 
 const styles = {
   flex: {

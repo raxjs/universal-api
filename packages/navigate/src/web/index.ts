@@ -1,9 +1,9 @@
-import { IPushOptions, IGoOptions, IPopOptions, IReplaceOptions } from '../types';
+import { IPushOptions, IGoOptions, IPopOptions, IReplaceOptions, IReLaunchOptions } from '../types';
 
 
 import {initApi} from '../common';
 
-const push = initApi.push((options: IPushOptions) => {
+export const push = initApi.push((options: IPushOptions) => {
   const { url, success, fail, complete } = options;
   setTimeout((): void => {
     try {
@@ -17,7 +17,7 @@ const push = initApi.push((options: IPushOptions) => {
   });
 });
 
-const pop = initApi.pop((options?: IPopOptions) => {
+export const back = initApi.back((options?: IPopOptions) => {
   const { success, fail, complete } = options || {};
   setTimeout((): void => {
     try {
@@ -31,7 +31,7 @@ const pop = initApi.pop((options?: IPopOptions) => {
   });
 });
 
-const replace = initApi.replace((options?: IReplaceOptions) => {
+export const replace = initApi.replace((options?: IReplaceOptions) => {
   const { url, success, fail, complete } = options || {};
   setTimeout((): void => {
     try {
@@ -46,7 +46,7 @@ const replace = initApi.replace((options?: IReplaceOptions) => {
   });
 });
 
-const go = initApi.go((options: IGoOptions) => {
+export const go = initApi.go((options: IGoOptions) => {
   const { step, success, fail, complete } = options;
 
   if (step < 0) {
@@ -61,9 +61,26 @@ const go = initApi.go((options: IGoOptions) => {
   }
 });
 
+export const reLaunch = initApi.reLaunch((options: IReLaunchOptions) => {
+  const { url, success, fail, complete } = options;
+  setTimeout((): void => {
+    try {
+      history.go(-(history.length - 1));
+      history.replaceState('', '', url);
+      history.go(0);
+      success && success();
+      complete && complete();
+    } catch (e) {
+      fail && fail(e);
+      complete && complete(e);
+    }
+  });
+});
+
 export default {
   push,
-  pop,
+  back,
   replace,
+  reLaunch,
   go
 };

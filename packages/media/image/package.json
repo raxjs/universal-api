@@ -1,5 +1,5 @@
 {
-  "name": "universal-image",
+  "name": "@uni/image",
   "author": "rax",
   "version": "1.0.1",
   "description": "",
@@ -21,7 +21,7 @@
     "npm": ">=3.0.0"
   },
   "dependencies": {
-    "universal-env": "^2.0.0"
+    "@uni/env": "^2.0.0"
   },
   "devDependencies": {
     "rax": "^1.0.8",

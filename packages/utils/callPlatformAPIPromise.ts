@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import {isDingdingMiniapp, isMiniapp, isWeChatMiniProgram, isWeb } from 'universal-env';
+import {isDingdingMiniapp, isMiniapp, isWeChatMiniProgram, isWeb } from '@uni/env';
 import { promisify } from './promisify';
 
 export default (platformApi: string, ...args: any) => {

@@ -3,9 +3,9 @@ import View from 'rax-view';
 import Text from 'rax-text';
 import TextInput from 'rax-textinput';
 import Image from 'rax-image';
-import compressImage from 'universal-compress-image';
-import showModal from 'universal-show-modal';
-import chooseImage from 'universal-choose-image';
+import compressImage from '@uni/compress-image';
+import showModal from '@uni/show-modal';
+import chooseImage from '@uni/choose-image';
 
 const styles = {
   flex: {
@@ -23,7 +23,7 @@ const styles = {
     border: '1px solid #eee',
     margin: '10rpx'
   }
-}
+};
 
 export default function() {
   const [src, setSrc] = useState('');
@@ -39,25 +39,25 @@ export default function() {
             sourceType: ['album', 'camera']
           }).then(res => {
             console.log(res);
-            setTempFilePaths(res.tempFilePaths)
+            setTempFilePaths(res.tempFilePaths);
             setSrc(res.tempFilePaths[0]);
           });
         }}>
           选择图片
         </View>
-        {tempFilePaths.map(uri => 
+        {tempFilePaths.map(uri =>
           <View key={uri}>
             <View>{uri}</View>
-            <Image style={{width: '100%', height: '400rpx'}} source={{uri}}></Image>
+            <Image style={{width: '100%', height: '400rpx'}} source={{uri}} />
           </View>
         )}
       </View>
       <TextInput style={styles.input} value={src} placeholder="输入图片地址" onInput={({value}) => {
         setSrc(value);
-      }}></TextInput>
+      }} />
       <TextInput style={styles.input} value={quality} placeholder="输入压缩质量0~3" type="number" onInput={({value}) => {
         setQuality(value);
-      }}></TextInput>
+      }} />
       <View style={styles.button} onClick={() => {
         compressImage({src}).then(res => {
           showModal({content: '压缩地址' + res.tempFilePath});

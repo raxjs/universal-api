@@ -1,5 +1,5 @@
 module.exports = {
-  'name': 'universal-api',
+  'name': '@uni/apis',
   'version': '1.0.0',
   'description': '',
   'typings': 'types/index.d.ts',

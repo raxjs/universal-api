@@ -2,7 +2,7 @@ import {
   RequestOptions,
   ResponseData,
 } from '../types';
-import { isDingdingMiniapp } from 'universal-env';
+import { isDingdingMiniapp } from '@uni/env';
 import {initApi} from '../common';
 
 function request(options: RequestOptions) {

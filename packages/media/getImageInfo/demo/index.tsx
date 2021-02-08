@@ -2,8 +2,8 @@ import { createElement, useState } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import TextInput from 'rax-textinput';
-import getImageInfo from 'universal-getimageinfo';
-import showModal from 'universal-show-modal';
+import getImageInfo from '@uni/getimageinfo';
+import showModal from '@uni/show-modal';
 
 const styles = {
   flex: {
@@ -21,7 +21,7 @@ const styles = {
     border: '1px solid #eee',
     margin: '10rpx'
   }
-}
+};
 
 export default function() {
   const [src, setSrc] = useState('https://pic2.zhimg.com/v2-2a0434dd4e4bb7a638b8df699a505ca1_b.jpg');
@@ -30,7 +30,7 @@ export default function() {
     <View>
       <TextInput style={styles.input} placeholder="输入图片地址" value={src} onInput={({value}) => {
         setSrc(value);
-      }}></TextInput>
+      }} />
       <View style={styles.button} onClick={() => {
         getImageInfo({src}).then(res => {
           console.log(res);

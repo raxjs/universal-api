@@ -1,4 +1,4 @@
-import { isMiniApp, isDingdingMiniapp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from 'universal-env';
+import { isMiniApp, isDingdingMiniapp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniapp/index';
@@ -14,7 +14,7 @@ const chooseImage = (args) => {
   } else if (isWeb) {
     return webModule(args);
   } else {
-    throw new Error('evapi：chooseImage暂不支持');
+    throw new Error('@uni/apis：chooseImage暂不支持');
   }
 };
 

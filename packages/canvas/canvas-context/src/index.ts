@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from 'universal-env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 import webModule from './web/index';
 import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniapp/index';
@@ -15,7 +15,7 @@ export default (options) => {
   } else if (isWeb) {
     return webModule(options);
   } else {
-    throw new Error('universal-api：canvas暂不支持');
+    throw new Error('@uni/apis：canvas暂不支持');
   }
 };
 

@@ -1,6 +1,6 @@
 import { createElement, useEffect } from 'rax';
 import View from 'rax-view';
-import createCanvasContext from 'universal-canvas-context';
+import createCanvasContext from '@uni/canvas-context';
 
 export default function() {
   useEffect(() => {

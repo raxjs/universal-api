@@ -25,9 +25,17 @@ export interface IReplaceOptions {
   complete?: (res?: any) => void;
 }
 
+export interface IReLaunchOptions {
+  url: string;
+  success?: () => void;
+  fail?: (res: any) => void;
+  complete?: (res?: any) => void;
+}
+
 export interface INavigate {
   push(options: IPushOptions): Promise<null>;
   go(options: IGoOptions): Promise<null>;
-  pop(options: IPopOptions): Promise<null>;
+  back(options: IPopOptions): Promise<null>;
   replace(options: IReplaceOptions): Promise<null>;
+  reLaunch(options: IReLaunchOptions): Promise<null>;
 }

@@ -1,7 +1,7 @@
 import { createElement, useEffect, useState, useRef } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import navigate from 'universal-navigate';
+import navigate from '@uni/navigate';
 
 const styles = {
   flex: {
@@ -25,14 +25,17 @@ export default function() {
   return (
     <View>
       <View style={styles.button} onClick={() => {
-        navigate.push({url: '/pages/universal-toast/index'});
+        navigate.push({url: '/pages/@uni/toast/index'});
       }}>push</View>
       <View style={styles.button} onClick={() => {
-        navigate.replace({url: '/pages/universal-toast/index'});
+        navigate.replace({url: '/pages/@uni/toast/index'});
       }}>replace</View>
       <View style={styles.button} onClick={() => {
-        navigate.pop();
-      }}>pop</View>
+        navigate.reLaunch({url: '/pages/@uni/toast/index'});
+      }}>reLaunch</View>
+      <View style={styles.button} onClick={() => {
+        navigate.back();
+      }}>back</View>
       <View style={styles.button} onClick={() => {
         navigate.go({step: -1});
       }}>go(-1)</View>

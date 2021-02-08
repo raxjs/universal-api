@@ -1,4 +1,4 @@
-import { isDingdingMiniapp } from 'universal-env';
+import { isDingdingMiniapp } from '@uni/env';
 import { initApi } from '../common';
 
 const chooseImage = (args) => isDingdingMiniapp ? dd.chooseImage(args) : my.chooseImage(args);

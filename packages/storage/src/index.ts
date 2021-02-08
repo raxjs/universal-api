@@ -1,4 +1,4 @@
-import { isMiniApp, isDingdingMiniapp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from 'universal-env';
+import { isMiniApp, isDingdingMiniapp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 import webModule from './web/index';
 import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniapp/index';
@@ -14,7 +14,7 @@ export const getStorage = (args) => {
   } else if (isWeb) {
     return webModule.getStorage(args);
   } else {
-    throw new Error('evapi：getStorage暂不支持');
+    throw new Error('@uni/apis：getStorage暂不支持');
   }
 };
 
@@ -28,7 +28,7 @@ export const getStorageSync = (args) => {
   } else if (isWeb) {
     return webModule.getStorageSync(args);
   } else {
-    throw new Error('evapi：getStorageSync暂不支持');
+    throw new Error('@uni/apis：getStorageSync暂不支持');
   }
 };
 
@@ -42,7 +42,7 @@ export const setStorage = (args) => {
   } else if (isWeb) {
     return webModule.setStorage(args);
   } else {
-    throw new Error('evapi：setStorage暂不支持');
+    throw new Error('@uni/apis：setStorage暂不支持');
   }
 };
 
@@ -56,7 +56,7 @@ export const setStorageSync = (args) => {
   } else if (isWeb) {
     return webModule.setStorageSync(args);
   } else {
-    throw new Error('evapi：setStorageSync暂不支持');
+    throw new Error('@uni/apis：setStorageSync暂不支持');
   }
 };
 
@@ -70,7 +70,7 @@ export const removeStorage = (args) => {
   } else if (isWeb) {
     return webModule.removeStorage(args);
   } else {
-    throw new Error('evapi：removeStorage暂不支持');
+    throw new Error('@uni/apis：removeStorage暂不支持');
   }
 };
 
@@ -84,7 +84,7 @@ export const removeStorageSync = (args) => {
   } else if (isWeb) {
     return webModule.removeStorageSync(args);
   } else {
-    throw new Error('evapi：removeStorageSync暂不支持');
+    throw new Error('@uni/apis：removeStorageSync暂不支持');
   }
 };
 

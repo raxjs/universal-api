@@ -1,5 +1,5 @@
 import { promisify } from '../../utils/promisify';
-import {IPushOptions, IPopOptions, IGoOptions, IReplaceOptions} from './types';
+import {IPushOptions, IPopOptions, IGoOptions, IReplaceOptions, IReLaunchOptions} from './types';
 
 export const initApi = {
   push: (api) => {
@@ -7,7 +7,7 @@ export const initApi = {
       return promisify(api)(options);
     };
   },
-  pop: (api) => {
+  back: (api) => {
     return (options?: IPopOptions) => {
       return promisify(api)(options);
     };
@@ -19,6 +19,11 @@ export const initApi = {
   },
   replace: (api) => {
     return (options: IReplaceOptions) => {
+      return promisify(api)(options);
+    };
+  },
+  reLaunch: (api) => {
+    return (options: IReLaunchOptions) => {
       return promisify(api)(options);
     };
   },

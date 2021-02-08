@@ -1,4 +1,4 @@
-import { isMiniApp, isDingdingMiniapp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from 'universal-env';
+import { isMiniApp, isDingdingMiniapp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 
 // 按wechat、bytedance、dd、支付宝、web的方式，不支持的端相应位数置0即可
 const supportInfo = {

@@ -1,22 +1,14 @@
 const path = require('path');
-const rollup = require('rollup');
 const mainPkg = require('../package.json');
 const rm = require('rimraf');
-const getRollupConfig = require('./rollupConfig');
 // import filesize from 'rollup-plugin-filesize';
 const sourceMap = require('../api-config');
-const packageTpl = require('./source/package-tpl');
 const compose = require('koa-compose');
 const chalk = require('chalk');
 const fs = require('fs-extra');
-// const buildDTS = require('./buildDTS');
-const shelljs = require('shelljs');
-const ora = require('ora');
-const child_process = require('child_process');
 
 const root = process.cwd();
 const outputDir = 'dist/lib/';
-const mainOutputDir = 'dist/';
 const demoOutputDir = 'demos/';
 // const getItemOutputPath = (name, dir = 'lib/') => dir + name + '/';
 // console.log('commonjs', commonjs);
@@ -55,13 +47,16 @@ const allTask = async () => {
   if (!fs.pathExistsSync(path.resolve(demoPath, 'src/pages'))) {
     fs.mkdirSync(path.resolve(demoPath, 'src/pages'));
   }
+  // if (!fs.pathExistsSync(path.resolve(demoPath, 'src/pages'))) {
+  //   fs.mkdirSync(path.resolve(demoPath, 'src/pages'));
+  // }
   
   // copydemo 文件
   Object.entries(sourceMap).map(([key, value]) => {
     const fromPath = path.resolve(root, value.path.replace(/src\/index\.(t|j)s/, 'demo/index.tsx'));
     value.pkgInfo.forEach(i => {
       // console.log(fromPath);
-      const outputPath = path.resolve(root, demoOutputDir, 'src/pages', i.name);
+      const outputPath = path.resolve(root, demoOutputDir, 'src/pages', i.name.replace('@uni/', ''));
       if (fs.pathExistsSync(fromPath)) {
         if (!fs.pathExistsSync(outputPath)) {
           fs.mkdirSync(outputPath);
@@ -69,8 +64,8 @@ const allTask = async () => {
         
         fs.copyFileSync(fromPath, path.resolve(root, outputPath, 'index.tsx'));
         appJsonContent.routes.push({
-          "path": '/' + i.name,
-          "source": `pages/${i.name}/index`,
+          "path": '/' + i.name.replace('@uni/', ''),
+          "source": `pages/${i.name.replace('@uni/', '')}/index`,
           "window": {
             "title": i.name
           }

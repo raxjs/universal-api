@@ -4,9 +4,9 @@ import { createElement, useState } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import Image from 'rax-image';
-import {download, getInfo, save, openDocument} from 'universal-file';
-import alert from 'universal-alert';
-import chooseImage from 'universal-choose-image';
+import {download, getInfo, save, openDocument} from '@uni/file';
+import alert from '@uni/alert';
+import chooseImage from '@uni/choose-image';
 
 const styles = {
   flex: {

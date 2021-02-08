@@ -1,8 +1,8 @@
 import { createElement, useEffect, useState, useRef } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import errorEvent from 'universal-error-event';
-import {show} from 'universal-toast';
+import errorEvent from '@uni/error-event';
+import {show} from '@uni/toast';
 
 const styles = {
   flex: {

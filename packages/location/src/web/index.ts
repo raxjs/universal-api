@@ -20,7 +20,7 @@ export const getLocation = initApiGetLocation((args: OptionStruct) => {
   }
 });
 const openLocation = initApiOpenLocation(() => {
-  throw new Error('universal-api: openLocation不支持');
+  throw new Error('@uni/apis: openLocation不支持');
 });
 export default {
   getLocation,

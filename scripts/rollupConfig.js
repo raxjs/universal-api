@@ -29,6 +29,7 @@ module.exports = (inputPath, itemOutputPath, sourceMap, apiInfo) => {
   const getConfig = (_inputPath, _outputPath, needTypes = true) => {
     let override = { compilerOptions: { declaration: needTypes, declarationDir: outputPath }, include: ['types', inputPath, sourcePath + "/**/types.ts"] };
     const aliasEntries = [];
+    if (sourceMap) {
       Object.values(sourceMap).forEach(item => {
         item.pkgInfo.forEach(i => {
           aliasEntries.push({
@@ -37,6 +38,8 @@ module.exports = (inputPath, itemOutputPath, sourceMap, apiInfo) => {
           });
         });
       });
+    }
+      
       const outputMap = {
         cjs: {
           exports: 'named',
@@ -57,7 +60,7 @@ module.exports = (inputPath, itemOutputPath, sourceMap, apiInfo) => {
         },
         umd: {
             exports: 'named',
-            name: 'evapi',
+            name: '@uni/apis',
             file: path.resolve(root, _outputPath + 'index.umd.js'),
             format: 'umd',
             sourcemap: false,
@@ -104,9 +107,10 @@ module.exports = (inputPath, itemOutputPath, sourceMap, apiInfo) => {
                 [
                   '@babel/preset-env',
                   {
+                    loose: true,
                     modules: false,
                     targets: {
-                      browsers: '> 0.25%, not dead',
+                      browsers: ['last 2 versions', 'IOS >= 8', 'Android >= 4'],
                     },
                   },
                 ],

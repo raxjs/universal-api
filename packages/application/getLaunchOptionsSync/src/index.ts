@@ -1,4 +1,4 @@
-import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from 'universal-env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 import webModule from './web/index';
 import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniapp/index';
@@ -14,7 +14,7 @@ export default () => {
   } else if (isWeb) {
     return webModule();
   } else {
-    throw new Error('universal-api：getLaunchOptionsSync暂不支持');
+    throw new Error('@uni/apis：getLaunchOptionsSync暂不支持');
   }
 };
 

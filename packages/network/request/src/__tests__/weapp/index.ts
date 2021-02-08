@@ -1,7 +1,7 @@
 import request from '../../index';
 import { DATA_TYPE, RequestOptions } from '../../types';
 
-jest.mock('universal-env', () => {
+jest.mock('@uni/env', () => {
   return {
     isWeb: false,
     isWeex: false,

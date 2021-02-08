@@ -4,8 +4,8 @@ module.exports = {
     path: 'packages/application/errorEvent/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-error-event',
+        version: '1.0.0-beta',
+        name: '@uni/error-event',
       }
     ]
   },
@@ -13,8 +13,8 @@ module.exports = {
     path: 'packages/application/getApp/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-getapp',
+        version: '1.0.0-beta',
+        name: '@uni/getapp',
       }
     ]
   },
@@ -22,8 +22,8 @@ module.exports = {
     path: 'packages/application/getCurrentPages/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-getcurrentpages',
+        version: '1.0.0-beta',
+        name: '@uni/getcurrentpages',
       }
     ]
   },
@@ -31,8 +31,8 @@ module.exports = {
     path: 'packages/application/getLaunchOptionsSync/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-getlaunchoptionssync',
+        version: '1.0.0-beta',
+        name: '@uni/getlaunchoptionssync',
       }
     ]
   },
@@ -43,8 +43,8 @@ module.exports = {
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '4.0.0-beta',
-        name: 'universal-env',
+        version: '1.0.0-beta',
+        name: '@uni/env',
       }
     ]
   },
@@ -54,10 +54,10 @@ module.exports = {
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-unit-tool',
+        version: '1.0.0-beta',
+        name: '@uni/unit-tool',
         dependencies: {
-          'universal-getsysteminfosync': '^2.0.0-beta'
+          '@uni/getsysteminfosync': '^1.0.0-beta'
         },
       }
     ]
@@ -67,45 +67,45 @@ module.exports = {
     path: 'packages/canvas/canvas-context/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-canvas-context',
+        version: '1.0.0-beta',
+        name: '@uni/canvas-context',
       }
     ]
   },
-  // equipment
+  // device
   'accelerometer': {
-    path: 'packages/equipment/accelerometer/src/index.ts',
+    path: 'packages/device/accelerometer/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-accelerometer',
+        version: '1.0.0-beta',
+        name: '@uni/accelerometer',
       }
     ]
   },
   'clipboard': {
-    path: 'packages/equipment/clipboard/src/index.ts',
+    path: 'packages/device/clipboard/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-clipboard',
+        version: '1.0.0-beta',
+        name: '@uni/clipboard',
       }
     ]
   },
   'getSystemInfoSync': {
-    path: 'packages/equipment/getSystemInfoSync/src/index.ts',
+    path: 'packages/device/getSystemInfoSync/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-getsysteminfosync',
+        version: '1.0.0-beta',
+        name: '@uni/getsysteminfosync',
       }
     ]
   },
   // 'networkInfo': {
-  //   path: 'packages/equipment/network-info/src/index.ts',
+  //   path: 'packages/device/network-info/src/index.ts',
   //   pkgInfo: [
   //     {
   //       version: '1.0.0',
-  //       name: 'universal-network',
+  //       name: '@uni/network',
   //     }
   //   ]
   // },
@@ -114,52 +114,52 @@ module.exports = {
     path: 'packages/file/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-file',
+        version: '1.0.0-beta',
+        name: '@uni/file',
       }
     ]
   },
-  // interface
+  // interactive
   'actionsheet': {
-    path: 'packages/interface/showActionSheet/src/index.ts',
+    path: 'packages/interactive/showActionSheet/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-action-sheet',
+        version: '1.0.0-beta',
+        name: '@uni/action-sheet',
       }
     ]
   },
   'alert': {
-    path: 'packages/interface/alert/src/index.ts',
+    path: 'packages/interactive/alert/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-alert',
+        version: '1.0.0-beta',
+        name: '@uni/alert',
       }
     ]
   },
   // 'transition': {
-  //   path: 'packages/interface/transition/src/index.ts',
+  //   path: 'packages/interactive/transition/src/index.ts',
   //   pkgInfo: [
   //     {
   //       version: '1.1.1',
-  //       name: 'universal-transition',
+  //       name: '@uni/transition',
   //       dependencies: {
-  //         'universal-unit-tool': '^1.0.0',
+  //         '@uni/unit-tool': '^1.0.0',
   //         'style-unit': '^2.0.0',
-  //         'universal-device': '^1.0.3',
+  //         '@uni/device': '^1.0.3',
   //       },
   //     }
   //   ]
   // },
   // 'animation': {
-  //   path: 'packages/interface/animation/src/index.ts',
+  //   path: 'packages/interactive/animation/src/index.ts',
   //   pkgInfo: [
   //     {
   //       version: '1.2.0',
-  //       name: 'universal-animation',
+  //       name: '@uni/animation',
   //       dependencies: {
-  //         'universal-transition': '^1.0.1',
+  //         '@uni/transition': '^1.0.1',
   //         'weex-bindingx': '^0.0.49'
   //       },
   //     }
@@ -167,65 +167,65 @@ module.exports = {
   // },
 
   'toast': {
-    path: 'packages/interface/toast/src/index.ts',
+    path: 'packages/interactive/toast/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-toast',
+        version: '1.0.0-beta',
+        name: '@uni/toast',
       }
     ]
   },
   'loading': {
-    path: 'packages/interface/loading/src/index.ts',
+    path: 'packages/interactive/loading/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-loading',
+        version: '1.0.0-beta',
+        name: '@uni/loading',
       }
     ]
   },
   // 'keyboard': {
-  //   path: 'packages/interface/keyboard/src/index.ts',
+  //   path: 'packages/interactive/keyboard/src/index.ts',
   //   pkgInfo: [
   //     {
   //       version: '1.0.1',
-  //       name: 'universal-keyboard',
+  //       name: '@uni/keyboard',
   //     }
   //   ]
   // },
   'element': {
-    path: 'packages/interface/element/src/index.ts',
+    path: 'packages/interactive/element/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-element',
+        version: '1.0.0-beta',
+        name: '@uni/element',
       }
     ]
   },
   'intersectionObserver': {
-    path: 'packages/interface/intersectionObserver/src/index.ts',
+    path: 'packages/interactive/intersectionObserver/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-intersection-observer',
+        version: '1.0.0-beta',
+        name: '@uni/intersection-observer',
       }
     ]
   },
   'showModal': {
-    path: 'packages/interface/showModal/src/index.ts',
+    path: 'packages/interactive/showModal/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-show-modal',
+        version: '1.0.0-beta',
+        name: '@uni/show-modal',
       }
     ]
   },
   // 'background': {
-  //   path: 'packages/interface/background/src/index.ts',
+  //   path: 'packages/interactive/background/src/index.ts',
   //   pkgInfo: [
   //     {
   //       version: '1.0.0',
-  //       name: 'universal-background',
+  //       name: '@uni/background',
   //     }
   //   ]
   // },
@@ -234,7 +234,7 @@ module.exports = {
   //   pkgInfo: [
   //     {
   //       version: '1.0.1',
-  //       name: 'universal-image',
+  //       name: '@uni/image',
   //     }
   //   ]
   // },
@@ -243,8 +243,8 @@ module.exports = {
     path: 'packages/location/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-location',
+        version: '1.0.0-beta',
+        name: '@uni/location',
       }
     ]
   },
@@ -253,8 +253,8 @@ module.exports = {
     path: 'packages/media/chooseImage/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-choose-image',
+        version: '1.0.0-beta',
+        name: '@uni/choose-image',
       }
     ]
   },
@@ -262,8 +262,8 @@ module.exports = {
     path: 'packages/media/compressImage/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-compress-image',
+        version: '1.0.0-beta',
+        name: '@uni/compress-image',
       }
     ]
   },
@@ -271,8 +271,8 @@ module.exports = {
     path: 'packages/media/getImageInfo/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-getimageinfo',
+        version: '1.0.0-beta',
+        name: '@uni/getimageinfo',
       }
     ]
   },
@@ -281,8 +281,8 @@ module.exports = {
     path: 'packages/navigate/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-navigate',
+        version: '1.0.0-beta',
+        name: '@uni/navigate',
       }
     ]
   },
@@ -291,8 +291,8 @@ module.exports = {
     path: 'packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '3.0.0-beta',
-        name: 'universal-request',
+        version: '1.0.0-beta',
+        name: '@uni/request',
       }
     ]
   },
@@ -301,8 +301,8 @@ module.exports = {
     path: 'packages/storage/src/index.ts',
     pkgInfo: [
       {
-        version: '2.0.0-beta',
-        name: 'universal-storage',
+        version: '1.0.0-beta',
+        name: '@uni/storage',
       }
     ]
   },

@@ -2,7 +2,7 @@
 title: image
 ---
 
-# universal-image [![npm](https://img.shields.io/npm/v/universal-image.svg)](https://www.npmjs.com/package/universal-image)
+# @uni/image [![npm](https://img.shields.io/npm/v/@uni/image.svg)](https://www.npmjs.com/package/@uni/image)
 
 Image operation.
 
@@ -12,7 +12,7 @@ Image operation.
 ## Install
 
 ```bash
-$ npm install universal-image --save
+$ npm install @uni/image --save
 ```
 
 ## Methods
@@ -72,7 +72,7 @@ Save Image.
 ## Example
 
 ```js
-import Image from 'universal-image';
+import Image from '@uni/image';
 
 Image.choose({
   sourceType: ['camera','album'],

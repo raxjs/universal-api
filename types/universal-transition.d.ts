@@ -1,1 +1,0 @@
-declare module 'universal-transition';

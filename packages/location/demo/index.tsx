@@ -1,7 +1,7 @@
 import { createElement, useState } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import { getLocation, openLocation } from 'universal-location';
+import { getLocation, openLocation } from '@uni/location';
 
 const styles = {
   flex: {

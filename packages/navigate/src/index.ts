@@ -1,9 +1,9 @@
-import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from 'universal-env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniapp/index';
 import bytedanceModule from './byte-miniapp/index';
 import webModule from './web/index';
-import { IPushOptions, IGoOptions, IPopOptions, IReplaceOptions, INavigate } from './types';
+import { IPushOptions, IGoOptions, IPopOptions, IReplaceOptions, INavigate, IReLaunchOptions } from './types';
 
 export const push = (options: IPushOptions) => {
   if (isWeChatMiniProgram) {
@@ -15,7 +15,7 @@ export const push = (options: IPushOptions) => {
   } else if (isWeb) {
     return webModule.push(options);
   } else {
-    throw new Error('universal-api：navigate.push暂不支持');
+    throw new Error('@uni/apis：navigate.push暂不支持');
   }
 };
 export const go = (options: IGoOptions) => {
@@ -28,20 +28,20 @@ export const go = (options: IGoOptions) => {
   } else if (isWeb) {
     return webModule.go(options);
   } else {
-    throw new Error('universal-api：navigate.go暂不支持');
+    throw new Error('@uni/apis：navigate.go暂不支持');
   }
 };
-export const pop = (options?: IPopOptions) => {
+export const back = (options?: IPopOptions) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.pop(options);
+    return weChatModule.back(options);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.pop(options);
+    return bytedanceModule.back(options);
   } else if (isMiniApp) {
-    return aliMiniAppModule.pop(options);
+    return aliMiniAppModule.back(options);
   } else if (isWeb) {
-    return webModule.pop(options);
+    return webModule.back(options);
   } else {
-    throw new Error('universal-api：navigate.pop暂不支持');
+    throw new Error('@uni/apis：navigate.back暂不支持');
   }
 };
 export const replace = (options: IReplaceOptions) => {
@@ -54,9 +54,23 @@ export const replace = (options: IReplaceOptions) => {
   } else if (isWeb) {
     return webModule.replace(options);
   } else {
-    throw new Error('universal-api：navigate.replace暂不支持');
+    throw new Error('@uni/apis：navigate.replace暂不支持');
   }
 };
+export const reLaunch = (options: IReLaunchOptions) => {
+  if (isWeChatMiniProgram) {
+    return weChatModule.reLaunch(options);
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.reLaunch(options);
+  } else if (isMiniApp) {
+    return aliMiniAppModule.reLaunch(options);
+  } else if (isWeb) {
+    return webModule.reLaunch(options);
+  } else {
+    throw new Error('@uni/apis：navigate.reLaunch暂不支持');
+  }
+};
+
 let res: INavigate;
 if (isWeChatMiniProgram) {
   res = weChatModule;
@@ -67,6 +81,6 @@ if (isWeChatMiniProgram) {
 } else if (isWeb) {
   res = webModule;
 } else {
-  throw new Error('universal-api：navigate暂不支持');
+  throw new Error('@uni/apis：navigate暂不支持');
 }
 export default res;

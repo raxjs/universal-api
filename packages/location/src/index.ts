@@ -1,4 +1,4 @@
-import { isMiniApp, isDingdingMiniapp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from 'universal-env';
+import { isMiniApp, isDingdingMiniapp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniapp/index';
@@ -14,7 +14,7 @@ export const getLocation = (args) => {
   } else if (isWeb) {
     return webModule.getLocation(args);
   } else {
-    throw new Error('universal-api：getLocation暂不支持');
+    throw new Error('@uni/apis：getLocation暂不支持');
   }
 };
 
@@ -26,7 +26,7 @@ export const openLocation = (args) => {
   } else if (isMiniApp || isDingdingMiniapp) {
     return aliMiniAppModule.openLocation(args);
   } else {
-    throw new Error('universal-api：openLocation暂不支持');
+    throw new Error('@uni/apis：openLocation暂不支持');
   }
 };
 

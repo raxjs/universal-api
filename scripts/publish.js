@@ -7,6 +7,7 @@ const outputDir = 'dist/';
 const getItemOutputPath = (name, dir = 'lib/') => outputDir + dir + name + '/';
 const resShell = [];
 const apiName = process.argv[2];
+const isBeta = process.env.BUILD_TAG === 'beta';
 let publishType = 'npm';
 // if (process.env.PUBLISH_TYPE === "npm") {
 //   publishType = "npm";
@@ -14,14 +15,14 @@ let publishType = 'npm';
 //   publishType = "tnpm";
 // }
 const mainPublishFun = () => {
-  resShell.push(`cd ${path.resolve(root, outputDir + 'main')} && ${publishType} publish && cd ..`);
+  resShell.push(`cd ${path.resolve(root, outputDir + 'main')} && ${publishType} publish ${isBeta ? '--tag beta' : ''} && cd ..`);
 };
 const allPublishFun = () => {
   Object.entries(sourceMap).map(([key, value]) => {
     value.pkgInfo.forEach(i => {
       const relativeOutputPath = getItemOutputPath(i.name);
 
-      resShell.push(`cd ${path.resolve(root, relativeOutputPath)} && ${publishType} publish && cd ..`);
+      resShell.push(`cd ${path.resolve(root, relativeOutputPath)} && ${publishType} publish ${isBeta ? '--tag beta' : ''} && cd ..`);
     });
     
   });

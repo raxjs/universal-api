@@ -1,5 +1,4 @@
 {
-	// "compileOnSave": true,
 	"compilerOptions": {
 		"target": "esnext", /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
 		// "module": "esnext", /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
@@ -10,8 +9,8 @@
 		"noUnusedParameters": false,
 		// "checkJs": true,                       /* Report errors in .js files. */
 		// "jsx": "preserve",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
-		"declaration": true,                   /* Generates corresponding '.d.ts' file. */
-		"declarationDir": "./dist/",
+		"declaration": false,                   /* Generates corresponding '.d.ts' file. */
+		// "declarationDir": "./dist/",
 		// "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
 		"sourceMap": true, /* Generates corresponding '.map' file. */
 		// "outFile": "./",                       /* Concatenate and emit output to single file. */
@@ -69,6 +68,6 @@
       "types/*": ["types/*"],
     }
 	},
-	"exclude": [ "scripts/*", "**/demo/index.tsx"],
-	"include": ["./packages/**/*", "types/**/*", "types"]
+	"include": ["packages", "types"],
+	"exclude": ["scripts/*", "**/demo/*", "./packages/**/**/demo/*"]
 }

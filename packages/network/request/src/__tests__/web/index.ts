@@ -5,7 +5,7 @@ const mockXMLHttpRequestFn = jest.fn();
 // eslint-disable-next-line
 (global as any).XMLHttpRequest = mockXMLHttpRequestFn;
 
-jest.mock('universal-env', () => {
+jest.mock('@uni/env', () => {
   return {
     isWeb: true
   };

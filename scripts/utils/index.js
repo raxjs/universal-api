@@ -26,7 +26,7 @@ exports.copyDir = function (src, dist, callback) {
               } else {
                 // 判断是文件还是目录
                 if(stat.isFile()) {
-                  fs.writeFileSync(_dist, fs.readFileSync(_src));
+                  fs.copyFileSync(_src, _dist);
                 } else if(stat.isDirectory()) {
                   // 当是目录是，递归复制
                   copyDir(_src, _dist, callback)

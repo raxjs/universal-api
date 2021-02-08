@@ -1,4 +1,4 @@
-import { isDingdingMiniapp } from 'universal-env';
+import { isDingdingMiniapp } from '@uni/env';
 import { initApi } from '../common';
 
 const compressImage = (args) => {
@@ -7,9 +7,9 @@ const compressImage = (args) => {
   } else {
     args.apFilePaths = [args.src];
   }
-  const quality = (args && args.quality != undefined) ? args.quality : 2;
+  const quality = args && args.quality != undefined ? args.quality : 2;
   args.compressLevel = quality;
-  return isDingdingMiniapp ? dd.compressImage(args) : my.compressImage(args)
+  return isDingdingMiniapp ? dd.compressImage(args) : my.compressImage(args);
 };
 
 export default initApi(compressImage);

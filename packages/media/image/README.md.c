@@ -2,7 +2,7 @@
 title: image
 ---
 
-# universal-image [![npm](https://img.shields.io/npm/v/universal-image.svg)](https://www.npmjs.com/package/universal-image)
+# @uni/image [![npm](https://img.shields.io/npm/v/@uni/image.svg)](https://www.npmjs.com/package/@uni/image)
 
 图片操作.
 
@@ -12,7 +12,7 @@ title: image
 ## 安装
 
 ```bash
-$ npm install universal-image --save
+$ npm install @uni/image --save
 ```
 
 ## 方法
@@ -73,7 +73,7 @@ $ npm install universal-image --save
 ## Example
 
 ```js
-import Image from 'universal-image';
+import Image from '@uni/image';
 
 Image.choose({
   sourceType: ['camera','album'],

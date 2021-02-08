@@ -1,8 +1,8 @@
 export default {
-  base: '/universal-api',
+  base: '/',
   publicPath: '/',
   outputPath: 'docs-dist',
-  title: 'universal-api',
+  title: 'uni',
   logo: 'https://img.alicdn.com/imgextra/i3/O1CN01lt5FH71VubB3j3Okd_!!6000000002713-2-tps-412-412.png',
   favicon: 'https://img.alicdn.com/imgextra/i3/O1CN01lt5FH71VubB3j3Okd_!!6000000002713-2-tps-412-412.png',
   locales: [
@@ -11,7 +11,7 @@ export default {
   ],
   mode: 'site',
   resolve: {
-    includes: ['./']
+    includes: ['./docs']
   },
   navs: {
     'zh-CN': [{

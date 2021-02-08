@@ -1,7 +1,7 @@
-import { IPushOptions, IGoOptions, IPopOptions, IReplaceOptions } from '../types';
+import { IPushOptions, IGoOptions, IPopOptions, IReplaceOptions, IReLaunchOptions } from '../types';
 import {initApi} from '../common';
 
-const push = initApi.push((options: IPushOptions) => {
+export const push = initApi.push((options: IPushOptions) => {
   const { url, success, fail, complete } = options;
   wx.navigateTo({
     url,
@@ -17,7 +17,7 @@ const push = initApi.push((options: IPushOptions) => {
   });
 });
 
-const pop = initApi.pop((options?: IPopOptions) => {
+export const back = initApi.back((options?: IPopOptions) => {
   const { success, fail, complete } = options || {};
   wx.navigateBack({
     delta: 1,
@@ -33,7 +33,7 @@ const pop = initApi.pop((options?: IPopOptions) => {
   });
 });
 
-const replace = initApi.replace((options?: IReplaceOptions) => {
+export const replace = initApi.replace((options?: IReplaceOptions) => {
   const { url, success, fail, complete } = options || {};
   wx.redirectTo({
     url,
@@ -49,7 +49,7 @@ const replace = initApi.replace((options?: IReplaceOptions) => {
   });
 });
 
-const go = initApi.go((options: IGoOptions) => {
+export const go = initApi.go((options: IGoOptions) => {
   const { step, success, fail, complete } = options;
   if (step < 0) {
     wx.navigateBack({
@@ -69,10 +69,26 @@ const go = initApi.go((options: IGoOptions) => {
     complete && complete({errMsg: 'step不能大于或等于0'});
   }
 });
+export const reLaunch = initApi.reLaunch((options: IReLaunchOptions) => {
+  const { url, success, fail, complete } = options;
+  wx.reLaunch({
+    url,
+    success: function() {
+      success && success();
+    },
+    fail: function(res) {
+      fail && fail(res);
+    },
+    complete(res) {
+      complete && complete(res);
+    }
+  });
+});
 
 export default {
   push,
-  pop,
+  back,
+  reLaunch,
   replace,
   go
 };

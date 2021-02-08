@@ -1,7 +1,7 @@
 import { createElement, useEffect, useState, useRef } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import getCurrentPages from 'universal-getcurrentpages';
+import getCurrentPages from '@uni/getcurrentpages';
 
 const styles = {
   flex: {

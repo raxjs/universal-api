@@ -1,6 +1,6 @@
 import Navigate from '../index';
 
-jest.mock('universal-env', (): object => {
+jest.mock('@uni/env', (): object => {
   return {
     isWeb: true
   };
