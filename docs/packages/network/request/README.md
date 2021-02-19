@@ -7,7 +7,6 @@ title: request
 # request 
 
 [![npm](https://img.shields.io/npm/v/@uni/request.svg)](https://www.npmjs.com/package/@uni/request)
-[![npm](https://img.shields.io/npm/v/@uni/request.svg)](https://www.npmjs.com/package/@uni/request)
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
 
 用于发起网络请求
@@ -33,8 +32,6 @@ $ npm install @uni/apis --save
 ```javascript
 import request from '@uni/request';
 
-// 快应用中的引入方法
-// import chooseImage from '@uni/request/lib/quickapp;
 request({
   url: 'https://alibaba.github.io/rax/',
   method: 'POST',

@@ -56,6 +56,28 @@ file.upload({
 });
 
 ```
+
+Promise：
+
+```js
+import file from '@uni/file';
+
+file.upload({
+  url: 'http://httpbin.org/post',
+  fileType: 'image',
+  fileName: 'file',
+  filePath: '**filePath**',
+}).then((res) => {
+  console.log('upload success');
+}).catch((e) => {
+  console.log('upload fail');
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
 You can also import from the big package:
 
 ```js

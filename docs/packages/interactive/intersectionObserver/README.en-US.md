@@ -1,7 +1,7 @@
 # intersectionObserver 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@uniintersectionObserver.svg)](https://www.npmjs.com/package/@uniintersectionObserver)
+[![npm](https://img.shields.io/npm/v/@uniintersectionObserver.svg)](https://www.npmjs.com/package/@uni/intersection-observer)
 
 Return An IntersectionObserver object that infers whether and how likely certain nodes are visible to users.
 
@@ -24,7 +24,7 @@ $ npm install @uni/apis --save
 ## Usage
 
 ```javascript
-import createIntersectionObserver from '@uni/intersectionObserver';
+import createIntersectionObserver from '@uni/intersection-observer';
 
 const intersectionObserver = createIntersectionObserver({
   component: null,

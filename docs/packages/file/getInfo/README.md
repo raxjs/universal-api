@@ -49,6 +49,24 @@ file.getInfo({
 
 ```
 
+Promise调用：
+
+```js
+import file from '@uni/file';
+
+file.getInfo({
+  filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
+  digestAlgorithm: 'sha1',
+}).then((res) => {
+  console.log(res);
+}).catch((e) => {
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
 你也可以从大包引入：
 ```js
 import { file } from '@uni/apis';

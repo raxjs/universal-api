@@ -6,7 +6,7 @@
 # getClipboard 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@unigetClipboard.svg)](https://www.npmjs.com/package/@unigetClipboard)
+[![npm](https://img.shields.io/npm/v/@uni/clipboard.svg)](https://www.npmjs.com/package/@uni/clipboard)
 
 获取系统剪贴板的内容
 
@@ -22,7 +22,7 @@ h5 暂不支持此方法
 ## 安装
 
 ```bash
-$ npm install @uni/getClipboard --save
+$ npm install @uni/clipboard --save
 ```
 or
 ```bash
@@ -31,7 +31,7 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import getClipboard from '@uni/getClipboard';
+import {getClipboard} from '@uni/clipboard';
 
 getClipboard({
   success (res){

@@ -47,6 +47,25 @@ file.getSavedInfo({
 });
 
 ```
+
+Promise：
+
+```js
+import file from '@uni/file';
+
+file.getSavedInfo({
+  filePath: '**filePath**',
+}).then((res) => {
+  console.log(res.size);
+  console.log(res.createTime);
+}).catch((e) => {
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
 You can also import from the big package:
 
 ```js

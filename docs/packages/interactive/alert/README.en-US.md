@@ -24,9 +24,6 @@ $ npm install @uni/alert --save
 ```js
 import alert from '@uni/alert';
 
-// How to use it in quickapp
-// import Alert from '@uni/alert/lib/quickapp;
-
 alert({
   title: 'alert title',
   content: 'alert content',

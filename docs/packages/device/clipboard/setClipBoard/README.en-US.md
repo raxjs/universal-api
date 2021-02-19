@@ -6,7 +6,7 @@
 # setClipboard 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@unisetClipboard.svg)](https://www.npmjs.com/package/@unisetClipboard)
+[![npm](https://img.shields.io/npm/v/@uni/clipboard.svg)](https://www.npmjs.com/package/@uni/clipboard)
 
 Sets the content on the system clipboard.
 
@@ -20,7 +20,7 @@ Sets the content on the system clipboard.
 ## Install
 
 ```bash
-$ npm install @uni/setClipboard --save
+$ npm install @uni/clipboard --save
 ```
 or
 ```bash
@@ -29,7 +29,7 @@ $ npm install @uni/apis --save
 ## Usage
 
 ```javascript
-import setClipboard from '@uni/setClipboard';
+import {setClipboard} from '@uni/clipboard';
 
 setClipboard({
   text: 'text',

@@ -45,6 +45,24 @@ file.removeSaved({
 });
 
 ```
+
+Promise：
+
+```js
+import file from '@uni/file';
+
+file.removeSaved({
+  filePath: '**filePath**',
+}).then((res) => {
+  console.log('remove success');
+}).catch((e) => {
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
 You can also import from the big package:
 
 ```js

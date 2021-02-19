@@ -48,6 +48,24 @@ file.openDocument({
 
 ```
 
+Promise调用：
+
+```js
+import file from '@uni/file';
+
+file.openDocument({
+  filePath: '**filePath**',
+  fileType: 'pdf',
+}).then((res) => {
+  console.log('open document success');
+}).catch((e) => {
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
 你也可以从大包引入：
 ```js
 import { file } from '@uni/apis';

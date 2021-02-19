@@ -47,6 +47,25 @@ file.openDocument({
 });
 
 ```
+
+Promise：
+
+```js
+import file from '@uni/file';
+
+file.openDocument({
+  filePath: '**filePath**',
+  fileType: 'pdf',
+}).then((res) => {
+  console.log('open document success');
+}).catch((e) => {
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
 You can also import from the big package:
 
 ```js

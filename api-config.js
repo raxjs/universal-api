@@ -48,6 +48,17 @@ module.exports = {
       }
     ]
   },
+  'canIUse': {
+    path: 'packages/base/canIUse/src/index.ts',
+    // 是否可以按环境拆包
+    unNeedSplit: true,
+    pkgInfo: [
+      {
+        version: '1.0.0-beta',
+        name: '@uni/caniuse',
+      }
+    ]
+  },
 
   'unitTool': {
     path: 'packages/base/unit-tool/src/index.ts',

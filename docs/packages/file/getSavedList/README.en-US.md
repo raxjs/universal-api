@@ -44,6 +44,21 @@ file.getSavedList({
 
 ```
 
+Promise：
+
+```js
+import file from '@uni/file';
+
+file.getSavedList().then((res) => {
+  console.log(JSON.stringfy(res));
+}).catch((e) => {
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
 You can also import from the big package:
 
 ```js

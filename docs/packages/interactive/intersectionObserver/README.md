@@ -1,7 +1,7 @@
 # intersectionObserver 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@uniintersectionObserver.svg)](https://www.npmjs.com/package/@uniintersectionObserver)
+[![npm](https://img.shields.io/npm/v/@uniintersectionObserver.svg)](https://www.npmjs.com/package/@uni/intersection-observer)
 
 用于推断某些节点是否可以被用户看见、有多大比例可以被用户看见。
 
@@ -15,7 +15,7 @@
 ## 安装
 
 ```bash
-$ npm install @uni/intersectionObserver --save
+$ npm install @uni/intersection-observer --save
 ```
 or
 ```bash
@@ -24,7 +24,7 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import createIntersectionObserver from '@uni/intersectionObserver';
+import createIntersectionObserver from '@uni/intersection-observer';
 
 const intersectionObserver = createIntersectionObserver({
   options: {

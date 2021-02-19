@@ -49,6 +49,24 @@ file.getInfo({
 
 ```
 
+Promise：
+
+```js
+import file from '@uni/file';
+
+file.getInfo({
+  filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
+  digestAlgorithm: 'sha1',
+}).then((res) => {
+  console.log(res);
+}).catch((e) => {
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
 You can also import from the big package:
 
 ```js

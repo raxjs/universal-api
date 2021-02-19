@@ -24,9 +24,6 @@ $ npm install @uni/alert --save
 ```js
 import alert from '@uni/alert';
 
-// 快应用中的引入方法
-// import Alert from '@uni/alert/lib/quickapp;
-
 alert({
   title: 'alert框的标题',
   content: 'alert框的内容',

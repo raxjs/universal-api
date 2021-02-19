@@ -1,7 +1,6 @@
 # request 
 
 [![npm](https://img.shields.io/npm/v/@uni/request.svg)](https://www.npmjs.com/package/@uni/request)
-[![npm](https://img.shields.io/npm/v/@uni/request.svg)](https://www.npmjs.com/package/@uni/request)
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
 
 Used to initiate a network request
@@ -27,8 +26,6 @@ $ npm install @uni/apis --save
 ```javascript
 import { request } from '@uni/apis';
 
-// 快应用中的引入方法
-// import chooseImage from '@uni/request/lib/quickapp;
 request({
   url: 'https://alibaba.github.io/rax/',
   method: 'POST',
@@ -46,7 +43,7 @@ request({
     console.log('complete', res);
   }
 });
-// Promise调用
+// Promise
 request({
   url: 'https://alibaba.github.io/rax/',
   method: 'POST',

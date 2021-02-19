@@ -46,6 +46,23 @@ file.save({
 
 ```
 
+Promise：
+
+```js
+import file from '@uni/file';
+
+file.save({
+  filePath: '**filePath**',
+}).then((res) => {
+  console.log('save success');
+}).catch((e) => {
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
 You can also import from the big package:
 
 ```js

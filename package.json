@@ -5,7 +5,6 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./packages/*/src --fix",
-    "start": "node ./scripts/compile-packages.js --watch",
     "build:demo": "cross-env BUILD_TYPE=all node ./scripts/buildDemo.js",
     "build:puball": "cross-env NPM_TYPE=prod BUILD_TYPE=all node ./scripts/build.js",
     "build:pubmain": "cross-env NPM_TYPE=prod BUILD_TYPE=main node ./scripts/build.js",
@@ -18,7 +17,6 @@
     "pub-beta": "cross-env BUILD_TAG=beta node ./scripts/publish.js",
     "pub-beta:all": "cross-env BUILD_TYPE=all BUILD_TAG=beta node ./scripts/publish.js",
     "pub-beta:main": "cross-env BUILD_TYPE=main BUILD_TAG=beta node ./scripts/publish.js",
-    "build1": "node ./scripts/compile-packages.js",
     "docs:dev": "cross-env dumi dev",
     "docs:build": "cross-env dumi build",
     "docs:deploy": "gh-pages -ad docs-dist",

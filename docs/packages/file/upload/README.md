@@ -51,11 +51,33 @@ file.upload({
     console.log('upload success');
   },
   fail: res => {
-    console.log('upload succefailss');
+    console.log('upload fail');
   },
 });
 
 ```
+
+Promise调用：
+
+```js
+import file from '@uni/file';
+
+file.upload({
+  url: 'http://httpbin.org/post',
+  fileType: 'image',
+  fileName: 'file',
+  filePath: '**filePath**',
+}).then((res) => {
+  console.log('upload success');
+}).catch((e) => {
+  console.log('upload fail');
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
 你也可以从大包引入：
 ```js
 import { file } from '@uni/apis';

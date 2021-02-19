@@ -1,7 +1,7 @@
 # getSystemInfoSync 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@unigetSystemInfoSync.svg)](https://www.npmjs.com/package/@unigetSystemInfoSync)
+[![npm](https://img.shields.io/npm/v/@uni/getsysteminfosync.svg)](https://www.npmjs.com/package/@uni/getsysteminfosync)
 
 Gets system information.
 
@@ -24,7 +24,7 @@ $ npm install @uni/apis --save
 ## Usage
 
 ```javascript
-import getSystemInfoSync from '@uni/getSystemInfoSync';
+import getSystemInfoSync from '@uni/getsysteminfosync';
 
 let res = getSystemInfoSync();
 

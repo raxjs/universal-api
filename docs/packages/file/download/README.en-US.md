@@ -50,6 +50,23 @@ file.download({
 
 ```
 
+Promise：
+
+```js
+import file from '@uni/file';
+
+file.download({
+  url: 'http://img.alicdn.com/tfs/TB1x669SXXXXXbdaFXXXXXXXXXX-520-280.jpg',
+}).then((res) => {
+  console.log(res.filePath);
+}).catch((e) => {
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
 You can also import from the big package:
 
 ```js

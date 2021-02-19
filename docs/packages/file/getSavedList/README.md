@@ -44,6 +44,21 @@ file.getSavedList({
 
 ```
 
+Promise调用：
+
+```js
+import file from '@uni/file';
+
+file.getSavedList().then((res) => {
+  console.log(JSON.stringfy(res));
+}).catch((e) => {
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
 你也可以从大包引入：
 ```js
 import { file } from '@uni/apis';

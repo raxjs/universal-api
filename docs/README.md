@@ -54,7 +54,9 @@ export default () => (
     <div style="text-align: center;">微信小程序</div>
   </div>
   <div style="margin-left: 30px;">
-    <img src="https://gw.alicdn.com/imgextra/i3/O1CN01Ca6t2Q2AEpIXh4r0u_!!6000000008172-0-tps-1540-1906.jpg" width="200" height="250" />
+    <div style="line-height: 0;">
+      <img src="https://gw.alicdn.com/imgextra/i3/O1CN01Ca6t2Q2AEpIXh4r0u_!!6000000008172-0-tps-1540-1906.jpg" width="200" height="250" />
+    </div>
     <div style="text-align: center;">支付宝小程序</div>
   </div>
 </div>

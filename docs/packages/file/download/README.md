@@ -55,6 +55,24 @@ file.download({
 
 ```
 
+Promise调用：
+
+```js
+import file from '@uni/file';
+
+file.download({
+  url: 'http://img.alicdn.com/tfs/TB1x669SXXXXXbdaFXXXXXXXXXX-520-280.jpg',
+}).then((res) => {
+  console.log(res.filePath);
+}).catch((e) => {
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
+
 你也可以从大包引入：
 ```js
 import { file } from '@uni/apis';

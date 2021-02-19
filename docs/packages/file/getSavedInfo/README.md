@@ -47,6 +47,25 @@ file.getSavedInfo({
 });
 
 ```
+
+Promise调用：
+
+```js
+import file from '@uni/file';
+
+file.getSavedInfo({
+  filePath: '**filePath**',
+}).then((res) => {
+  console.log(res.size);
+  console.log(res.createTime);
+}).catch((e) => {
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
 你也可以从大包引入：
 ```js
 import { file } from '@uni/apis';

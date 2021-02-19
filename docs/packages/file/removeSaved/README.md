@@ -46,6 +46,23 @@ file.removeSaved({
 
 ```
 
+Promise调用：
+
+```js
+import file from '@uni/file';
+
+file.removeSaved({
+  filePath: '**filePath**',
+}).then((res) => {
+  console.log('remove success');
+}).catch((e) => {
+  console.log(e);
+}).finally((res) => {
+  console.log(res);
+});
+
+```
+
 你也可以从大包引入：
 ```js
 import { file } from '@uni/apis';

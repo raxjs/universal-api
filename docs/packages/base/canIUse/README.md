@@ -1,14 +1,14 @@
 # canIUse 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@unicanIUse.svg)](https://www.npmjs.com/package/@unicanIUse)
+[![npm](https://img.shields.io/npm/v/@uni/caniuse.svg)](https://www.npmjs.com/package/@uni/caniuse)
 
 判断api是否可用
 
 ## 安装
 
 ```bash
-$ npm install @uni/canIUse --save
+$ npm install @uni/caniuse --save
 ```
 or
 ```bash
@@ -17,7 +17,7 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import canIUse from '@uni/canIUse';
+import canIUse from '@uni/caniuse';
 
 canIUse('getapp');
 
