@@ -1,5 +1,4 @@
 const path = require('path');
-const mainPkg = require('../package.json');
 const rm = require('rimraf');
 // import filesize from 'rollup-plugin-filesize';
 const sourceMap = require('../api-config');
@@ -30,7 +29,7 @@ function logger( text = '', opts = { status: 'INFO' } ) {
   }
   console.log(logText);
 }
-const allTask = async () => {
+const buildDemo = async () => {
   const demoPath = path.resolve(root, demoOutputDir);
   // fs.mkdirSync(path.resolve(demoPath, 'src'));
   if (!fs.pathExistsSync(demoPath)) {
@@ -42,8 +41,8 @@ const allTask = async () => {
     fs.mkdirSync(path.resolve(demoPath, 'src'));
   }
   
-  const appJsonContent = require(path.resolve(root, 'scripts/source/demosSource/src/app.json'));
-  const packageContent = require(path.resolve(root, 'scripts/source/demosSource/demo-package-tpl.js'));
+  const appJsonContent = require(path.resolve(root, 'scripts/demosSource/src/app.json'));
+  const packageContent = require(path.resolve(root, 'scripts/demosSource/demo-package-tpl.js'));
   if (!fs.pathExistsSync(path.resolve(demoPath, 'src/pages'))) {
     fs.mkdirSync(path.resolve(demoPath, 'src/pages'));
   }
@@ -67,7 +66,7 @@ const allTask = async () => {
           "path": '/' + i.name.replace('@uni/', ''),
           "source": `pages/${i.name.replace('@uni/', '')}/index`,
           "window": {
-            "title": i.name
+            "title": i.name.replace('@uni/', '')
           }
         });
       }
@@ -80,69 +79,19 @@ const allTask = async () => {
   // fs.mkdirSync(path.resolve(demoPath, 'src/pages'));
   await fs.outputJSON(path.resolve(root, demoPath, 'package.json'), packageContent);
   await fs.outputJSON(path.resolve(root, demoPath, 'src/app.json'), appJsonContent);
-  fs.copyFileSync(path.resolve(root, 'scripts/source/demosSource/src/app.js'), path.resolve(demoPath, 'src/app.js'));
+  fs.copyFileSync(path.resolve(root, 'scripts/demosSource/src/app.js'), path.resolve(demoPath, 'src/app.js'));
   // fs.copyFileSync(path.resolve(root, 'scripts/demos/src/app.json'), path.resolve(demoPath, 'src/app.js'));
   if (!fs.pathExistsSync(path.resolve(demoPath, 'src/pages/Home'))) {
     fs.mkdirSync(path.resolve(demoPath, 'src/pages/Home'));
   }
-  fs.copyFileSync(path.resolve(root, 'scripts/source/demosSource/src/pages/index.tsx'), path.resolve(demoPath, 'src/pages/Home/index.tsx'));
-  fs.copyFileSync(path.resolve(root, 'scripts/source/demosSource/build.json'), path.resolve(demoPath, 'build.json'));
-  fs.copyFileSync(path.resolve(root, 'scripts/source/demosSource/herbox.json'), path.resolve(demoPath, 'herbox.json'));
-  fs.copyFileSync(path.resolve(root, 'scripts/source/demosSource/herbox.js'), path.resolve(demoPath, 'herbox.js'));
+  fs.copyFileSync(path.resolve(root, 'scripts/demosSource/src/pages/index.tsx'), path.resolve(demoPath, 'src/pages/Home/index.tsx'));
+  fs.copyFileSync(path.resolve(root, 'scripts/demosSource/build.json'), path.resolve(demoPath, 'build.json'));
+  fs.copyFileSync(path.resolve(root, 'scripts/demosSource/herbox.json'), path.resolve(demoPath, 'herbox.json'));
+  fs.copyFileSync(path.resolve(root, 'scripts/demosSource/herbox.js'), path.resolve(demoPath, 'herbox.js'));
   // shellResList.push(...res);
   // shellRes = res.join(' && ');
   logger('END', {status: 'SUCCESS'});
 };
 
 
-const mainTask = () => {
-  // const buildDts = async (ctx, next) => {
-  //   // buildDTS(Object.entries(sourceMap).map(([key, value]) => value.path), path.resolve(root, outputDir, 'main'));
-  //   await next();
-  // };
-  
-  const indexFileContent = Object.entries(sourceMap).map(([key, value]) => {
-    return `export * as ${key} from '${value.path.replace('packages/', './').replace(/\.(t|j)s/, '')}';`;
-  }).join('\r\n');
-  fs.writeFileSync('packages/index.ts', indexFileContent);
-  taskList.push(
-    release('packages/index.ts', {
-      version: mainPkg.version,
-      name: mainPkg.name,
-    }, 'main/')
-  );
-};
-allTask();
-// let shellRes = '';
-// const apiName = process.argv[2];
-
-// if (apiName) {
-  
-//   taskList = getConfList(apiName);
-//   compose(taskList)().then(function() {
-//     // logger('END', {status: 'SUCCESS'});
-//   }).catch(function(err) {
-//     console.log(err);
-//   });
-// } else if (process.env.BUILD_TYPE === 'all') {
-//   allTask();
-// } else if (process.env.BUILD_TYPE === 'main') {
-//   mainTask();
-//   compose(taskList)().then(function() {
-//     // logger('END', {status: 'SUCCESS'});
-//   }).catch(function(err) {
-//     console.log(err);
-//   });
-// } else {
-//   let res = [];
-//   Object.entries(sourceMap).map(([key, value]) => {
-//     res.push(`npm run build ${key}`);
-//     // taskList.push(...getConfList(key));
-//   });
-//   shellRes = res.join(' && ');
-//   shellRes += ' && npm run build:main';
-//   shelljs.exec(shellRes);
-//   // 默认构建全部api
-//   // allTask();
-//   // mainTask();
-// }
+buildDemo();

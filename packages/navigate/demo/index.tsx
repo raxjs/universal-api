@@ -25,13 +25,13 @@ export default function() {
   return (
     <View>
       <View style={styles.button} onClick={() => {
-        navigate.push({url: '/pages/@uni/toast/index'});
+        navigate.push({url: '/pages/toast/index'});
       }}>push</View>
       <View style={styles.button} onClick={() => {
-        navigate.replace({url: '/pages/@uni/toast/index'});
+        navigate.replace({url: '/pages/toast/index'});
       }}>replace</View>
       <View style={styles.button} onClick={() => {
-        navigate.reLaunch({url: '/pages/@uni/toast/index'});
+        navigate.reLaunch({url: '/pages/toast/index'});
       }}>reLaunch</View>
       <View style={styles.button} onClick={() => {
         navigate.back();
