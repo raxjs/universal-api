@@ -1,8 +1,8 @@
 import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 import webModule from './web/index';
 import aliMiniAppModule from './ali-miniapp/index';
-import weChatModule from './wechat-miniapp/index';
-import bytedanceModule from './byte-miniapp/index';
+import weChatModule from './wechat-miniprogram/index';
+import bytedanceModule from './bytedance-microapp/index';
 
 export default () => {
   if (isWeChatMiniProgram) {

@@ -86,16 +86,16 @@ import { getStorageSync } from '@uni/storage/ali-miniapp';
 getStorageSync({key: 'key'});
 
 ```
-#### wechat-miniapp
+#### wechat-miniprogram
 ```js
-import { getStorageSync } from '@uni/storage/wechat-miniapp';
+import { getStorageSync } from '@uni/storage/wechat-miniprogram';
 
 getStorageSync({key: 'key'});
 
 ```
-#### byte-miniapp
+#### bytedance-microapp
 ```js
-import { getStorageSync } from '@uni/storage/byte-miniapp';
+import { getStorageSync } from '@uni/storage/bytedance-microapp';
 
 getStorageSync({key: 'key'});
 
@@ -115,8 +115,8 @@ $ npm i @uni/apis
 
 ```js
 import { request } from '@uni/apis/ali-miniapp';
-// import { request } from '@uni/apis/wechat-miniapp';
-// import { request } from '@uni/apis/byte-miniapp';
+// import { request } from '@uni/apis/wechat-miniprogram';
+// import { request } from '@uni/apis/bytedance-microapp';
 // import { request } from '@uni/apis/web';
 
 request({key: 'key'});

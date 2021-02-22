@@ -6,3 +6,4 @@ coverage
 scripts
 packages/**/**/demo
 packages/**/demo
+docs

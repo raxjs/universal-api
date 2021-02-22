@@ -29,9 +29,9 @@ export const upload = initApi.upload((options: UploadOptions) => {
   });
 });
 
-export const download = initApi.download((options: DownloadOptions) => {
+export const download = (options: DownloadOptions) => {
   let { url, header, success, fail, complete, ...rest } = options;
-  wx.downloadFile({
+  return wx.downloadFile({
     url,
     header,
     ...rest,
@@ -49,7 +49,7 @@ export const download = initApi.download((options: DownloadOptions) => {
       } : res);
     }
   });
-});
+};
 
 export const getInfo = initApi.getInfo((options: GetInfoOptions) => {
   let { filePath, digestAlgorithm, success, fail, complete } = options;

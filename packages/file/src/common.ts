@@ -116,12 +116,12 @@ export const initApi = {
       const afterOptions = {...DEFAULT_REQUEST_OPTIONS, ...options, ...{
         success: (res) => {
           options.success && options.success({
-            savedFilePath: res.savedFilePath,
+            savedFilePath: res.savedFilePath || res.apFilePath,
           });
         },
         complete: (res) => {
           options.complete && options.complete(res.size ? {
-            savedFilePath: res.savedFilePath,
+            savedFilePath: res.savedFilePath || res.apFilePath,
           } : res);
         }
       }};

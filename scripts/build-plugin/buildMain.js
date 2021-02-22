@@ -9,7 +9,7 @@ module.exports = (rootDir, sourceMap) => {
     if (value.unNeedSplit) {
       return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\.(t|j)s/, '')}';`;
     }
-    return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\/src/, '/src/wechat-miniapp').replace(/\.(t|j)s/, '')}';`;
+    return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\/src/, '/src/wechat-miniprogram').replace(/\.(t|j)s/, '')}';`;
   }).join('\r\n');
   const aliFileContent = Object.entries(sourceMap).map(([key, value]) => {
     if (value.unNeedSplit) {
@@ -21,7 +21,7 @@ module.exports = (rootDir, sourceMap) => {
     if (value.unNeedSplit) {
       return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\.(t|j)s/, '')}';`;
     }
-    return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\/src/, '/src/byte-miniapp').replace(/\.(t|j)s/, '')}';`;
+    return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\/src/, '/src/bytedance-microapp').replace(/\.(t|j)s/, '')}';`;
   }).join('\r\n');
   const webFileContent = Object.entries(sourceMap).map(([key, value]) => {
     if (value.unNeedSplit) {
@@ -30,9 +30,9 @@ module.exports = (rootDir, sourceMap) => {
     return `export * as ${key} from '${value.path.replace('packages/', '../../').replace(/\/src/, '/src/web').replace(/\.(t|j)s/, '')}';`;
   }).join('\r\n');
   fs.writeFileSync(path.resolve(rootDir, 'packages/main/index.ts'), indexFileContent);
-  fs.writeFileSync(path.resolve(rootDir, 'packages/main/wechat-miniapp/index.ts'), wechatFileContent);
+  fs.writeFileSync(path.resolve(rootDir, 'packages/main/wechat-miniprogram/index.ts'), wechatFileContent);
   fs.writeFileSync(path.resolve(rootDir, 'packages/main/ali-miniapp/index.ts'), aliFileContent);
-  fs.writeFileSync(path.resolve(rootDir, 'packages/main/byte-miniapp/index.ts'), byteFileContent);
+  fs.writeFileSync(path.resolve(rootDir, 'packages/main/bytedance-microapp/index.ts'), byteFileContent);
   fs.writeFileSync(path.resolve(rootDir, 'packages/main/web/index.ts'), webFileContent);
   // taskList.push(
   //   release('packages/main/index.ts', {

@@ -1,7 +1,7 @@
 # removeSaved
 [![npm](https://img.shields.io/npm/v/@uni/file.svg)](https://www.npmjs.com/package/@uni/file)
 
-File operations.
+Delete a saved file.
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
 <div style="margin-right: 20px;">
@@ -14,12 +14,6 @@ File operations.
 ```bash
 $ npm install @uni/file --save
 ```
-
-## Methods
-
-### `removeSaved(options)`
-
-Delete a saved file.
 
 #### Support
 <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp">
