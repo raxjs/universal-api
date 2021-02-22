@@ -12,8 +12,14 @@ export interface ChooseImageOptions {
   complete?: (res) => any;
 }
 
+interface FileData {
+  path: string;
+  size: number;
+}
+
 export interface ChooseImageRes {
   tempFilePaths: string[];
+  tempFiles: FileData[];
 }
 
 // compressImage

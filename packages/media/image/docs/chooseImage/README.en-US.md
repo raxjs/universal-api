@@ -79,11 +79,25 @@ image.chooseImage({
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
 
+#### Special Arguments
+
+| Property | Type | Description | required | Default | Supported |
+| --- | --- | --- | --- | --- | -- |
+| options.sizeType | `Array.<string>`  | The size of the select image | ✔️ | ['original', 'compressed'] | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> |
+
 #### Return
 
 | Property | Type | Description |
 | --- | --- | --- |
 | tempFilePaths | `Array<string>`  | The list of local temporary file paths to images |
+| tempFiles | `Array<Object>` | The local temporary file list for images |
+
+##### res.tempFiles
+
+| Property | Type | Description |
+| --- | --- | --- |
+| path | `string`  | The path to the local temporary file |
+| size | `number`  | The size of a local temporary file, in bytes |
 
 </div>
 <div>

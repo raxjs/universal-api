@@ -79,11 +79,25 @@ image.chooseImage({
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
 
+#### Special Arguments
+
+| Property | Type | Description | required | Default | Supported |
+| --- | --- | --- | --- | --- | -- |
+| options.sizeType | `Array.<string>`  | The size of the select image | ✔️ | ['original', 'compressed'] | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> |
+
 #### Return
 
 | Property | Type | Description |
 | --- | --- | --- |
 | tempFilePaths | `Array<string>`  | The list of local temporary file paths to images |
+| tempFiles | `Array<Object>` | The local temporary file list for images |
+
+##### res.tempFiles
+
+| Property | Type | Description |
+| --- | --- | --- |
+| path | `string`  | The path to the local temporary file |
+| size | `number`  | The size of a local temporary file, in bytes |
 
 # compressImage 
 
@@ -254,3 +268,23 @@ image.getImageInfo({
 | width | `number`  | The original width of the image (in px). |
 | height | `number`  | The original height of the image (in px).  |
 | path | `number`  | The local path to the image		|
+
+#### Special Return
+
+| Property | Type | Description | Supported |
+| --- | --- | --- | --- |
+| orientation | `string`  | Device orientation when taking photos | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> |
+| type | `string`  | Image format	| <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp"> no Dingding |
+
+##### orientation
+
+| Value | Description |
+| --- | --- |
+| up	| Default orientation (landscape) |
+| up-mirrored	| Mirrored orientation of up |
+| down | Rotates the device 180 degrees |
+| down-mirrored	| Mirrored orientation of down |
+| left-mirrored |	Mirrored orientation of left |
+| right | Rotates the device 90 degrees clockwise |
+| right-mirrored | Mirrored orientation of right |
+| left | Rotates the device 90 degrees counterclockwise |

@@ -80,11 +80,25 @@ image.chooseImage({
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
 
+#### 差异化参数
+
+| 成员 | 类型 | 描述 | 必选 | 默认值 | 支持度 |
+| --- | --- | --- | --- | --- | -- |
+| options.sizeType | `Array.<string>`  | 所选的图片尺寸 | ✔️ | ['original', 'compressed'] | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+
 #### 返回
 
 | 成员 | 类型 | 描述 |
 | --- | --- | --- |
 | tempFilePaths | `Array<string>`  | 图片的本地临时文件路径列表，h5为base64图片数据列表 |
+| tempFiles | `Array<Object>` | 图片的本地临时文件列表 |
+
+##### res.tempFiles 的结构
+
+| 成员 | 类型 | 描述 |
+| --- | --- | --- |
+| path | `string`  | 本地临时文件路径 (本地路径) |
+| size | `number`  | 本地临时文件大小，单位 B |
 
 # compressImage 
 
@@ -255,3 +269,23 @@ image.getImageInfo({
 | width | `number`  | 图片原始宽度，单位px |
 | height | `number`  | 图片原始高度，单位px |
 | path | `number`  | 图片的本地路径	|
+
+#### 差异化返回值
+
+| 成员 | 类型 | 描述 | 支持度 |
+| --- | --- | --- | --- |
+| orientation | `string`  | 拍照时设备方向 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| type | `string`  | 图片格式 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序"> 钉钉不支持 |
+
+##### orientation
+
+| 值 | 说明 |
+| --- | --- |
+| up	| 默认方向（手机横持拍照） |
+| up-mirrored	| 同 up，但镜像翻转 |
+| down | 旋转180度 |
+| down-mirrored	| 同 down，但镜像翻转 |
+| left-mirrored |	同 left，但镜像翻转 |
+| right | 顺时针旋转90度 |
+| right-mirrored | 同 right，但镜像翻转 |
+| left | 逆时针旋转90度 |
