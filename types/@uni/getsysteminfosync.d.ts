@@ -1,1 +1,0 @@
-declare module '@uni/getsysteminfosync';

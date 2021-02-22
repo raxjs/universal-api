@@ -62,11 +62,7 @@ You can also import from the big package:
 import { request } from '@uni/apis';
 ```
 
-## Methods
-
-### `request(options)`
-
-#### Arguments
+## Arguments
 
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
@@ -81,7 +77,15 @@ import { request } from '@uni/apis';
 | options.fail | `Function`  | The callback function for a failed API call | false | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | 否 | - |
 
-#### Return
+### 不通用参数（由于破坏了一码多端的能力，不推荐使用）
+| 属性   | 类型     | 默认值 | 必选 | 描述 | 支持  |
+| ------ | -------- | ------ | ---- | ----- | ------- |
+| responseType | `string` | text  | x    | 响应的数据类型 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序"> |
+| enableHttp2 | `boolean` |  false  | x    | 开启 http2 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| enableQuic | `boolean` |  false  | x    | 开启 quic | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| enableCache | `boolean` |  false  | x    | 开启 cache | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+
+### Return
 
 Success return：`Promise<Response>`
 
@@ -91,6 +95,12 @@ Success return：`Promise<Response>`
 | response.data | `string`  | The data returned by the request is converted according to the type declared in the dataType. If the conversion fails, it is returned as it is |
 | response.headers | `object`  | Response headers ，JSONP request has no value |
 | response.status | `number`  | Response status，JSONP request has no value |
+
+### 不通用返回参数（由于破坏了一码多端的能力，不推荐使用）
+| 属性   | 类型     | 描述 | 支持  |
+| ------ | -------- | ----- | ------- |
+| cookies | `Array.<string>` | 开发者服务器返回的 cookies，格式为字符串数组 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| profile | `Object` | 网络请求过程中一些调试信息 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
 
 Fail return：
 

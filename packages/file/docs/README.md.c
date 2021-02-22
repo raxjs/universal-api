@@ -193,6 +193,16 @@ $ npm install @uni/file --save
 | fail | `Function`  |   -    | x    | 失败的回调 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">  |
 | complete | `Function`  |   -    | x    | 结束的回调 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">  |
 
+
+#### 返回
+注意：只有微信小程序和字节跳动小程序支持
+
+DownloadTask
+一个可以监听下载进度变化事件和取消下载的对象
+具体文档可以查看：
+微信：https://developers.weixin.qq.com/miniprogram/dev/api/network/download/DownloadTask.html
+字节跳动：https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/api/network/http/download-task/
+
 ## 示例
 
 ```js

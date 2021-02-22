@@ -9,6 +9,7 @@ import {
   RemoveSavedOptions,
   OpenDocumentOptions,
   UploadOptions,
+  DownloadTask
 } from '../types';
 import {initApi} from '../common';
 
@@ -29,7 +30,7 @@ export const upload = initApi.upload((options: UploadOptions) => {
   });
 });
 
-export const download = (options: DownloadOptions) => {
+export const download = (options: DownloadOptions): DownloadTask => {
   let { url, header, success, fail, complete, ...rest } = options;
   return wx.downloadFile({
     url,

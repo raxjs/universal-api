@@ -40,10 +40,7 @@ navigate.reLaunch({
 import { navigate } from '@uni/apis';
 ```
 
-## 方法
-### `replace(options)`
-
-#### 参数
+## 参数
 | 成员             | 类型      | 描述    | 必选  | 默认值 |
 | ---------------- | --------- | ------ | :---: | :----: |
 | options          | `object`  | go 参数    |  是   |   -    |

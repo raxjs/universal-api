@@ -36,11 +36,7 @@ You can also import from the big package:
 import { navigate } from '@uni/apis';
 ```
 
-## Methods
-
-### `go(options)`
-
-#### Arguments
+## Arguments
 | Property         | Type      | Description  | required | Default |
 | ---------------- | --------- | --- | :------: | :-----: |
 | options          | `object`  | Go function arguments |   true |-    |

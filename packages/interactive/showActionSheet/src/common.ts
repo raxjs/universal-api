@@ -1,18 +1,19 @@
-import { isDingdingMiniapp, isMiniApp } from '@uni/env';
+import { isMiniApp } from '@uni/env';
 import { promisify } from '../../../utils/promisify';
+import { isDingdingMiniapp } from '../../../utils/miniappEnvApp';
 import { ShowActionSheetOptions, ShowActionSheetRes } from './types';
 
 /**
  * actionsheet返回值格式化
- * @param res 
+ * @param res
  */
 const formatResponse = (res): ShowActionSheetRes => {
   return {tapIndex: res.tapIndex != undefined ? res.tapIndex : res.index};
-}
+};
 
 /**
  * actionsheet参数格式化
- * @param options 
+ * @param options
  */
 function styleOptions(options: ShowActionSheetOptions = {itemList: []}) {
   if (isDingdingMiniapp || isMiniApp) {
@@ -30,7 +31,7 @@ function styleOptions(options: ShowActionSheetOptions = {itemList: []}) {
     fail: err => {
       options.fail && options.fail(err);
     }
-  }
+  };
 }
 
 export function initApi(api) {

@@ -1,5 +1,5 @@
 import { DATA_TYPE, AsObject, RequestOptions } from './types';
-import { promisify } from '../../../utils/promisify';
+// import { promisify } from '../../../utils/promisify';
 
 export function getDataWithType(data: any, type: DATA_TYPE) {
   if (type === DATA_TYPE.json) {
@@ -107,6 +107,6 @@ export function styleOptions(options) {
 export function initApi(api) {
   return (options) => {
     const afterOptions = styleOptions(options);
-    return promisify(api)(afterOptions);
+    return api(afterOptions);
   };
 }

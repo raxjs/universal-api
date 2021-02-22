@@ -88,10 +88,25 @@ export interface OpenDocumentOptions {
   fail?: (res: Error) => void;
   complete?: (res?: Error) => void;
 }
+interface OnProgressUpdateCbRes {
+  progress: number;
+  totalBytesWritten?: number;
+  totalBytesExpectedToWrite?: number;
+}
+
+type onProgressUpdateCb = () => OnProgressUpdateCbRes;
+
+export interface DownloadTask {
+  abort: () => void;
+  onProgressUpdate?: (cb: onProgressUpdateCb) => void;
+  offProgressUpdate?: (cb: onProgressUpdateCb) => void;
+  onHeadersReceived?: (cb: Function) => void;
+  offHeadersReceived?: (cb: Function) => void;
+}
 
 export interface IFile {
   upload(options: UploadOptions): Promise<null>;
-  download(options: DownloadOptions): Promise<null>;
+  download(options: DownloadOptions): Promise<null> | DownloadTask;
   getInfo(options: GetInfoOptions): Promise<null>;
   getSavedInfo(options: GetSavedInfoOptions): Promise<null>;
   getSavedList(options: GetSavedListOptions): Promise<null>;

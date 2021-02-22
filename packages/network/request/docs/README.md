@@ -49,30 +49,16 @@ request({
     console.log('complete', res);
   }
 });
-// Promise调用
-request({
-  url: 'https://alibaba.github.io/rax/',
-  method: 'POST',
-  data: {
-    from: 'Rax',
-  },
-  dataType: 'json'
-}).then(response => {})
-  .catch(error => {})
-  .finally(res => {});
 
 ```
+注意：此 api 不支持 promise 调用
 
 你也可以从大包引入：
 ```javascript
 import { request } from '@uni/apis';
 ```
 
-## 方法
-
-### `request(options)`
-
-#### 参数
+## 参数
 
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
@@ -87,9 +73,16 @@ import { request } from '@uni/apis';
 | options.fail | `Function`  | 失败的回调 | 否 | - |
 | options.complete | `Function`  | 结束的回调 | 否 | - |
 
-#### 返回
+### 不通用参数（由于破坏了一码多端的能力，不推荐使用）
+| 属性   | 类型     | 默认值 | 必选 | 描述 | 支持  |
+| ------ | -------- | ------ | ---- | ----- | ------- |
+| responseType | `string` | text  | x    | 响应的数据类型 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序"> |
+| enableHttp2 | `boolean` |  false  | x    | 开启 http2 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| enableQuic | `boolean` |  false  | x    | 开启 quic | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| enableCache | `boolean` |  false  | x    | 开启 cache | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
 
-请求成功返回：`Promise<Response>`
+
+### 请求成功返回：`<Response>`
 
 | 成员 | 类型 | 描述 |
 | --- | --- | --- |
@@ -98,13 +91,51 @@ import { request } from '@uni/apis';
 | response.headers | `object`  | 请求的返回头部，JSONP请求无值 |
 | response.status | `number`  | 请求返回的状态码，JSONP请求无值 |
 
-请求失败返回：
+#### 不通用返回参数（由于破坏了一码多端的能力，不推荐使用）
+| 属性   | 类型     | 描述 | 支持  |
+| ------ | -------- | ----- | ------- |
+| cookies | `Array.<string>` | 开发者服务器返回的 cookies，格式为字符串数组 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| profile | `Object` | 网络请求过程中一些调试信息 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+
+### 请求失败返回：
 
 | 成员 | 类型 | 描述 |
 | --- | --- | --- |
 | error | `object` | - |
 | error.code | `number`  | 错误码 |
 | error.message | `string`  | 错误说明 |
+
+### 返回 RequestTask
+请求任务对象
+#### 方法：
+RequestTask.abort()
+中断请求任务
+##### 不通用方法（由于破坏了一码多端的能力，不推荐使用）
+**仅微信支持以下方法**
+RequestTask.onHeadersReceived(function callback)
+监听 HTTP Response Header 事件。会比请求完成事件更早
+
+RequestTask.offHeadersReceived(function callback)
+取消监听 HTTP Response Header 事件
+
+#### 示例代码：
+```js
+import request from '@uni/request';
+const requestTask = request({
+  url: 'test.php', //仅为示例，并非真实的接口地址
+  data: {
+    x: '' ,
+    y: ''
+  },
+  header: {
+    'content-type': 'application/json'
+  },
+  success (res) {
+    console.log(res.data)
+  }
+})
+requestTask.abort() // 取消请求任务
+```
 
 </div>
 <div>

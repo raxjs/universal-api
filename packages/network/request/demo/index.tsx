@@ -38,15 +38,17 @@ export default () => {
       data: {
         test: '1'
       },
-      timeout: 5000
-      // dataType: 'text' as any
-    }).then((data) => {
-      setLoading(false);
-      console.log('data', data);
-      setData(data.data);
-    }).catch((error) => {
-      setLoading(false);
+      timeout: 5000,
+      success: (data) => {
+        setLoading(false);
+        console.log('data', data);
+        setData(data.data);
+      },
+      fail: () => {
+        setLoading(false);
       setError(error);
+      }
+      // dataType: 'text' as any
     });
   };
   return (
