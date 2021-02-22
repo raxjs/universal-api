@@ -1,15 +1,53 @@
-import { isMiniApp, isWeChatMiniProgram } from '@uni/env';
-import * as miniAppModule from './miniapp/ali';
-import * as weChatModule from './miniapp/wechat';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
+import aliMiniAppModule from './ali-miniapp/index';
+import webModule from './web/index';
+import weChatModule from './wechat-miniprogram/index';
+import bytedanceModule from './bytedance-microapp/index';
 
-import { Image } from './types';
+export const chooseImage = (args) => {
+  if (isWeChatMiniProgram) {
+    return weChatModule.chooseImage(args);
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.chooseImage(args);
+  } else if (isMiniApp) {
+    return aliMiniAppModule.chooseImage(args);
+  } else if (isWeb) {
+    return webModule.chooseImage(args);
+  } else {
+    throw new Error('@uni/apis：chooseImage暂不支持');
+  }
+};
 
-let Image: Image;
-if (isMiniApp) {
-  Image = miniAppModule;
-}
-if (isWeChatMiniProgram) {
-  Image = weChatModule;
-}
+export const compressImage = (args) => {
+  if (isWeChatMiniProgram) {
+    return weChatModule.compressImage(args);
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.compressImage(args);
+  } else if (isMiniApp) {
+    return aliMiniAppModule.compressImage(args);
+  } else if (isWeb) {
+    return webModule.compressImage();
+  } else {
+    throw new Error('@uni/apis：compressImage暂不支持');
+  }
+};
 
-export default Image;
+export const getImageInfo = (args) => {
+  if (isWeChatMiniProgram) {
+    return weChatModule.getImageInfo(args);
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.getImageInfo(args);
+  } else if (isMiniApp) {
+    return aliMiniAppModule.getImageInfo(args);
+  } else if (isWeb) {
+    return webModule.getImageInfo();
+  } else {
+    throw new Error('@uni/apis：getImageInfo暂不支持');
+  }
+};
+
+export default {
+  chooseImage,
+  compressImage,
+  getImageInfo
+};
