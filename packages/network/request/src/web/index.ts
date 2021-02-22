@@ -126,6 +126,9 @@ function requestXHR(options: RequestOptions) {
   }
 
   xhr.send(requestData);
+  return {
+    abort: () => {}
+  };
   // });
 }
 export default initApi(requestXHR);

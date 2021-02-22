@@ -28,8 +28,14 @@ module.exports = (inputPath, itemOutputPath, sourceMap, pkgInfo, apiInfo, isMain
   // const typesPath = path.resolve(root, inputPath.replace("index.ts", "types.ts"));
   
 
-  const getConfig = (_inputPath, _outputPath) => {
-    let override = { compilerOptions: { declaration: apiInfo.declaration, declarationDir: outputPath }, include: ['types', inputPath, sourcePath + "/**/types.ts"] };
+  const getConfig = (_inputPath, _outputPath, declaration) => {
+    let override = { 
+      compilerOptions: { 
+        declaration: declaration,
+        declarationDir: outputPath 
+      },
+      include: ['types', inputPath, sourcePath + "/**/types.ts"] 
+    };
     const aliasEntries = [];
     if (sourceMap) {
       Object.values(sourceMap).forEach(item => {
@@ -162,7 +168,7 @@ module.exports = (inputPath, itemOutputPath, sourceMap, pkgInfo, apiInfo, isMain
     )
   }
 
-  let res = getConfig(inputPath, outputPath);
+  let res = getConfig(inputPath, outputPath, apiInfo.declaration);
   if (!apiInfo.unNeedSplit) {
     conf.containerList.forEach(containerName => {
       let _inputPath = inputPath.replace(/\/index\.(t|j)s/, '/' + containerName + '/index.ts');

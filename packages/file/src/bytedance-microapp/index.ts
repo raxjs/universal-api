@@ -9,6 +9,7 @@ import {
   RemoveSavedOptions,
   OpenDocumentOptions,
   UploadOptions,
+  DownloadTask,
 } from '../types';
 import {initApi} from '../common';
 
@@ -29,9 +30,9 @@ export const upload = initApi.upload((options: UploadOptions) => {
   });
 });
 
-export const download = initApi.download((options: DownloadOptions) => {
+export const download = (options: DownloadOptions): DownloadTask => {
   let { url, header, success, fail, complete } = options;
-  tt.downloadFile({
+  return tt.downloadFile({
     url,
     header,
     success: function(res) {
@@ -48,7 +49,7 @@ export const download = initApi.download((options: DownloadOptions) => {
       } : res);
     }
   });
-});
+};
 
 export const getInfo = initApi.getInfo((options: GetInfoOptions) => {
   let { filePath, success, fail, complete } = options;

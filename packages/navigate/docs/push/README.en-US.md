@@ -35,11 +35,7 @@ You can also import from the big package:
 import { navigate } from '@uni/apis';
 ```
 
-## Methods
-
-### `push(options)`
-
-#### Arguments
+## Arguments
 | Property         | Type      | Description  | required | Default |
 | ---------------- | --------- | ----------- | :------: | :-----: |
 | options          | `object`  | Push function arguments  | true   |    -    |

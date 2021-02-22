@@ -8,7 +8,7 @@ import {initApi} from '../common';
 function request(options: RequestOptions) {
   let { url, method, data, dataType, headers, timeout, success, fail, complete } = options;
   const request = isDingdingMiniapp ? dd.httpRequest : my.request;
-  request({
+  return request({
     url,
     headers,
     method,
