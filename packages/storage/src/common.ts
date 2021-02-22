@@ -3,7 +3,7 @@ import { GetOrRemoveOptionStruct, SetOptionStruct } from './types';
 
 /**
  * 抹平data not found差异，各端均返回空值，不抛异常
- * @param params 
+ * @param params
  */
 function formatRes(params: GetOrRemoveOptionStruct) {
   if (params && typeof params.fail === 'function') {
@@ -15,7 +15,7 @@ function formatRes(params: GetOrRemoveOptionStruct) {
         return;
       }
       failFn(err);
-    }
+    };
   }
   return params;
 }

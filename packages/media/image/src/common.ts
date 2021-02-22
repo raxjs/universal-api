@@ -1,0 +1,70 @@
+import { promisify } from '../../../utils/promisify';
+import {
+  ChooseImageOptions,
+  ChooseImageRes,
+  CompressImageOptions,
+  CompressImageRes,
+  GetImageInfoOptions,
+  GetImageInfoRes
+} from './types';
+
+export const initApi = {
+  chooseImage: (api) => {
+    const formatResponse = (res): ChooseImageRes => {
+      return {
+        tempFilePaths: res.tempFilePaths
+      };
+    };
+    return (args: ChooseImageOptions) => {
+      return promisify(api)({
+        ...args,
+        // 默认一张
+        count: args.count || 1,
+        success: res => {
+          args.success && args.success(formatResponse(res));
+        },
+        complete: res => {
+          args.complete && args.complete(res);
+        }
+      }).then(formatResponse);
+    };
+  },
+  compressImage: (api) => {
+    const formatResponse = (res): CompressImageRes => {
+      return {
+        tempFilePath: res.tempFilePath || (res.filePaths || [])[0] || (res.apFilePaths || [])[0] || ''
+      };
+    };
+    return (args: CompressImageOptions) => {
+      return promisify(api)({
+        ...args,
+        success: res => {
+          args.success && args.success(formatResponse(res));
+        },
+        complete: res => {
+          args.complete && args.complete(res);
+        }
+      }).then(formatResponse);
+    };
+  },
+  getImageInfo: (api) => {
+    const formatResponse = (res): GetImageInfoRes => {
+      return {
+        width: res.width,
+        height: res.height,
+        path: res.path
+      };
+    };
+    return (args: GetImageInfoOptions) => {
+      return promisify(api)({
+        ...args,
+        success: res => {
+          args.success && args.success(formatResponse(res));
+        },
+        complete: res => {
+          args.complete && args.complete(res);
+        }
+      }).then(formatResponse);
+    };
+  }
+};

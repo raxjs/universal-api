@@ -240,16 +240,6 @@ module.exports = {
   //     }
   //   ]
   // },
-  // 'image': {
-  //   path: 'packages/media/image/src/index.ts',
-  //   pkgInfo: [
-  //     {
-  //       version: '1.0.1',
-  //       name: '@uni/image',
-  //     }
-  //   ]
-  // },
-  // location
   'location': {
     path: 'packages/location/src/index.ts',
     pkgInfo: [
@@ -260,30 +250,12 @@ module.exports = {
     ]
   },
   // media
-  'chooseImage': {
-    path: 'packages/media/chooseImage/src/index.ts',
+  'image': {
+    path: 'packages/media/image/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
-        name: '@uni/choose-image',
-      }
-    ]
-  },
-  'compressImage': {
-    path: 'packages/media/compressImage/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.0.0-beta',
-        name: '@uni/compress-image',
-      }
-    ]
-  },
-  'getImageInfo': {
-    path: 'packages/media/getImageInfo/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.0.0-beta',
-        name: '@uni/image-info',
+        version: '1.0.1-beta',
+        name: '@uni/image',
       }
     ]
   },
