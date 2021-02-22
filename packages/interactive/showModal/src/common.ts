@@ -1,4 +1,3 @@
-import { isDingdingMiniapp, isMiniApp } from '@uni/env';
 import { promisify } from '../../../utils/promisify';
 import { ShowModalOptions, showModalRes } from './types';
 

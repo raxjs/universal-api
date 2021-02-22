@@ -1,8 +1,8 @@
 module.exports = {
   containerList: [
     'ali-miniapp',
-    'byte-miniapp',
-    'wechat-miniapp',
+    'bytedance-microapp',
+    'wechat-miniprogram',
     'web'
   ]
 }

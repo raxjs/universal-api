@@ -15,8 +15,6 @@ export const isWeb = !isUndef(typeof window) && 'onload' in window;
 export const isNode = !isUndef(typeof process) && !!(process.versions && process.versions.node);
 export const isWeex = !isUndef(typeof WXEnvironment) && WXEnvironment.platform !== 'Web';
 export const isKraken = !isUndef(typeof __kraken__);
-// export const isAliMiniapp = !isUndef(typeof my) && my !== null && !isUndef(typeof my.alert);
-export const isDingdingMiniapp = !isUndef(typeof dd) && dd !== null && !isUndef(typeof dd.alert);
 export const isMiniApp = !isUndef(typeof my) && my !== null && !isUndef(typeof my.alert);
 export const isByteDanceMicroApp = !isUndef(typeof tt) && tt !== null && !isUndef(typeof tt) && !isUndef(tt.showToast);
 // In wechat mini program, wx.login is a function
@@ -24,4 +22,3 @@ export const isByteDanceMicroApp = !isUndef(typeof tt) && tt !== null && !isUnde
 // In bytedance maicro app, there is wx variable.
 export const isWeChatMiniProgram = !isByteDanceMicroApp && !isUndef(typeof wx) && wx !== null && (!isUndef(typeof wx.login) || !isUndef(typeof wx.miniProgram));
 export const isQuickApp = !isUndef(typeof global) && global !== null && !isUndef(typeof global.callNative) && !isWeex;
-export const isMiniappPlatform = isDingdingMiniapp || isMiniApp || isWeChatMiniProgram || isByteDanceMicroApp;

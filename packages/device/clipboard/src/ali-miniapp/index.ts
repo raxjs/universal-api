@@ -1,4 +1,4 @@
-import { isDingdingMiniapp } from '@uni/env';
+import { isDingdingMiniapp } from '../../../../utils/miniappEnvApp';
 import { initApiGet, initApiSet } from '../common';
 
 export const getClipboard = initApiGet((args) => isDingdingMiniapp ? dd.getClipboard(args) : my.getClipboard(args));

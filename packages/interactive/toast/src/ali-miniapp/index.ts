@@ -1,6 +1,6 @@
 import {LONG_DELAY, SHORT_DELAY, initApi} from '../utils/index';
 import { ShowToastOption, HideToastOption } from '../types';
-import { isDingdingMiniapp } from '@uni/env';
+import { isDingdingMiniapp } from '../../../../utils/miniappEnvApp';
 
 export const show = initApi((options: ShowToastOption): void => {
   let { type, content, duration, success, fail, complete } = options;

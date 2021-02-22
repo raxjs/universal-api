@@ -1,7 +1,7 @@
 import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 import aliMiniAppModule from './ali-miniapp/index';
-import weChatModule from './wechat-miniapp/index';
-import bytedanceModule from './byte-miniapp/index';
+import weChatModule from './wechat-miniprogram/index';
+import bytedanceModule from './bytedance-microapp/index';
 import webModule from './web/index';
 import {Callback, RejectCallback, ErrorEvent} from './types';
 
@@ -15,7 +15,7 @@ export const onError = (cb: Callback) => {
   } else if (isWeb) {
     return webModule.onError(cb);
   } else {
-    throw new Error('@uni/apis：ErrorEvent暂不支持');
+    throw new Error('@uni/apis：errorEvent暂不支持');
   }
 };
 export const offError = (cb: () => void) => {
@@ -28,7 +28,7 @@ export const offError = (cb: () => void) => {
   } else if (isWeb) {
     return webModule.offError(cb);
   } else {
-    throw new Error('@uni/apis：ErrorEvent暂不支持');
+    throw new Error('@uni/apis：errorEvent暂不支持');
   }
 };
 export const onUnhandledRejection = (cb: RejectCallback) => {
@@ -41,7 +41,7 @@ export const onUnhandledRejection = (cb: RejectCallback) => {
   } else if (isWeb) {
     return webModule.onUnhandledRejection(cb);
   } else {
-    throw new Error('@uni/apis：ErrorEvent暂不支持');
+    throw new Error('@uni/apis：errorEvent暂不支持');
   }
 };
 export const offUnhandledRejection = (cb?: RejectCallback) => {
@@ -54,7 +54,7 @@ export const offUnhandledRejection = (cb?: RejectCallback) => {
   } else if (isWeb) {
     return webModule.offUnhandledRejection(cb);
   } else {
-    throw new Error('@uni/apis：ErrorEvent暂不支持');
+    throw new Error('@uni/apis：errorEvent暂不支持');
   }
 };
 let res: ErrorEvent;
@@ -65,6 +65,6 @@ if (isWeChatMiniProgram) {
 } else if (isMiniApp) {
   res = aliMiniAppModule;
 } else {
-  throw new Error('@uni/apis：ErrorEvent暂不支持');
+  throw new Error('@uni/apis：errorEvent暂不支持');
 }
 export default res;

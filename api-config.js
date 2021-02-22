@@ -14,7 +14,7 @@ module.exports = {
     pkgInfo: [
       {
         version: '1.0.0-beta',
-        name: '@uni/getapp',
+        name: '@uni/app',
       }
     ]
   },
@@ -23,7 +23,7 @@ module.exports = {
     pkgInfo: [
       {
         version: '1.0.0-beta',
-        name: '@uni/getcurrentpages',
+        name: '@uni/current-pages',
       }
     ]
   },
@@ -32,7 +32,7 @@ module.exports = {
     pkgInfo: [
       {
         version: '1.0.0-beta',
-        name: '@uni/getlaunchoptionssync',
+        name: '@uni/launch-options',
       }
     ]
   },
@@ -68,7 +68,7 @@ module.exports = {
         version: '1.0.0-beta',
         name: '@uni/unit-tool',
         dependencies: {
-          '@uni/getsysteminfosync': '^1.0.0-beta'
+          '@uni/system-info': '^1.0.0-beta'
         },
       }
     ]
@@ -107,7 +107,7 @@ module.exports = {
     pkgInfo: [
       {
         version: '1.0.0-beta',
-        name: '@uni/getsysteminfosync',
+        name: '@uni/system-info',
       }
     ]
   },
@@ -283,7 +283,7 @@ module.exports = {
     pkgInfo: [
       {
         version: '1.0.0-beta',
-        name: '@uni/getimageinfo',
+        name: '@uni/image-info',
       }
     ]
   },

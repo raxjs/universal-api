@@ -1,8 +1,8 @@
-import { isMiniApp, isDingdingMiniapp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
-import weChatModule from './wechat-miniapp/index';
-import bytedanceModule from './byte-miniapp/index';
+import weChatModule from './wechat-miniprogram/index';
+import bytedanceModule from './bytedance-microapp/index';
 import { CreateIntersectionObserver } from './types';
 
 const createIntersectionObserver: CreateIntersectionObserver = (...args) => {
@@ -10,7 +10,7 @@ const createIntersectionObserver: CreateIntersectionObserver = (...args) => {
     return weChatModule(...args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule(...args);
-  } else if (isMiniApp || isDingdingMiniapp) {
+  } else if (isMiniApp) {
     return aliMiniAppModule(...args);
   } else if (isWeb) {
     return webModule(...args);

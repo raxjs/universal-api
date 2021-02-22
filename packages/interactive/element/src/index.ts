@@ -1,9 +1,9 @@
 import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 import aliMiniAppModule from './ali-miniapp/index';
-import weChatModule from './wechat-miniapp/index';
-import bytedanceModule from './byte-miniapp/index';
+import weChatModule from './wechat-miniprogram/index';
+import bytedanceModule from './bytedance-microapp/index';
 import webModule from './web/index';
-import {Element} from './types';
+import { Element } from './types';
 
 export const getScrollOffset = (options: string) => {
   if (isWeChatMiniProgram) {

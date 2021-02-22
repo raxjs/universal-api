@@ -2,11 +2,10 @@ import {
   RequestOptions,
   ResponseData,
 } from '../types';
-import { isDingdingMiniapp } from '@uni/env';
+import { isDingdingMiniapp } from '../../../../utils/miniappEnvApp';
 import {initApi} from '../common';
 
 function request(options: RequestOptions) {
-  // return new Promise((resolve, reject) => {
   let { url, method, data, dataType, headers, timeout, success, fail, complete } = options;
   const request = isDingdingMiniapp ? dd.httpRequest : my.request;
   request({

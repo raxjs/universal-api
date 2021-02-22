@@ -1,4 +1,4 @@
-import { isDingdingMiniapp } from '@uni/env';
+import { isDingdingMiniapp } from '../../../utils/miniappEnvApp';
 import { initApiGetOrRemove, initApiSet } from '../common';
 
 export const getStorage = initApiGetOrRemove((args) => isDingdingMiniapp ? dd.getStorage(args) : my.getStorage(args));

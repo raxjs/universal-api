@@ -1,4 +1,4 @@
-import { isDingdingMiniapp } from '@uni/env';
+import { isDingdingMiniapp } from '../../../utils/miniappEnvApp';
 import {
   DownloadOptions,
   GetInfoResponseData,

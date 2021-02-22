@@ -1,15 +1,15 @@
-import { isMiniApp, isDingdingMiniapp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 import webModule from './web/index';
 import aliMiniAppModule from './ali-miniapp/index';
-import weChatModule from './wechat-miniapp/index';
-import bytedanceModule from './byte-miniapp/index';
+import weChatModule from './wechat-miniprogram/index';
+import bytedanceModule from './bytedance-microapp/index';
 
 export const getStorage = (args) => {
   if (isWeChatMiniProgram) {
     return weChatModule.getStorage(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getStorage(args);
-  } else if (isMiniApp || isDingdingMiniapp) {
+  } else if (isMiniApp) {
     return aliMiniAppModule.getStorage(args);
   } else if (isWeb) {
     return webModule.getStorage(args);
@@ -23,7 +23,7 @@ export const getStorageSync = (args) => {
     return weChatModule.getStorageSync(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getStorageSync(args);
-  } else if (isMiniApp || isDingdingMiniapp) {
+  } else if (isMiniApp) {
     return aliMiniAppModule.getStorageSync(args);
   } else if (isWeb) {
     return webModule.getStorageSync(args);
@@ -37,7 +37,7 @@ export const setStorage = (args) => {
     return weChatModule.setStorage(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.setStorage(args);
-  } else if (isMiniApp || isDingdingMiniapp) {
+  } else if (isMiniApp) {
     return aliMiniAppModule.setStorage(args);
   } else if (isWeb) {
     return webModule.setStorage(args);
@@ -51,7 +51,7 @@ export const setStorageSync = (args) => {
     return weChatModule.setStorageSync(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.setStorageSync(args);
-  } else if (isMiniApp || isDingdingMiniapp) {
+  } else if (isMiniApp) {
     return aliMiniAppModule.setStorageSync(args);
   } else if (isWeb) {
     return webModule.setStorageSync(args);
@@ -65,7 +65,7 @@ export const removeStorage = (args) => {
     return weChatModule.removeStorage(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.removeStorage(args);
-  } else if (isMiniApp || isDingdingMiniapp) {
+  } else if (isMiniApp) {
     return aliMiniAppModule.removeStorage(args);
   } else if (isWeb) {
     return webModule.removeStorage(args);
@@ -79,7 +79,7 @@ export const removeStorageSync = (args) => {
     return weChatModule.removeStorageSync(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.removeStorageSync(args);
-  } else if (isMiniApp || isDingdingMiniapp) {
+  } else if (isMiniApp) {
     return aliMiniAppModule.removeStorageSync(args);
   } else if (isWeb) {
     return webModule.removeStorageSync(args);

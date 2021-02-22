@@ -1,4 +1,4 @@
-import { isDingdingMiniapp } from '@uni/env';
+import { isDingdingMiniapp } from '../../../../utils/miniappEnvApp';
 import { initApi } from '../common';
 
 const confirm = (args) => isDingdingMiniapp ? dd.confirm(args) : my.confirm(args);

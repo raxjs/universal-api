@@ -1,4 +1,4 @@
-import { isDingdingMiniapp } from '@uni/env';
+import { isDingdingMiniapp } from '../../../../utils/miniappEnvApp';
 import {Callback} from '../types';
 
 export const onChange = (cb: Callback) => {

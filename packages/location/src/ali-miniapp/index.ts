@@ -1,4 +1,4 @@
-import { isDingdingMiniapp } from '@uni/env';
+import { isDingdingMiniapp } from '../../../utils/miniappEnvApp';
 import { initApiGetLocation, initApiOpenLocation } from '../common';
 
 export const getLocation = initApiGetLocation((args) => isDingdingMiniapp ? dd.getLocation(args) : my.getLocation(args));

@@ -17,11 +17,10 @@
     "pub-beta": "cross-env BUILD_TAG=beta node ./scripts/publish.js",
     "pub-beta:all": "cross-env BUILD_TYPE=all BUILD_TAG=beta node ./scripts/publish.js",
     "pub-beta:main": "cross-env BUILD_TYPE=main BUILD_TAG=beta node ./scripts/publish.js",
-    "docs:dev": "cross-env dumi dev",
+    "docs:dev": "cross-env node ./scripts/buildDocs.js && cross-env dumi dev",
     "docs:build": "cross-env dumi build",
     "docs:deploy": "gh-pages -ad docs-dist",
-    "check-and-publish": "node ./scripts/check-and-publish.js",
-    "transform:docs": "node scripts/compile-readme.js"
+    "check-and-publish": "node ./scripts/check-and-publish.js"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.12.5",

@@ -35,7 +35,6 @@ function requestXHR(options: RequestOptions) {
       }
     }, options);
 
-  // return new Promise((resolve, reject) => {
   let timer: number;
   let requestData: any;
   const xhr = new XMLHttpRequest();

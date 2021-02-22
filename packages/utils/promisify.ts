@@ -4,11 +4,10 @@ export interface PromisifyArgs<SuccessArg, FailArg> {
   fail?: (args: FailArg) => void;
   onFail?: (args: FailArg) => void;
 }
-
 export function promisify<Arg = any, SuccessArg = any, FailArg = any>(
   api: (arg: Arg & PromisifyArgs<SuccessArg, FailArg>) => void
 ) {
-  return (arg: Arg & PromisifyArgs<SuccessArg, FailArg> = {} as Arg) => {
+  return (arg: Arg & PromisifyArgs<SuccessArg, FailArg>) => {
     return new Promise<SuccessArg>((resolve, reject) => {
       const promisifyArg: any = arg;
 
