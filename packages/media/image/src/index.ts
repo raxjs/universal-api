@@ -46,8 +46,38 @@ export const getImageInfo = (args) => {
   }
 };
 
+export const previewImage = (args) => {
+  if (isWeChatMiniProgram) {
+    return weChatModule.previewImage(args);
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.previewImage(args);
+  } else if (isMiniApp) {
+    return aliMiniAppModule.previewImage(args);
+  } else if (isWeb) {
+    return webModule.previewImage();
+  } else {
+    throw new Error('@uni/apis：previewImage暂不支持');
+  }
+};
+
+export const saveImage = (args) => {
+  if (isWeChatMiniProgram) {
+    return weChatModule.saveImage(args);
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.saveImage(args);
+  } else if (isMiniApp) {
+    return aliMiniAppModule.saveImage(args);
+  } else if (isWeb) {
+    return webModule.saveImage();
+  } else {
+    throw new Error('@uni/apis：saveImage暂不支持');
+  }
+};
+
 export default {
   chooseImage,
   compressImage,
-  getImageInfo
+  getImageInfo,
+  previewImage,
+  saveImage,
 };

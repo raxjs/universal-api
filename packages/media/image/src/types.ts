@@ -1,15 +1,18 @@
+interface CallbackOptions {
+  success?: (res) => any;
+  fail?: (res) => any;
+  complete?: (res) => any;
+}
+
 // chooseImage
 enum SOURCE_TYPE {
   album,
   camera
 }
 
-export interface ChooseImageOptions {
+export interface ChooseImageOptions extends CallbackOptions {
   count?: number;
   sourceType?: (keyof typeof SOURCE_TYPE)[];
-  success?: (res) => any;
-  fail?: (res) => any;
-  complete?: (res) => any;
 }
 
 interface FileData {
@@ -30,12 +33,9 @@ enum QUALITY {
   HIGH
 }
 
-export interface CompressImageOptions {
+export interface CompressImageOptions extends CallbackOptions {
   src: string;
   quality?: QUALITY;
-  success?: (res) => any;
-  fail?: (res) => any;
-  complete?: (res) => any;
 }
 
 export interface CompressImageRes {
@@ -43,15 +43,23 @@ export interface CompressImageRes {
 }
 
 // getImageInfo
-export interface GetImageInfoOptions {
+export interface GetImageInfoOptions extends CallbackOptions {
   src: string;
-  success?: (res) => any;
-  fail?: (res) => any;
-  complete?: (res) => any;
 }
 
 export interface GetImageInfoRes {
   width: number;
   height: number;
   path: string;
+}
+
+// previewImage
+export interface PreviewImageOptions extends CallbackOptions {
+  urls: string[];
+  current?: number;
+}
+
+// saveImage
+export interface SaveImageOptions extends CallbackOptions {
+  url: string;
 }

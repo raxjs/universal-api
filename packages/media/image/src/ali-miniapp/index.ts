@@ -9,15 +9,20 @@ export const compressImage = initApi.compressImage((args) => {
   } else {
     args.apFilePaths = [args.src];
   }
-  const quality = args && args.quality != undefined ? args.quality : 2;
-  args.compressLevel = quality;
+  args && typeof args.quality === 'number' && (args.compressLevel = args.quality);
   return isDingdingMiniapp ? dd.compressImage(args) : my.compressImage(args);
 });
 
 export const getImageInfo = initApi.getImageInfo((args) => isDingdingMiniapp ? dd.getImageInfo(args) : my.getImageInfo(args));
 
+export const previewImage = initApi.previewImage((args) => isDingdingMiniapp ? dd.previewImage(args) : my.previewImage(args));
+
+export const saveImage = initApi.saveImage((args) => isDingdingMiniapp ? dd.saveImage(args) : my.saveImage(args));
+
 export default {
   chooseImage,
   compressImage,
-  getImageInfo
+  getImageInfo,
+  previewImage,
+  saveImage,
 };

@@ -6,7 +6,7 @@ import Text from 'rax-text';
 import Image from 'rax-image';
 import {download, getInfo, save, openDocument} from '@uni/file';
 import alert from '@uni/alert';
-import chooseImage from '@uni/choose-image';
+import { chooseImage } from '@uni/image';
 
 const styles = {
   flex: {

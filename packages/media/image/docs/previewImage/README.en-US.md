@@ -1,8 +1,8 @@
-# chooseImage 
+# previewImage 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis) [![npm](https://img.shields.io/npm/v/@uni/image.svg)](https://www.npmjs.com/package/@uni/image)
 
-Selects an image from the local album or takes a photo with the camera.
+Previews the image in full screen on a new page. You can save or send it to others while preview.
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
 <div style="margin-right: 20px;">
@@ -23,22 +23,11 @@ $ npm install @uni/apis --save
 ## Usage
 
 ```javascript
-import { chooseImage } from '@uni/image';
+import { previewImage } from '@uni/image';
 
-chooseImage({
-  count: 1,
-  sourceType: ['album', 'camera'],
-  success (res) {
-    const tempFilePaths = res.tempFilePaths
-  }
-});
-
-// promise
-chooseImage({
-  count: 1,
-  sourceType: ['album', 'camera']
-}).then(res => {
-  const tempFilePaths = res.tempFilePaths
+previewImage({
+  urls: ['url1', 'url2'],
+  current: 1,
 });
 
 ```
@@ -47,34 +36,24 @@ You can also import from the big package：
 ```js
 import { image } from '@uni/apis';
 
-image.chooseImage({
-  count: 1,
-  sourceType: ['album', 'camera'],
-  success (res) {
-    const tempFilePaths = res.tempFilePaths
-  }
+image.previewImage({
+  urls: ['url1', 'url2'],
+  current: 1,
 });
 
-// promise
-image.chooseImage({
-  count: 1,
-  sourceType: ['album', 'camera']
-}).then(res => {
-  const tempFilePaths = res.tempFilePaths
-});
 ```
 
 ## Methods
 
-### `chooseImage(options)`
+### `previewImage(options)`
 
 #### Arguments
 
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✘ | - |
-| opthons.count | `number` | The maximum number of images allowed | ✘ | 1 |
-| opthons.sourceType | `Array<string>`  | The source of the image | ✘ | ['album', 'camera'] |
+| opthons.urls | `Array<string>` | The URLs of images to preview | ✘ |  |
+| opthons.current | `number`  | The index of the current image in urls list | ✘ | 0 |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
@@ -83,21 +62,7 @@ image.chooseImage({
 
 | Property | Type | Description | required | Default | Supported |
 | --- | --- | --- | --- | --- | -- |
-| options.sizeType | `Array.<string>`  | The size of the select image | ✘ | ['original', 'compressed'] | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> |
-
-#### Return
-
-| Property | Type | Description |
-| --- | --- | --- |
-| tempFilePaths | `Array<string>`  | The list of local temporary file paths to images |
-| tempFiles | `Array<Object>` | The local temporary file list for images |
-
-##### res.tempFiles
-
-| Property | Type | Description |
-| --- | --- | --- |
-| path | `string`  | The path to the local temporary file |
-| size | `number`  | The size of a local temporary file, in bytes |
+| options.showmenu | `boolean`  | show longpress menu | ✘ | true | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> 2.13.0 |
 
 </div>
 <div>

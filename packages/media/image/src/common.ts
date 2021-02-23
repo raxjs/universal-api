@@ -5,7 +5,9 @@ import {
   CompressImageOptions,
   CompressImageRes,
   GetImageInfoOptions,
-  GetImageInfoRes
+  GetImageInfoRes,
+  PreviewImageOptions,
+  SaveImageOptions,
 } from './types';
 
 export const initApi = {
@@ -50,6 +52,16 @@ export const initApi = {
   },
   getImageInfo: (api) => {
     return (args: GetImageInfoOptions) => {
+      return promisify(api)(args);
+    };
+  },
+  previewImage: (api) => {
+    return (args: PreviewImageOptions) => {
+      return promisify(api)(args);
+    };
+  },
+  saveImage: (api) => {
+    return (args: SaveImageOptions) => {
       return promisify(api)(args);
     };
   }

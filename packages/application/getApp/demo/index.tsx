@@ -1,7 +1,7 @@
 import { createElement, useEffect, useState, useRef } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import getApp from '@uni/getapp';
+import getApp from '@uni/app';
 import {show} from '@uni/toast';
 
 const styles = {
