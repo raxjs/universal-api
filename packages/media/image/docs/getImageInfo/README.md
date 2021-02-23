@@ -96,6 +96,26 @@ image.getImageInfo({
 | height | `number`  | 图片原始高度，单位px |
 | path | `number`  | 图片的本地路径	|
 
+#### 差异化返回值
+
+| 成员 | 类型 | 描述 | 支持度 |
+| --- | --- | --- | --- |
+| orientation | `string`  | 拍照时设备方向 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| type | `string`  | 图片格式 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序"> 钉钉不支持 |
+
+##### orientation
+
+| 值 | 说明 |
+| --- | --- |
+| up	| 默认方向（手机横持拍照） |
+| up-mirrored	| 同 up，但镜像翻转 |
+| down | 旋转180度 |
+| down-mirrored	| 同 down，但镜像翻转 |
+| left-mirrored |	同 left，但镜像翻转 |
+| right | 顺时针旋转90度 |
+| right-mirrored | 同 right，但镜像翻转 |
+| left | 逆时针旋转90度 |
+
 </div>
 <div>
 

@@ -13,7 +13,7 @@ function inputCreateAndAppend(multiple: boolean) {
   return inputElement;
 }
 
-function transformBase64(files: any[]) {
+function transformBase64(files: any[]): Promise<any []> {
   return new Promise((resolve, reject) => {
     !files.length ? reject() : null;
     const base64Array: string[] = [];
@@ -46,7 +46,11 @@ export const chooseImage = initApi.chooseImage((args: ChooseImageOptions = {}) =
         files = e.target.files && Array.from(e.target.files).slice(0, count);
         transformBase64(files).then(base64Array => {
           const res = {
-            tempFilePaths: base64Array
+            tempFilePaths: base64Array,
+            tempFiles: base64Array.map(filePath => ({
+              path: filePath,
+              size: filePath.length
+            }))
           };
           success(res);
           complete(res);
@@ -67,12 +71,35 @@ export const compressImage = () => {
   throw new Error('@uni/apis: compressImage不支持');
 };
 
-export const getImageInfo = () => {
-  throw new Error('@uni/apis: getImageInfo不支持');
+export const getImageInfo = initApi.chooseImage((args) => {
+  const image = new Image();
+  image.src = args.src;
+  if (image.naturalWidth) {
+    args.success({
+      width: image.naturalWidth,
+      height: image.naturalHeight,
+      path: args.src
+    });
+  } else {
+    const check = () => {
+
+    };
+    const checkLoad = setInterval(check, 40);
+  }
+});
+
+export const previewImage = () => {
+  throw new Error('@uni/apis: previewImage不支持');
+};
+
+export const saveImage = () => {
+  throw new Error('@uni/apis: saveImage不支持');
 };
 
 export default {
   chooseImage,
   compressImage,
-  getImageInfo
+  getImageInfo,
+  previewImage,
+  saveImage,
 };

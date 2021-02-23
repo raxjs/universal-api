@@ -1,13 +1,8 @@
----
-group:
-  title: 多媒体
----
-
-# chooseImage 
+# previewImage 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis) [![npm](https://img.shields.io/npm/v/@uni/image.svg)](https://www.npmjs.com/package/@uni/image)
 
-从本地相册选择图片或使用相机拍照。
+在新页面中全屏预览图片。预览的过程中用户可以进行保存图片、发送给朋友等操作。
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
 <div style="margin-right: 20px;">
@@ -28,22 +23,11 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import { chooseImage } from '@uni/image';
+import { previewImage } from '@uni/image';
 
-chooseImage({
-  count: 1,
-  sourceType: ['album', 'camera'],
-  success (res) {
-    const tempFilePaths = res.tempFilePaths
-  }
-});
-
-// promise
-chooseImage({
-  count: 1,
-  sourceType: ['album', 'camera']
-}).then(res => {
-  const tempFilePaths = res.tempFilePaths
+previewImage({
+  urls: ['url1', 'url2'],
+  current: 1,
 });
 
 ```
@@ -52,35 +36,24 @@ chooseImage({
 ```js
 import { image } from '@uni/apis';
 
-image.chooseImage({
-  count: 1,
-  sourceType: ['album', 'camera'],
-  success (res) {
-    const tempFilePaths = res.tempFilePaths
-  }
-});
-
-// promise
-image.chooseImage({
-  count: 1,
-  sourceType: ['album', 'camera']
-}).then(res => {
-  const tempFilePaths = res.tempFilePaths
+image.previewImage({
+  urls: ['url1', 'url2'],
+  current: 1,
 });
 
 ```
 
 ## 方法
 
-### `chooseImage(options)`
+### `previewImage(options)`
 
 #### 参数
 
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
-| options | `object`  |  | ✘ | - |
-| opthons.count | `number` | 最大可选照片数，默认1张 | ✘ | 1 |
-| opthons.sourceType | `Array<string>`  | 相册选取或者拍照，默认 ['camera','album']，`h5不支持拍照` | ✘ | ['album', 'camera'] |
+| options | `object`  |  | ✔️ | - |
+| opthons.urls | `Array<string>` | 需要预览的图片链接列表 | ✔️ |  |
+| opthons.current | `number`  | 当前显示图片索引 | ✘ | 0 |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
@@ -89,21 +62,7 @@ image.chooseImage({
 
 | 成员 | 类型 | 描述 | 必选 | 默认值 | 支持度 |
 | --- | --- | --- | --- | --- | -- |
-| options.sizeType | `Array.<string>`  | 所选的图片尺寸 | ✘ | ['original', 'compressed'] | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
-
-#### 返回
-
-| 成员 | 类型 | 描述 |
-| --- | --- | --- |
-| tempFilePaths | `Array<string>`  | 图片的本地临时文件路径列表，h5为base64图片数据列表 |
-| tempFiles | `Array<Object>` | 图片的本地临时文件列表 |
-
-##### res.tempFiles 的结构
-
-| 成员 | 类型 | 描述 |
-| --- | --- | --- |
-| path | `string`  | 本地临时文件路径 (本地路径) |
-| size | `number`  | 本地临时文件大小，单位 B |
+| options.showmenu | `boolean`  | 是否显示长按菜单 | ✘ | true | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> 2.13.0 |
 
 </div>
 <div>

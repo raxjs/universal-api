@@ -5,20 +5,23 @@ import {
   CompressImageOptions,
   CompressImageRes,
   GetImageInfoOptions,
-  GetImageInfoRes
+  GetImageInfoRes,
+  PreviewImageOptions,
+  SaveImageOptions,
 } from './types';
 
 export const initApi = {
   chooseImage: (api) => {
     const formatResponse = (res): ChooseImageRes => {
       return {
+        ...res,
+        tempFiles: res.tempFiles || res.files,
         tempFilePaths: res.tempFilePaths
       };
     };
     return (args: ChooseImageOptions) => {
       return promisify(api)({
         ...args,
-        // 默认一张
         count: args.count || 1,
         success: res => {
           args.success && args.success(formatResponse(res));
@@ -48,23 +51,18 @@ export const initApi = {
     };
   },
   getImageInfo: (api) => {
-    const formatResponse = (res): GetImageInfoRes => {
-      return {
-        width: res.width,
-        height: res.height,
-        path: res.path
-      };
-    };
     return (args: GetImageInfoOptions) => {
-      return promisify(api)({
-        ...args,
-        success: res => {
-          args.success && args.success(formatResponse(res));
-        },
-        complete: res => {
-          args.complete && args.complete(res);
-        }
-      }).then(formatResponse);
+      return promisify(api)(args);
+    };
+  },
+  previewImage: (api) => {
+    return (args: PreviewImageOptions) => {
+      return promisify(api)(args);
+    };
+  },
+  saveImage: (api) => {
+    return (args: SaveImageOptions) => {
+      return promisify(api)(args);
     };
   }
 };

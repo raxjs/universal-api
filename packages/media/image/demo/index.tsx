@@ -1,9 +1,9 @@
 import { createElement, useState } from 'rax';
 import View from 'rax-view';
-import Text from 'rax-text';
 import TextInput from 'rax-textinput';
 import image from '@uni/image';
 import showModal from '@uni/show-modal';
+import showActionSheet from '@uni/action-sheet';
 import Image from 'rax-image';
 
 const styles = {
@@ -25,16 +25,21 @@ const styles = {
 };
 
 export default function() {
+  const [count, setCount] = useState(null);
+  const [quality, setQuality] = useState(null);
   const [tempFilePaths, setTempFilePaths] = useState([]);
-  const [quality, setQuality] = useState(0);
-  const [src, setSrc] = useState('https://pic2.zhimg.com/v2-2a0434dd4e4bb7a638b8df699a505ca1_b.jpg');
 
   return (
     <View>
-      {/* chooseImage */}
+      <TextInput style={styles.input} value={count} placeholder="输入最大可选图片数" type="number" onInput={({value}) => {
+        setCount(Math.min(9, Math.max(1, +value)));
+      }} />
+      <TextInput style={styles.input} value={quality} placeholder="输入压缩质量0~3" type="number" onInput={({value}) => {
+        setQuality(+value);
+      }} />
       <View style={styles.button} onClick={() => {
         image.chooseImage({
-          count: 1,
+          count: count || 1,
           sourceType: ['album', 'camera']
         }).then(res => {
           console.log(res);
@@ -43,33 +48,42 @@ export default function() {
       }}>
       选择图片
       </View>
-      {tempFilePaths.map(uri =>
+
+      {!!tempFilePaths.length && <View>点击图片触发操作</View>}
+      {tempFilePaths.map((uri, index) =>
         <View key={uri}>
           <View>{uri}</View>
-          <Image style={{width: '100%', height: '400rpx'}} source={{uri}} />
+          <Image style={{width: '100%', height: '400rpx'}} source={{uri}} onClick={() => {
+            showActionSheet({
+              itemList: ['压缩图片', '获取图片信息', '点击预览图片', '保存图片到相册']
+            }).then(res => {
+              if (res.tapIndex === 0) {
+                image.compressImage({
+                  src: uri,
+                  quality: quality || 4
+                }).then(res => {
+                  console.log(res);
+                  showModal({content: '压缩地址' + res.tempFilePath});
+                }).catch(err => console.log(err));
+              } else if (res.tapIndex === 1) {
+                image.getImageInfo({src: uri}).then(res => {
+                  console.log(res);
+                  showModal({content: '图片信息，宽度：' + res.width + '；高度：' + res.height + '；本地路径：' + res.path});
+                });
+              } else if (res.tapIndex === 2) {
+                image.previewImage({
+                  urls: tempFilePaths,
+                  current: index
+                });
+              } else if (res.tapIndex === 3) {
+                image.saveImage({
+                  url: uri
+                });
+              }
+            });
+          }} />
         </View>
       )}
-      {/* compressImage */}
-      <View>
-        <TextInput style={styles.input} value={src} placeholder="输入图片地址" onInput={({value}) => {
-          setSrc(value);
-        }} />
-        <TextInput style={styles.input} value={quality} placeholder="输入压缩质量0~3" type="number" onInput={({value}) => {
-          setQuality(value);
-        }} />
-        <View style={styles.button} onClick={() => {
-          image.compressImage({src: tempFilePaths[0]}).then(res => {
-            showModal({content: '压缩地址' + res.tempFilePath});
-          });
-        }}>压缩图片</View>
-      </View>
-      {/* getImageInfo */}
-      <View style={styles.button} onClick={() => {
-        image.getImageInfo({src: tempFilePaths[0]}).then(res => {
-          console.log(res);
-          showModal({content: '图片信息，宽度：' + res.width + '；高度：' + res.height + '；本地路径：' + res.path});
-        });
-      }}>获取图片信息</View>
-  </View>
+    </View>
   );
 }

@@ -72,18 +72,32 @@ image.chooseImage({
 
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
-| options | `object`  |  | ✔️ | - |
-| opthons.count | `number` | The maximum number of images allowed | ✔️ | 1 |
-| opthons.sourceType | `Array<string>`  | The source of the image | ✔️ | ['album', 'camera'] |
+| options | `object`  |  | ✘ | - |
+| opthons.count | `number` | The maximum number of images allowed | ✘ | 1 |
+| opthons.sourceType | `Array<string>`  | The source of the image | ✘ | ['album', 'camera'] |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
+
+#### Special Arguments
+
+| Property | Type | Description | required | Default | Supported |
+| --- | --- | --- | --- | --- | -- |
+| options.sizeType | `Array.<string>`  | The size of the select image | ✘ | ['original', 'compressed'] | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> |
 
 #### Return
 
 | Property | Type | Description |
 | --- | --- | --- |
 | tempFilePaths | `Array<string>`  | The list of local temporary file paths to images |
+| tempFiles | `Array<Object>` | The local temporary file list for images |
+
+##### res.tempFiles
+
+| Property | Type | Description |
+| --- | --- | --- |
+| path | `string`  | The path to the local temporary file |
+| size | `number`  | The size of a local temporary file, in bytes |
 
 # compressImage 
 
@@ -254,3 +268,124 @@ image.getImageInfo({
 | width | `number`  | The original width of the image (in px). |
 | height | `number`  | The original height of the image (in px).  |
 | path | `number`  | The local path to the image		|
+
+#### Special Return
+
+| Property | Type | Description | Supported |
+| --- | --- | --- | --- |
+| orientation | `string`  | Device orientation when taking photos | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> |
+| type | `string`  | Image format	| <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp"> no Dingding |
+
+##### orientation
+
+| Value | Description |
+| --- | --- |
+| up	| Default orientation (landscape) |
+| up-mirrored	| Mirrored orientation of up |
+| down | Rotates the device 180 degrees |
+| down-mirrored	| Mirrored orientation of down |
+| left-mirrored |	Mirrored orientation of left |
+| right | Rotates the device 90 degrees clockwise |
+| right-mirrored | Mirrored orientation of right |
+| left | Rotates the device 90 degrees counterclockwise |
+
+# previewImage 
+
+Previews the image in full screen on a new page. You can save or send it to others while preview.
+
+## Supported
+
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp">
+
+## Usage
+
+```javascript
+import { previewImage } from '@uni/image';
+
+previewImage({
+  urls: ['url1', 'url2'],
+  current: 1,
+});
+
+```
+
+You can also import from the big package：
+```js
+import { image } from '@uni/apis';
+
+image.previewImage({
+  urls: ['url1', 'url2'],
+  current: 1,
+});
+
+```
+
+## Methods
+
+### `previewImage(options)`
+
+#### Arguments
+
+| Property | Type | Description | required | Default |
+| --- | --- | --- | --- | --- |
+| options | `object`  |  | ✘ | - |
+| opthons.urls | `Array<string>` | The URLs of images to preview | ✘ |  |
+| opthons.current | `number`  | The index of the current image in urls list | ✘ | 0 |
+| options.success | `Function`  | The callback function for a successful API call | ✘ | - |
+| options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
+| options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
+
+#### Special Arguments
+
+| Property | Type | Description | required | Default | Supported |
+| --- | --- | --- | --- | --- | -- |
+| options.showmenu | `boolean`  | show longpress menu | ✘ | true | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> 2.13.0 |
+
+# saveImage 
+
+Saves images to the system album.
+
+## Supported
+
+<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp">
+
+## Usage
+
+```javascript
+import { saveImage } from '@uni/image';
+
+saveImage({
+  url: 'http://img.icon.com/a.png',
+});
+
+```
+
+You can also import from the big package：
+```js
+import { image } from '@uni/apis';
+
+image.saveImage({
+  url: 'http://img.icon.com/a.png',
+});
+
+```
+
+## Methods
+
+### `saveImage(options)`
+
+#### Arguments
+
+| Property | Type | Description | required | Default |
+| --- | --- | --- | --- | --- |
+| options | `object`  |  | ✔️ | - |
+| opthons.url | `string`  | The path to the image file. It can be a temporary or permanent file path. The path to a network image is not supported | ✔️ |  - |
+| options.success | `Function`  | The callback function for a successful API call | ✘ | - |
+| options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
+| options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
+
+#### Special Arguments
+
+| Property | Type | Description | required | Default | Supported |
+| --- | --- | --- | --- | --- | -- |
+| options.showActionSheet | `boolean`  | show operation menus for image | ✘ | true |<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> |
