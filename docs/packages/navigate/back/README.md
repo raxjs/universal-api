@@ -38,11 +38,7 @@ navigate.back().then(() => {
 import { navigate } from '@uni/apis';
 ```
 
-## 方法
-
-### `back(options)`
-
-#### 参数
+## 参数
 | 成员             | 类型      | 描述   | 必选  | 默认值 |
 | ---------------- | --------- | ------- | :---: | :----: |
 | options          | `object`  | pop 参数  |  否   |   -    |

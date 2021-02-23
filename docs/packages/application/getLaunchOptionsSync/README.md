@@ -6,7 +6,7 @@ title: getLaunchOptionsSync
 
 # getLaunchOptionsSync 
 
-[![npm](https://img.shields.io/npm/v/@uni/getlaunchoptionssync.svg)](https://www.npmjs.com/package/@uni/getlaunchoptionssync)
+[![npm](https://img.shields.io/npm/v/@uni/application.svg)](https://www.npmjs.com/package/@uni/application)
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
 
 获取小程序启动时的参数
@@ -18,14 +18,14 @@ title: getLaunchOptionsSync
 ## 安装
 
 ```bash
-$ npm install @uni/getlaunchoptionssync --save
+$ npm install @uni/application --save
 ```
 
 ## 使用
 
 ```js
 import { createElement, useEffect, Fragment } from 'rax';
-import getLaunchOptionsSync from '@uni/getlaunchoptionssync';
+import { getLaunchOptionsSync } from '@uni/application';
 
 function App() {
   useEffect(() => {
@@ -41,7 +41,7 @@ function App() {
 也可以从大包中引入：
 
 ```js
-import {getLaunchOptionsSync} from '@uni/apis';
+import { application } from '@uni/apis';
 ```
 ## 返回值
 

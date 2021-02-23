@@ -20,7 +20,7 @@ Gets the list of local cache files saved under the Mini Program
 ### object.success callback function Parameters
 | Property     | Type     | Description     |
 | -------- | ------ | -------- |
-|fileList|Array.<Object>|File array, with each item being a FileItem|
+|fileList|Array|File array, with each item being a FileItem|
 
 #### res.fileList is composed as follows
 | Property     | Type     | Description  |
@@ -28,6 +28,7 @@ Gets the list of local cache files saved under the Mini Program
 |filePath|string|Local path|
 |size|number|Local file size in bytes|
 |createTime|number|The timestamp when the file was saved, which is defined as the number of seconds that have elapsed since 1970/01/01 08:00:00 to the current time|
+
 ## Install
 
 ```bash

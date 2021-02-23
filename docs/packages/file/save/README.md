@@ -1,7 +1,9 @@
 # save
 [![npm](https://img.shields.io/npm/v/@uni/file.svg)](https://www.npmjs.com/package/@uni/file)
 
-文件操作.
+保存文件到本地缓存目录（总容量限制：10 MB）。
+
+注意：saveFile 会把临时文件移动，因此调用成功后传入的 filePath 将不可用
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
 <div style="margin-right: 20px;">
@@ -15,22 +17,18 @@
 $ npm install @uni/file --save
 ```
 
-## 方法
+## 参数
+| 属性     | 类型     | 默认值 | 必选 | 描述     |
+| -------- | -------- | ------ | ---- | -------- |
+| filePath | `String` |        | √    | 需要保存的文件的临时路径 (本地路径)  |
+| success | `Function`  |   -    | x    | 成功的回调 |
+| fail | `Function`  |   -    | x    | 失败的回调 |
+| complete | `Function`  |   -    | x    | 结束的回调 |
 
-### `save(options)`
-
-保存文件到本地。
-
-#### 支持
-<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序">
-
-#### 参数
-| 属性     | 类型     | 默认值 | 必选 | 描述     | 支持                                    |
-| -------- | -------- | ------ | ---- | -------- | --------------------------------------- |
-| filePath | `String` |        | √    | 文件路径 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序"> |
-| success | `Function`  |   -    | x    | 成功的回调 |<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序">  |
-| fail | `Function`  |   -    | x    | 失败的回调 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序">  |
-| complete | `Function`  |   -    | x    | 结束的回调 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序">  |
+### object.success 回调函数 的参数
+| 属性     | 类型     | 描述     |
+| -------- | ------ | -------- |
+|savedFilePath|string|存储后的文件路径 (本地路径)|
 
 ## 示例
 
@@ -41,6 +39,7 @@ file.save({
   filePath: '**filePath**',
   success:(res) => {
     console.log('save success');
+    const savedFilePath = res.savedFilePath
   }
 });
 
@@ -55,6 +54,7 @@ file.save({
   filePath: '**filePath**',
 }).then((res) => {
   console.log('save success');
+  const savedFilePath = res.savedFilePath
 }).catch((e) => {
   console.log(e);
 }).finally((res) => {

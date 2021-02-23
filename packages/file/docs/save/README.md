@@ -29,6 +29,7 @@ $ npm install @uni/file --save
 | 属性     | 类型     | 描述     |
 | -------- | ------ | -------- |
 |savedFilePath|string|存储后的文件路径 (本地路径)|
+
 ## 示例
 
 ```js

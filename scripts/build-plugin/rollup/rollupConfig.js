@@ -107,7 +107,8 @@ module.exports = (inputPath, itemOutputPath, sourceMap, pkgInfo, apiInfo, isMain
             typescript({
               tsconfigOverride: override
             }),
-            babel.default({ 
+            babel.default({
+              // babelHelpers: 'bundled',
               babelHelpers: format == 'umd' ? 'inline' : 'runtime',
               exclude: 'node_modules/**',
               extensions: ['.ts', '.js'],
@@ -127,6 +128,8 @@ module.exports = (inputPath, itemOutputPath, sourceMap, pkgInfo, apiInfo, isMain
                 [
                   '@babel/plugin-transform-runtime',
                   {
+                    // corejs: false,
+                    // helpers: false,
                     useESModules: format == 'esm' ? true : false,
                     corejs: 3,
                     helpers: format == 'umd' ? false : true,

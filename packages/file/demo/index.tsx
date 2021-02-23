@@ -4,9 +4,9 @@ import { createElement, useState } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import Image from 'rax-image';
-import {download, getInfo, save, openDocument} from '@uni/file';
+import { download, getInfo, save, openDocument } from '@uni/file';
 import alert from '@uni/alert';
-import chooseImage from '@uni/choose-image';
+import { chooseImage } from '@uni/image';
 
 const styles = {
   flex: {
@@ -28,21 +28,18 @@ const styles = {
 const Index = () => {
   const [img2, setImg2] = useState('');
   const getFileInfoHandler = () => {
-    download({
-      url: 'https://gw.alicdn.com/tfs/TB18EuDjGNj0u4jSZFyXXXgMVXa-225-225.jpg',
-      success(res) {
-        // 获取下载的文件信息
-        getInfo({filePath: res.tempFilePath, success: (res) => {
-          alert({
-            title: '提示',
-            content: '下载文件的信息为' + JSON.stringify(res),
-          });
-        }});
-      },
-      fail(res) {
-        console.log('下载失败' + res.errMsg);
-      },
-    });
+    if (!img2) {
+      alert({
+        title: '提示',
+        content: '请先下载图片',
+      });
+    }
+    getInfo({filePath: img2, success: (res) => {
+      alert({
+        title: '提示',
+        content: '下载文件的信息为' + JSON.stringify(res),
+      });
+    }});
   };
   const saveHandler = () => {
     chooseImage({
@@ -102,21 +99,21 @@ const Index = () => {
   };
   return (
     <View>
-      <View style={styles.button} onClick={getFileInfoHandler}>
-        点击获取文件信息
-      </View>
-      <View style={styles.button} onClick={saveHandler}>
-        点击保存临时文件
-      </View>
-      <View style={styles.button} onClick={openDocumentHandler}>
-       点击打开pdf文件
-      </View>
       <View x-if={img2} style={{flexDirection: 'row', justifyContent: 'center'}}>
         <Image resizeMode="cover"
           mode="aspectFill" source={{uri: img2}} />
       </View>
       <View style={styles.button} onClick={downloadHandler}>
-       点击下载图片
+       点击下载图片（download）
+      </View>
+      <View style={styles.button} onClick={getFileInfoHandler}>
+        点击获取下载图片的信息（getFileInfo）
+      </View>
+      <View style={styles.button} onClick={saveHandler}>
+        点击保存临时文件（save）
+      </View>
+      <View style={styles.button} onClick={openDocumentHandler}>
+       点击打开pdf文件（openDocument）
       </View>
     </View>
   );

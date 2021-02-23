@@ -25,12 +25,25 @@ $ npm install @uni/toast --save
 ```js
 import Toast from '@uni/toast';
 
-// 快应用中的引入方法
-// import Toast from '@uni/toast/lib/quickapp;
-
+// string
 Toast.show('Hi');
 
-Toast.hide();
+// object
+Toast.show({
+  message: 'hello',
+  type: 'success',
+  duration: 1000,
+  success: () => {
+
+  }
+});
+
+// promise
+Toast.show({
+  message: 'hello',
+  type: 'success',
+  duration: 1000,
+}).then(() => {});
 ```
 
 你也可以从大包引入：
@@ -41,7 +54,7 @@ toast.show('Hi')
 
 ## 方法
 
-### `Toast.show(options?: object)`
+### `Toast.show(options?: object | string)`
 
 #### 参数
 | 成员     | 类型     | 描述                | 默认值 |

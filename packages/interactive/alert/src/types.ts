@@ -1,6 +1,7 @@
 export interface Options {
   title?: string;
   content?: string;
+  confirmColor?: string;
   buttonText?: string;
   success?: () => any;
   fail?: (res) => any;

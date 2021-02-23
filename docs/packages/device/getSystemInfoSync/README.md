@@ -1,7 +1,7 @@
 # getSystemInfoSync 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@uni/getsysteminfosync.svg)](https://www.npmjs.com/package/@uni/getsysteminfosync)
+[![npm](https://img.shields.io/npm/v/@uni/system-info.svg)](https://www.npmjs.com/package/@uni/system-info)
 
 获取系统信息。
 
@@ -15,7 +15,7 @@
 ## 安装
 
 ```bash
-$ npm install @uni/getSystemInfoSync --save
+$ npm install @uni/system-info --save
 ```
 or
 ```bash
@@ -24,7 +24,7 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import getSystemInfoSync from '@uni/getsysteminfosync';
+import getSystemInfoSync from '@uni/system-info';
 
 let res = getSystemInfoSync();
 

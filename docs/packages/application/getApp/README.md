@@ -7,9 +7,9 @@ title: getApp
 # getApp 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@uni/getapp.svg)](https://www.npmjs.com/package/@uni/getapp)
+[![npm](https://img.shields.io/npm/v/@uni/application.svg)](https://www.npmjs.com/package/@uni/application)
 
-获取应用实例
+获取全局唯一应用实例
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
 <div style="margin-right: 20px;">
@@ -21,14 +21,14 @@ title: getApp
 ## 安装
 
 ```bash
-$ npm install @uni/getapp --save
+$ npm install @uni/application --save
 ```
 
 ## 使用
 
 ```js
 import { createElement, useEffect, Fragment } from 'rax';
-import getApp from '@uni/getapp';
+import { getApp } from '@uni/application';
 
 function App() {
   useEffect(() => {
@@ -43,7 +43,7 @@ function App() {
 也可以从大包中引入：
 
 ```js
-import {getApp} from '@uni/apis';
+import { application } from '@uni/apis';
 ```
 
 </div>
@@ -59,7 +59,7 @@ export default () => (
       boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
       width: '375px',
       height: '700px'
-    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/getapp/index&topSlider=false'></iframe>
+    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/application/index&topSlider=false'></iframe>
 );
 ```
 

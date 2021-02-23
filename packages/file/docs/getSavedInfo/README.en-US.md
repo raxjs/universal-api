@@ -29,6 +29,7 @@ $ npm install @uni/file --save
 | -------- | ------ | -------- |
 |size|number|File size in bytes|
 |createTime|number|The timestamp when the file was saved, which is defined as the number of seconds that have elapsed since 1970/01/01 08:00:00 to the current time|
+
 ## Example
 
 ```js

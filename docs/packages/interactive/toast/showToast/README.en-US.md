@@ -24,8 +24,25 @@ $ npm install @uni/toast --save
 
 ```js
 import Toast from '@uni/toast';
-
+// string
 Toast.show('Hi');
+
+// object
+Toast.show({
+  message: 'hello',
+  type: 'success',
+  duration: 1000,
+  success: () => {
+
+  }
+});
+
+// promise
+Toast.show({
+  message: 'hello',
+  type: 'success',
+  duration: 1000,
+}).then(() => {});
 ```
 
 You can also import from the big package：

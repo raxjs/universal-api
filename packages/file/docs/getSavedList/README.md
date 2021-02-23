@@ -25,7 +25,7 @@ $ npm install @uni/file --save
 ### object.success 回调函数 的参数
 | 属性     | 类型     | 描述     |
 | -------- | ------ | -------- |
-|fileList|Array.<Object>|文件数组，每一项是一个 FileItem|
+|fileList|Array|文件数组，每一项是一个 FileItem|
 
 #### res.fileList 的结构
 | 属性     | 类型     | 描述     |
@@ -33,6 +33,7 @@ $ npm install @uni/file --save
 |filePath|string|文件路径 (本地路径)|
 |size|number|本地文件大小，以字节为单位|
 |createTime|number|文件保存时的时间戳，从1970/01/01 08:00:00 到当前时间的秒数|
+
 ## 示例
 
 ```js

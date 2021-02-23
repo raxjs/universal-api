@@ -37,7 +37,7 @@ Optional values ​​for target are:
 |ali-miniapp|miniapp|
 |wechat-miniprogram|wechat-miniprogram|
 |web|web|
-|bytedance-microapp|byte-miniprogram|
+|bytedance-microapp|bytedance-microapp|
 
 ### Rax
 If you are using rax, because rax uses the build-scripts packaging tool, we provide a build-scripts plug-in, and its underlying dependency is still babel-plugin-universal-api-import.

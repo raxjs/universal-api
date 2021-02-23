@@ -30,6 +30,7 @@ $ npm install @uni/file --save
 | -------- | ------ | -------- |
 |size|number|文件大小，单位 B|
 |createTime|number|文件保存时的时间戳，从1970/01/01 08:00:00 到该时刻的秒数|
+
 ## 示例
 
 ```js

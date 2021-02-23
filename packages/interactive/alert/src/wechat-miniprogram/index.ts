@@ -2,11 +2,12 @@ import { Options } from '../types';
 import {initApi} from '../common';
 
 const alert = (options: Options): void => {
-  const { title, content, buttonText, success, fail, complete } = options;
+  const { title, content, buttonText, confirmColor, success, fail, complete } = options;
   wx.showModal({
     showCancel: false,
     title,
     content,
+    confirmColor,
     confirmText: buttonText,
     success: function() {
       success && success();

@@ -1,38 +1,11 @@
 module.exports = {
   // application
-  'errorEvent': {
-    path: 'packages/application/errorEvent/src/index.ts',
+  'application': {
+    path: 'packages/application/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.0-beta',
-        name: '@uni/error-event',
-      }
-    ]
-  },
-  'getApp': {
-    path: 'packages/application/getApp/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.0.0-beta',
-        name: '@uni/app',
-      }
-    ]
-  },
-  'getCurrentPages': {
-    path: 'packages/application/getCurrentPages/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.0.0-beta',
-        name: '@uni/current-pages',
-      }
-    ]
-  },
-  'getLaunchOptionsSync': {
-    path: 'packages/application/getLaunchOptionsSync/src/index.ts',
-    pkgInfo: [
-      {
-        version: '1.0.0-beta',
-        name: '@uni/launch-options',
+        name: '@uni/application',
       }
     ]
   },

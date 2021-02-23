@@ -29,6 +29,7 @@ $ npm install @uni/file --save
 | Property     | Type     | Description     |
 | -------- | ------ | -------- |
 |savedFilePath|string|Path to the saved file|
+
 ## Example
 
 ```js

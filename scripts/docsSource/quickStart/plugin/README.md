@@ -36,7 +36,7 @@ target可选的值有：
 |阿里小程序|miniapp|
 |微信小程序|wechat-miniprogram|
 |web|web|
-|头条小程序|byte-miniprogram|
+|头条小程序|bytedance-microapp|
 
 ### Rax
 如果你使用的是rax，由于rax使用的是build-scripts打包工具，所以我们提供了build-scripts的插件，他底层依赖的还是babel-plugin-universal-api-import。
