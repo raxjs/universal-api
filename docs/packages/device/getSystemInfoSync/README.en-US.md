@@ -49,7 +49,7 @@ import { getSystemInfoSync } from '@uni/apis';
 | screenHeight | `number` | Screen height in px |
 | windowWidth | `number` | Available window width in px	 |
 | windowHeight | `number` | Available window height in px |
-| language | `string` | Language |
+| language | `string` | Language，zh_CN 简体中文，zh_TW 繁体中文，en 英文 |
 | version | `string` | version |
 | platform | `string` | Client platform |
 

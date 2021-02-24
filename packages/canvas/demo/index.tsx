@@ -1,11 +1,11 @@
 import { createElement, useEffect } from 'rax';
 import View from 'rax-view';
-import createCanvasContext from '@uni/canvas-context';
+import canvas from '@uni/canvas';
 
 export default function() {
   useEffect(() => {
     const node = document.querySelector('#demo1');
-    createCanvasContext({
+    canvas.createCanvasContext({
       canvasId: 'canvas',
       context: node._internal
     }).then((canvasContext) => {

@@ -44,12 +44,12 @@ import { alert } from '@uni/apis';
 | ------------------ | -------- | ------------ | :-------: |
 | options   | `object` | alert arguments      |     -     |
 | options.content    | `string` | alert content  | - |
+| options.title      | `string` | alert 标题     |  -  |
+| options.buttonText | `string` | alert 确认按钮文字 | - |
 
 ### 不通用参数（由于破坏了一码多端的能力，请谨慎使用）
 | 成员               | 类型     | 描述                              |  默认值   |     支持     |
 | ------------------ | -------- | ---------- | :-------: | :----------: |
-| options.title      | `string` | alert 标题     |  -  | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序">  |
-| options.buttonText | `string` | alert 确认按钮文字 | - | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序"> |
 | options.confirmColor | `string` | alert 确认按钮颜色 | - | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
 
 ### Attention

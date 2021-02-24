@@ -1,5 +1,7 @@
 export interface IPushOptions {
   url: string;
+  isHash?: boolean;
+  refresh? : boolean;
   success?: () => void;
   fail?: (res: any) => void;
   complete?: (res?: any) => void;
@@ -20,6 +22,8 @@ export interface IGoOptions {
 
 export interface IReplaceOptions {
   url: string;
+  isHash?: boolean;
+  refresh? : boolean;
   success?: () => void;
   fail?: (res: any) => void;
   complete?: (res?: any) => void;
@@ -27,6 +31,8 @@ export interface IReplaceOptions {
 
 export interface IReLaunchOptions {
   url: string;
+  isHash?: boolean;
+  refresh? : boolean;
   success?: () => void;
   fail?: (res: any) => void;
   complete?: (res?: any) => void;

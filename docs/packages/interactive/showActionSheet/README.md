@@ -72,11 +72,22 @@ import { showActionSheet } from '@uni/apis';
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
 
+#### 差异化参数
+
+| 成员 | 类型 | 描述 | 必选 | 默认值 | 支持度 |
+| --- | --- | --- | --- | --- | -- |
+| options.title | `string` | 菜单标题 | ✘ |  | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" />  |
+| options.alertText | `string`  | 警示文案 | ✘ |  | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> 2.14.0 |
+| options.itemColor | `string`  | 按钮的文字颜色	 | ✘ | #000000 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| options.cancelButtonText | `string`  | 取消按钮文案 | ✘ | 取消 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> |
+| options.destructiveBtnIndex | `number`  | 飘红相关，参见[支付宝官方文档](https://opendocs.alipay.com/mini/api/hr092g) | ✘ |  | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> no Dingding |
+| options.badges | `Array<Object>`  | 飘红相关，参见[支付宝官方文档](https://opendocs.alipay.com/mini/api/hr092g) | ✘ |  | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> no Dingding |
+
 #### 返回
 
 | 成员 | 类型 | 描述 |
 | --- | --- | --- |
-| tapIndex | `number` | 用户点击的按钮序号，从上到下的顺序，从0开始 |
+| tapIndex | `number` | 用户点击的按钮序号，从上到下的顺序，从0开始，点击蒙层和取消按钮为-1 |
 
 </div>
 <div>

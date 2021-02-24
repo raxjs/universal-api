@@ -24,7 +24,6 @@ $ npm i @uni/apis
 
 ```js
 import { 
-  showModal,
   errorEvent,
   getApp,
   getCurrentPages,
@@ -42,7 +41,7 @@ import {
   loading,
   element,
   intersectionObserver,
-  showModal,
+  confirm,
   location,
   chooseImage,
   compressImage,
@@ -51,7 +50,7 @@ import {
   request,
   storage } from '@uni/apis';
 
-showModal({content: '显示模态框'});
+confirm({content: '显示模态框'});
 storage.getStorageSync({key: 'key'});
 
 ```

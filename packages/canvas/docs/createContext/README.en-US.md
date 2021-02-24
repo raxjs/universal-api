@@ -4,7 +4,7 @@ group:
 ---
 
 # createContext
-[![npm](https://img.shields.io/npm/v/@uni/canvas.svg)](https://www.npmjs.com/package/@uni/canvas)
+[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis) [![npm](https://img.shields.io/npm/v/@uni/canvas.svg)](https://www.npmjs.com/package/@uni/canvas)
 
 下载文件资源到本地。
 
@@ -23,7 +23,7 @@ $ npm install @uni/canvas --save
 ## 参数
 | 属性   | 类型     | 默认值 | 必选 | 描述             |
 | ------ | -------- | ------ | ---- | ---------------- |
-| canvasId    | `String` |        | √    | 定义在 <canvas/> 上的 ID  |
+| canvasId    | `String` |        | √    | 定义在 canvas 上的 ID  |
 | type | `2d/webgl/webgl2` |   2d   | x    | 画布上下文类型 |
 
 ### 不通用参数（由于破坏了一码多端的能力，不推荐使用）

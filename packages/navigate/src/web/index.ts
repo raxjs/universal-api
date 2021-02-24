@@ -4,10 +4,19 @@ import { IPushOptions, IGoOptions, IPopOptions, IReplaceOptions, IReLaunchOption
 import {initApi} from '../common';
 
 export const push = initApi.push((options: IPushOptions) => {
-  const { url, success, fail, complete } = options;
+  const { url, isHash = false, refresh = true, success, fail, complete } = options;
+  let _url = isHash ? '/#' + url : url;
   setTimeout((): void => {
     try {
-      location.href = url;
+      if (refresh) {
+        location.href = _url;
+      } else {
+        const state = { 'page_id': 1 };
+        const title = '';
+
+        history.pushState(state, title, _url);
+      }
+
       success && success();
       complete && complete();
     } catch (e) {
@@ -32,11 +41,12 @@ export const back = initApi.back((options?: IPopOptions) => {
 });
 
 export const replace = initApi.replace((options?: IReplaceOptions) => {
-  const { url, success, fail, complete } = options || {};
+  const { url, isHash = false, refresh = true, success, fail, complete } = options || {};
+  let _url = isHash ? '/#' + url : url;
   setTimeout((): void => {
     try {
-      history.replaceState('', '', url);
-      history.go(0);
+      history.replaceState('', '', _url);
+      refresh && history.go(0);
       success && success();
       complete && complete();
     } catch (e) {
@@ -62,12 +72,13 @@ export const go = initApi.go((options: IGoOptions) => {
 });
 
 export const reLaunch = initApi.reLaunch((options: IReLaunchOptions) => {
-  const { url, success, fail, complete } = options;
+  const { url, isHash = false, refresh = true, success, fail, complete } = options;
+  let _url = isHash ? '/#' + url : url;
   setTimeout((): void => {
     try {
       history.go(-(history.length - 1));
-      history.replaceState('', '', url);
-      history.go(0);
+      history.replaceState('', '', _url);
+      refresh && history.go(0);
       success && success();
       complete && complete();
     } catch (e) {

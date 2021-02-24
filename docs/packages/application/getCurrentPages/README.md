@@ -1,6 +1,6 @@
 ---
 group:
-  title: 应用级事件
+  title: 应用级接口
 title: getCurrentPages
 ---
 
