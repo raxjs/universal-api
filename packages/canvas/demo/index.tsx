@@ -4,7 +4,11 @@ import createCanvasContext from '@uni/canvas-context';
 
 export default function() {
   useEffect(() => {
-    createCanvasContext('canvas').then((canvasContext) => {
+    const node = document.querySelector('#demo1');
+    createCanvasContext({
+      canvasId: 'canvas',
+      context: node._internal
+    }).then((canvasContext) => {
       canvasContext.fillStyle = 'red';
       canvasContext.fillRect(0, 0, 100, 100);
       // Only valid in miniapp

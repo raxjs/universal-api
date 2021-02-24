@@ -25,7 +25,7 @@ export const upload = (options: UploadOptions) => {
   } else if (isWeb) {
     return webModule.upload(options);
   } else {
-    throw new Error('@uni/apis：file.upload暂不支持');
+    throw new Error('@uni：file.upload暂不支持');
   }
 };
 export const download = (options: DownloadOptions) => {
@@ -38,7 +38,7 @@ export const download = (options: DownloadOptions) => {
   } else if (isWeb) {
     return webModule.download(options);
   } else {
-    throw new Error('@uni/apis：file.download暂不支持');
+    throw new Error('@uni：file.download暂不支持');
   }
 };
 export const getInfo = (options: GetInfoOptions) => {
@@ -51,7 +51,7 @@ export const getInfo = (options: GetInfoOptions) => {
   } else if (isWeb) {
     return webModule.getInfo(options);
   } else {
-    throw new Error('@uni/apis：file.getInfo暂不支持');
+    throw new Error('@uni：file.getInfo暂不支持');
   }
 };
 export const getSavedInfo = (options: GetSavedInfoOptions) => {
@@ -64,7 +64,7 @@ export const getSavedInfo = (options: GetSavedInfoOptions) => {
   } else if (isWeb) {
     return webModule.getSavedInfo(options);
   } else {
-    throw new Error('@uni/apis：file.getSavedInfo暂不支持');
+    throw new Error('@uni：file.getSavedInfo暂不支持');
   }
 };
 export const getSavedList = (options: GetSavedListOptions) => {
@@ -77,7 +77,7 @@ export const getSavedList = (options: GetSavedListOptions) => {
   } else if (isWeb) {
     return webModule.getSavedList(options);
   } else {
-    throw new Error('@uni/apis：file.getSavedList暂不支持');
+    throw new Error('@uni：file.getSavedList暂不支持');
   }
 };
 export const save = (options: SaveOptions) => {
@@ -90,7 +90,7 @@ export const save = (options: SaveOptions) => {
   } else if (isWeb) {
     return webModule.save(options);
   } else {
-    throw new Error('@uni/apis：file.save暂不支持');
+    throw new Error('@uni：file.save暂不支持');
   }
 };
 export const removeSaved = (options: RemoveSavedOptions) => {
@@ -103,7 +103,7 @@ export const removeSaved = (options: RemoveSavedOptions) => {
   } else if (isWeb) {
     return webModule.removeSaved(options);
   } else {
-    throw new Error('@uni/apis：file.removeSaved暂不支持');
+    throw new Error('@uni：file.removeSaved暂不支持');
   }
 };
 export const openDocument = (options: OpenDocumentOptions) => {
@@ -116,7 +116,7 @@ export const openDocument = (options: OpenDocumentOptions) => {
   } else if (isWeb) {
     return webModule.openDocument(options);
   } else {
-    throw new Error('@uni/apis：file.openDocument暂不支持');
+    throw new Error('@uni：file.openDocument暂不支持');
   }
 };
 let res: IFile;
@@ -129,6 +129,6 @@ if (isWeChatMiniProgram) {
 } else if (isWeb) {
   res = webModule;
 } else {
-  throw new Error('@uni/apis：file暂不支持');
+  throw new Error('@uni：file暂不支持');
 }
 export default res;

@@ -63,7 +63,7 @@ const buildDemo = async () => {
         
         fs.copyFileSync(fromPath, path.resolve(root, outputPath, 'index.tsx'));
         appJsonContent.routes.push({
-          "path": '/' + i.name.replace('@uni/', ''),
+          "path": `/pages/${i.name.replace('@uni/', '')}/index`,
           "source": `pages/${i.name.replace('@uni/', '')}/index`,
           "window": {
             "title": i.name.replace('@uni/', '')

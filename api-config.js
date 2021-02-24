@@ -47,12 +47,12 @@ module.exports = {
     ]
   },
   // canvas
-  'createCanvasContext': {
-    path: 'packages/canvas/canvas-context/src/index.ts',
+  'canvasApis': {
+    path: 'packages/canvas/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.0-beta',
-        name: '@uni/canvas-context',
+        name: '@uni/canvas',
       }
     ]
   },

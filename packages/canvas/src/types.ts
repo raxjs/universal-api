@@ -12,3 +12,12 @@ export interface ContextAttributes {
   preserveDrawingBuffer?: boolean;
   stencil?: boolean;
 }
+export interface Options {
+  canvasId: string;
+  type?: '2d' | 'webgl' | 'webgl2';
+  context?: any;
+  options?: ContextAttributes;
+}
+export interface Canvas {
+  createContext: (options: Options) => Promise<CanvasContext>;
+}

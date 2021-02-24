@@ -1,14 +1,11 @@
-import { CanvasContext, ContextAttributes } from '../types';
+import { CanvasContext, Options } from '../types';
 
-function createContext(
-  selector: string,
-  type: string = '2d',
-  options: ContextAttributes = {}
-): Promise<CanvasContext> {
+export const createContext = function(canvasOptions: Options): Promise<CanvasContext> {
+  const {canvasId, type = '2d', context = wx, options} = canvasOptions;
   return new Promise((resolve, reject) => {
-    const query = wx.createSelectorQuery();
+    const query = context.createSelectorQuery();
     query
-      .select(`#${selector}`)
+      .select(`#${canvasId}`)
       .fields({ node: true, size: true })
       .exec((res) => {
         if (!res[0] || !res[0].node) reject('The canvas node may not exist.');
@@ -19,6 +16,6 @@ function createContext(
         resolve(context);
       });
   });
-}
+};
 
-export default createContext;
+export default { createContext };

@@ -1,13 +1,10 @@
-import { CanvasContext, ContextAttributes } from '../types';
+import { CanvasContext, Options } from '../types';
 
-function createContext(
-  selector: string,
-  type: string = '2d',
-  options: ContextAttributes = {}
-): Promise<CanvasContext> {
+export const createContext = function(canvasOptions: Options): Promise<CanvasContext> {
+  const { canvasId, type = '2d', options } = canvasOptions;
   return new Promise((resolve, reject) => {
     const canvasNode: HTMLCanvasElement = document.getElementById(
-      selector
+      canvasId
     ) as HTMLCanvasElement;
     if (!canvasNode) reject('The canvas node may not exist.');
     const context: CanvasContext = canvasNode.getContext(type, options);
@@ -15,6 +12,6 @@ function createContext(
     context.draw = function() {};
     resolve(context);
   });
-}
+};
 
-export default createContext;
+export default { createContext };

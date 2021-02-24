@@ -1,7 +1,7 @@
 {
   "routes": [
     {
-      "path": "/",
+      "path": "/pages/Home/index",
       "source": "pages/Home/index",
       "window": {
         "title": "uni"
