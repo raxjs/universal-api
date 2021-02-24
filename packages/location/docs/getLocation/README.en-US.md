@@ -79,6 +79,7 @@ location.getLocation().then(response => {})
 ## 注意
 
 微信中使用地理位置相关的api，需要在app.json配置中打开权限
+https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html#permission
 
 </div>
 <div>

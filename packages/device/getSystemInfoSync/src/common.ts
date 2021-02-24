@@ -1,6 +1,27 @@
 import { SYSTEM_INFO } from './types';
 
-export const formatSystemInfo: (fn: () => any) => () => SYSTEM_INFO = (fn = () => {return {}}) => {
+const formatLanguage = (language) => {
+  let fl = 'en';
+  switch (language.toLowerCase()) {
+    case 'zh_cn':
+    case 'zh-hans':
+    case 'zh-cn':
+    case 'chinese': fl = 'zh_CN'; break;
+    case 'zh_tw':
+    case 'zh-hant':
+    case 'zh-hk': fl = 'zh_TW'; break;
+    case 'en':
+    case 'english':
+    case 'en-us': fl = 'en'; break;
+    default: fl = 'en';
+  }
+  return fl;
+};
+
+export const formatSystemInfo: (fn: () => any) => () => SYSTEM_INFO = (fn = () => {
+  return {}
+  ;
+}) => {
   return () => {
     const {
       pixelRatio = 1,
@@ -18,9 +39,9 @@ export const formatSystemInfo: (fn: () => any) => () => SYSTEM_INFO = (fn = () =
       screenHeight,
       windowWidth,
       windowHeight,
-      language,
+      language: formatLanguage(language),
       version,
       platform
     };
-  }
+  };
 };

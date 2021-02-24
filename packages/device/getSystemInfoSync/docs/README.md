@@ -48,7 +48,7 @@ import { getSystemInfoSync } from '@uni/apis';
 | screenHeight | `number` | 屏幕高度，单位px |
 | windowWidth | `number` | 可使用窗口宽度，单位px |
 | windowHeight | `number` | 可使用窗口高度，单位px |
-| language | `string` | 设置的语言 |
+| language | `string` | 设置的语言，zh_CN 简体中文，zh_TW 繁体中文，en 英文 |
 | version | `string` | 版本号 |
 | platform | `string` | 客户端平台 |
 

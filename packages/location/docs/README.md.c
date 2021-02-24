@@ -85,8 +85,8 @@ $ npm install @uni/apis --save
 import openLocation from '@uni/openLocation';
 
 openLocation({
-  longitude: '120.126293',
-  latitude: '30.274653',
+  longitude: 120.126293,
+  latitude: 30.274653,
   name: '黄龙万科中心',
   address: '学院路77号',
   success: (res) => {
@@ -102,8 +102,8 @@ openLocation({
 
 // promise
 openLocation({
-  longitude: '120.126293',
-  latitude: '30.274653',
+  longitude: 120.126293,
+  latitude: 30.274653,
   name: '黄龙万科中心',
   address: '学院路77号'})
   .then(response => {})
@@ -128,6 +128,7 @@ openLocation({
 | options.latitude | `number` | 纬度 | ✔️ | - |
 | options.longtitude | `number` | 经度 | ✔️ | - |
 | options.name | `string`  | 位置名 | ✔️ | - |
+| options.scale | `number` | 缩放比例，范围5~18 | ✘ | 18 |
 | options.address | `string`  | 地址的详细说明 | ✔️ | - |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
