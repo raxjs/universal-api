@@ -3,7 +3,7 @@ import View from 'rax-view';
 import Text from 'rax-text';
 import TextInput from 'rax-textinput';
 import storage from '@uni/storage';
-import showModal from '@uni/show-modal';
+import confirm from '@uni/confirm';
 
 const styles = {
   flex: {
@@ -43,18 +43,18 @@ export default function() {
       <View style={styles.flex}>
         <View style={styles.button} onClick={() => {
           storage.setStorage({key, data}).then(res => {
-            showModal({title: '存储成功', showCancel: false, content: key + ':' + data});
+            confirm({title: '存储成功', showCancel: false, content: key + ':' + data});
           });
         }}>setStorage</View>
         <View style={styles.button} onClick={() => {
           storage.getStorage({key}).then(res => {
-            showModal({title: '获取缓存', showCancel: false, content: key + ':' + res.data});
+            confirm({title: '获取缓存', showCancel: false, content: key + ':' + res.data});
           });
           // storage.getStorage({key, fail: err => {console.log(err)}, success: (res) => {console.log(res, 'suc')}})
         }}>getStorage</View>
         <View style={styles.button} onClick={() => {
           storage.removeStorage({key}).then(res => {
-            showModal({title: '删除缓存', showCancel: false, content: key});
+            confirm({title: '删除缓存', showCancel: false, content: key});
           });
         }}>removeStorage</View>
       </View>
@@ -62,15 +62,15 @@ export default function() {
       <View style={styles.flex}>
         <View style={styles.button} onClick={() => {
           let res = storage.setStorageSync({key, data});
-          showModal({title: '存储成功', showCancel: false, content: key + ':' + data});
+          confirm({title: '存储成功', showCancel: false, content: key + ':' + data});
         }}>setStorageSync</View>
         <View style={styles.button} onClick={() => {
           let res = storage.getStorageSync({key});
-          showModal({title: '获取缓存', showCancel: false, content: key + ':' + res.data});
+          confirm({title: '获取缓存', showCancel: false, content: key + ':' + res.data});
         }}>getStorageSync</View>
         <View style={styles.button} onClick={() => {
           let res = storage.removeStorageSync({key});
-          showModal({title: '删除缓存', showCancel: false, content: key});
+          confirm({title: '删除缓存', showCancel: false, content: key});
         }}>removeStorageSync</View>
       </View>
     </View>

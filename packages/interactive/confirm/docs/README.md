@@ -1,7 +1,7 @@
-# showModal 
+# confirm 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@uni/showModal.svg)](https://www.npmjs.com/package/@uni/showModal)
+[![npm](https://img.shields.io/npm/v/@uni/confirm.svg)](https://www.npmjs.com/package/@uni/confirm)
 
 显示模态对话框。
 
@@ -15,7 +15,7 @@
 ## 安装
 
 ```bash
-$ npm install @uni/showModal --save
+$ npm install @uni/confirm --save
 ```
 or
 ```bash
@@ -24,9 +24,9 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import showModal from '@uni/showModal';
+import confirm from '@uni/confirm';
 
-showModal({
+confirm({
   title: '提示',
   content: '这是一个模态弹窗',
   success (res) {
@@ -39,7 +39,7 @@ showModal({
 });
 
 // promise
-showModal({
+confirm({
   title: '提示',
   content: '这是一个模态弹窗'
 }).then(res => {
@@ -54,12 +54,12 @@ showModal({
 
 你也可以从大包引入：
 ```js
-import { showModal } from '@uni/apis';
+import { confirm } from '@uni/apis';
 ```
 
 ## 方法
 
-### `showModal(options)`
+### `confirm(options)`
 
 #### 参数
 
@@ -68,12 +68,19 @@ import { showModal } from '@uni/apis';
 | options | `object`  |  | ✔️ | - |
 | options.title | `string`  | 提示的标题 | ✘ | - |
 | options.content | `string`  | 提示的内容 | ✘ | - |
-| options.showCancel | `boolean`  | 是否显示取消按钮 | ✘ | true |
 | options.confirmText | `string`  | 确认按钮的文字，最多 4 个字符 | ✘ | "确定" |
 | options.cancelText | `string`  | 取消按钮的文字，最多 4 个字符 | ✘ | "取消" |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
+
+#### 差异化参数
+
+| 成员 | 类型 | 描述 | 必选 | 默认值 | 支持度 |
+| --- | --- | --- | --- | --- | -- |
+| options.showCancel | `boolean` | 是否显示取消按钮 | ✘ | true | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序"> |
+| options.cancelColor | `string` | 取消按钮的文字颜色，必须是 16 进制格式的颜色字符串 | ✘ | #000000 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| options.confirmColor | `string` | 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串 | ✘ | #576B95	 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
 
 #### 返回
 
@@ -95,7 +102,7 @@ export default () => (
       boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
       width: '375px',
       height: '700px'
-    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/show-modal/index&topSlider=false'></iframe>
+    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/confirm/index&topSlider=false'></iframe>
 );
 ```
 

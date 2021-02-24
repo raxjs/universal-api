@@ -16,7 +16,7 @@ export * as toast from '../interactive/toast/src/index';
 export * as loading from '../interactive/loading/src/index';
 export * as element from '../interactive/element/src/index';
 export * as intersectionObserver from '../interactive/intersectionObserver/src/index';
-export * as showModal from '../interactive/showModal/src/index';
+export * as confirm from '../interactive/confirm/src/index';
 export * as location from '../location/src/index';
 export * as image from '../media/image/src/index';
 export * as navigate from '../navigate/src/index';

@@ -18,15 +18,14 @@ export interface CallbackOptions {
   [propName: string]: any;
 }
 
-export interface ShowModalOptions extends CallbackOptions {
+export interface ConfirmOptions extends CallbackOptions {
   title?: string;
   content?: string;
-  showCancel?: boolean;
   cancelText?: string;
   confirmText?: string;
 }
 
-export interface showModalRes {
+export interface ConfirmRes {
   confirm: boolean;
   cancel: boolean;
 }

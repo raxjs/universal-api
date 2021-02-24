@@ -25,7 +25,6 @@ $ npm i @uni/apis
 
 ```js
 import { 
-  showModal,
   errorEvent,
   getApp,
   getCurrentPages,
@@ -43,7 +42,7 @@ import {
   loading,
   element,
   intersectionObserver,
-  showModal,
+  confirm,
   location,
   chooseImage,
   compressImage,
@@ -52,7 +51,7 @@ import {
   request,
   storage } from '@uni/apis';
 
-showModal({content: 'Show modal'});
+confirm({content: 'Show modal'});
 storage.getStorageSync({key: 'key'});
 
 ```

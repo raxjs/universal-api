@@ -16,7 +16,7 @@ export * as toast from '../../interactive/toast/src/bytedance-microapp/index';
 export * as loading from '../../interactive/loading/src/bytedance-microapp/index';
 export * as element from '../../interactive/element/src/bytedance-microapp/index';
 export * as intersectionObserver from '../../interactive/intersectionObserver/src/bytedance-microapp/index';
-export * as showModal from '../../interactive/showModal/src/bytedance-microapp/index';
+export * as confirm from '../../interactive/confirm/src/bytedance-microapp/index';
 export * as location from '../../location/src/bytedance-microapp/index';
 export * as image from '../../media/image/src/bytedance-microapp/index';
 export * as navigate from '../../navigate/src/bytedance-microapp/index';

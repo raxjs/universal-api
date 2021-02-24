@@ -71,20 +71,53 @@ export const compressImage = () => {
   throw new Error('@uni/apis: compressImage不支持');
 };
 
-export const getImageInfo = initApi.chooseImage((args) => {
+export const getImageInfo = initApi.getImageInfo((args) => {
   const image = new Image();
   image.src = args.src;
   if (image.naturalWidth) {
-    args.success({
+    const res = {
       width: image.naturalWidth,
       height: image.naturalHeight,
       path: args.src
-    });
-  } else {
-    const check = () => {
-
     };
-    const checkLoad = setInterval(check, 40);
+    args.success(res);
+    args.complete(res);
+  } else {
+    const setImageInfo = () => {
+      const res = {
+        width: image.width,
+        height: image.height,
+        path: args.src
+      };
+      args.success(res);
+      args.complete(res);
+    };
+    if (image.complete) {
+      setImageInfo();
+    } else {
+      let checkTimer = null;
+      const clear = () => {
+        checkTimer = null;
+        clearInterval(checkTimer);
+      };
+      checkTimer = setInterval(() => {
+        if (image.width > 0 || image.height > 0) {
+          setImageInfo();
+          clear();
+        }
+      }, 40);
+      image.onload = () => {
+        if (checkTimer) {
+          setImageInfo();
+          clear();
+        }
+      };
+      image.onabort = image.onerror = (e) => {
+        args.fail(e);
+        args.complete(e);
+        clear();
+      };
+    }
   }
 });
 

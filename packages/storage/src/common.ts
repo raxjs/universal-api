@@ -2,7 +2,6 @@ import { promisify } from '../../utils/promisify';
 import { GetOrRemoveOptionStruct, SetOptionStruct } from './types';
 
 /**
- * 抹平data not found差异，各端均返回空值，不抛异常
  * @param params
  */
 function formatRes(params: GetOrRemoveOptionStruct) {

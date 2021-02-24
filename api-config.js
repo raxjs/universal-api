@@ -195,12 +195,12 @@ module.exports = {
       }
     ]
   },
-  'showModal': {
-    path: 'packages/interactive/showModal/src/index.ts',
+  'confirm': {
+    path: 'packages/interactive/confirm/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.0-beta',
-        name: '@uni/show-modal',
+        name: '@uni/confirm',
       }
     ]
   },

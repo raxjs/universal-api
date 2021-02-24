@@ -1,7 +1,7 @@
-# showModal 
+# confirm 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@uni/showModal.svg)](https://www.npmjs.com/package/@uni/showModal)
+[![npm](https://img.shields.io/npm/v/@uni/confirm.svg)](https://www.npmjs.com/package/@uni/confirm)
 
 Displays the modal dialog box.
 
@@ -15,7 +15,7 @@ Displays the modal dialog box.
 ## Install
 
 ```bash
-$ npm install @uni/showModal --save
+$ npm install @uni/confirm --save
 ```
 or
 ```bash
@@ -24,9 +24,9 @@ $ npm install @uni/apis --save
 ## Usage
 
 ```javascript
-import showModal from '@uni/showModal';
+import confirm from '@uni/confirm';
 
-showModal({
+confirm({
   title: '提示',
   content: '这是一个模态弹窗',
   success (res) {
@@ -39,7 +39,7 @@ showModal({
 });
 
 // promise
-showModal({
+confirm({
   title: '提示',
   content: '这是一个模态弹窗'
 }).then(res => {
@@ -56,12 +56,12 @@ showModal({
 You can also import from the big package:
 
 ```js
-import { showModal } from '@uni/apis';
+import { confirm } from '@uni/apis';
 ```
 
 ## Methods
 
-### `showModal(options)`
+### `confirm(options)`
 
 #### Arguments
 
@@ -70,12 +70,19 @@ import { showModal } from '@uni/apis';
 | options | `object`  |  | ✔️ | - |
 | options.title | `string`  | Prompt title | ✘ | - |
 | options.content | `string`  | Prompt content | ✘ | - |
-| options.showCancel | `boolean`  | Indicates whether to display the "Cancel" button | ✘ | true |
 | options.confirmText | `string`  | The text of the "OK "button, not more than 4 characters | ✘ | "OK" |
 | options.cancelText | `string`  | The text of the "Cancel" button, not more than 4 characters | ✘ | "Cancel" |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
+
+#### Special Arguments
+
+| Property | Type | Description | required | Default | Supported |
+| --- | --- | --- | --- | --- | -- |
+| options.showCancel | `boolean` | Indicates whether to display the "Cancel" button | ✘ | true | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp"> |
+| options.cancelColor | `string` | The text color of the "Cancel" button, which must be a color string in hexadecimal format | ✘ | #000000 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> |
+| options.confirmColor | `string` | The text color of the "OK" button, which must be a color string in hexadecimal format | ✘ | #576B95	 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> |
 
 #### Return
 
@@ -97,7 +104,7 @@ export default () => (
       boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
       width: '375px',
       height: '700px'
-    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/show-modal/index&topSlider=false'></iframe>
+    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/confirm/index&topSlider=false'></iframe>
 );
 ```
 

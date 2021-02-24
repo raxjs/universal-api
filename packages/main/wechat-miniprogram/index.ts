@@ -16,7 +16,7 @@ export * as toast from '../../interactive/toast/src/wechat-miniprogram/index';
 export * as loading from '../../interactive/loading/src/wechat-miniprogram/index';
 export * as element from '../../interactive/element/src/wechat-miniprogram/index';
 export * as intersectionObserver from '../../interactive/intersectionObserver/src/wechat-miniprogram/index';
-export * as showModal from '../../interactive/showModal/src/wechat-miniprogram/index';
+export * as confirm from '../../interactive/confirm/src/wechat-miniprogram/index';
 export * as location from '../../location/src/wechat-miniprogram/index';
 export * as image from '../../media/image/src/wechat-miniprogram/index';
 export * as navigate from '../../navigate/src/wechat-miniprogram/index';

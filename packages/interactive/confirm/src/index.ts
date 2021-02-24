@@ -4,7 +4,7 @@ import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 
-export const showModal = (args) => {
+export const confirm = (args) => {
   if (isWeChatMiniProgram) {
     return weChatModule(args);
   } else if (isByteDanceMicroApp) {
@@ -14,8 +14,8 @@ export const showModal = (args) => {
   } else if (isWeb) {
     return webModule(args);
   } else {
-    throw new Error('@uni/apis：showModal暂不支持');
+    throw new Error('@uni/apis：confirm暂不支持');
   }
 };
 
-export default showModal;
+export default confirm;

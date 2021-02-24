@@ -1,17 +1,12 @@
 import { Options } from '../types';
-import showModal from '../../../showModal/src/web';
-import {initApi} from '../common';
+import confirm from '../../../confirm/src/web';
+import { initApi } from '../common';
 
-const alert = (options: Options) => {
-  const { title, content, buttonText, success, fail, complete } = options;
-  showModal({
-    title,
-    content,
+const alert = (args: Options) => {
+  confirm({
+    ...args,
     showCancel: false,
-    confirmText: buttonText,
-    success,
-    fail,
-    complete,
+    confirmText: args.buttonText,
   });
 };
 

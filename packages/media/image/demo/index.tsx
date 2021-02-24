@@ -2,7 +2,7 @@ import { createElement, useState } from 'rax';
 import View from 'rax-view';
 import TextInput from 'rax-textinput';
 import image from '@uni/image';
-import showModal from '@uni/show-modal';
+import confirm from '@uni/confirm';
 import showActionSheet from '@uni/action-sheet';
 import Image from 'rax-image';
 
@@ -63,12 +63,12 @@ export default function() {
                   quality: quality || 4
                 }).then(res => {
                   console.log(res);
-                  showModal({content: '压缩地址' + res.tempFilePath});
+                  confirm({content: '压缩地址' + res.tempFilePath});
                 }).catch(err => console.log(err));
               } else if (res.tapIndex === 1) {
                 image.getImageInfo({src: uri}).then(res => {
                   console.log(res);
-                  showModal({content: '图片信息，宽度：' + res.width + '；高度：' + res.height + '；本地路径：' + res.path});
+                  confirm({content: '图片信息，宽度：' + res.width + '；高度：' + res.height + '；本地路径：' + res.path});
                 });
               } else if (res.tapIndex === 2) {
                 image.previewImage({

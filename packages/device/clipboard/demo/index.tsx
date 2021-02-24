@@ -3,7 +3,7 @@ import View from 'rax-view';
 import Text from 'rax-text';
 import TextInput from 'rax-textinput';
 import {getClipboard, setClipboard} from '@uni/clipboard';
-import showModal from '@uni/show-modal';
+import confirm from '@uni/confirm';
 
 const styles = {
   flex: {
@@ -30,7 +30,7 @@ export default function() {
     <View>
       <View style={styles.button} onClick={() => {
         getClipboard().then(({text}) => {
-          showModal({content: text});
+          confirm({content: text});
         });
       }}>获取剪切板数据</View>
       <TextInput style={styles.input} placeholder="输入设置剪切板数据" value={value} onInput={({value}) => {
@@ -40,7 +40,7 @@ export default function() {
       <View style={styles.button} onClick={() => {
         console.log(value);
         setClipboard({text: value}).then(() => {
-          showModal({title: '设置剪切板数据', content: value});
+          confirm({title: '设置剪切板数据', content: value});
         });
       }}>设置剪切板数据</View>
     </View>

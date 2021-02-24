@@ -1,7 +1,7 @@
 import { createElement, useEffect, useState, useRef } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import { onError, offError, getApp, getCurrentPages } from '@uni/appliction';
+import { onError, offError, getApp, getCurrentPages } from '@uni/application';
 import { show } from '@uni/toast';
 
 const styles = {

@@ -37,14 +37,14 @@ export function promisify<Arg = any, SuccessArg = any, FailArg = any>(
           }
           reject(res);
         },
-        compelete: (res: SuccessArg | FailArg) => {
-          if (promisifyArg && typeof promisifyArg.compelete === 'function') {
-            promisifyArg.compelete(res);
+        complete: (res: SuccessArg | FailArg) => {
+          if (promisifyArg && typeof promisifyArg.complete === 'function') {
+            promisifyArg.complete(res);
           }
         },
-        onCompelete: (res: SuccessArg | FailArg) => {
-          if (promisifyArg && typeof promisifyArg.onCompelete === 'function') {
-            promisifyArg.onCompelete(res);
+        onComplete: (res: SuccessArg | FailArg) => {
+          if (promisifyArg && typeof promisifyArg.onComplete === 'function') {
+            promisifyArg.onComplete(res);
           }
         },
       });

@@ -11,8 +11,7 @@ export function styleOptions(options) {
     options);
 }
 export function initApi(api) {
-  return (options) => {
-    const afterOptions = styleOptions(options);
-    return promisify(api)(afterOptions);
+  return (args) => {
+    return promisify(api)(styleOptions(args));
   };
 }

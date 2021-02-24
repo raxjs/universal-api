@@ -40,7 +40,7 @@ export const getImageInfo = (args) => {
   } else if (isMiniApp) {
     return aliMiniAppModule.getImageInfo(args);
   } else if (isWeb) {
-    return webModule.getImageInfo();
+    return webModule.getImageInfo(args);
   } else {
     throw new Error('@uni/apis：getImageInfo暂不支持');
   }

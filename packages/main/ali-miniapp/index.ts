@@ -16,7 +16,7 @@ export * as toast from '../../interactive/toast/src/ali-miniapp/index';
 export * as loading from '../../interactive/loading/src/ali-miniapp/index';
 export * as element from '../../interactive/element/src/ali-miniapp/index';
 export * as intersectionObserver from '../../interactive/intersectionObserver/src/ali-miniapp/index';
-export * as showModal from '../../interactive/showModal/src/ali-miniapp/index';
+export * as confirm from '../../interactive/confirm/src/ali-miniapp/index';
 export * as location from '../../location/src/ali-miniapp/index';
 export * as image from '../../media/image/src/ali-miniapp/index';
 export * as navigate from '../../navigate/src/ali-miniapp/index';

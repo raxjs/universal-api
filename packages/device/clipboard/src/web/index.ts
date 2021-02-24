@@ -10,7 +10,7 @@ export const setClipboard = initApiSet((args: PARAMS) => {
   input.style.height = '0px';
   document.body.appendChild(input);
   input.focus();
-  input.setSelectionRange(0, 9999);
+  input.setSelectionRange(0, -1);
   const removeInput = (): void => {
     document.body.removeChild(input);
   };

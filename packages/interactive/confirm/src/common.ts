@@ -1,26 +1,30 @@
 import { promisify } from '../../../utils/promisify';
-import { ShowActionSheetOptions, ShowActionSheetRes } from './types';
+import { ConfirmOptions, ConfirmRes } from './types';
 
 /**
  * @param res
  */
-const formatResponse = (res): ShowActionSheetRes => {
+const formatResponse = (res): ConfirmRes => {
   return {
-    ...res,
-    tapIndex: res.tapIndex != undefined ? res.tapIndex : res.index
+    confirm: res.confirm,
+    cancel: !res.confirm
   };
 };
 
 export function initApi(api) {
-  return (args: ShowActionSheetOptions) => {
+  return (args: ConfirmOptions) => {
     return promisify(api)({
       ...args,
+      title: args.title || '',
+      content: args.content || '',
+      confirmText: args.confirmText || '确定',
+      cancelText: args.cancelText || '取消',
       success: res => {
         args.success && args.success(formatResponse(res));
       },
       complete: res => {
         args.complete && args.complete(res);
-      },
+      }
     }).then(formatResponse);
   };
 }

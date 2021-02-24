@@ -1,3 +1,5 @@
+import { confirm } from '../wechat-miniprogram';
+
 export * as errorEvent from '../../application/errorEvent/src/web/index';
 export * as getApp from '../../application/getApp/src/web/index';
 export * as getCurrentPages from '../../application/getCurrentPages/src/web/index';
@@ -16,7 +18,7 @@ export * as toast from '../../interactive/toast/src/web/index';
 export * as loading from '../../interactive/loading/src/web/index';
 export * as element from '../../interactive/element/src/web/index';
 export * as intersectionObserver from '../../interactive/intersectionObserver/src/web/index';
-export * as showModal from '../../interactive/showModal/src/web/index';
+export * as confirm from '../../interactive/confirm/src/web/index';
 export * as location from '../../location/src/web/index';
 export * as image from '../../media/image/src/web/index';
 export * as navigate from '../../navigate/src/web/index';

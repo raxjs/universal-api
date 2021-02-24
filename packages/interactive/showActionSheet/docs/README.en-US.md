@@ -65,11 +65,22 @@ import { showActionSheet } from '@uni/apis';
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
 
+#### Special Arguments
+
+| Property | Type | Description | required | Default | Supported |
+| --- | --- | --- | --- | --- | -- |
+| options.title | `string` | The title of actionsheet | ✘ |  | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" />  |
+| options.alertText | `string`  | The alert text | ✘ |  | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> 2.14.0 |
+| options.itemColor | `string`  | The text color of the button	 | ✘ | #000000 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> |
+| options.cancelButtonText | `string`  | The text of cancel button | ✘ | cancel | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> |
+| options.destructiveBtnIndex | `number`  | get more on [ali document](https://opendocs.alipay.com/mini/api/hr092g) | ✘ |  | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> no Dingding |
+| options.badges | `Array<Object>`  | get more on [ali document](https://opendocs.alipay.com/mini/api/hr092g) | ✘ |  | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> no Dingding |
+
 #### Return
 
 | Property | Type | Description |
 | --- | --- | --- |
-| tapIndex | `number` | The sequence number of the button tapped by the user, from top to bottom and starting from 0 |
+| tapIndex | `number` | The sequence number of the button tapped by the user, from top to bottom and starting from 0, The value is -1 when the mask or cancel button is clicked by the user |
 
 </div>
 <div>
