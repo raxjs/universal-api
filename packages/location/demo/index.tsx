@@ -37,8 +37,8 @@ export default function() {
       </View>)}
       <View style={styles.button} onClick={() => {
         openLocation({
-          longitude: '120.126293',
-          latitude: '30.274653',
+          longitude: 120.126293,
+          latitude: 30.274653,
           name: '黄龙万科中心',
           address: '学院路77号'});
       }}>打开内置地图</View>

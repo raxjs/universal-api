@@ -16,6 +16,7 @@ export interface ResponseStruct {
 export interface OpenOptionStruct {
   latitude: number;
   longtitude: number;
+  scale: number;
   name: string;
   address: string;
   success?: (res) => any;

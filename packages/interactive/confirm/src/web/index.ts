@@ -37,12 +37,16 @@ const styles = `.${clsPrefix} {
   animation-fill-mode: both;
 }
 .${clsPrefix}_title {
-  padding: 28px 0 16px;
+  padding: 28px 16px 16px;
   font-weight: bold;
 }
 .${clsPrefix}_content {
   color: #666;
-  padding: 0 16px 28px;
+  padding: 0 16px;
+  margin-bottom: 28px;
+  word-break: break-all;
+  max-height: 200px;
+  overflow: scroll;
 }
 .${clsPrefix}_cancel {
   display: inline-block;
