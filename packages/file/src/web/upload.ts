@@ -38,8 +38,10 @@ function uploadFile(param: UploadOptions) {
   const file = typeof param.filePath === 'string' ? base64toFile(param.filePath) : param.filePath;
   const body = new FormData();
   if (param.formData) {
-    for (const k in param.formData) {
-      body.append(k, param.formData[k]);
+    for (const key in param.formData) {
+      if (Object.prototype.hasOwnProperty.call(param.formData, key)) {
+        body.append(key, param.formData[key]);
+      }
     }
   }
   body.append(param.fileName || 'file', file);
