@@ -10,11 +10,11 @@ export interface RejectCallback {
 }
 
 export interface Application{
-  getApp(): any;
-  getCurrentPages(): any;
-  getLaunchOptionsSync(): any;
-  onError(callback: Callback): void;
-  offError(callback?: Callback): void;
-  onUnhandledRejection(callback: RejectCallback): void;
-  offUnhandledRejection(callback?: RejectCallback): void;
+  getApp: () => any;
+  getCurrentPages: () => any;
+  getLaunchOptionsSync: () => any;
+  onError: (callback: Callback) => void;
+  offError: (callback?: Callback) => void;
+  onUnhandledRejection: (callback: RejectCallback) => void;
+  offUnhandledRejection: (callback?: RejectCallback) => void;
 }

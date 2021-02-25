@@ -1,7 +1,7 @@
 import { UploadOptions } from '../types';
 
-function base64toFile(dataUrl: string, fileName: string = '') {
-  const dataURLtoBlob = function(base64Data: string) {
+function base64toFile(dataUrl: string, fileName = '') {
+  const dataURLtoBlob = function (base64Data: string) {
     const arr = base64Data.split(',');
     let mimeStr = 'image/png';
     const mime = arr[0].match(/:(.*?);/);
@@ -15,10 +15,10 @@ function base64toFile(dataUrl: string, fileName: string = '') {
       u8arr[n] = bstr.charCodeAt(n);
     }
     return new Blob([u8arr], {
-      type: mimeStr
+      type: mimeStr,
     });
   };
-  const blobToFile = function(theBlob: any, filename: string) {
+  const blobToFile = function (theBlob: any, filename: string) {
     theBlob.lastModifiedDate = new Date();
     theBlob.name = filename;
     return theBlob;
@@ -30,7 +30,7 @@ function base64toFile(dataUrl: string, fileName: string = '') {
 }
 
 function validateStatus(status: number) {
-  return status >= 200 && status < 300 || status === 304;
+  return (status >= 200 && status < 300) || status === 304;
 }
 
 function uploadFile(param: UploadOptions) {
@@ -44,8 +44,8 @@ function uploadFile(param: UploadOptions) {
   }
   body.append(param.fileName || 'file', file);
   const header = {
-    'Accept': 'application/json, text/plain, */*',
-    ...param.header || {}
+    Accept: 'application/json, text/plain, */*',
+    ...param.header || {},
   };
     // initialize xhr
   const xhr = new XMLHttpRequest();
@@ -55,8 +55,8 @@ function uploadFile(param: UploadOptions) {
     }
     // fail
     if (!validateStatus(xhr.status)) {
-      param.fail && param.fail({errMsg: '上传失败'});
-      param.complete && param.complete({errMsg: '上传失败'});
+      param.fail && param.fail({ errMsg: '上传失败' });
+      param.complete && param.complete({ errMsg: '上传失败' });
       return;
       // return reject(xhr.status);
     }
@@ -64,11 +64,11 @@ function uploadFile(param: UploadOptions) {
     const headers = xhr.getAllResponseHeaders();
     const arr = headers.trim().split(/[\r\n]+/);
     const headerMap = {};
-    arr.forEach(function(line) {
-      var parts = line.split(': ');
-      var header = parts.shift();
-      var value = parts.join(': ');
-      headerMap[header as string] = value;
+    arr.forEach((line) => {
+      const parts = line.split(': ');
+      const _header = parts.shift();
+      const value = parts.join(': ');
+      headerMap[_header as string] = value;
     });
     let data: any = xhr.response;
     try {
@@ -91,7 +91,7 @@ function uploadFile(param: UploadOptions) {
     xhr.withCredentials = true;
   }
   xhr.open('POST', param.url, true);
-  Object.keys(header).forEach(key => {
+  Object.keys(header).forEach((key) => {
     xhr.setRequestHeader(key, String(header[key]));
   });
   // send request

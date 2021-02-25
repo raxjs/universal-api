@@ -32,5 +32,5 @@ export const openLocation = (args) => {
 
 export default {
   getLocation,
-  openLocation
+  openLocation,
 };

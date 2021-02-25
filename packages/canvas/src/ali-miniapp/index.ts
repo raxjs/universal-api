@@ -1,6 +1,6 @@
 import { CanvasContext, Options } from '../types';
 
-export const createContext = function(canvasOptions: Options): Promise<CanvasContext> {
+export const createContext = function (canvasOptions: Options): Promise<CanvasContext> {
   const { canvasId } = canvasOptions;
   return new Promise((resolve) => {
     const context = my.createCanvasContext(canvasId);

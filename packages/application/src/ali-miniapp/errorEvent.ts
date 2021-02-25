@@ -1,7 +1,7 @@
 
 import { isDingdingMiniapp } from '../../../utils/miniappEnvApp';
 import {
-  Callback, RejectCallback
+  Callback, RejectCallback,
 } from '../types';
 
 export const onError = (cb: Callback) => {

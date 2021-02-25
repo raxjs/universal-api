@@ -22,4 +22,3 @@ export interface SetSyncOptionStruct {
   data: undefined | null | string | Record<string, any> | any[] | number | Date | boolean;
 }
 
-

@@ -4,7 +4,7 @@ import { GetOrRemoveSyncOptionStruct, SetSyncOptionStruct } from '../types';
 export const getStorage = initApiGetStorage((args) => wx.getStorage(args));
 
 export const getStorageSync = (arg: GetOrRemoveSyncOptionStruct) => {
-  return {data: wx.getStorageSync(arg.key)};
+  return { data: wx.getStorageSync(arg.key) };
 };
 
 export const setStorage = initApiSet((args) => wx.setStorage(args));
@@ -25,5 +25,5 @@ export default {
   setStorage,
   setStorageSync,
   removeStorage,
-  removeStorageSync
+  removeStorageSync,
 };

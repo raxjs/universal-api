@@ -1,6 +1,6 @@
 
 import {
-  Callback, RejectCallback
+  Callback, RejectCallback,
 } from '../types';
 
 export const onError = (cb: Callback) => {

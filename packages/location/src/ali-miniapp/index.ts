@@ -1,7 +1,7 @@
 import { isDingdingMiniapp } from '../../../utils/miniappEnvApp';
 import { initApiGetLocation, initApiOpenLocation } from '../common';
 
-export const getLocation = initApiGetLocation((args) => isDingdingMiniapp ? dd.getLocation(args) : my.getLocation(args));
+export const getLocation = initApiGetLocation((args) => (isDingdingMiniapp ? dd.getLocation(args) : my.getLocation(args)));
 
 export const openLocation = initApiOpenLocation((args) => {
   const params = {
@@ -14,5 +14,5 @@ export const openLocation = initApiOpenLocation((args) => {
 
 export default {
   getLocation,
-  openLocation
+  openLocation,
 };

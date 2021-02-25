@@ -9,7 +9,7 @@ const formatResponse = (res): ResponseStruct => {
   const result: ResponseStruct = {
     latitude: res.latitude,
     longitude: res.longitude,
-    accuracy: res.accuracy
+    accuracy: res.accuracy,
   };
   return result;
 };
@@ -17,12 +17,12 @@ const formatResponse = (res): ResponseStruct => {
 function styleOptions(options: OptionStruct = {}): OptionStruct {
   return {
     ...options,
-    success: res => {
+    success: (res) => {
       options.success && options.success(formatResponse(res));
     },
-    complete: res => {
+    complete: (res) => {
       options.complete && options.complete(res);
-    }
+    },
   };
 }
 

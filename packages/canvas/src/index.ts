@@ -6,7 +6,7 @@ import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 import { Options, Canvas, CanvasContext } from './types';
 
-export const createContext = function(canvasOptions: Options): Promise<CanvasContext> {
+export const createContext = function (canvasOptions: Options): Promise<CanvasContext> {
   if (isWeChatMiniProgram) {
     return weChatModule.createContext(canvasOptions);
   } else if (isByteDanceMicroApp) {

@@ -1,5 +1,5 @@
 import { promisify } from '../../utils/promisify';
-import {IPushOptions, IPopOptions, IGoOptions, IReplaceOptions, IReLaunchOptions} from './types';
+import { IPushOptions, IPopOptions, IGoOptions, IReplaceOptions, IReLaunchOptions } from './types';
 
 export const initApi = {
   push: (api) => {

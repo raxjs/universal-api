@@ -4,7 +4,7 @@ import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 import webModule from './web/index';
 import {
-  Callback, RejectCallback, Application
+  Callback, RejectCallback, Application,
 } from './types';
 
 export const getApp = () => {

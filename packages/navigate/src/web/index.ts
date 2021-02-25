@@ -1,17 +1,17 @@
 import { IPushOptions, IGoOptions, IPopOptions, IReplaceOptions, IReLaunchOptions } from '../types';
 
 
-import {initApi} from '../common';
+import { initApi } from '../common';
 
 export const push = initApi.push((options: IPushOptions) => {
   const { url, isHash = false, refresh = true, success, fail, complete } = options;
-  let _url = isHash ? '/#' + url : url;
+  const _url = isHash ? `/#${ url}` : url;
   setTimeout((): void => {
     try {
       if (refresh) {
         location.href = _url;
       } else {
-        const state = { 'page_id': 1 };
+        const state = { page_id: 1 };
         const title = '';
 
         history.pushState(state, title, _url);
@@ -42,7 +42,7 @@ export const back = initApi.back((options?: IPopOptions) => {
 
 export const replace = initApi.replace((options?: IReplaceOptions) => {
   const { url, isHash = false, refresh = true, success, fail, complete } = options || {};
-  let _url = isHash ? '/#' + url : url;
+  const _url = isHash ? `/#${ url}` : url;
   setTimeout((): void => {
     try {
       history.replaceState('', '', _url);
@@ -66,14 +66,14 @@ export const go = initApi.go((options: IGoOptions) => {
       complete && complete();
     });
   } else {
-    fail && fail({errMsg: 'step不能大于或等于0'});
-    complete && complete({errMsg: 'step不能大于或等于0'});
+    fail && fail({ errMsg: 'step不能大于或等于0' });
+    complete && complete({ errMsg: 'step不能大于或等于0' });
   }
 });
 
 export const reLaunch = initApi.reLaunch((options: IReLaunchOptions) => {
   const { url, isHash = false, refresh = true, success, fail, complete } = options;
-  let _url = isHash ? '/#' + url : url;
+  const _url = isHash ? `/#${ url}` : url;
   setTimeout((): void => {
     try {
       history.go(-(history.length - 1));
@@ -93,5 +93,5 @@ export default {
   back,
   replace,
   reLaunch,
-  go
+  go,
 };

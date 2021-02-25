@@ -6,8 +6,8 @@ import {
   GetSavedListOptions,
   SaveOptions,
   RemoveSavedOptions,
-  OpenDocumentOptions, } from '../types';
-import {initApi} from '../common';
+  OpenDocumentOptions } from '../types';
+import { initApi } from '../common';
 import uploadModule from './upload';
 
 export const upload = initApi.upload(uploadModule);
@@ -42,5 +42,5 @@ export default {
   removeSaved,
   save,
   download,
-  upload
+  upload,
 };

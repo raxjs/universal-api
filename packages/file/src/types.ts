@@ -52,7 +52,7 @@ export interface GetSavedInfoOptions {
 
 export interface GetSavedListResponseData {
   fileList: GetSavedListResponseItemData[];
-};
+}
 export interface GetSavedListResponseItemData {
   size: number;
   createTime: number;
@@ -105,12 +105,12 @@ export interface DownloadTask {
 }
 
 export interface IFile {
-  upload(options: UploadOptions): Promise<null>;
-  download(options: DownloadOptions): Promise<null> | DownloadTask;
-  getInfo(options: GetInfoOptions): Promise<null>;
-  getSavedInfo(options: GetSavedInfoOptions): Promise<null>;
-  getSavedList(options: GetSavedListOptions): Promise<null>;
-  save(options: SaveOptions): Promise<null>;
-  removeSaved(options: RemoveSavedOptions): Promise<null>;
-  openDocument(options: OpenDocumentOptions): Promise<null>;
+  upload: (options: UploadOptions) => Promise<null>;
+  download: (options: DownloadOptions) => Promise<null> | DownloadTask;
+  getInfo: (options: GetInfoOptions) => Promise<null>;
+  getSavedInfo: (options: GetSavedInfoOptions) => Promise<null>;
+  getSavedList: (options: GetSavedListOptions) => Promise<null>;
+  save: (options: SaveOptions) => Promise<null>;
+  removeSaved: (options: RemoveSavedOptions) => Promise<null>;
+  openDocument: (options: OpenDocumentOptions) => Promise<null>;
 }

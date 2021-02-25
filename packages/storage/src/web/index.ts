@@ -2,7 +2,7 @@ import { initApiGetOrRemove, initApiSet } from '../common';
 import { GetOrRemoveSyncOptionStruct, SetSyncOptionStruct } from '../types';
 
 export const getStorage = initApiGetOrRemove((args) => {
-  const {success = () => {}, fail = () => {}, complete = () => {}} = args || {};
+  const { success = () => {}, fail = () => {}, complete = () => {} } = args || {};
   try {
     if (Object.prototype.toString.call(args) !== '[object Object]') {
       throw new Error('the Function need a param of Object type');
@@ -13,7 +13,7 @@ export const getStorage = initApiGetOrRemove((args) => {
     if (typeof args.key !== 'string') {
       throw new Error('the first param of this Function must contain a property named "key" of string type');
     }
-    const res = {data: JSON.parse(window.localStorage.getItem(args.key))};
+    const res = { data: JSON.parse(window.localStorage.getItem(args.key)) };
     success(res);
     complete(res);
     return res;
@@ -33,11 +33,11 @@ export const getStorageSync = (args: GetOrRemoveSyncOptionStruct) => {
   if (typeof args.key !== 'string') {
     throw new Error('the first param of this Function must contain a property named "key" of string type');
   }
-  return {data: JSON.parse(window.localStorage.getItem(args.key))};
+  return { data: JSON.parse(window.localStorage.getItem(args.key)) };
 };
 
 export const setStorage = initApiSet((args) => {
-  const {success = () => {}, fail = () => {}, complete = () => {}} = args || {};
+  const { success = () => {}, fail = () => {}, complete = () => {} } = args || {};
   try {
     if (Object.prototype.toString.call(args) !== '[object Object]') {
       throw new Error('the Function need a param of Object type');
@@ -77,7 +77,7 @@ export const setStorageSync = (args: SetSyncOptionStruct) => {
 };
 
 export const removeStorage = initApiGetOrRemove((args) => {
-  const {success = () => {}, fail = () => {}, complete = () => {}} = args || {};
+  const { success = () => {}, fail = () => {}, complete = () => {} } = args || {};
   try {
     if (Object.prototype.toString.call(args) !== '[object Object]') {
       throw new Error('the Function need a param of Object type');
@@ -116,5 +116,5 @@ export default {
   setStorage,
   setStorageSync,
   removeStorage,
-  removeStorageSync
+  removeStorageSync,
 };

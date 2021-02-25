@@ -11,159 +11,164 @@ import {
   OpenDocumentOptions,
   UploadOptions,
 } from '../types';
-import {initApi} from '../common';
+import { initApi } from '../common';
 
 export const upload = initApi.upload((options: UploadOptions) => {
-  let { url, filePath, fileName, fileType, hideLoading, header, formData, success, fail, complete } = options;
-  const upload = isDingdingMiniapp ? dd.uploadFile : my.uploadFile;
-  upload({
+  const { url, filePath, fileName, fileType, hideLoading, header, formData, success, fail, complete } = options;
+  const uploadFile = isDingdingMiniapp ? dd.uploadFile : my.uploadFile;
+  uploadFile({
     url,
-    filePath, fileName, fileType, hideLoading, header, formData,
-    success: function(res) {
+    filePath,
+    fileName,
+    fileType,
+    hideLoading,
+    header,
+    formData,
+    success(res) {
       success && success(res);
     },
-    fail: function(res) {
+    fail(res) {
       fail && fail(res);
     },
     complete(res) {
       complete && complete(res);
-    }
+    },
   });
 });
 
 export const download = initApi.download((options: DownloadOptions) => {
-  let { url, header, success, fail, complete } = options;
+  const { url, header, success, fail, complete } = options;
   const downloadFile = isDingdingMiniapp ? dd.downloadFile : my.downloadFile;
   downloadFile({
     url,
     header,
-    success: function(res) {
+    success(res) {
       success && success({
-        tempFilePath: res.apFilePath
+        tempFilePath: res.apFilePath,
       });
     },
-    fail: function(res) {
+    fail(res) {
       fail && fail(res);
     },
     complete(res) {
-      complete && complete(res.apFilePath ? {tempFilePath: res.apFilePath} : res);
-    }
+      complete && complete(res.apFilePath ? { tempFilePath: res.apFilePath } : res);
+    },
   });
 });
 
 export const getInfo = initApi.getInfo((options: GetInfoOptions) => {
-  let { filePath, digestAlgorithm, success, fail, complete } = options;
+  const { filePath, digestAlgorithm, success, fail, complete } = options;
   const getFileInfo = isDingdingMiniapp ? dd.getFileInfo : my.getFileInfo;
   getFileInfo({
     apFilePath: filePath,
     digestAlgorithm,
-    success: function(res: GetInfoResponseData) {
+    success(res: GetInfoResponseData) {
       success && success(res);
     },
-    fail: function(res) {
+    fail(res) {
       fail && fail(res);
     },
     complete(res) {
       complete && complete(res);
-    }
+    },
   });
 });
 export const getSavedInfo = initApi.getSavedInfo((options: GetSavedInfoOptions) => {
-  let { filePath, success, fail, complete } = options;
+  const { filePath, success, fail, complete } = options;
   const getSavedFileInfo = isDingdingMiniapp ? dd.getSavedFileInfo : my.getSavedFileInfo;
   getSavedFileInfo({
     apFilePath: filePath,
-    success: function(res: GetSavedInfoResponseData) {
+    success(res: GetSavedInfoResponseData) {
       success && success(res);
     },
-    fail: function(res) {
+    fail(res) {
       fail && fail(res);
     },
     complete(res) {
       complete && complete(res);
-    }
+    },
   });
 });
 
 export const getSavedList = initApi.getSavedList((options: GetSavedListOptions) => {
-  let { success, fail, complete } = options;
+  const { success, fail, complete } = options;
   const getSavedFileList = isDingdingMiniapp ? dd.getSavedFileList : my.getSavedFileList;
   getSavedFileList({
-    success: function(res) {
+    success(res) {
       success && success({
-        fileList: res.fileList.map(i => ({
+        fileList: res.fileList.map((i) => ({
           size: i.size,
           createTime: i.createTime,
-          filePath: i.apFilePath
+          filePath: i.apFilePath,
         })),
       });
     },
-    fail: function(res) {
+    fail(res) {
       fail && fail(res);
     },
     complete(res) {
       complete && complete(res.fileList ? {
-        fileList: res.fileList.map(i => ({
+        fileList: res.fileList.map((i) => ({
           size: i.size,
           createTime: i.createTime,
-          filePath: i.apFilePath
+          filePath: i.apFilePath,
         })),
       } : res);
-    }
+    },
   });
 });
 export const save = initApi.save((options: SaveOptions) => {
-  let { tempFilePath, success, fail, complete } = options;
+  const { tempFilePath, success, fail, complete } = options;
   const saveFile = isDingdingMiniapp ? dd.saveFile : my.saveFile;
   saveFile({
     apFilePath: tempFilePath,
-    success: function(res) {
+    success(res) {
       success && success({
-        savedFilePath: res.apFilePath
+        savedFilePath: res.apFilePath,
       });
     },
-    fail: function(res) {
+    fail(res) {
       fail && fail(res);
     },
     complete(res) {
       complete && complete(res.savedFilePath ? {
-        savedFilePath: res.apFilePath
+        savedFilePath: res.apFilePath,
       } : res);
-    }
+    },
   });
 });
 export const removeSaved = initApi.removeSaved((options: RemoveSavedOptions) => {
-  let { filePath, success, fail, complete } = options;
+  const { filePath, success, fail, complete } = options;
   const removeSavedFile = isDingdingMiniapp ? dd.removeSavedFile : my.removeSavedFile;
   removeSavedFile({
     apFilePath: filePath,
-    success: function() {
+    success() {
       success && success();
     },
-    fail: function(res) {
+    fail(res) {
       fail && fail(res);
     },
     complete(res?) {
       complete && complete(res);
-    }
+    },
   });
 });
 
 export const openDocument = initApi.openDocument((options: OpenDocumentOptions) => {
-  let { filePath, fileType, success, fail, complete } = options;
-  const openDocument = isDingdingMiniapp ? dd.openDocument : my.openDocument;
-  openDocument({
+  const { filePath, fileType, success, fail, complete } = options;
+  const openDocumentApi = isDingdingMiniapp ? dd.openDocument : my.openDocument;
+  openDocumentApi({
     filePath,
     fileType,
-    success: function() {
+    success() {
       success && success();
     },
-    fail: function(res) {
+    fail(res) {
       fail && fail(res);
     },
     complete(res?) {
       complete && complete(res);
-    }
+    },
   });
 });
 

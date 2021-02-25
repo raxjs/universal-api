@@ -94,5 +94,5 @@ export default {
   setStorage,
   setStorageSync,
   removeStorage,
-  removeStorageSync
+  removeStorageSync,
 };

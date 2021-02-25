@@ -7,10 +7,10 @@ import { GetOrRemoveOptionStruct, SetOptionStruct } from './types';
 function formatRes(params: GetOrRemoveOptionStruct) {
   if (params && typeof params.fail === 'function') {
     const failFn = params.fail;
-    params.fail = err => {
+    params.fail = (err) => {
       if (err.errMsg === 'getStorage:fail data not found') {
-        typeof params.success === 'function' && params.success({data: null});
-        typeof params.complete === 'function' && params.complete({data: null});
+        typeof params.success === 'function' && params.success({ data: null });
+        typeof params.complete === 'function' && params.complete({ data: null });
         return;
       }
       failFn(err);
@@ -21,9 +21,9 @@ function formatRes(params: GetOrRemoveOptionStruct) {
 
 export function initApiGetStorage(api) {
   return (args: GetOrRemoveOptionStruct) => {
-    return promisify(api)(formatRes(args)).catch(e => {
+    return promisify(api)(formatRes(args)).catch((e) => {
       if (e.errMsg === 'getStorage:fail data not found') {
-        return {data: null};
+        return { data: null };
       }
     });
   };

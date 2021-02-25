@@ -6,5 +6,5 @@ export const openLocation = initApiOpenLocation((args) => wx.openLocation(args))
 
 export default {
   getLocation,
-  openLocation
+  openLocation,
 };
