@@ -2,6 +2,7 @@ import { createElement, useState, useEffect } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import ScrollView from 'rax-scrollview';
+import { isWeChatMiniProgram } from '@uni/env';
 import createIntersectionObserver from '@uni/intersection-observer';
 
 const styles = {
@@ -31,9 +32,12 @@ export default function() {
   const [appear, setAppear] = useState(false);
 
   useEffect(() => {
-    const intersectionObserver = createIntersectionObserver();
+    const node = document.querySelector('.parent');
+    const intersectionObserver = createIntersectionObserver(null, node._internal);
 
-    intersectionObserver.relativeTo('#block').observe('#circle', res => {
+    // 由于rax运行时在微信存在shadow dom问题，所以采用深度选择器
+    const clsPre = isWeChatMiniProgram ? '.parent >>> ' : '';
+    intersectionObserver.relativeTo(clsPre + '.block').observe(clsPre + '.circle', res => {
       console.log(res);
       setAppear(res.intersectionRatio > 0);
     });
@@ -41,13 +45,13 @@ export default function() {
 
 
   return (
-    <View>
-      <ScrollView style={styles.block} id="block">
+    <View className="parent">
+      <ScrollView style={styles.block} className="block">
         <View style={styles.inner}>
           <View>向上滑动</View>
           <View style={styles.fill} />
           <View>{appear ? '小球出现' : '小球消失'}</View>
-          <View style={styles.circle} id="circle" />
+          <View style={styles.circle} className="circle" />
         </View>
       </ScrollView>
     </View>
