@@ -6,7 +6,7 @@ export const createContext = function(canvasOptions: Options): Promise<CanvasCon
     const query = context.createSelectorQuery();
     query
       .select(`#${canvasId}`)
-      .fields({ node: true, size: true })
+      .node()
       .exec((res) => {
         if (!res[0] || !res[0].node) reject('The canvas node may not exist.');
         const canvasNode: HTMLCanvasElement = res[0].node;

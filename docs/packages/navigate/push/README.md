@@ -15,17 +15,14 @@ group:
 
 <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序">
 
-## Install
+## 安装
 ```bash
 $ npm install @uni/navigate --save
 ```
 
-## Usage
+## 使用
 ```javascript
 import navigate from '@uni/navigate';
-
-// 快应用中的引入方法
-// import chooseImage from '@uni/navigate/lib/quickapp;
 
 navigate.push({
   url: 'https://www.taobao.com/'
@@ -47,6 +44,27 @@ import { navigate } from '@uni/apis';
 | options.success | `Function`  | 成功的回调 | 否 | - |
 | options.fail | `Function`  | 失败的回调 | 否 | - |
 | options.complete | `Function`  | 结束的回调 | 否 | - |
+
+## web中使用
+当在h5中使用时，会区分hash路由和普通路由，以及是否需要刷新
+所以这里提供了两个参数：isHash 和 refresh，他们只在web环境下支持
+
+| 成员             | 类型      | 描述   | 必选  | 默认值 |
+| ---------------- | --------- | ----- | :---: | :----: |
+| isHash          | `boolean`  | 是否是hash路由，如果 true，则url前会自动加上# |  否   |   false    |
+| refresh      | `boolean`  | 是否需要刷新. |  否   |   true   |
+
+```javascript
+import navigate from '@uni/navigate';
+
+navigate.push({
+  isHash: true,
+  refresh: true,
+  url: '/pages/toast/index'
+}).then(() => {
+});
+
+```
 
 </div>
 <div>
