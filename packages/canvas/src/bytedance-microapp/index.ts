@@ -8,23 +8,12 @@ export const createContext = function (canvasOptions: Options): Promise<CanvasCo
       .select(`#${canvasId}`)
       .node()
       .exec((res) => {
-        if (!res[0] || !res[0].node) reject('The canvas node may not exist.');
+        if (!res[0] || !res[0].node) reject(new Error('The canvas node may not exist.'));
         const canvasNode: HTMLCanvasElement = res[0].node;
         const context: CanvasContext = canvasNode.getContext(type, options);
         // For fallback
-        // context.draw = function() {};
         resolve(context);
       });
-    // const context = tt.createCanvasContext(selector);
-    // Object.defineProperty(context, 'fillStyle', {
-    //   get() {
-    //     return context.setFillStyle;
-    //   },
-    //   set(value) {
-    //     context.setFillStyle(value);
-    //   },
-    // });
-    // resolve(context);
   });
 };
 

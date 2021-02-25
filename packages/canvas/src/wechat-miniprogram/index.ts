@@ -8,7 +8,7 @@ export const createContext = function (canvasOptions: Options): Promise<CanvasCo
       .select(`#${canvasId}`)
       .fields({ node: true, size: true })
       .exec((res) => {
-        if (!res[0] || !res[0].node) reject('The canvas node may not exist.');
+        if (!res[0] || !res[0].node) reject(new Error('The canvas node may not exist.'));
         const canvasNode: HTMLCanvasElement = res[0].node;
         const canvasContext: CanvasContext = canvasNode.getContext(type, options);
         // For fallback

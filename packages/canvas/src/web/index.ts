@@ -6,7 +6,7 @@ export const createContext = function (canvasOptions: Options): Promise<CanvasCo
     const canvasNode: HTMLCanvasElement = document.getElementById(
       canvasId,
     ) as HTMLCanvasElement;
-    if (!canvasNode) reject('The canvas node may not exist.');
+    if (!canvasNode) reject(new Error('The canvas node may not exist.'));
     const context: CanvasContext = canvasNode.getContext(type, options);
     // For fallback
     context.draw = function () {};
