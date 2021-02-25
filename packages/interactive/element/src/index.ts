@@ -5,28 +5,28 @@ import bytedanceModule from './bytedance-microapp/index';
 import webModule from './web/index';
 import { Element } from './types';
 
-export const getScrollOffset = (options: string) => {
+export const getScrollOffset = (selector, context) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.getScrollOffset(options);
+    return weChatModule.getScrollOffset(selector, context);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.getScrollOffset(options);
+    return bytedanceModule.getScrollOffset(selector);
   } else if (isMiniApp) {
-    return aliMiniAppModule.getScrollOffset(options);
+    return aliMiniAppModule.getScrollOffset(selector);
   } else if (isWeb) {
-    return webModule.getScrollOffset(options);
+    return webModule.getScrollOffset(selector);
   } else {
     throw new Error('@uni/apis：element暂不支持');
   }
 };
-export const getBoundingClientRect = (options: string) => {
+export const getBoundingClientRect = (selector, context) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.getBoundingClientRect(options);
+    return weChatModule.getBoundingClientRect(selector, context);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.getBoundingClientRect(options);
+    return bytedanceModule.getBoundingClientRect(selector);
   } else if (isMiniApp) {
-    return aliMiniAppModule.getBoundingClientRect(options);
+    return aliMiniAppModule.getBoundingClientRect(selector);
   } else if (isWeb) {
-    return webModule.getBoundingClientRect(options);
+    return webModule.getBoundingClientRect(selector);
   } else {
     throw new Error('@uni/apis：element暂不支持');
   }
