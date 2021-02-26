@@ -1,7 +1,7 @@
 import { OptionStruct } from '../types';
-import { initApiGetLocation, initApiOpenLocation } from '../common';
+import { normalizeGetLocation, normalizeOpenLocation } from '../common';
 
-export const getLocation = initApiGetLocation((args: OptionStruct) => {
+export const getLocation = normalizeGetLocation((args: OptionStruct) => {
   const { success = () => {}, fail = () => {}, complete = () => {} } = args;
   if ('geolocation' in navigator) {
     /* 地理位置服务可用 */
@@ -19,7 +19,7 @@ export const getLocation = initApiGetLocation((args: OptionStruct) => {
     complete(err);
   }
 });
-const openLocation = initApiOpenLocation(() => {
+const openLocation = normalizeOpenLocation(() => {
   throw new Error('@uni/apis: openLocation不支持');
 });
 export default {

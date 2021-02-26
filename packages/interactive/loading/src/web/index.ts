@@ -1,4 +1,4 @@
-import { initApiShow, initApiHide } from '../common';
+import { normalizeShow, normalizeHide } from '../common';
 
 let loadingWin: HTMLElement | null = null;
 
@@ -65,7 +65,7 @@ const styles = `.${clsPrefix} {
  */
 let styleElement : HTMLElement | null = null;
 
-export const showLoading = initApiShow(({ content = "", success = () => {}, fail = () => {}, complete = () => {}}) => {
+export const showLoading = normalizeShow(({ content = "", success = () => {}, fail = () => {}, complete = () => {}}) => {
   try {    
     if (!styleElement) {
       // create a style tag for keyframes
@@ -110,7 +110,7 @@ export const showLoading = initApiShow(({ content = "", success = () => {}, fail
   }
 });
 
-export const hideLoading = initApiHide(({success = () => {}, fail = () => {}, complete = () => {}}) => {
+export const hideLoading = normalizeHide(({success = () => {}, fail = () => {}, complete = () => {}}) => {
   try {
     setTimeout(() => {
       if (loadingWin && loadingWin.parentNode) {

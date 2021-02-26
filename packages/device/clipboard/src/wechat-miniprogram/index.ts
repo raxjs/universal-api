@@ -1,8 +1,8 @@
-import { initApiGet, initApiSet } from '../common';
+import { normalizeGet, normalizeSet } from '../common';
 
-export const getClipboard = initApiGet((args) => wx.getClipboardData(args));
+export const getClipboard = normalizeGet((args) => wx.getClipboardData(args));
 
-export const setClipboard = initApiSet((args) => {
+export const setClipboard = normalizeSet((args) => {
   args.data = args.text;
   delete args.text;
   return wx.setClipboardData(args)

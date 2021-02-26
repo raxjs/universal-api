@@ -7,10 +7,10 @@ import {
   SaveOptions,
   RemoveSavedOptions,
   OpenDocumentOptions } from '../types';
-import { initApi } from '../common';
+import { normalize } from '../common';
 import uploadModule from './upload';
 
-export const upload = initApi.upload(uploadModule);
+export const upload = normalize.upload(uploadModule);
 
 // Not support
 export function getInfo(_: GetInfoOptions) {

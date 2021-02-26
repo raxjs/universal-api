@@ -1,8 +1,8 @@
-import { initApiShow, initApiHide } from '../common';
+import { normalizeShow, normalizeHide } from '../common';
 
-export const showLoading = initApiShow((args) => tt.showLoading(args));
+export const showLoading = normalizeShow((args) => tt.showLoading(args));
 
-export const hideLoading = initApiHide((args) => tt.hideLoading(args));
+export const hideLoading = normalizeHide((args) => tt.hideLoading(args));
 
 export default {
   showLoading,

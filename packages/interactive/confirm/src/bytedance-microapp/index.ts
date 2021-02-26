@@ -1,3 +1,3 @@
-import { initApi } from '../common';
+import { normalize } from '../common';
 
-export default initApi((args) => tt.showModal(args));
+export default normalize((args) => tt.showModal(args));

@@ -104,7 +104,7 @@ export function styleOptions(options) {
     });
   return afterOptions;
 }
-export function initApi(api) {
+export function normalize(api) {
   return (options) => {
     const afterOptions = styleOptions(options);
     return api(afterOptions);

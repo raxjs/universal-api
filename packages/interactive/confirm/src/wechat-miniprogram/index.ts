@@ -1,3 +1,3 @@
-import { initApi } from '../common';
+import { normalize } from '../common';
 
-export default initApi((args) => wx.showModal(args));
+export default normalize((args) => wx.showModal(args));

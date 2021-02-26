@@ -1,6 +1,6 @@
-import { initApi } from '../common';
+import { normalize } from '../common';
 
-export default initApi((args) => wx.showActionSheet({
+export default normalize((args) => wx.showActionSheet({
   ...args,
   fail: (err) => {
     if (err && err.errMsg === 'showActionSheet:fail cancel') {

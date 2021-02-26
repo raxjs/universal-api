@@ -20,7 +20,7 @@ export function styleOptions(options) {
       options);
   }
 }
-export function initApi(api) {
+export function normalize(api) {
   return (options?) => {
     const afterOptions = styleOptions(options);
     return promisify(api)(afterOptions);

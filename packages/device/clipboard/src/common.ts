@@ -22,13 +22,13 @@ function styleOptions(options) {
   } : {}
 }
 
-export function initApiGet(api) {
+export function normalizeGet(api) {
   return (args: CallBack) => {
     return promisify(api)(styleOptions(args)).then(formatResponse);
   };
 }
 
-export function initApiSet(api) {
+export function normalizeSet(api) {
   return (args: PARAMS) => {
     return promisify(api)(args);
   };

@@ -1,4 +1,4 @@
-import { LONG_DELAY, SHORT_DELAY, initApi } from '../utils/index';
+import { LONG_DELAY, SHORT_DELAY, normalize } from '../utils/index';
 import { WebQueueOption, ShowToastOption, HideToastOption } from '../types';
 
 let queue: WebQueueOption[] = [];
@@ -131,7 +131,7 @@ const innerToast = {
   }
 };
 
-export const show = initApi((options: ShowToastOption): void => {
+export const show = normalize((options: ShowToastOption): void => {
   const { type, content, duration, success, fail, complete } = options;
   const iconMap = {
     success: 'https://gw.alicdn.com/imgextra/i1/O1CN01h684sE1Td4mwYyChK_!!6000000002404-2-tps-200-200.png',
@@ -153,7 +153,7 @@ export const show = initApi((options: ShowToastOption): void => {
     }
   });
 });
-export const hide = initApi((options?: HideToastOption): void => {
+export const hide = normalize((options?: HideToastOption): void => {
   const { success, fail, complete } = options;
   // remove all queued messages
   try {

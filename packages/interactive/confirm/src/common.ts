@@ -11,7 +11,7 @@ const formatResponse = (res): ConfirmRes => {
   };
 };
 
-export function initApi(api) {
+export function normalize(api) {
   return (args: ConfirmOptions) => {
     return promisify(api)({
       ...args,

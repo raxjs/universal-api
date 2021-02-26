@@ -1,7 +1,7 @@
-import {LONG_DELAY, SHORT_DELAY, initApi} from '../utils/index';
+import {LONG_DELAY, SHORT_DELAY, normalize} from '../utils/index';
 import { ShowToastOption, HideToastOption } from '../types';
 
-export const show = initApi((options: ShowToastOption): void => {
+export const show = normalize((options: ShowToastOption): void => {
   let { type, content, duration, success, fail, complete } = options;
   let iconMap = {
     success: 'success',
@@ -23,7 +23,7 @@ export const show = initApi((options: ShowToastOption): void => {
     }
   });
 });
-export const hide = initApi((options?: HideToastOption): void => {
+export const hide = normalize((options?: HideToastOption): void => {
   tt.hideToast(options);
 });
 export const SHORT = SHORT_DELAY;

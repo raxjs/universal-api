@@ -1,7 +1,7 @@
-import { initApiGetOrRemove, initApiSet } from '../common';
+import { normalize } from '../common';
 import { GetOrRemoveSyncOptionStruct, SetSyncOptionStruct } from '../types';
 
-export const getStorage = initApiGetOrRemove((args) => {
+export const getStorage = normalize.getStorage((args) => {
   const { success = () => {}, fail = () => {}, complete = () => {} } = args || {};
   try {
     if (Object.prototype.toString.call(args) !== '[object Object]') {
@@ -36,7 +36,7 @@ export const getStorageSync = (args: GetOrRemoveSyncOptionStruct) => {
   return { data: JSON.parse(window.localStorage.getItem(args.key)) };
 };
 
-export const setStorage = initApiSet((args) => {
+export const setStorage = normalize.setStorage((args) => {
   const { success = () => {}, fail = () => {}, complete = () => {} } = args || {};
   try {
     if (Object.prototype.toString.call(args) !== '[object Object]') {
@@ -76,7 +76,7 @@ export const setStorageSync = (args: SetSyncOptionStruct) => {
   window.localStorage.setItem(args.key, JSON.stringify(args.data));
 };
 
-export const removeStorage = initApiGetOrRemove((args) => {
+export const removeStorage = normalize.removeStorage((args) => {
   const { success = () => {}, fail = () => {}, complete = () => {} } = args || {};
   try {
     if (Object.prototype.toString.call(args) !== '[object Object]') {

@@ -11,9 +11,9 @@ import {
   UploadOptions,
   DownloadTask,
 } from '../types';
-import { initApi } from '../common';
+import { normalize } from '../common';
 
-export const upload = initApi.upload((options: UploadOptions) => {
+export const upload = normalize.upload((options: UploadOptions) => {
   const { url, filePath, fileName, hideLoading, header, formData, success, fail, complete } = options;
   wx.uploadFile({
     url,
@@ -56,7 +56,7 @@ export const download = (options: DownloadOptions): DownloadTask => {
   });
 };
 
-export const getInfo = initApi.getInfo((options: GetInfoOptions) => {
+export const getInfo = normalize.getInfo((options: GetInfoOptions) => {
   const { filePath, digestAlgorithm, success, fail, complete } = options;
   wx.getFileInfo({
     filePath,
@@ -72,7 +72,7 @@ export const getInfo = initApi.getInfo((options: GetInfoOptions) => {
     },
   });
 });
-export const getSavedInfo = initApi.getSavedInfo((options: GetSavedInfoOptions) => {
+export const getSavedInfo = normalize.getSavedInfo((options: GetSavedInfoOptions) => {
   const { filePath, success, fail, complete } = options;
   wx.getSavedFileInfo({
     filePath,
@@ -88,7 +88,7 @@ export const getSavedInfo = initApi.getSavedInfo((options: GetSavedInfoOptions) 
   });
 });
 
-export const getSavedList = initApi.getSavedList((options: GetSavedListOptions) => {
+export const getSavedList = normalize.getSavedList((options: GetSavedListOptions) => {
   const { success, fail, complete } = options;
   wx.getSavedFileList({
     success(res) {
@@ -114,7 +114,7 @@ export const getSavedList = initApi.getSavedList((options: GetSavedListOptions) 
     },
   });
 });
-export const save = initApi.save((options: SaveOptions) => {
+export const save = normalize.save((options: SaveOptions) => {
   const { tempFilePath, success, fail, complete } = options;
   wx.saveFile({
     tempFilePath,
@@ -133,7 +133,7 @@ export const save = initApi.save((options: SaveOptions) => {
     },
   });
 });
-export const removeSaved = initApi.removeSaved((options: RemoveSavedOptions) => {
+export const removeSaved = normalize.removeSaved((options: RemoveSavedOptions) => {
   const { filePath, success, fail, complete } = options;
   wx.removeSavedFile({
     filePath,
@@ -149,7 +149,7 @@ export const removeSaved = initApi.removeSaved((options: RemoveSavedOptions) => 
   });
 });
 
-export const openDocument = initApi.openDocument((options: OpenDocumentOptions) => {
+export const openDocument = normalize.openDocument((options: OpenDocumentOptions) => {
   const { filePath, fileType, success, fail, complete } = options;
   wx.openDocument({
     filePath,

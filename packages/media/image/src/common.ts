@@ -10,7 +10,7 @@ import {
   SaveImageOptions,
 } from './types';
 
-export const initApi = {
+export const normalize = {
   chooseImage: (api) => {
     const formatResponse = (res): ChooseImageRes => {
       return {

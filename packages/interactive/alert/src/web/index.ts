@@ -1,6 +1,6 @@
 import { Options } from '../types';
 import confirm from '../../../confirm/src/web';
-import { initApi } from '../common';
+import { normalize } from '../common';
 
 const alert = (args: Options) => {
   confirm({
@@ -10,4 +10,4 @@ const alert = (args: Options) => {
   });
 };
 
-export default initApi(alert);
+export default normalize(alert);

@@ -1,5 +1,5 @@
 import { ConfirmOptions } from '../types';
-import { initApi } from '../common';
+import { normalize } from '../common';
 
 const clsPrefix = '__universal_confirm';
 
@@ -197,4 +197,4 @@ const confirm = (args: ConfirmOptions) => {
   }
 };
 
-export default initApi(confirm);
+export default normalize(confirm);

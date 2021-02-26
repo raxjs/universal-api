@@ -1,7 +1,7 @@
-import { initApiSet, initApiGet } from '../common';
+import { normalizeSet, normalizeGet } from '../common';
 import { PARAMS } from '../types';
 
-export const setClipboard = initApiSet((args: PARAMS) => {
+export const setClipboard = normalizeSet((args: PARAMS) => {
   const {text = '', success = () => {}, fail = () => {}, complete = () => {}} = args || {};
   const input = document.createElement('input');
   input.setAttribute('readonly', 'readonly');
@@ -29,7 +29,7 @@ export const setClipboard = initApiSet((args: PARAMS) => {
     fail();
   }
 });
-export const getClipboard = initApiGet(() => {
+export const getClipboard = normalizeGet(() => {
   throw new Error('@uni/apis: getClipboard不支持');
 });
 export default {

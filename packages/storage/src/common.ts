@@ -4,7 +4,7 @@ import { GetOrRemoveOptionStruct, SetOptionStruct } from './types';
 /**
  * @param params
  */
-function formatRes(params: GetOrRemoveOptionStruct) {
+function formatGetStorageRes(params: GetOrRemoveOptionStruct) {
   if (params && typeof params.fail === 'function') {
     const failFn = params.fail;
     params.fail = (err) => {
@@ -19,24 +19,24 @@ function formatRes(params: GetOrRemoveOptionStruct) {
   return params;
 }
 
-export function initApiGetStorage(api) {
-  return (args: GetOrRemoveOptionStruct) => {
-    return promisify(api)(formatRes(args)).catch((e) => {
-      if (e.errMsg === 'getStorage:fail data not found') {
-        return { data: null };
-      }
-    });
-  };
-}
-
-export function initApiGetOrRemove(api) {
-  return (args: GetOrRemoveOptionStruct) => {
-    return promisify(api)(args);
-  };
-}
-
-export function initApiSet(api) {
-  return (args: SetOptionStruct) => {
-    return promisify(api)(args);
-  };
+export const normalize = { 
+  getStorage: (api) => {
+    return (args: GetOrRemoveOptionStruct) => {
+      return promisify(api)(formatGetStorageRes(args)).catch((e) => {
+        if (e.errMsg === 'getStorage:fail data not found') {
+          return { data: null };
+        }
+      });
+    };
+  },
+  setStorage: (api) => {
+    return (args: SetOptionStruct) => {
+      return promisify(api)(args);
+    };
+  },
+  removeStorage: (api) => {
+    return (args: GetOrRemoveOptionStruct) => {
+      return promisify(api)(args);
+    };
+  }
 }

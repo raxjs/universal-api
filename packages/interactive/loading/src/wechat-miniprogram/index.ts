@@ -1,8 +1,8 @@
-import { initApiShow, initApiHide } from '../common';
+import { normalizeShow, normalizeHide } from '../common';
 
-export const showLoading = initApiShow((args) => wx.showLoading(args));
+export const showLoading = normalizeShow((args) => wx.showLoading(args));
 
-export const hideLoading = initApiHide((args) => wx.hideLoading(args));
+export const hideLoading = normalizeHide((args) => wx.hideLoading(args));
 
 export default {
   showLoading,

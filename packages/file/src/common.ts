@@ -10,7 +10,7 @@ import {
 } from './types';
 import { promisify } from '../../utils/promisify';
 
-export const initApi = {
+export const normalize = {
   upload: (api) => {
     return (options) => {
       const DEFAULT_REQUEST_OPTIONS = {

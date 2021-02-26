@@ -1,8 +1,8 @@
-import { initApiGetLocation, initApiOpenLocation } from '../common';
+import { normalizeGetLocation, normalizeOpenLocation } from '../common';
 
-export const getLocation = initApiGetLocation((args) => wx.getLocation(args));
+export const getLocation = normalizeGetLocation((args) => wx.getLocation(args));
 
-export const openLocation = initApiOpenLocation((args) => wx.openLocation(args));
+export const openLocation = normalizeOpenLocation((args) => wx.openLocation(args));
 
 export default {
   getLocation,

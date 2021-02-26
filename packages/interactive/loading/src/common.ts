@@ -18,13 +18,13 @@ function styleOptions(options: ShowOptions) {
  * showLoading
  * @param api
  */
-export function initApiShow(api) {
+export function normalizeShow(api) {
   return (args?: ShowOptions) => {
     return promisify(api)(styleOptions(args));
   };
 }
 
-export function initApiHide(api) {
+export function normalizeHide(api) {
   return (args?: HideOptions) => {
     return promisify(api)(args);
   };

@@ -1,5 +1,5 @@
 import { ChooseImageOptions } from '../types';
-import { initApi } from '../common';
+import { normalize } from '../common';
 
 function inputCreateAndAppend(multiple: boolean) {
   const inputElement: any = document.createElement('INPUT');
@@ -35,7 +35,7 @@ function transformBase64(files: any[]): Promise<any []> {
   });
 }
 
-export const chooseImage = initApi.chooseImage((args: ChooseImageOptions = {}) => {
+export const chooseImage = normalize.chooseImage((args: ChooseImageOptions = {}) => {
   const { count = 1, sourceType = ['album', 'camera'], success = () => {}, fail = () => {}, complete = () => {}} = args;
   try {
     const inputElement = inputCreateAndAppend(count > 1);
@@ -71,7 +71,7 @@ export const compressImage = () => {
   throw new Error('@uni/apis: compressImage不支持');
 };
 
-export const getImageInfo = initApi.getImageInfo((args) => {
+export const getImageInfo = normalize.getImageInfo((args) => {
   const image = new Image();
   image.src = args.src;
   if (image.naturalWidth) {

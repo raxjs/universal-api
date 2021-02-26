@@ -1,5 +1,5 @@
 import { isDingdingMiniapp } from '../../../../utils/miniappEnvApp';
-import { initApi } from '../common';
+import { normalize } from '../common';
 
 const confirm = (args) => {
   const params = {
@@ -10,4 +10,4 @@ const confirm = (args) => {
   isDingdingMiniapp ? dd.confirm(params) : my.confirm(params);
 };
 
-export default initApi(confirm);
+export default normalize(confirm);

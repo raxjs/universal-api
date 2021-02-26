@@ -1,6 +1,6 @@
-import { initApi } from '../common';
+import { normalize } from '../common';
 
-export default initApi((args) => tt.showActionSheet({
+export default normalize((args) => tt.showActionSheet({
   ...args,
   fail: (err) => {
     if (err && err.errMsg === 'showActionSheet:fail cancel') {

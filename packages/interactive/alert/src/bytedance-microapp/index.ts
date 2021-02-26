@@ -1,5 +1,5 @@
 import { Options } from '../types';
-import { initApi } from '../common';
+import { normalize } from '../common';
 
 const alert = (args: Options): void => {
   tt.showModal({
@@ -9,4 +9,4 @@ const alert = (args: Options): void => {
   });
 };
 
-export default initApi(alert);
+export default normalize(alert);

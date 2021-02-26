@@ -1,7 +1,7 @@
 import { promisify } from '../../utils/promisify';
 import { IPushOptions, IPopOptions, IGoOptions, IReplaceOptions, IReLaunchOptions } from './types';
 
-export const initApi = {
+export const normalize = {
   push: (api) => {
     return (options: IPushOptions) => {
       return promisify(api)(options);

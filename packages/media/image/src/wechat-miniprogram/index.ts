@@ -1,22 +1,22 @@
-import { initApi } from '../common';
+import { normalize } from '../common';
 
-export const chooseImage = initApi.chooseImage((args) => wx.chooseImage(args));
+export const chooseImage = normalize.chooseImage((args) => wx.chooseImage(args));
 
-export const compressImage = initApi.compressImage((args) => {
+export const compressImage = normalize.compressImage((args) => {
   args && typeof args.quality === 'number' && (args.quality = args.quality * 33);
   return wx.compressImage(args);
 });
 
-export const getImageInfo = initApi.getImageInfo((args) => wx.getImageInfo(args));
+export const getImageInfo = normalize.getImageInfo((args) => wx.getImageInfo(args));
 
-export const previewImage = initApi.previewImage((args) => {
+export const previewImage = normalize.previewImage((args) => {
   wx.previewImage({
     ...args,
     current: typeof args.current === 'number' ? args.urls[args.current] : args.urls[0]
   });
 });
 
-export const saveImage = initApi.saveImage((args) => {
+export const saveImage = normalize.saveImage((args) => {
   wx.saveImageToPhotosAlbum({
     ...args,
     filePath: args.url

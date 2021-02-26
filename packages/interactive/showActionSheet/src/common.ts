@@ -11,7 +11,7 @@ const formatResponse = (res): ShowActionSheetRes => {
   };
 };
 
-export function initApi(api) {
+export function normalize(api) {
   return (args: ShowActionSheetOptions) => {
     return promisify(api)({
       ...args,

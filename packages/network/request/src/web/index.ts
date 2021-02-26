@@ -9,7 +9,7 @@ import {
   checkIsApplyDataToURL,
   isObject,
   isPlainObject,
-  initApi
+  normalize
 } from '../common';
 
 function requestXHR(options: RequestOptions) {
@@ -131,4 +131,4 @@ function requestXHR(options: RequestOptions) {
   };
   // });
 }
-export default initApi(requestXHR);
+export default normalize(requestXHR);

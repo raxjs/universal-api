@@ -10,7 +10,7 @@ export function styleOptions(options) {
     DEFAULT_REQUEST_OPTIONS,
     options);
 }
-export function initApi(api) {
+export function normalize(api) {
   return (args) => {
     return promisify(api)(styleOptions(args));
   };

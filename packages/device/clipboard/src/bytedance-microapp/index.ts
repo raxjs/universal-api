@@ -1,8 +1,8 @@
-import { initApiGet, initApiSet } from '../common';
+import { normalizeGet, normalizeSet } from '../common';
 
-export const getClipboard = initApiGet((args) => tt.getClipboardData(args));
+export const getClipboard = normalizeGet((args) => tt.getClipboardData(args));
 
-export const setClipboard = initApiSet((args) => {
+export const setClipboard = normalizeSet((args) => {
   args.data = args.text;
   delete args.text;
   return tt.setClipboardData(args)

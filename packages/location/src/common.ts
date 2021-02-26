@@ -26,7 +26,7 @@ function styleOptions(options: OptionStruct = {}): OptionStruct {
   };
 }
 
-export function initApiGetLocation(api) {
+export function normalizeGetLocation(api) {
   return (args: OptionStruct) => {
     return promisify(api)(styleOptions(args)).then(formatResponse);
   };
@@ -36,7 +36,7 @@ export function initApiGetLocation(api) {
  * openLocation
  * @param api
  */
-export function initApiOpenLocation(api) {
+export function normalizeOpenLocation(api) {
   return (args: OpenOptionStruct) => {
     return promisify(api)(args);
   };

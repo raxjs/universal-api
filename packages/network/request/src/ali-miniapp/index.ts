@@ -3,7 +3,7 @@ import {
   ResponseData,
 } from '../types';
 import { isDingdingMiniapp } from '../../../../utils/miniappEnvApp';
-import {initApi} from '../common';
+import {normalize} from '../common';
 
 function request(options: RequestOptions) {
   let { url, method, data, dataType, headers, timeout, success, fail, complete } = options;
@@ -26,4 +26,4 @@ function request(options: RequestOptions) {
     }
   });
 }
-export default initApi(request);
+export default normalize(request);

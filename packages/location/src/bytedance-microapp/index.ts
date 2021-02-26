@@ -1,8 +1,8 @@
-import { initApiGetLocation, initApiOpenLocation } from '../common';
+import { normalizeGetLocation, normalizeOpenLocation } from '../common';
 
-export const getLocation = initApiGetLocation((args) => tt.getLocation(args));
+export const getLocation = normalizeGetLocation((args) => tt.getLocation(args));
 
-export const openLocation = initApiOpenLocation((args) => tt.openLocation(args));
+export const openLocation = normalizeOpenLocation((args) => tt.openLocation(args));
 
 export default {
   getLocation,

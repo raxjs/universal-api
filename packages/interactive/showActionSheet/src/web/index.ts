@@ -1,4 +1,4 @@
-import { initApi } from '../common';
+import { normalize } from '../common';
 
 const clsPrefix = '__universal_actionsheet';
 
@@ -167,4 +167,4 @@ const showActionSheet = (args) => {
   }
 };
 
-export default initApi(showActionSheet);
+export default normalize(showActionSheet);
