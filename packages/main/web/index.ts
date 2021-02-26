@@ -1,18 +1,13 @@
-import { confirm } from '../wechat-miniprogram';
-
-export * as errorEvent from '../../application/errorEvent/src/web/index';
-export * as getApp from '../../application/getApp/src/web/index';
-export * as getCurrentPages from '../../application/getCurrentPages/src/web/index';
-export * as getLaunchOptionsSync from '../../application/getLaunchOptionsSync/src/web/index';
+export * as application from '../../application/src/web/index';
 export * as env from '../../base/env/src/index';
 export * as canIUse from '../../base/canIUse/src/index';
 export * as unitTool from '../../base/unit-tool/src/index';
-export * as createCanvasContext from '../../canvas/canvas-context/src/web/index';
+export * as canvas from '../../canvas/src/web/index';
 export * as accelerometer from '../../device/accelerometer/src/web/index';
 export * as clipboard from '../../device/clipboard/src/web/index';
-export * as getSystemInfoSync from '../../device/getSystemInfoSync/src/web/index';
+export * as systemInfo from '../../device/getSystemInfoSync/src/web/index';
 export * as file from '../../file/src/web/index';
-export * as actionsheet from '../../interactive/showActionSheet/src/web/index';
+export * as actionSheet from '../../interactive/showActionSheet/src/web/index';
 export * as alert from '../../interactive/alert/src/web/index';
 export * as toast from '../../interactive/toast/src/web/index';
 export * as loading from '../../interactive/loading/src/web/index';

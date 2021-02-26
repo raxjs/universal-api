@@ -147,24 +147,24 @@ module.exports = (inputPath, itemOutputPath, sourceMap, pkgInfo, apiInfo, isMain
             visualizer(),
             // filesize(),
           ],
-          ...(apiInfo.mvReadme ? [
-            copy({
-              targets: [
-                { src: isMain ? 
-                  path.resolve(root, 'README.md') : 
-                  (fs.pathExistsSync(docPath + '/README.md') ? docPath + '/README.md' : docPath + '/README.md.c'), 
-                  dest: path.resolve(root, outputPath), rename: 'README.md'},
-                { src: 
-                    isMain ? 
-                    path.resolve(root, 'README.en-US.md') : 
-                    (
-                      fs.pathExistsSync(docPath + '/README.en-US.md') ? 
-                      docPath + '/README.en-US.md' : docPath + '/README.en-US.md.c'
-                    ),
-                  dest: path.resolve(root, outputPath), rename: 'README.en-US.md'}
-              ],
-            }),
-          ] : [])
+          // ...(apiInfo.mvReadme ? [
+          //   copy({
+          //     targets: [
+          //       { src: isMain ? 
+          //         path.resolve(root, 'README.md') : 
+          //         (fs.pathExistsSync(docPath + '/README.md') ? docPath + '/README.md' : docPath + '/README.md.c'), 
+          //         dest: path.resolve(root, outputPath), rename: 'README.md'},
+          //       { src: 
+          //           isMain ? 
+          //           path.resolve(root, 'README.en-US.md') : 
+          //           (
+          //             fs.pathExistsSync(docPath + '/README.en-US.md') ? 
+          //             docPath + '/README.en-US.md' : docPath + '/README.en-US.md.c'
+          //           ),
+          //         dest: path.resolve(root, outputPath), rename: 'README.en-US.md'}
+          //     ],
+          //   }),
+          // ] : [])
         ],
         }
       }

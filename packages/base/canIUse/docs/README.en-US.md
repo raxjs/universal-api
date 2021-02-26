@@ -1,6 +1,5 @@
 # canIUse 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
 [![npm](https://img.shields.io/npm/v/@uni/caniuse.svg)](https://www.npmjs.com/package/@uni/caniuse)
 
 Determines whether the APIs, packages of the Univesal-api are available in the current version.

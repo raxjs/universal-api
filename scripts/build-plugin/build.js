@@ -17,6 +17,7 @@ module.exports = (api ,options = {}) => {
   let defaultApiInfo = {
     buildPkgJson: true,
     mvReadme: true,
+    mvNpmrc: true,
     declaration: true
   };
   let apiInfo;
@@ -59,8 +60,9 @@ module.exports = (api ,options = {}) => {
     pkgInfo = options.pkgInfo;
     output = options.output;
     apiInfo = {
-      buildPkgJson: options.buildPkgJson,
-      mvReadme: options.mvReadme,
+      buildPkgJson: options.pkgJson,
+      mvNpmrc: options.npmrc,
+      mvReadme: options.readme,
       declaration: options.declaration,
       unNeedSplit: options.unNeedSplit,
     };

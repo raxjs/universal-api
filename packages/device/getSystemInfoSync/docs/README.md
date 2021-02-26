@@ -32,14 +32,10 @@ let res = getSystemInfoSync();
 
 你也可以从大包引入：
 ```js
-import { getSystemInfoSync } from '@uni/apis';
+import { systemInfo } from '@uni/apis';
 ```
 
-## 方法
-
-### `getSystemInfoSync()`
-
-#### 返回
+### 返回
 
 | 成员 | 类型 | 描述 |
 | --- | --- | --- |

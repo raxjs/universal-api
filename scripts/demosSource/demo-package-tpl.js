@@ -29,6 +29,9 @@ module.exports = {
     "@alipay/herbox-cli": "^0.10.1",
     "@types/rax": "^1.0.0"
   },
+  "resolutions": {
+    "miniapp-render": "2.0.4",
+  },
   'license': 'BSD-3-Clause',
   'author': 'rax',
 };

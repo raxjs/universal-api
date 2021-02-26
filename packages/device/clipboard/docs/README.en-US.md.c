@@ -1,14 +1,11 @@
 # getClipboard 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@unigetClipboard.svg)](https://www.npmjs.com/package/@unigetClipboard)
-
-Gets the content on the system clipboard.
+[![npm](https://img.shields.io/npm/v/@uni/clipboard.svg)](https://www.npmjs.com/package/@uni/clipboard)
 
 ## Install
 
 ```bash
-$ npm install @uni/getClipboard --save
+$ npm install @uni/clipboard --save
 ```
 or
 ```bash
@@ -17,7 +14,7 @@ $ npm install @uni/apis --save
 ## Usage
 
 ```javascript
-import getClipboard from '@uni/getClipboard';
+import { getClipboard } from '@uni/clipboard';
 
 getClipboard({
   success (res){
@@ -35,6 +32,7 @@ getClipboard().then(res => {
 ## Methods
 
 ### `getClipboard()`
+Gets the content on the system clipboard.
 
 #### Supported
 
@@ -58,26 +56,18 @@ getClipboard().then(res => {
 
 
 
-# setClipboard 
-
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@unisetClipboard.svg)](https://www.npmjs.com/package/@unisetClipboard)
+### setClipboard 
 
 Sets the content on the system clipboard.
 
-## Install
+#### Supported
 
-```bash
-$ npm install @uni/setClipboard --save
-```
-or
-```bash
-$ npm install @uni/apis --save
-```
-## Usage
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
+
+#### Usage
 
 ```javascript
-import setClipboard from '@uni/setClipboard';
+import { setClipboard } from '@uni/clipboard';
 
 setClipboard({
   text: 'text',
@@ -94,14 +84,6 @@ setClipboard({
 });
 
 ```
-
-## Methods
-
-### `setClipboard()`
-
-#### Supported
-
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
 
 #### Arguments
 

@@ -1,9 +1,3 @@
----
-group:
-  title: 应用级事件
-title: application
----
-
 # application 
 [![npm](https://img.shields.io/npm/v/@uni/application.svg)](https://www.npmjs.com/package/@uni/application)
 
@@ -111,20 +105,6 @@ application.offError();
 
 </div>
 <div>
-
-```jsx | inline
-/**
- * iframe: true
- */
-import React from 'react';
-export default () => (
-  <iframe style={{
-      boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
-      width: '375px',
-      height: '700px'
-    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/application/index&topSlider=false'></iframe>
-);
-```
 
 <div style="display: flex;margin-top: 50px;">
   <div>

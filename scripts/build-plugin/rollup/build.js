@@ -17,7 +17,24 @@ const compiler = async (config, packageInfo, _outputPath, isMain = false, apiInf
   const tsPath = inputOptions.input.replace(/\.(t|j)s/, '.d.ts');
   const typesPath = inputOptions.input.replace("index.ts", "types.ts");
   const npmrcPath = path.resolve(root, ".npmrc");
-  
+  const _docPath = isMain ? root : inputOptions.input.replace(/\/src\/.*/, "/docs");
+  if (apiInfo.mvReadme) {
+    let docPath;
+    let enDocPath;
+    if (isMain) {
+      docPath = path.resolve(root, 'README.md');
+      enDocPath = path.resolve(root, 'README.en-US.md');
+    } else {
+      docPath = fs.pathExistsSync(_docPath + '/README.md') ? _docPath + '/README.md' : _docPath + '/README.md.c';
+      enDocPath = fs.pathExistsSync(_docPath + '/README.en-US.md') ? 
+      _docPath + '/README.en-US.md' : _docPath + '/README.en-US.md.c';
+    }
+    let docContent = fs.readFileSync(docPath, {encoding: 'utf8'}).replace(/---(\r\n|\r|\n)(\r\n|\r|\n|.)+?---(\r\n|\r|\n)/, '').replace(/```jsx \| inline(\r\n|\r|\n|.)*```/, '');
+    let docEnContent = fs.readFileSync(enDocPath, {encoding: 'utf8'}).replace(/---(\r\n|\r|\n)(\r\n|\r|\n|.)+?---(\r\n|\r|\n)/, '').replace(/```jsx \| inline(\r\n|\r|\n|.)*```/, '');
+    fs.writeFileSync(path.resolve(root, _outputPath, 'README.md'), docContent);
+    fs.writeFileSync(path.resolve(root, _outputPath, 'README.en-US.md'), docEnContent);
+  }
+
   if (apiInfo.buildPkgJson) {
     // 写入当前组件包的依赖
     packageTpl.version = packageInfo.version;
@@ -38,7 +55,10 @@ const compiler = async (config, packageInfo, _outputPath, isMain = false, apiInf
     // packageTpl.dependencies[componentPackage.name] = path.relative(distDir, root) + '/';
     await fs.outputJSON(path.resolve(root, _outputPath + 'package.json'), packageTpl);
   }
-  // fs.copyFileSync(npmrcPath, path.resolve(root, _outputPath, '.npmrc'));
+  if (apiInfo.mvNpmrc) {
+    fs.copyFileSync(npmrcPath, path.resolve(root, _outputPath, '.npmrc'));
+  }
+  
   if (apiInfo.declaration && packageInfo.dependencies) {
     Object.keys(packageInfo.dependencies).forEach(name => {
       const filePath = path.resolve(root, `types/${name}.d.ts`);

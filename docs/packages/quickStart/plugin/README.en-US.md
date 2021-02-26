@@ -15,7 +15,7 @@ The uni provides a supporting babel plug-in to introduce the smallest package ac
 ## Install
 
 ```
-npm i babel-plugin-universal-api-import
+npm i @uni/babel-plugin-universal-api-import
 ```
 
 ## Usage
@@ -44,7 +44,7 @@ If you are using rax, because rax uses the build-scripts packaging tool, we prov
 
 #### Install
 ```
-npm i build-plugin-rax-api-import
+npm i @uni/build-plugin-rax-api-import
 ```
 #### Usage
 Add in the build.json file:

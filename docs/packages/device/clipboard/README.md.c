@@ -1,9 +1,6 @@
 # getClipboard 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
 [![npm](https://img.shields.io/npm/v/@uni/clipboard.svg)](https://www.npmjs.com/package/@uni/clipboard)
-
-获取系统剪贴板的内容
 
 ## 安装
 
@@ -17,7 +14,7 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import {getClipboard} from '@uni/clipboard';
+import { getClipboard } from '@uni/clipboard';
 
 getClipboard({
   success (res){
@@ -35,6 +32,7 @@ getClipboard().then(res => {
 ## 方法
 
 ### `getClipboard()`
+获取系统剪贴板的内容
 
 #### 支持
 
@@ -59,27 +57,18 @@ h5 暂不支持此方法
 | res.text | `string` | 剪贴板的内容 |
 
 
-
-# setClipboard 
-
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@unisetClipboard.svg)](https://www.npmjs.com/package/@unisetClipboard)
+### setClipboard 
 
 设置系统剪贴板的内容。
 
-## 安装
+#### 支持
 
-```bash
-$ npm install @uni/clipboard --save
-```
-or
-```bash
-$ npm install @uni/apis --save
-```
-## 示例
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
+
+#### 示例
 
 ```javascript
-import {setClipboard} from '@uni/clipboard';
+import { setClipboard } from '@uni/clipboard';
 
 setClipboard({
   text: 'text',
@@ -97,13 +86,6 @@ setClipboard({
 
 ```
 
-## 方法
-
-### `setClipboard()`
-
-#### 支持
-
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">
 
 #### 参数
 

@@ -1,8 +1,4 @@
----
-title: file
----
-
-# @uni/file 
+# file 
 [![npm](https://img.shields.io/npm/v/@uni/file.svg)](https://www.npmjs.com/package/@uni/file)
 
 File operations.

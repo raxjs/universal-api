@@ -1,14 +1,11 @@
-# getLocation 
+# location 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@unigetLocation.svg)](https://www.npmjs.com/package/@unigetLocation)
-
-Gets current geographic location（WGS84）.
+[![npm](https://img.shields.io/npm/v/@uni/location.svg)](https://www.npmjs.com/package/@uni/location)
 
 ## Install
 
 ```bash
-$ npm install @uni/getLocation --save
+$ npm install @uni/location --save
 ```
 or
 ```bash
@@ -17,7 +14,7 @@ $ npm install @uni/apis --save
 ## Usage
 
 ```javascript
-import getLocation from '@uni/getLocation';
+import { getLocation } from '@uni/location';
 
 getLocation({
   success: (res) => {
@@ -41,6 +38,7 @@ getLocation().then(response => {})
 ## Methods
 
 ### `getLocation(options)`
+Gets current geographic location（WGS84）.
 
 #### Supported
 
@@ -65,26 +63,15 @@ getLocation().then(response => {})
 
 
 
-# openLocation 
-
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@uniopenLocation.svg)](https://www.npmjs.com/package/@uniopenLocation)
+### openLocation 
 
 Views location using the built-in map. The GCJ-02 coordinate system of the State Bureau of Surveying and Mapping is used.
 
-## Install
 
-```bash
-$ npm install @uni/openLocation --save
-```
-or
-```bash
-$ npm install @uni/apis --save
-```
-## Usage
+#### Usage
 
 ```javascript
-import openLocation from '@uni/openLocation';
+import { openLocation } from '@uni/location';
 
 openLocation({
   longitude: 120.126293,
@@ -113,10 +100,6 @@ openLocation({
   .finally(res => {});
 
 ```
-
-## Methods
-
-### `openLocation(options)`
 
 #### Supported
 

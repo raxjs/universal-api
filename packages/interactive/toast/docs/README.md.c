@@ -1,8 +1,4 @@
----
-title: toast
----
-
-# @uni/toast 
+# toast 
 [![npm](https://img.shields.io/npm/v/@uni/toast.svg)](https://www.npmjs.com/package/@uni/toast)
 
 通用弱提示，可选择多少秒之后消失

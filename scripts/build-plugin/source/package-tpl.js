@@ -12,6 +12,10 @@ module.exports = {
   'dependencies': {
     '@babel/runtime-corejs3': '^7.11.0'
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:raxjs/universal-api.git"
+  },
   'license': 'BSD-3-Clause',
   'author': 'rax',
 };

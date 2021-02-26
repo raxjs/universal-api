@@ -25,18 +25,15 @@ $ npm i @uni/apis
 
 ```js
 import { 
-  errorEvent,
-  getApp,
-  getCurrentPages,
-  getLaunchOptionsSync,
+  application,
   env,
   unitTool,
-  createCanvasContext,
+  canvas,
   accelerometer,
   clipboard,
-  getSystemInfoSync,
+  systemInfo,
   file,
-  actionsheet,
+  actionSheet,
   alert,
   toast,
   loading,
@@ -44,9 +41,7 @@ import {
   intersectionObserver,
   confirm,
   location,
-  chooseImage,
-  compressImage,
-  getImageInfo,
+  image,
   navigate,
   request,
   storage } from '@uni/apis';

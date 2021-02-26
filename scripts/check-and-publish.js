@@ -5,7 +5,7 @@ const { join } = require('path');
 const { spawnSync } = require('child_process');
 const axios = require('axios');
 const semver = require('semver');
-const sourceMap = require('../api-config');
+const sourceMap = require('../api-config.js');
 const mainPkgInfo = require('../package.json');
 
 function checkVersion(callback) {
@@ -13,7 +13,7 @@ function checkVersion(callback) {
   let finishCount = 0;
   function finish() {
     finishCount++;
-    if (finishCount === sourceMap.length) {
+    if (finishCount === Object.keys(sourceMap).length) {
       // check main
       checkVersionExists(mainPkgInfo.name, mainPkgInfo.version)
       .then((exists) => {
@@ -61,9 +61,19 @@ function checkVersionExists(pkg, version) {
 }
 
 function npmPublish(tag, outDir) {
+  // spawnSync('npm', [
+  //   'config',
+  //   `set`,
+  //   'registry',
+  //   'https://registry.npmjs.org/',
+  // ], {
+  //   stdio: 'inherit',
+  //   cwd: outDir,
+  // });
   spawnSync('npm', [
     'publish',
     '--tag=' + tag,
+    '--access=public',
   // use default registry
   ], {
     stdio: 'inherit',
@@ -78,7 +88,8 @@ function publish(key, pkg, outDir, version, shouldBuild, tag) {
     // npm run build
     const { status } = spawnSync('npm', [
       'run',
-      key === 'main' ? 'build:main' : `build ${key}`,
+      key === 'main' ? 'build:main' : 'build',
+      key === 'main' ? '' : key
     ], {
       stdio: 'inherit',
       cwd: join(__dirname, '../'),
@@ -96,7 +107,7 @@ function publish(key, pkg, outDir, version, shouldBuild, tag) {
 function publishDocs() {
   const { status } = spawnSync('npm', [
     'run',
-    `doc-build`,
+    `docs:build`,
   ], {
     stdio: 'inherit',
     cwd: join(__dirname, '../'),
@@ -118,17 +129,25 @@ function isPrerelease(v) {
   if (semVer === null) return false;
   return semVer.prerelease.length > 0;
 }
+function setNpmRegister(v) {
+  spawnSync('npm', [
+    'run',
+    `setNpmRegistry`,
+  ], {
+    stdio: 'inherit',
+    cwd: join(__dirname, '../'),
+  });
+}
 
 function checkVersionAndPublish() {
   checkVersion((ret) => {
-    console.log('');
     if (ret.length === 0) {
       console.log('[PUBLISH] No diff with all packages.');
       return;
     } else {
       console.log('[PUBLISH] Will publish following packages:');
     }
-
+    // setNpmRegister();
     for (let i = 0; i < ret.length; i++) {
       const { key, name, outDir, local, shouldBuild } = ret[i];
       const tag = isPrerelease(local) ? 'beta' : 'latest';

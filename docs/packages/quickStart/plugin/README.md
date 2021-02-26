@@ -15,7 +15,7 @@ uni 提供了配套的babel插件用来按环境引入最小包，去除非当�
 ## 安装
 
 ```
-npm i babel-plugin-universal-api-import
+npm i @uni/babel-plugin-universal-api-import
 ```
 
 ## 使用
@@ -43,7 +43,7 @@ target可选的值有：
 
 #### 安装：
 ```
-npm i build-plugin-rax-api-import
+npm i @uni/build-plugin-rax-api-import
 ```
 #### 使用：
 在build.json文件中加入：

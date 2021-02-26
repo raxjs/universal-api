@@ -1,14 +1,11 @@
-# getLocation 
+# location 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@unigetLocation.svg)](https://www.npmjs.com/package/@unigetLocation)
-
-获取当前的地理位置，该接口返回的均为WGS84（World Geodetic System）坐标，即GPS坐标。
+[![npm](https://img.shields.io/npm/v/@uni/location.svg)](https://www.npmjs.com/package/@uni/location)
 
 ## 安装
 
 ```bash
-$ npm install @uni/getLocation --save
+$ npm install @uni/location --save
 ```
 or
 ```bash
@@ -17,7 +14,7 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import getLocation from '@uni/getLocation';
+import { getLocation } from '@uni/location';
 
 getLocation({
   success: (res) => {
@@ -41,6 +38,7 @@ getLocation().then(response => {})
 ## 方法
 
 ### `getLocation(options)`
+获取当前的地理位置，该接口返回的均为WGS84（World Geodetic System）坐标，即GPS坐标。
 
 #### 支持
 
@@ -63,26 +61,14 @@ getLocation().then(response => {})
 | longitude | `number`  | 经度 |
 | accuracy | `number`  | 位置的精确度	|
 
-# openLocation 
-
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@uniopenLocation.svg)](https://www.npmjs.com/package/@uniopenLocation)
+### openLocation 
 
 使用内置地图查看位置。各平台内置地图均要求火星坐标，即使用 gcj02 国测局坐标系。
 
-## 安装
-
-```bash
-$ npm install @uni/openLocation --save
-```
-or
-```bash
-$ npm install @uni/apis --save
-```
-## 示例
+#### 示例
 
 ```javascript
-import openLocation from '@uni/openLocation';
+import { openLocation } from '@uni/location';
 
 openLocation({
   longitude: 120.126293,
@@ -111,11 +97,6 @@ openLocation({
   .finally(res => {});
 
 ```
-
-## 方法
-
-### `openLocation(options)`
-
 #### 支持
 
 <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px">

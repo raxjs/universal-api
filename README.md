@@ -1,10 +1,10 @@
-# @uni/apis
+# uni
 
 基于rax应用生态，我们提供一系列跨端api帮助用户快速开发多端应用。
 
-***
+官方站点：[https://universal-api.js.org/](https://universal-api.js.org/)
 
-# 示例
+## 示例
 
 <div style="display: flex;margin-bottom: 200px;">
   <div>

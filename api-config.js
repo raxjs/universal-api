@@ -4,7 +4,7 @@ module.exports = {
     path: 'packages/application/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/application',
       }
     ]
@@ -16,7 +16,7 @@ module.exports = {
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/env',
       }
     ]
@@ -47,11 +47,11 @@ module.exports = {
     ]
   },
   // canvas
-  'canvasApis': {
+  'canvas': {
     path: 'packages/canvas/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/canvas',
       }
     ]
@@ -61,7 +61,7 @@ module.exports = {
     path: 'packages/device/accelerometer/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/accelerometer',
       }
     ]
@@ -70,16 +70,16 @@ module.exports = {
     path: 'packages/device/clipboard/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/clipboard',
       }
     ]
   },
-  'getSystemInfoSync': {
+  'systemInfo': {
     path: 'packages/device/getSystemInfoSync/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/system-info',
       }
     ]
@@ -98,17 +98,17 @@ module.exports = {
     path: 'packages/file/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/file',
       }
     ]
   },
   // interactive
-  'actionsheet': {
+  'actionSheet': {
     path: 'packages/interactive/showActionSheet/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/action-sheet',
       }
     ]
@@ -117,7 +117,7 @@ module.exports = {
     path: 'packages/interactive/alert/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/alert',
       }
     ]
@@ -154,7 +154,7 @@ module.exports = {
     path: 'packages/interactive/toast/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/toast',
       }
     ]
@@ -181,7 +181,7 @@ module.exports = {
     path: 'packages/interactive/element/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/element',
       }
     ]
@@ -199,7 +199,7 @@ module.exports = {
     path: 'packages/interactive/confirm/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/confirm',
       }
     ]
@@ -217,7 +217,7 @@ module.exports = {
     path: 'packages/location/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/location',
       }
     ]
@@ -227,7 +227,7 @@ module.exports = {
     path: 'packages/media/image/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1-beta',
+        version: '1.0.0-beta',
         name: '@uni/image',
       }
     ]
@@ -237,7 +237,7 @@ module.exports = {
     path: 'packages/navigate/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/navigate',
       }
     ]
@@ -247,7 +247,7 @@ module.exports = {
     path: 'packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/request',
       }
     ]

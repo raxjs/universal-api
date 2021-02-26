@@ -1,7 +1,7 @@
-# showActionSheet 
+# actionSheet 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@unishowActionSheet.svg)](https://www.npmjs.com/package/@unishowActionSheet)
+[![npm](https://img.shields.io/npm/v/@uni/action-sheet.svg)](https://www.npmjs.com/package/@uni/action-sheet)
 
 Displays the operation menu.
 
@@ -10,12 +10,12 @@ Displays the operation menu.
 
 ## Supported
 
-<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp">
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp">
 
 ## Install
 
 ```bash
-$ npm install @uni/showActionSheet --save
+$ npm install @uni/action-sheet --save
 ```
 or
 ```bash
@@ -24,7 +24,7 @@ $ npm install @uni/apis --save
 ## Usage
 
 ```javascript
-import showActionSheet from '@uni/showActionSheet';
+import showActionSheet from '@uni/action-sheet';
 
 showActionSheet({
   itemList: ['A', 'B', 'C'],
@@ -48,7 +48,7 @@ showActionSheet({
 You can also import from the big package:
 
 ```js
-import { showActionSheet } from '@uni/apis';
+import { actionSheet } from '@uni/apis';
 ```
 
 ## Methods

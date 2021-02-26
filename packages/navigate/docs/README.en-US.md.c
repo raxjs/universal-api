@@ -1,7 +1,3 @@
----
-title: navigate
----
-
 # navigate 
 [![npm](https://img.shields.io/npm/v/@uni/navigate.svg)](https://www.npmjs.com/package/@uni/navigate)
 

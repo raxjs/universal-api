@@ -32,15 +32,10 @@ let res = getSystemInfoSync();
 
 You can also import from the big package:
 ```js
-import { getSystemInfoSync } from '@uni/apis';
+import { systemInfo } from '@uni/apis';
 ```
 
-
-## Methods
-
-### `getSystemInfoSync()`
-
-#### Return
+### Return
 
 | Property | Type | Description |
 | --- | --- | --- |

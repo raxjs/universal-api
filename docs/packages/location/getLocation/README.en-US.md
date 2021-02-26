@@ -1,7 +1,6 @@
 # getLocation 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@unigetLocation.svg)](https://www.npmjs.com/package/@unigetLocation)
+[![npm](https://img.shields.io/npm/v/@uni/location.svg)](https://www.npmjs.com/package/@uni/location)
 
 Gets current geographic location（WGS84）.
 
@@ -15,7 +14,7 @@ Gets current geographic location（WGS84）.
 ## Install
 
 ```bash
-$ npm install @uni/getLocation --save
+$ npm install @uni/location --save
 ```
 or
 ```bash
@@ -24,7 +23,7 @@ $ npm install @uni/apis --save
 ## Usage
 
 ```javascript
-import getLocation from '@uni/getLocation';
+import { getLocation } from '@uni/location';
 
 getLocation({
   success: (res) => {

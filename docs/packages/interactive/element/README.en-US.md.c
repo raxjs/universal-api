@@ -1,8 +1,4 @@
----
-title: element
----
-
-# @uni/element 
+# element 
 
 [![npm](https://img.shields.io/npm/v/@uni/element.svg)](https://www.npmjs.com/package/@uni/element)
 

@@ -1,7 +1,6 @@
 # openLocation 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@uniopenLocation.svg)](https://www.npmjs.com/package/@uniopenLocation)
+[![npm](https://img.shields.io/npm/v/@uni/location.svg)](https://www.npmjs.com/package/@uni/location)
 
 使用内置地图查看位置。各平台内置地图均要求火星坐标，即使用 gcj02 国测局坐标系。
 
@@ -15,7 +14,7 @@
 ## 安装
 
 ```bash
-$ npm install @uni/openLocation --save
+$ npm install @uni/location --save
 ```
 or
 ```bash
@@ -24,7 +23,7 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import openLocation from '@uni/openLocation';
+import { openLocation } from '@uni/location';
 
 openLocation({
   longitude: 120.126293,
