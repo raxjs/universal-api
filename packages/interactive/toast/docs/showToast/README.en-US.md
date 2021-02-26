@@ -29,7 +29,7 @@ Toast.show('Hi');
 
 // object
 Toast.show({
-  message: 'hello',
+  content: 'hello',
   type: 'success',
   duration: 1000,
   success: () => {
@@ -39,7 +39,7 @@ Toast.show({
 
 // promise
 Toast.show({
-  message: 'hello',
+  content: 'hello',
   type: 'success',
   duration: 1000,
 }).then(() => {});
@@ -58,7 +58,7 @@ toast.show('Hi')
 #### Arguments
 | Property | Type     | Description                                 | Default |
 | -------- | -------- | ------------------------------------------- | :-----: |
-| message  | `string` | content of the message                      |    -    |
+| content  | `string` | content of the message                      |    -    |
 | type | `success/fail/none` | Type of popup |  none  |
 | duration | `number` | Time in millisecond before Toast is closed. |  2000   |
 | success | `function` | The callback function for a successful API call |  -  |

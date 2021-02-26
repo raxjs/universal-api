@@ -32,7 +32,7 @@ Toast.show('Hi');
 #### Arguments
 | Property | Type     | Description                                 | Default |
 | -------- | -------- | ------------------------------------------- | :-----: |
-| message  | `string` | content of the message                      |    -    |
+| content  | `string` | content of the message                      |    -    |
 | type | `success | fail | none` | Type of popup |  none  |
 | duration | `number` | Time in millisecond before Toast is closed. |  2000   |
 | success | `function` | The callback function for a successful API call |  -  |

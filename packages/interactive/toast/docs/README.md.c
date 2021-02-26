@@ -38,7 +38,7 @@ import { toast } from '@uni/apis';
 #### 参数
 | 成员     | 类型     | 描述                | 默认值 |
 | -------- | -------- | ------------------- | :----: |
-| message  | `string` | 文字内容            |   -    |
+| content  | `string` | 文字内容            |   -    |
 | type | `success | fail | none` | 弹窗类型 |  none  |
 | duration | `number` | 显示时长，单位为 ms |  2000  |
 | success | `function` | 成功回调 |  -  |
