@@ -19,7 +19,7 @@ function formatGetStorageRes(params: GetOrRemoveOptionStruct) {
   return params;
 }
 
-export const normalize = { 
+export const normalize = {
   getStorage: (api) => {
     return (args: GetOrRemoveOptionStruct) => {
       return promisify(api)(formatGetStorageRes(args)).catch((e) => {
@@ -38,5 +38,5 @@ export const normalize = {
     return (args: GetOrRemoveOptionStruct) => {
       return promisify(api)(args);
     };
-  }
-}
+  },
+};
