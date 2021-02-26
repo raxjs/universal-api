@@ -25,7 +25,7 @@ module.exports = {
     '@babel/runtime-corejs3': '^7.11.0'
   },
   "devDependencies": {
-    "build-plugin-rax-api-import": "^1.0.0",
+    "@uni/build-plugin-rax-api-import": "^1.0.0",
     "@alipay/herbox-cli": "^0.10.1",
     "@types/rax": "^1.0.0"
   },

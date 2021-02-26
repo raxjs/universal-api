@@ -14,7 +14,7 @@
   },
   "plugins" : [
     [
-      "build-plugin-rax-api-import"
+      "@uni/build-plugin-rax-api-import"
     ]
   ]
 }
