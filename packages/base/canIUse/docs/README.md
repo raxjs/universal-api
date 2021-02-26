@@ -19,8 +19,6 @@ $ npm install @uni/apis --save
 ```javascript
 import canIUse from '@uni/caniuse';
 
-canIUse('getapp');
-
 // true
 canIUse('storage');
 // true

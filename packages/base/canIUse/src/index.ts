@@ -2,20 +2,41 @@ import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni
 import { isDingdingMiniapp } from '../../../utils/miniappEnvApp';
 // 按wechat、bytedance、dd、支付宝、web的方式，不支持的端相应位数置0即可
 const supportInfo = {
-  'error-event': {
-    support: 11111
+  'application': {
+    support: 11111,
+    'getApp': {
+      support: 11111,
+    },
+    'getCurrentPages': {
+      support: 11111,
+    },
+    'getLaunchOptionsSync': {
+      support: 11111,
+    },
+    'onError': {
+      support: 11111,
+    },
+    'offError': {
+      support: 11111,
+    },
+    'onUnhandledRejection': {
+      support: 11111,
+    },
+    'offUnhandledRejection': {
+      support: 11111,
+    }
   },
-  'getapp': {
-    support: 11111
-  },
-  'getcurrentpages': {
-    support: 11111
-  },
-  'canvas-context': {
+  'canvas': {
     support: 11111
   },
   'accelerometer': {
-    support: 11111
+    support: 11110,
+    'onChange': {
+      support: 11110,
+    },
+    'offChange': {
+      support: 11110,
+    }
   },
   'clipboard': {
     support: 11111,
@@ -26,14 +47,38 @@ const supportInfo = {
       support: 11111
     },
   },
-  'getsysteminfosync': {
+  'system-info': {
     support: 11111
   },
   'file': {
-    support: 11111
+    support: 11111,
+    'getInfo': {
+      support: 11110
+    },
+    'getSavedInfo': {
+      support: 11110
+    },
+    'getSavedList': {
+      support: 11110
+    },
+    'openDocument': {
+      support: 11110
+    },
+    'removeSaved': {
+      support: 11110
+    },
+    'save': {
+      support: 11110
+    },
+    'download': {
+      support: 11110
+    },
+    'upload': {
+      support: 11111
+    },
   },
   'action-sheet': {
-    support: 11110
+    support: 11111
   },
   'alert': {
     support: 11111
@@ -68,17 +113,41 @@ const supportInfo = {
       support: 11110
     }
   },
-  'choose-image': {
-    support: 11111
-  },
-  'compress-image': {
-    support: 11110
-  },
-  'getimageinfo': {
-    support: 11110
+  'image': {
+    support: 11111,
+    'chooseImage': {
+      support: 11111
+    },
+    'compressImage': {
+      support: 11110
+    },
+    'getImageInfo': {
+      support: 11111
+    },
+    'previewImage': {
+      support: 11110
+    },
+    'saveImage': {
+      support: 11110
+    },
   },
   'navigate': {
-    support: 11111
+    support: 11111,
+    'push': {
+      support: 11111
+    },
+    'back': {
+      support: 11111
+    },
+    'replace': {
+      support: 11111
+    },
+    'reLaunch': {
+      support: 11111
+    },
+    'go': {
+      support: 11111
+    },
   },
   'request': {
     support: 11111
@@ -132,5 +201,7 @@ export default (apiName) => {
     return canIUse(3, apiName, supportInfo);
   } else if (isWeb) {
     return canIUse(4, apiName, supportInfo);
+  } else {
+    return false;
   }
 };
