@@ -19,4 +19,4 @@ package-lock.json
 packages/miniapp-api-creater/demo/build
 docs-dist
 stats.html
-demos/*
+demos
