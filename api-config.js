@@ -1,88 +1,88 @@
 module.exports = {
   // application
-  'application': {
+  application: {
     path: 'packages/application/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/application',
-      }
-    ]
+      },
+    ],
   },
   // base
-  'env': {
+  env: {
     path: 'packages/base/env/src/index.ts',
     // 是否可以按环境拆包
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/env',
-      }
-    ]
+      },
+    ],
   },
-  'canIUse': {
+  canIUse: {
     path: 'packages/base/canIUse/src/index.ts',
     // 是否可以按环境拆包
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0',
         name: '@uni/caniuse',
-      }
-    ]
+      },
+    ],
   },
 
-  'unitTool': {
+  unitTool: {
     path: 'packages/base/unit-tool/src/index.ts',
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0',
         name: '@uni/unit-tool',
         dependencies: {
-          '@uni/system-info': '^1.0.0-beta'
+          '@uni/system-info': '^1.0.0',
         },
-      }
-    ]
+      },
+    ],
   },
   // canvas
-  'canvas': {
+  canvas: {
     path: 'packages/canvas/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/canvas',
-      }
-    ]
+      },
+    ],
   },
   // device
-  'accelerometer': {
+  accelerometer: {
     path: 'packages/device/accelerometer/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/accelerometer',
-      }
-    ]
+      },
+    ],
   },
-  'clipboard': {
+  clipboard: {
     path: 'packages/device/clipboard/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/clipboard',
-      }
-    ]
+      },
+    ],
   },
-  'systemInfo': {
+  systemInfo: {
     path: 'packages/device/getSystemInfoSync/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/system-info',
-      }
-    ]
+      },
+    ],
   },
   // 'networkInfo': {
   //   path: 'packages/device/network-info/src/index.ts',
@@ -94,33 +94,33 @@ module.exports = {
   //   ]
   // },
   // file
-  'file': {
+  file: {
     path: 'packages/file/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/file',
-      }
-    ]
+      },
+    ],
   },
   // interactive
-  'actionSheet': {
+  actionSheet: {
     path: 'packages/interactive/showActionSheet/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/action-sheet',
-      }
-    ]
+      },
+    ],
   },
-  'alert': {
+  alert: {
     path: 'packages/interactive/alert/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/alert',
-      }
-    ]
+      },
+    ],
   },
   // 'transition': {
   //   path: 'packages/interactive/transition/src/index.ts',
@@ -150,23 +150,23 @@ module.exports = {
   //   ]
   // },
 
-  'toast': {
+  toast: {
     path: 'packages/interactive/toast/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/toast',
-      }
-    ]
+      },
+    ],
   },
-  'loading': {
+  loading: {
     path: 'packages/interactive/loading/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0',
         name: '@uni/loading',
-      }
-    ]
+      },
+    ],
   },
   // 'keyboard': {
   //   path: 'packages/interactive/keyboard/src/index.ts',
@@ -177,32 +177,32 @@ module.exports = {
   //     }
   //   ]
   // },
-  'element': {
+  element: {
     path: 'packages/interactive/element/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/element',
-      }
-    ]
+      },
+    ],
   },
-  'intersectionObserver': {
+  intersectionObserver: {
     path: 'packages/interactive/intersectionObserver/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0',
         name: '@uni/intersection-observer',
-      }
-    ]
+      },
+    ],
   },
-  'confirm': {
+  confirm: {
     path: 'packages/interactive/confirm/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/confirm',
-      }
-    ]
+      },
+    ],
   },
   // 'background': {
   //   path: 'packages/interactive/background/src/index.ts',
@@ -213,53 +213,53 @@ module.exports = {
   //     }
   //   ]
   // },
-  'location': {
+  location: {
     path: 'packages/location/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/location',
-      }
-    ]
+      },
+    ],
   },
   // media
-  'image': {
+  image: {
     path: 'packages/media/image/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0',
         name: '@uni/image',
-      }
-    ]
+      },
+    ],
   },
   // navigate
-  'navigate': {
+  navigate: {
     path: 'packages/navigate/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/navigate',
-      }
-    ]
+      },
+    ],
   },
   // network
-  'request': {
+  request: {
     path: 'packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/request',
-      }
-    ]
+      },
+    ],
   },
   // storage
-  'storage': {
+  storage: {
     path: 'packages/storage/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0',
         name: '@uni/storage',
-      }
-    ]
+      },
+    ],
   },
 };
