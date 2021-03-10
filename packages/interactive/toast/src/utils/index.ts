@@ -12,7 +12,7 @@ export function styleOptions(options) {
     return Object.assign({},
       DEFAULT_REQUEST_OPTIONS,
       {
-        content: options
+        content: options,
       });
   } else {
     return Object.assign({},

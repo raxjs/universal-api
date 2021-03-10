@@ -3,7 +3,8 @@ declare const __kraken__: any;
 declare const my: any;
 declare const wx: any;
 declare const tt: any;
-declare const dd: any;
+declare const swan: any;
+declare const ks: any;
 declare const global: any;
 declare const process: any;
 
@@ -17,6 +18,8 @@ export const isWeex = !isUndef(typeof WXEnvironment) && WXEnvironment.platform !
 export const isKraken = !isUndef(typeof __kraken__);
 export const isMiniApp = !isUndef(typeof my) && my !== null && !isUndef(typeof my.alert);
 export const isByteDanceMicroApp = !isUndef(typeof tt) && tt !== null && !isUndef(typeof tt) && !isUndef(tt.showToast);
+export const isBaiduSmartProgram = !isUndef(typeof swan) && swan !== null && !isUndef(typeof swan) && !isUndef(swan.showToast);
+export const isKuaiShouMiniProgram = !isUndef(typeof ks) && ks !== null && !isUndef(typeof ks) && !isUndef(ks.showToast);
 // In wechat mini program, wx.login is a function
 // In wechat mini propgram webview, there is no wx.login, but exist wx.miniProgram
 // In bytedance maicro app, there is wx variable.

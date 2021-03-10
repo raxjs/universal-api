@@ -1,9 +1,9 @@
 export interface ToastOption {
   SHORT: number;
   LONG: number;
-  show: (options: ShowToastOption) => void;
+  show: (options: ShowToastOption | string) => void;
   hide: (options?: HideToastOption) => void;
-};
+}
 export interface ShowToastOption {
   content: string;
   type?: 'success' | 'fail' | 'none';
@@ -25,4 +25,4 @@ export interface WebQueueOption {
   success?: () => void;
   fail?: (res) => void;
   complete?: (res?) => void;
-};
+}

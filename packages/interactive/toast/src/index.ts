@@ -3,12 +3,12 @@ import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 import webModule from './web/index';
-import {ShowToastOption, HideToastOption, ToastOption} from './types';
-import {LONG_DELAY, SHORT_DELAY} from './utils/index';
+import { ShowToastOption, HideToastOption, ToastOption } from './types';
+import { LONG_DELAY, SHORT_DELAY } from './utils/index';
 
 export const LONG = LONG_DELAY;
 export const SHORT = SHORT_DELAY;
-export const show = (options: ShowToastOption) => {
+export const show = (options: ShowToastOption | string) => {
   if (isWeChatMiniProgram) {
     return weChatModule.show(options);
   } else if (isByteDanceMicroApp) {

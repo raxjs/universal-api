@@ -23,7 +23,7 @@ export function stringifyQS(qs: AsObject): string {
   }
   const str: string[] = [];
   for (const key in qs) {
-    if (!!qs[key]) {
+    if (qs[key]) {
       str.push(`${key}=${encodeURIComponent(String(qs[key]))}`);
     }
   }
@@ -55,7 +55,7 @@ export function normalizeHeaders(obj: AsObject) {
   }
   const keyList = ['Accept', 'Content-Type'];
 
-  keyList.forEach(key => {
+  keyList.forEach((key) => {
     Object.keys(obj).some((headerKey: string) => {
       if (headerKey.toUpperCase() === key.toUpperCase()
           && headerKey !== key
@@ -93,14 +93,14 @@ export function styleOptions(options) {
     headers: { 'Content-Type': 'application/json' },
     method: 'GET',
     timeout: DEFAULT_TIMEOUT,
-    dataType: DATA_TYPE.json
+    dataType: DATA_TYPE.json,
   };
-  let afterOptions: RequestOptions = Object.assign({},
+  const afterOptions: RequestOptions = Object.assign({},
     DEFAULT_REQUEST_OPTIONS,
     options,
     {
       method: (options.method || 'GET').toUpperCase(),
-      headers: normalizeHeaders(options.headers || {})
+      headers: normalizeHeaders(options.headers || {}),
     });
   return afterOptions;
 }

@@ -16,7 +16,7 @@ module.exports = {
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '1.0.0',
+        version: '1.0.1-beta',
         name: '@uni/env',
       },
     ],
@@ -154,7 +154,7 @@ module.exports = {
     path: 'packages/interactive/toast/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0',
+        version: '1.0.1',
         name: '@uni/toast',
       },
     ],

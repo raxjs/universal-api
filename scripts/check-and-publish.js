@@ -129,15 +129,6 @@ function isPrerelease(v) {
   if (semVer === null) return false;
   return semVer.prerelease.length > 0;
 }
-function setNpmRegister(v) {
-  spawnSync('npm', [
-    'run',
-    `setNpmRegistry`,
-  ], {
-    stdio: 'inherit',
-    cwd: join(__dirname, '../'),
-  });
-}
 
 function checkVersionAndPublish() {
   checkVersion((ret) => {
@@ -154,7 +145,7 @@ function checkVersionAndPublish() {
       console.log(`--- ${name}@${local} current tag: ${tag} ---`);
       publish(key, name, outDir, local, shouldBuild, tag);
     }
-    publishDocs();
+    // publishDocs();
   });
 }
 

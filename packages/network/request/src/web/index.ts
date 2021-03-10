@@ -1,7 +1,7 @@
 import {
   RequestOptions,
   ERROR_REQUEST_TIMEOUT,
-  ERROR_REQUEST_ABORT
+  ERROR_REQUEST_ABORT,
 } from '../types';
 import {
   applyParamToURL,
@@ -9,12 +9,12 @@ import {
   checkIsApplyDataToURL,
   isObject,
   isPlainObject,
-  normalize
+  normalize,
 } from '../common';
 
 function requestXHR(options: RequestOptions) {
   options.headers = Object.assign({
-    'Accept': 'application/json, text/plain, */*'
+    Accept: 'application/json, text/plain, */*',
   }, options.headers);
   const {
     validateStatus,
@@ -32,8 +32,9 @@ function requestXHR(options: RequestOptions) {
       method: 'GET',
       validateStatus: (status: number) => {
         return status >= 200 && status < 300 || status === 304;
-      }
-    }, options);
+      },
+    }, options,
+  );
 
   let timer: number;
   let requestData: any;
@@ -62,14 +63,14 @@ function requestXHR(options: RequestOptions) {
       fail && fail({
         code: ERROR_REQUEST_ABORT.code,
         message: `${JSON.stringify({
-          status: xhr.status
-        })}`
+          status: xhr.status,
+        })}`,
       });
       complete && complete({
         code: ERROR_REQUEST_ABORT.code,
         message: `${JSON.stringify({
-          status: xhr.status
-        })}`
+          status: xhr.status,
+        })}`,
       });
       // return reject({
       //   code: ERROR_REQUEST_ABORT.code,
@@ -81,10 +82,10 @@ function requestXHR(options: RequestOptions) {
     const headers = xhr.getAllResponseHeaders();
     const arr = headers.trim().split(/[\r\n]+/);
     const headerMap = {};
-    arr.forEach(function(line) {
-      var parts = line.split(': ');
-      var header = parts.shift();
-      var value = parts.join(': ');
+    arr.forEach((line) => {
+      const parts = line.split(': ');
+      const header = parts.shift();
+      const value = parts.join(': ');
       headerMap[header as string] = value;
     });
     success && success({
@@ -107,7 +108,7 @@ function requestXHR(options: RequestOptions) {
   if (method === 'GET' || checkIsApplyDataToURL(headers)) {
     xhr.open(method, applyParamToURL(data, url), true);
   } else {
-    xhr.open(method, url, true );
+    xhr.open(method, url, true);
   }
   xhr.withCredentials = withCredentials;
   if (headers) {
@@ -127,7 +128,7 @@ function requestXHR(options: RequestOptions) {
 
   xhr.send(requestData);
   return {
-    abort: () => {}
+    abort: () => {},
   };
   // });
 }

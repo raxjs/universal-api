@@ -1,23 +1,23 @@
-import {LONG_DELAY, SHORT_DELAY, normalize} from '../utils/index';
+import { LONG_DELAY, SHORT_DELAY, normalize } from '../utils/index';
 import { ShowToastOption, HideToastOption } from '../types';
 import { isDingdingMiniapp } from '../../../../utils/miniappEnvApp';
 
 export const show = normalize((options: ShowToastOption): void => {
-  let { type, content, duration, success, fail, complete } = options;
+  const { type, content, duration, success, fail, complete } = options;
   const showToast = isDingdingMiniapp ? dd.showToast : my.showToast;
   showToast({
     type,
     content,
     duration,
-    success: function() {
+    success() {
       success && success();
     },
-    fail: function(res) {
+    fail(res) {
       fail && fail(res);
     },
     complete(res) {
       complete && complete(res);
-    }
+    },
   });
 });
 export const hide = normalize((options?: HideToastOption): void => {
