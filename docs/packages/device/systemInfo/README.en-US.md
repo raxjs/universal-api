@@ -1,4 +1,4 @@
-# getSystemInfoSync 
+# systemInfo 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
 [![npm](https://img.shields.io/npm/v/@uni/system-info.svg)](https://www.npmjs.com/package/@uni/system-info)
@@ -24,15 +24,19 @@ $ npm install @uni/apis --save
 ## Usage
 
 ```javascript
-import getSystemInfoSync from '@uni/system-info';
+import { getInfo, getInfoSync } from '@uni/system-info';
 
-let res = getSystemInfoSync();
+getInfo().then(res => console.log(res));
+let res = getInfoSync();
 
 ```
 
 You can also import from the big package:
 ```js
 import { systemInfo } from '@uni/apis';
+
+systemInfo.getInfo().then(res => console.log(res));
+let res = systemInfo.getInfoSync();
 ```
 
 ### Return

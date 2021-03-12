@@ -2,175 +2,184 @@ import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni
 import { isDingdingMiniapp } from '../../../utils/miniappEnvApp';
 // 按wechat、bytedance、dd、支付宝、web的方式，不支持的端相应位数置0即可
 const supportInfo = {
-  'application': {
+  application: {
     support: 11111,
-    'getApp': {
+    getApp: {
       support: 11111,
     },
-    'getCurrentPages': {
+    getCurrentPages: {
       support: 11111,
     },
-    'getLaunchOptionsSync': {
+    getLaunchOptionsSync: {
       support: 11111,
     },
-    'onError': {
+    onError: {
       support: 11111,
     },
-    'offError': {
+    offError: {
       support: 11111,
     },
-    'onUnhandledRejection': {
+    onUnhandledRejection: {
       support: 11111,
     },
-    'offUnhandledRejection': {
+    offUnhandledRejection: {
       support: 11111,
-    }
+    },
   },
-  'canvas': {
-    support: 11111
+  canvas: {
+    support: 11111,
+    createContext: {
+      support: 11111,
+    },
   },
-  'accelerometer': {
+  accelerometer: {
     support: 11110,
-    'onChange': {
+    onChange: {
       support: 11110,
     },
-    'offChange': {
+    offChange: {
       support: 11110,
-    }
+    },
   },
-  'clipboard': {
+  clipboard: {
     support: 11111,
-    'getClipboard': {
-      support: 11110
+    getClipboard: {
+      support: 11110,
     },
-    'setClipboard': {
-      support: 11111
+    setClipboard: {
+      support: 11111,
     },
   },
   'system-info': {
-    support: 11111
-  },
-  'file': {
     support: 11111,
-    'getInfo': {
-      support: 11110
+    getInfo: {
+      support: 11111,
     },
-    'getSavedInfo': {
-      support: 11110
+    getInfoSync: {
+      support: 11111,
     },
-    'getSavedList': {
-      support: 11110
+  },
+  file: {
+    support: 11111,
+    getInfo: {
+      support: 11110,
     },
-    'openDocument': {
-      support: 11110
+    getSavedInfo: {
+      support: 11110,
     },
-    'removeSaved': {
-      support: 11110
+    getSavedList: {
+      support: 11110,
     },
-    'save': {
-      support: 11110
+    openDocument: {
+      support: 11110,
     },
-    'download': {
-      support: 11110
+    removeSaved: {
+      support: 11110,
     },
-    'upload': {
-      support: 11111
+    save: {
+      support: 11110,
+    },
+    download: {
+      support: 11110,
+    },
+    upload: {
+      support: 11111,
     },
   },
   'action-sheet': {
-    support: 11111
-  },
-  'alert': {
-    support: 11111
-  },
-  'toast': {
-    support: 11111
-  },
-  'loading': {
     support: 11111,
-    'showLoading': {
-      support: 11111
-    },
-    'hideLoading': {
-      support: 11111
-    }
   },
-  'element': {
-    support: 11111
+  alert: {
+    support: 11111,
+  },
+  toast: {
+    support: 11111,
+  },
+  loading: {
+    support: 11111,
+    showLoading: {
+      support: 11111,
+    },
+    hideLoading: {
+      support: 11111,
+    },
+  },
+  element: {
+    support: 11111,
   },
   'insection-observer': {
-    support: 11111
-  },
-  'confirm': {
-    support: 11111
-  },
-  'location': {
     support: 11111,
-    'getLocation': {
-      support: 11111
-    },
-    'openLocation': {
-      support: 11110
-    }
   },
-  'image': {
+  confirm: {
     support: 11111,
-    'chooseImage': {
-      support: 11111
-    },
-    'compressImage': {
-      support: 11110
-    },
-    'getImageInfo': {
-      support: 11111
-    },
-    'previewImage': {
-      support: 11110
-    },
-    'saveImage': {
-      support: 11110
-    },
   },
-  'navigate': {
+  location: {
     support: 11111,
-    'push': {
-      support: 11111
+    getLocation: {
+      support: 11111,
     },
-    'back': {
-      support: 11111
-    },
-    'replace': {
-      support: 11111
-    },
-    'reLaunch': {
-      support: 11111
-    },
-    'go': {
-      support: 11111
+    openLocation: {
+      support: 11110,
     },
   },
-  'request': {
-    support: 11111
-  },
-  'storage': {
+  image: {
     support: 11111,
-    'getStorage': {
-      support: 11111
+    chooseImage: {
+      support: 11111,
     },
-    'setStorage': {
-      support: 11111
+    compressImage: {
+      support: 11110,
     },
-    'removeStorage': {
-      support: 11111
+    getImageInfo: {
+      support: 11111,
     },
-    'getStorageSync': {
-      support: 11111
+    previewImage: {
+      support: 11110,
     },
-    'setStorageSync': {
-      support: 11111
+    saveImage: {
+      support: 11110,
     },
-    'removeStorageSync': {
-      support: 11111
+  },
+  navigate: {
+    support: 11111,
+    push: {
+      support: 11111,
+    },
+    back: {
+      support: 11111,
+    },
+    replace: {
+      support: 11111,
+    },
+    reLaunch: {
+      support: 11111,
+    },
+    go: {
+      support: 11111,
+    },
+  },
+  request: {
+    support: 11111,
+  },
+  storage: {
+    support: 11111,
+    getStorage: {
+      support: 11111,
+    },
+    setStorage: {
+      support: 11111,
+    },
+    removeStorage: {
+      support: 11111,
+    },
+    getStorageSync: {
+      support: 11111,
+    },
+    setStorageSync: {
+      support: 11111,
+    },
+    removeStorageSync: {
+      support: 11111,
     },
   },
 };
@@ -184,7 +193,7 @@ const canIUse = (platform, api, supportInfo) => {
   if (rest.length) {
     return canIUse(platform, rest, supportInfo[apiName]);
   }
-  if ((supportInfo[apiName].support + '')[platform] !== '0') {
+  if ((`${supportInfo[apiName].support }`)[platform] !== '0') {
     return true;
   }
   return false;

@@ -43,15 +43,13 @@ export const download = normalize.download((options: DownloadOptions) => {
     url,
     header,
     success(res) {
-      success && success({
-        tempFilePath: res.apFilePath,
-      });
+      success && success(res);
     },
     fail(res) {
       fail && fail(res);
     },
     complete(res) {
-      complete && complete(res.apFilePath ? { tempFilePath: res.apFilePath } : res);
+      complete && complete(res);
     },
   });
 });
@@ -95,25 +93,13 @@ export const getSavedList = normalize.getSavedList((options: GetSavedListOptions
   const getSavedFileList = isDingdingMiniapp ? dd.getSavedFileList : my.getSavedFileList;
   getSavedFileList({
     success(res) {
-      success && success({
-        fileList: res.fileList.map((i) => ({
-          size: i.size,
-          createTime: i.createTime,
-          filePath: i.apFilePath,
-        })),
-      });
+      success && success(res);
     },
     fail(res) {
       fail && fail(res);
     },
     complete(res) {
-      complete && complete(res.fileList ? {
-        fileList: res.fileList.map((i) => ({
-          size: i.size,
-          createTime: i.createTime,
-          filePath: i.apFilePath,
-        })),
-      } : res);
+      complete && complete(res);
     },
   });
 });
@@ -123,17 +109,13 @@ export const save = normalize.save((options: SaveOptions) => {
   saveFile({
     apFilePath: tempFilePath,
     success(res) {
-      success && success({
-        savedFilePath: res.apFilePath,
-      });
+      success && success(res);
     },
     fail(res) {
       fail && fail(res);
     },
     complete(res) {
-      complete && complete(res.savedFilePath ? {
-        savedFilePath: res.apFilePath,
-      } : res);
+      complete && complete(res);
     },
   });
 });

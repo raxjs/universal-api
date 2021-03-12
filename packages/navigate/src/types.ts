@@ -41,7 +41,7 @@ export interface IReLaunchOptions {
 export interface INavigate {
   push: (options: IPushOptions) => Promise<null>;
   go: (options: IGoOptions) => Promise<null>;
-  back: (options: IPopOptions) => Promise<null>;
+  back: (options?: IPopOptions) => Promise<null>;
   replace: (options: IReplaceOptions) => Promise<null>;
   reLaunch: (options: IReLaunchOptions) => Promise<null>;
 }

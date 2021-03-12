@@ -2,7 +2,7 @@
 hero:
     image: https://img.alicdn.com/imgextra/i3/O1CN01lt5FH71VubB3j3Okd_!!6000000002713-2-tps-412-412.png
     title: uni
-    desc: 一个跨端的API库
+    desc: 一个跨端的 API 库
     actions:
     - text: 快速开始
       link: /packages
@@ -18,7 +18,7 @@ features:
     desc: 提供丰富完善的`api`
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/3863e74a-7870-4874-b1e1-00a8cdf47684/kj9t7ww3_w144_h144.png
     title: 文档完善
-    desc: 详尽的api文档及示例 
+    desc: 详尽的 api 文档及示例 
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/d60657df-0822-4631-9d7c-e7a869c2f21c/k79dmz3q_w126_h126.png
     title: 按环境拆包
     desc: 极致代码体积，体验升级
@@ -26,7 +26,7 @@ features:
 
 # uni
 
-基于rax应用生态，我们提供一系列跨端api帮助用户快速开发多端应用。
+基于 Rax 应用生态，我们提供一系列跨端 api 帮助用户快速开发多端应用。
 
 ```jsx | inline
 /**

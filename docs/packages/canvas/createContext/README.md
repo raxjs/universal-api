@@ -57,7 +57,7 @@ export default function() {
   }, []);
   return (
     <View>
-      <canvas id="canvas" width="400" height="400" />
+      <canvas id="canvas" type="2d" width="400" height="400" />
     </View>
   );
 }
@@ -85,7 +85,7 @@ export default function() {
   }, []);
   return (
     <View>
-      <canvas id="canvas" width="400" height="400" />
+      <canvas id="canvas" type="2d" width="400" height="400" />
     </View>
   );
 }

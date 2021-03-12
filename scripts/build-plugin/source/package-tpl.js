@@ -7,7 +7,7 @@ module.exports = {
   'unpkg': 'index.umd.js',
   'typings': 'types/index.d.ts',
   'peerDependencies': {
-    '@uni/env': '^1.0.0-beta',
+    '@uni/env': '^1.0.0',
   },
   'dependencies': {
     '@babel/runtime-corejs3': '^7.11.0'
