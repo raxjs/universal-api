@@ -39,19 +39,14 @@ const compiler = async (config, packageInfo, _outputPath, isMain = false, apiInf
     // 写入当前组件包的依赖
     packageTpl.version = packageInfo.version;
     packageTpl.name = packageInfo.name;
-    if (process.env.NPM_TYPE === 'prod') {
-      packageTpl.dependencies = {...packageTpl.peerDependencies, ...packageInfo.dependencies};
-      delete packageTpl.peerDependencies;
-      if (isMain || packageInfo.name == '@uni/env') {
-        delete packageTpl.dependencies['@uni/env'];
-      }
-    } else {
-      packageTpl.peerDependencies = {...packageTpl.peerDependencies, ...packageInfo.dependencies};
-      if (isMain || packageInfo.name == '@uni/env') {
-        delete packageTpl.peerDependencies['@uni/env'];
-      }
+    packageTpl.dependencies = {...packageTpl.peerDependencies, ...packageTpl.dependencies, ...packageInfo.dependencies};
+    delete packageTpl.peerDependencies;
+    if (isMain || packageInfo.name == '@uni/env') {
+      delete packageTpl.dependencies['@uni/env'];
     }
-  
+    if (isMain) {
+      packageTpl.typings = 'types/main/index.d.ts';
+    }
     // packageTpl.dependencies[componentPackage.name] = path.relative(distDir, root) + '/';
     await fs.outputJSON(path.resolve(root, _outputPath + 'package.json'), packageTpl);
   }
@@ -90,6 +85,7 @@ const compiler = async (config, packageInfo, _outputPath, isMain = false, apiInf
   if (apiInfo.declaration) {
     if (isMain) {
       fs.moveSync(path.resolve(root, _outputPath, 'packages'), path.resolve(root, _outputPath, 'types'));
+      // fs.moveSync(path.resolve(root, _outputPath, 'types/main/index.d.ts'), path.resolve(root, _outputPath, 'types'));
       // rm.sync(path.resolve(root, _outputPath, 'packages'));
     } else {
       fs.moveSync(path.resolve(root, _outputPath, tsPath.replace(root, '.')), path.resolve(root, _outputPath, 'types/index.d.ts'));

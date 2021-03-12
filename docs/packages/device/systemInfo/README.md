@@ -1,4 +1,4 @@
-# getSystemInfoSync 
+# systemInfo
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
 [![npm](https://img.shields.io/npm/v/@uni/system-info.svg)](https://www.npmjs.com/package/@uni/system-info)
@@ -24,15 +24,20 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import getSystemInfoSync from '@uni/system-info';
+import { getInfo, getInfoSync } from '@uni/system-info';
 
-let res = getSystemInfoSync();
+getInfo().then(res => console.log(res));
+let res = getInfoSync();
 
 ```
 
 你也可以从大包引入：
 ```js
 import { systemInfo } from '@uni/apis';
+
+systemInfo.getInfo().then(res => console.log(res));
+let res = systemInfo.getInfoSync();
+
 ```
 
 ### 返回

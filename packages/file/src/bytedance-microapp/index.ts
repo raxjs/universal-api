@@ -35,10 +35,11 @@ export const upload = normalize.upload((options: UploadOptions) => {
 });
 
 export const download = (options: DownloadOptions): DownloadTask => {
-  const { url, header, success, fail, complete } = options;
+  const { url, header, success, fail, complete, ...rest } = options;
   return tt.downloadFile({
     url,
     header,
+    ...rest,
     success(res) {
       success && success({
         tempFilePath: res.tempFilePath,
@@ -90,25 +91,13 @@ export const getSavedList = normalize.getSavedList((options: GetSavedListOptions
   const { success, fail, complete } = options;
   tt.getSavedFileList({
     success(res) {
-      success && success({
-        fileList: res.fileList.map((i) => ({
-          size: i.size,
-          createTime: i.createTime,
-          filePath: i.filePath,
-        })),
-      });
+      success && success(res);
     },
     fail(res) {
       fail && fail(res);
     },
     complete(res) {
-      complete && complete(res.fileList ? {
-        fileList: res.fileList.map((i) => ({
-          size: i.size,
-          createTime: i.createTime,
-          filePath: i.filePath,
-        })),
-      } : res);
+      complete && complete(res);
     },
   });
 });
@@ -117,17 +106,13 @@ export const save = normalize.save((options: SaveOptions) => {
   tt.saveFile({
     tempFilePath,
     success(res) {
-      success && success({
-        savedFilePath: res.savedFilePath,
-      });
+      success && success(res);
     },
     fail(res) {
       fail && fail(res);
     },
     complete(res) {
-      complete && complete(res.savedFilePath ? {
-        savedFilePath: res.savedFilePath,
-      } : res);
+      complete && complete(res);
     },
   });
 });

@@ -61,15 +61,6 @@ function checkVersionExists(pkg, version) {
 }
 
 function npmPublish(tag, outDir) {
-  // spawnSync('npm', [
-  //   'config',
-  //   `set`,
-  //   'registry',
-  //   'https://registry.npmjs.org/',
-  // ], {
-  //   stdio: 'inherit',
-  //   cwd: outDir,
-  // });
   spawnSync('npm', [
     'publish',
     '--tag=' + tag,

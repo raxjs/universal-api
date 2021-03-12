@@ -1,6 +1,6 @@
-import getSystemInfoSync from '@uni/system-info';
+import { getInfoSync } from '@uni/system-info';
 
-const {screenWidth} = getSystemInfoSync();
+const { screenWidth } = getInfoSync();
 const CALCULATION_ACCURACY = 8;
 
 export const px2rpx = (value: number) => {

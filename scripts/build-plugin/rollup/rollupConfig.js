@@ -24,7 +24,7 @@ module.exports = (inputPath, itemOutputPath, sourceMap, pkgInfo, apiInfo, isMain
   const sourcePath = isMain ? inputPath.replace(/\/index\.(t|j)s/, '') : inputPath.replace(/\/src\/.*/, '');
   // const outputPath = outputDir + itemOutputPath;
   const outputPath = itemOutputPath;
-  const docPath = isMain ? root : sourcePath.replace('/packages', '/docs/packages');
+  // const docPath = isMain ? root : sourcePath.replace('/packages', '/docs/packages');
   // const typesPath = path.resolve(root, inputPath.replace("index.ts", "types.ts"));
   
 

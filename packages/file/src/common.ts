@@ -21,6 +21,13 @@ export const normalize = {
     };
   },
   download: (api) => {
+    const formatRes = (res) => {
+      return {
+        ...res,
+        tempFilePath: res.tempFilePath || res.apFilePath,
+      };
+    };
+
     return (options) => {
       const DEFAULT_REQUEST_OPTIONS: DownloadOptions = {
         url: '',
@@ -29,20 +36,22 @@ export const normalize = {
         ...options,
         ...{
           success: (res) => {
-            options.success && options.success({
-              tempFilePath: res.tempFilePath,
-            });
+            options.success && options.success(formatRes(res));
           },
           complete: (res) => {
-            options.complete && options.complete(res.tempFilePath ? {
-              tempFilePath: res.tempFilePath,
-            } : res);
+            options.complete && options.complete(res.tempFilePath ? formatRes(res) : res);
           },
         } };
-      return promisify(api)(afterOptions);
+      return promisify(api)(afterOptions).then((res) => formatRes(res));
     };
   },
   getInfo: (api) => {
+    const formatRes = (res) => {
+      return {
+        ...res,
+        size: res.size,
+      };
+    };
     return (options) => {
       const DEFAULT_REQUEST_OPTIONS: GetInfoOptions = {
         filePath: '',
@@ -52,17 +61,13 @@ export const normalize = {
         ...options,
         ...{
           success: (res) => {
-            options.success && options.success({
-              size: res.size,
-            });
+            options.success && options.success(formatRes(res));
           },
           complete: (res) => {
-            options.complete && options.complete(res.size ? {
-              size: res.size,
-            } : res);
+            options.complete && options.complete(res.size ? formatRes(res) : res);
           },
         } };
-      return promisify(api)(afterOptions);
+      return promisify(api)(afterOptions).then((res) => formatRes(res));
     };
   },
   getSavedInfo: (api) => {
@@ -74,48 +79,46 @@ export const normalize = {
         ...options,
         ...{
           success: (res) => {
-            options.success && options.success({
-              size: res.size,
-              createTime: res.createTime,
-            });
+            options.success && options.success(res);
           },
           complete: (res) => {
-            options.complete && options.complete(res.size ? {
-              size: res.size,
-              createTime: res.createTime,
-            } : res);
+            options.complete && options.complete(res);
           },
         } };
       return promisify(api)(afterOptions);
     };
   },
   getSavedList: (api) => {
+    const formatRes = (res) => {
+      return {
+        ...res,
+        fileList: res.fileList.map((i) => ({
+          size: i.size,
+          createTime: i.createTime,
+          filePath: i.filePath || i.apFilePath,
+        })),
+      };
+    };
     return (options: GetSavedListOptions) => {
       const afterOptions = { ...options,
         ...{
           success: (res) => {
-            options.success && options.success({
-              fileList: res.fileList.map((i) => ({
-                size: i.size,
-                createTime: i.createTime,
-                filePath: i.filePath,
-              })),
-            });
+            options.success && options.success(formatRes(res));
           },
           complete: (res) => {
-            options.complete && options.complete(res.fileList ? {
-              fileList: res.fileList.map((i) => ({
-                size: i.size,
-                createTime: i.createTime,
-                filePath: i.filePath,
-              })),
-            } : res);
+            options.complete && options.complete(res.fileList ? formatRes(res) : res);
           },
         } };
-      return promisify(api)(afterOptions);
+      return promisify(api)(afterOptions).then(formatRes);
     };
   },
   save: (api) => {
+    const formatRes = (res) => {
+      return {
+        ...res,
+        savedFilePath: res.savedFilePath || res.apFilePath,
+      };
+    };
     return (options: SaveOptions) => {
       const DEFAULT_REQUEST_OPTIONS: SaveOptions = {
         tempFilePath: '',
@@ -124,17 +127,13 @@ export const normalize = {
         ...options,
         ...{
           success: (res) => {
-            options.success && options.success({
-              savedFilePath: res.savedFilePath || res.apFilePath,
-            });
+            options.success && options.success(formatRes(res));
           },
           complete: (res) => {
-            options.complete && options.complete(res.size ? {
-              savedFilePath: res.savedFilePath || res.apFilePath,
-            } : res);
+            options.complete && options.complete(res.size ? formatRes(res) : res);
           },
         } };
-      return promisify(api)(afterOptions);
+      return promisify(api)(afterOptions).then(formatRes);
     };
   },
   removeSaved: (api) => {

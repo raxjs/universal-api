@@ -18,7 +18,7 @@ export default {
       title: 'API',
       path: '/packages'
     }, {
-      title: 'Raxjs',
+      title: 'Rax',
       path: 'http://rax.alibaba-inc.com/'
     }, {
       title: 'GitHub',
@@ -28,7 +28,7 @@ export default {
       title: 'API',
       path: '/en-US/packages'
     }, {
-      title: 'Raxjs',
+      title: 'Rax',
       path: 'http://rax.alibaba-inc.com/'
     }, {
       title: 'GitHub',
