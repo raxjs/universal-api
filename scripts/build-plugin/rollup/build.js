@@ -39,7 +39,7 @@ const compiler = async (config, packageInfo, _outputPath, isMain = false, apiInf
     // 写入当前组件包的依赖
     packageTpl.version = packageInfo.version;
     packageTpl.name = packageInfo.name;
-    packageTpl.dependencies = {...packageTpl.peerDependencies, ...packageInfo.dependencies};
+    packageTpl.dependencies = {...packageTpl.peerDependencies, ...packageTpl.dependencies, ...packageInfo.dependencies};
     delete packageTpl.peerDependencies;
     if (isMain || packageInfo.name == '@uni/env') {
       delete packageTpl.dependencies['@uni/env'];
