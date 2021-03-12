@@ -2,6 +2,8 @@
 
 ### Bug Fixes
 
+* **scripts/build-plugin/rollup/build.js:** 修复构建时丢失 babel 依赖的问题 ([a6d6743](https://github.com/raxjs/universal-api/commit/a6d6743bde823f6927565ad3897b7fb08718ca1d))
+
 * env 依赖移到dep,修复大包 types 指向,修复部分 api bug ([44bcc31](https://github.com/raxjs/universal-api/commit/44bcc31c67aeb44ffa4bb0709d222564a8e21583))
 
 * @uni/file@1.0.1 
