@@ -65,6 +65,7 @@
     "@rollup/plugin-node-resolve": "^10.0.0",
     "axios": ">=0.21.1",
     "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.2.2",
     "build-scripts": "^0.1.25",
     "case-sensitive-paths-webpack-plugin": "^2.3.0",
     "chalk": "^4.1.0",
