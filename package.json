@@ -18,7 +18,8 @@
     "docs:dev": "cross-env node ./scripts/buildDocs.js && cross-env dumi dev",
     "docs:build": "cross-env node ./scripts/buildDocs.js && cross-env dumi build",
     "docs:deploy": "gh-pages -ad docs-dist",
-    "check-and-publish": "node ./scripts/check-and-publish.js"
+    "check-and-publish": "node ./scripts/check-and-publish.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
   },
   "husky": {
     "hooks": {
@@ -69,6 +70,7 @@
     "chalk": "^4.1.0",
     "chokidar": "^3.1.0",
     "commitizen": "^4.2.3",
+    "conventional-changelog-cli": "^2.1.1",
     "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.3.0",
     "dumi": "^1.1.0-beta.30",
