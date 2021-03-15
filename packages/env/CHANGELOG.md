@@ -4,7 +4,7 @@
 
 ### Added
 
-- add KuaiShou MiniProgram and Baidu SmartProgram env judge
+- Add KuaiShou MiniProgram and Baidu SmartProgram env judge
 
 ### Changed
 
