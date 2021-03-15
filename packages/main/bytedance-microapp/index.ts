@@ -1,21 +1,70 @@
-export * as application from '../../application/src/bytedance-microapp/index';
-export * as env from '../../base/env/src/index';
-export * as canIUse from '../../base/canIUse/src/index';
-export * as unitTool from '../../base/unit-tool/src/index';
-export * as canvas from '../../canvas/src/bytedance-microapp/index';
-export * as accelerometer from '../../device/accelerometer/src/bytedance-microapp/index';
-export * as clipboard from '../../device/clipboard/src/bytedance-microapp/index';
-export * as systemInfo from '../../device/getSystemInfoSync/src/bytedance-microapp/index';
-export * as file from '../../file/src/bytedance-microapp/index';
-export * as actionSheet from '../../interactive/showActionSheet/src/bytedance-microapp/index';
-export * as alert from '../../interactive/alert/src/bytedance-microapp/index';
-export * as toast from '../../interactive/toast/src/bytedance-microapp/index';
-export * as loading from '../../interactive/loading/src/bytedance-microapp/index';
-export * as element from '../../interactive/element/src/bytedance-microapp/index';
-export * as intersectionObserver from '../../interactive/intersectionObserver/src/bytedance-microapp/index';
-export * as confirm from '../../interactive/confirm/src/bytedance-microapp/index';
-export * as location from '../../location/src/bytedance-microapp/index';
-export * as image from '../../media/image/src/bytedance-microapp/index';
-export * as navigate from '../../navigate/src/bytedance-microapp/index';
-export * as request from '../../network/request/src/bytedance-microapp/index';
-export * as storage from '../../storage/src/bytedance-microapp/index';
+import application from '../../application/src/bytedance-microapp/index';
+import env from '../../base/env/src/index';
+import canIUse from '../../base/canIUse/src/index';
+import unitTool from '../../base/unit-tool/src/index';
+import canvas from '../../canvas/src/bytedance-microapp/index';
+import accelerometer from '../../device/accelerometer/src/bytedance-microapp/index';
+import clipboard from '../../device/clipboard/src/bytedance-microapp/index';
+import systemInfo from '../../device/systemInfo/src/bytedance-microapp/index';
+import file from '../../file/src/bytedance-microapp/index';
+import actionSheet from '../../interactive/showActionSheet/src/bytedance-microapp/index';
+import alert from '../../interactive/alert/src/bytedance-microapp/index';
+import toast from '../../interactive/toast/src/bytedance-microapp/index';
+import loading from '../../interactive/loading/src/bytedance-microapp/index';
+import element from '../../interactive/element/src/bytedance-microapp/index';
+import intersectionObserver from '../../interactive/intersectionObserver/src/bytedance-microapp/index';
+import confirm from '../../interactive/confirm/src/bytedance-microapp/index';
+import location from '../../location/src/bytedance-microapp/index';
+import image from '../../media/image/src/bytedance-microapp/index';
+import navigate from '../../navigate/src/bytedance-microapp/index';
+import request from '../../network/request/src/bytedance-microapp/index';
+import storage from '../../storage/src/bytedance-microapp/index';
+
+export {
+  application,
+  env,
+  canIUse,
+  unitTool,
+  canvas,
+  accelerometer,
+  clipboard,
+  systemInfo,
+  file,
+  actionSheet,
+  alert,
+  toast,
+  loading,
+  element,
+  intersectionObserver,
+  confirm,
+  location,
+  image,
+  navigate,
+  request,
+  storage,
+};
+
+
+export default {
+  application,
+  env,
+  canIUse,
+  unitTool,
+  canvas,
+  accelerometer,
+  clipboard,
+  systemInfo,
+  file,
+  actionSheet,
+  alert,
+  toast,
+  loading,
+  element,
+  intersectionObserver,
+  confirm,
+  location,
+  image,
+  navigate,
+  request,
+  storage,
+};

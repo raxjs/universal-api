@@ -29,6 +29,7 @@ $ npm install @uni/file --save
 | -------- | ------ | -------- |
 |size|number|文件大小，以字节为单位|
 |digest|string|按照传入的 digestAlgorithm 计算得出的的文件摘要|
+
 ## 示例
 
 ```js

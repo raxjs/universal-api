@@ -1,21 +1,70 @@
-export * as application from '../application/src/index';
-export * as env from '../base/env/src/index';
-export * as canIUse from '../base/canIUse/src/index';
-export * as unitTool from '../base/unit-tool/src/index';
-export * as canvas from '../canvas/src/index';
-export * as accelerometer from '../device/accelerometer/src/index';
-export * as clipboard from '../device/clipboard/src/index';
-export * as systemInfo from '../device/getSystemInfoSync/src/index';
-export * as file from '../file/src/index';
-export * as actionSheet from '../interactive/showActionSheet/src/index';
-export * as alert from '../interactive/alert/src/index';
-export * as toast from '../interactive/toast/src/index';
-export * as loading from '../interactive/loading/src/index';
-export * as element from '../interactive/element/src/index';
-export * as intersectionObserver from '../interactive/intersectionObserver/src/index';
-export * as confirm from '../interactive/confirm/src/index';
-export * as location from '../location/src/index';
-export * as image from '../media/image/src/index';
-export * as navigate from '../navigate/src/index';
-export * as request from '../network/request/src/index';
-export * as storage from '../storage/src/index';
+import application from '../application/src/index';
+import env from '../base/env/src/index';
+import canIUse from '../base/canIUse/src/index';
+import unitTool from '../base/unit-tool/src/index';
+import canvas from '../canvas/src/index';
+import accelerometer from '../device/accelerometer/src/index';
+import clipboard from '../device/clipboard/src/index';
+import systemInfo from '../device/systemInfo/src/index';
+import file from '../file/src/index';
+import actionSheet from '../interactive/showActionSheet/src/index';
+import alert from '../interactive/alert/src/index';
+import toast from '../interactive/toast/src/index';
+import loading from '../interactive/loading/src/index';
+import element from '../interactive/element/src/index';
+import intersectionObserver from '../interactive/intersectionObserver/src/index';
+import confirm from '../interactive/confirm/src/index';
+import location from '../location/src/index';
+import image from '../media/image/src/index';
+import navigate from '../navigate/src/index';
+import request from '../network/request/src/index';
+import storage from '../storage/src/index';
+
+export {
+  application,
+  env,
+  canIUse,
+  unitTool,
+  canvas,
+  accelerometer,
+  clipboard,
+  systemInfo,
+  file,
+  actionSheet,
+  alert,
+  toast,
+  loading,
+  element,
+  intersectionObserver,
+  confirm,
+  location,
+  image,
+  navigate,
+  request,
+  storage,
+};
+
+
+export default {
+  application,
+  env,
+  canIUse,
+  unitTool,
+  canvas,
+  accelerometer,
+  clipboard,
+  systemInfo,
+  file,
+  actionSheet,
+  alert,
+  toast,
+  loading,
+  element,
+  intersectionObserver,
+  confirm,
+  location,
+  image,
+  navigate,
+  request,
+  storage,
+};
