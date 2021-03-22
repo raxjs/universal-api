@@ -105,7 +105,7 @@ module.exports = {
   },
   // interactive
   actionSheet: {
-    path: 'packages/interactive/showActionSheet/src/index.ts',
+    path: 'packages/interactive/actionSheet/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.1',
