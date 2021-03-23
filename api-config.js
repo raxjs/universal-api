@@ -4,7 +4,7 @@ module.exports = {
     path: 'packages/application/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/application',
       },
     ],
@@ -61,7 +61,7 @@ module.exports = {
     path: 'packages/device/accelerometer/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/accelerometer',
       },
     ],
@@ -98,7 +98,7 @@ module.exports = {
     path: 'packages/file/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/file',
       },
     ],
@@ -154,7 +154,7 @@ module.exports = {
     path: 'packages/interactive/toast/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.2',
+        version: '1.0.3',
         name: '@uni/toast',
       },
     ],
@@ -181,7 +181,7 @@ module.exports = {
     path: 'packages/interactive/element/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/element',
       },
     ],
@@ -237,7 +237,7 @@ module.exports = {
     path: 'packages/navigate/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/navigate',
       },
     ],
@@ -247,7 +247,7 @@ module.exports = {
     path: 'packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/request',
       },
     ],

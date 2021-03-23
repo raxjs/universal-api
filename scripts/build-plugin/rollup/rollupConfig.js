@@ -9,13 +9,10 @@ const json = require('@rollup/plugin-json');
 const autoExternal = require('rollup-plugin-auto-external');
 const progress = require('rollup-plugin-progress');
 const visualizer = require('rollup-plugin-visualizer');
-const copy = require('rollup-plugin-copy');
 const alias = require('@rollup/plugin-alias');
 const {terser} = require("rollup-plugin-terser");
-const filesize = require("rollup-plugin-filesize");
 const fs = require('fs-extra');
 const conf = require('../conf/index');
-// const del = require("rollup-plugin-delete");
 const root = process.cwd();
 const outputDir = 'dist/';
 
@@ -128,8 +125,6 @@ module.exports = (inputPath, itemOutputPath, sourceMap, pkgInfo, apiInfo, isMain
                 [
                   '@babel/plugin-transform-runtime',
                   {
-                    // corejs: false,
-                    // helpers: false,
                     useESModules: format == 'esm' ? true : false,
                     corejs: 3,
                     helpers: format == 'umd' ? false : true,
@@ -147,24 +142,6 @@ module.exports = (inputPath, itemOutputPath, sourceMap, pkgInfo, apiInfo, isMain
             visualizer(),
             // filesize(),
           ],
-          // ...(apiInfo.mvReadme ? [
-          //   copy({
-          //     targets: [
-          //       { src: isMain ? 
-          //         path.resolve(root, 'README.md') : 
-          //         (fs.pathExistsSync(docPath + '/README.md') ? docPath + '/README.md' : docPath + '/README.md.c'), 
-          //         dest: path.resolve(root, outputPath), rename: 'README.md'},
-          //       { src: 
-          //           isMain ? 
-          //           path.resolve(root, 'README.en-US.md') : 
-          //           (
-          //             fs.pathExistsSync(docPath + '/README.en-US.md') ? 
-          //             docPath + '/README.en-US.md' : docPath + '/README.en-US.md.c'
-          //           ),
-          //         dest: path.resolve(root, outputPath), rename: 'README.en-US.md'}
-          //     ],
-          //   }),
-          // ] : [])
         ],
         }
       }

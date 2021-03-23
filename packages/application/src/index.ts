@@ -98,16 +98,12 @@ export const offUnhandledRejection = (options: RejectCallback) => {
     throw new Error('@uni：Application.offUnhandledRejection 暂不支持');
   }
 };
-let res: Application;
-if (isWeChatMiniProgram) {
-  res = weChatModule;
-} else if (isByteDanceMicroApp) {
-  res = bytedanceModule;
-} else if (isMiniApp) {
-  res = aliMiniAppModule;
-} else if (isWeb) {
-  res = webModule;
-} else {
-  throw new Error('@uni：Application 暂不支持');
-}
-export default res;
+export default {
+  getApp,
+  getCurrentPages,
+  getLaunchOptionsSync,
+  onError,
+  offError,
+  onUnhandledRejection,
+  offUnhandledRejection,
+};

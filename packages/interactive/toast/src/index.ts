@@ -3,7 +3,7 @@ import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 import webModule from './web/index';
-import { ShowToastOption, HideToastOption, ToastOption } from './types';
+import { ShowToastOption, HideToastOption } from './types';
 import { LONG_DELAY, SHORT_DELAY } from './utils/index';
 
 export const LONG = LONG_DELAY;
@@ -34,16 +34,9 @@ export const hide = (options?: HideToastOption) => {
     throw new Error('@uni/apis：Toast暂不支持');
   }
 };
-let res: ToastOption;
-if (isWeChatMiniProgram) {
-  res = weChatModule;
-} else if (isByteDanceMicroApp) {
-  res = bytedanceModule;
-} else if (isMiniApp) {
-  res = aliMiniAppModule;
-} else if (isWeb) {
-  res = webModule;
-} else {
-  throw new Error('@uni/apis：Toast暂不支持');
-}
-export default res;
+export default {
+  SHORT,
+  LONG,
+  show,
+  hide,
+};

@@ -29,6 +29,7 @@ $ npm install @uni/file --save
 | -------- | ------ | -------- |
 |size|number|File size in bytes|
 |digest|string|File summary computed based on the passed digestAlgorithm|
+
 ## Example
 
 ```js

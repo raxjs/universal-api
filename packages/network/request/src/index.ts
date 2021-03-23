@@ -1,6 +1,6 @@
 import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 import {
-  RequestOptions
+  RequestOptions,
 } from './types';
 import webModule from './web/index';
 import aliMiniAppModule from './ali-miniapp/index';
@@ -16,6 +16,8 @@ export default (options: RequestOptions) => {
     return aliMiniAppModule(options);
   } else if (isWeb) {
     return webModule(options);
+  } else {
+    throw new Error('@uni/apis：request暂不支持');
   }
 };
 

@@ -12,7 +12,6 @@ import {
   RemoveSavedOptions,
   OpenDocumentOptions,
   UploadOptions,
-  IFile,
 } from './types';
 
 export const upload = (options: UploadOptions) => {
@@ -119,16 +118,13 @@ export const openDocument = (options: OpenDocumentOptions) => {
     throw new Error('@uni：file.openDocument暂不支持');
   }
 };
-let res: IFile;
-if (isWeChatMiniProgram) {
-  res = weChatModule;
-} else if (isByteDanceMicroApp) {
-  res = bytedanceModule;
-} else if (isMiniApp) {
-  res = aliMiniAppModule;
-} else if (isWeb) {
-  res = webModule;
-} else {
-  throw new Error('@uni：file暂不支持');
-}
-export default res;
+export default {
+  openDocument,
+  removeSaved,
+  upload,
+  save,
+  getSavedList,
+  getSavedInfo,
+  getInfo,
+  download,
+};

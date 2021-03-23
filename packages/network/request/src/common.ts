@@ -1,5 +1,5 @@
 import { DATA_TYPE, AsObject, RequestOptions } from './types';
-// import { promisify } from '../../../utils/promisify';
+import { styleIn } from '../../../utils/styleOptions';
 
 export function getDataWithType(data: any, type: DATA_TYPE) {
   if (type === DATA_TYPE.json) {
@@ -104,9 +104,10 @@ export function styleOptions(options) {
     });
   return afterOptions;
 }
-export function normalize(api) {
+export function normalize(api, containerName) {
   return (options) => {
-    const afterOptions = styleOptions(options);
+    const afterOptions = styleOptions(styleIn(options, containerName));
+
     return api(afterOptions);
   };
 }

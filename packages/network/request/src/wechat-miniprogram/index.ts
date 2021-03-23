@@ -3,10 +3,11 @@ import {
   ResponseData,
 } from '../types';
 import { normalize } from '../common';
+import { CONTAINER_NAME } from '../../../../utils/constant';
 
 function request(options: RequestOptions) {
   const { url, method, data, dataType, headers, timeout, success, fail, complete } = options;
-  wx.request({
+  return wx.request({
     url,
     headers,
     method,
@@ -24,4 +25,4 @@ function request(options: RequestOptions) {
     },
   });
 }
-export default normalize(request);
+export default normalize(request, CONTAINER_NAME.WECHAT);

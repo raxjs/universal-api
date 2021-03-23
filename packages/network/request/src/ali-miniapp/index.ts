@@ -4,6 +4,7 @@ import {
 } from '../types';
 import { isDingdingMiniapp } from '../../../../utils/miniappEnvApp';
 import { normalize } from '../common';
+import { CONTAINER_NAME } from '../../../../utils/constant';
 
 function request(options: RequestOptions) {
   const { url, method, data, dataType, headers, timeout, success, fail, complete } = options;
@@ -26,4 +27,4 @@ function request(options: RequestOptions) {
     },
   });
 }
-export default normalize(request);
+export default normalize(request, CONTAINER_NAME.ALIPAY);

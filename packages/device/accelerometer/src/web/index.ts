@@ -1,4 +1,4 @@
-import {Callback} from '../types';
+import { Callback } from '../types';
 
 export const onChange = (cb: Callback) => {
   throw new Error('@uni/apis: accelerometer不支持');
@@ -8,5 +8,5 @@ export const offChange = (cb?: Callback) => {
 };
 export default {
   onChange,
-  offChange
+  offChange,
 };

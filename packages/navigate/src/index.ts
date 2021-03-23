@@ -71,16 +71,10 @@ export const reLaunch = (options: IReLaunchOptions) => {
   }
 };
 
-let res: INavigate;
-if (isWeChatMiniProgram) {
-  res = weChatModule;
-} else if (isByteDanceMicroApp) {
-  res = bytedanceModule;
-} else if (isMiniApp) {
-  res = aliMiniAppModule;
-} else if (isWeb) {
-  res = webModule;
-} else {
-  throw new Error('@uni/apis：navigate暂不支持');
-}
-export default res;
+export default {
+  push,
+  back,
+  reLaunch,
+  replace,
+  go,
+};

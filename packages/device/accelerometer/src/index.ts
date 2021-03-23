@@ -1,8 +1,9 @@
-import { isMiniApp, isWeChatMiniProgram, isByteDanceMicroApp } from '@uni/env';
+import { isMiniApp, isWeChatMiniProgram, isByteDanceMicroApp, isWeb } from '@uni/env';
 import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
-import {Callback, Accelerometer} from './types';
+import webModule from './web/index';
+import { Callback } from './types';
 
 export const onChange = (cb: Callback) => {
   if (isWeChatMiniProgram) {
@@ -11,6 +12,8 @@ export const onChange = (cb: Callback) => {
     return bytedanceModule.onChange(cb);
   } else if (isMiniApp) {
     return aliMiniAppModule.onChange(cb);
+  } else if (isWeb) {
+    return webModule.onChange(cb);
   } else {
     throw new Error('@uni/apis：Accelerometer暂不支持');
   }
@@ -22,18 +25,13 @@ export const offChange = (cb?: Callback) => {
     return bytedanceModule.offChange(cb);
   } else if (isMiniApp) {
     return aliMiniAppModule.offChange(cb);
+  } else if (isWeb) {
+    return webModule.onChange(cb);
   } else {
     throw new Error('@uni/apis：Accelerometer暂不支持');
   }
 };
-let res: Accelerometer;
-if (isWeChatMiniProgram) {
-  res = weChatModule;
-} else if (isByteDanceMicroApp) {
-  res = bytedanceModule;
-} else if (isMiniApp) {
-  res = aliMiniAppModule;
-} else {
-  throw new Error('@uni/apis：Accelerometer暂不支持');
-}
-export default res;
+export default {
+  onChange,
+  offChange,
+};

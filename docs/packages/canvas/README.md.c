@@ -94,7 +94,7 @@ export default function() {
 
 你也可以从大包引入：
 ```js
-import { canvasApis } from '@uni/apis';
+import { canvas } from '@uni/apis';
 
 ```
 

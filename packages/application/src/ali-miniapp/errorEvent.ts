@@ -16,9 +16,9 @@ export const onUnhandledRejection = (cb: RejectCallback) => {
 export const offUnhandledRejection = (cb?: RejectCallback) => {
   return isDingdingMiniapp ? dd.offUnhandledRejection(cb) : my.offUnhandledRejection(cb);
 };
-// export default {
-//   onError,
-//   offError,
-//   onUnhandledRejection,
-//   offUnhandledRejection,
-// };
+export default {
+  onError,
+  offError,
+  onUnhandledRejection,
+  offUnhandledRejection,
+};

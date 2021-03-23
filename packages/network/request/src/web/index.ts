@@ -11,6 +11,7 @@ import {
   isPlainObject,
   normalize,
 } from '../common';
+import { CONTAINER_NAME } from '../../../../utils/constant';
 
 function requestXHR(options: RequestOptions) {
   options.headers = Object.assign({
@@ -132,4 +133,4 @@ function requestXHR(options: RequestOptions) {
   };
   // });
 }
-export default normalize(requestXHR);
+export default normalize(requestXHR, CONTAINER_NAME.WEB);
