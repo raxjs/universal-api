@@ -82,8 +82,8 @@ module.exports = (inputPath, itemOutputPath, sourceMap, pkgInfo, apiInfo, isMain
           plugins: [...(isMain ? [progress()] : []), ...[
             // progress(),
             alias(format == 'umd' || isMain ? {
-              entries: [...aliasEntries],
-            } : {}),
+              entries: [...aliasEntries, { find: '@', replacement: path.resolve(root, 'packages') }],
+            } : {entries: [{ find: '@', replacement: path.resolve(root, 'packages') }]}),
             resolve({
               // 将自定义选项传递给解析插件
               customResolveOptions: {

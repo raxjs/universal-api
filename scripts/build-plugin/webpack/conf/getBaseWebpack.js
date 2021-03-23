@@ -76,7 +76,7 @@ module.exports = (context, options = {}) => {
   config.plugin('caseSensitivePaths').use(CaseSensitivePathsPlugin);
 
   config.plugin('noError').use(webpack.NoEmitOnErrorsPlugin);
-
+  
 
   config.mode('production');
 // config.optimization

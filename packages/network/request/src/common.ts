@@ -1,5 +1,5 @@
 import { DATA_TYPE, AsObject, RequestOptions } from './types';
-import { styleIn } from '../../../utils/styleOptions';
+import { styleIn } from '@/utils/styleOptions';
 
 export function getDataWithType(data: any, type: DATA_TYPE) {
   if (type === DATA_TYPE.json) {

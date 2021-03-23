@@ -27,6 +27,9 @@ module.exports = (context, options) => {
   ]);
 
   config.target('web');
+  config.resolve.alias
+  .set('@', path.resolve(rootDir, 'packages'));
+  
   config
   // 修改 entry 配置
   .entry('index')
