@@ -14,7 +14,7 @@ $ npm install @uni/file --save
 
 ## Methods
 
-### `getInfo(options)`
+### `getFileInfo(options)`
 
 Get file information.
 
@@ -28,7 +28,7 @@ Get file information.
 | digestAlgorithm | `String` | md5   | x        | The algorithm to calculate the file summary can be md5, sha1 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 
 
-### `getSavedInfo(options)`
+### `getSavedFileInfo(options)`
 
 Gets saved file information.
 
@@ -40,7 +40,7 @@ Gets saved file information.
 | -------- | -------- | ------- | -------- | ------------- | --------------------------------------- |
 | filePath | `String` |         | √        | The file path | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 
-### `getSavedList(options)`
+### `getSavedFileList(options)`
 
 Gets all saved file information.
 
@@ -60,7 +60,7 @@ Open a file preview on the new page.
 | filePath | `String` |         | √        | The file path | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 | fileType | `String` |         | x        | The file Type | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 
-### `removeSaved(options)`
+### `removeSavedFile(options)`
 
 Delete a saved file.
 
@@ -72,7 +72,7 @@ Delete a saved file.
 | -------- | -------- | ------- | -------- | ------------- | --------------------------------------- |
 | filePath | `String` |         | √        | The file path | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 
-### `save(options)`
+### `saveFile(options)`
 
 Save the file locally.
 
@@ -84,7 +84,7 @@ Save the file locally.
 | -------- | -------- | ------- | -------- | ------------- | --------------------------------------- |
 | filePath | `String` |         | √        | The file path | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 
-### `upload(options)`
+### `uploadFile(options)`
 
 Upload local resources to the developer server.
 
@@ -101,8 +101,17 @@ Upload local resources to the developer server.
 | header | `Object` |         | x        | The HTTP request Header | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 | formData | `Object` |         | x        | Additional form data in the HTTP request | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 
+#### Return
+注意：只有微信小程序和字节跳动小程序支持，由于破坏了一码多端请谨慎使用
 
-### `download(options)`
+UploadTask
+一个可以监听上传进度变化事件，以及取消上传任务的对象
+具体文档可以查看：
+微信：[链接](https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/UploadTask.html)
+字节跳动：[链接](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/api/network/http/upload-task/)
+
+
+### `downloadFile(options)`
 
 Download file resources locally.
 
@@ -115,13 +124,22 @@ Download file resources locally.
 | url      | `String` |         | √        | Download file address   | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 | header   | `Object` |         | x        | The HTTP request Header | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 
+#### Return
+注意：只有微信小程序和字节跳动小程序支持
+
+DownloadTask
+一个可以监听下载进度变化事件和取消下载的对象
+具体文档可以查看：
+微信：https://developers.weixin.qq.com/miniprogram/dev/api/network/download/DownloadTask.html
+字节跳动：https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/api/network/http/download-task/
+
 ## Example
 
 ```js
-import File from '@uni/file';
+import { downloadFile, getFileInfo, getSavedFileInfo, getSavedFileList, openDocument, removeSavedFile, saveFile, uploadFile } from '@uni/file';
 
 // Get file information.
-File.getInfo({
+getFileInfo({
   filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
   digestAlgorithm: 'sha1',
   success: (res)=>{
@@ -130,7 +148,7 @@ File.getInfo({
 });
 
 // You need to save the address to be able to use File.getsavedinfo
-File.getSavedInfo({
+getSavedFileInfo({
   filePath: '**filePath**',
   success: (res) => {
     console.log(res.size);
@@ -138,13 +156,13 @@ File.getSavedInfo({
   }
 });
 
-File.getSavedList({
+getSavedFileList({
   success:(res) => {
     console.log(JSON.stringfy(res));
   }
 });
 
-File.openDocument({
+openDocument({
   filePath: '**filePath**',
   fileType: 'pdf',
   success: (res) => {
@@ -152,21 +170,21 @@ File.openDocument({
   };
 });
 
-File.removeSaved({
+removeSavedFile({
   filePath: '**filePath**',
   success:(res) => {
     console.log('remove success');
   }
 });
 
-File.save({
+saveFile({
   filePath: '**filePath**',
   success:(res) => {
     console.log('save success');
   }
 });
 
-File.upload({
+uploadFile({
   url: 'http://httpbin.org/post',
   fileType: 'image',
   fileName: 'file',
@@ -179,7 +197,7 @@ File.upload({
   },
 });
 
-File.download({
+downloadFile({
   url: 'http://img.alicdn.com/tfs/TB1x669SXXXXXbdaFXXXXXXXXXX-520-280.jpg',
   success: res => {
     console.log(res.filePath);
@@ -188,6 +206,5 @@ File.download({
     console.log(res);
   },
 });
-
 ```
 

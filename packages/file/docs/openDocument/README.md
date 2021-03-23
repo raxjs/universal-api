@@ -48,9 +48,9 @@ $ npm install @uni/file --save
 ## 示例
 
 ```js
-import file from '@uni/file';
+import { openDocument } from '@uni/file';
 
-file.openDocument({
+openDocument({
   filePath: '**filePath**',
   fileType: 'pdf',
   success: (res) => {
@@ -63,9 +63,9 @@ file.openDocument({
 Promise调用：
 
 ```js
-import file from '@uni/file';
+import { openDocument } from '@uni/file';
 
-file.openDocument({
+openDocument({
   filePath: '**filePath**',
   fileType: 'pdf',
 }).then((res) => {

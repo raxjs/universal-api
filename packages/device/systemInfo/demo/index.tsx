@@ -1,7 +1,7 @@
 import { createElement, useState } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import { getInfo, getInfoSync } from '@uni/system-info';
+import { getSystemInfo, getSystemInfoSync } from '@uni/system-info';
 
 const styles = {
   flex: {
@@ -27,7 +27,7 @@ export default function() {
   return (
     <View>
       <View style={styles.button} onClick={() => {
-        let res = getInfoSync();
+        let res = getSystemInfoSync();
         setSystemInfo(res);
       }}>获取系统信息</View>
       {Object.keys(systemInfo).map((key, i) => <View key={i} style={styles.flex}>

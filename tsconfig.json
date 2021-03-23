@@ -66,7 +66,8 @@
 		"emitDecoratorMetadata": true, /* Enables experimental support for emitting type metadata for decorators. */
 		"paths": {
       "types/*": ["types/*"],
-			"@/*": ["packages/*"]
+			"@/*": ["packages/*"],
+			"@utils/*": ["packages/utils/*"],
     }
 	},
 	"include": ["packages", "types"],

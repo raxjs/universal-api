@@ -8,7 +8,7 @@ import {
   OpenDocumentOptions,
   UploadOptions,
 } from './types';
-import { promisify } from '../../utils/promisify';
+import { promisify } from '@utils/promisify';
 
 export const normalize = {
   upload: (api) => {
@@ -17,7 +17,7 @@ export const normalize = {
         hideLoading: false,
       };
       const afterOptions: UploadOptions = { ...DEFAULT_REQUEST_OPTIONS, ...options };
-      return promisify(api)(afterOptions);
+      return api(afterOptions);
     };
   },
   download: (api) => {
@@ -42,7 +42,7 @@ export const normalize = {
             options.complete && options.complete(res.tempFilePath ? formatRes(res) : res);
           },
         } };
-      return promisify(api)(afterOptions).then((res) => formatRes(res));
+      return api(afterOptions);
     };
   },
   getInfo: (api) => {

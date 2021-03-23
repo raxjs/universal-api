@@ -1,10 +1,10 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
-import webModule from './web/index';
-import aliMiniAppModule from './ali-miniapp/index';
-import weChatModule from './wechat-miniprogram/index';
-import bytedanceModule from './bytedance-microapp/index';
-import { Options, Canvas, CanvasContext } from './types';
+import * as webModule from './web/index';
+import * as aliMiniAppModule from './ali-miniapp/index';
+import * as weChatModule from './wechat-miniprogram/index';
+import * as bytedanceModule from './bytedance-microapp/index';
+import { Options, CanvasContext } from './types';
 
 export const createContext = function (canvasOptions: Options): Promise<CanvasContext> {
   if (isWeChatMiniProgram) {
@@ -19,17 +19,4 @@ export const createContext = function (canvasOptions: Options): Promise<CanvasCo
     throw new Error('@uni：canvas暂不支持');
   }
 };
-let res: Canvas;
-if (isWeChatMiniProgram) {
-  res = weChatModule;
-} else if (isByteDanceMicroApp) {
-  res = bytedanceModule;
-} else if (isMiniApp) {
-  res = aliMiniAppModule;
-} else if (isWeb) {
-  res = webModule;
-} else {
-  throw new Error('@uni：canvas暂不支持');
-}
-export default res;
 

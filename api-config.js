@@ -79,7 +79,7 @@ module.exports = {
     path: 'packages/device/systemInfo/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/system-info',
       },
     ],

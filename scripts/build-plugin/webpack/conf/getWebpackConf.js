@@ -28,8 +28,8 @@ module.exports = (context, options) => {
 
   config.target('web');
   config.resolve.alias
-  .set('@', path.resolve(rootDir, 'packages'));
-  
+  .set('@utils', path.resolve(rootDir, 'packages/utils'));
+
   config
   // 修改 entry 配置
   .entry('index')

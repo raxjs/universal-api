@@ -1,8 +1,8 @@
 export const CONTAINER_NAME = {
-  WECHAT: 'wechat-miniprogram',
-  ALIPAY: 'ali-miniapp',
-  BYTE: 'bytedance-microapp',
+  WECHAT: 'wechatMiniProgram',
+  ALIPAY: 'aliMiniApp',
+  BYTE: 'bytedanceMicroApp',
   WEB: 'web',
-  BAIDU: 'baidu-smartprogram',
-  KWAI: 'kuaishou-miniprogram',
+  BAIDU: 'baiduSmartProgram',
+  KWAI: 'kuaishouMiniProgram',
 };

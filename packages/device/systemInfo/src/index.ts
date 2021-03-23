@@ -1,38 +1,34 @@
 import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
-import webModule from './web/index';
-import aliMiniAppModule from './ali-miniapp/index';
-import weChatModule from './wechat-miniprogram/index';
-import bytedanceModule from './bytedance-microapp/index';
+import * as webModule from './web/index';
+import * as aliMiniAppModule from './ali-miniapp/index';
+import * as weChatModule from './wechat-miniprogram/index';
+import * as bytedanceModule from './bytedance-microapp/index';
 import { AsyncOptions } from './types';
 
-export const getInfoSync = () => {
+export const getSystemInfoSync = () => {
   if (isWeChatMiniProgram) {
-    return weChatModule.getInfoSync();
+    return weChatModule.getSystemInfoSync();
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.getInfoSync();
+    return bytedanceModule.getSystemInfoSync();
   } else if (isMiniApp) {
-    return aliMiniAppModule.getInfoSync();
+    return aliMiniAppModule.getSystemInfoSync();
   } else if (isWeb) {
-    return webModule.getInfoSync();
+    return webModule.getSystemInfoSync();
   } else {
-    throw new Error('@uni/apis：systemInfo.getInfoSync暂不支持');
+    throw new Error('@uni/apis：getSystemInfoSync暂不支持');
   }
 };
 
-export const getInfo = (options?: AsyncOptions) => {
+export const getSystemInfo = (options?: AsyncOptions) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.getInfo(options);
+    return weChatModule.getSystemInfo(options);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.getInfo(options);
+    return bytedanceModule.getSystemInfo(options);
   } else if (isMiniApp) {
-    return aliMiniAppModule.getInfo(options);
+    return aliMiniAppModule.getSystemInfo(options);
   } else if (isWeb) {
-    return webModule.getInfo(options);
+    return webModule.getSystemInfo(options);
   } else {
-    throw new Error('@uni/apis：systemInfo.getInfo暂不支持');
+    throw new Error('@uni/apis：getSystemInfo暂不支持');
   }
-};
-export default {
-  getInfoSync,
-  getInfo,
 };

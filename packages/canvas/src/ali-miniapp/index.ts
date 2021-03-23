@@ -21,4 +21,3 @@ export const createContext = function (canvasOptions: Options): Promise<CanvasCo
   });
 };
 
-export default { createContext };

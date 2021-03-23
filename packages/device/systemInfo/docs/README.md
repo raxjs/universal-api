@@ -24,10 +24,10 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import { getInfo, getInfoSync } from '@uni/system-info';
+import { getSystemInfo, getSystemInfoSync } from '@uni/system-info';
 
-getInfo().then(res => console.log(res));
-let res = getInfoSync();
+getSystemInfo().then(res => console.log(res));
+let res = getSystemInfoSync();
 
 ```
 
@@ -35,8 +35,8 @@ let res = getInfoSync();
 ```js
 import { systemInfo } from '@uni/apis';
 
-systemInfo.getInfo().then(res => console.log(res));
-let res = systemInfo.getInfoSync();
+systemInfo.getSystemInfo().then(res => console.log(res));
+let res = systemInfo.getSystemInfoSync();
 
 ```
 

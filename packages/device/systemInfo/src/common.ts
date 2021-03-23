@@ -1,5 +1,5 @@
 import { SYSTEM_INFO } from './types';
-import { promisify } from '../../../utils/promisify';
+import { promisify } from '@utils/promisify';
 
 const formatLanguage = (language) => {
   let fl = 'en';

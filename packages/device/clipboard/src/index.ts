@@ -33,5 +33,5 @@ export const setClipboard = (args) => {
 
 export default {
   getClipboard,
-  setClipboard
+  setClipboard,
 };

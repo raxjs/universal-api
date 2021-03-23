@@ -4,7 +4,7 @@ import { createElement, useState } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import Image from 'rax-image';
-import { download, getInfo, save, openDocument } from '@uni/file';
+import { downloadFile, getFileInfo, saveFile, openDocument } from '@uni/file';
 import alert from '@uni/alert';
 import { chooseImage } from '@uni/image';
 
@@ -34,7 +34,7 @@ const Index = () => {
         content: '请先下载图片',
       });
     }
-    getInfo({filePath: img2, success: (res) => {
+    getFileInfo({filePath: img2, success: (res) => {
       alert({
         title: '提示',
         content: '下载文件的信息为' + JSON.stringify(res),
@@ -48,7 +48,7 @@ const Index = () => {
         const tempFilePaths = res.tempFilePaths;
         if (tempFilePaths[0]) {
           // 保存到用户目录
-          save({tempFilePath: tempFilePaths[0], success: (res) => {
+          saveFile({tempFilePath: tempFilePaths[0], success: (res) => {
             alert({
               title: '提示',
               content: '文件保存成功：' + res.savedFilePath,
@@ -70,7 +70,7 @@ const Index = () => {
     }).then(e => console.log(e)).catch(e => console.log(e));
   };
   const downloadHandler = () => {
-    download({
+    downloadFile({
       url: 'https://gw.alicdn.com/tfs/TB18EuDjGNj0u4jSZFyXXXgMVXa-225-225.jpg',
       success: function(res) {
         const filePath = res.tempFilePath;
@@ -83,7 +83,7 @@ const Index = () => {
     });
   };
   const openDocumentHandler = () => {
-    download({
+    downloadFile({
       // 仅为示例 url，并非真实地址
       url: 'https://github.com/DOBEEE/assets/raw/master/%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E7%A4%BA%E4%BE%8B%E6%96%87%E4%BB%B6.pdf',
       success: function(res) {
