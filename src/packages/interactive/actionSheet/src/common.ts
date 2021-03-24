@@ -1,5 +1,5 @@
-import { promisify } from '@/utils/promisify';
-import { styleIn } from '@/utils/styleOptions';
+import { promisify } from '@utils/promisify';
+import { styleIn } from '@utils/styleOptions';
 import { ShowActionSheetOptions, ShowActionSheetRes } from './types';
 
 /**

@@ -1,5 +1,5 @@
 import { normalize } from '../common';
-import { CONTAINER_NAME } from '@/utils/constant';
+import { CONTAINER_NAME } from '@utils/constant';
 
 const clsPrefix = '__universal_actionsheet';
 
