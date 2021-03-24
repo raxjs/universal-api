@@ -1,4 +1,5 @@
 import { normalize } from '../common';
+import { CONTAINER_NAME } from '@/utils/constant';
 
 const clsPrefix = '__universal_actionsheet';
 
@@ -84,6 +85,7 @@ let styleElement: HTMLElement | null = null;
 let actionSheetElement: HTMLElement | null = null;
 
 let hideFn: Function = () => {};
+let hideCallback: Function = () => {};
 
 const showActionSheet = (args) => {
   try {
@@ -102,10 +104,7 @@ const showActionSheet = (args) => {
       const maskEle = document.createElement('div');
       maskEle.className = `${clsPrefix}_mask`;
       maskEle.addEventListener('click', () => {
-        hideFn(() => {
-          args.success({tapIndex: -1});
-          args.complete({tapIndex: -1});
-        });
+        hideCallback(-1);
       });
       actionSheetElement.appendChild(maskEle);
 
@@ -113,7 +112,7 @@ const showActionSheet = (args) => {
       const containerEle = document.createElement('div');
       containerEle.className = clsPrefix;
       // add all item element
-      const items = args.itemList || [];
+      const items = args.items || [];
       for (let index = 0; index < items.length; index++) {
         const itemEle = document.createElement('div');
         itemEle.className = `${clsPrefix}_item`;
@@ -121,12 +120,10 @@ const showActionSheet = (args) => {
         itemEle.innerText = items[index];
         // support for ARIA, add tabindex for focus
         // https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/tabindex
-        itemEle.setAttribute('tabindex', index + '');
+        itemEle.setAttribute('tabindex', `${index}`);
+        // eslint-disable-next-line no-loop-func
         itemEle.addEventListener('click', () => {
-          hideFn(() => {
-            args.success({tapIndex: index});
-            args.complete({tapIndex: index});
-          });
+          hideCallback(index);
         });
         containerEle.appendChild(itemEle);
       }
@@ -137,10 +134,7 @@ const showActionSheet = (args) => {
       cancelEle.innerText = '取消';
       cancelEle.setAttribute('tabindex', '-1');
       cancelEle.addEventListener('click', () => {
-        hideFn(() => {
-          args.success({tapIndex: -1});
-          args.complete({tapIndex: -1});
-        });
+        hideCallback(-1);
       });
       containerEle.appendChild(cancelEle);
 
@@ -160,6 +154,13 @@ const showActionSheet = (args) => {
           callback();
         }, 300);
       };
+
+      hideCallback = (index) => {
+        hideFn(() => {
+          args.success({ index });
+          args.complete({ index });
+        });
+      };
     }
   } catch (err) {
     args.fail(err);
@@ -167,4 +168,4 @@ const showActionSheet = (args) => {
   }
 };
 
-export default normalize(showActionSheet);
+export default normalize(showActionSheet, CONTAINER_NAME.WEB);

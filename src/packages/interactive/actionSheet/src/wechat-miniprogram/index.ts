@@ -1,12 +1,16 @@
 import { normalize } from '../common';
+import { CONTAINER_NAME } from '@/utils/constant';
 
-export default normalize((args) => wx.showActionSheet({
-  ...args,
-  fail: (err) => {
-    if (err && err.errMsg === 'showActionSheet:fail cancel') {
-      args.success({tapIndex: -1});
-    } else {
-      args.fail(err);
-    }
-  }
-}));
+export default normalize((args) => {
+  args.itemList = args.items;
+  wx.showActionSheet({
+    ...args,
+    fail: (err) => {
+      if (err && err.errMsg === 'showActionSheet:fail cancel') {
+        args.success({ tapIndex: -1 });
+      } else {
+        args.fail(err);
+      }
+    },
+  });
+}, CONTAINER_NAME.WECHAT);

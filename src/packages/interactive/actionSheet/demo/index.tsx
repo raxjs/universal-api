@@ -6,7 +6,7 @@ import Toast from '@uni/toast';
 
 const styles = {
   flex: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   button: {
     margin: '10rpx',
@@ -14,23 +14,26 @@ const styles = {
     background: '#17BD88',
     color: '#fff',
     fontSize: '26rpx',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   input: {
     border: '1px solid #eee',
-    margin: '10rpx'
-  }
-}
+    margin: '10rpx',
+  },
+};
 
-export default function() {
+export default function () {
   return (
-    <View style={styles.button} onClick={() => {
-      showActionSheet({
-        itemList: ['A', 'B', 'C']
-      }).then(res => {
-        Toast.show('选中项Index:' + res.tapIndex);
-      });
-    }}>
+    <View
+      style={styles.button}
+      onClick={() => {
+        showActionSheet({
+          items: ['A', 'B', 'C'],
+        }).then((res) => {
+          Toast.show(`选中项Index:${res.index}`);
+        });
+      }}
+    >
       showActionSheet
     </View>
   );

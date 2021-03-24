@@ -27,9 +27,9 @@ $ npm install @uni/apis --save
 import showActionSheet from '@uni/action-sheet';
 
 showActionSheet({
-  itemList: ['A', 'B', 'C'],
+  items: ['A', 'B', 'C'],
   success (res) {
-    console.log(res.tapIndex)
+    console.log(res.index)
   },
   fail (res) {
     console.log(res.errMsg)
@@ -38,9 +38,9 @@ showActionSheet({
 
 // promise
 showActionSheet({
-  itemList: ['A', 'B', 'C']
+  items: ['A', 'B', 'C']
 }).then(res => {
-    console.log(res.tapIndex)
+    console.log(res.index)
 });
 
 ```
@@ -60,7 +60,7 @@ import { actionSheet } from '@uni/apis';
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object` |  | ✔️ | - |
-| options.itemList | `Array<string>`  | The text array of the button, with a length limited to 6 | ✔️ | - |
+| options.items | `Array<string>`  | The text array of the button, with a length limited to 6 | ✔️ | - |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
@@ -80,7 +80,7 @@ import { actionSheet } from '@uni/apis';
 
 | Property | Type | Description |
 | --- | --- | --- |
-| tapIndex | `number` | The sequence number of the button tapped by the user, from top to bottom and starting from 0, The value is -1 when the mask or cancel button is clicked by the user |
+| index | `number` | The sequence number of the button tapped by the user, from top to bottom and starting from 0, The value is -1 when the mask or cancel button is clicked by the user |
 
 </div>
 <div>

@@ -19,9 +19,9 @@ export interface CallbackOptions {
 }
 
 export interface ShowActionSheetOptions extends CallbackOptions {
-  itemList: Array<string>;
+  items: Array<string>;
 }
 
 export interface ShowActionSheetRes {
-  tapIndex: number;
+  index: number;
 }
