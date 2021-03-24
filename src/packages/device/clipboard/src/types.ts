@@ -9,5 +9,5 @@ export interface PARAMS extends CallBack {
 }
 
 export interface RESPONES {
-  text: string
+  text: string;
 }

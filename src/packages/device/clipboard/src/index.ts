@@ -1,8 +1,8 @@
 import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
-import aliMiniAppModule from './ali-miniapp/index';
-import webModule from './web/index';
-import weChatModule from './wechat-miniprogram/index';
-import bytedanceModule from './bytedance-microapp/index';
+import * as aliMiniAppModule from './ali-miniapp/index';
+import * as webModule from './web/index';
+import * as weChatModule from './wechat-miniprogram/index';
+import * as bytedanceModule from './bytedance-microapp/index';
 
 // web 暂不支持这个功能
 export const getClipboard = (args) => {
