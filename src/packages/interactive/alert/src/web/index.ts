@@ -1,6 +1,7 @@
 import { Options } from '../types';
 import confirm from '../../../confirm/src/web';
 import { normalize } from '../common';
+import { CONTAINER_NAME } from '@utils/constant';
 
 const alert = (args: Options) => {
   confirm({
@@ -10,4 +11,4 @@ const alert = (args: Options) => {
   });
 };
 
-export default normalize(alert);
+export default normalize(alert, CONTAINER_NAME.WEB);

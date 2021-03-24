@@ -1,4 +1,5 @@
 import { ConfirmOptions } from '../types';
+import { CONTAINER_NAME } from '@utils/constant';
 import { normalize } from '../common';
 
 const clsPrefix = '__universal_confirm';
@@ -146,12 +147,12 @@ const confirm = (args: ConfirmOptions) => {
       if (args.showCancel !== false) {
         const cancelButton = document.createElement('div');
         cancelButton.className = `${clsPrefix}_cancel`;
-        cancelButton.innerText = args.cancelText;
+        cancelButton.innerText = args.cancelButtonText;
         cancelButton.setAttribute('tabindex', '-1');
         cancelButton.addEventListener('click', () => {
           hideFn(() => {
-            args.success({confirm: false});
-            args.complete({confirm: false});
+            args.success({ confirm: false });
+            args.complete({ confirm: false });
           });
         });
         operateEle.appendChild(cancelButton);
@@ -163,12 +164,12 @@ const confirm = (args: ConfirmOptions) => {
       if (args.showCancel === false) {
         confirmButton.style.width = '100%';
       }
-      confirmButton.innerText = args.confirmText;
+      confirmButton.innerText = args.confirmButtonText;
       confirmButton.setAttribute('tabindex', '-1');
       confirmButton.addEventListener('click', () => {
         hideFn(() => {
-          args.success({confirm: true});
-          args.complete({confirm: true});
+          args.success({ confirm: true });
+          args.complete({ confirm: true });
         });
       });
       operateEle.appendChild(confirmButton);
@@ -197,4 +198,4 @@ const confirm = (args: ConfirmOptions) => {
   }
 };
 
-export default normalize(confirm);
+export default normalize(confirm, CONTAINER_NAME.WEB);

@@ -21,8 +21,8 @@ export interface CallbackOptions {
 export interface ConfirmOptions extends CallbackOptions {
   title?: string;
   content?: string;
-  cancelText?: string;
-  confirmText?: string;
+  cancelButtonText?: string;
+  confirmButtonText?: string;
 }
 
 export interface ConfirmRes {
