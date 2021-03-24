@@ -28,7 +28,7 @@ module.exports = (context, options) => {
 
   config.target('web');
   config.resolve.alias
-  .set('@utils', path.resolve(rootDir, 'packages/utils'));
+  .set('@utils', path.resolve(rootDir, 'src/utils'));
 
   config
   // 修改 entry 配置

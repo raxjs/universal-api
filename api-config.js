@@ -1,7 +1,7 @@
 module.exports = {
   // application
   application: {
-    path: 'packages/application/src/index.ts',
+    path: 'src/packages/application/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.2',
@@ -11,7 +11,7 @@ module.exports = {
   },
   // base
   env: {
-    path: 'packages/base/env/src/index.ts',
+    path: 'src/packages/base/env/src/index.ts',
     // 是否可以按环境拆包
     unNeedSplit: true,
     pkgInfo: [
@@ -22,7 +22,7 @@ module.exports = {
     ],
   },
   canIUse: {
-    path: 'packages/base/canIUse/src/index.ts',
+    path: 'src/packages/base/canIUse/src/index.ts',
     // 是否可以按环境拆包
     unNeedSplit: true,
     pkgInfo: [
@@ -34,7 +34,7 @@ module.exports = {
   },
 
   unitTool: {
-    path: 'packages/base/unit-tool/src/index.ts',
+    path: 'src/packages/base/unit-tool/src/index.ts',
     unNeedSplit: true,
     pkgInfo: [
       {
@@ -48,7 +48,7 @@ module.exports = {
   },
   // canvas
   canvas: {
-    path: 'packages/canvas/src/index.ts',
+    path: 'src/packages/canvas/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.1',
@@ -58,7 +58,7 @@ module.exports = {
   },
   // device
   accelerometer: {
-    path: 'packages/device/accelerometer/src/index.ts',
+    path: 'src/packages/device/accelerometer/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.2',
@@ -67,7 +67,7 @@ module.exports = {
     ],
   },
   clipboard: {
-    path: 'packages/device/clipboard/src/index.ts',
+    path: 'src/packages/device/clipboard/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.1',
@@ -76,7 +76,7 @@ module.exports = {
     ],
   },
   systemInfo: {
-    path: 'packages/device/systemInfo/src/index.ts',
+    path: 'src/packages/device/systemInfo/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.2',
@@ -95,7 +95,7 @@ module.exports = {
   // },
   // file
   file: {
-    path: 'packages/file/src/index.ts',
+    path: 'src/packages/file/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.2',
@@ -105,7 +105,7 @@ module.exports = {
   },
   // interactive
   actionSheet: {
-    path: 'packages/interactive/actionSheet/src/index.ts',
+    path: 'src/packages/interactive/actionSheet/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.1',
@@ -114,7 +114,7 @@ module.exports = {
     ],
   },
   alert: {
-    path: 'packages/interactive/alert/src/index.ts',
+    path: 'src/packages/interactive/alert/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.1',
@@ -151,7 +151,7 @@ module.exports = {
   // },
 
   toast: {
-    path: 'packages/interactive/toast/src/index.ts',
+    path: 'src/packages/interactive/toast/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.3',
@@ -160,7 +160,7 @@ module.exports = {
     ],
   },
   loading: {
-    path: 'packages/interactive/loading/src/index.ts',
+    path: 'src/packages/interactive/loading/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.1',
@@ -178,7 +178,7 @@ module.exports = {
   //   ]
   // },
   element: {
-    path: 'packages/interactive/element/src/index.ts',
+    path: 'src/packages/interactive/element/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.2',
@@ -187,7 +187,7 @@ module.exports = {
     ],
   },
   intersectionObserver: {
-    path: 'packages/interactive/intersectionObserver/src/index.ts',
+    path: 'src/packages/interactive/intersectionObserver/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.1',
@@ -196,7 +196,7 @@ module.exports = {
     ],
   },
   confirm: {
-    path: 'packages/interactive/confirm/src/index.ts',
+    path: 'src/packages/interactive/confirm/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.1',
@@ -214,7 +214,7 @@ module.exports = {
   //   ]
   // },
   location: {
-    path: 'packages/location/src/index.ts',
+    path: 'src/packages/location/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.1',
@@ -224,7 +224,7 @@ module.exports = {
   },
   // media
   image: {
-    path: 'packages/media/image/src/index.ts',
+    path: 'src/packages/media/image/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.1',
@@ -234,7 +234,7 @@ module.exports = {
   },
   // navigate
   navigate: {
-    path: 'packages/navigate/src/index.ts',
+    path: 'src/packages/navigate/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.2',
@@ -244,7 +244,7 @@ module.exports = {
   },
   // network
   request: {
-    path: 'packages/network/request/src/index.ts',
+    path: 'src/packages/network/request/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.2',
@@ -254,7 +254,7 @@ module.exports = {
   },
   // storage
   storage: {
-    path: 'packages/storage/src/index.ts',
+    path: 'src/packages/storage/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.1',
