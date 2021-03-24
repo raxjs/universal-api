@@ -68,8 +68,8 @@ import { confirm } from '@uni/apis';
 | options | `object`  |  | ✔️ | - |
 | options.title | `string`  | 提示的标题 | ✘ | - |
 | options.content | `string`  | 提示的内容 | ✘ | - |
-| options.confirmText | `string`  | 确认按钮的文字，最多 4 个字符 | ✘ | "确定" |
-| options.cancelText | `string`  | 取消按钮的文字，最多 4 个字符 | ✘ | "取消" |
+| options.confirmButtonText | `string`  | 确认按钮的文字，最多 4 个字符 | ✘ | "确定" |
+| options.cancelButtonText | `string`  | 取消按钮的文字，最多 4 个字符 | ✘ | "取消" |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
