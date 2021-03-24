@@ -7,15 +7,16 @@ export interface OptionStruct {
 
 // getLocation result
 export interface ResponseStruct {
-  latitude: number;
-  longitude: number;
-  accuracy: number;
+  latitude: string;
+  longitude: string;
+  accuracy: string;
+  horizontalAccuracy: string;
 }
 
 // openLocation params
 export interface OpenOptionStruct {
-  latitude: number;
-  longtitude: number;
+  latitude: string;
+  longtitude: string;
   scale: number;
   name: string;
   address: string;
