@@ -1,7 +1,8 @@
-# getInfo
+# getSavedFileInfo
 [![npm](https://img.shields.io/npm/v/@uni/file.svg)](https://www.npmjs.com/package/@uni/file)
 
-Get file information.
+Gets saved file information.
+This API can only be used to obtain the information of files that have been saved to the local device. To obtain information of temporary files, use getInfo() API.
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
 <div style="margin-right: 20px;">
@@ -15,10 +16,9 @@ Get file information.
 $ npm install @uni/file --save
 ```
 ## Parameters
-| Property  | Type     | Default | Required | Description   |
-| ------- | -------- | ------- | -------- | ------- |
-| filePath        | `String` |         | √        | The path to the local file    |
-| digestAlgorithm | `String` | md5   | x        | The algorithm to calculate the file summary can be md5, sha1 |
+| Property | Type     | Default | Required | Description   |
+| -------- | -------- | ------- | -------- | ------------- |
+| filePath | `String` |         | √        | The file path |
 | success | `Function`  |   -    | x    | The callback function for a successful API call |
 | fail | `Function`  |   -    | x    | The callback function for a fail API call |
 | complete | `Function`  |   -    | x    | The callback function for a complete API call |
@@ -28,19 +28,19 @@ $ npm install @uni/file --save
 | Property     | Type     | Description     |
 | -------- | ------ | -------- |
 |size|number|File size in bytes|
-|digest|string|File summary computed based on the passed digestAlgorithm|
+|createTime|number|The timestamp when the file was saved, which is defined as the number of seconds that have elapsed since 1970/01/01 08:00:00 to the current time|
 
 ## Example
 
 ```js
-import file from '@uni/file';
+import { getSavedFileInfo } from '@uni/file';
 
-// Get file information.
-file.getInfo({
-  filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
-  digestAlgorithm: 'sha1',
-  success: (res)=>{
-    console.log(JSON.stringify(res))
+// You need to save the address to be able to use File.getsavedinfo
+getSavedFileInfo({
+  filePath: '**filePath**',
+  success: (res) => {
+    console.log(res.size);
+    console.log(res.createTime);
   }
 });
 
@@ -49,13 +49,13 @@ file.getInfo({
 Promise：
 
 ```js
-import file from '@uni/file';
+import { getSavedFileInfo } from '@uni/file';
 
-file.getInfo({
-  filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
-  digestAlgorithm: 'sha1',
+getSavedFileInfo({
+  filePath: '**filePath**',
 }).then((res) => {
-  console.log(res);
+  console.log(res.size);
+  console.log(res.createTime);
 }).catch((e) => {
   console.log(e);
 }).finally((res) => {
@@ -97,3 +97,4 @@ export default () => (
 
 </div>
 </div>
+

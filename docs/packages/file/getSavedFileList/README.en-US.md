@@ -1,8 +1,7 @@
-# getSavedInfo
+# getSavedFileList
 [![npm](https://img.shields.io/npm/v/@uni/file.svg)](https://www.npmjs.com/package/@uni/file)
 
-Gets saved file information.
-This API can only be used to obtain the information of files that have been saved to the local device. To obtain information of temporary files, use getInfo() API.
+Gets the list of local cache files saved under the Mini Program
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
 <div style="margin-right: 20px;">
@@ -10,37 +9,39 @@ This API can only be used to obtain the information of files that have been save
 ## Support
 <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp">
 
+## Parameters
+| Property | Type     | Default | Required | Description   |
+| ------ | -------- | ------ | ---- | ---------------- |
+| success | `Function`  |   -    | x    | The callback function for a successful API call |
+| fail | `Function`  |   -    | x    | The callback function for a fail API call |
+| complete | `Function`  |   -    | x    | The callback function for a complete API call |
+
+
+### object.success callback function Parameters
+| Property     | Type     | Description     |
+| -------- | ------ | -------- |
+|fileList|Array|File array, with each item being a FileItem|
+
+#### res.fileList is composed as follows
+| Property     | Type     | Description  |
+| -------- | ------ | -------- |
+|filePath|string|Local path|
+|size|number|Local file size in bytes|
+|createTime|number|The timestamp when the file was saved, which is defined as the number of seconds that have elapsed since 1970/01/01 08:00:00 to the current time|
+
 ## Install
 
 ```bash
 $ npm install @uni/file --save
 ```
-## Parameters
-| Property | Type     | Default | Required | Description   |
-| -------- | -------- | ------- | -------- | ------------- |
-| filePath | `String` |         | √        | The file path |
-| success | `Function`  |   -    | x    | The callback function for a successful API call |
-| fail | `Function`  |   -    | x    | The callback function for a fail API call |
-| complete | `Function`  |   -    | x    | The callback function for a complete API call |
-
-### object.success callback function Parameters
-
-| Property     | Type     | Description     |
-| -------- | ------ | -------- |
-|size|number|File size in bytes|
-|createTime|number|The timestamp when the file was saved, which is defined as the number of seconds that have elapsed since 1970/01/01 08:00:00 to the current time|
-
 ## Example
 
 ```js
-import file from '@uni/file';
+import { getSavedFileList } from '@uni/file';
 
-// You need to save the address to be able to use File.getsavedinfo
-file.getSavedInfo({
-  filePath: '**filePath**',
-  success: (res) => {
-    console.log(res.size);
-    console.log(res.createTime);
+getSavedFileList({
+  success:(res) => {
+    console.log(JSON.stringfy(res));
   }
 });
 
@@ -49,13 +50,10 @@ file.getSavedInfo({
 Promise：
 
 ```js
-import file from '@uni/file';
+import { getSavedFileList } from '@uni/file';
 
-file.getSavedInfo({
-  filePath: '**filePath**',
-}).then((res) => {
-  console.log(res.size);
-  console.log(res.createTime);
+getSavedFileList().then((res) => {
+  console.log(JSON.stringfy(res));
 }).catch((e) => {
   console.log(e);
 }).finally((res) => {
@@ -97,4 +95,3 @@ export default () => (
 
 </div>
 </div>
-

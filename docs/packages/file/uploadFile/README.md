@@ -1,4 +1,4 @@
-# upload
+# uploadFile
 [![npm](https://img.shields.io/npm/v/@uni/file.svg)](https://www.npmjs.com/package/@uni/file)
 
 上传本地资源到开发者服务器。
@@ -33,12 +33,21 @@ $ npm install @uni/file --save
 | fileType | `String` |        | √    | 文件类型支持图片、视频、音频（ image / video / audio），Web下无需传入            | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" />  |
 | hideLoading | `Boolean` |   false  | x    | 是否隐藏 loading 图（默认值为 false）  | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" />  |
 
+## 返回
+注意：只有微信小程序和字节跳动小程序支持，由于破坏了一码多端请谨慎使用
+
+UploadTask
+一个可以监听上传进度变化事件，以及取消上传任务的对象
+具体文档可以查看：
+微信：[链接](https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/UploadTask.html)
+字节跳动：[链接](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/api/network/http/upload-task/)
+
 ## 示例
 
 ```js
-import file from '@uni/file';
+import { uploadFile } from '@uni/file';
 
-file.upload({
+uploadFile({
   url: 'http://httpbin.org/post',
   fileType: 'image',
   fileName: 'file',
@@ -53,26 +62,8 @@ file.upload({
 
 ```
 
-Promise调用：
-
-```js
-import file from '@uni/file';
-
-file.upload({
-  url: 'http://httpbin.org/post',
-  fileType: 'image',
-  fileName: 'file',
-  filePath: '**filePath**',
-}).then((res) => {
-  console.log('upload success');
-}).catch((e) => {
-  console.log('upload fail');
-  console.log(e);
-}).finally((res) => {
-  console.log(res);
-});
-
-```
+### Promise 调用：
+注意：由于微信容器和字节跳动容器 uploadFile api 会返回 UploadTask 对象，所以此处不在支持Promise 调用，请业务自行封装。
 
 你也可以从大包引入：
 ```js

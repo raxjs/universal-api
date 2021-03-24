@@ -35,13 +35,13 @@ The callback function for the Mini Program error event
 ## Example
 
 ```js
-import application from '@uni/application';
+import { onUnhandledRejection, offUnhandledRejection } from '@uni/application';
 
-application.onUnhandledRejection(e => {
+onUnhandledRejection(e => {
   console.log(e);
 });
 
-application.offUnhandledRejection();
+offUnhandledRejection();
 ```
 
 You can also import from the big package:

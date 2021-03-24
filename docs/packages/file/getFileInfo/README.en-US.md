@@ -1,7 +1,7 @@
-# getSavedList
+# getFileInfo
 [![npm](https://img.shields.io/npm/v/@uni/file.svg)](https://www.npmjs.com/package/@uni/file)
 
-Gets the list of local cache files saved under the Mini Program
+Get file information.
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
 <div style="margin-right: 20px;">
@@ -9,39 +9,37 @@ Gets the list of local cache files saved under the Mini Program
 ## Support
 <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp">
 
-## Parameters
-| Property | Type     | Default | Required | Description   |
-| ------ | -------- | ------ | ---- | ---------------- |
-| success | `Function`  |   -    | x    | The callback function for a successful API call |
-| fail | `Function`  |   -    | x    | The callback function for a fail API call |
-| complete | `Function`  |   -    | x    | The callback function for a complete API call |
-
-
-### object.success callback function Parameters
-| Property     | Type     | Description     |
-| -------- | ------ | -------- |
-|fileList|Array|File array, with each item being a FileItem|
-
-#### res.fileList is composed as follows
-| Property     | Type     | Description  |
-| -------- | ------ | -------- |
-|filePath|string|Local path|
-|size|number|Local file size in bytes|
-|createTime|number|The timestamp when the file was saved, which is defined as the number of seconds that have elapsed since 1970/01/01 08:00:00 to the current time|
-
 ## Install
 
 ```bash
 $ npm install @uni/file --save
 ```
+## Parameters
+| Property  | Type     | Default | Required | Description   |
+| ------- | -------- | ------- | -------- | ------- |
+| filePath        | `String` |         | √        | The path to the local file    |
+| digestAlgorithm | `String` | md5   | x        | The algorithm to calculate the file summary can be md5, sha1 |
+| success | `Function`  |   -    | x    | The callback function for a successful API call |
+| fail | `Function`  |   -    | x    | The callback function for a fail API call |
+| complete | `Function`  |   -    | x    | The callback function for a complete API call |
+
+### object.success callback function Parameters
+
+| Property     | Type     | Description     |
+| -------- | ------ | -------- |
+|size|number|File size in bytes|
+|digest|string|File summary computed based on the passed digestAlgorithm|
 ## Example
 
 ```js
-import file from '@uni/file';
+import { getFileInfo } from '@uni/file';
 
-file.getSavedList({
-  success:(res) => {
-    console.log(JSON.stringfy(res));
+// Get file information.
+getFileInfo({
+  filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
+  digestAlgorithm: 'sha1',
+  success: (res)=>{
+    console.log(JSON.stringify(res))
   }
 });
 
@@ -50,10 +48,13 @@ file.getSavedList({
 Promise：
 
 ```js
-import file from '@uni/file';
+import { getFileInfo } from '@uni/file';
 
-file.getSavedList().then((res) => {
-  console.log(JSON.stringfy(res));
+getFileInfo({
+  filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
+  digestAlgorithm: 'sha1',
+}).then((res) => {
+  console.log(res);
 }).catch((e) => {
   console.log(e);
 }).finally((res) => {

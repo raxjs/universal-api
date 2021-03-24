@@ -43,7 +43,7 @@ const buildDocs = async () => {
 
   Object.entries(sourceMap).map(([key, value]) => {
     const fromPath = path.resolve(root, value.path.replace(/src\/index\.(t|j)s/, 'docs'));
-    const toPath = path.resolve(root, docsOutputDir, value.path.replace(/src\/index\.(t|j)s/, ''));
+    const toPath = path.resolve(root, docsOutputDir, value.path.replace(/src\/index\.(t|j)s/, '').replace(/src\/packages/, 'packages'));
     if (fs.pathExistsSync(fromPath)) {
       fs.copySync(fromPath, toPath);
     }

@@ -39,13 +39,13 @@ Error message, including stacks.
 ## Example
 
 ```js
-import application from '@uni/application';
+import { onError, offError } from '@uni/application';
 
-application.onError(e => {
+onError(e => {
   console.log(e);
 });
 
-application.offError();
+offError();
 ```
 
 You can also import from the big package:

@@ -34,13 +34,13 @@ function callback
 ## 示例
 
 ```js
-import application from '@uni/application';
+import { onError, offError } from '@uni/application';
 
-application.onError(e => {
+onError(e => {
   console.log(e);
 });
 
-application.offError();
+offError();
 ```
 
 你也可以从大包引入：

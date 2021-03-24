@@ -74,17 +74,17 @@ function callback
 ## 示例
 
 ```js
-import application from '@uni/application';
+import { getApp, getCurrentPages, getLaunchOptionsSync, onError, offError } from '@uni/application';
 
-const appInstance = application.getApp();
-const currentPages = application.getCurrentPages();
-const launchOptions = application.getLaunchOptionsSync();
+const appInstance = getApp();
+const currentPages = getCurrentPages();
+const launchOptions = getLaunchOptionsSync();
 
-application.onError(e => {
+onError(e => {
   console.log(e);
 });
 
-application.offError();
+offError();
 ```
 
 你也可以从大包引入：

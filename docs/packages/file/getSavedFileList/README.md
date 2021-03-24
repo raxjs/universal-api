@@ -1,4 +1,4 @@
-# getSavedList 
+# getSavedFileList 
 [![npm](https://img.shields.io/npm/v/@uni/file.svg)](https://www.npmjs.com/package/@uni/file)
 
 获取该小程序下已保存的本地缓存文件列表
@@ -37,9 +37,9 @@ $ npm install @uni/file --save
 ## 示例
 
 ```js
-import file from '@uni/file';
+import { getSavedFileList } from '@uni/file';
 
-file.getSavedList({
+getSavedFileList({
   success:(res) => {
     console.log(JSON.stringfy(res));
   }
@@ -50,9 +50,9 @@ file.getSavedList({
 Promise调用：
 
 ```js
-import file from '@uni/file';
+import { getSavedFileList } from '@uni/file';
 
-file.getSavedList().then((res) => {
+getSavedFileList().then((res) => {
   console.log(JSON.stringfy(res));
 }).catch((e) => {
   console.log(e);

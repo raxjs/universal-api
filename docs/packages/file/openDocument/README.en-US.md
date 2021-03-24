@@ -47,9 +47,9 @@ $ npm install @uni/file --save
 ## Example
 
 ```js
-import file from '@uni/file';
+import { openDocument } from '@uni/file';
 
-file.openDocument({
+openDocument({
   filePath: '**filePath**',
   fileType: 'pdf',
   success: (res) => {
@@ -62,9 +62,9 @@ file.openDocument({
 Promise：
 
 ```js
-import file from '@uni/file';
+import { openDocument } from '@uni/file';
 
-file.openDocument({
+openDocument({
   filePath: '**filePath**',
   fileType: 'pdf',
 }).then((res) => {

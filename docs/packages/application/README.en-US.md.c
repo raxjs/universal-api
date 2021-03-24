@@ -74,17 +74,17 @@ The callback function for the Mini Program error event
 ## Example
 
 ```js
-import application from '@uni/application';
+import { getApp, getCurrentPages, getLaunchOptionsSync, onError, offError } from '@uni/application';
 
-const appInstance = application.getApp();
-const currentPages = application.getCurrentPages();
-const launchOptions = application.getLaunchOptionsSync();
+const appInstance = getApp();
+const currentPages = getCurrentPages();
+const launchOptions = getLaunchOptionsSync();
 
-application.onError(e => {
+onError(e => {
   console.log(e);
 });
 
-application.offError();
+offError();
 ```
 
 You can also import from the big package:

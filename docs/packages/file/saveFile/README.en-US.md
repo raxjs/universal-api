@@ -1,4 +1,4 @@
-# save
+# saveFile
 [![npm](https://img.shields.io/npm/v/@uni/file.svg)](https://www.npmjs.com/package/@uni/file)
 
 Save the file locally.
@@ -33,9 +33,9 @@ $ npm install @uni/file --save
 ## Example
 
 ```js
-import file from '@uni/file';
+import { saveFile } from '@uni/file';
 
-file.save({
+saveFile({
   filePath: '**filePath**',
   success:(res) => {
     console.log('save success');
@@ -47,9 +47,9 @@ file.save({
 Promise：
 
 ```js
-import file from '@uni/file';
+import { saveFile } from '@uni/file';
 
-file.save({
+saveFile({
   filePath: '**filePath**',
 }).then((res) => {
   console.log('save success');

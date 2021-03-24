@@ -27,7 +27,7 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import {setStorage} from '@uni/storage';
+import { setStorage } from '@uni/storage';
 
 setStorage({
   key: 'key',

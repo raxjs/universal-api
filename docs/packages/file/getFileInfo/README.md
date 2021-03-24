@@ -1,9 +1,7 @@
-# save
+# getFileInfo
 [![npm](https://img.shields.io/npm/v/@uni/file.svg)](https://www.npmjs.com/package/@uni/file)
 
-保存文件到本地缓存目录（总容量限制：10 MB）。
-
-注意：saveFile 会把临时文件移动，因此调用成功后传入的 filePath 将不可用
+获取文件信息。
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
 <div style="margin-right: 20px;">
@@ -17,29 +15,31 @@
 $ npm install @uni/file --save
 ```
 
-## 参数
-| 属性     | 类型     | 默认值 | 必选 | 描述     |
-| -------- | -------- | ------ | ---- | -------- |
-| filePath | `String` |        | √    | 需要保存的文件的临时路径 (本地路径)  |
+#### 参数
+| 属性   | 类型     | 默认值 | 必选 | 描述 |
+| --------------- | -------- | ------ | ---- | ------- |
+| filePath        | `String` |        | √    | 文件路径（本地路径）            |
+| digestAlgorithm | `String` | md5  | x    | 摘要算法，支持 md5 和 sha1 |
 | success | `Function`  |   -    | x    | 成功的回调 |
 | fail | `Function`  |   -    | x    | 失败的回调 |
 | complete | `Function`  |   -    | x    | 结束的回调 |
 
-### object.success 回调函数 的参数
+#### object.success 回调函数 的参数
 | 属性     | 类型     | 描述     |
 | -------- | ------ | -------- |
-|savedFilePath|string|存储后的文件路径 (本地路径)|
-
+|size|number|文件大小，以字节为单位|
+|digest|string|按照传入的 digestAlgorithm 计算得出的的文件摘要|
 ## 示例
 
 ```js
-import file from '@uni/file';
+import { getFileInfo } from '@uni/file';
 
-file.save({
-  filePath: '**filePath**',
-  success:(res) => {
-    console.log('save success');
-    const savedFilePath = res.savedFilePath
+// Get file information.
+getFileInfo({
+  filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
+  digestAlgorithm: 'sha1',
+  success: (res)=>{
+    console.log(JSON.stringify(res))
   }
 });
 
@@ -48,13 +48,13 @@ file.save({
 Promise调用：
 
 ```js
-import file from '@uni/file';
+import { getFileInfo } from '@uni/file';
 
-file.save({
-  filePath: '**filePath**',
+getFileInfo({
+  filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
+  digestAlgorithm: 'sha1',
 }).then((res) => {
-  console.log('save success');
-  const savedFilePath = res.savedFilePath
+  console.log(res);
 }).catch((e) => {
   console.log(e);
 }).finally((res) => {
@@ -85,6 +85,7 @@ export default () => (
     }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/file/index&topSlider=false'></iframe>
 );
 ```
+
 
 <div style="display: flex;margin-top: 50px;">
   <div>

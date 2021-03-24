@@ -1,4 +1,4 @@
-# getSavedInfo
+# getSavedFileInfo
 [![npm](https://img.shields.io/npm/v/@uni/file.svg)](https://www.npmjs.com/package/@uni/file)
 
 获取保存的文件信息。
@@ -34,10 +34,10 @@ $ npm install @uni/file --save
 ## 示例
 
 ```js
-import file from '@uni/file';
+import { getSavedFileInfo } from '@uni/file';
 
 // You need to save the address to be able to use File.getsavedinfo
-file.getSavedInfo({
+getSavedFileInfo({
   filePath: '**filePath**',
   success: (res) => {
     console.log(res.size);
@@ -50,9 +50,9 @@ file.getSavedInfo({
 Promise调用：
 
 ```js
-import file from '@uni/file';
+import { getSavedFileInfo } from '@uni/file';
 
-file.getSavedInfo({
+getSavedFileInfo({
   filePath: '**filePath**',
 }).then((res) => {
   console.log(res.size);

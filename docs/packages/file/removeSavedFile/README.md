@@ -1,4 +1,4 @@
-# removeSaved
+# removeSavedFile
 [![npm](https://img.shields.io/npm/v/@uni/file.svg)](https://www.npmjs.com/package/@uni/file)
 
 删除某个保存的文件。
@@ -26,9 +26,9 @@ $ npm install @uni/file --save
 ## 示例
 
 ```js
-import file from '@uni/file';
+import { removeSavedFile } from '@uni/file';
 
-file.removeSaved({
+removeSavedFile({
   filePath: '**filePath**',
   success:(res) => {
     console.log('remove success');
@@ -40,9 +40,9 @@ file.removeSaved({
 Promise调用：
 
 ```js
-import file from '@uni/file';
+import { removeSavedFile } from '@uni/file';
 
-file.removeSaved({
+removeSavedFile({
   filePath: '**filePath**',
 }).then((res) => {
   console.log('remove success');
