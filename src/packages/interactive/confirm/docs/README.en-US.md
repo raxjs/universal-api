@@ -70,8 +70,8 @@ import { confirm } from '@uni/apis';
 | options | `object`  |  | ✔️ | - |
 | options.title | `string`  | Prompt title | ✘ | - |
 | options.content | `string`  | Prompt content | ✘ | - |
-| options.confirmText | `string`  | The text of the "OK "button, not more than 4 characters | ✘ | "OK" |
-| options.cancelText | `string`  | The text of the "Cancel" button, not more than 4 characters | ✘ | "Cancel" |
+| options.confirmButtonText | `string`  | The text of the "OK "button, not more than 4 characters | ✘ | "OK" |
+| options.cancelButtonText | `string`  | The text of the "Cancel" button, not more than 4 characters | ✘ | "Cancel" |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |

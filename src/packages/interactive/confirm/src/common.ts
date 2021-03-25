@@ -1,4 +1,5 @@
 import { promisify } from '@utils/promisify';
+import { styleIn } from '@utils/styleOptions';
 import { ConfirmOptions, ConfirmRes } from './types';
 
 /**
@@ -11,14 +12,15 @@ const formatResponse = (res): ConfirmRes => {
   };
 };
 
-export function normalize(api) {
+export function normalize(api, containerName) {
   return (args: ConfirmOptions) => {
+    args = styleIn(args, containerName);
     return promisify(api)({
       ...args,
       title: args.title || '',
       content: args.content || '',
-      confirmText: args.confirmText || '确定',
-      cancelText: args.cancelText || '取消',
+      confirmButtonText: args.confirmButtonText || '确定',
+      cancelButtonText: args.cancelButtonText || '取消',
       success: (res) => {
         args.success && args.success(formatResponse(res));
       },

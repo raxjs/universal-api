@@ -1,10 +1,2 @@
-import { normalizeGetLocation, normalizeOpenLocation } from '../common';
-
-export const getLocation = normalizeGetLocation((args) => wx.getLocation(args));
-
-export const openLocation = normalizeOpenLocation((args) => wx.openLocation(args));
-
-export default {
-  getLocation,
-  openLocation,
-};
+export { default as getLocation } from './getLocation';
+export { default as openLocation } from './openLocation';

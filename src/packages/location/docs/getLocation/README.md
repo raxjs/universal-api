@@ -75,9 +75,10 @@ location.getLocation().then(response => {})
 
 | 成员 | 类型 | 描述 |
 | --- | --- | --- |
-| latitude | `number`  | 纬度 |
-| longitude | `number`  | 经度 |
-| accuracy | `number`  | 位置的精确度	|
+| latitude | `string`  | 纬度 |
+| longitude | `string`  | 经度 |
+| accuracy | `string`  | 位置的精确度	|
+| horizontalAccuracy | `string`  | 水平精度	|
 
 ## 注意
 

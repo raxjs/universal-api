@@ -57,11 +57,10 @@ Gets current geographic location（WGS84）.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| latitude | `number`  | Latitude |
-| longitude | `number`  | Longitude |
-| accuracy | `number`  | Location accuracy	|
-
-
+| latitude | `string`  | Latitude |
+| longitude | `string`  | Longitude |
+| accuracy | `string`  | Location accuracy	|
+| horizontalAccuracy | `string`  | Horizontal accuracy |
 
 ### openLocation 
 
@@ -74,8 +73,8 @@ Views location using the built-in map. The GCJ-02 coordinate system of the State
 import { openLocation } from '@uni/location';
 
 openLocation({
-  longitude: 120.126293,
-  latitude: 30.274653,
+  longitude: '120.126293',
+  latitude: '30.274653',
   name: 'cityname',
   address: 'stree name',
   success: (res) => {
@@ -91,8 +90,8 @@ openLocation({
 
 // promise
 openLocation({
-  longitude: 120.126293,
-  latitude: 30.274653,
+  longitude: '120.126293',
+  latitude: '30.274653',
   name: 'ctyname',
   address: 'stree name'})
   .then(response => {})
@@ -110,8 +109,8 @@ openLocation({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| options.latitude | `number` | Latitude | ✔️ | - |
-| options.longtitude | `number` | Longtitude | ✔️ | - |
+| options.latitude | `string` | Latitude | ✔️ | - |
+| options.longtitude | `string` | Longtitude | ✔️ | - |
 | options.scale | `number` | Scale, ranging from 5 to 18 | ✘ | 18 |
 | options.name | `string`  | Location name | ✔️ | - |
 | options.address | `string`  | Detailed address | ✔️ | - |

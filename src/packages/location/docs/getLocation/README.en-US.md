@@ -71,9 +71,10 @@ location.getLocation().then(response => {})
 
 | Property | Type | Description |
 | --- | --- | --- |
-| latitude | `number`  | Latitude |
-| longitude | `number`  | Longitude |
-| accuracy | `number`  | Location accuracy	|
+| latitude | `string`  | Latitude |
+| longitude | `string`  | Longitude |
+| accuracy | `string`  | Location accuracy	|
+| horizontalAccuracy | `string`  | Horizontal accuracy |
 
 ## 注意
 

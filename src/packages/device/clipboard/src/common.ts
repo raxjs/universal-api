@@ -1,4 +1,5 @@
 import { promisify } from '@utils/promisify';
+import { styleIn } from '@utils/styleOptions';
 import { CallBack, PARAMS } from './types';
 
 /**
@@ -22,14 +23,14 @@ function styleOptions(options) {
   } : {};
 }
 
-export function normalizeGet(api) {
+export function normalizeGet(api, containerName) {
   return (args: CallBack) => {
-    return promisify(api)(styleOptions(args)).then(formatResponse);
+    return promisify(api)(styleOptions(styleIn(args, containerName))).then(formatResponse);
   };
 }
 
-export function normalizeSet(api) {
+export function normalizeSet(api, containerName) {
   return (args: PARAMS) => {
-    return promisify(api)(args);
+    return promisify(api)(styleIn(args, containerName));
   };
 }

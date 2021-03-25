@@ -1,4 +1,5 @@
 import { promisify } from '@utils/promisify';
+import { styleIn } from '@utils/styleOptions';
 import { GetOrRemoveOptionStruct, SetOptionStruct } from './types';
 
 /**
@@ -20,8 +21,9 @@ function formatGetStorageRes(params: GetOrRemoveOptionStruct) {
 }
 
 export const normalize = {
-  getStorage: (api) => {
+  getStorage: (api, containerName) => {
     return (args: GetOrRemoveOptionStruct) => {
+      args = styleIn(args, containerName);
       return promisify(api)(formatGetStorageRes(args)).catch((e) => {
         if (e.errMsg === 'getStorage:fail data not found') {
           return { data: null };
@@ -29,14 +31,14 @@ export const normalize = {
       });
     };
   },
-  setStorage: (api) => {
+  setStorage: (api, containerName) => {
     return (args: SetOptionStruct) => {
-      return promisify(api)(args);
+      return promisify(api)(styleIn(args, containerName));
     };
   },
-  removeStorage: (api) => {
+  removeStorage: (api, containerName) => {
     return (args: GetOrRemoveOptionStruct) => {
-      return promisify(api)(args);
+      return promisify(api)(styleIn(args, containerName));
     };
   },
 };

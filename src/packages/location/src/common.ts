@@ -1,4 +1,5 @@
 import { promisify } from '@utils/promisify';
+import { styleIn } from '@utils/styleOptions';
 import { OptionStruct, ResponseStruct, OpenOptionStruct } from './types';
 
 /**
@@ -7,9 +8,11 @@ import { OptionStruct, ResponseStruct, OpenOptionStruct } from './types';
  */
 const formatResponse = (res): ResponseStruct => {
   const result: ResponseStruct = {
-    latitude: res.latitude,
-    longitude: res.longitude,
-    accuracy: res.accuracy,
+    ...res,
+    latitude: String(res.latitude),
+    longitude: String(res.longitude),
+    accuracy: String(res.accuracy),
+    horizontalAccuracy: String(res.horizontalAccuracy),
   };
   return result;
 };
@@ -26,9 +29,9 @@ function styleOptions(options: OptionStruct = {}): OptionStruct {
   };
 }
 
-export function normalizeGetLocation(api) {
+export function normalizeGetLocation(api, containerName) {
   return (args: OptionStruct) => {
-    return promisify(api)(styleOptions(args)).then(formatResponse);
+    return promisify(api)(styleOptions(styleIn(args, containerName))).then(formatResponse);
   };
 }
 
@@ -36,8 +39,8 @@ export function normalizeGetLocation(api) {
  * openLocation
  * @param api
  */
-export function normalizeOpenLocation(api) {
+export function normalizeOpenLocation(api, containerName) {
   return (args: OpenOptionStruct) => {
-    return promisify(api)(args);
+    return promisify(api)(styleIn(args, containerName));
   };
 }
