@@ -3,8 +3,11 @@ const compose = require('koa-compose');
 const fs = require('fs-extra');
 const rollupRelease = require('./rollup/build');
 const webpackRelease = require('./webpack/build');
+const gulpRelease = require('./gulp/build');
 const buildMain = require('./buildMain');
 const rm = require('rimraf');
+const initPkg = require('./initPkg');
+const consoleClear = require('console-clear');
 
 module.exports = (api ,options = {}) => {
   const { context, onHook } = api;
@@ -30,7 +33,7 @@ module.exports = (api ,options = {}) => {
     if (apiName === 'main') {
       isMain = true;
       const mainPkg = require(path.resolve(rootDir, 'package.json'));
-      entry = path.resolve(rootDir, 'packages/main/index.ts');
+      entry = path.resolve(rootDir, 'src/packages/main/index.ts');
       pkgInfo = {
         version: mainPkg.version,
         name: mainPkg.name,
@@ -77,14 +80,24 @@ module.exports = (api ,options = {}) => {
     apiInfo,
     isMain
   });
-  taskList.push(
-    rollupRelease(entry, pkgInfo, output, sourceMap, apiInfo, isMain)
-  );
+  // taskList.push(
+  //   rollupRelease(entry, pkgInfo, output, sourceMap, apiInfo, isMain)
+  // );
+  onHook('before.build.load', async () => {
+    // consoleClear(true);
+    await initPkg(entry, pkgInfo, output, sourceMap, apiInfo, isMain);
+  });
   onHook('after.build.compile', () => {
-    compose(taskList)().then(function() {
-      // logger('END', {status: 'SUCCESS'});
-    }).catch(function(err) {
-      console.log(err);
-    });
+    if(!isMain) {
+      gulpRelease(api, { entry, pkgInfo, output, sourceMap, apiInfo, isMain });
+    } else {
+      rollupRelease(entry, pkgInfo, output, sourceMap, apiInfo, isMain)
+    }
+    
+    // compose(taskList)().then(function() {
+    //   // logger('END', {status: 'SUCCESS'});
+    // }).catch(function(err) {
+    //   console.log(err);
+    // });
   });
 }

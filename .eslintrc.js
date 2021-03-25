@@ -12,6 +12,7 @@ module.exports = getESLintConfig('rax-ts', {
     'no-param-reassign': 'off',
     'max-len': 'off',
     '@iceworks/best-practices/recommend-polyfill': 'off',
-    '@typescript-eslint/restrict-plus-operands': 'off'
+    '@typescript-eslint/restrict-plus-operands': 'off',
+    'import/no-named-as-default': 'off'
   }
 });

@@ -1,12 +1,12 @@
-import {Callback} from '../types';
+import offChange from './offChange';
+import onChange from './onChange';
 
-export const onChange = (cb: Callback) => {
-  return tt.onAccelerometerChange(cb);
+export {
+  onChange,
+  offChange,
 };
-export const offChange = (cb?: Callback) => {
-  return tt.offAccelerometerChange(cb);
-};
+
 export default {
   onChange,
-  offChange
+  offChange,
 };

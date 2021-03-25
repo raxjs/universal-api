@@ -3,7 +3,7 @@ import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 import webModule from './web/index';
-import { IPushOptions, IGoOptions, IPopOptions, IReplaceOptions, INavigate, IReLaunchOptions } from './types';
+import { IPushOptions, IGoOptions, IPopOptions, IReplaceOptions, IReLaunchOptions } from './types';
 
 export const push = (options: IPushOptions) => {
   if (isWeChatMiniProgram) {

@@ -1,30 +1,31 @@
 import { promisify } from '@utils/promisify';
 import { IPushOptions, IPopOptions, IGoOptions, IReplaceOptions, IReLaunchOptions } from './types';
+import { styleIn } from '@utils/styleOptions';
 
 export const normalize = {
-  push: (api) => {
+  push: (api, containerName) => {
     return (options: IPushOptions) => {
-      return promisify(api)(options);
+      return promisify(api)(styleIn(options, containerName));
     };
   },
-  back: (api) => {
+  back: (api, containerName) => {
     return (options?: IPopOptions) => {
-      return promisify(api)(options);
+      return promisify(api)(styleIn(options, containerName));
     };
   },
-  go: (api) => {
+  go: (api, containerName) => {
     return (options: IGoOptions) => {
-      return promisify(api)(options);
+      return promisify(api)(styleIn(options, containerName));
     };
   },
-  replace: (api) => {
+  replace: (api, containerName) => {
     return (options: IReplaceOptions) => {
-      return promisify(api)(options);
+      return promisify(api)(styleIn(options, containerName));
     };
   },
-  reLaunch: (api) => {
+  reLaunch: (api, containerName) => {
     return (options: IReLaunchOptions) => {
-      return promisify(api)(options);
+      return promisify(api)(styleIn(options, containerName));
     };
   },
 };

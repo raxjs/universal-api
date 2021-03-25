@@ -5,30 +5,34 @@ import * as weChatModule from './wechat-miniprogram/index';
 import * as bytedanceModule from './bytedance-microapp/index';
 import { AsyncOptions } from './types';
 
-export const getSystemInfoSync = () => {
+export const getInfoSync = () => {
   if (isWeChatMiniProgram) {
-    return weChatModule.getSystemInfoSync();
+    return weChatModule.getInfoSync();
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.getSystemInfoSync();
+    return bytedanceModule.getInfoSync();
   } else if (isMiniApp) {
-    return aliMiniAppModule.getSystemInfoSync();
+    return aliMiniAppModule.getInfoSync();
   } else if (isWeb) {
-    return webModule.getSystemInfoSync();
+    return webModule.getInfoSync();
   } else {
-    throw new Error('@uni/apis：getSystemInfoSync暂不支持');
+    throw new Error('@uni/apis：getInfoSync暂不支持');
   }
 };
 
-export const getSystemInfo = (options?: AsyncOptions) => {
+export const getInfo = (options?: AsyncOptions) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.getSystemInfo(options);
+    return weChatModule.getInfo(options);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.getSystemInfo(options);
+    return bytedanceModule.getInfo(options);
   } else if (isMiniApp) {
-    return aliMiniAppModule.getSystemInfo(options);
+    return aliMiniAppModule.getInfo(options);
   } else if (isWeb) {
-    return webModule.getSystemInfo(options);
+    return webModule.getInfo(options);
   } else {
-    throw new Error('@uni/apis：getSystemInfo暂不支持');
+    throw new Error('@uni/apis：getInfo暂不支持');
   }
+};
+export default {
+  getInfoSync,
+  getInfo,
 };

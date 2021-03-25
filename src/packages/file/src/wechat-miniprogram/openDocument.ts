@@ -2,6 +2,7 @@ import {
   OpenDocumentOptions,
 } from '../types';
 import { normalize } from '../common';
+import { CONTAINER_NAME } from '@utils/constant';
 
 const openDocument = normalize.openDocument((options: OpenDocumentOptions) => {
   const { filePath, fileType, success, fail, complete } = options;
@@ -18,6 +19,6 @@ const openDocument = normalize.openDocument((options: OpenDocumentOptions) => {
       complete && complete(res);
     },
   });
-});
+}, CONTAINER_NAME.WECHAT);
 
 export default openDocument;

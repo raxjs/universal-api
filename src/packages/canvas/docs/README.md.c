@@ -34,8 +34,8 @@ $ npm install @uni/canvas --save
 ## 返回
 CanvasRenderingContext
 
-通过 Canvas.getContext('2d') 接口可以获取 CanvasRenderingContext2D 对象，实现了 [HTML Canvas 2D Context](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D) 定义的属性、方法。
-通过 Canvas.getContext('webgl') 或 OffscreenCanvas.getContext('webgl') 接口可以获取 WebGLRenderingContext 对象，实现了 [WebGL 1.0](https://www.khronos.org/registry/webgl/specs/latest/1.0/) 定义的所有属性、方法、常量。
+通过 createContext({ canvasId: 'canvas', type: '2d' }) 接口可以获取 CanvasRenderingContext2D 对象，实现了 [HTML Canvas 2D Context](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D) 定义的属性、方法。
+通过 createContext({ canvasId: 'canvas', type: 'webgl' }) 或 OffscreenCanvas.getContext('webgl') 接口可以获取 WebGLRenderingContext 对象，实现了 [WebGL 1.0](https://www.khronos.org/registry/webgl/specs/latest/1.0/) 定义的所有属性、方法、常量。
 
 ## 使用
 

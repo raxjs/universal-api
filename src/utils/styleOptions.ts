@@ -9,7 +9,7 @@ export const styleOut = (output: any, originalInput, originalOutput) => {
 };
 
 export const styleIn = (options: any, baseName: string) => {
-  const { _ext = {}, ...rest } = options;
+  const { _ext = {}, ...rest } = options || {};
   return {
     ...rest,
     ...(_ext[baseName] || {}),

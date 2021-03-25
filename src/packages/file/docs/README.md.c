@@ -14,7 +14,7 @@ $ npm install @uni/file --save
 
 ## 方法
 
-### `getFileInfo(options)`
+### `getInfo(options)`
 
 获取文件信息。
 
@@ -36,7 +36,7 @@ $ npm install @uni/file --save
 |size|number|文件大小，以字节为单位|
 |digest|string|按照传入的 digestAlgorithm 计算得出的的文件摘要|
 
-### `getSavedFileInfo(options)`
+### `getSavedInfo(options)`
 
 获取保存的文件信息。
 
@@ -57,7 +57,7 @@ $ npm install @uni/file --save
 |size|number|文件大小，单位 B|
 |createTime|number|文件保存时的时间戳，从1970/01/01 08:00:00 到该时刻的秒数|
 
-### `getSavedFileList(options)`
+### `getSavedList(options)`
 
 获取保存的所有文件信息。
 
@@ -118,7 +118,7 @@ $ npm install @uni/file --save
 |ppt|ppt 格式|<img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序">|
 |pptx|pptx 格式|<img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序">|
 
-### `removeSavedFile(options)`
+### `removeSaved(options)`
 
 删除某个保存的文件。
 
@@ -133,7 +133,7 @@ $ npm install @uni/file --save
 | fail | `Function`  |   -    | x    | 失败的回调 |
 | complete | `Function`  |   -    | x    | 结束的回调 |
 
-### `saveFile(options)`
+### `save(options)`
 
 保存文件到本地缓存目录（总容量限制：10 MB）。
 
@@ -155,7 +155,7 @@ $ npm install @uni/file --save
 | -------- | ------ | -------- |
 |savedFilePath|string|存储后的文件路径 (本地路径)|
 
-### `uploadFile(options)`
+### `upload(options)`
 
 上传本地资源到开发者服务器。
 
@@ -190,7 +190,7 @@ UploadTask
 微信：[链接](https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/UploadTask.html)
 字节跳动：[链接](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/api/network/http/upload-task/)
 
-### `downloadFile(options)`
+### `download(options)`
 
 下载文件资源到本地。
 
@@ -236,10 +236,10 @@ DownloadTask
 ## 示例
 
 ```js
-import { downloadFile, getFileInfo, getSavedFileInfo, getSavedFileList, openDocument, removeSavedFile, saveFile, uploadFile } from '@uni/file';
+import { download, getInfo, getSavedInfo, getSavedList, openDocument, removeSaved, save, upload } from '@uni/file';
 
 // Get file information.
-getFileInfo({
+getInfo({
   filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
   digestAlgorithm: 'sha1',
   success: (res)=>{
@@ -248,7 +248,7 @@ getFileInfo({
 });
 
 // You need to save the address to be able to use File.getsavedinfo
-getSavedFileInfo({
+getSavedInfo({
   filePath: '**filePath**',
   success: (res) => {
     console.log(res.size);
@@ -256,7 +256,7 @@ getSavedFileInfo({
   }
 });
 
-getSavedFileList({
+getSavedList({
   success:(res) => {
     console.log(JSON.stringfy(res));
   }
@@ -270,21 +270,21 @@ openDocument({
   };
 });
 
-removeSavedFile({
+removeSaved({
   filePath: '**filePath**',
   success:(res) => {
     console.log('remove success');
   }
 });
 
-saveFile({
+save({
   filePath: '**filePath**',
   success:(res) => {
     console.log('save success');
   }
 });
 
-uploadFile({
+upload({
   url: 'http://httpbin.org/post',
   fileType: 'image',
   fileName: 'file',
@@ -297,7 +297,7 @@ uploadFile({
   },
 });
 
-downloadFile({
+download({
   url: 'http://img.alicdn.com/tfs/TB1x669SXXXXXbdaFXXXXXXXXXX-520-280.jpg',
   success: res => {
     console.log(res.filePath);

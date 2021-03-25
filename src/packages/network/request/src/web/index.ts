@@ -11,7 +11,7 @@ import {
   isPlainObject,
   normalize,
 } from '../common';
-import { CONTAINER_NAME } from '@/utils/constant';
+import { CONTAINER_NAME } from '@utils/constant';
 
 function requestXHR(options: RequestOptions) {
   options.headers = Object.assign({

@@ -1,5 +1,5 @@
-import { SYSTEM_INFO } from './types';
 import { promisify } from '@utils/promisify';
+import { styleIn } from '@utils/styleOptions';
 
 const formatLanguage = (language) => {
   let fl = 'en';
@@ -19,11 +19,9 @@ const formatLanguage = (language) => {
   return fl;
 };
 
-export const formatSystemInfo: (fn: () => any) => () => SYSTEM_INFO = (fn = () => {
-  return {};
-}) => {
+export const formatSystemInfo = (api) => {
   return () => {
-    const res = fn();
+    const res = api();
     return formatResult(res);
   };
 };
@@ -49,16 +47,17 @@ export const formatResult = (data: any) => {
     platform,
   };
 };
-export const formatSystemInfoAsync = (api) => {
+export const formatSystemInfoAsync = (api, containerName) => {
   return (options) => {
+    const _options = styleIn(options, containerName);
     const afterOptions = {
-      ...options,
+      ..._options,
       ...{
         success: (res) => {
-          options.success && options.success(formatResult(res));
+          _options.success && _options.success(formatResult(res));
         },
         complete: (res) => {
-          options.complete && options.complete(res.pixelRatio ? formatResult(res) : res);
+          _options.complete && _options.complete(res.pixelRatio ? formatResult(res) : res);
         },
       } };
     return promisify(api)(afterOptions).then(formatResult);

@@ -1,22 +1,10 @@
-import { styleBoundingClientRectResponse } from '../common';
+import getScrollOffset from './getScrollOffset';
+import getBoundingClientRect from './getBoundingClientRect';
 
-export const getScrollOffset = (selector: string): Promise<any[]> => {
-  return new Promise((resolve) => {
-    const el = document.querySelectorAll(selector);
-    resolve(el.length === 0 ? [] : Array.from(el).map((node) => ({
-      scrollTop: node.scrollTop,
-      scrollLeft: node.scrollLeft,
-    })));
-  });
+export {
+  getScrollOffset,
+  getBoundingClientRect,
 };
-
-export const getBoundingClientRect = (selector: string): Promise<any[]> => {
-  return new Promise((resolve) => {
-    const el = document.querySelectorAll(selector);
-    resolve(el.length === 0 ? [] : Array.from(el).map((node) => styleBoundingClientRectResponse(node.getBoundingClientRect())));
-  });
-};
-
 export default {
   getScrollOffset,
   getBoundingClientRect,

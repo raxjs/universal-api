@@ -14,95 +14,95 @@ import {
   UploadOptions,
 } from './types';
 
-export const uploadFile = (options: UploadOptions) => {
+export const upload = (options: UploadOptions) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.uploadFile(options);
+    return weChatModule.upload(options);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.uploadFile(options);
+    return bytedanceModule.upload(options);
   } else if (isMiniApp) {
-    return aliMiniAppModule.uploadFile(options);
+    return aliMiniAppModule.upload(options);
   } else if (isWeb) {
-    return webModule.uploadFile(options);
+    return webModule.upload(options);
   } else {
-    throw new Error('@uni：uploadFile暂不支持');
+    throw new Error('@uni：upload暂不支持');
   }
 };
-export const downloadFile = (options: DownloadOptions) => {
+export const download = (options: DownloadOptions) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.downloadFile(options);
+    return weChatModule.download(options);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.downloadFile(options);
+    return bytedanceModule.download(options);
   } else if (isMiniApp) {
-    return aliMiniAppModule.downloadFile(options);
+    return aliMiniAppModule.download(options);
   } else if (isWeb) {
-    return webModule.downloadFile(options);
+    return webModule.download(options);
   } else {
-    throw new Error('@uni：downloadFile暂不支持');
+    throw new Error('@uni：download暂不支持');
   }
 };
-export const getFileInfo = (options: GetInfoOptions) => {
+export const getInfo = (options: GetInfoOptions) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.getFileInfo(options);
+    return weChatModule.getInfo(options);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.getFileInfo(options);
+    return bytedanceModule.getInfo(options);
   } else if (isMiniApp) {
-    return aliMiniAppModule.getFileInfo(options);
+    return aliMiniAppModule.getInfo(options);
   } else if (isWeb) {
-    return webModule.getFileInfo(options);
+    return webModule.getInfo(options);
   } else {
-    throw new Error('@uni：getFileInfo暂不支持');
+    throw new Error('@uni：getInfo暂不支持');
   }
 };
-export const getSavedFileInfo = (options: GetSavedInfoOptions) => {
+export const getSavedInfo = (options: GetSavedInfoOptions) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.getSavedFileInfo(options);
+    return weChatModule.getSavedInfo(options);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.getSavedFileInfo(options);
+    return bytedanceModule.getSavedInfo(options);
   } else if (isMiniApp) {
-    return aliMiniAppModule.getSavedFileInfo(options);
+    return aliMiniAppModule.getSavedInfo(options);
   } else if (isWeb) {
-    return webModule.getSavedFileInfo(options);
+    return webModule.getSavedInfo(options);
   } else {
-    throw new Error('@uni：getSavedFileInfo暂不支持');
+    throw new Error('@uni：getSavedInfo暂不支持');
   }
 };
-export const getSavedFileList = (options: GetSavedListOptions) => {
+export const getSavedList = (options: GetSavedListOptions) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.getSavedFileList(options);
+    return weChatModule.getSavedList(options);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.getSavedFileList(options);
+    return bytedanceModule.getSavedList(options);
   } else if (isMiniApp) {
-    return aliMiniAppModule.getSavedFileList(options);
+    return aliMiniAppModule.getSavedList(options);
   } else if (isWeb) {
-    return webModule.getSavedFileList(options);
+    return webModule.getSavedList(options);
   } else {
-    throw new Error('@uni：getSavedFileList暂不支持');
+    throw new Error('@uni：getSavedList暂不支持');
   }
 };
-export const saveFile = (options: SaveOptions) => {
+export const save = (options: SaveOptions) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.saveFile(options);
+    return weChatModule.save(options);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.saveFile(options);
+    return bytedanceModule.save(options);
   } else if (isMiniApp) {
-    return aliMiniAppModule.saveFile(options);
+    return aliMiniAppModule.save(options);
   } else if (isWeb) {
-    return webModule.saveFile(options);
+    return webModule.save(options);
   } else {
-    throw new Error('@uni：saveFile暂不支持');
+    throw new Error('@uni：save暂不支持');
   }
 };
-export const removeSavedFile = (options: RemoveSavedOptions) => {
+export const removeSaved = (options: RemoveSavedOptions) => {
   if (isWeChatMiniProgram) {
-    return weChatModule.removeSavedFile(options);
+    return weChatModule.removeSaved(options);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.removeSavedFile(options);
+    return bytedanceModule.removeSaved(options);
   } else if (isMiniApp) {
-    return aliMiniAppModule.removeSavedFile(options);
+    return aliMiniAppModule.removeSaved(options);
   } else if (isWeb) {
-    return webModule.removeSavedFile(options);
+    return webModule.removeSaved(options);
   } else {
-    throw new Error('@uni：removeSavedFile暂不支持');
+    throw new Error('@uni：removeSaved暂不支持');
   }
 };
 export const openDocument = (options: OpenDocumentOptions) => {
@@ -117,4 +117,14 @@ export const openDocument = (options: OpenDocumentOptions) => {
   } else {
     throw new Error('@uni：openDocument暂不支持');
   }
+};
+export default {
+  openDocument,
+  removeSaved,
+  upload,
+  save,
+  getSavedList,
+  getSavedInfo,
+  getInfo,
+  download,
 };

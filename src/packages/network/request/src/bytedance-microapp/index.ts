@@ -3,7 +3,7 @@ import {
   ResponseData,
 } from '../types';
 import { normalize } from '../common';
-import { CONTAINER_NAME } from '@/utils/constant';
+import { CONTAINER_NAME } from '@utils/constant';
 
 function request(options: RequestOptions) {
   const { url, method, data, dataType, headers, timeout, success, fail, complete } = options;

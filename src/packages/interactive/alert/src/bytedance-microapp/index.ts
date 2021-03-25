@@ -1,5 +1,6 @@
 import { Options } from '../types';
 import { normalize } from '../common';
+import { CONTAINER_NAME } from '@utils/constant';
 
 const alert = (args: Options): void => {
   tt.showModal({
@@ -9,4 +10,4 @@ const alert = (args: Options): void => {
   });
 };
 
-export default normalize(alert);
+export default normalize(alert, CONTAINER_NAME.BYTE);

@@ -1,8 +1,8 @@
 import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
-import * as aliMiniAppModule from './ali-miniapp/index';
-import * as weChatModule from './wechat-miniprogram/index';
-import * as bytedanceModule from './bytedance-microapp/index';
-import * as webModule from './web/index';
+import aliMiniAppModule from './ali-miniapp/index';
+import weChatModule from './wechat-miniprogram/index';
+import bytedanceModule from './bytedance-microapp/index';
+import webModule from './web/index';
 import {
   Callback, RejectCallback,
 } from './types';
@@ -97,4 +97,13 @@ export const offUnhandledRejection = (options: RejectCallback) => {
   } else {
     throw new Error('@uni：Application.offUnhandledRejection 暂不支持');
   }
+};
+export default {
+  getApp,
+  getCurrentPages,
+  getLaunchOptionsSync,
+  onError,
+  offError,
+  onUnhandledRejection,
+  offUnhandledRejection,
 };
