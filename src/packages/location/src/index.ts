@@ -1,8 +1,8 @@
 import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
-import * as aliMiniAppModule from './ali-miniapp/index';
-import * as webModule from './web/index';
-import * as weChatModule from './wechat-miniprogram/index';
-import * as bytedanceModule from './bytedance-microapp/index';
+import aliMiniAppModule from './ali-miniapp/index';
+import webModule from './web/index';
+import weChatModule from './wechat-miniprogram/index';
+import bytedanceModule from './bytedance-microapp/index';
 
 export const getLocation = (args) => {
   if (isWeChatMiniProgram) {

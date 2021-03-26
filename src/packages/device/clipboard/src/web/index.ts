@@ -1,2 +1,12 @@
-export { default as getClipboard } from './getClipboard';
-export { default as setClipboard } from './setClipboard';
+import getClipboard from './getClipboard';
+import setClipboard from './setClipboard';
+
+export {
+  getClipboard,
+  setClipboard,
+};
+
+export default {
+  getClipboard,
+  setClipboard,
+};

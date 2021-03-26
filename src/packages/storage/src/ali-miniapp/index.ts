@@ -1,6 +1,24 @@
-export { default as getStorage } from './getStorage';
-export { default as getStorageSync } from './getStorageSync';
-export { default as setStorage } from './setStorage';
-export { default as setStorageSync } from './setStorageSync';
-export { default as removeStorage } from './removeStorage';
-export { default as removeStorageSync } from './removeStorageSync';
+import getStorage from './getStorage';
+import getStorageSync from './getStorageSync';
+import setStorage from './setStorage';
+import setStorageSync from './setStorageSync';
+import removeStorage from './removeStorage';
+import removeStorageSync from './removeStorageSync';
+
+export {
+  getStorage,
+  getStorageSync,
+  setStorage,
+  setStorageSync,
+  removeStorage,
+  removeStorageSync,
+};
+
+export default {
+  getStorage,
+  getStorageSync,
+  setStorage,
+  setStorageSync,
+  removeStorage,
+  removeStorageSync,
+};

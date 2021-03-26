@@ -1,2 +1,12 @@
-export { default as getLocation } from './getLocation';
-export { default as openLocation } from './openLocation';
+import getLocation from './getLocation';
+import openLocation from './openLocation';
+
+export {
+  getLocation,
+  openLocation,
+};
+
+export default {
+  getLocation,
+  openLocation,
+};
