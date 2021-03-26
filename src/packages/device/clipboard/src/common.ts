@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { promisify } from '@utils/promisify';
 import { styleIn } from '@utils/styleOptions';
 import { CallBack, PARAMS } from './types';

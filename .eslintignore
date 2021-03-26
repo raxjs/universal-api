@@ -8,3 +8,4 @@ src/packages/**/**/demo
 src/packages/**/demo
 docs
 src/.umi
+demos

@@ -6,7 +6,6 @@ import {
   CompressImageOptions,
   CompressImageRes,
   GetImageInfoOptions,
-  GetImageInfoRes,
   PreviewImageOptions,
   SaveImageOptions,
 } from './types';
