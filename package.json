@@ -17,7 +17,7 @@
     "pub-beta:main": "cross-env BUILD_TYPE=main BUILD_TAG=beta node ./scripts/publish.js",
     "docs:dev": "cross-env node ./scripts/buildDocs.js && cross-env dumi dev",
     "docs:build": "cross-env node ./scripts/buildDocs.js && cross-env dumi build",
-    "docs:deploy": "gh-pages -ad docs-dist",
+    "docs:deploy": "npm run docs:build && gh-pages -ad docs-dist",
     "check-and-publish": "node ./scripts/check-and-publish.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
   },

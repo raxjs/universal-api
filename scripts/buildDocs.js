@@ -24,6 +24,53 @@ function logger( text = '', opts = { status: 'INFO' } ) {
   }
   console.log(logText);
 }
+
+// 注入文件的内容
+const injectScript = '\n\n```jsx | inline' + `
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').style.padding = '50px 100px';
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+` + '```\n';
+
+// 注入文件脚本
+const injectFile = (dir, done = () => {}) => {
+  let results = [];
+  fs.readdir(dir, (err, list) => {
+    if (err) return done(err);
+    let i = 0;
+    (function next() {
+      let file = list[i++];
+      if (!file) return done(null, results);
+      file = path.resolve(dir, file);
+      fs.stat(file, (err, stat) => {
+        if (stat && stat.isDirectory()) {
+          injectFile(file, (err, res) => {
+            results = results.concat(res);
+            next();
+          });
+        } else {
+          fs.appendFileSync(file, injectScript);
+          results.push(file);
+          next();
+        }
+      });
+    })();
+  });
+};
+
 const buildDocs = async () => {
   const docsPath = path.resolve(root, docsOutputDir);
   const packageDocsPath = path.resolve(root, docsOutputDir, 'packages');
@@ -43,9 +90,10 @@ const buildDocs = async () => {
 
   Object.entries(sourceMap).map(([key, value]) => {
     const fromPath = path.resolve(root, value.path.replace(/src\/index\.(t|j)s/, 'docs'));
-    const toPath = path.resolve(root, docsOutputDir, value.path.replace(/src\/index\.(t|j)s/, '').replace(/src\/packages/, 'packages'));
+    const toPath = path.resolve(root, docsOutputDir, value.path.replace(/src\/index\.(t|j)s/, ''));
     if (fs.pathExistsSync(fromPath)) {
       fs.copySync(fromPath, toPath);
+      injectFile(toPath);
     }
     
   });
