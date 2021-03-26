@@ -1,7 +1,7 @@
 export interface OPTIONS {
   thresholds?: Array<number>;
   initialRatio?: number;
-  observeAll?: boolean;
+  selectAll?: boolean;
 }
 
 export interface RECT {
