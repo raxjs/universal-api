@@ -68,3 +68,22 @@ Note：To judge MiniProgram env in WebView, please insert JS SDK accordingly.
 | KuaiShou MiniProgram WebView | ✘         | ✘                   | ✘                   | ✘                   | ✔️                     | ✔️      | ✘     | ✘   |
 | Node                         | ✘         | ✘                   | ✘                   | ✘                  | ✘                      | ✘      | ✘     | ✔️   |
 | Web                          | ✘         | ✘                   | ✘                   | ✘                  | ✘                      | ✔️      | ✘     | ✘   |
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').style.padding = '50px 100px';
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

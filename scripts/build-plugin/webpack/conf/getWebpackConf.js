@@ -55,10 +55,9 @@ module.exports = (context, options) => {
     Object.values(sourceMap).forEach(item => {
       item.pkgInfo.forEach(i => {
         config.resolve.alias
-          .set(i.name + '/lib', path.resolve(rootDir, item.path).replace(/\/index\.ts/, ''));
+          .set(i.name + '$', path.resolve(rootDir, item.path));
         config.resolve.alias
-          .set(i.name, path.resolve(rootDir, item.path));
-        
+          .set(i.name + '/lib', path.resolve(rootDir, item.path).replace(/\/index\.ts/, ''));
       });
     });
   }

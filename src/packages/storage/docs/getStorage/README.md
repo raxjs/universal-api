@@ -68,7 +68,6 @@ storage.getStorage({
     console.log('complete', res);
   }
 });
-
 ```
 
 ## 方法

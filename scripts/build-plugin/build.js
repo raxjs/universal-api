@@ -13,7 +13,6 @@ module.exports = (api ,options = {}) => {
   const { context, onHook } = api;
   const { commandArgs, rootDir } = context;
   const getItemOutputPath = (name, dir = 'lib/') => dir + name + '/';
-  let taskList = [];
   let entry;
   let output;
   let pkgInfo;
@@ -33,7 +32,7 @@ module.exports = (api ,options = {}) => {
     if (apiName === 'main') {
       isMain = true;
       const mainPkg = require(path.resolve(rootDir, 'package.json'));
-      entry = path.resolve(rootDir, 'src/packages/main/index.ts');
+      entry = path.resolve(rootDir, 'src/main/index.ts');
       pkgInfo = {
         version: mainPkg.version,
         name: mainPkg.name,
@@ -88,11 +87,11 @@ module.exports = (api ,options = {}) => {
     await initPkg(entry, pkgInfo, output, sourceMap, apiInfo, isMain);
   });
   onHook('after.build.compile', () => {
-    if(!isMain) {
+    // if(!isMain) {
       gulpRelease(api, { entry, pkgInfo, output, sourceMap, apiInfo, isMain });
-    } else {
-      rollupRelease(entry, pkgInfo, output, sourceMap, apiInfo, isMain)
-    }
+    // } else {
+    //   rollupRelease(entry, pkgInfo, output, sourceMap, apiInfo, isMain)
+    // }
     
     // compose(taskList)().then(function() {
     //   // logger('END', {status: 'SUCCESS'});

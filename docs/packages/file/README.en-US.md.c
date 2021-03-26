@@ -14,7 +14,7 @@ $ npm install @uni/file --save
 
 ## Methods
 
-### `getFileInfo(options)`
+### `getInfo(options)`
 
 Get file information.
 
@@ -28,7 +28,7 @@ Get file information.
 | digestAlgorithm | `String` | md5   | x        | The algorithm to calculate the file summary can be md5, sha1 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 
 
-### `getSavedFileInfo(options)`
+### `getSavedInfo(options)`
 
 Gets saved file information.
 
@@ -40,7 +40,7 @@ Gets saved file information.
 | -------- | -------- | ------- | -------- | ------------- | --------------------------------------- |
 | filePath | `String` |         | √        | The file path | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 
-### `getSavedFileList(options)`
+### `getSavedList(options)`
 
 Gets all saved file information.
 
@@ -60,7 +60,7 @@ Open a file preview on the new page.
 | filePath | `String` |         | √        | The file path | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 | fileType | `String` |         | x        | The file Type | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 
-### `removeSavedFile(options)`
+### `removeSaved(options)`
 
 Delete a saved file.
 
@@ -72,7 +72,7 @@ Delete a saved file.
 | -------- | -------- | ------- | -------- | ------------- | --------------------------------------- |
 | filePath | `String` |         | √        | The file path | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 
-### `saveFile(options)`
+### `save(options)`
 
 Save the file locally.
 
@@ -84,7 +84,7 @@ Save the file locally.
 | -------- | -------- | ------- | -------- | ------------- | --------------------------------------- |
 | filePath | `String` |         | √        | The file path | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px"> |
 
-### `uploadFile(options)`
+### `upload(options)`
 
 Upload local resources to the developer server.
 
@@ -111,7 +111,7 @@ UploadTask
 字节跳动：[链接](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/api/network/http/upload-task/)
 
 
-### `downloadFile(options)`
+### `download(options)`
 
 Download file resources locally.
 
@@ -136,10 +136,10 @@ DownloadTask
 ## Example
 
 ```js
-import { downloadFile, getFileInfo, getSavedFileInfo, getSavedFileList, openDocument, removeSavedFile, saveFile, uploadFile } from '@uni/file';
+import { download, getInfo, getSavedInfo, getSavedList, openDocument, removeSaved, save, upload } from '@uni/file';
 
 // Get file information.
-getFileInfo({
+getInfo({
   filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
   digestAlgorithm: 'sha1',
   success: (res)=>{
@@ -148,7 +148,7 @@ getFileInfo({
 });
 
 // You need to save the address to be able to use File.getsavedinfo
-getSavedFileInfo({
+getSavedInfo({
   filePath: '**filePath**',
   success: (res) => {
     console.log(res.size);
@@ -156,7 +156,7 @@ getSavedFileInfo({
   }
 });
 
-getSavedFileList({
+getSavedList({
   success:(res) => {
     console.log(JSON.stringfy(res));
   }
@@ -170,21 +170,21 @@ openDocument({
   };
 });
 
-removeSavedFile({
+removeSaved({
   filePath: '**filePath**',
   success:(res) => {
     console.log('remove success');
   }
 });
 
-saveFile({
+save({
   filePath: '**filePath**',
   success:(res) => {
     console.log('save success');
   }
 });
 
-uploadFile({
+upload({
   url: 'http://httpbin.org/post',
   fileType: 'image',
   fileName: 'file',
@@ -197,7 +197,7 @@ uploadFile({
   },
 });
 
-downloadFile({
+download({
   url: 'http://img.alicdn.com/tfs/TB1x669SXXXXXbdaFXXXXXXXXXX-520-280.jpg',
   success: res => {
     console.log(res.filePath);
@@ -206,5 +206,26 @@ downloadFile({
     console.log(res);
   },
 });
+
 ```
 
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').style.padding = '50px 100px';
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

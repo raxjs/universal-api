@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-module.exports = (isEs, rootDir) => {
+module.exports = (isEs, isMain) => {
   let res = {
     presets: [
       [
@@ -34,9 +34,16 @@ module.exports = (isEs, rootDir) => {
              * }
              */
             const oriUtilsPath = '@utils';
-            const newUtilsPath = '_utils';
+            let newUtilsPath = '_utils';
+            let pathLv = 0;
             if (sourcePath.indexOf(oriUtilsPath) !== -1) {
-              const pathLv = currentFile
+              if (isMain) {
+                newUtilsPath = 'utils'
+                pathLv = currentFile
+                  .match(/(src\/packages\/.*\.ts)/)[1]
+                  .split('/').length - 2;
+              }
+              pathLv = currentFile
                 .replace('/src/packages', '')
                 .match(/(src\/.*\.ts)/)[1]
                 .split('/').length - 2;

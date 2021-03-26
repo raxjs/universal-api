@@ -4,11 +4,11 @@ import * as weChatModule from './miniapp/wechat';
 
 import { Background } from './types';
 
-let Background: Background;
+let background: Background;
 if (isMiniApp) {
-  Background = miniAppModule;
+  background = miniAppModule;
 } else if (isWeChatMiniProgram) {
-  Background = weChatModule;
+  background = weChatModule;
 }
 
-export default Background;
+export default background;

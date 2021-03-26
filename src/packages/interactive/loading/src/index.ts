@@ -34,5 +34,5 @@ export const hideLoading = (args?) => {
 
 export default {
   showLoading,
-  hideLoading
+  hideLoading,
 };

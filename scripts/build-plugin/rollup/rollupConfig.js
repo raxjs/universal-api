@@ -38,9 +38,14 @@ module.exports = (inputPath, itemOutputPath, sourceMap, pkgInfo, apiInfo, isMain
       Object.values(sourceMap).forEach(item => {
         item.pkgInfo.forEach(i => {
           aliasEntries.push({
+            find: i.name + '/lib',
+            replacement: path.resolve(root, item.path).replace(/\/index\.ts/, '')
+          });
+          aliasEntries.push({
             find: i.name,
             replacement: path.resolve(root, item.path)
           });
+          
         });
       });
     }
