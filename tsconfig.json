@@ -70,6 +70,6 @@
 			"@utils/*": ["src/utils/*"],
     }
 	},
-	"include": ["src", "types"],
-	"exclude": ["scripts/*", "**/demo/*", "./src/**/**/demo/*"]
+	"include": ["src/packages/**/src", "types"],
+	"exclude": ["scripts/*", "src/**/demo/*", "src/**/**/demo/*", "src/packages/**/demo", "**/demo/*"]
 }

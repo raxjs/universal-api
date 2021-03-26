@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // eslint-disable-next-line import/no-extraneous-dependencies
+// @ts-nocheck
 import { isDingdingMiniapp, isMiniapp, isWeChatMiniProgram, isWeb } from '@uni/env';
 
 export default (platformApi: string, ...args: any) => {
