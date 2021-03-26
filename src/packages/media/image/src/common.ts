@@ -1,4 +1,5 @@
 import { promisify } from '@utils/promisify';
+import { styleIn } from '@utils/styleOptions';
 import {
   ChooseImageOptions,
   ChooseImageRes,
@@ -11,7 +12,7 @@ import {
 } from './types';
 
 export const normalize = {
-  chooseImage: (api) => {
+  chooseImage: (api, containerName) => {
     const formatResponse = (res): ChooseImageRes => {
       return {
         ...res,
@@ -20,6 +21,7 @@ export const normalize = {
       };
     };
     return (args: ChooseImageOptions) => {
+      args = styleIn(args, containerName);
       return promisify(api)({
         ...args,
         count: args.count || 1,
@@ -32,13 +34,14 @@ export const normalize = {
       }).then(formatResponse);
     };
   },
-  compressImage: (api) => {
+  compressImage: (api, containerName) => {
     const formatResponse = (res): CompressImageRes => {
       return {
         tempFilePath: res.tempFilePath || (res.filePaths || [])[0] || (res.apFilePaths || [])[0] || '',
       };
     };
     return (args: CompressImageOptions) => {
+      args = styleIn(args, containerName);
       return promisify(api)({
         ...args,
         success: (res) => {
@@ -50,19 +53,19 @@ export const normalize = {
       }).then(formatResponse);
     };
   },
-  getImageInfo: (api) => {
+  getImageInfo: (api, containerName) => {
     return (args: GetImageInfoOptions) => {
-      return promisify(api)(args);
+      return promisify(api)(styleIn(args, containerName));
     };
   },
-  previewImage: (api) => {
+  previewImage: (api, containerName) => {
     return (args: PreviewImageOptions) => {
-      return promisify(api)(args);
+      return promisify(api)(styleIn(args, containerName));
     };
   },
-  saveImage: (api) => {
+  saveImage: (api, containerName) => {
     return (args: SaveImageOptions) => {
-      return promisify(api)(args);
+      return promisify(api)(styleIn(args, containerName));
     };
   },
 };
