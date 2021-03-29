@@ -56,7 +56,7 @@ export default function () {
       <View
         style={styles.button}
         onClick={() => {
-          confirm({ title: '标题', content: '显示modal内容', confirmButtonText: '继续', cancelButtonText: '返回' }).then((res) => {
+          confirm({ title: '标题', content: '显示modal内容', confirmText: '继续', cancelText: '返回' }).then((res) => {
             if (res.confirm) {
               toast.show('点击了确认');
             } else {

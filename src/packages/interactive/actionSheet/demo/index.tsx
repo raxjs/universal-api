@@ -28,7 +28,7 @@ export default function () {
       style={styles.button}
       onClick={() => {
         showActionSheet({
-          items: ['A', 'B', 'C'],
+          itemList: ['A', 'B', 'C'],
           _ext: {
             aliMiniApp: {
               title: '我是额外参数标题_ext.aliMiniApp',

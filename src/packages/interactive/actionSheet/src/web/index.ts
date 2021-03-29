@@ -112,12 +112,12 @@ const showActionSheet = (args) => {
       const containerEle = document.createElement('div');
       containerEle.className = clsPrefix;
       // add all item element
-      const items = args.items || [];
-      for (let index = 0; index < items.length; index++) {
+      const itemList = args.itemList || [];
+      for (let index = 0; index < itemList.length; index++) {
         const itemEle = document.createElement('div');
         itemEle.className = `${clsPrefix}_item`;
 
-        itemEle.innerText = items[index];
+        itemEle.innerText = itemList[index];
         // support for ARIA, add tabindex for focus
         // https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/tabindex
         itemEle.setAttribute('tabindex', `${index}`);
@@ -157,8 +157,8 @@ const showActionSheet = (args) => {
 
       hideCallback = (index) => {
         hideFn(() => {
-          args.success({ index });
-          args.complete({ index });
+          args.success({ tapIndex: index });
+          args.complete({ tapIndex: index });
         });
       };
     }

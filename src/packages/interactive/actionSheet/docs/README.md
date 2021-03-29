@@ -32,7 +32,7 @@ $ npm install @uni/apis --save
 import showActionSheet from '@uni/action-sheet';
 
 showActionSheet({
-  items: ['A', 'B', 'C'],
+  itemList: ['A', 'B', 'C'],
   success (res) {
     console.log(res.index)
   },
@@ -43,7 +43,7 @@ showActionSheet({
 
 // promise
 showActionSheet({
-  items: ['A', 'B', 'C']
+  itemList: ['A', 'B', 'C']
 }).then(res => {
     console.log(res.index)
 });
@@ -65,7 +65,7 @@ import { actionSheet } from '@uni/apis';
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| options.items | `Array<string>`  | 按钮的文字数组，数组长度最大为 6	 | ✔️ | - |
+| options.itemList | `Array<string>`  | 按钮的文字数组，数组长度最大为 6	 | ✔️ | - |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |

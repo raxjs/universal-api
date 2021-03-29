@@ -8,7 +8,7 @@ import { ShowActionSheetOptions, ShowActionSheetRes } from './types';
 const formatResponse = (res): ShowActionSheetRes => {
   return {
     ...res,
-    index: res.index != undefined ? res.index : res.tapIndex,
+    tapIndex: res.tapIndex != undefined ? res.tapIndex : res.index,
   };
 };
 

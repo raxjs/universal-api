@@ -2,7 +2,6 @@ import { normalize } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
 export default normalize((args) => {
-  args.itemList = args.items;
   wx.showActionSheet({
     ...args,
     fail: (err) => {

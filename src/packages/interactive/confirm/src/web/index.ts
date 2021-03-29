@@ -147,7 +147,7 @@ const confirm = (args: ConfirmOptions) => {
       if (args.showCancel !== false) {
         const cancelButton = document.createElement('div');
         cancelButton.className = `${clsPrefix}_cancel`;
-        cancelButton.innerText = args.cancelButtonText;
+        cancelButton.innerText = args.cancelText;
         cancelButton.setAttribute('tabindex', '-1');
         cancelButton.addEventListener('click', () => {
           hideFn(() => {
@@ -164,7 +164,7 @@ const confirm = (args: ConfirmOptions) => {
       if (args.showCancel === false) {
         confirmButton.style.width = '100%';
       }
-      confirmButton.innerText = args.confirmButtonText;
+      confirmButton.innerText = args.confirmText;
       confirmButton.setAttribute('tabindex', '-1');
       confirmButton.addEventListener('click', () => {
         hideFn(() => {
