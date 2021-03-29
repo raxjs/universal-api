@@ -1,3 +1,5 @@
+/* eslint-disable no-mixed-operators */
+/* eslint-disable @typescript-eslint/no-shadow */
 import {
   RequestOptions,
   ERROR_REQUEST_TIMEOUT,

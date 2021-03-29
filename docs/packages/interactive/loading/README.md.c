@@ -86,3 +86,25 @@ hideLoading();
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage("syncIframeHeight", 800, '*'); // 800 即页面实际高度
+        // document.querySelector('.__dumi-default-layout-content').style.padding = '50px 100px';
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

@@ -46,9 +46,3 @@ if (apiName) {
   // mainPublishFun();
 }
 shell.exec(resShell.join(' && '));
-
-// compose(taskList)().then(function(){
-//   logger('END', {status: 'SUCCESS'});
-// }).catch(function(err){
-//   console.log(err);
-// });

@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+// @ts-nocheck
 import { createElement, useState, useEffect } from 'rax';
 import View from 'rax-view';
 import request from '@uni/request';

@@ -389,3 +389,25 @@ image.saveImage({
 | Property | Type | Description | required | Default | Supported |
 | --- | --- | --- | --- | --- | -- |
 | options.showActionSheet | `boolean`  | show operation menus for image | ✘ | true |<img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> |
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage("syncIframeHeight", 800, '*'); // 800 即页面实际高度
+        // document.querySelector('.__dumi-default-layout-content').style.padding = '50px 100px';
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

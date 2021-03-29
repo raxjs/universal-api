@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Callback } from '../types';
 
 const onChange = (cb: Callback) => {

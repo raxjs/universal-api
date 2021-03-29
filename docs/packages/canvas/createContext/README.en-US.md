@@ -34,8 +34,8 @@ $ npm install @uni/canvas --save
 ## 返回
 CanvasRenderingContext
 
-通过 Canvas.getContext('2d') 接口可以获取 CanvasRenderingContext2D 对象，实现了 [HTML Canvas 2D Context](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D) 定义的属性、方法。
-通过 Canvas.getContext('webgl') 或 OffscreenCanvas.getContext('webgl') 接口可以获取 WebGLRenderingContext 对象，实现了 [WebGL 1.0](https://www.khronos.org/registry/webgl/specs/latest/1.0/) 定义的所有属性、方法、常量。
+通过 createContext({ canvasId: 'canvas', type: '2d' }) 接口可以获取 CanvasRenderingContext2D 对象，实现了 [HTML Canvas 2D Context](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D) 定义的属性、方法。
+通过 createContext({ canvasId: 'canvas', type: 'webgl' }) 或 OffscreenCanvas.getContext('webgl') 接口可以获取 WebGLRenderingContext 对象，实现了 [WebGL 1.0](https://www.khronos.org/registry/webgl/specs/latest/1.0/) 定义的所有属性、方法、常量。
 
 ## 使用
 
@@ -124,3 +124,25 @@ export default () => (
 
 </div>
 </div>
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage("syncIframeHeight", 800, '*'); // 800 即页面实际高度
+        // document.querySelector('.__dumi-default-layout-content').style.padding = '50px 100px';
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

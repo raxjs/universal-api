@@ -24,10 +24,10 @@ $ npm install @uni/apis --save
 ## Usage
 
 ```javascript
-import { getSystemInfo, getSystemInfoSync } from '@uni/system-info';
+import { getInfo, getInfoSync } from '@uni/system-info';
 
-getSystemInfo().then(res => console.log(res));
-let res = getSystemInfoSync();
+getInfo().then(res => console.log(res));
+let res = getInfoSync();
 
 ```
 
@@ -35,8 +35,8 @@ You can also import from the big package:
 ```js
 import { systemInfo } from '@uni/apis';
 
-systemInfo.getSystemInfo().then(res => console.log(res));
-let res = systemInfo.getSystemInfoSync();
+systemInfo.getInfo().then(res => console.log(res));
+let res = systemInfo.getInfoSync();
 ```
 
 ### Return
@@ -65,7 +65,7 @@ export default () => (
       boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
       width: '375px',
       height: '700px'
-    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/getsysteminfosync/index&topSlider=false'></iframe>
+    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/system-info/index&topSlider=false'></iframe>
 );
 ```
 
@@ -78,3 +78,25 @@ export default () => (
 
 </div>
 </div>
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage("syncIframeHeight", 800, '*'); // 800 即页面实际高度
+        // document.querySelector('.__dumi-default-layout-content').style.padding = '50px 100px';
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

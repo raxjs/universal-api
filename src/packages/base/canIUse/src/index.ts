@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 import { isDingdingMiniapp } from '@utils/miniappEnvApp';
 // 按wechat、bytedance、dd、支付宝、web的方式，不支持的端相应位数置0即可

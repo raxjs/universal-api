@@ -4,11 +4,11 @@ import * as weChatModule from './miniapp/wechat';
 
 import { Keyboard } from './types';
 
-let Keyboard: Keyboard;
+let keyboard: Keyboard;
 if (isMiniApp) {
-  Keyboard = miniAppModule;
+  keyboard = miniAppModule;
 } else if (isWeChatMiniProgram) {
-  Keyboard = weChatModule;
+  keyboard = weChatModule;
 }
 
-export default Keyboard;
+export default keyboard;

@@ -35,7 +35,8 @@ const injectScript = '\n\n```jsx | inline' + `
         document.querySelector('.__dumi-default-layout').classList = [];
         document.querySelector('.__dumi-default-menu').style.display = 'none';
         document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
-        document.querySelector('.__dumi-default-layout-content').style.padding = '50px 100px';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
       }
     }
 
@@ -90,7 +91,7 @@ const buildDocs = async () => {
 
   Object.entries(sourceMap).map(([key, value]) => {
     const fromPath = path.resolve(root, value.path.replace(/src\/index\.(t|j)s/, 'docs'));
-    const toPath = path.resolve(root, docsOutputDir, value.path.replace(/src\/index\.(t|j)s/, ''));
+    const toPath = path.resolve(root, docsOutputDir, value.path.replace(/src\/packages/, 'packages').replace(/src\/index\.(t|j)s/, ''));
     if (fs.pathExistsSync(fromPath)) {
       fs.copySync(fromPath, toPath);
       injectFile(toPath);

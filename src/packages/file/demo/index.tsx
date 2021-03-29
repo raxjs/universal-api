@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-// @ts-ignore
+// @ts-nocheck
 import { createElement, useState } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';

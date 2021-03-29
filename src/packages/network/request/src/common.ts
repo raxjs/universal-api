@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable @typescript-eslint/no-invalid-void-type */
+/* eslint-disable no-empty */
+
 import { DATA_TYPE, AsObject, RequestOptions } from './types';
 import { styleIn } from '@utils/styleOptions';
 
