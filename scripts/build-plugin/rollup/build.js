@@ -1,6 +1,5 @@
 const compose = require('koa-compose');
 const getRollupConfig = require('./rollupConfig');
-const packageTpl = require('../source/package-tpl');
 
 const fs = require('fs-extra');
 const rm = require('rimraf');

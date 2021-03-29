@@ -10,7 +10,7 @@ const getBabelConfig = require('./conf/babel');
 const { series, parallel } = gulp;
 
 const {
-  entry, pkgInfo, output, sourceMap, apiInfo, isMain
+  entry, output
 } = gulpParams.gulpInfo;
 const { context } = gulpParams.api;
 const { rootDir } = context;
