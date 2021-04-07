@@ -1,31 +1,29 @@
+/// <reference path='../../../../../types/interface.d.ts'/>
+
 export interface Callback {
   (res?): void;
 }
-
-export interface CallbackOptions {
-  /**
-   * Interface to invoke a successful callback function.
-   */
-  success?: Callback;
-  /**
-   * Interface to call a failed callback function.
-   */
-  fail?: Callback;
-  /**
-   * Interface callback function at the end of the call (executed on success and failure).
-   */
-  complete?: Callback;
-  [propName: string]: any;
+export interface ConfirmRes {
+  confirm?: boolean;
+  cancel?: boolean;
 }
-
-export interface ConfirmOptions extends CallbackOptions {
+export interface ConfirmOptions extends Uni.COptions {
   title?: string;
   content?: string;
   cancelText?: string;
   confirmText?: string;
+  /**
+   * Interface to invoke a successful callback function.
+   */
+  success?: (res?: ConfirmRes) => void;
+  /**
+    * Interface to call a failed callback function.
+    */
+  fail?: (e?: Error) => void;
+  /**
+    * Interface callback function at the end of the call (executed on success and failure).
+    */
+  complete?: (res?: ConfirmRes | Error) => void;
+  [propName: string]: any;
 }
 
-export interface ConfirmRes {
-  confirm: boolean;
-  cancel: boolean;
-}

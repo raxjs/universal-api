@@ -1,4 +1,5 @@
-export interface UploadOptions {
+/// <reference path='../../../../types/interface.d.ts'/>
+export interface UploadOptions extends Uni.COptions {
   url: string;
   filePath: string;
   fileName: string;
@@ -19,7 +20,7 @@ export interface UploadResponseData {
 export interface DownloadResponseData {
   tempFilePath: string;
 }
-export interface DownloadOptions {
+export interface DownloadOptions extends Uni.COptions {
   url: string;
   header?: object;
   success?: (res: DownloadResponseData) => void;
@@ -31,7 +32,7 @@ export interface GetInfoResponseData {
   size: number;
   digest: string;
 }
-export interface GetInfoOptions {
+export interface GetInfoOptions extends Uni.COptions {
   filePath: string;
   digestAlgorithm?: 'md5' | 'sha1';
   success?: (res: GetInfoResponseData) => void;
@@ -43,7 +44,7 @@ export interface GetSavedInfoResponseData {
   size: number;
   createTime: number;
 }
-export interface GetSavedInfoOptions {
+export interface GetSavedInfoOptions extends Uni.COptions {
   filePath: string;
   success?: (res: GetSavedInfoResponseData) => void;
   fail?: (res: Error) => void;
@@ -58,7 +59,7 @@ export interface GetSavedListResponseItemData {
   createTime: number;
   filePath: string;
 }
-export interface GetSavedListOptions {
+export interface GetSavedListOptions extends Uni.COptions {
   success?: (res: GetSavedListResponseData) => void;
   fail?: (res: Error) => void;
   complete?: (res: GetSavedListResponseData | Error) => void;
@@ -67,21 +68,21 @@ export interface GetSavedListOptions {
 export interface SaveResponseData {
   savedFilePath: string;
 }
-export interface SaveOptions {
+export interface SaveOptions extends Uni.COptions {
   tempFilePath: string;
   success?: (res: SaveResponseData) => void;
   fail?: (res: Error) => void;
   complete?: (res: SaveResponseData | Error) => void;
 }
 
-export interface RemoveSavedOptions {
+export interface RemoveSavedOptions extends Uni.COptions {
   filePath: string;
   success?: () => void;
   fail?: (res: Error) => void;
   complete?: (res?: Error) => void;
 }
 
-export interface OpenDocumentOptions {
+export interface OpenDocumentOptions extends Uni.COptions {
   filePath: string;
   fileType?: 'pdf';
   success?: () => void;

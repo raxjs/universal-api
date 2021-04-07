@@ -1,4 +1,5 @@
 import { normalizeHide } from '../common';
+import { CONTAINER_NAME } from '@utils/constant';
 
 declare let window: any;
 export const hideLoading = normalizeHide(({ success = () => {}, fail = () => {}, complete = () => {} }) => {
@@ -15,6 +16,6 @@ export const hideLoading = normalizeHide(({ success = () => {}, fail = () => {},
     fail();
     complete();
   }
-});
+}, CONTAINER_NAME.WEB);
 
 export default hideLoading;

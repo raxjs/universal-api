@@ -27,7 +27,7 @@ module.exports = {
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/caniuse',
       },
     ],
@@ -38,10 +38,10 @@ module.exports = {
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/unit-tool',
         dependencies: {
-          '@uni/system-info': '^1.0.1',
+          '@uni/system-info': '^1.0.2',
         },
       },
     ],
@@ -51,7 +51,7 @@ module.exports = {
     path: 'src/packages/canvas/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/canvas',
       },
     ],
@@ -70,7 +70,7 @@ module.exports = {
     path: 'src/packages/device/clipboard/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/clipboard',
       },
     ],
@@ -108,7 +108,7 @@ module.exports = {
     path: 'src/packages/interactive/actionSheet/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/action-sheet',
       },
     ],
@@ -120,7 +120,7 @@ module.exports = {
         version: '1.0.2',
         name: '@uni/alert',
         dependencies: {
-          '@uni/confirm': '^1.0.1',
+          '@uni/confirm': '^1.0.2',
         },
       },
     ],
@@ -166,7 +166,7 @@ module.exports = {
     path: 'src/packages/interactive/loading/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/loading',
       },
     ],
@@ -193,7 +193,7 @@ module.exports = {
     path: 'src/packages/interactive/intersectionObserver/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/intersection-observer',
       },
     ],
@@ -202,7 +202,7 @@ module.exports = {
     path: 'src/packages/interactive/confirm/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/confirm',
       },
     ],
@@ -220,7 +220,7 @@ module.exports = {
     path: 'src/packages/location/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/location',
       },
     ],
@@ -230,7 +230,7 @@ module.exports = {
     path: 'src/packages/media/image/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/image',
       },
     ],
@@ -260,7 +260,7 @@ module.exports = {
     path: 'src/packages/storage/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/storage',
       },
     ],

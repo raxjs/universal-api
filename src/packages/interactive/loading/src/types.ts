@@ -1,34 +1,42 @@
+/// <reference path='../../../../../types/interface.d.ts'/>
+
 export interface Callback {
   (): void;
 }
 
-export interface CallbackOptions {
+export interface ShowOptions extends Uni.COptions {
+  /**
+   * Content of the prompt.
+   */
+  content?: string;
   /**
    * Interface to invoke a successful callback function.
    */
   success?: Callback;
   /**
-   * Interface to call a failed callback function.
-   */
-  fail?: Callback;
+    * Interface to call a failed callback function.
+    */
+  fail?: (e: Error) => void;
   /**
-   * Interface callback function at the end of the call (executed on success and failure).
-   */
+    * Interface callback function at the end of the call (executed on success and failure).
+    */
   complete?: Callback;
   [propName: string]: any;
 }
 
-export interface ShowOptions extends CallbackOptions {
+export interface HideOptions extends Uni.COptions {
   /**
-   * Content of the prompt.
+   * Interface to invoke a successful callback function.
    */
-  content?: string;
+  success?: Callback;
+  /**
+    * Interface to call a failed callback function.
+    */
+  fail?: (e: Error) => void;
+  /**
+    * Interface callback function at the end of the call (executed on success and failure).
+    */
+  complete?: Callback;
+  [propName: string]: any;
 }
 
-export interface HideOptions extends CallbackOptions {
-}
-
-export interface Loading {
-  showLoading(options?: ShowOptions): Promise<any>;
-  hideLoading(options?: HideOptions): Promise<any>;
-}

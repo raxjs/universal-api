@@ -3,8 +3,9 @@ import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
+import { ShowOptions, HideOptions } from './types';
 
-export const showLoading = (args?) => {
+export const showLoading = (args?: ShowOptions) => {
   if (isWeChatMiniProgram) {
     return weChatModule.showLoading(args);
   } else if (isByteDanceMicroApp) {
@@ -18,7 +19,7 @@ export const showLoading = (args?) => {
   }
 };
 
-export const hideLoading = (args?) => {
+export const hideLoading = (args?: HideOptions) => {
   if (isWeChatMiniProgram) {
     return weChatModule.hideLoading(args);
   } else if (isByteDanceMicroApp) {

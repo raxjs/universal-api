@@ -4,7 +4,9 @@ import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 
-export const getStorage = (args) => {
+import { GetOrRemoveOptionStruct, GetOrRemoveSyncOptionStruct, SetOptionStruct, SetSyncOptionStruct } from './types';
+
+export const getStorage = (args: GetOrRemoveOptionStruct) => {
   if (isWeChatMiniProgram) {
     return weChatModule.getStorage(args);
   } else if (isByteDanceMicroApp) {
@@ -18,7 +20,7 @@ export const getStorage = (args) => {
   }
 };
 
-export const getStorageSync = (args) => {
+export const getStorageSync = (args: GetOrRemoveSyncOptionStruct) => {
   if (isWeChatMiniProgram) {
     return weChatModule.getStorageSync(args);
   } else if (isByteDanceMicroApp) {
@@ -32,7 +34,7 @@ export const getStorageSync = (args) => {
   }
 };
 
-export const setStorage = (args) => {
+export const setStorage = (args: SetOptionStruct) => {
   if (isWeChatMiniProgram) {
     return weChatModule.setStorage(args);
   } else if (isByteDanceMicroApp) {
@@ -46,7 +48,7 @@ export const setStorage = (args) => {
   }
 };
 
-export const setStorageSync = (args) => {
+export const setStorageSync = (args: SetSyncOptionStruct) => {
   if (isWeChatMiniProgram) {
     return weChatModule.setStorageSync(args);
   } else if (isByteDanceMicroApp) {
@@ -60,7 +62,7 @@ export const setStorageSync = (args) => {
   }
 };
 
-export const removeStorage = (args) => {
+export const removeStorage = (args: GetOrRemoveOptionStruct) => {
   if (isWeChatMiniProgram) {
     return weChatModule.removeStorage(args);
   } else if (isByteDanceMicroApp) {
@@ -74,7 +76,7 @@ export const removeStorage = (args) => {
   }
 };
 
-export const removeStorageSync = (args) => {
+export const removeStorageSync = (args: GetOrRemoveSyncOptionStruct) => {
   if (isWeChatMiniProgram) {
     return weChatModule.removeStorageSync(args);
   } else if (isByteDanceMicroApp) {

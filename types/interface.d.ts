@@ -3,16 +3,16 @@ interface Ob {
 }
 
 interface Ext {
-  wechatMiniProgram: Ob;
-  aliMiniApp: Ob;
-  bytedanceMicroApp: Ob;
-  web: Ob;
-  baiduSmartProgram: Ob;
-  kuaishouMiniProgram: Ob;
+  wechatMiniProgram?: Ob;
+  aliMiniApp?: Ob;
+  bytedanceMicroApp?: Ob;
+  web?: Ob;
+  baiduSmartProgram?: Ob;
+  kuaishouMiniProgram?: Ob;
 }
 
 declare namespace Uni {
   interface COptions {
-    _ext: Ext;
+    _ext?: Ext;
   }
 }

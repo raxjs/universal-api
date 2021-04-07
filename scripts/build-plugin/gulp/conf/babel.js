@@ -42,11 +42,13 @@ module.exports = (isEs, isMain) => {
                 pathLv = currentFile
                   .match(/(src\/packages\/.*\.ts)/)[1]
                   .split('/').length - 2;
-              }
-              pathLv = currentFile
+              } else {
+                pathLv = currentFile
                 .replace('/src/packages', '')
                 .match(/(src\/.*\.ts)/)[1]
                 .split('/').length - 2;
+              }
+              
               const pointRelative = pathLv === 0 ? '.' : Array.from({length: pathLv}).map(i => '..').join('/');
             
               return sourcePath.replace(oriUtilsPath, pointRelative + '/' + newUtilsPath);

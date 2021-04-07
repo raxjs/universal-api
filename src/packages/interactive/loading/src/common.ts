@@ -1,6 +1,7 @@
 import { isWeChatMiniProgram, isByteDanceMicroApp } from '@uni/env';
 import { HideOptions, ShowOptions } from './types';
 import { promisify } from '@utils/promisify';
+import { styleIn } from '@utils/styleOptions';
 
 function styleOptions(options: ShowOptions) {
   if (!options) {
@@ -18,14 +19,14 @@ function styleOptions(options: ShowOptions) {
  * showLoading
  * @param api
  */
-export function normalizeShow(api) {
+export function normalizeShow(api, containerName) {
   return (args?: ShowOptions) => {
-    return promisify(api)(styleOptions(args));
+    return promisify(api)(styleOptions(styleIn(args, containerName)));
   };
 }
 
-export function normalizeHide(api) {
+export function normalizeHide(api, containerName) {
   return (args?: HideOptions) => {
-    return promisify(api)(args);
+    return promisify(api)(styleIn(args, containerName));
   };
 }

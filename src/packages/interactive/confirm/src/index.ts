@@ -3,8 +3,9 @@ import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
+import { ConfirmOptions } from './types';
 
-export const confirm = (args) => {
+export const confirm = (args: ConfirmOptions) => {
   if (isWeChatMiniProgram) {
     return weChatModule(args);
   } else if (isByteDanceMicroApp) {

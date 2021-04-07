@@ -1,4 +1,5 @@
 import { normalizeShow } from '../common';
+import { CONTAINER_NAME } from '@utils/constant';
 
 declare let window: any;
 window.__uni_loadingWin = null;
@@ -109,6 +110,6 @@ export const showLoading = normalizeShow(({ content = '', success = () => {}, fa
     fail();
     complete();
   }
-});
+}, CONTAINER_NAME.WEB);
 
 export default showLoading;

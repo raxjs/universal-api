@@ -3,8 +3,9 @@ import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
+import { ShowActionSheetOptions } from './types';
 
-export const showActionSheet = (args) => {
+export const showActionSheet = (args: ShowActionSheetOptions) => {
   if (isWeChatMiniProgram) {
     return weChatModule(args);
   } else if (isByteDanceMicroApp) {
