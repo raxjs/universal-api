@@ -34,7 +34,7 @@ import showActionSheet from '@uni/action-sheet';
 showActionSheet({
   itemList: ['A', 'B', 'C'],
   success (res) {
-    console.log(res.index)
+    console.log(res.tapIndex)
   },
   fail (res) {
     console.log(res.errMsg)
@@ -45,7 +45,7 @@ showActionSheet({
 showActionSheet({
   itemList: ['A', 'B', 'C']
 }).then(res => {
-    console.log(res.index)
+    console.log(res.tapIndex)
 });
 
 ```
@@ -85,7 +85,7 @@ import { actionSheet } from '@uni/apis';
 
 | 成员 | 类型 | 描述 |
 | --- | --- | --- |
-| index | `number` | 用户点击的按钮序号，从上到下的顺序，从0开始，点击蒙层和取消按钮为-1 |
+| tapIndex | `number` | 用户点击的按钮序号，从上到下的顺序，从0开始，点击蒙层和取消按钮为-1 |
 
 </div>
 <div>

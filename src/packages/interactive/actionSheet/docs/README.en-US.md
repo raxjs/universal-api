@@ -29,7 +29,7 @@ import showActionSheet from '@uni/action-sheet';
 showActionSheet({
   itemList: ['A', 'B', 'C'],
   success (res) {
-    console.log(res.index)
+    console.log(res.tapIndex)
   },
   fail (res) {
     console.log(res.errMsg)
@@ -40,7 +40,7 @@ showActionSheet({
 showActionSheet({
   itemList: ['A', 'B', 'C']
 }).then(res => {
-    console.log(res.index)
+    console.log(res.tapIndex)
 });
 
 ```
@@ -80,7 +80,7 @@ import { actionSheet } from '@uni/apis';
 
 | Property | Type | Description |
 | --- | --- | --- |
-| index | `number` | The sequence number of the button tapped by the user, from top to bottom and starting from 0, The value is -1 when the mask or cancel button is clicked by the user |
+| tapIndex | `number` | The sequence number of the button tapped by the user, from top to bottom and starting from 0, The value is -1 when the mask or cancel button is clicked by the user |
 
 </div>
 <div>

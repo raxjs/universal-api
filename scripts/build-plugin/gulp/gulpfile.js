@@ -46,9 +46,11 @@ const tsProject = ts.createProject({
   declaration: true,
   declarationDir: output,
   skipLibCheck: true,
+  // typeRoots: ['./types'],
   target: 'ES6',
   "paths": {
-    "types/*": ["types/*"],
+    // "@types/*": ["types/*"],
+    // "types/interface": ["./interface"],
     "@/*": ["src/*"],
     "@utils/*": ["src/utils/*"],
   }  
@@ -58,7 +60,9 @@ const generateTypes = () => {
   const tsResult = gulp
     .src(typesDir)
     .pipe(tsProject());
-  return tsResult.dts.pipe(gulp.dest(typesOutDir));
+  return tsResult.dts
+  .pipe(replace('types/interface', './interface'))
+  .pipe(gulp.dest(typesOutDir));
 };
 const generateLibJs = () => {
   return gulp
@@ -109,11 +113,14 @@ const sourceLibJs = () => {
     .pipe(gulp.dest(libUtilsDir));
 };
 
-// const copyLibOther = () => {
-//   return gulp
-//     .src(["../src/**/!(*.js|*.jsx|*.ts|*.tsx|*.scss|*.less|*.json)"])
-//     .pipe(gulp.dest(destGenLibDir));
-// };
+const copyTypes = () => {
+  return gulp
+    .src([path.resolve(rootDir, './types/interface.d.ts'),
+    // path.resolve(rootDir, 'node_modules/@types/**/*.ts'),
+    // path.resolve(rootDir, './types/**/*.ts')
+  ])
+    .pipe(gulp.dest(typesOutDir));
+};
 function clean(done) {
   fs.removeSync(esDir);
   fs.removeSync(libDir);
@@ -126,5 +133,6 @@ exports.default = series(
   sourceLibJs,
   generateEsJs,
   generateLibJs,
-  generateTypes
+  generateTypes,
+  copyTypes
 );

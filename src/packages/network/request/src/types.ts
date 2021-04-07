@@ -1,3 +1,5 @@
+/// <reference path='../../../../../types/interface.d.ts'/>
+
 /**
  *  Common
  */
@@ -10,7 +12,7 @@ export const DEFAULT_JSON_CALLBACK = 'callback';
 export const DEFAULT_JSONP_OPTIONS = {
   timeout: DEFAULT_TIMEOUT,
   jsonpCallback: DEFAULT_JSON_CALLBACK,
-  dataType: DATA_TYPE.json
+  dataType: DATA_TYPE.json,
 };
 export interface AsObject { [key: string]: string | number }
 
@@ -26,7 +28,7 @@ export interface JsonpOptions {
   jsonpCallbackFunctionName?: string;
 }
 
-export interface RequestOptions {
+export interface RequestOptions extends Uni.COptions {
   url: string;
   headers?: AsObject;
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'HEAD';
@@ -67,15 +69,15 @@ export interface ErrorData {
 
 export const ERROR_REQUEST_ABORT: ErrorData = {
   code: 0,
-  message: 'Request Abort'
+  message: 'Request Abort',
 };
 
 export const ERROR_REQUEST_TIMEOUT: ErrorData = {
   code: 1,
-  message: 'Request timeout'
+  message: 'Request timeout',
 };
 
 export const ERROR_REQUEST_NOT_SUPPORT: ErrorData = {
   code: 2,
-  message: 'Request not support this platform'
+  message: 'Request not support this platform',
 };

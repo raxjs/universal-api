@@ -1,4 +1,6 @@
-export interface Options {
+/// <reference path='../../../../../types/interface.d.ts'/>
+
+export interface Options extends Uni.COptions {
   title?: string;
   content?: string;
   confirmColor?: string;

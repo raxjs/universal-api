@@ -26,7 +26,12 @@ const Index = () => {
       <View style={styles.button} onClick={() => alert({
         content: '我是一个弹窗',
         title: '弹窗',
-        buttonText: '确定'
+        buttonText: '确定',
+        _ext: {
+          wechatMiniProgram: {
+            confirmColor: '#ff1214',
+          },
+        },
       })}>
         点击弹出普通弹窗
       </View>

@@ -40,7 +40,7 @@ export default function () {
             },
           },
         }).then((res) => {
-          Toast.show(`选中项Index:${res.index}`);
+          Toast.show(`选中项Index:${res.tapIndex}`);
         });
       }}
     >

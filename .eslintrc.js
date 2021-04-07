@@ -13,6 +13,7 @@ module.exports = getESLintConfig('rax-ts', {
     'max-len': 'off',
     '@iceworks/best-practices/recommend-polyfill': 'off',
     '@typescript-eslint/restrict-plus-operands': 'off',
-    'import/no-named-as-default': 'off'
+    'import/no-named-as-default': 'off',
+    '@typescript-eslint/triple-slash-reference': 'off'
   }
 });
