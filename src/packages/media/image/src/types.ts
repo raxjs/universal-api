@@ -1,8 +1,5 @@
-interface CallbackOptions {
-  success?: (res) => any;
-  fail?: (res) => any;
-  complete?: (res) => any;
-}
+/// <reference path='../../../../../types/interface.d.ts'/>
+
 
 // chooseImage
 enum SOURCE_TYPE {
@@ -10,9 +7,12 @@ enum SOURCE_TYPE {
   camera
 }
 
-export interface ChooseImageOptions extends CallbackOptions {
+export interface ChooseImageOptions extends Uni.COptions {
   count?: number;
-  sourceType?: (keyof typeof SOURCE_TYPE)[];
+  sourceType?: Array<keyof typeof SOURCE_TYPE>;
+  success?: (res: ChooseImageRes) => any;
+  fail?: (e: Error) => any;
+  complete?: (res: ChooseImageRes | Error) => any;
 }
 
 interface FileData {
@@ -33,9 +33,12 @@ enum QUALITY {
   HIGH
 }
 
-export interface CompressImageOptions extends CallbackOptions {
+export interface CompressImageOptions extends Uni.COptions {
   src: string;
   quality?: QUALITY;
+  success?: (res: CompressImageRes) => any;
+  fail?: (e: Error) => any;
+  complete?: (res: CompressImageRes | Error) => any;
 }
 
 export interface CompressImageRes {
@@ -43,8 +46,11 @@ export interface CompressImageRes {
 }
 
 // getImageInfo
-export interface GetImageInfoOptions extends CallbackOptions {
+export interface GetImageInfoOptions extends Uni.COptions {
   src: string;
+  success?: (res: GetImageInfoRes) => any;
+  fail?: (e: Error) => any;
+  complete?: (res: GetImageInfoRes | Error) => any;
 }
 
 export interface GetImageInfoRes {
@@ -54,12 +60,18 @@ export interface GetImageInfoRes {
 }
 
 // previewImage
-export interface PreviewImageOptions extends CallbackOptions {
+export interface PreviewImageOptions extends Uni.COptions {
   urls: string[];
   current?: number;
+  success?: () => any;
+  fail?: (e: Error) => any;
+  complete?: () => any;
 }
 
 // saveImage
-export interface SaveImageOptions extends CallbackOptions {
+export interface SaveImageOptions extends Uni.COptions {
   url: string;
+  success?: () => any;
+  fail?: (e: Error) => any;
+  complete?: () => any;
 }

@@ -1,3 +1,5 @@
+/// <reference path='../../../../types/interface.d.ts'/>
+
 export type CanvasContext = { draw?: () => void } & RenderingContext;
 
 export interface ContextAttributes {
@@ -12,7 +14,7 @@ export interface ContextAttributes {
   preserveDrawingBuffer?: boolean;
   stencil?: boolean;
 }
-export interface Options {
+export interface Options extends Uni.COptions {
   canvasId: string;
   type?: '2d' | 'webgl' | 'webgl2';
   context?: any;

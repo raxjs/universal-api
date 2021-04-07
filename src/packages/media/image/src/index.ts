@@ -3,8 +3,15 @@ import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
+import {
+  ChooseImageOptions,
+  CompressImageOptions,
+  GetImageInfoOptions,
+  PreviewImageOptions,
+  SaveImageOptions,
+} from './types';
 
-export const chooseImage = (args) => {
+export const chooseImage = (args: ChooseImageOptions) => {
   if (isWeChatMiniProgram) {
     return weChatModule.chooseImage(args);
   } else if (isByteDanceMicroApp) {
@@ -18,7 +25,7 @@ export const chooseImage = (args) => {
   }
 };
 
-export const compressImage = (args) => {
+export const compressImage = (args: CompressImageOptions) => {
   if (isWeChatMiniProgram) {
     return weChatModule.compressImage(args);
   } else if (isByteDanceMicroApp) {
@@ -32,7 +39,7 @@ export const compressImage = (args) => {
   }
 };
 
-export const getImageInfo = (args) => {
+export const getImageInfo = (args: GetImageInfoOptions) => {
   if (isWeChatMiniProgram) {
     return weChatModule.getImageInfo(args);
   } else if (isByteDanceMicroApp) {
@@ -46,7 +53,7 @@ export const getImageInfo = (args) => {
   }
 };
 
-export const previewImage = (args) => {
+export const previewImage = (args: PreviewImageOptions) => {
   if (isWeChatMiniProgram) {
     return weChatModule.previewImage(args);
   } else if (isByteDanceMicroApp) {
@@ -60,7 +67,7 @@ export const previewImage = (args) => {
   }
 };
 
-export const saveImage = (args) => {
+export const saveImage = (args: SaveImageOptions) => {
   if (isWeChatMiniProgram) {
     return weChatModule.saveImage(args);
   } else if (isByteDanceMicroApp) {

@@ -1,3 +1,67 @@
+## 1.0.3 (2021-04-07)
+
+### Features
+
+* 补全类型声明 ([1a913de](https://github.com/raxjs/universal-api/commit/1a913de74de6eec05808f2bc69986ee1537d8679))
+* 支持 api 维度构建,增加 _ext 扩展参数 ([4c53d00](https://github.com/raxjs/universal-api/commit/4c53d006bd52a53a368132e63a75a94f490f43dc))
+* 更新目录结构 ([a37ec34](https://github.com/raxjs/universal-api/commit/a37ec343ec1afb455458a6be27af932052654b58))
+* 文档对接rax站点 ([0899643](https://github.com/raxjs/universal-api/commit/089964320fee0163bfd62b529ec8c93e85ad46da))
+
+* @uni/alert@1.0.2
+  * api 维度构建
+  * 增加 _ext 扩展参数
+  * 更新 types
+* @uni/action-sheet@1.0.2
+  * api 维度构建
+  * 增加 _ext 扩展参数
+  * 更新 types
+* @uni/file@1.0.2
+  * api 维度构建
+  * 增加 _ext 扩展参数
+* @uni/application@1.0.2
+  * api 维度构建
+  * 增加 _ext 扩展参数
+* @uni/canvas@1.0.2
+  * api 维度构建
+  * 增加 _ext 扩展参数
+* @uni/accelerometer@1.0.2
+  * api 维度构建
+* @uni/clipboard@1.0.2
+  * api 维度构建
+  * 增加 _ext 扩展参数
+* @uni/systemInfo@1.0.2
+  * api 维度构建
+* @uni/toast@1.0.3
+  * api 维度构建
+  * 增加 _ext 扩展参数
+* @uni/loading@1.0.2
+  * api 维度构建
+  * 增加 _ext 扩展参数
+* @uni/element@1.0.2
+  * api 维度构建
+* @uni/intersectionObserver@1.0.2
+  * api 维度构建
+* @uni/confirm@1.0.2
+  * api 维度构建
+  * 增加 _ext 扩展参数
+* @uni/location@1.0.2
+  * api 维度构建
+  * 增加 _ext 扩展参数
+* @uni/image@1.0.2
+  * api 维度构建
+  * 增加 _ext 扩展参数
+  * 更新 types
+* @uni/navigate@1.0.2
+  * api 维度构建
+  * 增加 _ext 扩展参数
+* @uni/request@1.0.2
+  * api 维度构建
+  * 增加 _ext 扩展参数
+* @uni/storage@1.0.2
+  * api 维度构建
+  * 增加 _ext 扩展参数
+  * 更新 types
+
 ## 1.0.1 (2021-03-12)
 
 ### Bug Fixes
@@ -204,10 +268,6 @@
 * transition for bytedance ([#71](https://github.com/raxjs/universal-api/issues/71)) ([7f69c70](https://github.com/raxjs/universal-api/commit/7f69c70ca60e9dd6468dbef3742195012092043f))
 * **device:** support pixelRatio ([#67](https://github.com/raxjs/universal-api/issues/67)) ([336cd3a](https://github.com/raxjs/universal-api/commit/336cd3a1eac89003f2569dfff2be105565cc24af))
 * update version with wechat ([9e56a61](https://github.com/raxjs/universal-api/commit/9e56a61d38b5fdea3c26aedbab8216d700a8e6fb))
-* v1.0.1 ([65c5d88](https://github.com/raxjs/universal-api/commit/65c5d88676d2d3a8824de6b66894e46a833365ba))
-* v1.0.2 ([3d92238](https://github.com/raxjs/universal-api/commit/3d9223895ccd4f148cdd9a6f0efdded41a2ec663))
-* v1.0.3 ([8fa93bc](https://github.com/raxjs/universal-api/commit/8fa93bc0228d55530345b0a93cc25493402be3a9))
-* v1.0.3 ([2ade9cc](https://github.com/raxjs/universal-api/commit/2ade9cc417ad5060fb76bf3ea0e4672a55fa60b1))
 
 
 

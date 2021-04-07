@@ -21,3 +21,4 @@ docs-dist
 stats.html
 demos
 src/.umi*
+.vscode
