@@ -3,8 +3,9 @@ import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
+import { OptionStruct, OpenOptionStruct } from './types';
 
-export const getLocation = (args) => {
+export const getLocation = (args: OptionStruct) => {
   if (isWeChatMiniProgram) {
     return weChatModule.getLocation(args);
   } else if (isByteDanceMicroApp) {
@@ -18,7 +19,7 @@ export const getLocation = (args) => {
   }
 };
 
-export const openLocation = (args) => {
+export const openLocation = (args: OpenOptionStruct) => {
   if (isWeChatMiniProgram) {
     return weChatModule.openLocation(args);
   } else if (isByteDanceMicroApp) {

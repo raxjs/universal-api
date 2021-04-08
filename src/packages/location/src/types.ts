@@ -1,6 +1,8 @@
+/// <reference path='../../../../types/interface.d.ts'/>
+
 // getLocation params
-export interface OptionStruct {
-  success?: (res) => any;
+export interface OptionStruct extends Uni.COptions {
+  success?: (res: ResponseStruct) => any;
   fail?: (res) => any;
   complete?: (res) => any;
 }
@@ -14,7 +16,7 @@ export interface ResponseStruct {
 }
 
 // openLocation params
-export interface OpenOptionStruct {
+export interface OpenOptionStruct extends Uni.COptions {
   latitude: string;
   longtitude: string;
   scale: number;
