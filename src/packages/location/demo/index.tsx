@@ -30,7 +30,16 @@ export default function () {
       <View
         style={styles.button}
         onClick={() => {
-          getLocation().then((res) => {
+          getLocation({
+            _ext: {
+              aliMiniApp: {
+                type: 1
+              },
+              wechatMiniProgram: {
+                altitude: true
+              }
+            }
+          }).then((res) => {
             setLocation(res);
           });
         }}
