@@ -13,5 +13,5 @@ export default () => {
     .forEach((i) => {
       query[i.split('=')[0]] = i.split('=')[1];
     });
-  return [{ pageId: `${window.location.pathname }-1`, query, hash }];
+  return [{ pageId: `${window.location.pathname}${window.location.hash}-1`, query, hash }];
 };
