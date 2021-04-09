@@ -7,7 +7,7 @@ const getLocation = normalizeGetLocation((args: OptionStruct) => {
   if ('geolocation' in navigator) {
     /* 地理位置服务可用 */
     navigator.geolocation.getCurrentPosition((position) => {
-      success(position.coords);
+      success(position.coords as any);
       complete(position.coords);
     }, (err) => {
       fail(err);

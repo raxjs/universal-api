@@ -25,3 +25,16 @@ export const isKuaiShouMiniProgram = !isUndef(typeof ks) && ks !== null && !isUn
 // In bytedance maicro app, there is wx variable.
 export const isWeChatMiniProgram = !isByteDanceMicroApp && !isUndef(typeof wx) && wx !== null && (!isUndef(typeof wx.login) || !isUndef(typeof wx.miniProgram));
 export const isQuickApp = !isUndef(typeof global) && global !== null && !isUndef(typeof global.callNative) && !isWeex;
+
+export default {
+  isWeb,
+  isNode,
+  isWeex,
+  isKraken,
+  isMiniApp,
+  isByteDanceMicroApp,
+  isBaiduSmartProgram,
+  isKuaiShouMiniProgram,
+  isWeChatMiniProgram,
+  isQuickApp,
+};
