@@ -36,7 +36,6 @@ setStorageSync({
     value: 'value'
   }
 });
-
 ```
 
 你也可以从大包引入：
@@ -49,7 +48,6 @@ storage.setStorageSync({
     value: 'value'
   }
 });
-
 ```
 
 ## 方法

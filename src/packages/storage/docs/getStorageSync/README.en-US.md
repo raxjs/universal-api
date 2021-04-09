@@ -29,7 +29,6 @@ import {getStorageSync} from '@uni/storage';
 let res = getStorageSync({
   key: 'key'
 });
-
 ```
 
 You can also import from the big package：
@@ -39,7 +38,6 @@ import { storage } from '@uni/apis';
 let res = storage.getStorageSync({
   key: 'key'
 });
-
 ```
 
 ## Methods

@@ -32,9 +32,9 @@ $ npm install @uni/apis --save
 import showActionSheet from '@uni/action-sheet';
 
 showActionSheet({
-  items: ['A', 'B', 'C'],
+  itemList: ['A', 'B', 'C'],
   success (res) {
-    console.log(res.index)
+    console.log(res.tapIndex)
   },
   fail (res) {
     console.log(res.errMsg)
@@ -43,9 +43,9 @@ showActionSheet({
 
 // promise
 showActionSheet({
-  items: ['A', 'B', 'C']
+  itemList: ['A', 'B', 'C']
 }).then(res => {
-    console.log(res.index)
+    console.log(res.tapIndex)
 });
 
 ```
@@ -65,7 +65,7 @@ import { actionSheet } from '@uni/apis';
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| options.items | `Array<string>`  | 按钮的文字数组，数组长度最大为 6	 | ✔️ | - |
+| options.itemList | `Array<string>`  | 按钮的文字数组，数组长度最大为 6	 | ✔️ | - |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
@@ -85,7 +85,7 @@ import { actionSheet } from '@uni/apis';
 
 | 成员 | 类型 | 描述 |
 | --- | --- | --- |
-| index | `number` | 用户点击的按钮序号，从上到下的顺序，从0开始，点击蒙层和取消按钮为-1 |
+| tapIndex | `number` | 用户点击的按钮序号，从上到下的顺序，从0开始，点击蒙层和取消按钮为-1 |
 
 </div>
 <div>
@@ -119,14 +119,14 @@ export default () => (
   import React from 'react';
   export default class Home extends React.Component {
     componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
       if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
         document.querySelector('.__dumi-default-navbar').style.display = 'none';
         document.querySelector('.__dumi-default-layout').classList = [];
         document.querySelector('.__dumi-default-menu').style.display = 'none';
         document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
         document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
-        parent.postMessage && parent.postMessage("syncIframeHeight", 800, '*'); // 800 即页面实际高度
-        // document.querySelector('.__dumi-default-layout-content').style.padding = '50px 100px';
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
       }
     }
 

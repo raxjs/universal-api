@@ -29,7 +29,6 @@ import {removeStorageSync} from '@uni/storage';
 removeStorageSync({
   key: 'key'
 });
-
 ```
 
 你也可以从大包引入：
@@ -39,7 +38,6 @@ import { storage } from '@uni/apis';
 storage.removeStorageSync({
   key: 'key'
 });
-
 ```
 
 ## 方法

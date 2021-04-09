@@ -29,7 +29,6 @@ import {removeStorageSync} from '@uni/storage';
 removeStorageSync({
   key: 'key'
 });
-
 ```
 
 You can also import from the big package：
@@ -39,7 +38,6 @@ import { storage } from '@uni/apis';
 storage.removeStorageSync({
   key: 'key'
 });
-
 ```
 
 ## Methods

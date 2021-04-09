@@ -45,7 +45,6 @@ getStorage({
 }).then(response => {})
   .catch(error => {})
   .finally(res => {});
-
 ```
 
 You can also import from the big package：
@@ -64,7 +63,6 @@ storage.getStorage({
     console.log('complete', res);
   }
 });
-
 ```
 
 ## Methods

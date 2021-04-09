@@ -46,7 +46,6 @@ setStorage({
 }).then(response => {})
   .catch(error => {})
   .finally(res => {});
-
 ```
 
 ## Methods
@@ -98,7 +97,6 @@ setStorageSync({
     value: 'value'
   }
 });
-
 ```
 
 ## Methods
@@ -158,7 +156,6 @@ getStorage({
 }).then(response => {})
   .catch(error => {})
   .finally(res => {});
-
 ```
 
 ## Methods
@@ -209,7 +206,6 @@ import getStorageSync from '@uni/getStorageSync';
 let res = getStorageSync({
   key: 'key'
 });
-
 ```
 
 ## Methods
@@ -273,7 +269,6 @@ removeStorage({
 }).then(response => {})
   .catch(error => {})
   .finally(res => {});
-
 ```
 
 ## Methods
@@ -318,7 +313,6 @@ import removeStorageSync from '@uni/removeStorageSync';
 removeStorageSync({
   key: 'key'
 });
-
 ```
 
 ## Methods

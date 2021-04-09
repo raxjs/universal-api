@@ -78,6 +78,7 @@ export default () => (
   import React from 'react';
   export default class Home extends React.Component {
     componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
       if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
         document.querySelector('.__dumi-default-navbar').style.display = 'none';
         document.querySelector('.__dumi-default-layout').classList = [];

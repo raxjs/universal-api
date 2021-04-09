@@ -45,7 +45,6 @@ removeStorage({
 }).then(response => {})
   .catch(error => {})
   .finally(res => {});
-
 ```
 
 You can also import from the big package：
@@ -57,7 +56,6 @@ storage.removeStorage({
 }).then(response => {})
   .catch(error => {})
   .finally(res => {});
-
 ```
 
 ## Methods

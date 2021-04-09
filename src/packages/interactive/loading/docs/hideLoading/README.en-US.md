@@ -32,7 +32,6 @@ $ npm install @uni/apis --save
 import {hideLoading} from '@uni/loading';
 
 hideLoading();
-
 ```
 
 

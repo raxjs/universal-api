@@ -27,9 +27,9 @@ $ npm install @uni/apis --save
 import showActionSheet from '@uni/action-sheet';
 
 showActionSheet({
-  items: ['A', 'B', 'C'],
+  itemList: ['A', 'B', 'C'],
   success (res) {
-    console.log(res.index)
+    console.log(res.tapIndex)
   },
   fail (res) {
     console.log(res.errMsg)
@@ -38,9 +38,9 @@ showActionSheet({
 
 // promise
 showActionSheet({
-  items: ['A', 'B', 'C']
+  itemList: ['A', 'B', 'C']
 }).then(res => {
-    console.log(res.index)
+    console.log(res.tapIndex)
 });
 
 ```
@@ -60,7 +60,7 @@ import { actionSheet } from '@uni/apis';
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object` |  | ✔️ | - |
-| options.items | `Array<string>`  | The text array of the button, with a length limited to 6 | ✔️ | - |
+| options.itemList | `Array<string>`  | The text array of the button, with a length limited to 6 | ✔️ | - |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
@@ -80,7 +80,7 @@ import { actionSheet } from '@uni/apis';
 
 | Property | Type | Description |
 | --- | --- | --- |
-| index | `number` | The sequence number of the button tapped by the user, from top to bottom and starting from 0, The value is -1 when the mask or cancel button is clicked by the user |
+| tapIndex | `number` | The sequence number of the button tapped by the user, from top to bottom and starting from 0, The value is -1 when the mask or cancel button is clicked by the user |
 
 </div>
 <div>
@@ -114,14 +114,14 @@ export default () => (
   import React from 'react';
   export default class Home extends React.Component {
     componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
       if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
         document.querySelector('.__dumi-default-navbar').style.display = 'none';
         document.querySelector('.__dumi-default-layout').classList = [];
         document.querySelector('.__dumi-default-menu').style.display = 'none';
         document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
         document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
-        parent.postMessage && parent.postMessage("syncIframeHeight", 800, '*'); // 800 即页面实际高度
-        // document.querySelector('.__dumi-default-layout-content').style.padding = '50px 100px';
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
       }
     }
 

@@ -70,8 +70,8 @@ import { confirm } from '@uni/apis';
 | options | `object`  |  | ✔️ | - |
 | options.title | `string`  | Prompt title | ✘ | - |
 | options.content | `string`  | Prompt content | ✘ | - |
-| options.confirmButtonText | `string`  | The text of the "OK "button, not more than 4 characters | ✘ | "OK" |
-| options.cancelButtonText | `string`  | The text of the "Cancel" button, not more than 4 characters | ✘ | "Cancel" |
+| options.confirmText | `string`  | The text of the "OK "button, not more than 4 characters | ✘ | "OK" |
+| options.cancelText | `string`  | The text of the "Cancel" button, not more than 4 characters | ✘ | "Cancel" |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
@@ -123,14 +123,14 @@ export default () => (
   import React from 'react';
   export default class Home extends React.Component {
     componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
       if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
         document.querySelector('.__dumi-default-navbar').style.display = 'none';
         document.querySelector('.__dumi-default-layout').classList = [];
         document.querySelector('.__dumi-default-menu').style.display = 'none';
         document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
         document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
-        parent.postMessage && parent.postMessage("syncIframeHeight", 800, '*'); // 800 即页面实际高度
-        // document.querySelector('.__dumi-default-layout-content').style.padding = '50px 100px';
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
       }
     }
 

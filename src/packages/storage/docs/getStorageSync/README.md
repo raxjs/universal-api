@@ -29,7 +29,6 @@ import {getStorageSync} from '@uni/storage';
 let res = getStorageSync({
   key: 'key'
 });
-
 ```
 
 你也可以从大包引入：
@@ -39,7 +38,6 @@ import { storage } from '@uni/apis';
 let res = storage.getStorageSync({
   key: 'key'
 });
-
 ```
 
 ## 方法

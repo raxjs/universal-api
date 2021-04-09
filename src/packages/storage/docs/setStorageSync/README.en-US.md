@@ -34,7 +34,6 @@ setStorageSync({
     value: 'value'
   }
 });
-
 ```
 
 You can also import from the big package：
@@ -47,7 +46,6 @@ storage.setStorageSync({
     value: 'value'
   }
 });
-
 ```
 
 ## Methods

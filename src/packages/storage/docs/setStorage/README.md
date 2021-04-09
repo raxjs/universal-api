@@ -54,7 +54,6 @@ setStorage({
 }).then(response => {})
   .catch(error => {})
   .finally(res => {});
-
 ```
 
 你也可以从大包引入：
@@ -69,7 +68,6 @@ storage.setStorage({
 }).then(response => {})
   .catch(error => {})
   .finally(res => {});
-
 ```
 
 ## 方法

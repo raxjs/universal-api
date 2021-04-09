@@ -34,7 +34,6 @@ import {showLoading} from '@uni/loading';
 showLoading({
   content: '加载中',
 });
-
 ```
 
 你也可以从大包引入：

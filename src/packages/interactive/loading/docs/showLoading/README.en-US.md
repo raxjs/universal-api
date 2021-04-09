@@ -34,7 +34,6 @@ import {showLoading} from '@uni/loading';
 showLoading({
   content: 'loading...'
 });
-
 ```
 
 You can also import from the big package:

@@ -31,7 +31,6 @@ $ npm install @uni/apis --save
 import {hideLoading} from '@uni/loading';
 
 hideLoading();
-
 ```
 
 你也可以从大包引入：
