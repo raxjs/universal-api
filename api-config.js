@@ -16,7 +16,7 @@ module.exports = {
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '1.0.1-beta',
+        version: '1.0.1',
         name: '@uni/env',
       },
     ],
