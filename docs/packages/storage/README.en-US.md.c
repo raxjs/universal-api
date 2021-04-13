@@ -46,7 +46,6 @@ setStorage({
 }).then(response => {})
   .catch(error => {})
   .finally(res => {});
-
 ```
 
 ## Methods
@@ -98,7 +97,6 @@ setStorageSync({
     value: 'value'
   }
 });
-
 ```
 
 ## Methods
@@ -158,7 +156,6 @@ getStorage({
 }).then(response => {})
   .catch(error => {})
   .finally(res => {});
-
 ```
 
 ## Methods
@@ -209,7 +206,6 @@ import getStorageSync from '@uni/getStorageSync';
 let res = getStorageSync({
   key: 'key'
 });
-
 ```
 
 ## Methods
@@ -273,7 +269,6 @@ removeStorage({
 }).then(response => {})
   .catch(error => {})
   .finally(res => {});
-
 ```
 
 ## Methods
@@ -318,7 +313,6 @@ import removeStorageSync from '@uni/removeStorageSync';
 removeStorageSync({
   key: 'key'
 });
-
 ```
 
 ## Methods
@@ -335,3 +329,25 @@ removeStorageSync({
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
 | opthons.key | `string`  | The specified key in the local cache | ✔️ |  - |
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

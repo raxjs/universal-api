@@ -36,6 +36,7 @@ $ npm install @uni/file --save
 | 属性     | 类型     | 描述     |
 | -------- | ------ | -------- |
 |tempFilePath|string|临时文件路径 (本地路径)。没传入 filePath 指定文件存储路径时会返回，下载后的文件会存储到一个临时文件|
+
 #### 不通用参数（由于破坏了一码多端的能力，不推荐使用）
 | 属性     | 类型     | 描述     | 支持   |
 | -------- | ------ | -------- | ------ |
@@ -43,7 +44,7 @@ $ npm install @uni/file --save
 |statusCode|number|开发者服务器返回的 HTTP 状态码|<img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序">|
 |profile|Object|网络请求过程中一些调试信息|<img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序">|
 
-## return
+## Return
 注意：只有微信小程序和字节跳动小程序支持，由于破坏了一码多端请谨慎使用
 
 DownloadTask
@@ -54,9 +55,9 @@ DownloadTask
 ## Example
 
 ```js
-import file from '@uni/file';
+import { download } from '@uni/file';
 
-file.download({
+download({
   url: 'http://img.alicdn.com/tfs/TB1x669SXXXXXbdaFXXXXXXXXXX-520-280.jpg',
   success: res => {
     console.log(res.filePath);
@@ -69,22 +70,7 @@ file.download({
 ```
 
 Promise：
-注意：由于微信容器和字节跳动容器 download api 会返回 downloadTask 对象，所以此处只有 阿里容器支持Promise 调用，由于破坏了一码多端请谨慎使用。
-
-```js
-import file from '@uni/file';
-
-file.download({
-  url: 'http://img.alicdn.com/tfs/TB1x669SXXXXXbdaFXXXXXXXXXX-520-280.jpg',
-}).then((res) => {
-  console.log(res.filePath);
-}).catch((e) => {
-  console.log(e);
-}).finally((res) => {
-  console.log(res);
-});
-
-```
+注意：由于微信容器和字节跳动容器 download api 会返回 downloadTask 对象，所以此处不在支持Promise 调用，请业务自行封装。
 
 You can also import from the big package:
 
@@ -119,3 +105,25 @@ export default () => (
 
 </div>
 </div>
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

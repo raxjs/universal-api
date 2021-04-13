@@ -23,7 +23,7 @@ npm i @uni/babel-plugin-universal-api-import
 在babel配置中加入插件：
 ```
 [
-  'babel-plugin-universal-api-import',
+  '@uni/babel-plugin-universal-api-import',
   {
     target: 'miniapp'
   }
@@ -51,7 +51,7 @@ npm i @uni/build-plugin-rax-api-import
 ```
 "plugins" : [
   [
-    "build-plugin-rax-api-import"
+    "@uni/build-plugin-rax-api-import"
   ]
 ]
 ```

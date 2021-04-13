@@ -1,4 +1,4 @@
-# getInfo
+# getFileInfo
 [![npm](https://img.shields.io/npm/v/@uni/file.svg)](https://www.npmjs.com/package/@uni/file)
 
 Get file information.
@@ -29,13 +29,14 @@ $ npm install @uni/file --save
 | -------- | ------ | -------- |
 |size|number|File size in bytes|
 |digest|string|File summary computed based on the passed digestAlgorithm|
+
 ## Example
 
 ```js
-import file from '@uni/file';
+import { getFileInfo } from '@uni/file';
 
 // Get file information.
-file.getInfo({
+getFileInfo({
   filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
   digestAlgorithm: 'sha1',
   success: (res)=>{
@@ -48,9 +49,9 @@ file.getInfo({
 Promise：
 
 ```js
-import file from '@uni/file';
+import { getFileInfo } from '@uni/file';
 
-file.getInfo({
+getFileInfo({
   filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
   digestAlgorithm: 'sha1',
 }).then((res) => {
@@ -96,3 +97,25 @@ export default () => (
 
 </div>
 </div>
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

@@ -61,9 +61,9 @@ DownloadTask
 ## 示例
 
 ```js
-import file from '@uni/file';
+import { download } from '@uni/file';
 
-file.download({
+download({
   url: 'http://img.alicdn.com/tfs/TB1x669SXXXXXbdaFXXXXXXXXXX-520-280.jpg',
   success: res => {
     console.log(res.filePath);
@@ -76,22 +76,7 @@ file.download({
 ```
 
 ### Promise 调用：
-注意：由于微信容器和字节跳动容器 download api 会返回 downloadTask 对象，所以此处只有 阿里容器支持Promise 调用，由于破坏了一码多端请谨慎使用。
-
-```js
-import file from '@uni/file';
-
-file.download({
-  url: 'http://img.alicdn.com/tfs/TB1x669SXXXXXbdaFXXXXXXXXXX-520-280.jpg',
-}).then((res) => {
-  console.log(res.filePath);
-}).catch((e) => {
-  console.log(e);
-}).finally((res) => {
-  console.log(res);
-});
-
-```
+注意：由于微信容器和字节跳动容器 download api 会返回 downloadTask 对象，所以此处不在支持Promise 调用，请业务自行封装。
 
 
 你也可以从大包引入：
@@ -126,3 +111,25 @@ export default () => (
 
 </div>
 </div>
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```
