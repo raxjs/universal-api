@@ -62,6 +62,12 @@
   * 增加 _ext 扩展参数
   * 更新 types
 
+## 1.0.2 (2021-03-15)
+
+### Features
+
+* 升级apis 主包支持default 引入,修复types 提示 ([5e2dfe9](https://github.com/raxjs/universal-api/commit/5e2dfe9d7126de08e989b351ecac445b324363b9))
+
 ## 1.0.1 (2021-03-12)
 
 ### Bug Fixes

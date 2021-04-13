@@ -31,7 +31,7 @@ module.exports = (inputPath, itemOutputPath, sourceMap, pkgInfo, apiInfo, isMain
         declaration: declaration,
         declarationDir: outputPath 
       },
-      include: ['types', inputPath, sourcePath + "/**/types.ts"] 
+      include: ['types', inputPath, isMain ? path.resolve(root, 'packages') + '/**/types.ts' : sourcePath + "/**/types.ts"] 
     };
     const aliasEntries = [];
     if (sourceMap) {
