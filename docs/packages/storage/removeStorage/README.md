@@ -45,7 +45,6 @@ removeStorage({
 }).then(response => {})
   .catch(error => {})
   .finally(res => {});
-
 ```
 
 你也可以从大包引入：
@@ -57,7 +56,6 @@ storage.removeStorage({
 }).then(response => {})
   .catch(error => {})
   .finally(res => {});
-
 ```
 
 ## 方法
@@ -100,3 +98,25 @@ export default () => (
 
 </div>
 </div>
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

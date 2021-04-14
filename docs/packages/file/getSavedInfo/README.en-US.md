@@ -33,10 +33,10 @@ $ npm install @uni/file --save
 ## Example
 
 ```js
-import file from '@uni/file';
+import { getSavedInfo } from '@uni/file';
 
 // You need to save the address to be able to use File.getsavedinfo
-file.getSavedInfo({
+getSavedInfo({
   filePath: '**filePath**',
   success: (res) => {
     console.log(res.size);
@@ -49,9 +49,9 @@ file.getSavedInfo({
 Promise：
 
 ```js
-import file from '@uni/file';
+import { getSavedInfo } from '@uni/file';
 
-file.getSavedInfo({
+getSavedInfo({
   filePath: '**filePath**',
 }).then((res) => {
   console.log(res.size);
@@ -98,3 +98,25 @@ export default () => (
 </div>
 </div>
 
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

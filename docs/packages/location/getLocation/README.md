@@ -75,9 +75,10 @@ location.getLocation().then(response => {})
 
 | 成员 | 类型 | 描述 |
 | --- | --- | --- |
-| latitude | `number`  | 纬度 |
-| longitude | `number`  | 经度 |
-| accuracy | `number`  | 位置的精确度	|
+| latitude | `string`  | 纬度 |
+| longitude | `string`  | 经度 |
+| accuracy | `string`  | 位置的精确度	|
+| horizontalAccuracy | `string`  | 水平精度	|
 
 ## 注意
 
@@ -110,3 +111,25 @@ export default () => (
 
 </div>
 </div>
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

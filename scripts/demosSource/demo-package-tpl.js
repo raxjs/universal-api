@@ -30,7 +30,7 @@ module.exports = {
     "@types/rax": "^1.0.0"
   },
   "resolutions": {
-    "miniapp-render": "2.0.4",
+    "@uni/babel-plugin-universal-api-import": "1.0.3-beta3"
   },
   'license': 'BSD-3-Clause',
   'author': 'rax',

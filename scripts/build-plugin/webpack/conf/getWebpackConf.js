@@ -27,6 +27,9 @@ module.exports = (context, options) => {
   ]);
 
   config.target('web');
+  config.resolve.alias
+  .set('@utils', path.resolve(rootDir, 'src/utils'));
+
   config
   // 修改 entry 配置
   .entry('index')
@@ -52,7 +55,9 @@ module.exports = (context, options) => {
     Object.values(sourceMap).forEach(item => {
       item.pkgInfo.forEach(i => {
         config.resolve.alias
-          .set(i.name, path.resolve(rootDir, item.path))
+          .set(i.name + '$', path.resolve(rootDir, item.path));
+        config.resolve.alias
+          .set(i.name + '/lib', path.resolve(rootDir, item.path).replace(/\/index\.ts/, ''));
       });
     });
   }

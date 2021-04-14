@@ -1,85 +1,85 @@
 module.exports = {
   // application
   application: {
-    path: 'packages/application/src/index.ts',
+    path: 'src/packages/application/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/application',
       },
     ],
   },
   // base
   env: {
-    path: 'packages/base/env/src/index.ts',
-    // 是否可以按环境拆包
-    unNeedSplit: true,
-    pkgInfo: [
-      {
-        version: '1.0.1-beta',
-        name: '@uni/env',
-      },
-    ],
-  },
-  canIUse: {
-    path: 'packages/base/canIUse/src/index.ts',
+    path: 'src/packages/base/env/src/index.ts',
     // 是否可以按环境拆包
     unNeedSplit: true,
     pkgInfo: [
       {
         version: '1.0.1',
+        name: '@uni/env',
+      },
+    ],
+  },
+  canIUse: {
+    path: 'src/packages/base/canIUse/src/index.ts',
+    // 是否可以按环境拆包
+    unNeedSplit: true,
+    pkgInfo: [
+      {
+        version: '1.0.2',
         name: '@uni/caniuse',
       },
     ],
   },
 
   unitTool: {
-    path: 'packages/base/unit-tool/src/index.ts',
+    path: 'src/packages/base/unit-tool/src/index.ts',
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/unit-tool',
         dependencies: {
-          '@uni/system-info': '^1.0.1',
+          '@uni/system-info': '^1.0.2',
         },
       },
     ],
   },
   // canvas
   canvas: {
-    path: 'packages/canvas/src/index.ts',
+    path: 'src/packages/canvas/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/canvas',
       },
     ],
   },
   // device
   accelerometer: {
-    path: 'packages/device/accelerometer/src/index.ts',
+    path: 'src/packages/device/accelerometer/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/accelerometer',
       },
     ],
   },
   clipboard: {
-    path: 'packages/device/clipboard/src/index.ts',
+    path: 'src/packages/device/clipboard/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/clipboard',
       },
     ],
   },
   systemInfo: {
-    path: 'packages/device/systemInfo/src/index.ts',
+    path: 'src/packages/device/systemInfo/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/system-info',
       },
     ],
@@ -95,30 +95,33 @@ module.exports = {
   // },
   // file
   file: {
-    path: 'packages/file/src/index.ts',
+    path: 'src/packages/file/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/file',
       },
     ],
   },
   // interactive
   actionSheet: {
-    path: 'packages/interactive/showActionSheet/src/index.ts',
+    path: 'src/packages/interactive/actionSheet/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/action-sheet',
       },
     ],
   },
   alert: {
-    path: 'packages/interactive/alert/src/index.ts',
+    path: 'src/packages/interactive/alert/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/alert',
+        dependencies: {
+          '@uni/confirm': '^1.0.2',
+        },
       },
     ],
   },
@@ -151,19 +154,19 @@ module.exports = {
   // },
 
   toast: {
-    path: 'packages/interactive/toast/src/index.ts',
+    path: 'src/packages/interactive/toast/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.2',
+        version: '1.0.3',
         name: '@uni/toast',
       },
     ],
   },
   loading: {
-    path: 'packages/interactive/loading/src/index.ts',
+    path: 'src/packages/interactive/loading/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/loading',
       },
     ],
@@ -178,28 +181,28 @@ module.exports = {
   //   ]
   // },
   element: {
-    path: 'packages/interactive/element/src/index.ts',
+    path: 'src/packages/interactive/element/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/element',
       },
     ],
   },
   intersectionObserver: {
-    path: 'packages/interactive/intersectionObserver/src/index.ts',
+    path: 'src/packages/interactive/intersectionObserver/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/intersection-observer',
       },
     ],
   },
   confirm: {
-    path: 'packages/interactive/confirm/src/index.ts',
+    path: 'src/packages/interactive/confirm/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/confirm',
       },
     ],
@@ -214,50 +217,50 @@ module.exports = {
   //   ]
   // },
   location: {
-    path: 'packages/location/src/index.ts',
+    path: 'src/packages/location/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/location',
       },
     ],
   },
   // media
   image: {
-    path: 'packages/media/image/src/index.ts',
+    path: 'src/packages/media/image/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/image',
       },
     ],
   },
   // navigate
   navigate: {
-    path: 'packages/navigate/src/index.ts',
+    path: 'src/packages/navigate/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/navigate',
       },
     ],
   },
   // network
   request: {
-    path: 'packages/network/request/src/index.ts',
+    path: 'src/packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/request',
       },
     ],
   },
   // storage
   storage: {
-    path: 'packages/storage/src/index.ts',
+    path: 'src/packages/storage/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/storage',
       },
     ],

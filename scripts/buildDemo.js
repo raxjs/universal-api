@@ -2,7 +2,6 @@ const path = require('path');
 const rm = require('rimraf');
 // import filesize from 'rollup-plugin-filesize';
 const sourceMap = require('../api-config');
-const compose = require('koa-compose');
 const chalk = require('chalk');
 const fs = require('fs-extra');
 

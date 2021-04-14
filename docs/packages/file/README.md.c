@@ -181,6 +181,15 @@ $ npm install @uni/file --save
 | fileType | `String` |        | √    | 文件类型支持图片、视频、音频（ image / video / audio），Web下无需传入            | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" />  |
 | hideLoading | `Boolean` |   false  | x    | 是否隐藏 loading 图（默认值为 false）  | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" />  |
 
+#### 返回
+注意：只有微信小程序和字节跳动小程序支持，由于破坏了一码多端请谨慎使用
+
+UploadTask
+一个可以监听上传进度变化事件，以及取消上传任务的对象
+具体文档可以查看：
+微信：[链接](https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/UploadTask.html)
+字节跳动：[链接](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/api/network/http/upload-task/)
+
 ### `download(options)`
 
 下载文件资源到本地。
@@ -227,10 +236,10 @@ DownloadTask
 ## 示例
 
 ```js
-import File from '@uni/file';
+import { download, getInfo, getSavedInfo, getSavedList, openDocument, removeSaved, save, upload } from '@uni/file';
 
 // Get file information.
-File.getInfo({
+getInfo({
   filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
   digestAlgorithm: 'sha1',
   success: (res)=>{
@@ -239,7 +248,7 @@ File.getInfo({
 });
 
 // You need to save the address to be able to use File.getsavedinfo
-File.getSavedInfo({
+getSavedInfo({
   filePath: '**filePath**',
   success: (res) => {
     console.log(res.size);
@@ -247,13 +256,13 @@ File.getSavedInfo({
   }
 });
 
-File.getSavedList({
+getSavedList({
   success:(res) => {
     console.log(JSON.stringfy(res));
   }
 });
 
-File.openDocument({
+openDocument({
   filePath: '**filePath**',
   fileType: 'pdf',
   success: (res) => {
@@ -261,21 +270,21 @@ File.openDocument({
   };
 });
 
-File.removeSaved({
+removeSaved({
   filePath: '**filePath**',
   success:(res) => {
     console.log('remove success');
   }
 });
 
-File.save({
+save({
   filePath: '**filePath**',
   success:(res) => {
     console.log('save success');
   }
 });
 
-File.upload({
+upload({
   url: 'http://httpbin.org/post',
   fileType: 'image',
   fileName: 'file',
@@ -288,7 +297,7 @@ File.upload({
   },
 });
 
-File.download({
+download({
   url: 'http://img.alicdn.com/tfs/TB1x669SXXXXXbdaFXXXXXXXXXX-520-280.jpg',
   success: res => {
     console.log(res.filePath);
@@ -300,3 +309,25 @@ File.download({
 
 ```
 
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

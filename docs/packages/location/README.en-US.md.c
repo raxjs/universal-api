@@ -57,11 +57,10 @@ Gets current geographic location（WGS84）.
 
 | Property | Type | Description |
 | --- | --- | --- |
-| latitude | `number`  | Latitude |
-| longitude | `number`  | Longitude |
-| accuracy | `number`  | Location accuracy	|
-
-
+| latitude | `string`  | Latitude |
+| longitude | `string`  | Longitude |
+| accuracy | `string`  | Location accuracy	|
+| horizontalAccuracy | `string`  | Horizontal accuracy |
 
 ### openLocation 
 
@@ -74,8 +73,8 @@ Views location using the built-in map. The GCJ-02 coordinate system of the State
 import { openLocation } from '@uni/location';
 
 openLocation({
-  longitude: 120.126293,
-  latitude: 30.274653,
+  longitude: '120.126293',
+  latitude: '30.274653',
   name: 'cityname',
   address: 'stree name',
   success: (res) => {
@@ -91,8 +90,8 @@ openLocation({
 
 // promise
 openLocation({
-  longitude: 120.126293,
-  latitude: 30.274653,
+  longitude: '120.126293',
+  latitude: '30.274653',
   name: 'ctyname',
   address: 'stree name'})
   .then(response => {})
@@ -110,11 +109,33 @@ openLocation({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| options.latitude | `number` | Latitude | ✔️ | - |
-| options.longtitude | `number` | Longtitude | ✔️ | - |
+| options.latitude | `string` | Latitude | ✔️ | - |
+| options.longtitude | `string` | Longtitude | ✔️ | - |
 | options.scale | `number` | Scale, ranging from 5 to 18 | ✘ | 18 |
 | options.name | `string`  | Location name | ✔️ | - |
 | options.address | `string`  | Detailed address | ✔️ | - |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

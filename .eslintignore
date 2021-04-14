@@ -4,6 +4,8 @@ dist
 build
 coverage
 scripts
-packages/**/**/demo
-packages/**/demo
+src/packages/**/**/demo
+src/packages/**/demo
 docs
+src/.umi
+demos

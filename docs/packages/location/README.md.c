@@ -57,9 +57,10 @@ getLocation().then(response => {})
 
 | 成员 | 类型 | 描述 |
 | --- | --- | --- |
-| latitude | `number`  | 纬度 |
-| longitude | `number`  | 经度 |
-| accuracy | `number`  | 位置的精确度	|
+| latitude | `string`  | 纬度 |
+| longitude | `string`  | 经度 |
+| accuracy | `string`  | 位置的精确度	|
+| horizontalAccuracy | `string`  | 水平精度	|
 
 ### openLocation 
 
@@ -71,8 +72,8 @@ getLocation().then(response => {})
 import { openLocation } from '@uni/location';
 
 openLocation({
-  longitude: 120.126293,
-  latitude: 30.274653,
+  longitude: '120.126293',
+  latitude: '30.274653',
   name: '黄龙万科中心',
   address: '学院路77号',
   success: (res) => {
@@ -88,8 +89,8 @@ openLocation({
 
 // promise
 openLocation({
-  longitude: 120.126293,
-  latitude: 30.274653,
+  longitude: '120.126293',
+  latitude: '30.274653',
   name: '黄龙万科中心',
   address: '学院路77号'})
   .then(response => {})
@@ -106,11 +107,33 @@ openLocation({
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| options.latitude | `number` | 纬度 | ✔️ | - |
-| options.longtitude | `number` | 经度 | ✔️ | - |
+| options.latitude | `string` | 纬度 | ✔️ | - |
+| options.longtitude | `string` | 经度 | ✔️ | - |
 | options.name | `string`  | 位置名 | ✔️ | - |
 | options.scale | `number` | 缩放比例，范围5~18 | ✘ | 18 |
 | options.address | `string`  | 地址的详细说明 | ✔️ | - |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

@@ -29,13 +29,14 @@ $ npm install @uni/file --save
 | -------- | ------ | -------- |
 |size|number|文件大小，以字节为单位|
 |digest|string|按照传入的 digestAlgorithm 计算得出的的文件摘要|
+
 ## 示例
 
 ```js
-import file from '@uni/file';
+import { getInfo } from '@uni/file';
 
 // Get file information.
-file.getInfo({
+getInfo({
   filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
   digestAlgorithm: 'sha1',
   success: (res)=>{
@@ -48,9 +49,9 @@ file.getInfo({
 Promise调用：
 
 ```js
-import file from '@uni/file';
+import { getInfo } from '@uni/file';
 
-file.getInfo({
+getInfo({
   filePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',
   digestAlgorithm: 'sha1',
 }).then((res) => {
@@ -96,3 +97,25 @@ export default () => (
 
 </div>
 </div>
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```
