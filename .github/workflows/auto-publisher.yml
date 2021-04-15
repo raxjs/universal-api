@@ -3,8 +3,7 @@ name: Auto Publisher
 on:
   push:
     branches:
-      - master
-      - 'releases/**'
+      - stable
 
 jobs:
   build-and-publish:
