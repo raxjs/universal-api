@@ -48,18 +48,22 @@ Checks if environment is a Node.js environment.
 
 Note：To judge MiniProgram env in WebView, please insert JS SDK accordingly.
 
-|                               | isMiniApp | isWeChatMiniProgram | isByteDanceMicroApp | isQuickApp | isWeb | isWeex | isNode |
-| ----------------------------- | --------- | ------------------- | ------------------- | ---------- | ----- | ------ | ------ |
-| Alibaba MiniApp               | ✔️         | ✘                   | ✘                   | ✘          | ✘     | ✘      | ✘      |
-| Alibaba MiniApp WebView       | ✔️         | ✘                   | ✘                   | ✘          | ✔️     | ✘      | ✘      |
-| Wechat MiniProgram            | ✘         | ✔️                   | ✘                   | ✘          | ✘     | ✘      | ✘      |
-| Wechat MiniProgram WebView    | ✘         | ✔️                   | ✘                   | ✘          | ✔️     | ✘      | ✘      |
-| ByteDance MicroApp            | ✘         | ✘                   | ✔️                   | ✘          | ✘     | ✘      | ✘      |
-| ByteDance MicroApp WebView    | ✘         | ✘                   | ✔️                   | ✘          | ✔️     | ✘      | ✘      |
-| QuickApp                      | ✘         | ✘                   | ✘                   | ✔️          | ✘     | ✘      | ✘      |
-| QuickApp WebView              | ✘         | ✘                   | ✘                   | ✘          | ✔️     | ✘      | ✘      |
-| Weex                          | ✘         | ✘                   | ✘                   | ✘          | ✘     | ✔️      | ✘      |
-| Node                          | ✘         | ✘                   | ✘                   | ✘          | ✘     | ✘      | ✔️      |
-| Web                           | ✘         | ✘                   | ✘                   | ✘          | ✔️     | ✘      | ✘      |
+|                               | isMiniApp | isWeChatMiniProgram | isByteDanceMicroApp | isQuickApp | isWeb | isWeex | isNode | isKuaiShouMiniProgram | isBaiduSmartProgram |
+| ----------------------------- | --------- | ------------------- | ------------------- | ---------- | ----- | ------ | ------ | ------ | ------ |
+| Alibaba MiniApp               | ✔️         | ✘                   | ✘                   | ✘          | ✘     | ✘      | ✘      |✘|✘|
+| Alibaba MiniApp WebView       | ✔️         | ✘                   | ✘                   | ✘          | ✔️     | ✘      | ✘      |✘|✘|
+| Wechat MiniProgram            | ✘         | ✔️                   | ✘                   | ✘          | ✘     | ✘      | ✘      |✘|✘|
+| Wechat MiniProgram WebView    | ✘         | ✔️                   | ✘                   | ✘          | ✔️     | ✘      | ✘      |✘|✘|
+| ByteDance MicroApp            | ✘         | ✘                   | ✔️                   | ✘          | ✘     | ✘      | ✘      |✘|✘|
+| ByteDance MicroApp WebView    | ✘         | ✘                   | ✔️                   | ✘          | ✔️     | ✘      | ✘      |✘|✘|
+| KuaiShou MiniProgram            | ✘         | ✘                   | ✔️                   | ✘          | ✘     | ✘      | ✘      |✔️|✘|
+| KuaiShou MiniProgram WebView    | ✘         | ✘                   | ✔️                   | ✘          | ✔️     | ✘      | ✘      |✔️|✘|
+| Baidu SmartProgram | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ |✘|✔️|
+| Baidu SmartProgram WebView | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ | ✘ |✘|✔️|
+| QuickApp                      | ✘         | ✘                   | ✘                   | ✔️          | ✘     | ✘      | ✘      |✘|✘|
+| QuickApp WebView              | ✘         | ✘                   | ✘                   | ✘          | ✔️     | ✘      | ✘      |✘|✘|
+| Weex                          | ✘         | ✘                   | ✘                   | ✘          | ✘     | ✔️      | ✘      |✘|✘|
+| Node                          | ✘         | ✘                   | ✘                   | ✘          | ✘     | ✘      | ✔️      |✘|✘|
+| Web                           | ✘         | ✘                   | ✘                   | ✘          | ✔️     | ✘      | ✘      |✘|✘|
 
 
