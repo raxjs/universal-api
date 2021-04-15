@@ -1,0 +1,5 @@
+{
+  "plugins": [
+    "./scripts/build-plugin/index.js"
+  ]
+}

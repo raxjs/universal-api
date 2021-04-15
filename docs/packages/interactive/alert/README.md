@@ -1,0 +1,106 @@
+---
+title: alert
+---
+
+# alert
+[![npm](https://img.shields.io/npm/v/@uni/alert.svg)](https://www.npmjs.com/package/@uni/alert)
+
+alert 警告框
+
+<div style="display: flex;flex-direction: row;justify-content: space-between;">
+<div style="margin-right: 20px;">
+
+## 支持
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序">
+
+## 安装
+
+```bash
+$ npm install @uni/alert --save
+```
+
+## 示例
+
+```js
+import alert from '@uni/alert';
+
+alert({
+  title: 'alert框的标题',
+  content: 'alert框的内容',
+  buttonText: '按钮文字，默认confirm'
+}).then(() => {
+  console.log('确定');
+});
+```
+你也可以从大包引入：
+
+```js
+import { alert } from '@uni/apis';
+
+```
+
+## 参数
+| 成员               | 类型     | 描述        |  默认值   |
+| ------------------ | -------- | ------------ | :-------: |
+| options            | `object` | alert 参数  |     -     |
+| options.content    | `string` | alert 内容 | - |
+| options.title      | `string` | alert 标题     |  -  |
+| options.buttonText | `string` | alert 确认按钮文字 | - |
+
+### 不通用参数（由于破坏了一码多端的能力，请谨慎使用）
+| 成员               | 类型     | 描述                              |  默认值   |     支持     |
+| ------------------ | -------- | ---------- | :-------: | :----------: |
+| options.confirmColor | `string` | alert 确认按钮颜色 | - | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+
+### 注意
+
+部分选项仅微信小程序支持，如 `confirmColor` 等。用户可直接在 options 中传入，但是不会在其他小程序端生效。
+
+</div>
+<div>
+
+```jsx | inline
+/**
+ * iframe: true
+ */
+import React from 'react';
+export default () => (
+  <iframe style={{
+      boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
+      width: '375px',
+      height: '700px'
+    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/alert/index&topSlider=false'></iframe>
+);
+```
+
+<div style="display: flex;margin-top: 50px;">
+  <div>
+    <img src="https://img.alicdn.com/imgextra/i3/O1CN015JYNlN1Nhl9FwpRcA_!!6000000001602-0-tps-644-618.jpg" width="200" height="200" />
+    <div style="text-align: center;">微信小程序</div>
+  </div>
+</div>
+
+</div>
+</div>
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```

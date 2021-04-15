@@ -3,3 +3,9 @@ lib
 dist
 build
 coverage
+scripts
+src/packages/**/**/demo
+src/packages/**/demo
+docs
+src/.umi
+demos

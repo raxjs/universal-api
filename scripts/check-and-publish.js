@@ -1,51 +1,57 @@
 /**
  * Scripts to check unpublished version and run publish
  */
-const { existsSync, readdirSync, readFileSync } = require('fs');
 const { join } = require('path');
 const { spawnSync } = require('child_process');
 const axios = require('axios');
 const semver = require('semver');
+const sourceMap = require('../api-config.js');
+const mainPkgInfo = require('../package.json');
 
-function checkVersion(folder, callback) {
+function checkVersion(callback) {
   const ret = []; // { name: 'foo', workDir, latest: 'x.x.x', local: 'x.x.x', shouldBuild }
-  if (existsSync(folder)) {
-    const packages = readdirSync(folder);
-    console.log('[PUBLISH] Start check with following packages:');
-    console.log(packages.map(p => '- ' + p).join('\n'));
-
-    let finishCount = 0;
-    function finish() {
-      finishCount++;
-      if (finishCount === packages.length) {
-        callback(ret);
-      }
-    }
-
-    for (let i = 0; i < packages.length; i++) {
-      const packageFolderName = packages[i];
-      const packageInfoPath = join(folder, packageFolderName, 'package.json');
-      if (existsSync(packageInfoPath)) {
-        const packageInfo = JSON.parse(readFileSync(packageInfoPath));
-        checkVersionExists(packageInfo.name, packageInfo.version)
-          .then((exists) => {
-            if (!exists) {
-              ret.push({
-                name: packageInfo.name,
-                workDir: join(folder, packageFolderName),
-                local: packageInfo.version,
-                // If exists scripts.build, then run it.
-                shouldBuild: !!(packageInfo.scripts && packageInfo.scripts.build),
-              });
-            }
-
-            finish();
+  let finishCount = 0;
+  function finish() {
+    finishCount++;
+    if (finishCount === Object.keys(sourceMap).length) {
+      // check main
+      checkVersionExists(mainPkgInfo.name, mainPkgInfo.version)
+      .then((exists) => {
+        if (!exists) {
+          ret.push({
+            key: 'main',
+            name: mainPkgInfo.name,
+            outDir: join(__dirname, '../dist/main'),
+            local: mainPkgInfo.version,
+            // If exists scripts.build, then run it.
+            shouldBuild: true,
           });
-      }
+        }
+
+        callback(ret);
+      });
     }
-  } else {
-    callback(ret);
   }
+  Object.entries(sourceMap).map(([key, value]) => {
+    const packageInfo = value.pkgInfo;
+    packageInfo.forEach(pkgInfo => {
+      checkVersionExists(pkgInfo.name, pkgInfo.version)
+      .then((exists) => {
+        if (!exists) {
+          ret.push({
+            key,
+            name: pkgInfo.name,
+            outDir: join(__dirname, '../dist/lib/' + pkgInfo.name),
+            local: pkgInfo.version,
+            // If exists scripts.build, then run it.
+            shouldBuild: true,
+          });
+        }
+
+        finish();
+      });
+    })
+  });
 }
 
 function checkVersionExists(pkg, version) {
@@ -54,45 +60,58 @@ function checkVersionExists(pkg, version) {
     .catch(err => false);
 }
 
-function npmPublish(tag, workDir) {
+function npmPublish(tag, outDir) {
   spawnSync('npm', [
     'publish',
     '--tag=' + tag,
+    '--access=public',
   // use default registry
   ], {
     stdio: 'inherit',
-    cwd: workDir,
+    cwd: outDir,
   });
 }
 
-function publish(pkg, workDir, version, shouldBuild, tag) {
+function publish(key, pkg, outDir, version, shouldBuild, tag) {
   console.log('[PUBLISH]', `${pkg}@${version}`);
-
-  // npm install
-  spawnSync('npm', [
-    'install',
-  ], {
-    stdio: 'inherit',
-    cwd: workDir,
-  });
 
   if (shouldBuild) {
     // npm run build
     const { status } = spawnSync('npm', [
       'run',
-      'build',
+      key === 'main' ? 'build:main' : 'build',
+      key === 'main' ? '' : key
     ], {
       stdio: 'inherit',
-      cwd: workDir,
+      cwd: join(__dirname, '../'),
     });
 
     if (status === 0) {
       // npm publish
-      npmPublish(tag, workDir);
+      npmPublish(tag, outDir);
     }
   } else {
     // npm publish
-    npmPublish(tag, workDir);
+    npmPublish(tag, outDir);
+  }
+}
+function publishDocs() {
+  const { status } = spawnSync('npm', [
+    'run',
+    `docs:build`,
+  ], {
+    stdio: 'inherit',
+    cwd: join(__dirname, '../'),
+  });
+  if (status === 0) {
+    // docs publish
+    spawnSync('npm', [
+      'run',
+      `docs:deploy`,
+    ], {
+      stdio: 'inherit',
+      cwd: join(__dirname, '../'),
+    });
   }
 }
 
@@ -103,20 +122,21 @@ function isPrerelease(v) {
 }
 
 function checkVersionAndPublish() {
-  checkVersion(join(__dirname, '../packages'), (ret) => {
-    console.log('');
+  checkVersion((ret) => {
     if (ret.length === 0) {
       console.log('[PUBLISH] No diff with all packages.');
+      return;
     } else {
       console.log('[PUBLISH] Will publish following packages:');
     }
-
+    // setNpmRegister();
     for (let i = 0; i < ret.length; i++) {
-      const { name, workDir, local, shouldBuild } = ret[i];
+      const { key, name, outDir, local, shouldBuild } = ret[i];
       const tag = isPrerelease(local) ? 'beta' : 'latest';
       console.log(`--- ${name}@${local} current tag: ${tag} ---`);
-      publish(name, workDir, local, shouldBuild, tag);
+      publish(key, name, outDir, local, shouldBuild, tag);
     }
+    // publishDocs();
   });
 }
 

@@ -1,0 +1,19 @@
+{
+  "routes": [
+    {
+      "path": "/pages/Home/index",
+      "source": "pages/Home/index",
+      "window": {
+        "title": "uni"
+      }
+    }
+  ],
+  "window": {
+    "title": ""
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  }
+}
