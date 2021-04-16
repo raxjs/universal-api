@@ -33,7 +33,19 @@ const buildPkgJson = async (packageInfo, outputPath, isMain = false) => {
     delete packageTpl.dependencies['@uni/env'];
   }
   if (isMain) {
-    packageTpl.typings = 'types/packages/main/index.d.ts';
+    packageTpl.typings = 'types/main/index.d.ts';
+    packageTpl.main = 'lib/main/index.js';
+    packageTpl.module = 'es/main/index.js';
+    packageTpl.unpkg = 'dist/main/index.js';
+    packageTpl.exports = {
+      "web": "./es/main/web/index.js",
+      "wechat-miniprogram": "./es/main/wechat-miniprogram/index.js",
+      "bytedance-microapp": "./es/main/bytedance-microapp/index.js",
+      // "baidu-smartprogram": "./es/main/baidu-smartprogram/index.js",
+      // "kuaishou-miniprogram": "./es/main/kuaishou-miniprogram/index.js",
+      "miniapp": "./es/main/ali-miniapp/index.js",
+      "default": "./es/main/index.js",
+    }
   }
   // packageTpl.dependencies[componentPackage.name] = path.relative(distDir, root) + '/';
   await fs.outputJSON(path.resolve(root, outputPath + 'package.json'), packageTpl);

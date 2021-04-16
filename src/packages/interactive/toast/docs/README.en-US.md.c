@@ -18,12 +18,14 @@ $ npm install @uni/toast --save
 ```js
 import Toast from '@uni/toast';
 
-Toast.show('Hi');
+Toast.showToast('Hi');
+
+Toast.hideToast();
 ```
 
 ## Methods
 
-### `Toast.show(options: object | string)`
+### `Toast.showToast(options: object | string)`
 
 #### Arguments
 | Property | Type     | Description                                 | Default |
@@ -35,6 +37,6 @@ Toast.show('Hi');
 | fail | `function` | The callback function for a failed API call |  -  |
 | complete | `function` | The callback function used when the API call completed (always executed whether the call succeeds or fails) |  -  |
 
-### `Toast.hide()`
+### `Toast.hideToast()`
 
 Hides the loading prompt box

@@ -8,7 +8,7 @@ module.exports = (isEs, isMain) => {
           loose: true,
           modules: isEs ? false : "auto",
           targets: {
-            browsers: ['last 2 versions', 'IOS >= 8', 'Android >= 4'],
+            browsers: isEs ? ['last 1 chrome version', 'node 10'] : ['last 2 versions', 'IOS >= 8', 'Android >= 4'],
           },
         },
       ],
@@ -66,8 +66,8 @@ module.exports = (isEs, isMain) => {
         "@babel/plugin-transform-runtime",
         {
           useESModules: isEs,
-          corejs: 3,
-          helpers: !isEs,
+          corejs: false,
+          helpers: false,
         },
       ],
     ],

@@ -25,10 +25,10 @@ $ npm install @uni/toast --save
 ```js
 import Toast from '@uni/toast';
 // string
-Toast.show('Hi');
+Toast.showToast('Hi');
 
 // object
-Toast.show({
+Toast.showToast({
   content: 'hello',
   type: 'success',
   duration: 1000,
@@ -38,7 +38,7 @@ Toast.show({
 });
 
 // promise
-Toast.show({
+Toast.showToast({
   content: 'hello',
   type: 'success',
   duration: 1000,
@@ -48,12 +48,12 @@ Toast.show({
 You can also import from the big package：
 ```js
 import { toast } from '@uni/apis';
-toast.show('Hi')
+toast.showToast('Hi')
 ```
 
 ## Methods
 
-### `Toast.show(options: object | string)`
+### `Toast.showToast(options: object | string)`
 
 #### Arguments
 | Property | Type     | Description                                 | Default |
