@@ -25,18 +25,18 @@ $ npm install @uni/toast --save
 ```js
 import Toast from '@uni/toast';
 
-Toast.hide();
+Toast.hideToast();
 ```
 
 You can also import from the big package：
 ```js
 import { toast } from '@uni/apis';
-toast.hide()
+toast.hideToast()
 ```
 
 ## Methods
 
-### `Toast.hide()`
+### `Toast.hideToast()`
 
 Hides the loading prompt box
 

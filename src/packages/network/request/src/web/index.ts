@@ -115,9 +115,14 @@ function requestXHR(options: RequestOptions) {
   }
   xhr.withCredentials = withCredentials;
   if (headers) {
-    Object.keys(headers || []).forEach((key) => {
-      xhr.setRequestHeader(key, String(headers[key]));
-    });
+    for (const key in headers || []) {
+      if (Object.prototype.hasOwnProperty.call(headers, key)) {
+        xhr.setRequestHeader(key, String(headers[key]));
+      }
+    }
+    // Object.keys(headers || []).forEach((key) => {
+    //   xhr.setRequestHeader(key, String(headers[key]));
+    // });
   }
   if (method === 'GET') {
     requestData = null;

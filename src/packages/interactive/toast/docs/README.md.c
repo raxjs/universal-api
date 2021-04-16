@@ -17,9 +17,9 @@ $ npm install @uni/toast --save
 ```js
 import Toast from '@uni/toast';
 
-Toast.show('Hi');
+Toast.showToast('Hi');
 
-Toast.hide();
+Toast.hideToast();
 ```
 
 你也可以从大包引入：
@@ -29,7 +29,7 @@ import { toast } from '@uni/apis';
 
 ## 方法
 
-### `Toast.show(options?: object)`
+### `Toast.showToast(options?: object)`
 
 #### 参数
 | 成员     | 类型     | 描述                | 默认值 |
@@ -41,6 +41,6 @@ import { toast } from '@uni/apis';
 | fail | `function` | 失败回调 |  -  |
 | complete | `function` | 结束回调 |  -  |
 
-### `Toast.hide()`
+### `Toast.hideToast()`
 
 隐藏Toast

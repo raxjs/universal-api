@@ -1,9 +1,3 @@
-export interface ToastOption {
-  SHORT: number;
-  LONG: number;
-  show: (options: ShowToastOption | string) => void;
-  hide: (options?: HideToastOption) => void;
-}
 export interface ShowToastOption {
   content: string;
   type?: 'success' | 'fail' | 'none';

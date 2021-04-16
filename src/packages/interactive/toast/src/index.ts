@@ -31,7 +31,35 @@ export const hide = (options?: HideToastOption) => {
     throw new Error('@uni/apis：Toast暂不支持');
   }
 };
+export const showToast = (options: ShowToastOption | string) => {
+  if (isWeChatMiniProgram) {
+    return weChatModule.showToast(options);
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.showToast(options);
+  } else if (isMiniApp) {
+    return aliMiniAppModule.showToast(options);
+  } else if (isWeb) {
+    return webModule.showToast(options);
+  } else {
+    throw new Error('@uni/apis：Toast暂不支持');
+  }
+};
+export const hideToast = (options?: HideToastOption) => {
+  if (isWeChatMiniProgram) {
+    return weChatModule.hideToast(options);
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.hideToast(options);
+  } else if (isMiniApp) {
+    return aliMiniAppModule.hideToast(options);
+  } else if (isWeb) {
+    return webModule.hideToast(options);
+  } else {
+    throw new Error('@uni/apis：Toast暂不支持');
+  }
+};
 export default {
   show,
   hide,
+  showToast,
+  hideToast,
 };

@@ -95,9 +95,14 @@ function uploadFile(param: UploadOptions) {
     xhr.withCredentials = true;
   }
   xhr.open('POST', param.url, true);
-  Object.keys(header).forEach((key) => {
-    xhr.setRequestHeader(key, String(header[key]));
-  });
+  // Object.keys(header).forEach((key) => {
+  //   xhr.setRequestHeader(key, String(header[key]));
+  // });
+  for (const headerKey in header) {
+    if (Object.prototype.hasOwnProperty.call(header, headerKey)) {
+      xhr.setRequestHeader(headerKey, String(header[headerKey]));
+    }
+  }
   // send request
   xhr.send(body);
   return { abort: () => {} };

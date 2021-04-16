@@ -60,16 +60,28 @@ export function normalizeHeaders(obj: AsObject) {
   const keyList = ['Accept', 'Content-Type'];
 
   keyList.forEach((key) => {
-    Object.keys(obj).some((headerKey: string) => {
-      if (headerKey.toUpperCase() === key.toUpperCase()
-          && headerKey !== key
-      ) {
-        obj[key] = obj[headerKey];
-        delete obj[headerKey];
-        return true;
+    for (const headerKey in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, headerKey)) {
+        if (headerKey.toUpperCase() === key.toUpperCase()
+        && headerKey !== key
+        ) {
+          obj[key] = obj[headerKey];
+          delete obj[headerKey];
+          return true;
+        }
+        return false;
       }
-      return false;
-    });
+    }
+    // Object.keys(obj).some((headerKey: string) => {
+    //   if (headerKey.toUpperCase() === key.toUpperCase()
+    //       && headerKey !== key
+    //   ) {
+    //     obj[key] = obj[headerKey];
+    //     delete obj[headerKey];
+    //     return true;
+    //   }
+    //   return false;
+    // });
   });
   return obj;
 }
