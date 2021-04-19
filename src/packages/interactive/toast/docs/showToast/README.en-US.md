@@ -23,12 +23,12 @@ $ npm install @uni/toast --save
 ## Usage
 
 ```js
-import Toast from '@uni/toast';
+import { showToast } from '@uni/toast';
 // string
-Toast.showToast('Hi');
+showToast('Hi');
 
 // object
-Toast.showToast({
+showToast({
   content: 'hello',
   type: 'success',
   duration: 1000,
@@ -38,7 +38,7 @@ Toast.showToast({
 });
 
 // promise
-Toast.showToast({
+showToast({
   content: 'hello',
   type: 'success',
   duration: 1000,
@@ -53,7 +53,7 @@ toast.showToast('Hi')
 
 ## Methods
 
-### `Toast.showToast(options: object | string)`
+### `showToast(options: object | string)`
 
 #### Arguments
 | Property | Type     | Description                                 | Default |

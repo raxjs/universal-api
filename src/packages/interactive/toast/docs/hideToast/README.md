@@ -23,8 +23,8 @@ $ npm install @uni/toast --save
 ## 示例
 
 ```js
-import Toast from '@uni/toast';
-Toast.hideToast();
+import { hideToast } from '@uni/toast';
+hideToast();
 ```
 
 你也可以从大包引入：
@@ -35,7 +35,7 @@ toast.hideToast()
 
 ## 方法
 
-### `Toast.hideToast()`
+### `hideToast()`
 
 隐藏Toast
 

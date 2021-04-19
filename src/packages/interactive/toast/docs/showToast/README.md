@@ -23,13 +23,13 @@ $ npm install @uni/toast --save
 ## 示例
 
 ```js
-import Toast from '@uni/toast';
+import { showToast } from '@uni/toast';
 
 // string
-Toast.showToast('Hi');
+showToast('Hi');
 
 // object
-Toast.showToast({
+showToast({
   content: 'hello',
   type: 'success',
   duration: 1000,
@@ -39,7 +39,7 @@ Toast.showToast({
 });
 
 // promise
-Toast.showToast({
+showToast({
   content: 'hello',
   type: 'success',
   duration: 1000,
@@ -54,7 +54,7 @@ toast.showToast('Hi')
 
 ## 方法
 
-### `Toast.showToast(options?: object | string)`
+### `showToast(options?: object | string)`
 
 #### 参数
 | 成员     | 类型     | 描述                | 默认值 |
