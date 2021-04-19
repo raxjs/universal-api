@@ -21,7 +21,8 @@ module.exports = (api ,options = {}) => {
     buildPkgJson: true,
     mvReadme: true,
     mvNpmrc: true,
-    declaration: true
+    declaration: true,
+    needCommonUtil: true
   };
   let apiInfo;
   let sourceMap;
@@ -39,7 +40,7 @@ module.exports = (api ,options = {}) => {
         name: mainPkg.name,
       };
       output = outputDir + 'main/';
-      apiInfo = {...defaultApiInfo, unNeedSplit: false};
+      apiInfo = {...defaultApiInfo, needCommonUtil: false};
 
       buildMain(rootDir, sourceMap);
     } else {
@@ -66,7 +67,7 @@ module.exports = (api ,options = {}) => {
       mvNpmrc: options.npmrc,
       mvReadme: options.readme,
       declaration: options.declaration,
-      unNeedSplit: options.unNeedSplit,
+      needCommonUtil: false,
     };
     sourceMap = null;
   }
@@ -85,6 +86,6 @@ module.exports = (api ,options = {}) => {
     await initPkg(entry, pkgInfo, output, sourceMap, apiInfo, isMain);
   });
   onHook('after.build.compile', () => {
-    gulpRelease(api, { entry, output, isMain });
+    gulpRelease(api, { entry, output, isMain, apiInfo });
   });
 }

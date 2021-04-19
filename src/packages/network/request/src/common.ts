@@ -72,16 +72,6 @@ export function normalizeHeaders(obj: AsObject) {
         return false;
       }
     }
-    // Object.keys(obj).some((headerKey: string) => {
-    //   if (headerKey.toUpperCase() === key.toUpperCase()
-    //       && headerKey !== key
-    //   ) {
-    //     obj[key] = obj[headerKey];
-    //     delete obj[headerKey];
-    //     return true;
-    //   }
-    //   return false;
-    // });
   });
   return obj;
 }

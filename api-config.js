@@ -12,8 +12,9 @@ module.exports = {
   // base
   env: {
     path: 'src/packages/base/env/src/index.ts',
-    // 是否可以按环境拆包
     unNeedSplit: true,
+    // 是否需要公共utils
+    needCommonUtil: false,
     pkgInfo: [
       {
         version: '1.0.2',
@@ -23,8 +24,9 @@ module.exports = {
   },
   canIUse: {
     path: 'src/packages/base/canIUse/src/index.ts',
-    // 是否可以按环境拆包
     unNeedSplit: true,
+    // 是否需要公共utils
+    needCommonUtil: false,
     pkgInfo: [
       {
         version: '1.0.3',
@@ -36,6 +38,8 @@ module.exports = {
   unitTool: {
     path: 'src/packages/base/unit-tool/src/index.ts',
     unNeedSplit: true,
+    // 是否需要公共utils
+    needCommonUtil: false,
     pkgInfo: [
       {
         version: '1.0.3',

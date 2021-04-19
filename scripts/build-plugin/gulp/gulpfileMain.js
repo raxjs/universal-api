@@ -39,7 +39,6 @@ const esDir = path.resolve(output, 'es');
 const libDir = path.resolve(output, 'lib');
 const typesOutDir = path.resolve(output, 'types');
 
-// console.log(entry, entry.replace(/\/index\.(t|j)s/, '/**/*.{ts,js}'))
 const tsProject = ts.createProject({
   rootDir: rootDir,
   baseUrl: rootDir,
@@ -53,7 +52,6 @@ const tsProject = ts.createProject({
     "@utils/*": ["src/utils/*"],
   }  
 });
-
 const generateTypes = () => {
   const tsResult = gulp
     .src(typesDir)
