@@ -1,7 +1,7 @@
 ---
 hero:
     image: https://img.alicdn.com/imgextra/i3/O1CN01lt5FH71VubB3j3Okd_!!6000000002713-2-tps-412-412.png
-    title: Uni-api
+    title: Uni API
     desc: Focus on the cross-end API library on the applet side and the web side
     actions:
     - text: Getting Started
@@ -24,7 +24,7 @@ features:
     desc: Extreme code size, experience upgrade
 ---
 
-# Uni-api
+# Uni API
 
 Provides a series of cross-terminal APIs to help users quickly develop multi-terminal applications. Currently, it supports WeChat applet, byte applet, Ali applet, and Web.
 
