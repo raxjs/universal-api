@@ -57,4 +57,4 @@ npm i @uni/build-plugin-rax-api-import
 ]
 ```
 
-不再需要传入target
+不再需要传入 target
