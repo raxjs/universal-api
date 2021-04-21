@@ -2,7 +2,7 @@ export default {
   base: '/',
   publicPath: '/',
   outputPath: 'docs-dist',
-  title: 'uni',
+  title: 'Uni API',
   logo: 'https://img.alicdn.com/imgextra/i3/O1CN01lt5FH71VubB3j3Okd_!!6000000002713-2-tps-412-412.png',
   favicon: 'https://img.alicdn.com/imgextra/i3/O1CN01lt5FH71VubB3j3Okd_!!6000000002713-2-tps-412-412.png',
   locales: [

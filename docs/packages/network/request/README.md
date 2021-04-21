@@ -51,7 +51,7 @@ request({
 });
 
 ```
-注意：此 api 不支持 promise 调用
+注意：此 API 不支持 promise 调用
 
 你也可以从大包引入：
 ```javascript

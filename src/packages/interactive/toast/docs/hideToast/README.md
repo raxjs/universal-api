@@ -23,19 +23,19 @@ $ npm install @uni/toast --save
 ## 示例
 
 ```js
-import Toast from '@uni/toast';
-Toast.hide();
+import { hideToast } from '@uni/toast';
+hideToast();
 ```
 
 你也可以从大包引入：
 ```js
 import { toast } from '@uni/apis';
-toast.hide()
+toast.hideToast()
 ```
 
 ## 方法
 
-### `Toast.hide()`
+### `hideToast()`
 
 隐藏Toast
 

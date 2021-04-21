@@ -75,12 +75,6 @@ function requestXHR(options: RequestOptions) {
           status: xhr.status,
         })}`,
       });
-      // return reject({
-      //   code: ERROR_REQUEST_ABORT.code,
-      //   message: `${JSON.stringify({
-      //     status: xhr.status
-      //   })}`
-      // });
     }
     const headers = xhr.getAllResponseHeaders();
     const arr = headers.trim().split(/[\r\n]+/);
@@ -101,11 +95,6 @@ function requestXHR(options: RequestOptions) {
       status: xhr.status,
       headers: headerMap,
     });
-    // resolve({
-    //   data: xhr.response,
-    //   status: xhr.status,
-    //   headers: headerMap,
-    // });
   };
   xhr.responseType = dataType || '';
   if (method === 'GET' || checkIsApplyDataToURL(headers)) {
@@ -115,9 +104,11 @@ function requestXHR(options: RequestOptions) {
   }
   xhr.withCredentials = withCredentials;
   if (headers) {
-    Object.keys(headers || []).forEach((key) => {
-      xhr.setRequestHeader(key, String(headers[key]));
-    });
+    for (const key in headers || []) {
+      if (Object.prototype.hasOwnProperty.call(headers, key)) {
+        xhr.setRequestHeader(key, String(headers[key]));
+      }
+    }
   }
   if (method === 'GET') {
     requestData = null;
@@ -133,6 +124,5 @@ function requestXHR(options: RequestOptions) {
   return {
     abort: () => {},
   };
-  // });
 }
 export default normalize(requestXHR, CONTAINER_NAME.WEB);

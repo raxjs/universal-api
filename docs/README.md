@@ -1,8 +1,8 @@
 ---
 hero:
     image: https://img.alicdn.com/imgextra/i3/O1CN01lt5FH71VubB3j3Okd_!!6000000002713-2-tps-412-412.png
-    title: uni
-    desc: 一个跨端的 API 库
+    title: Uni API
+    desc: 小程序容器和 Web 容器的跨端 API 解决方案
     actions:
     - text: 快速开始
       link: /packages
@@ -15,18 +15,18 @@ features:
     desc: 简易使用，快速接入
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/f093e060-726e-471c-a53e-e988ed3f560c/kj9t9sk7_w144_h144.png
     title: API丰富
-    desc: 提供丰富完善的`api`
+    desc: 提供丰富完善的`API`
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/3863e74a-7870-4874-b1e1-00a8cdf47684/kj9t7ww3_w144_h144.png
     title: 文档完善
-    desc: 详尽的 api 文档及示例 
+    desc: 详尽的 API 文档及示例 
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/d60657df-0822-4631-9d7c-e7a869c2f21c/k79dmz3q_w126_h126.png
     title: 按环境拆包
     desc: 极致代码体积，体验升级
 ---
 
-# uni
+# Uni API
 
-基于 Rax 应用生态，我们提供一系列跨端 api 帮助用户快速开发多端应用。
+提供一系列跨端 API 帮助用户快速开发多端应用，目前支持微信小程序、字节小程序、阿里小程序、Web。
 
 ```jsx | inline
 /**

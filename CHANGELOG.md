@@ -1,3 +1,11 @@
+## 1.0.4 (2021-04-16)
+
+### Features
+
+* 剔除 Babel/runtime-corejs3 
+* 新增支持 webpack5 exports ([a113f40](https://github.com/raxjs/universal-api/commit/a113f4034a35c2d5325536026d825175aa889dfd))
+* toast 新增 showToast/hideToast api 名称透出
+
 ## 1.0.3 (2021-04-07)
 
 ### Features

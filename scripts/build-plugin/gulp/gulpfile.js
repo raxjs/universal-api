@@ -10,7 +10,7 @@ const getBabelConfig = require('./conf/babel');
 const { series, parallel } = gulp;
 
 const {
-  entry, output
+  entry, output, apiInfo
 } = gulpParams.gulpInfo;
 const { context } = gulpParams.api;
 const { rootDir } = context;
@@ -126,8 +126,7 @@ function clean(done) {
   fs.removeSync(libDir);
   done();
 }
-
-exports.default = series(
+let taskList = series(
   clean,
   sourceEsJs,
   sourceLibJs,
@@ -136,3 +135,13 @@ exports.default = series(
   generateTypes,
   copyTypes
 );
+if (!apiInfo.needCommonUtil) {
+  taskList = series(
+    clean,
+    generateEsJs,
+    generateLibJs,
+    generateTypes,
+    copyTypes
+  );
+}
+exports.default = taskList;

@@ -25,19 +25,19 @@ const styles = {
 const Index = () => {
   return (
     <View>
-      <View style={styles.button} onClick={() => Toast.show('默认提示')}>
+      <View style={styles.button} onClick={() => Toast.showToast('默认提示')}>
         <Text>点击弹出普通弹窗</Text>
       </View>
-      <View style={styles.button} onClick={() => Toast.show({type: 'success', content: 'success提示'})}>
+      <View style={styles.button} onClick={() => Toast.showToast({type: 'success', content: 'success提示'})}>
         <Text>点击弹出success弹窗</Text>
       </View>
-      <View style={styles.button} onClick={() => Toast.show({type: 'fail', content: 'fail提示'})}>
+      <View style={styles.button} onClick={() => Toast.showToast({type: 'fail', content: 'fail提示'})}>
         <Text>点击弹出fail弹窗</Text>
       </View>
-      <View style={styles.button} onClick={() => Toast.show({type: 'none', content: '5s提示', duration: 5000})}>
+      <View style={styles.button} onClick={() => Toast.showToast({type: 'none', content: '5s提示', duration: 5000})}>
         <Text>点击弹出5s弹窗</Text>
       </View>
-      <View style={styles.button} onClick={() => Toast.hide()}>
+      <View style={styles.button} onClick={() => Toast.hideToast()}>
         <Text>点击关闭弹窗</Text>
       </View>
     </View>
