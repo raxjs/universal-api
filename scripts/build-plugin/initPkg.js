@@ -63,10 +63,10 @@ const buildDeclaration = async (packageInfo) => {
 
 module.exports = async function(entry, packageInfo, outputPath, sourceMap, apiInfo, isMain = false) {
   if (!fs.pathExistsSync(outputPath)) {
-    fs.mkdirSync(outputPath);
+    fs.mkdirsSync(outputPath);
   } else {
     rm.sync(outputPath);
-    fs.mkdirSync(outputPath);
+    fs.mkdirsSync(outputPath);
   }
   if (apiInfo.mvReadme) {
     await buildDoc(entry, isMain, outputPath);
