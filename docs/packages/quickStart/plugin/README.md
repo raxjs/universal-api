@@ -20,7 +20,7 @@ npm i @uni/babel-plugin-universal-api-import
 
 ## 使用
 
-在babel配置中加入插件：
+在 babel 配置中加入插件：
 ```js
 [
   '@uni/babel-plugin-universal-api-import',
@@ -39,7 +39,7 @@ target可选的值有：
 |头条小程序|bytedance-microapp|
 
 ### Rax
-如果你使用的是rax，由于rax使用的是build-scripts打包工具，所以我们提供了build-scripts的插件，他底层依赖的还是babel-plugin-universal-api-import。
+如果你使用的是 Rax，由于 Rax 使用的是 build-scripts 打包工具，所以我们提供了 build-scripts 的插件，他底层依赖的还是 babel-plugin-universal-api-import。
 
 #### 安装：
 
