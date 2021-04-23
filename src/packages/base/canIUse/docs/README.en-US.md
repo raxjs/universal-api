@@ -51,4 +51,4 @@ import {canIUse} from '@uni/apis';
 
 | Property | Type | Description | 
 | --- | --- | --- |
-| res | `boolean` | the api can be used when return true |
+| res | `boolean` | the API can be used when return true |
