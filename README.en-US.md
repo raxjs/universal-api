@@ -1,6 +1,6 @@
 # uni
 
-To extend the capabilities of the Rax system, we provide a series of Universal apis that developers can use to quickly develop multiple applications.
+To extend the capabilities of the Rax system, we provide a series of Universal API that developers can use to quickly develop multiple applications.
 
 Official site: [https://universal-api.js.org/](https://universal-api.js.org/)
 

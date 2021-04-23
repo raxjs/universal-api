@@ -10,6 +10,7 @@ title: request
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
 
 用于发起网络请求
+注意：此 API 不支持 promise 调用
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
 <div style="margin-right: 20px;">
@@ -51,7 +52,6 @@ request({
 });
 
 ```
-注意：此 API 不支持 promise 调用
 
 你也可以从大包引入：
 ```javascript

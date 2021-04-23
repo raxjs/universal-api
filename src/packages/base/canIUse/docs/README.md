@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/@uni/caniuse.svg)](https://www.npmjs.com/package/@uni/caniuse)
 
-判断api是否可用
+判断 API 是否可用
 
 ## 支持
 
@@ -51,4 +51,4 @@ import {canIUse} from '@uni/apis';
 
 | 成员 | 类型 | 描述 |
 | --- | --- | --- |
-| res | `boolean` | 为 true 时，表示api或包可用 |
+| res | `boolean` | 为 true 时，表示 API 或包可用 |
