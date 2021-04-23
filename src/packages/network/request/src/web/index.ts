@@ -27,10 +27,14 @@ function requestXHR(options: RequestOptions) {
     headers,
     data,
     timeout,
+    jsonpCallback,
+    jsonpCallbackProp,
     dataType,
     success, fail, complete,
   } = Object.assign(
     {
+      jsonpCallbackProp: 'callback',
+      jsonpCallback: '__uni_jsonp_handler',
       withCredentials: true,
       method: 'GET',
       validateStatus: (status: number) => {
@@ -38,7 +42,32 @@ function requestXHR(options: RequestOptions) {
       },
     }, options,
   );
-
+  if (method === 'JSONP') {
+    try {
+      window[jsonpCallback] = (data) => {
+        success && success({
+          data,
+          status: 200,
+          headers: {},
+        });
+        complete && complete({
+          data: xhr.response,
+          status: xhr.status,
+          headers: {},
+        });
+      };
+      const scriptUrl = `${applyParamToURL(data, url)}&${jsonpCallbackProp}=${jsonpCallback}`;
+      const script = document.createElement('script');
+      script.setAttribute('src', scriptUrl);
+      document.getElementsByTagName('head')[0].appendChild(script);
+    } catch (e) {
+      fail && fail(ERROR_REQUEST_TIMEOUT);
+      complete && complete(ERROR_REQUEST_TIMEOUT);
+    }
+    return {
+      abort: () => {},
+    };
+  }
   let timer: number;
   let requestData: any;
   const xhr = new XMLHttpRequest();
