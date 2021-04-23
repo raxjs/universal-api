@@ -25,11 +25,9 @@ module.exports = {
   canIUse: {
     path: 'src/packages/base/canIUse/src/index.ts',
     unNeedSplit: true,
-    // 是否需要公共utils
-    needCommonUtil: true,
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4',
         name: '@uni/caniuse',
       },
     ],

@@ -11,7 +11,7 @@ module.exports = {
   },
   'dependencies': {
     "rax": "^1.1.0",
-    "rax-app": "3.2.0",
+    "rax-app": "^3.5.0",
     "rax-document": "^0.1.0",
     "rax-image": "^2.0.0",
     "rax-link": "^1.0.1",
