@@ -26,7 +26,7 @@ module.exports = {
     path: 'src/packages/base/canIUse/src/index.ts',
     unNeedSplit: true,
     // 是否需要公共utils
-    needCommonUtil: false,
+    needCommonUtil: true,
     pkgInfo: [
       {
         version: '1.0.3',

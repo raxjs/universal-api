@@ -76,7 +76,7 @@ download({
 ```
 
 ### Promise 调用：
-注意：由于微信容器和字节跳动容器 download API 会返回 downloadTask 对象，所以此处不在支持Promise 调用，请业务自行封装。
+注意：由于微信容器和字节跳动容器 download api 会返回 downloadTask 对象，所以此处不在支持Promise 调用，请业务自行封装。
 
 
 你也可以从大包引入：
