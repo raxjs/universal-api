@@ -4,6 +4,7 @@
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
 
 Used to initiate a network request
+Note: This API does not support promise calls
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
 <div style="margin-right: 20px;">
@@ -43,18 +44,6 @@ request({
     console.log('complete', res);
   }
 });
-// Promise
-request({
-  url: 'https://alibaba.github.io/rax/',
-  method: 'POST',
-  data: {
-    from: 'Rax',
-  },
-  dataType: 'json'
-}).then(response => {})
-  .catch(error => {})
-  .finally(res => {});
-
 ```
 
 You can also import from the big package:
@@ -64,7 +53,7 @@ import { request } from '@uni/apis';
 
 ## Arguments
 
-| Property | Type | Description | required | Default |
+| Property | Type | Description | Required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | true | - |
 | opthons.url | `string`  | Required，the request url | true | - |
@@ -77,17 +66,15 @@ import { request } from '@uni/apis';
 | options.fail | `Function`  | The callback function for a failed API call | false | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | 否 | - |
 
-### 不通用参数（由于破坏了一码多端的能力，不推荐使用）
-| 属性   | 类型     | 默认值 | 必选 | 描述 | 支持  |
+### Non-universal parameters (due to destroying the ability of one code and multiple terminals, it is not recommended to use)
+| Property   | Type     | Default | Required | Description | Supported  |
 | ------ | -------- | ------ | ---- | ----- | ------- |
-| responseType | `string` | text  | x    | 响应的数据类型 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序"> |
-| enableHttp2 | `boolean` |  false  | x    | 开启 http2 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
-| enableQuic | `boolean` |  false  | x    | 开启 quic | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
-| enableCache | `boolean` |  false  | x    | 开启 cache | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| responseType | `string` | text  | x    | 响应的数据类型 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp"> |
+| enableHttp2 | `boolean` |  false  | x    | 开启 http2 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> |
+| enableQuic | `boolean` |  false  | x    | 开启 quic | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> |
+| enableCache | `boolean` |  false  | x    | 开启 cache | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> |
 
-### Return
-
-Success return：`Promise<Response>`
+### Success return：`Response`
 
 | Property | Type | Description |
 | --- | --- | --- |
@@ -96,19 +83,33 @@ Success return：`Promise<Response>`
 | response.headers | `object`  | Response headers ，JSONP request has no value |
 | response.status | `number`  | Response status，JSONP request has no value |
 
-### 不通用返回参数（由于破坏了一码多端的能力，不推荐使用）
-| 属性   | 类型     | 描述 | 支持  |
+### Non-universal return parameters (due to the destruction of the ability of one code, it is not recommended to use)
+| Property   | Type     | Description | Supported  |
 | ------ | -------- | ----- | ------- |
-| cookies | `Array.<string>` | 开发者服务器返回的 cookies，格式为字符串数组 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
-| profile | `Object` | 网络请求过程中一些调试信息 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| cookies | `Array.<string>` | The cookies returned by the developer server, in the format of a string array | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> |
+| profile | `Object` | Some debugging information during the network request | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> |
 
-Fail return：
+### Fail return：
 
 | Property | Type | Description |
 | --- | --- | --- |
 | error | `object` | - |
 | error.code | `number`  | Error code |
 | error.message | `string`  | Error message |
+
+### RequestTask
+Request task object
+#### Function
+RequestTask.abort()
+Interrupt request task
+
+##### Not a universal method (due to the destruction of the ability of one code, it is not recommended to use)
+**Only WeChat supports the following methods**
+RequestTask.onHeadersReceived(function callback)
+Listen to the HTTP Response Header event. Will be completed earlier than the requested completion event
+
+RequestTask.offHeadersReceived(function callback)
+Cancel listening for HTTP Response Header event
 
 </div>
 <div>
