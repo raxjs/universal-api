@@ -16,6 +16,8 @@ import intersectionObserver from '../../packages/interactive/intersectionObserve
 import confirm from '../../packages/interactive/confirm/src/wechat-miniprogram/index';
 import location from '../../packages/location/src/wechat-miniprogram/index';
 import image from '../../packages/media/image/src/wechat-miniprogram/index';
+import recorder from '../../packages/media/recorder/src/wechat-miniprogram/index';
+import video from '../../packages/media/video/src/wechat-miniprogram/index';
 import navigate from '../../packages/navigate/src/wechat-miniprogram/index';
 import request from '../../packages/network/request/src/wechat-miniprogram/index';
 import storage from '../../packages/storage/src/wechat-miniprogram/index';
@@ -39,6 +41,8 @@ export {
   confirm,
   location,
   image,
+  recorder,
+  video,
   navigate,
   request,
   storage,
@@ -64,6 +68,8 @@ export default {
   confirm,
   location,
   image,
+  recorder,
+  video,
   navigate,
   request,
   storage,

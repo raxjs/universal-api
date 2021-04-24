@@ -267,4 +267,24 @@ module.exports = {
       },
     ],
   },
+  // recorder
+  recorder: {
+    path: 'src/packages/media/recorder/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.4',
+        name: '@uni/recorder',
+      },
+    ],
+  },
+  // video
+  video: {
+    path: 'src/packages/media/video/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.4',
+        name: '@uni/video',
+      },
+    ],
+  },
 };

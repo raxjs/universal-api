@@ -16,6 +16,8 @@ import intersectionObserver from '../../packages/interactive/intersectionObserve
 import confirm from '../../packages/interactive/confirm/src/ali-miniapp/index';
 import location from '../../packages/location/src/ali-miniapp/index';
 import image from '../../packages/media/image/src/ali-miniapp/index';
+import recorder from '../../packages/media/recorder/src/ali-miniapp/index';
+import video from '../../packages/media/video/src/ali-miniapp/index';
 import navigate from '../../packages/navigate/src/ali-miniapp/index';
 import request from '../../packages/network/request/src/ali-miniapp/index';
 import storage from '../../packages/storage/src/ali-miniapp/index';
@@ -39,6 +41,8 @@ export {
   confirm,
   location,
   image,
+  recorder,
+  video,
   navigate,
   request,
   storage,
@@ -64,6 +68,8 @@ export default {
   confirm,
   location,
   image,
+  recorder,
+  video,
   navigate,
   request,
   storage,
