@@ -1,9 +1,8 @@
 # openLocation 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
-[![npm](https://img.shields.io/npm/v/@uniopenLocation.svg)](https://www.npmjs.com/package/@uniopenLocation)
 
-Views location using the built-in map. The GCJ-02 coordinate system of the State Bureau of Surveying and Mapping is used.
+Opens the map to select a location.
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
 <div style="margin-right: 20px;">
@@ -24,13 +23,11 @@ $ npm install @uni/apis --save
 ## Usage
 
 ```javascript
-import openLocation from '@uni/openLocation';
+import chooseLocation from '@uni/chooseLocation';
 
-openLocation({
-  longitude: '120.126293',
-  latitude: '30.274653',
-  name: 'cityname',
-  address: 'stree name',
+chooseLocation({
+  longitude: 120.126293,
+  latitude: 30.274653,
   success: (res) => {
     console.log('success', res);
   },
@@ -43,11 +40,9 @@ openLocation({
 });
 
 // promise
-openLocation({
-  longitude: '120.126293',
-  latitude: '30.274653',
-  name: 'ctyname',
-  address: 'stree name'})
+chooseLocation({
+  longitude: 120.126293,
+  latitude: 30.274653,})
   .then(response => {})
   .catch(error => {})
   .finally(res => {});
@@ -58,11 +53,9 @@ You can also import from the big package：
 ```js
 import { location } from '@uni/apis';
 
-location.openLocation({
-  longitude: '120.126293',
-  latitude: '30.274653',
-  name: '黄龙万科中心',
-  address: '学院路77号'})
+location.chooseLocation({
+  longitude: 120.126293,
+  latitude: 30.274653,})
   .then(response => {})
   .catch(error => {})
   .finally(res => {});
@@ -70,26 +63,36 @@ location.openLocation({
 
 ## Methods
 
-### `openLocation(options)`
+### `chooseLocation(options)`
 
 #### Arguments
 
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
-| options | `object`  |  | ✔️ | - |
-| options.latitude | `string` | Latitude | ✔️ | - |
-| options.longtitude | `string` | Longtitude | ✔️ | - |
-| options.scale | `number` | Scale, ranging from 5 to 18 | ✘ | 18 |
-| options.name | `string`  | Location name | ✔️ | - |
-| options.address | `string`  | Detailed address | ✔️ | - |
+| options | `object`  |  | ✘ | - |
+| options.latitude | `number` | Latitude (not for ali) | ✘ | - |
+| options.longtitude | `number` | Longtitude (not for ali) | ✘ | - |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
 
-## 注意
+#### Return
+
+| Property | Type | Description |
+| --- | --- | --- |
+| name | `string`  | Location name	|
+| address | `string`  | Detailed address	|
+| latitude | `number`  | Latitude, which is expressed by a floating point number ranging from -90 to +90, and the negative number means south latitude. |
+| longitude | `number`  | Longitude, which is expressed by a floating point number ranging from -180 to +180, and the negative number means west longitude.  |
+| provinceName | `string`  | province name（only for ali）	|
+| cityName | `string`  | city name（only for ali）	|
+
+## Attention
 
 微信中使用地理位置相关的api，需要在app.json配置中打开权限
 https://developers.weixin.qq.com/miniprogram/dev/reference/configuration/app.html#permission
+
+User authorization is required for scope.userLocation before this API is called.
 
 </div>
 <div>

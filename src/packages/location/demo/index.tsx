@@ -2,7 +2,7 @@
 import { createElement, useState } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
-import { getLocation, openLocation } from '@uni/location';
+import { getLocation, openLocation, chooseLocation } from '@uni/location';
 
 const styles = {
   flex: {
@@ -24,6 +24,7 @@ const styles = {
 
 export default function () {
   const [location, setLocation] = useState({});
+  const [chooseRes, setChooseRes] = useState('');
 
   return (
     <View>
@@ -60,6 +61,20 @@ export default function () {
         }}
       >打开内置地图
       </View>
+      <View
+        style={styles.button}
+        onClick={() => {
+          chooseLocation({
+            longitude: 120.126293,
+            latitude: 30.274653,
+          }).then(res => {
+            console.log(res);
+            setChooseRes(JSON.stringify(res));
+          });
+        }}
+      >选择位置
+      </View>
+      <View>选择位置数据：{chooseRes}</View>
     </View>
   );
 }
