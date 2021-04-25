@@ -39,6 +39,58 @@ import { getRecorderManager } from '@uni/apis';
 
 ### `getRecorderManager()`
 
+#### 音频管理器提供的方法
+
+| 方法 | 说明 | 参数 |
+| --- | -- | -- |
+| start | 开始录音 | 见下表 |
+| pause | 暂停录音 | - |
+| resume | 继续录音 | - |
+| stop | 停止录音 | - |
+| onStart | 监听录音开始事件 | callback |
+| onPause | 监听录音继续事件 | callback |
+| onResume | 监听录音暂停事件 | callback |
+| onStop | 监听录音结束事件 | callback |
+| onFrameRecorded | 监听已录制完指定帧大小的文件事件。如果设置了 frameSize，则会回调此事件。 | callback |
+| onError | 监听录音错误事件 | callback |
+
+##### start方法参数
+
+| 成员 | 类型 | 描述 | 必选 | 默认值 |
+| --- | --- | --- | --- | --- |
+| duration | `number` | 录音的时长，单位 ms，最大值 600000（10 分钟）, 阿里小程序最长60s | ✘ | 60000 |
+| sampleRate | `number`  | 采样率 | ✘ | 8000 |
+| numberOfChannels | `number` | 录音通道数 | ✘ | 2 |
+| encodeBitRate | `number`  | 编码码率 | ✘ | 48000 |
+| frameSize | `number`  | 指定帧大小，单位 KB。传入 frameSize 后，每录制指定帧大小的内容后，会回调录制的文件内容，不指定则不会回调。暂仅支持 mp3 格式。 | ✘ | - |
+| format | `string`  | 音频格式（仅微信支持） | ✘ | aac |
+| audioSource | `string`  | 指定录音的音频输入源，可通过 wx.getAvailableAudioSources() 获取当前可用的音频源（仅微信支持） | ✘ | auto |
+
+关于采样率、通道和编码码率的合法值参考：https://developers.weixin.qq.com/miniprogram/dev/api/media/recorder/RecorderManager.start.html
+
+##### stop 回调返回值
+
+| 成员 | 类型 | 描述 |
+| --- | --- | --- |
+| tempFilePath | `string`  | 录音文件的临时路径 (本地路径) |
+| duration | `number` | 录音总时长，单位：ms |
+| fileSize | `number` | 录音文件大小，单位：Byte |
+
+#### onFrameRecorded 回调返回值
+
+| 成员 | 类型 | 描述 |
+| --- | --- | --- |
+| frameBuffer | `ArrayBuffer`  | 录音分片数据 |
+| isLastFrame | `boolean` | 当前帧是否正常录音结束前的最后一帧 |
+
+#### 差异化方法
+
+| 方法 | 说明 | 支持度 |
+| --- | --- | --- |
+| onInterruptionBegin | 监听录音因为受到系统占用而被中断开始事件。以下场景会触发此事件：微信语音聊天、微信视频聊天。此事件触发后，录音会被暂停。pause 事件在此事件后触发 https://developers.weixin.qq.com/miniprogram/dev/api/media/recorder/RecorderManager.onInterruptionBegin.html | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| onInterruptionEnd | 监听录音中断结束事件。在收到 interruptionBegin 事件之后，小程序内所有录音会暂停，收到此事件之后才可再次录音成功 https://developers.weixin.qq.com/miniprogram/dev/api/media/recorder/RecorderManager.onInterruptionEnd.html | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+
+
 </div>
 <div>
 

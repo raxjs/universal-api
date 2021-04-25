@@ -54,6 +54,31 @@ const videoContext = video.createVideoContext('videoId');
 | --- | --- | --- |
 | videoContext | `VideoContext` | VideoContext 通过 id 跟一个 video 组件绑定，操作对应的 video 组件 |
 
+
+#### videoContext 通用方法
+
+| 方法名 | 参数 | 类型 | 说明 |
+| --- | --- | --- | --- |
+| play | - | - | 播放 |
+| pause | - | - | 暂停 |
+| stop | - | - | 终止 |
+| seek | position | number | 定位，单位为秒（s） |
+| requestFullScreen | direction | number | 进入全屏（字节固定为横屏），取值0， -90， 90 |
+| exitFullScreen | - | - | 退出全屏 |
+
+#### videoContext 差异化方法
+
+| 方法名 | 说明 | 文档 | 支持度 |
+| --- | --- | --- | --- |
+| snapshot | 截图 | https://developers.dingtalk.com/document/app/dd-createvideocontext-videoid | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> |
+| sendDanmu | 发送弹幕 | https://developers.weixin.qq.com/miniprogram/dev/api/media/video/VideoContext.sendDanmu.html | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| playbackRate | 设置倍速播放 | https://developers.weixin.qq.com/miniprogram/dev/api/media/video/VideoContext.playbackRate.html | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| showStatusBar | 显示状态栏，仅在iOS全屏下有效 | https://developers.weixin.qq.com/miniprogram/dev/api/media/video/VideoContext.showStatusBar.html | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| hideStatusBar | 隐藏状态栏，仅在iOS全屏下有效 | https://developers.weixin.qq.com/miniprogram/dev/api/media/video/VideoContext.hideStatusBar.html | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| exitPictureInPicture | 退出小窗，该方法可在任意页面调用 | https://developers.weixin.qq.com/miniprogram/dev/api/media/video/VideoContext.exitPictureInPicture.html | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| requestBackgroundPlayback | 进入后台音频播放模式 | https://developers.weixin.qq.com/miniprogram/dev/api/media/video/VideoContext.requestBackgroundPlayback.html | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| exitBackgroundPlayback | 退出后台音频播放模式 | https://developers.weixin.qq.com/miniprogram/dev/api/media/video/VideoContext.exitBackgroundPlayback.html | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+
 </div>
 <div>
 

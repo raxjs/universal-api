@@ -1,6 +1,8 @@
 import { createElement, useEffect } from 'rax';
 import View from 'rax-view';
 import getRecorderManager from '@uni/recorder';
+import toast from '@uni/toast';
+import alert from '@uni/alert';
 
 const styles = {
   flex: {
@@ -26,6 +28,26 @@ export default function () {
   
   useEffect(() => {
     recorderManager = getRecorderManager();
+
+    recorderManager.onStart(() => {
+      toast.showToast('监听到开始录音');
+    });
+
+    recorderManager.onPause(() => {
+      toast.showToast('监听到暂停录音');
+    });
+
+    recorderManager.onResume(() => {
+      toast.showToast('监听到继续录音');
+    });
+
+    recorderManager.onStop((res) => {
+      alert({
+        content: `音频录制结果：${JSON.stringify(res)}`,
+        title: '停止录音',
+        buttonText: '确定'
+      });
+    });
   }, []);
 
   return (
@@ -37,6 +59,22 @@ export default function () {
         }}
       >
         开始录音
+      </View>
+      <View
+        style={styles.button}
+        onClick={() => {
+          recorderManager.pause();
+        }}
+      >
+        暂停录音
+      </View>
+      <View
+        style={styles.button}
+        onClick={() => {
+          recorderManager.resume();
+        }}
+      >
+        继续录音
       </View>
       <View
         style={styles.button}
