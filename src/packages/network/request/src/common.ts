@@ -4,6 +4,7 @@
 
 import { DATA_TYPE, AsObject, RequestOptions } from './types';
 import { styleIn } from '@utils/styleOptions';
+import { CONTAINER_NAME } from '@utils/constant';
 
 export function getDataWithType(data: any, type: DATA_TYPE) {
   if (type === DATA_TYPE.json) {
@@ -88,7 +89,7 @@ const EMPTY_OBJECT = {};
 export function isPlainObject(obj) {
   return EMPTY_OBJECT.toString.call(obj) === '[object Object]';
 }
-export function styleOptions(options) {
+export function styleOptions(options, containerName) {
   const DEFAULT_TIMEOUT = 20000;
   enum DATA_TYPE {
     json = 'json',
@@ -98,21 +99,80 @@ export function styleOptions(options) {
     url: '',
     headers: { 'Content-Type': 'application/json' },
     method: 'GET',
+    jsonpCallbackProp: 'callback',
+    jsonpCallback: '__uni_jsonp_handler',
     timeout: DEFAULT_TIMEOUT,
     dataType: DATA_TYPE.json,
   };
+  const isJsonp = options?.method?.toUpperCase() === 'JSONP';
+  const jsonpCallback = options.jsonpCallback || DEFAULT_REQUEST_OPTIONS.jsonpCallback;
   const afterOptions: RequestOptions = Object.assign({},
     DEFAULT_REQUEST_OPTIONS,
     options,
     {
-      method: (options.method || 'GET').toUpperCase(),
+      method: isJsonp ? 'GET' : (options.method || 'GET').toUpperCase(),
+      isJsonp,
+      dataType: isJsonp ? 'text' : options.dataType,
+      data: isJsonp ?
+        { ...options.data,
+          [options.jsonpCallbackProp || DEFAULT_REQUEST_OPTIONS.jsonpCallbackProp]:
+          jsonpCallback } : options.data,
       headers: normalizeHeaders(options.headers || {}),
+      success: (res) => {
+        if (isJsonp && containerName !== CONTAINER_NAME.WEB) {
+          if (res.data.indexOf(jsonpCallback) === -1) {
+            options.fail && options.fail({
+              error: 14,
+              data: res,
+              errorMessage: 'JSONP 解码失败',
+            });
+            return;
+          }
+          console.log(res.data.replace(`${jsonpCallback}(`, '').replace(')', ''));
+          options.success && options.success({
+            ...res,
+            headers: res.header || res.headers || {},
+            data: JSON.parse(res.data.replace(`${jsonpCallback}(`, '').replace(')', '')),
+            status: res.statusCode || res.status,
+          });
+          return;
+        }
+        options.success && options.success({
+          ...res,
+          headers: res.header || res.headers || {},
+          status: res.statusCode || res.status,
+        });
+      },
+      complete: (res) => {
+        if (isJsonp && res.data && containerName !== CONTAINER_NAME.WEB) {
+          if (res.data.indexOf(jsonpCallback) === -1) {
+            options.fail && options.fail({
+              error: 14,
+              data: res,
+              errorMessage: 'JSONP 解码失败',
+            });
+            return;
+          }
+          options.complete && options.complete({
+            ...res,
+            data: JSON.parse(res.data.replace(`${jsonpCallback}(`, '').replace(')', '')),
+            status: res.statusCode || res.status,
+            headers: res.header || res.headers || {},
+          });
+          return;
+        }
+        options.complete && options.complete(res.data ? {
+          ...res,
+          status: res.statusCode || res.status,
+          headers: res.header || res.headers || {},
+        } : res);
+      },
     });
   return afterOptions;
 }
 export function normalize(api, containerName) {
   return (options) => {
-    const afterOptions = styleOptions(styleIn(options, containerName));
+    const afterOptions = styleOptions(styleIn(options, containerName), containerName);
 
     return api(afterOptions);
   };
