@@ -106,20 +106,38 @@ export function styleOptions(options, containerName) {
   };
   const isJsonp = options?.method?.toUpperCase() === 'JSONP';
   const jsonpCallback = options.jsonpCallback || DEFAULT_REQUEST_OPTIONS.jsonpCallback;
-  const afterOptions: RequestOptions = Object.assign({},
-    DEFAULT_REQUEST_OPTIONS,
-    options,
-    {
-      method: isJsonp ? 'GET' : (options.method || 'GET').toUpperCase(),
+
+  let afterOptions = Object.assign({}, DEFAULT_REQUEST_OPTIONS, options, {
+    method: (options.method || 'GET').toUpperCase(),
+    headers: normalizeHeaders(options.headers || {}),
+    success: (res) => {
+      options.success && options.success({
+        ...res,
+        headers: res.header || res.headers || {},
+        status: res.statusCode || res.status,
+      });
+    },
+    complete: (res) => {
+      options.complete && options.complete(res.data ? {
+        ...res,
+        status: res.statusCode || res.status,
+        headers: res.header || res.headers || {},
+      } : res);
+    },
+  });
+  if (isJsonp) {
+    afterOptions = {
+      ...afterOptions,
+      method: 'GET',
       isJsonp,
-      dataType: isJsonp ? 'text' : options.dataType,
-      data: isJsonp ?
+      dataType: DATA_TYPE.text,
+      data:
         { ...options.data,
           [options.jsonpCallbackProp || DEFAULT_REQUEST_OPTIONS.jsonpCallbackProp]:
-          jsonpCallback } : options.data,
-      headers: normalizeHeaders(options.headers || {}),
+          jsonpCallback },
+
       success: (res) => {
-        if (isJsonp && containerName !== CONTAINER_NAME.WEB) {
+        if (containerName !== CONTAINER_NAME.WEB) {
           if (res.data.indexOf(jsonpCallback) === -1) {
             options.fail && options.fail({
               error: 14,
@@ -128,7 +146,6 @@ export function styleOptions(options, containerName) {
             });
             return;
           }
-          console.log(res.data.replace(`${jsonpCallback}(`, '').replace(')', ''));
           options.success && options.success({
             ...res,
             headers: res.header || res.headers || {},
@@ -144,7 +161,7 @@ export function styleOptions(options, containerName) {
         });
       },
       complete: (res) => {
-        if (isJsonp && res.data && containerName !== CONTAINER_NAME.WEB) {
+        if (res.data && containerName !== CONTAINER_NAME.WEB) {
           if (res.data.indexOf(jsonpCallback) === -1) {
             options.fail && options.fail({
               error: 14,
@@ -167,7 +184,9 @@ export function styleOptions(options, containerName) {
           headers: res.header || res.headers || {},
         } : res);
       },
-    });
+    };
+  }
+
   return afterOptions;
 }
 export function normalize(api, containerName) {
