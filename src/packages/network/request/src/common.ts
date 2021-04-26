@@ -106,25 +106,56 @@ export function styleOptions(options, containerName) {
   };
   const isJsonp = options?.method?.toUpperCase() === 'JSONP';
   const jsonpCallback = options.jsonpCallback || DEFAULT_REQUEST_OPTIONS.jsonpCallback;
-
+  const adapterResponse = (res) => {
+    if (res.errMsg || res.error || res.errorMessage) {
+      return {
+        ...res,
+        error: res.error || res.statusCode,
+        errorMessage: res.errorMessage || res.errMsg || '',
+      };
+    }
+    const afterRes = {
+      ...res,
+      status: res.statusCode || res.status,
+      headers: res.header || res.headers || {},
+    };
+    if (isJsonp && containerName !== CONTAINER_NAME.WEB) {
+      try {
+        const content = res.data.replace(`${jsonpCallback}(`, '').replace(')', '');
+        const data = content ? JSON.parse(content) : '';
+        return {
+          ...afterRes,
+          data,
+        };
+      } catch (e) {
+        return {
+          error: 14,
+          data: res,
+          errorMessage: 'JSONP 解码失败',
+        };
+      }
+    }
+    return afterRes;
+  };
   let afterOptions = Object.assign({}, DEFAULT_REQUEST_OPTIONS, options, {
     method: (options.method || 'GET').toUpperCase(),
     headers: normalizeHeaders(options.headers || {}),
     success: (res) => {
-      options.success && options.success({
-        ...res,
-        headers: res.header || res.headers || {},
-        status: res.statusCode || res.status,
-      });
+      const _res = adapterResponse(res);
+      if (_res.error) {
+        options.fail && options.fail(_res);
+      } else {
+        options.success && options.success(_res);
+      }
+    },
+    fail: (res) => {
+      options.fail && options.fail(adapterResponse(res));
     },
     complete: (res) => {
-      options.complete && options.complete(res.data ? {
-        ...res,
-        status: res.statusCode || res.status,
-        headers: res.header || res.headers || {},
-      } : res);
+      options.complete && options.complete(adapterResponse(res));
     },
   });
+
   if (isJsonp) {
     afterOptions = {
       ...afterOptions,
@@ -135,55 +166,6 @@ export function styleOptions(options, containerName) {
         { ...options.data,
           [options.jsonpCallbackProp || DEFAULT_REQUEST_OPTIONS.jsonpCallbackProp]:
           jsonpCallback },
-
-      success: (res) => {
-        if (containerName !== CONTAINER_NAME.WEB) {
-          if (res.data.indexOf(jsonpCallback) === -1) {
-            options.fail && options.fail({
-              error: 14,
-              data: res,
-              errorMessage: 'JSONP 解码失败',
-            });
-            return;
-          }
-          options.success && options.success({
-            ...res,
-            headers: res.header || res.headers || {},
-            data: JSON.parse(res.data.replace(`${jsonpCallback}(`, '').replace(')', '')),
-            status: res.statusCode || res.status,
-          });
-          return;
-        }
-        options.success && options.success({
-          ...res,
-          headers: res.header || res.headers || {},
-          status: res.statusCode || res.status,
-        });
-      },
-      complete: (res) => {
-        if (res.data && containerName !== CONTAINER_NAME.WEB) {
-          if (res.data.indexOf(jsonpCallback) === -1) {
-            options.fail && options.fail({
-              error: 14,
-              data: res,
-              errorMessage: 'JSONP 解码失败',
-            });
-            return;
-          }
-          options.complete && options.complete({
-            ...res,
-            data: JSON.parse(res.data.replace(`${jsonpCallback}(`, '').replace(')', '')),
-            status: res.statusCode || res.status,
-            headers: res.header || res.headers || {},
-          });
-          return;
-        }
-        options.complete && options.complete(res.data ? {
-          ...res,
-          status: res.statusCode || res.status,
-          headers: res.header || res.headers || {},
-        } : res);
-      },
     };
   }
 

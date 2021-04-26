@@ -43,7 +43,7 @@ export default () => {
       success: (data) => {
         setLoading(false);
         console.log('data', data);
-        setData(data.data);
+        setData({data, url: 'https://httpbin.org/post'});
       },
       fail: (error) => {
         setLoading(false);

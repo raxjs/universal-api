@@ -67,7 +67,6 @@ function requestXHR(options) {
       abort: () => {},
     };
   }
-  console.log(111);
   let timer: number;
   let requestData: any;
   const xhr = new XMLHttpRequest();
