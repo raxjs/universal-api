@@ -1,7 +1,6 @@
 /* eslint-disable no-mixed-operators */
 /* eslint-disable @typescript-eslint/no-shadow */
 import {
-  RequestOptions,
   ERROR_REQUEST_TIMEOUT,
   ERROR_REQUEST_ABORT,
 } from '../types';
@@ -15,7 +14,7 @@ import {
 } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
-function requestXHR(options: RequestOptions) {
+function requestXHR(options) {
   options.headers = Object.assign({
     Accept: 'application/json, text/plain, */*',
   }, options.headers);
@@ -23,14 +22,18 @@ function requestXHR(options: RequestOptions) {
     validateStatus,
     url,
     method,
+    isJsonp,
     withCredentials,
     headers,
     data,
     timeout,
+    jsonpCallback,
     dataType,
     success, fail, complete,
   } = Object.assign(
     {
+      jsonpCallbackProp: 'callback',
+      jsonpCallback: '__uni_jsonp_handler',
       withCredentials: true,
       method: 'GET',
       validateStatus: (status: number) => {
@@ -38,7 +41,32 @@ function requestXHR(options: RequestOptions) {
       },
     }, options,
   );
-
+  if (isJsonp) {
+    try {
+      (window[jsonpCallback] as any) = (data) => {
+        success && success({
+          data,
+          status: 200,
+          headers: {},
+        });
+        complete && complete({
+          data,
+          status: 200,
+          headers: {},
+        });
+      };
+      const scriptUrl = `${applyParamToURL(data, url)}`;
+      const script = document.createElement('script');
+      script.setAttribute('src', scriptUrl);
+      document.getElementsByTagName('head')[0].appendChild(script);
+    } catch (e) {
+      fail && fail(ERROR_REQUEST_TIMEOUT);
+      complete && complete(ERROR_REQUEST_TIMEOUT);
+    }
+    return {
+      abort: () => {},
+    };
+  }
   let timer: number;
   let requestData: any;
   const xhr = new XMLHttpRequest();

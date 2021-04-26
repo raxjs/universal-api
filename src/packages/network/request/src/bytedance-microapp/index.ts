@@ -9,7 +9,7 @@ function request(options: RequestOptions) {
   const { url, method, data, dataType, headers, timeout, success, fail, complete } = options;
   return tt.request({
     url,
-    headers,
+    header: headers,
     method,
     data,
     timeout,

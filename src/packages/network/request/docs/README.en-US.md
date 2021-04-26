@@ -44,6 +44,27 @@ request({
     console.log('complete', res);
   }
 });
+
+request({
+  url: 'http://suggest.taobao.com/sug',
+  method: 'JSONP',
+  data: {
+    code: 'utf-8',
+    q: '卫衣'
+  },
+  jsonpCallback: 'cb',
+  jsonpCallbackProp: 'callback',
+  timeout: 5000,
+  success: (res) => {
+    console.log('success', res);
+  },
+  fail: (res) => {
+    console.log('fail', res);
+  },
+  complete: (res) => {
+    console.log('complete', res);
+  }
+});
 ```
 
 You can also import from the big package:
@@ -58,10 +79,12 @@ import { request } from '@uni/apis';
 | options | `object`  |  | true | - |
 | opthons.url | `string`  | Required，the request url | true | - |
 | opthons.headers | `object`  | The request headers | false | {<br />  'Content-Type': 'application/json'<br />} |
-| options.method | `string`  | Values：GET/POST/PUT/DELETE/PATCH/HEAD,mini app only support GET/POST | false | `GET`  |
+| options.method | `string`  | Values：GET/POST/PUT/DELETE/PATCH/HEAD/JSONP,mini app only support GET/POST/JSONP | false | `GET`  |
 | options.data | `object`  | <br />- GET or POST set headers['content-Type'] is equal to `application/x-www-form-urlencoded` data will apply to URL<br />- In other cases, the data will be converted to a JSON string as request body to the server.<br /> | false | - |
 | options.timeout | `number`  | timeout | false| 20000 (ms) |
 | options.dataType | `string`  | Set return data type, `json` or `text`, If the conversion fails, returns as it is | false | `json`  |
+| options.jsonpCallback | `string`  | The callback method name of jsonp, which only takes effect when method is JSONP | false | `__uni_jsonp_handler`  |
+| options.jsonpCallbackProp | `string`  | The name of the callback attribute of jsonp, which only takes effect when the method is JSONP | 否 | `callback`  |
 | options.success | `Function`  | The callback function for a successful API call | false | - |
 | options.fail | `Function`  | The callback function for a failed API call | false | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | 否 | - |
@@ -80,8 +103,8 @@ import { request } from '@uni/apis';
 | --- | --- | --- |
 | response | `object` | - |
 | response.data | `string`  | The data returned by the request is converted according to the type declared in the dataType. If the conversion fails, it is returned as it is |
-| response.headers | `object`  | Response headers ，JSONP request has no value |
-| response.status | `number`  | Response status，JSONP request has no value |
+| response.headers | `object`  | Response headers |
+| response.status | `number`  | Response status |
 
 ### Non-universal return parameters (due to the destruction of the ability of one code, it is not recommended to use)
 | Property   | Type     | Description | Supported  |

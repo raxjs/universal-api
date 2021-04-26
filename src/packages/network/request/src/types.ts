@@ -31,10 +31,12 @@ export interface JsonpOptions {
 export interface RequestOptions extends Uni.COptions {
   url: string;
   headers?: AsObject;
-  method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'HEAD';
+  method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'HEAD' | 'JSONP';
   data?: AsObject;
   timeout?: number;
   dataType?: DATA_TYPE;
+  jsonpCallback?: string;
+  jsonpCallbackProp?: string;
   success?: (res) => any;
   fail?: (res) => any;
   complete?: (res) => any;
