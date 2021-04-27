@@ -9,15 +9,15 @@ export function styleOptions(options) {
     duration: SHORT_DELAY,
   };
   if (typeof options === 'string') {
-    return Object.assign({},
-      DEFAULT_REQUEST_OPTIONS,
-      {
-        content: options,
-      });
+    return {
+      ...DEFAULT_REQUEST_OPTIONS,
+      content: options,
+    };
   } else {
-    return Object.assign({},
-      DEFAULT_REQUEST_OPTIONS,
-      options);
+    return {
+      ...DEFAULT_REQUEST_OPTIONS,
+      ...options,
+    };
   }
 }
 export function normalize(api) {

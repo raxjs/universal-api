@@ -42,6 +42,12 @@ export interface RequestOptions extends Uni.COptions {
   complete?: (res) => any;
 }
 
+export interface WebRequestOptions extends RequestOptions {
+  isJsonp: boolean;
+  withCredentials: boolean;
+  validateStatus: (status: number) => boolean;
+}
+
 /**
  * Response
  */

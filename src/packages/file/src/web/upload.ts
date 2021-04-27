@@ -91,7 +91,7 @@ function uploadFile(param: UploadOptions) {
     // resolve(result);
   };
   // check if need add withCredentials
-  if (!param.url.includes(window.location.host)) {
+  if (param.url.indexOf(window.location.host) === -1) {
     xhr.withCredentials = true;
   }
   xhr.open('POST', param.url, true);

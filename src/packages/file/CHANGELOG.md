@@ -1,17 +1,8 @@
-## 1.0.5 (2021-04-27)
+## 1.0.4 (2021-04-27)
 
 ### Features
 
 * 兼容低版本容器，转换 ES6 语法
-## 1.0.4 (2021-04-25)
-
-### Features
-
-* 新增支持 jsonp 请求
-
-### Bug Fixes
-
-* 修复 wx.request 中 headers 属性值错误 ([issues](https://github.com/raxjs/universal-api/issues/140))
 
 ## 1.0.3 (2021-04-16)
 
