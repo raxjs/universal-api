@@ -137,7 +137,8 @@ export function styleOptions(options, containerName) {
     }
     return afterRes;
   };
-  let afterOptions = Object.assign({}, DEFAULT_REQUEST_OPTIONS, options, {
+  let afterOptions = { ...DEFAULT_REQUEST_OPTIONS,
+    ...options,
     method: (options.method || 'GET').toUpperCase(),
     headers: normalizeHeaders(options.headers || {}),
     success: (res) => {
@@ -154,7 +155,7 @@ export function styleOptions(options, containerName) {
     complete: (res) => {
       options.complete && options.complete(adapterResponse(res));
     },
-  });
+  };
 
   if (isJsonp) {
     afterOptions = {

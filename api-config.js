@@ -100,7 +100,7 @@ module.exports = {
     path: 'src/packages/file/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4',
         name: '@uni/file',
       },
     ],
@@ -119,7 +119,7 @@ module.exports = {
     path: 'src/packages/interactive/alert/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4',
         name: '@uni/alert',
         dependencies: {
           '@uni/confirm': '^1.0.3',
@@ -159,7 +159,7 @@ module.exports = {
     path: 'src/packages/interactive/toast/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.5',
         name: '@uni/toast',
       },
     ],
@@ -186,7 +186,7 @@ module.exports = {
     path: 'src/packages/interactive/element/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4',
         name: '@uni/element',
       },
     ],
@@ -252,7 +252,7 @@ module.exports = {
     path: 'src/packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.5',
         name: '@uni/request',
       },
     ],
@@ -262,7 +262,7 @@ module.exports = {
     path: 'src/packages/storage/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4',
         name: '@uni/storage',
       },
     ],

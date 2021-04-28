@@ -3,6 +3,7 @@
 import {
   ERROR_REQUEST_TIMEOUT,
   ERROR_REQUEST_ABORT,
+  WebRequestOptions,
 } from '../types';
 import {
   applyParamToURL,
@@ -15,9 +16,10 @@ import {
 import { CONTAINER_NAME } from '@utils/constant';
 
 function requestXHR(options) {
-  options.headers = Object.assign({
+  options.headers = {
     Accept: 'application/json, text/plain, */*',
-  }, options.headers);
+    ...options.headers,
+  };
   const {
     validateStatus,
     url,
@@ -30,17 +32,16 @@ function requestXHR(options) {
     jsonpCallback,
     dataType,
     success, fail, complete,
-  } = Object.assign(
-    {
-      jsonpCallbackProp: 'callback',
-      jsonpCallback: '__uni_jsonp_handler',
-      withCredentials: true,
-      method: 'GET',
-      validateStatus: (status: number) => {
-        return status >= 200 && status < 300 || status === 304;
-      },
-    }, options,
-  );
+  }: WebRequestOptions = {
+    jsonpCallbackProp: 'callback',
+    jsonpCallback: '__uni_jsonp_handler',
+    withCredentials: true,
+    method: 'GET',
+    validateStatus: (status: number) => {
+      return status >= 200 && status < 300 || status === 304;
+    },
+    ...options,
+  };
   if (isJsonp) {
     try {
       (window[jsonpCallback] as any) = (data) => {

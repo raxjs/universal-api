@@ -3,24 +3,16 @@
 ### Features
 
 * 兼容低版本容器，转换 ES6 语法
-## 1.0.4 (2021-04-25)
 
-### Features
-
-* 新增支持 jsonp 请求
-
-### Bug Fixes
-
-* 修复 wx.request 中 headers 属性值错误 ([issues](https://github.com/raxjs/universal-api/issues/140))
-
-## 1.0.3 (2021-04-16)
+## 1.0.4 (2021-04-16)
 
 ### Features
 
 * 剔除 Babel/runtime-corejs3 
 * 新增支持 webpack5 exports ([a113f40](https://github.com/raxjs/universal-api/commit/a113f4034a35c2d5325536026d825175aa889dfd))
+* 新增 showToast/hideToast api 名称透出
 
-## 1.0.2 (2021-04-07)
+## 1.0.3 (2021-04-07)
 
 ### Features
 
@@ -29,11 +21,17 @@
 * 更新目录结构 ([a37ec34](https://github.com/raxjs/universal-api/commit/a37ec343ec1afb455458a6be27af932052654b58))
 * 文档对接rax站点 ([0899643](https://github.com/raxjs/universal-api/commit/089964320fee0163bfd62b529ec8c93e85ad46da))
 
-## 1.0.1 (2021-03-12)
+## 1.0.2 (2021-03-12)
 
 ### Features
 
 * 移除 @uni/env 的 peer 依赖
+
+## 1.0.1 (2021-02-12)
+
+### Docs
+
+* 更新文档
 
 ## 1.0.0 (2021-01-26)
 
