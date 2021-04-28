@@ -17,7 +17,7 @@ module.exports = {
     needCommonUtil: false,
     pkgInfo: [
       {
-        version: '1.0.2',
+        version: '1.0.3',
         name: '@uni/env',
       },
     ],
