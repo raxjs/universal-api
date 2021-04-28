@@ -7,9 +7,10 @@ export function styleOptions(options) {
     title: '',
     buttonText: '确定',
   };
-  return Object.assign({},
-    DEFAULT_REQUEST_OPTIONS,
-    options);
+  return {
+    ...DEFAULT_REQUEST_OPTIONS,
+    ...options,
+  };
 }
 export function normalize(api, containerName) {
   return (args) => {
