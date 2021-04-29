@@ -1,9 +1,9 @@
 /* eslint-disable no-mixed-operators */
 /* eslint-disable @typescript-eslint/no-shadow */
 import {
-  RequestOptions,
   ERROR_REQUEST_TIMEOUT,
   ERROR_REQUEST_ABORT,
+  WebRequestOptions,
 } from '../types';
 import {
   applyParamToURL,
@@ -15,30 +15,59 @@ import {
 } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
-function requestXHR(options: RequestOptions) {
-  options.headers = Object.assign({
+function requestXHR(options) {
+  options.headers = {
     Accept: 'application/json, text/plain, */*',
-  }, options.headers);
+    ...options.headers,
+  };
   const {
     validateStatus,
     url,
     method,
+    isJsonp,
     withCredentials,
     headers,
     data,
     timeout,
+    jsonpCallback,
     dataType,
     success, fail, complete,
-  } = Object.assign(
-    {
-      withCredentials: true,
-      method: 'GET',
-      validateStatus: (status: number) => {
-        return status >= 200 && status < 300 || status === 304;
-      },
-    }, options,
-  );
-
+  }: WebRequestOptions = {
+    jsonpCallbackProp: 'callback',
+    jsonpCallback: '__uni_jsonp_handler',
+    withCredentials: true,
+    method: 'GET',
+    validateStatus: (status: number) => {
+      return status >= 200 && status < 300 || status === 304;
+    },
+    ...options,
+  };
+  if (isJsonp) {
+    try {
+      (window[jsonpCallback] as any) = (data) => {
+        success && success({
+          data,
+          status: 200,
+          headers: {},
+        });
+        complete && complete({
+          data,
+          status: 200,
+          headers: {},
+        });
+      };
+      const scriptUrl = `${applyParamToURL(data, url)}`;
+      const script = document.createElement('script');
+      script.setAttribute('src', scriptUrl);
+      document.getElementsByTagName('head')[0].appendChild(script);
+    } catch (e) {
+      fail && fail(ERROR_REQUEST_TIMEOUT);
+      complete && complete(ERROR_REQUEST_TIMEOUT);
+    }
+    return {
+      abort: () => {},
+    };
+  }
   let timer: number;
   let requestData: any;
   const xhr = new XMLHttpRequest();

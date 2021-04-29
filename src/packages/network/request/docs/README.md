@@ -51,6 +51,26 @@ request({
   }
 });
 
+request({
+  url: 'http://suggest.taobao.com/sug',
+  method: 'JSONP',
+  data: {
+    code: 'utf-8',
+    q: '卫衣'
+  },
+  jsonpCallback: 'cb',
+  jsonpCallbackProp: 'callback',
+  timeout: 5000,
+  success: (res) => {
+    console.log('success', res);
+  },
+  fail: (res) => {
+    console.log('fail', res);
+  },
+  complete: (res) => {
+    console.log('complete', res);
+  }
+});
 ```
 
 你也可以从大包引入：
@@ -65,10 +85,12 @@ import { request } from '@uni/apis';
 | options | `object`  |  | 是 | - |
 | opthons.url | `string`  | 请求的URL地址 | 是 |  - |
 | opthons.headers | `object`  | 设置请求的头部 | 否 | {<br />  'Content-Type': 'application/json'<br />} |
-| options.method | `string`  | 可用的值有：GET/POST/PUT/DELETE/PATCH/HEAD，小程序中仅支持GET/POST | 否 |  `GET`  |
+| options.method | `string`  | 可用的值有：GET/POST/PUT/DELETE/PATCH/HEAD/JSONP，小程序中仅支持GET/POST/JSONP | 否 |  `GET`  |
 | options.data | `object`  | <br />- GET请求或POST请求设置headers['content-Type'] 为 `application/x-www-form-urlencoded`时会拼接到URL中<br />- 其他情况请求会转换为JSON字符串以请求体的形式给服务端<br /> | 否 | - |
 | options.timeout | `number`  | 超时时间 | 否 | 20000 (ms) |
-| options.data类型 | `string`  | 期望返回的数据格式， `json` 或者 `text` ，若转换失败，则原样返回 | 否 | `json`  |
+| options.dataType | `string`  | 期望返回的数据格式， `json` 或者 `text` ，若转换失败，则原样返回 | 否 | `json`  |
+| options.jsonpCallback | `string`  | jsonp的 callback 方法名，默认 `__uni_jsonp_handler`，仅在 method 为 JSONP 时生效 | 否 | `__uni_jsonp_handler`  |
+| options.jsonpCallbackProp | `string`  | jsonp的 callback 属性名，默认 `callback`，仅在 method 为 JSONP 时生效 | 否 | `callback`  |
 | options.success | `Function`  | 成功的回调 | 否 | - |
 | options.fail | `Function`  | 失败的回调 | 否 | - |
 | options.complete | `Function`  | 结束的回调 | 否 | - |
@@ -88,8 +110,8 @@ import { request } from '@uni/apis';
 | --- | --- | --- |
 | response | `object` | - |
 | response.data | `string`  | 请求返回数据，按照dataType中声明的类型转换，若转换失败则原样返回 |
-| response.headers | `object`  | 请求的返回头部，JSONP请求无值 |
-| response.status | `number`  | 请求返回的状态码，JSONP请求无值 |
+| response.headers | `object`  | 请求的返回头部 |
+| response.status | `number`  | 请求返回的状态码 |
 
 #### 不通用返回参数（由于破坏了一码多端的能力，不推荐使用）
 | 属性   | 类型     | 描述 | 支持  |

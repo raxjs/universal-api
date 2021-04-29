@@ -4,6 +4,7 @@
 
 import { DATA_TYPE, AsObject, RequestOptions } from './types';
 import { styleIn } from '@utils/styleOptions';
+import { CONTAINER_NAME } from '@utils/constant';
 
 export function getDataWithType(data: any, type: DATA_TYPE) {
   if (type === DATA_TYPE.json) {
@@ -88,7 +89,7 @@ const EMPTY_OBJECT = {};
 export function isPlainObject(obj) {
   return EMPTY_OBJECT.toString.call(obj) === '[object Object]';
 }
-export function styleOptions(options) {
+export function styleOptions(options, containerName) {
   const DEFAULT_TIMEOUT = 20000;
   enum DATA_TYPE {
     json = 'json',
@@ -98,21 +99,82 @@ export function styleOptions(options) {
     url: '',
     headers: { 'Content-Type': 'application/json' },
     method: 'GET',
+    jsonpCallbackProp: 'callback',
+    jsonpCallback: '__uni_jsonp_handler',
     timeout: DEFAULT_TIMEOUT,
     dataType: DATA_TYPE.json,
   };
-  const afterOptions: RequestOptions = Object.assign({},
-    DEFAULT_REQUEST_OPTIONS,
-    options,
-    {
-      method: (options.method || 'GET').toUpperCase(),
-      headers: normalizeHeaders(options.headers || {}),
-    });
+  const isJsonp = options?.method?.toUpperCase() === 'JSONP';
+  const jsonpCallback = options.jsonpCallback || DEFAULT_REQUEST_OPTIONS.jsonpCallback;
+  const adapterResponse = (res) => {
+    if (res.errMsg || res.error || res.errorMessage) {
+      return {
+        ...res,
+        error: res.error || res.statusCode,
+        errorMessage: res.errorMessage || res.errMsg || '',
+      };
+    }
+    const afterRes = {
+      ...res,
+      status: res.statusCode || res.status,
+      headers: res.header || res.headers || {},
+    };
+    if (isJsonp && containerName !== CONTAINER_NAME.WEB) {
+      try {
+        const content = res.data.replace(`${jsonpCallback}(`, '').replace(')', '');
+        const data = content ? JSON.parse(content) : '';
+        return {
+          ...afterRes,
+          data,
+        };
+      } catch (e) {
+        return {
+          error: 14,
+          data: res,
+          errorMessage: 'JSONP 解码失败',
+        };
+      }
+    }
+    return afterRes;
+  };
+  let afterOptions = { ...DEFAULT_REQUEST_OPTIONS,
+    ...options,
+    method: (options.method || 'GET').toUpperCase(),
+    headers: normalizeHeaders(options.headers || {}),
+    success: (res) => {
+      const _res = adapterResponse(res);
+      if (_res.error) {
+        options.fail && options.fail(_res);
+      } else {
+        options.success && options.success(_res);
+      }
+    },
+    fail: (res) => {
+      options.fail && options.fail(adapterResponse(res));
+    },
+    complete: (res) => {
+      options.complete && options.complete(adapterResponse(res));
+    },
+  };
+
+  if (isJsonp) {
+    afterOptions = {
+      ...afterOptions,
+      method: 'GET',
+      isJsonp,
+      dataType: DATA_TYPE.text,
+      data:
+        { ...options.data,
+          [options.jsonpCallbackProp || DEFAULT_REQUEST_OPTIONS.jsonpCallbackProp]:
+          jsonpCallback },
+    };
+  }
+
   return afterOptions;
 }
 export function normalize(api, containerName) {
   return (options) => {
-    const afterOptions = styleOptions(styleIn(options, containerName));
+    const afterOptions = styleOptions(styleIn(options, containerName), containerName);
 
     return api(afterOptions);
   };

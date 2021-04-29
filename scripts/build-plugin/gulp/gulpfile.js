@@ -47,7 +47,7 @@ const tsProject = ts.createProject({
   declarationDir: output,
   skipLibCheck: true,
   // typeRoots: ['./types'],
-  target: 'ES6',
+  target: 'ES5',
   "paths": {
     // "@types/*": ["types/*"],
     // "types/interface": ["./interface"],
