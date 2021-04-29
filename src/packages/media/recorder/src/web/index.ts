@@ -1,7 +1,8 @@
 /* eslint-disable  */
 
 const getUserMedia = (constraints) => {
-  const rawGetUserMedia = (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) || navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+  const navigate: any = navigator;
+  const rawGetUserMedia = (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) || navigator.getUserMedia || navigate.webkitGetUserMedia || navigate.mozGetUserMedia;
 
   if (!rawGetUserMedia) {
     return Promise.reject(new Error('getUserMedia is not implemented in this browser'));

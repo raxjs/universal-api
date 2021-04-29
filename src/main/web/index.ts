@@ -16,11 +16,11 @@ import intersectionObserver from '../../packages/interactive/intersectionObserve
 import confirm from '../../packages/interactive/confirm/src/web/index';
 import location from '../../packages/location/src/web/index';
 import image from '../../packages/media/image/src/web/index';
-import recorder from '../../packages/media/recorder/src/web/index';
-import video from '../../packages/media/video/src/web/index';
 import navigate from '../../packages/navigate/src/web/index';
 import request from '../../packages/network/request/src/web/index';
 import storage from '../../packages/storage/src/web/index';
+import recorder from '../../packages/media/recorder/src/web/index';
+import video from '../../packages/media/video/src/web/index';
 
 export {
   application,
@@ -41,11 +41,11 @@ export {
   confirm,
   location,
   image,
-  recorder,
-  video,
   navigate,
   request,
   storage,
+  recorder,
+  video,
 };
 
 
@@ -68,9 +68,9 @@ export default {
   confirm,
   location,
   image,
-  recorder,
-  video,
   navigate,
   request,
   storage,
+  recorder,
+  video,
 };

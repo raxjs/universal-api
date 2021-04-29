@@ -16,11 +16,11 @@ import intersectionObserver from '../../packages/interactive/intersectionObserve
 import confirm from '../../packages/interactive/confirm/src/bytedance-microapp/index';
 import location from '../../packages/location/src/bytedance-microapp/index';
 import image from '../../packages/media/image/src/bytedance-microapp/index';
-import recorder from '../../packages/media/recorder/src/bytedance-microapp/index';
-import video from '../../packages/media/video/src/bytedance-microapp/index';
 import navigate from '../../packages/navigate/src/bytedance-microapp/index';
 import request from '../../packages/network/request/src/bytedance-microapp/index';
 import storage from '../../packages/storage/src/bytedance-microapp/index';
+import recorder from '../../packages/media/recorder/src/bytedance-microapp/index';
+import video from '../../packages/media/video/src/bytedance-microapp/index';
 
 export {
   application,
@@ -41,11 +41,11 @@ export {
   confirm,
   location,
   image,
-  recorder,
-  video,
   navigate,
   request,
   storage,
+  recorder,
+  video,
 };
 
 
@@ -68,9 +68,9 @@ export default {
   confirm,
   location,
   image,
-  recorder,
-  video,
   navigate,
   request,
   storage,
+  recorder,
+  video,
 };

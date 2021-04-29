@@ -24,7 +24,7 @@ const styles = {
 
 export default function() {
   const [maxDuration, setMaxDuration] = useState(60);
-  const [videoInfo, setVideoInfo] = useState(null);
+  const [videoInfo, setVideoInfo] = useState({});
 
   let videoContext = null;
 
@@ -44,7 +44,7 @@ export default function() {
           setVideoInfo(res);
         });
       }}>
-      选择图片
+      选择视频
       </View>
       <View>视频信息：{JSON.stringify(videoInfo)}</View>
       <Video 
