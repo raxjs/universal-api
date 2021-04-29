@@ -62,13 +62,13 @@ import { getRecorderManager } from '@uni/apis';
 | sampleRate | `number`  | 采样率 | ✘ | 8000 |
 | numberOfChannels | `number` | 录音通道数 | ✘ | 2 |
 | encodeBitRate | `number`  | 编码码率 | ✘ | 48000 |
-| frameSize | `number`  | 指定帧大小，单位 KB。传入 frameSize 后，每录制指定帧大小的内容后，会回调录制的文件内容，不指定则不会回调。暂仅支持 mp3 格式。 | ✘ | - |
+| frameSize | `number`  | 指定帧大小，单位 KB。传入 frameSize 后，每录制指定帧大小的内容后，会回调录制的文件内容，不指定则不会回调。暂仅支持 mp3 格式。 在web中，这个参数指的是时间，传入一个毫秒值，每录制指定毫秒的内容后，会回调录制的文件内容，不指定则会在录音结束后返回全部音频数据 | ✘ | - |
 | format | `string`  | 音频格式（仅微信支持） | ✘ | aac |
 | audioSource | `string`  | 指定录音的音频输入源，可通过 wx.getAvailableAudioSources() 获取当前可用的音频源（仅微信支持） | ✘ | auto |
 
 关于采样率、通道和编码码率的合法值参考：https://developers.weixin.qq.com/miniprogram/dev/api/media/recorder/RecorderManager.start.html
 
-##### stop 回调返回值
+##### onStop 回调返回值
 
 | 成员 | 类型 | 描述 |
 | --- | --- | --- |
@@ -90,6 +90,9 @@ import { getRecorderManager } from '@uni/apis';
 | onInterruptionBegin | 监听录音因为受到系统占用而被中断开始事件。以下场景会触发此事件：微信语音聊天、微信视频聊天。此事件触发后，录音会被暂停。pause 事件在此事件后触发 https://developers.weixin.qq.com/miniprogram/dev/api/media/recorder/RecorderManager.onInterruptionBegin.html | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
 | onInterruptionEnd | 监听录音中断结束事件。在收到 interruptionBegin 事件之后，小程序内所有录音会暂停，收到此事件之后才可再次录音成功 https://developers.weixin.qq.com/miniprogram/dev/api/media/recorder/RecorderManager.onInterruptionEnd.html | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
 
+## 注意
+
+web中暂不支持音频编码，可根据需要通过获取onFrameRecorded中的音频数据，自行编码。
 
 </div>
 <div>
