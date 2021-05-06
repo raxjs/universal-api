@@ -29,26 +29,17 @@ $ npm run start
 ```
 
 然后使用小程序 IDE 即可开始调试:
+
 <img height="400" src="https://gw.alicdn.com/imgextra/i3/O1CN01qDANFg1QRDiWoHzHr_!!6000000001972-0-tps-2048-1418.jpg">
 
 ## 文档
 官方站点：[https://universal-api.js.org/](https://universal-api.js.org/)
 
 ## 示例
-<div style="display: flex;margin-bottom: 200px; display: flex; flex-direction: row;">
-  <div>
-    <div style="width: 200px;height: 250px;">
-      <img src="https://img.alicdn.com/imgextra/i1/O1CN01upA1bP1CxpGb8qLPp_!!6000000000148-0-tps-662-662.jpg" width="200" height="200" />
-    </div>
-    <div style="text-align: center;">微信小程序</div>
-  </div>
-  <div style="margin-left: 30px;">
-    <div style="line-height: 0;">
-      <img src="https://gw.alicdn.com/imgextra/i3/O1CN01Ca6t2Q2AEpIXh4r0u_!!6000000008172-0-tps-1540-1906.jpg" width="200" height="250" />
-    </div>
-    <div style="text-align: center;">支付宝小程序</div>
-  </div>
-</div>
+
+|微信小程序|支付宝小程序|
+|--------|----------|
+|<img src="https://img.alicdn.com/imgextra/i1/O1CN01upA1bP1CxpGb8qLPp_!!6000000000148-0-tps-662-662.jpg" width="200" height="200" />|<img src="https://gw.alicdn.com/imgextra/i3/O1CN01Ca6t2Q2AEpIXh4r0u_!!6000000008172-0-tps-1540-1906.jpg" width="200" height="250" />|
 
 ## 贡献代码
 请首先阅读 [Rax 贡献代码指南](https://github.com/alibaba/rax/wiki/CONTRIBUTING)，了解基础的规范。
