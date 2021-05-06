@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://rax.js.org/docs/guide/about-miniapp">
-    <img alt="Rax" src="https://user-images.githubusercontent.com/677114/59907138-e99f7180-943c-11e9-8769-07021d9fe1ca.png" width="66">
+  <a href="https://universal-api.js.org/">
+    <img alt="Rax" src="https://img.alicdn.com/imgextra/i3/O1CN01lt5FH71VubB3j3Okd_!!6000000002713-2-tps-412-412.png" width="66">
   </a>
 </p>
 
@@ -29,13 +29,13 @@ $ npm run start
 ```
 
 然后使用小程序 IDE 即可开始调试:
-<img height="400" src="https://gw.alicdn.com/imgextra/i3/O1CN01oVy1Sl1iPXLdviD7x_!!6000000004405-2-tps-3584-2240.png">
+<img height="400" src="https://gw.alicdn.com/imgextra/i3/O1CN01qDANFg1QRDiWoHzHr_!!6000000001972-0-tps-2048-1418.jpg">
 
 ## 文档
 官方站点：[https://universal-api.js.org/](https://universal-api.js.org/)
 
 ## 示例
-<div style="display: flex;margin-bottom: 200px;">
+<div style="display: flex;margin-bottom: 200px; display: flex; flex-direction: row;">
   <div>
     <div style="width: 200px;height: 250px;">
       <img src="https://img.alicdn.com/imgextra/i1/O1CN01upA1bP1CxpGb8qLPp_!!6000000000148-0-tps-662-662.jpg" width="200" height="200" />
