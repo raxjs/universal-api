@@ -113,31 +113,6 @@ module.exports = {
 
 
 大包版本需要更新根目录下的 package.json 的 version
-### API 包列表
-
-| NPM 包                             | 描述                                                         |
-| ---------------------------------- | ------------------------------------------------------------ |
-| @uni/apis | Uni API 大包 |
-| @uni/env | 判断和获取运行时环境 |
-| @uni/caniuse | 判断 API 是否可用 |
-| @uni/application | 应用级 API，包括 getApp/getCurrentPages/getLaunchOptionsSync/offError/onError/onUnhandledRejection/offUnhandledRejection |
-| @uni/canvas | 获取 canvas 绘图上下文 |
-| @uni/accelerometer | 加速度监听与取消 |
-| @uni/clipboard | 获取/设置系统剪贴板的内容 |
-| @uni/system-info | 获取系统信息 |
-| @uni/file | 文件操作相关 API |
-| @uni/action-sheet | 显示操作菜单 |
-| @uni/alert | alert 警告框 |
-| @uni/confirm | 显示模态对话框 |
-| @uni/element | 获取 DOM 节点的信息 |
-| @uni/loading | 隐藏 loading 提示框 |
-| @uni/toast | 通用弱提示 |
-| @uni/intersection-observer | 用于推断某些节点是否可以被用户看见、有多大比例可以被用户看见 |
-| @uni/location | 地理位置相关 API |
-| @uni/image | 图片操作相关 API |
-| @uni/navigate | 路由导航能力实现 |
-| @uni/request | 用于发起网络请求 |
-| @uni/storage | storage 相关API |
 ## 协议
 
 [BSD License](https://github.com/raxjs/miniapp/blob/master/LICENSE)
