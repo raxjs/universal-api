@@ -37,7 +37,7 @@ export const onPullDownRefresh = (args: SwitchOptions) => {
   if (isWeb) {
     return webModule.onPullDownRefresh(args);
   } else {
-    throw new Error('@uni/apis：stopPullDownRefresh暂不支持');
+    throw new Error('@uni/apis：onPullDownRefresh暂不支持');
   }
 };
 
