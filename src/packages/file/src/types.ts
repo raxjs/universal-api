@@ -7,6 +7,7 @@ export interface UploadOptions extends Uni.COptions {
   hideLoading?: boolean;
   header?: object;
   formData?: object;
+  withCredentials?: boolean;
   success?: (res: UploadResponseData) => void;
   fail?: (res: any) => void;
   complete?: (res: UploadResponseData | any) => void;

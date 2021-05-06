@@ -51,7 +51,7 @@ function uploadFile(param: UploadOptions) {
     Accept: 'application/json, text/plain, */*',
     ...param.header || {},
   };
-    // initialize xhr
+  // initialize xhr
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
     if (!xhr || xhr.readyState !== 4) {
@@ -91,13 +91,14 @@ function uploadFile(param: UploadOptions) {
     // resolve(result);
   };
   // check if need add withCredentials
-  if (param.url.indexOf(window.location.host) === -1) {
-    xhr.withCredentials = true;
+  if (typeof param.withCredentials === 'undefined') {
+    if (param.url.indexOf(window.location.host) === -1) {
+      xhr.withCredentials = true;
+    }
+  } else {
+    xhr.withCredentials = param.withCredentials;
   }
   xhr.open('POST', param.url, true);
-  // Object.keys(header).forEach((key) => {
-  //   xhr.setRequestHeader(key, String(header[key]));
-  // });
   for (const headerKey in header) {
     if (Object.prototype.hasOwnProperty.call(header, headerKey)) {
       xhr.setRequestHeader(headerKey, String(header[headerKey]));
@@ -106,7 +107,6 @@ function uploadFile(param: UploadOptions) {
   // send request
   xhr.send(body);
   return { abort: () => {} };
-  // });
 }
 
 export default normalize.upload(uploadFile, CONTAINER_NAME.WEB);

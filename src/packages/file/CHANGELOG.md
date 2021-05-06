@@ -4,11 +4,17 @@
 
 * 兼容低版本容器，转换 ES6 语法
 
+## 1.0.4 (2021-05-06)
+
+### Features
+
+* 支持在 Web 上关闭 withCredentials
+
 ## 1.0.3 (2021-04-16)
 
 ### Features
 
-* 剔除 Babel/runtime-corejs3 
+* 剔除 Babel/runtime-corejs3
 * 新增支持 webpack5 exports ([a113f40](https://github.com/raxjs/universal-api/commit/a113f4034a35c2d5325536026d825175aa889dfd))
 
 ## 1.0.2 (2021-04-07)
