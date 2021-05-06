@@ -5,7 +5,7 @@ import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 import { StartOptions, StopOptions, SwitchOptions } from './types';
 
-export const startPullDownRefresh = (args: StartOptions) => {
+export const startPullDownRefresh = (args?: StartOptions) => {
   if (isWeChatMiniProgram) {
     return weChatModule.startPullDownRefresh(args);
   } else if (isByteDanceMicroApp) {
@@ -19,7 +19,7 @@ export const startPullDownRefresh = (args: StartOptions) => {
   }
 };
 
-export const stopPullDownRefresh = (args: StopOptions) => {
+export const stopPullDownRefresh = (args?: StopOptions) => {
   if (isWeChatMiniProgram) {
     return weChatModule.stopPullDownRefresh(args);
   } else if (isByteDanceMicroApp) {
@@ -33,11 +33,11 @@ export const stopPullDownRefresh = (args: StopOptions) => {
   }
 };
 
-export const onPullDownRefresh = (args: SwitchOptions) => {
+export const onPullDownRefresh = (args?: SwitchOptions) => {
   if (isWeb) {
     return webModule.onPullDownRefresh(args);
   } else {
-    throw new Error('@uni/apis：onPullDownRefresh暂不支持');
+    console.warn('@uni/apis：onPullDownRefresh暂不支持,只支持web端h5页面');
   }
 };
 

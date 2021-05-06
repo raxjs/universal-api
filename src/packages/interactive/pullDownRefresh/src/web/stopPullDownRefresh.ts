@@ -1,8 +1,6 @@
 import { normalizeStop } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
-declare let window: any;
-
 const clsPrefix = '__universal_pulldownrefresh';
 
 const _stopPullDownRefresh = () => {
@@ -13,7 +11,7 @@ const _stopPullDownRefresh = () => {
   }
 }
 
-export const stopPullDownRefresh = normalizeStop(({ success = () => {}, fail = () => {}, complete = () => {} }) => {
+const stopPullDownRefresh = normalizeStop(({ success = () => {}, fail = () => {}, complete = () => {} }) => {
   try {
     _stopPullDownRefresh();
 

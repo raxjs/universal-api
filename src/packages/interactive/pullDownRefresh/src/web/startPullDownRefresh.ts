@@ -36,7 +36,7 @@ const _startPullDownRefresh = () => {
   }, 500);
 }
 
-export const startPullDownRefresh = normalizeStart(({ success = () => {}, fail = () => {}, complete = () => {} }) => {
+const startPullDownRefresh = normalizeStart(({ success = () => {}, fail = () => {}, complete = () => {} }) => {
   try {
     if (!styleElement) {
       // create a style tag for keyframes

@@ -63,11 +63,6 @@ const _enablePullDownRefresh = () => {
       setTimeout(() => {
         _startPos = 0;
         _transitionHeight = 0;
-        // _refreshText = document.getElementById(`${clsPrefix}_refreshText`);
-        // if (_refreshText) {
-        //   document.body.removeChild(_refreshText);
-        //   _refreshText = undefined;
-        // }
       }, 2000);
     };
     _element.addEventListener('touchend', cb3, true);
@@ -90,7 +85,7 @@ const _disablePullDownRefresh = () => {
   }
 }
 
-export const onPullDownRefresh = normalizeSwitch(({
+const onPullDownRefresh = normalizeSwitch(({
   pullRefresh = true,
 }) => {
   try {
