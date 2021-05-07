@@ -17,8 +17,16 @@ module.exports = {
     needCommonUtil: false,
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4',
         name: '@uni/env',
+        exports: {
+          web: './es/web/index.js',
+          'wechat-miniprogram': './es/wechat-miniprogram/index.js',
+          'bytedance-microapp': './es/bytedance-microapp/index.js',
+          miniapp: './es/ali-miniapp/index.js',
+          default: './es/index.js',
+          require: './lib/index.js',
+        },
       },
     ],
   },
