@@ -10,6 +10,7 @@
 
 * 支持在 Web 上使用 UploadTask
 * 支持 timeout 参数（可用：微信小程序，Web）
+* Web 逻辑与小程序对齐，服务端返回 404 等状态码会进入 success 回调，可通过 statusCode 额外处理
 
 ## 1.0.5 (2021-05-06)
 

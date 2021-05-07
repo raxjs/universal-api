@@ -31,10 +31,6 @@ function base64toFile(dataUrl: string, fileName = '') {
   return file;
 }
 
-function validateStatus(status: number) {
-  return (status >= 200 && status < 300) || status === 304;
-}
-
 function getHeaderMap(xhr: XMLHttpRequest) {
   const headers = xhr.getAllResponseHeaders();
   const arr = headers.trim().split(/[\r\n]+/);
