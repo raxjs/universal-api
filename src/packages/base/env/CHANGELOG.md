@@ -1,3 +1,9 @@
+## 1.0.5 (2021-05-07)
+
+### Bug Fixes
+
+* 移动 node exports 在 default 之后
+
 ## 1.0.4 (2021-05-07)
 
 ### Features
