@@ -49,7 +49,6 @@ function getHeaderMap(xhr: XMLHttpRequest) {
 }
 
 function uploadFile(param: UploadOptions): UploadTask {
-  // return new Promise((resolve, reject) => {
   const file = typeof param.filePath === 'string' ? base64toFile(param.filePath) : param.filePath;
   const body = new FormData();
   if (param.formData) {
@@ -68,32 +67,20 @@ function uploadFile(param: UploadOptions): UploadTask {
   const xhr = new XMLHttpRequest();
   const headersReceivedCallback: UploadHeadersReceivedCallback[] = [];
   xhr.onreadystatechange = () => {
-    if (!xhr) {
-      return;
-    }
     // header received
-    if (xhr.readyState === 2 && headersReceivedCallback.length > 0) {
+    if (xhr && xhr.readyState === 2 && headersReceivedCallback.length > 0) {
       const headers = getHeaderMap(xhr);
       headersReceivedCallback.forEach(x => x(headers));
-      return;
     }
-    if (xhr.readyState !== 4) {
-      return;
-    }
-    // fail
-    if (!validateStatus(xhr.status)) {
-      param.fail && param.fail({ errMsg: '上传失败' });
-      param.complete && param.complete({ errMsg: '上传失败' });
-      return;
-      // return reject(xhr.status);
-    }
+  };
+  // Success
+  xhr.onload = () => {
     let data: any = xhr.response;
     try {
       data = JSON.parse(data);
     } catch (e) {
       // ignore
     }
-    // success
     const result = {
       data,
       statusCode: xhr.status,
@@ -101,8 +88,16 @@ function uploadFile(param: UploadOptions): UploadTask {
     };
     param.success && param.success(result);
     param.complete && param.complete(result);
-    // resolve(result);
-  };
+  }
+  // Errors
+  xhr.onerror = () => {
+    param.fail && param.fail({ errMsg: 'uploadFile:fail error' });
+    param.complete && param.complete({ errMsg: 'uploadFile:fail error' });
+  }
+  xhr.onabort = () => {
+    param.fail && param.fail({ errMsg: 'uploadFile:fail abort' });
+    param.complete && param.complete({ errMsg: 'uploadFile:fail abort' });
+  }
   // Progress event
   const progressCallback: UploadProgressUpdateCallback[] = [];
   xhr.onprogress = (evt) => {
@@ -132,6 +127,14 @@ function uploadFile(param: UploadOptions): UploadTask {
     if (Object.prototype.hasOwnProperty.call(header, headerKey)) {
       xhr.setRequestHeader(headerKey, String(header[headerKey]));
     }
+  }
+  // timeout
+  if (param.timeout) {
+    xhr.timeout = param.timeout;
+    xhr.ontimeout = () => {
+      param.fail && param.fail({ errMsg: 'uploadFile:fail timeout' });
+      param.complete && param.complete({ errMsg: 'uploadFile:fail timeout' });
+    };
   }
   // send request
   xhr.send(body);

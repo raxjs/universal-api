@@ -3,11 +3,12 @@ export interface UploadOptions extends Uni.COptions {
   url: string;
   filePath: string;
   fileName: string;
-  fileType: 'image' | 'video' | 'audio';
+  fileType?: 'image' | 'video' | 'audio';
   hideLoading?: boolean;
   header?: object;
   formData?: object;
   withCredentials?: boolean;
+  timeout?: number;
   success?: (res: UploadResponseData) => void;
   fail?: (res: any) => void;
   complete?: (res: UploadResponseData | any) => void;
