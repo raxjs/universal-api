@@ -71,14 +71,8 @@ function uploadFile(param: UploadOptions): UploadTask {
   };
   // Success
   xhr.onload = () => {
-    let data: any = xhr.response;
-    try {
-      data = JSON.parse(data);
-    } catch (e) {
-      // ignore
-    }
     const result = {
-      data,
+      data: xhr.response,
       statusCode: xhr.status,
       header: getHeaderMap(xhr),
     };
