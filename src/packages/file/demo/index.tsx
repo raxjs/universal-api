@@ -4,7 +4,7 @@ import { createElement, useState } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import Image from 'rax-image';
-import { download, getInfo, save, openDocument } from '@uni/file';
+import { download, getInfo, save, openDocument, upload } from '@uni/file';
 import alert from '@uni/alert';
 import { chooseImage } from '@uni/image';
 
@@ -72,6 +72,31 @@ const Index = () => {
       },
     }).then((e) => console.log(e)).catch((e) => console.log(e));
   };
+  const uploadHandler = () => {
+    chooseImage({
+      success(res) {
+        const { tempFilePaths, files } = res;
+        if (files || tempFilePaths) {
+          const task = upload({
+            url: "https://httpbin.org/post",
+            filePath: files ? files[0] : tempFilePaths[0],
+            fileName: 'file',
+            fileType: 'image',
+          });
+          if (task && task.onProgressUpdate) {
+            task.onProgressUpdate((progress, totalBytesSent, totalBytesExpectedToSend) => {
+              console.log("Upload onProgressUpdate: ", progress, totalBytesSent, totalBytesExpectedToSend);
+            });
+          }
+          if (task && task.onHeadersReceived) {
+            task.onHeadersReceived((headers) => {
+              console.log("Upload onHeadersReceived: ", JSON.stringify(headers));
+            });
+          }
+        }
+      }
+    });
+  };
   const downloadHandler = () => {
     download({
       url: 'https://gw.alicdn.com/tfs/TB18EuDjGNj0u4jSZFyXXXgMVXa-225-225.jpg',
@@ -108,6 +133,9 @@ const Index = () => {
           mode="aspectFill"
           source={{ uri: img2 }}
         />
+      </View>
+      <View style={styles.button} onClick={uploadHandler}>
+        点击上传图片（upload）
       </View>
       <View style={styles.button} onClick={downloadHandler}>
         点击下载图片（download）

@@ -12,8 +12,8 @@ import { promisify } from '@utils/promisify';
 import { styleIn } from '@utils/styleOptions';
 
 export const normalize = {
-  upload: (api, containerName) => {
-    return (options) => {
+  upload: function<T = any>(api: (option: UploadOptions) => T, containerName: string) {
+    return (options: UploadOptions) => {
       const DEFAULT_REQUEST_OPTIONS = {
         hideLoading: false,
       };

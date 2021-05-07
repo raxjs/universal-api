@@ -18,6 +18,17 @@ export interface UploadResponseData {
   statusCode: string | number;
   header?: object;
 }
+
+export type UploadProgressUpdateCallback = (progress: number, totalBytesSent: number, totalBytesExpectedToSend: number) => void;
+export type UploadHeadersReceivedCallback = (header: any) => void;
+export interface UploadTask {
+  abort: () => void;
+  onProgressUpdate: (cb: UploadProgressUpdateCallback) => void;
+  offProgressUpdate?: (cb: UploadProgressUpdateCallback) => void;
+  onHeadersReceived?: (cb: UploadHeadersReceivedCallback) => void;
+  offHeadersReceived?: (cb: UploadHeadersReceivedCallback) => void;
+}
+
 export interface DownloadResponseData {
   tempFilePath: string;
 }

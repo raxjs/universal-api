@@ -1,12 +1,12 @@
-import {
-  UploadOptions,
-} from '../types';
-import { normalize } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
+import { normalize } from '../common';
+import {
+  UploadOptions, UploadTask
+} from '../types';
 
 const upload = normalize.upload((options: UploadOptions) => {
   const { url, filePath, fileName, hideLoading, header, formData, success, fail, complete } = options;
-  tt.uploadFile({
+  return tt.uploadFile({
     url,
     filePath,
     name: fileName,
@@ -22,7 +22,7 @@ const upload = normalize.upload((options: UploadOptions) => {
     complete(res) {
       complete && complete(res);
     },
-  });
+  }) as UploadTask;
 }, CONTAINER_NAME.BYTE);
 
 export default upload;

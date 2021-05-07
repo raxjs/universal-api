@@ -1,4 +1,4 @@
-import { UploadOptions } from '../types';
+import { UploadHeadersReceivedCallback, UploadOptions, UploadProgressUpdateCallback, UploadTask } from '../types';
 import { normalize } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
@@ -35,7 +35,20 @@ function validateStatus(status: number) {
   return (status >= 200 && status < 300) || status === 304;
 }
 
-function uploadFile(param: UploadOptions) {
+function getHeaderMap(xhr: XMLHttpRequest) {
+  const headers = xhr.getAllResponseHeaders();
+  const arr = headers.trim().split(/[\r\n]+/);
+  const headerMap: { [x: string]: string } = {};
+  arr.forEach((line) => {
+    const parts = line.split(': ');
+    const _header = parts.shift();
+    const value = parts.join(': ');
+    headerMap[_header as string] = value;
+  });
+  return headerMap;
+}
+
+function uploadFile(param: UploadOptions): UploadTask {
   // return new Promise((resolve, reject) => {
   const file = typeof param.filePath === 'string' ? base64toFile(param.filePath) : param.filePath;
   const body = new FormData();
@@ -53,8 +66,18 @@ function uploadFile(param: UploadOptions) {
   };
   // initialize xhr
   const xhr = new XMLHttpRequest();
+  const headersReceivedCallback: UploadHeadersReceivedCallback[] = [];
   xhr.onreadystatechange = () => {
-    if (!xhr || xhr.readyState !== 4) {
+    if (!xhr) {
+      return;
+    }
+    // header received
+    if (xhr.readyState === 2 && headersReceivedCallback.length > 0) {
+      const headers = getHeaderMap(xhr);
+      headersReceivedCallback.forEach(x => x(Headers));
+      return;
+    }
+    if (xhr.readyState !== 4) {
       return;
     }
     // fail
@@ -64,16 +87,6 @@ function uploadFile(param: UploadOptions) {
       return;
       // return reject(xhr.status);
     }
-    // process response headers
-    const headers = xhr.getAllResponseHeaders();
-    const arr = headers.trim().split(/[\r\n]+/);
-    const headerMap = {};
-    arr.forEach((line) => {
-      const parts = line.split(': ');
-      const _header = parts.shift();
-      const value = parts.join(': ');
-      headerMap[_header as string] = value;
-    });
     let data: any = xhr.response;
     try {
       data = JSON.parse(data);
@@ -84,11 +97,27 @@ function uploadFile(param: UploadOptions) {
     const result = {
       data,
       statusCode: xhr.status,
-      header: headerMap,
+      header: getHeaderMap(xhr),
     };
     param.success && param.success(result);
     param.complete && param.complete(result);
     // resolve(result);
+  };
+  // Progress event
+  const progressCallback: UploadProgressUpdateCallback[] = [];
+  xhr.onprogress = (evt) => {
+    if (progressCallback.length === 0) {
+      return;
+    }
+    let progress = 0;
+    let totalBytesSent = 0;
+    let totalBytesExpectedToSend = 0;
+    if (evt.lengthComputable) {
+      totalBytesSent = evt.loaded;
+      totalBytesExpectedToSend = evt.total;
+      progress = evt.loaded / evt.total;
+    }
+    progressCallback.forEach(x => x(progress, totalBytesSent, totalBytesExpectedToSend));
   };
   // check if need add withCredentials
   if (typeof param.withCredentials === 'undefined') {
@@ -106,7 +135,27 @@ function uploadFile(param: UploadOptions) {
   }
   // send request
   xhr.send(body);
-  return { abort: () => {} };
+  return {
+    abort() {
+      xhr.abort();
+    },
+    onProgressUpdate(cb) {
+      progressCallback.push(cb);
+    },
+    offProgressUpdate(cb) {
+      if (progressCallback.indexOf(cb) !== -1) {
+        progressCallback.splice(progressCallback.indexOf(cb), 1);
+      }
+    },
+    onHeadersReceived(cb) {
+      headersReceivedCallback.push(cb);
+    },
+    offHeadersReceived(cb) {
+      if (headersReceivedCallback.indexOf(cb) !== -1) {
+        headersReceivedCallback.splice(headersReceivedCallback.indexOf(cb), 1);
+      }
+    }
+  };
 }
 
 export default normalize.upload(uploadFile, CONTAINER_NAME.WEB);

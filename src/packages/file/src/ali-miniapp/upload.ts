@@ -8,7 +8,7 @@ import { CONTAINER_NAME } from '@utils/constant';
 const upload = normalize.upload((options: UploadOptions) => {
   const { url, filePath, fileName, fileType, hideLoading, header, formData, success, fail, complete } = options;
   const uploadFile = isDingdingMiniapp ? dd.uploadFile : my.uploadFile;
-  uploadFile({
+  return uploadFile({
     url,
     filePath,
     fileName,
