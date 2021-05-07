@@ -115,7 +115,7 @@ function uploadFile(param: UploadOptions): UploadTask {
     if (evt.lengthComputable) {
       totalBytesSent = evt.loaded;
       totalBytesExpectedToSend = evt.total;
-      progress = 100 * evt.loaded / evt.total;
+      progress = Math.floor(100 * evt.loaded / evt.total);
     }
     progressCallback.forEach(x => x(progress, totalBytesSent, totalBytesExpectedToSend));
   };
