@@ -19,25 +19,24 @@ const buildDoc = async (entry, isMain, outputPath) => {
   }
   let docContent = fs.readFileSync(docPath, {encoding: 'utf8'}).replace(/---(\r\n|\r|\n)(\r\n|\r|\n|.)+?---(\r\n|\r|\n)/, '').replace(/```jsx \| inline(\r\n|\r|\n|.)*```/, '');
   let docEnContent = fs.readFileSync(enDocPath, {encoding: 'utf8'}).replace(/---(\r\n|\r|\n)(\r\n|\r|\n|.)+?---(\r\n|\r|\n)/, '').replace(/```jsx \| inline(\r\n|\r|\n|.)*```/, '');
-  // console.log(isMain,docPath, path.resolve(root, outputPath, 'README.md'))
   fs.writeFileSync(path.resolve(root, outputPath, 'README.md'), docContent);
   fs.writeFileSync(path.resolve(root, outputPath, 'README.en-US.md'), docEnContent);
 }
 
 const buildPkgJson = async (packageInfo, outputPath, isMain = false) => {
-  packageTpl.version = packageInfo.version;
-  packageTpl.name = packageInfo.name;
-  packageTpl.dependencies = {...packageTpl.peerDependencies, ...packageTpl.dependencies, ...packageInfo.dependencies};
-  delete packageTpl.peerDependencies;
+  let packageJson = {
+    ...packageTpl,
+    ...packageInfo
+  };
   if (isMain || packageInfo.name == '@uni/env') {
-    delete packageTpl.dependencies['@uni/env'];
+    delete packageJson.dependencies['@uni/env'];
   }
   if (isMain) {
-    packageTpl.typings = 'types/main/index.d.ts';
-    packageTpl.main = 'lib/main/index.js';
-    packageTpl.module = 'es/main/index.js';
-    packageTpl.unpkg = 'dist/main/index.js';
-    packageTpl.exports = {
+    packageJson.typings = 'types/main/index.d.ts';
+    packageJson.main = 'lib/main/index.js';
+    packageJson.module = 'es/main/index.js';
+    packageJson.unpkg = 'dist/main/index.js';
+    packageJson.exports = {
       "web": "./es/main/web/index.js",
       "wechat-miniprogram": "./es/main/wechat-miniprogram/index.js",
       "bytedance-microapp": "./es/main/bytedance-microapp/index.js",
@@ -47,8 +46,10 @@ const buildPkgJson = async (packageInfo, outputPath, isMain = false) => {
       "default": "./es/main/index.js",
     }
   }
-  // packageTpl.dependencies[componentPackage.name] = path.relative(distDir, root) + '/';
-  await fs.outputJSON(path.resolve(root, outputPath + 'package.json'), packageTpl);
+  if (Object.keys(packageJson.dependencies).length === 0) {
+    delete packageJson.dependencies;
+  }
+  await fs.outputJSON(path.resolve(root, outputPath + 'package.json'), packageJson);
 }
 
 const buildDeclaration = async (packageInfo) => {
