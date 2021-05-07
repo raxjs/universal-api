@@ -74,7 +74,7 @@ function uploadFile(param: UploadOptions): UploadTask {
     // header received
     if (xhr.readyState === 2 && headersReceivedCallback.length > 0) {
       const headers = getHeaderMap(xhr);
-      headersReceivedCallback.forEach(x => x(Headers));
+      headersReceivedCallback.forEach(x => x(headers));
       return;
     }
     if (xhr.readyState !== 4) {
@@ -115,7 +115,7 @@ function uploadFile(param: UploadOptions): UploadTask {
     if (evt.lengthComputable) {
       totalBytesSent = evt.loaded;
       totalBytesExpectedToSend = evt.total;
-      progress = evt.loaded / evt.total;
+      progress = 100 * evt.loaded / evt.total;
     }
     progressCallback.forEach(x => x(progress, totalBytesSent, totalBytesExpectedToSend));
   };
