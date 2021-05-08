@@ -1,7 +1,7 @@
 /// <reference path='../../../../types/interface.d.ts'/>
 export interface UploadOptions extends Uni.COptions {
   url: string;
-  filePath: string;
+  filePath: string | File;
   fileName: string;
   fileType?: 'image' | 'video' | 'audio';
   hideLoading?: boolean;
