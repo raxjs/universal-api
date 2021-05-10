@@ -1,7 +1,7 @@
 {
   "name": "@uni/apis",
   "private": true,
-  "version": "1.0.6",
+  "version": "1.0.7",
   "scripts": {
     "setup": "rm -rf node_modules && yarn install --no-lockfile",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src/packages/*/src --fix",
@@ -48,8 +48,8 @@
     "@rollup/plugin-node-resolve": "^10.0.0",
     "axios": ">=0.21.1",
     "babel-eslint": "^10.0.1",
-    "babel-plugin-module-resolver": "^4.1.0",
     "babel-loader": "^8.2.2",
+    "babel-plugin-module-resolver": "^4.1.0",
     "build-scripts": "^0.1.25",
     "case-sensitive-paths-webpack-plugin": "^2.3.0",
     "chalk": "^4.1.0",
@@ -57,7 +57,7 @@
     "commitizen": "^4.2.3",
     "console-clear": "^1.1.1",
     "conventional-changelog-cli": "^2.1.1",
-    "cross-env": "^7.0.2",
+    "cross-env": "^7.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "dumi": "^1.1.0-beta.30",
     "eslint": "^6.8.0",

@@ -1,13 +1,14 @@
 /// <reference path='../../../../types/interface.d.ts'/>
 export interface UploadOptions extends Uni.COptions {
   url: string;
-  filePath: string;
+  filePath: string | File;
   fileName: string;
-  fileType: 'image' | 'video' | 'audio';
+  fileType?: 'image' | 'video' | 'audio';
   hideLoading?: boolean;
   header?: object;
   formData?: object;
   withCredentials?: boolean;
+  timeout?: number;
   success?: (res: UploadResponseData) => void;
   fail?: (res: any) => void;
   complete?: (res: UploadResponseData | any) => void;
@@ -18,6 +19,17 @@ export interface UploadResponseData {
   statusCode: string | number;
   header?: object;
 }
+
+export type UploadProgressUpdateCallback = (progress: number, totalBytesSent: number, totalBytesExpectedToSend: number) => void;
+export type UploadHeadersReceivedCallback = (header: any) => void;
+export interface UploadTask {
+  abort: () => void;
+  onProgressUpdate: (cb: UploadProgressUpdateCallback) => void;
+  offProgressUpdate?: (cb: UploadProgressUpdateCallback) => void;
+  onHeadersReceived?: (cb: UploadHeadersReceivedCallback) => void;
+  offHeadersReceived?: (cb: UploadHeadersReceivedCallback) => void;
+}
+
 export interface DownloadResponseData {
   tempFilePath: string;
 }
