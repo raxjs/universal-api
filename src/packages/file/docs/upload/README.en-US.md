@@ -62,7 +62,7 @@ const task = upload({
 });
 
 if (task && task.onProgressUpdate) {
-  task.onProgressUpdate((progress, totalBytesSent, totalBytesExpectedToSend) => {
+  task.onProgressUpdate(({ progress, totalBytesSent, totalBytesExpectedToSend }) => {
     console.log("Upload onProgressUpdate: ", progress, totalBytesSent, totalBytesExpectedToSend);
   });
 }
