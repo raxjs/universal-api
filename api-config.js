@@ -108,7 +108,7 @@ module.exports = {
     path: 'src/packages/file/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.7',
+        version: '1.0.8',
         name: '@uni/file',
       },
     ],

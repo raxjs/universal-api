@@ -2,5 +2,6 @@
   "singleQuote": true,
   "jsxSingleQuote": false,
   "semi": true,
-  "bracketSpacing": true
+  "bracketSpacing": true,
+  "printWidth": 200
 }
