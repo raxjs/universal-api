@@ -4,14 +4,14 @@ import {
   UploadProgressUpdateCallback,
   UploadProgressUpdateRes,
   UploadTask,
-} from "../types";
-import { normalize } from "../common";
-import { CONTAINER_NAME } from "@utils/constant";
+} from '../types';
+import { normalize } from '../common';
+import { CONTAINER_NAME } from '@utils/constant';
 
-function base64toFile(dataUrl: string, fileName = "") {
+function base64toFile(dataUrl: string, fileName = '') {
   const dataURLtoBlob = function (base64Data: string) {
-    const arr = base64Data.split(",");
-    let mimeStr = "image/png";
+    const arr = base64Data.split(',');
+    let mimeStr = 'image/png';
     const mime = arr[0].match(/:(.*?);/);
     if (mime) {
       mimeStr = mime[1];
@@ -42,9 +42,9 @@ function getHeaderMap(xhr: XMLHttpRequest) {
   const arr = headers.trim().split(/[\r\n]+/);
   const headerMap: { [x: string]: string } = {};
   arr.forEach((line) => {
-    const parts = line.split(": ");
+    const parts = line.split(': ');
     const _header = parts.shift();
-    const value = parts.join(": ");
+    const value = parts.join(': ');
     headerMap[_header as string] = value;
   });
   return headerMap;
@@ -52,7 +52,7 @@ function getHeaderMap(xhr: XMLHttpRequest) {
 
 function uploadFile(param: UploadOptions): UploadTask {
   const { filePath, formData, success, fail, complete } = param;
-  const file = typeof filePath === "string" ? base64toFile(filePath) : filePath;
+  const file = typeof filePath === 'string' ? base64toFile(filePath) : filePath;
   const body = new FormData();
   if (formData) {
     for (const key in formData) {
@@ -61,9 +61,9 @@ function uploadFile(param: UploadOptions): UploadTask {
       }
     }
   }
-  body.append(param.fileName || "file", file);
+  body.append(param.fileName || 'file', file);
   const header = {
-    Accept: "application/json, text/plain, */*",
+    Accept: 'application/json, text/plain, */*',
     ...(param.header || {}),
   };
   // initialize xhr
@@ -81,7 +81,7 @@ function uploadFile(param: UploadOptions): UploadTask {
     const result = {
       data: xhr.response,
       statusCode: xhr.status,
-      errMsg: "uploadFile:ok",
+      errMsg: 'uploadFile:ok',
       header: getHeaderMap(xhr),
     };
     success && success(result);
@@ -89,12 +89,12 @@ function uploadFile(param: UploadOptions): UploadTask {
   };
   // Errors
   xhr.onerror = () => {
-    fail && fail({ errMsg: "uploadFile:fail error" });
-    complete && complete({ errMsg: "uploadFile:fail error" });
+    fail && fail({ errMsg: 'uploadFile:fail error' });
+    complete && complete({ errMsg: 'uploadFile:fail error' });
   };
   xhr.onabort = () => {
-    fail && fail({ errMsg: "uploadFile:fail abort" });
-    complete && complete({ errMsg: "uploadFile:fail abort" });
+    fail && fail({ errMsg: 'uploadFile:fail abort' });
+    complete && complete({ errMsg: 'uploadFile:fail abort' });
   };
   // Progress event
   const progressCallback: UploadProgressUpdateCallback[] = [];
@@ -115,14 +115,14 @@ function uploadFile(param: UploadOptions): UploadTask {
     progressCallback.forEach((x) => x(res));
   };
   // check if need add withCredentials
-  if (typeof param.withCredentials === "undefined") {
+  if (typeof param.withCredentials === 'undefined') {
     if (param.url.indexOf(window.location.host) === -1) {
       xhr.withCredentials = true;
     }
   } else {
     xhr.withCredentials = param.withCredentials;
   }
-  xhr.open("POST", param.url, true);
+  xhr.open('POST', param.url, true);
   for (const headerKey in header) {
     if (Object.prototype.hasOwnProperty.call(header, headerKey)) {
       xhr.setRequestHeader(headerKey, String(header[headerKey]));
@@ -132,8 +132,8 @@ function uploadFile(param: UploadOptions): UploadTask {
   if (param.timeout) {
     xhr.timeout = param.timeout;
     xhr.ontimeout = () => {
-      fail && fail({ errMsg: "uploadFile:fail timeout" });
-      complete && complete({ errMsg: "uploadFile:fail timeout" });
+      fail && fail({ errMsg: 'uploadFile:fail timeout' });
+      complete && complete({ errMsg: 'uploadFile:fail timeout' });
     };
   }
   // send request
