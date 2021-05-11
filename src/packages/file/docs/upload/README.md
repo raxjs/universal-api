@@ -30,24 +30,26 @@ $ npm install @uni/file --save
 ### 不通用参数（由于破坏了一码多端的能力，不推荐使用）
 | 属性   | 类型     | 默认值 | 必选 | 描述 | 支持  |
 | ------ | -------- | ------ | ---- | ----- | ------- |
-| fileType | `String` |        | √    | 文件类型支持图片、视频、音频（ image / video / audio），Web下无需传入            | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" />  |
+| fileType | `String` | `image` | x    | 文件类型支持图片、视频、音频（ image / video / audio），Web下无需传入            | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" />  |
+| withCredentials | `Boolean` |   | x    | 自定义 withCredentials 选项（默认根据域名判断）  | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" />  |
 | hideLoading | `Boolean` |   false  | x    | 是否隐藏 loading 图（默认值为 false）  | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" />  |
+| timeout | `Number` |  | x    | 上传超时时间  | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
 
 ## 返回
-注意：只有微信小程序和字节跳动小程序支持，由于破坏了一码多端请谨慎使用
+注意：只有微信小程序、字节跳动小程序和 Web 支持，由于破坏了一码多端请谨慎使用。使用时请务必判断返回不为空，`upload`在不支持 UploadTask 的容器下（如支付宝小程序）返回结果为空。
 
-UploadTask
-一个可以监听上传进度变化事件，以及取消上传任务的对象
-具体文档可以查看：
-微信：[链接](https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/UploadTask.html)
-字节跳动：[链接](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/api/network/http/upload-task/)
+### UploadTask
+一个可以监听上传进度变化事件，以及取消上传任务的对象。具体文档可以查看：
+* 微信：[链接](https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/UploadTask.html)
+* 字节跳动：[链接](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/api/network/http/upload-task/)
+* Web：与微信相同
 
 ## 示例
 
 ```js
 import { upload } from '@uni/file';
 
-upload({
+const task = upload({
   url: 'http://httpbin.org/post',
   fileType: 'image',
   fileName: 'file',
@@ -60,10 +62,21 @@ upload({
   },
 });
 
+if (task && task.onProgressUpdate) {
+  task.onProgressUpdate((progress, totalBytesSent, totalBytesExpectedToSend) => {
+    console.log("Upload onProgressUpdate: ", progress, totalBytesSent, totalBytesExpectedToSend);
+  });
+}
+if (task && task.onHeadersReceived) {
+  task.onHeadersReceived((headers) => {
+    console.log("Upload onHeadersReceived: ", JSON.stringify(headers));
+  });
+}
 ```
 
 ### Promise 调用：
-注意：由于微信容器和字节跳动容器 upload api 会返回 UploadTask 对象，所以此处不在支持Promise 调用，请业务自行封装。
+
+由于微信容器和字节跳动容器 upload api 会返回 UploadTask 对象，所以此处不在支持 Promise 调用，请业务自行封装。
 
 你也可以从大包引入：
 ```js
