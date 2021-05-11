@@ -1,3 +1,10 @@
+## 1.0.7 (2021-05-11)
+
+### Bug Fixes
+
+* 修复 Web 端 onProgressUpdate 回调与微信不一致
+* 修复 Upload 类型声明
+
 ## 1.0.6 (2021-05-07)
 
 ### Features
