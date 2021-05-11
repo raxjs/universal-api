@@ -1,10 +1,10 @@
-import { AsyncStorage } from '../types';
+import { AsyncStorage } from "../types";
 
 declare const asyncStorage: any;
 
 let storage: any = {};
 
-if (typeof asyncStorage !== 'undefined' && asyncStorage) {
+if (typeof asyncStorage !== "undefined" && asyncStorage) {
   storage = asyncStorage;
 }
 
@@ -25,14 +25,7 @@ const AsyncStorage: AsyncStorage = {
     return storage.clear();
   },
   length: (): Promise<number> => {
-    return new Promise((resolve, reject): void => {
-      storage
-        .getAllKeys()
-        .then((keys) => {
-          resolve(keys.length);
-        })
-        .catch(reject);
-    });
+    return storage.getAllKeys().then((keys) => keys.length);
   },
 };
 
