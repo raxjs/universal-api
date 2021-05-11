@@ -8,6 +8,7 @@ module.exports = getESLintConfig('rax-ts', {
     'no-useless-escape': 'off',
     'no-console': 'off',
     '@typescript-eslint/no-require-imports': 'off',
+    '@typescript-eslint/no-invalid-void-type': 'off',
     '@iceworks/best-practices/no-js-in-ts-project': 'off',
     'no-param-reassign': 'off',
     'max-len': 'off',
