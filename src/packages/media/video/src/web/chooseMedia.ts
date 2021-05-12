@@ -1,4 +1,4 @@
-import { ChooseVideoOptions } from '../types';
+import { ChooseMediaOptions } from '../types';
 import { CONTAINER_NAME } from '@utils/constant';
 import { normalize } from '../common';
 
@@ -9,7 +9,7 @@ function inputCreateAndAppend(multiple: boolean) {
   inputElement.type = 'file';
   multiple && inputElement.setAttribute('multiple', 'multiple');
   inputElement.style.display = 'none';
-  inputElement.setAttribute('accept', 'video/*');
+  // inputElement.setAttribute('accept', 'image/*');
   document.body.appendChild(inputElement);
   return inputElement;
 }
@@ -36,23 +36,25 @@ function transformBase64(files: any[]): Promise<any []> {
   });
 }
 
-const chooseVideo = normalize.chooseVideo((args: ChooseVideoOptions = {}) => {
-  const { success = () => {}, fail = () => {}, complete = () => {} } = args;
+const chooseMedia = normalize.chooseMedia((args: ChooseMediaOptions = {}) => {
+  const { count = 9, success = () => {}, fail = () => {}, complete = () => {} } = args;
   try {
-    const inputElement = inputCreateAndAppend(false);
+    const inputElement = inputCreateAndAppend(count > 1);
     let files: any[] = [];
     inputElement.addEventListener(
       'change',
       (e) => {
-        files = e.target.files;
+        files = e.target.files && Array.from(e.target.files).slice(0, count);
         transformBase64(files).then((base64Array) => {
           const res = {
-            tempFilePath: base64Array[0],
-            size: base64Array[0].length,
+            tempFiles: base64Array.map((filePath) => ({
+              tempFilePath: filePath,
+              size: filePath.length,
+            })),
             files,
           };
-          success(res as any);
-          complete(res as any);
+          success(res);
+          complete(res);
         }).finally(() => inputElement.remove && inputElement.remove());
       },
       false,
@@ -66,4 +68,4 @@ const chooseVideo = normalize.chooseVideo((args: ChooseVideoOptions = {}) => {
   }
 }, CONTAINER_NAME.WEB);
 
-export default chooseVideo;
+export default chooseMedia;

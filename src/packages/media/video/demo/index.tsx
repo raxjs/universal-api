@@ -1,7 +1,7 @@
 import { createElement, useState, useEffect } from 'rax';
 import View from 'rax-view';
 import TextInput from 'rax-textinput';
-import { chooseVideo, createVideoContext } from '@uni/video';
+import { chooseVideo, createVideoContext, chooseMedia } from '@uni/video';
 import Video from 'rax-video';
 
 const styles = {
@@ -25,6 +25,7 @@ const styles = {
 export default function() {
   const [maxDuration, setMaxDuration] = useState(60);
   const [videoInfo, setVideoInfo] = useState({});
+  const [medias, setMedias] = useState({});
 
   let videoContext = null;
 
@@ -55,6 +56,14 @@ export default function() {
       {videoInfo && <View style={styles.button} onClick={() => {
         videoContext.play();
       }}>context控制播放视频</View>}
+      <View style={styles.button} onClick={() => {
+        chooseMedia().then(res => {
+          setMedias(res);
+        });
+      }}>
+        选择文件
+      </View>
+      <View>文件信息：{JSON.stringify(medias)}</View>
     </View>
   );
 }
