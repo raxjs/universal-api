@@ -184,7 +184,7 @@ $ npm install @uni/file --save
 | timeout | `Number` |  | x    | 上传超时时间  | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
 
 #### 返回
-注意：只有微信小程序、字节跳动小程序、支付宝小程序（客户端 10.1.35 及以上）和 Web 支持，由于破坏了一码多端请谨慎使用。使用时请务必判断返回不为空，`upload`在不支持 UploadTask 的容器下返回结果为空。
+注意：支付宝小程序只有客户端 10.1.35 及以上支持，由于破坏了一码多端请谨慎使用。使用时请务必判断返回不为空，`upload`在不支持 UploadTask 的容器下返回结果为空。
 
 **UploadTask**
 

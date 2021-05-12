@@ -1,11 +1,8 @@
-## 1.0.8 (2021-05-11)
+## 1.0.7 (2021-05-11)
 
 ### Features
 
 * 支持支付宝容器 Upload 返回 UploadTask
-
-## 1.0.7 (2021-05-11)
-
 ### Bug Fixes
 
 * 修复 Web 端 onProgressUpdate 回调与微信不一致
