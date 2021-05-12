@@ -20,7 +20,12 @@ export interface UploadResponseData {
   header?: object;
 }
 
-export type UploadProgressUpdateCallback = (progress: number, totalBytesSent: number, totalBytesExpectedToSend: number) => void;
+export interface UploadProgressUpdateRes {
+  progress: number;
+  totalBytesSent: number;
+  totalBytesExpectedToSend: number;
+}
+export type UploadProgressUpdateCallback = (res: UploadProgressUpdateRes) => void;
 export type UploadHeadersReceivedCallback = (header: any) => void;
 export interface UploadTask {
   abort: () => void;

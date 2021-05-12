@@ -36,12 +36,13 @@ $ npm install @uni/file --save
 | timeout | `Number` |  | x    | 上传超时时间  | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
 
 ## 返回
-注意：只有微信小程序、字节跳动小程序和 Web 支持，由于破坏了一码多端请谨慎使用。使用时请务必判断返回不为空，`upload`在不支持 UploadTask 的容器下（如支付宝小程序）返回结果为空。
+注意：支付宝小程序只有客户端 10.1.35 及以上支持，由于破坏了一码多端请谨慎使用。使用时请务必判断返回不为空，`upload`在不支持 UploadTask 的容器下返回结果为空。
 
 ### UploadTask
 一个可以监听上传进度变化事件，以及取消上传任务的对象。具体文档可以查看：
 * 微信：[链接](https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/UploadTask.html)
 * 字节跳动：[链接](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/api/network/http/upload-task/)
+* 支付宝：已对齐微信，但缺少`onHeadersReceived`和`offHeadersReceived`
 * Web：与微信相同
 
 ## 示例
@@ -63,7 +64,7 @@ const task = upload({
 });
 
 if (task && task.onProgressUpdate) {
-  task.onProgressUpdate((progress, totalBytesSent, totalBytesExpectedToSend) => {
+  task.onProgressUpdate(({ progress, totalBytesSent, totalBytesExpectedToSend }) => {
     console.log("Upload onProgressUpdate: ", progress, totalBytesSent, totalBytesExpectedToSend);
   });
 }

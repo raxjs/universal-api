@@ -1,4 +1,4 @@
-import { UploadHeadersReceivedCallback, UploadOptions, UploadProgressUpdateCallback, UploadTask } from '../types';
+import { UploadHeadersReceivedCallback, UploadOptions, UploadProgressUpdateCallback, UploadProgressUpdateRes, UploadTask } from '../types';
 import { normalize } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
@@ -45,19 +45,20 @@ function getHeaderMap(xhr: XMLHttpRequest) {
 }
 
 function uploadFile(param: UploadOptions): UploadTask {
-  const file = typeof param.filePath === 'string' ? base64toFile(param.filePath) : param.filePath;
+  const { filePath, formData, success, fail, complete } = param;
+  const file = typeof filePath === 'string' ? base64toFile(filePath) : filePath;
   const body = new FormData();
-  if (param.formData) {
-    for (const key in param.formData) {
-      if (Object.prototype.hasOwnProperty.call(param.formData, key)) {
-        body.append(key, param.formData[key]);
+  if (formData) {
+    for (const key in formData) {
+      if (Object.prototype.hasOwnProperty.call(formData, key)) {
+        body.append(key, formData[key]);
       }
     }
   }
   body.append(param.fileName || 'file', file);
   const header = {
     Accept: 'application/json, text/plain, */*',
-    ...param.header || {},
+    ...(param.header || {}),
   };
   // initialize xhr
   const xhr = new XMLHttpRequest();
@@ -66,7 +67,7 @@ function uploadFile(param: UploadOptions): UploadTask {
     // header received
     if (xhr && xhr.readyState === 2 && headersReceivedCallback.length > 0) {
       const headers = getHeaderMap(xhr);
-      headersReceivedCallback.forEach(x => x(headers));
+      headersReceivedCallback.forEach((x) => x(headers));
     }
   };
   // Success
@@ -74,35 +75,38 @@ function uploadFile(param: UploadOptions): UploadTask {
     const result = {
       data: xhr.response,
       statusCode: xhr.status,
+      errMsg: 'uploadFile:ok',
       header: getHeaderMap(xhr),
     };
-    param.success && param.success(result);
-    param.complete && param.complete(result);
-  }
+    success && success(result);
+    complete && complete(result);
+  };
   // Errors
   xhr.onerror = () => {
-    param.fail && param.fail({ errMsg: 'uploadFile:fail error' });
-    param.complete && param.complete({ errMsg: 'uploadFile:fail error' });
-  }
+    fail && fail({ errMsg: 'uploadFile:fail error' });
+    complete && complete({ errMsg: 'uploadFile:fail error' });
+  };
   xhr.onabort = () => {
-    param.fail && param.fail({ errMsg: 'uploadFile:fail abort' });
-    param.complete && param.complete({ errMsg: 'uploadFile:fail abort' });
-  }
+    fail && fail({ errMsg: 'uploadFile:fail abort' });
+    complete && complete({ errMsg: 'uploadFile:fail abort' });
+  };
   // Progress event
   const progressCallback: UploadProgressUpdateCallback[] = [];
   xhr.onprogress = (evt) => {
     if (progressCallback.length === 0) {
       return;
     }
-    let progress = 0;
-    let totalBytesSent = 0;
-    let totalBytesExpectedToSend = 0;
+    const res: UploadProgressUpdateRes = {
+      progress: 0,
+      totalBytesSent: 0,
+      totalBytesExpectedToSend: 0,
+    };
     if (evt.lengthComputable) {
-      totalBytesSent = evt.loaded;
-      totalBytesExpectedToSend = evt.total;
-      progress = Math.floor(100 * evt.loaded / evt.total);
+      res.totalBytesSent = evt.loaded;
+      res.totalBytesExpectedToSend = evt.total;
+      res.progress = Math.floor((100 * evt.loaded) / evt.total);
     }
-    progressCallback.forEach(x => x(progress, totalBytesSent, totalBytesExpectedToSend));
+    progressCallback.forEach((x) => x(res));
   };
   // check if need add withCredentials
   if (typeof param.withCredentials === 'undefined') {
@@ -122,8 +126,8 @@ function uploadFile(param: UploadOptions): UploadTask {
   if (param.timeout) {
     xhr.timeout = param.timeout;
     xhr.ontimeout = () => {
-      param.fail && param.fail({ errMsg: 'uploadFile:fail timeout' });
-      param.complete && param.complete({ errMsg: 'uploadFile:fail timeout' });
+      fail && fail({ errMsg: 'uploadFile:fail timeout' });
+      complete && complete({ errMsg: 'uploadFile:fail timeout' });
     };
   }
   // send request
@@ -147,7 +151,7 @@ function uploadFile(param: UploadOptions): UploadTask {
       if (headersReceivedCallback.indexOf(cb) !== -1) {
         headersReceivedCallback.splice(headersReceivedCallback.indexOf(cb), 1);
       }
-    }
+    },
   };
 }
 

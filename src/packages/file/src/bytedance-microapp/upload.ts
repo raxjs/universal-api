@@ -1,7 +1,7 @@
 import { CONTAINER_NAME } from '@utils/constant';
 import { normalize } from '../common';
 import {
-  UploadOptions, UploadTask
+  UploadOptions, UploadTask,
 } from '../types';
 
 const upload = normalize.upload((options: UploadOptions) => {

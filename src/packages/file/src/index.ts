@@ -12,9 +12,10 @@ import {
   RemoveSavedOptions,
   OpenDocumentOptions,
   UploadOptions,
+  UploadTask,
 } from './types';
 
-export const upload = (options: UploadOptions) => {
+export const upload = (options: UploadOptions): UploadTask | void => {
   if (isWeChatMiniProgram) {
     return weChatModule.upload(options);
   } else if (isByteDanceMicroApp) {

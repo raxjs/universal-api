@@ -35,12 +35,13 @@ $ npm install @uni/file --save
 | timeout | `Number` |  | x    | Upload timeout  | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
 
 ## Return
-Notice: Only available in WeChat MiniProgram, ByteDance MiniProgram and Web. Please use it with caution because it will destroy one code with multiple platforms. When using it, please make sure that it is not empty, and the `upload` will return empty under containers that do not support UploadTask (such as Alipay).
+Notice: Alipay applet only supports client 10.1.35 and above. Please use it with caution because it will destroy one code with multiple platforms. When using it, please make sure that it is not empty, and the `upload` will return empty under containers that do not support UploadTask.
 
 ### UploadTask
 An object that can monitor upload progress change events and cancel upload tasks. Specific documents can be viewed:
 * WeChat: [Link](https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/UploadTask.html)
 * ByteDance: [Link](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/api/network/http/upload-task/)
+* Alipay: Same as WeChat, but missing `onHeadersReceived` and `offHeadersReceived`.
 * Web: Same as WeChat
 
 ## Example
@@ -62,7 +63,7 @@ const task = upload({
 });
 
 if (task && task.onProgressUpdate) {
-  task.onProgressUpdate((progress, totalBytesSent, totalBytesExpectedToSend) => {
+  task.onProgressUpdate(({ progress, totalBytesSent, totalBytesExpectedToSend }) => {
     console.log("Upload onProgressUpdate: ", progress, totalBytesSent, totalBytesExpectedToSend);
   });
 }
