@@ -1,10 +1,4 @@
-import {
-  UploadHeadersReceivedCallback,
-  UploadOptions,
-  UploadProgressUpdateCallback,
-  UploadProgressUpdateRes,
-  UploadTask,
-} from '../types';
+import { UploadHeadersReceivedCallback, UploadOptions, UploadProgressUpdateCallback, UploadProgressUpdateRes, UploadTask } from '../types';
 import { normalize } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
