@@ -1,5 +1,7 @@
 # universal-transition [![npm](https://img.shields.io/npm/v/universal-transition.svg)](https://www.npmjs.com/package/universal-transition)
 
+> Web 场景下推荐使用 css3 ，小程序场景建议使用 `createAnimation`
+
 用于创建过度动画
 
 ## 支持

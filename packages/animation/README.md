@@ -1,5 +1,7 @@
 # universal-animation  [![npm](https://img.shields.io/npm/v/universal-animation.svg)](https://www.npmjs.com/package/universal-animation)
 
+> Web 场景下推荐使用 css3 ，小程序场景建议使用 `createAnimation`
+
 实现动画，通过 [weex-bindingx](https://www.npmjs.com/package/weex-bindingx) 环境允许的前提下优先使用 `bindingx`，不满足环境要求则使用 [universal-transition](https://www.npmjs.com/package/universal-transition) 调用Weex或浏览器或小程序提供的动画API实现。
 
 ## 支持
