@@ -44,14 +44,14 @@ import { getRecorderManager } from '@uni/apis';
 | 方法 | 说明 | 参数 |
 | --- | -- | -- |
 | start | 开始录音 | 见下表 |
-| pause | 暂停录音 | - |
-| resume | 继续录音 | - |
+| pause | 暂停录音（阿里小程序不支持） | - |
+| resume | 继续录音（阿里小程序不支持） | - |
 | stop | 停止录音 | - |
 | onStart | 监听录音开始事件 | callback |
-| onPause | 监听录音继续事件 | callback |
-| onResume | 监听录音暂停事件 | callback |
+| onPause | 监听录音暂停事件（阿里小程序不支持） | callback |
+| onResume | 监听录音继续事件（阿里小程序不支持） | callback |
 | onStop | 监听录音结束事件 | callback |
-| onFrameRecorded | 监听已录制完指定帧大小的文件事件。如果设置了 frameSize，则会回调此事件。 | callback |
+| onFrameRecorded | 监听已录制完指定帧大小的文件事件。如果设置了 frameSize，则会回调此事件。（阿里小程序不支持） | callback |
 | onError | 监听录音错误事件 | callback |
 
 ##### start方法参数
@@ -73,8 +73,8 @@ import { getRecorderManager } from '@uni/apis';
 | 成员 | 类型 | 描述 |
 | --- | --- | --- |
 | tempFilePath | `string`  | 录音文件的临时路径 (本地路径) |
-| duration | `number` | 录音总时长，单位：ms |
-| fileSize | `number` | 录音文件大小，单位：Byte |
+| duration | `number` | 录音总时长，单位：ms，（阿里小程序单位s） |
+| fileSize | `number` | 录音文件大小，单位：Byte （阿里小程序不支持） |
 
 #### onFrameRecorded 回调返回值
 

@@ -14,28 +14,6 @@ function inputCreateAndAppend(multiple: boolean) {
   return inputElement;
 }
 
-function transformBase64(files: any[]): Promise<any []> {
-  return new Promise((resolve, reject) => {
-    !files.length && reject();
-    const base64Array: string[] = [];
-    let count = 0;
-    files.forEach((file) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = (e) => {
-        // @ts-ignore
-        base64Array.push(e.target.result);
-      };
-      reader.onloadend = () => {
-        count++;
-        if (count === files.length) {
-          resolve(base64Array);
-        }
-      };
-    });
-  });
-}
-
 const chooseVideo = normalize.chooseVideo((args: ChooseVideoOptions = {}) => {
   const { success = () => {}, fail = () => {}, complete = () => {} } = args;
   try {
@@ -45,15 +23,14 @@ const chooseVideo = normalize.chooseVideo((args: ChooseVideoOptions = {}) => {
       'change',
       (e) => {
         files = e.target.files;
-        transformBase64(files).then((base64Array) => {
-          const res = {
-            tempFilePath: base64Array[0],
-            size: base64Array[0].length,
-            files,
-          };
-          success(res as any);
-          complete(res as any);
-        }).finally(() => inputElement.remove && inputElement.remove());
+        const res = {
+          tempFilePath: window.URL.createObjectURL(files[0]),
+          size: files[0].size,
+          files,
+        };
+        success(res as any);
+        complete(res as any);
+        inputElement.remove && inputElement.remove();
       },
       false,
     );

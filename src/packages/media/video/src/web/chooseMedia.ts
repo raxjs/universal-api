@@ -14,28 +14,6 @@ function inputCreateAndAppend(multiple: boolean) {
   return inputElement;
 }
 
-function transformBase64(files: any[]): Promise<any []> {
-  return new Promise((resolve, reject) => {
-    !files.length && reject();
-    const base64Array: string[] = [];
-    let count = 0;
-    files.forEach((file) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = (e) => {
-        // @ts-ignore
-        base64Array.push(e.target.result);
-      };
-      reader.onloadend = () => {
-        count++;
-        if (count === files.length) {
-          resolve(base64Array);
-        }
-      };
-    });
-  });
-}
-
 const chooseMedia = normalize.chooseMedia((args: ChooseMediaOptions = {}) => {
   const { count = 9, success = () => {}, fail = () => {}, complete = () => {} } = args;
   try {
@@ -45,17 +23,16 @@ const chooseMedia = normalize.chooseMedia((args: ChooseMediaOptions = {}) => {
       'change',
       (e) => {
         files = e.target.files && Array.from(e.target.files).slice(0, count);
-        transformBase64(files).then((base64Array) => {
-          const res = {
-            tempFiles: base64Array.map((filePath) => ({
-              tempFilePath: filePath,
-              size: filePath.length,
-            })),
-            files,
-          };
-          success(res);
-          complete(res);
-        }).finally(() => inputElement.remove && inputElement.remove());
+        const res = {
+          tempFiles: files.map((file) => ({
+            tempFilePath: window.URL.createObjectURL(file),
+            size: file.size,
+          })),
+          files,
+        };
+        success(res as any);
+        complete(res as any);
+        inputElement.remove && inputElement.remove();
       },
       false,
     );

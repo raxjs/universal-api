@@ -1,4 +1,4 @@
-import { createElement, useState, useEffect } from 'rax';
+import { createElement, useState, useEffect, useRef, Fragment } from 'rax';
 import View from 'rax-view';
 import TextInput from 'rax-textinput';
 import { chooseVideo, createVideoContext, chooseMedia } from '@uni/video';
@@ -24,13 +24,15 @@ const styles = {
 
 export default function() {
   const [maxDuration, setMaxDuration] = useState(60);
-  const [videoInfo, setVideoInfo] = useState({});
-  const [medias, setMedias] = useState({});
+  const [videoInfo, setVideoInfo] = useState(null);
+  const [medias, setMedias] = useState(null);
 
-  let videoContext = null;
+  let videoContext = useRef(null);
 
   useEffect(() => {
-    videoContext = createVideoContext('demoVideo');
+    if (!videoContext.current) {
+      videoContext.current = createVideoContext('demoVideo');
+    }
   }, [])
 
   return (
@@ -43,27 +45,39 @@ export default function() {
           maxDuration
         }).then(res => {
           setVideoInfo(res);
+        }).catch(e => {
+          console.log(e);
         });
       }}>
       选择视频
       </View>
-      <View>视频信息：{JSON.stringify(videoInfo)}</View>
-      <Video 
-        id="demoVideo"
-        src={videoInfo.tempFilePath}
-        style={{ width: videoInfo.width, height: videoInfo.height }}
-      />
-      {videoInfo && <View style={styles.button} onClick={() => {
-        videoContext.play();
-      }}>context控制播放视频</View>}
+      {videoInfo && <Fragment>
+        <View>视频信息：{JSON.stringify(videoInfo)}</View>
+        <Video 
+          id="demoVideo"
+          src={videoInfo.tempFilePath}
+          style={{ width: videoInfo.width || 300, height: videoInfo.height || 300 }}
+        />  
+        <View style={styles.button} onClick={() => {
+          videoContext.current.play();
+        }}>播放视频</View>
+        <View style={styles.button} onClick={() => {
+          videoContext.current.pause();
+        }}>暂停视频</View>
+        <View style={styles.button} onClick={() => {
+          videoContext.current.stop();
+        }}>停止视频</View>
+      </Fragment>}
       <View style={styles.button} onClick={() => {
         chooseMedia().then(res => {
           setMedias(res);
+        }).catch(e => {
+          console.log(e);
         });
       }}>
         选择文件
       </View>
-      <View>文件信息：{JSON.stringify(medias)}</View>
+      {medias && <View>文件信息：{JSON.stringify(medias)}</View>}
     </View>
   );
 }
