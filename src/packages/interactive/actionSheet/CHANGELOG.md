@@ -1,45 +1,28 @@
-## 1.0.6 (2021-05-17)
+## 1.0.4 (2021-05-17)
 
 ### Features
 
 * exports 规则更新
 
-## 1.0.5 (2021-04-27)
+## 1.0.3 (2021-04-28)
 
 ### Features
 
-* 兼容低版本容器，转换 ES6 语法
-## 1.0.4 (2021-04-25)
+* 天马入库
 
-### Features
-
-* 新增支持 jsonp 请求
-
-### Bug Fixes
-
-* 修复 wx.request 中 headers 属性值错误 ([issues](https://github.com/raxjs/universal-api/issues/140))
-
-## 1.0.3 (2021-04-16)
+## 1.0.2 (2021-04-16)
 
 ### Features
 
 * 剔除 Babel/runtime-corejs3 
 * 新增支持 webpack5 exports ([a113f40](https://github.com/raxjs/universal-api/commit/a113f4034a35c2d5325536026d825175aa889dfd))
 
-## 1.0.2 (2021-04-07)
+## 1.0.1 (2021-04-07)
 
 ### Features
 
-* 支持 api 维度构建
-* 增加 _ext 扩展参数 ([4c53d00](https://github.com/raxjs/universal-api/commit/4c53d006bd52a53a368132e63a75a94f490f43dc))
 * 更新目录结构 ([a37ec34](https://github.com/raxjs/universal-api/commit/a37ec343ec1afb455458a6be27af932052654b58))
 * 文档对接rax站点 ([0899643](https://github.com/raxjs/universal-api/commit/089964320fee0163bfd62b529ec8c93e85ad46da))
-
-## 1.0.1 (2021-03-12)
-
-### Features
-
-* 移除 @uni/env 的 peer 依赖
 
 ## 1.0.0 (2021-01-26)
 

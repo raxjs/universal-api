@@ -4,7 +4,7 @@ module.exports = {
     path: 'src/packages/application/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4-beta',
         name: '@uni/application',
       },
     ],
@@ -17,15 +17,18 @@ module.exports = {
     needCommonUtil: false,
     pkgInfo: [
       {
-        version: '1.0.5',
+        version: '1.0.6-beta',
         name: '@uni/env',
         exports: {
-          web: './es/web/index.js',
-          'wechat-miniprogram': './es/wechat-miniprogram/index.js',
-          'bytedance-microapp': './es/bytedance-microapp/index.js',
-          miniapp: './es/ali-miniapp/index.js',
-          require: './lib/index.js',
-          default: './es/index.js',
+          '.': {
+            web: './es/web/index.js',
+            'wechat-miniprogram': './es/wechat-miniprogram/index.js',
+            'bytedance-microapp': './es/bytedance-microapp/index.js',
+            miniapp: './es/ali-miniapp/index.js',
+            require: './lib/index.js',
+            default: './es/index.js',
+          },
+          './*': './*',
         },
       },
     ],
@@ -35,7 +38,7 @@ module.exports = {
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.5-beta',
         name: '@uni/caniuse',
       },
     ],
@@ -48,7 +51,7 @@ module.exports = {
     needCommonUtil: false,
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4-beta',
         name: '@uni/unit-tool',
         dependencies: {
           '@uni/system-info': '^1.0.3',
@@ -61,7 +64,7 @@ module.exports = {
     path: 'src/packages/canvas/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4-beta',
         name: '@uni/canvas',
       },
     ],
@@ -71,7 +74,7 @@ module.exports = {
     path: 'src/packages/device/accelerometer/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4-beta',
         name: '@uni/accelerometer',
       },
     ],
@@ -80,7 +83,7 @@ module.exports = {
     path: 'src/packages/device/clipboard/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4-beta',
         name: '@uni/clipboard',
       },
     ],
@@ -89,7 +92,7 @@ module.exports = {
     path: 'src/packages/device/systemInfo/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4-beta',
         name: '@uni/system-info',
       },
     ],
@@ -108,7 +111,7 @@ module.exports = {
     path: 'src/packages/file/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.7',
+        version: '1.0.8-beta',
         name: '@uni/file',
       },
     ],
@@ -118,7 +121,7 @@ module.exports = {
     path: 'src/packages/interactive/actionSheet/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4-beta',
         name: '@uni/action-sheet',
       },
     ],
@@ -127,7 +130,7 @@ module.exports = {
     path: 'src/packages/interactive/alert/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.5-beta',
         name: '@uni/alert',
         dependencies: {
           '@uni/confirm': '^1.0.3',
@@ -167,7 +170,7 @@ module.exports = {
     path: 'src/packages/interactive/toast/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.5',
+        version: '1.0.6-beta',
         name: '@uni/toast',
       },
     ],
@@ -176,7 +179,7 @@ module.exports = {
     path: 'src/packages/interactive/loading/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4-beta',
         name: '@uni/loading',
       },
     ],
@@ -194,7 +197,7 @@ module.exports = {
     path: 'src/packages/interactive/element/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.5-beta',
         name: '@uni/element',
       },
     ],
@@ -203,7 +206,7 @@ module.exports = {
     path: 'src/packages/interactive/intersectionObserver/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4-beta',
         name: '@uni/intersection-observer',
       },
     ],
@@ -212,7 +215,7 @@ module.exports = {
     path: 'src/packages/interactive/confirm/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4-beta',
         name: '@uni/confirm',
       },
     ],
@@ -230,7 +233,7 @@ module.exports = {
     path: 'src/packages/location/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4-beta',
         name: '@uni/location',
       },
     ],
@@ -240,7 +243,7 @@ module.exports = {
     path: 'src/packages/media/image/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4-beta',
         name: '@uni/image',
       },
     ],
@@ -250,7 +253,7 @@ module.exports = {
     path: 'src/packages/navigate/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.3',
+        version: '1.0.4-beta',
         name: '@uni/navigate',
       },
     ],
@@ -260,7 +263,7 @@ module.exports = {
     path: 'src/packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.5',
+        version: '1.0.6-beta',
         name: '@uni/request',
       },
     ],
@@ -270,7 +273,7 @@ module.exports = {
     path: 'src/packages/storage/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.5-beta',
         name: '@uni/storage',
       },
     ],
