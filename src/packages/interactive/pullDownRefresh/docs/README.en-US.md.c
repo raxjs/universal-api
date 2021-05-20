@@ -48,8 +48,11 @@ window.events.register("pulldownrefresh", cb);
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| options.pullRefresh | `boolean`  | The switch of manual pulldownRefresh | ✘ | - |
-
+| options.pullRefresh | `boolean`  | The switch of manual pulldownRefresh | ✘ | true |
+| options.triggerDistance | `number`  | The pull-down distance required when the pull-down refresh is triggered | ✘ | 90 |
+| options.success | `Function`  | The callback function for a successful API call | ✘ | - |
+| options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
+| options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
 
 # startPullDownRefresh 
 

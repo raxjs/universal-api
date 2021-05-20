@@ -5,11 +5,11 @@ const clsPrefix = '__universal_pulldownrefresh';
 
 const _stopPullDownRefresh = () => {
   // console.log("_stopPullDownRefresh  start");
-  let refreshText = document.getElementById(`${clsPrefix}_refreshText`);
-  if (refreshText) {
-    document.body.removeChild(refreshText);
+  const refresh = document.getElementById(`${clsPrefix}_refresh`);
+  if (refresh) {
+    document.body.removeChild(refresh);
   }
-}
+};
 
 const stopPullDownRefresh = normalizeStop(({ success = () => {}, fail = () => {}, complete = () => {} }) => {
   try {
@@ -17,7 +17,6 @@ const stopPullDownRefresh = normalizeStop(({ success = () => {}, fail = () => {}
 
     success();
     complete();
-    
   } catch (error) {
     fail();
     complete();

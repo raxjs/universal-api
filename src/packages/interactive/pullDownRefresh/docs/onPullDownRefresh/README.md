@@ -54,7 +54,11 @@ window.events.register("pulldownrefresh", cb);
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| options.pullRefresh | `boolean`  | 下拉刷新开关 | ✘ | - |
+| options.pullRefresh | `boolean`  | 下拉刷新开关 | ✘ | true |
+| options.triggerDistance | `number`  | 下拉刷新触发时所需的下拉距离 | ✘ | 90 |
+| options.success | `Function`  | 成功的回调 | ✘ | - |
+| options.fail | `Function`  | 失败的回调 | ✘ | - |
+| options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
 
 </div>
 <div>

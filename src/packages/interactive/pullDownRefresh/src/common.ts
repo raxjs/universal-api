@@ -17,9 +17,9 @@ export function normalizeStart(api: (args) => any, containerName: string) {
 
 /**
  * stopPullDownRefresh api
- * @param api 
- * @param containerName 
- * @returns 
+ * @param api
+ * @param containerName
+ * @returns
  */
 export function normalizeStop(api: (args) => any, containerName: string) {
   return (args?: StopOptions) => {
@@ -29,11 +29,11 @@ export function normalizeStop(api: (args) => any, containerName: string) {
 
 /**
  * web 端手动刷新开关接口onPullDownRefresh api
- * @param api 
- * @param containerName 
- * @returns 
+ * @param api
+ * @param containerName
+ * @returns
  */
- export function normalizeSwitch(api: (args) => any, containerName: string) {
+export function normalizeSwitch(api: (args) => any, containerName: string) {
   return (args?: StopOptions) => {
     return promisify(api)(styleIn(args, containerName));
   };

@@ -39,10 +39,9 @@ const Index = () => {
   
     if (isWeb) {
       //运行以下命令打开web端h5界面的手动刷新
-      pullDownRefresh.onPullDownRefresh(true);
+      pullDownRefresh.onPullDownRefresh({pullRefresh: true, triggerDistance: 100});
     }
   }, []);
-
 
   const handleClickStart = () => {
     pullDownRefresh.startPullDownRefresh();
