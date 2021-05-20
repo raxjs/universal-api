@@ -1,3 +1,28 @@
+## 1.0.7 (2021-05-11)
+
+### Features
+
+* 支持支付宝容器 Upload 返回 UploadTask
+### Bug Fixes
+
+* 修复 Web 端 onProgressUpdate 回调与微信不一致
+* 修复 Upload 类型声明
+
+## 1.0.6 (2021-05-07)
+
+### Features
+
+* 支持在 Web 上使用 UploadTask
+* 支持 timeout 参数（可用：微信小程序，Web）
+* Web 逻辑与小程序对齐，服务端返回 404 等状态码会进入 success 回调，可通过 statusCode 额外处理
+* Web 逻辑与小程序对齐，success 回调中的 data 会保持字符串，不会再自动解码
+
+## 1.0.5 (2021-05-06)
+
+### Features
+
+* 支持在 Web 上自定义 withCredentials
+
 ## 1.0.4 (2021-04-27)
 
 ### Features
@@ -8,7 +33,7 @@
 
 ### Features
 
-* 剔除 Babel/runtime-corejs3 
+* 剔除 Babel/runtime-corejs3
 * 新增支持 webpack5 exports ([a113f40](https://github.com/raxjs/universal-api/commit/a113f4034a35c2d5325536026d825175aa889dfd))
 
 ## 1.0.2 (2021-04-07)
