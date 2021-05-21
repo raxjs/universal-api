@@ -4,6 +4,11 @@
 
 * exports 规则更新
 
+### Bug Fixes
+
+* 修复微信小程序调用成功却走到 fail 逻辑的问题
+* 修复 dateType TS 声明报错问题
+
 ## 1.0.5 (2021-04-27)
 
 ### Features

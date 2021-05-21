@@ -4,6 +4,10 @@
 
 * exports 规则更新
 
+### Bug Fixes
+
+* 修复 web hash 模式下 push 方法导致 path 丢失问题
+
 ## 1.0.3 (2021-04-28)
 
 ### Features
