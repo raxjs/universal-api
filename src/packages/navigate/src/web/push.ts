@@ -4,7 +4,7 @@ import { CONTAINER_NAME } from '@utils/constant';
 
 export const push = normalize.push((options: IPushOptions) => {
   const { url, isHash = false, refresh = true, success, fail, complete } = options;
-  const _url = isHash ? `/#${ url}` : url;
+  const _url = isHash ? `${location.protocol}//${location.host}${location.port ? `:${ location.port}` : ''}/${location.pathname.split('/').filter((i) => !!i).join('/')}/#${url}` : url;
   setTimeout((): void => {
     try {
       if (refresh) {
