@@ -6,7 +6,26 @@ const { spawnSync } = require('child_process');
 const root = process.cwd();
 console.log(`开始构建demo`);
 
-buildDemo();
+buildDemo().then(() => {
+  spawnSync('tnpm', [
+    'i'
+  ], {
+    stdio: 'inherit',
+    cwd: path.resolve(root, `demos`),
+  });
+  Object.entries(apiConfig).map(([key, value]) => {
+    value.pkgInfo.forEach(i => {
+      spawnSync('npm', [
+        'link',
+        i.name
+      ], {
+        stdio: 'inherit',
+        cwd: path.resolve(root, `demos`),
+      });
+    })
+  });
+  process.exit();
+});
 // spawnSync('npm', [
 //   'run',
 //   'build:demo'
@@ -14,21 +33,3 @@ buildDemo();
 //   stdio: 'inherit',
 //   cwd: path.resolve(root, `./`),
 // });
-spawnSync('tnpm', [
-  'i'
-], {
-  stdio: 'inherit',
-  cwd: path.resolve(root, `demos`),
-});
-Object.entries(apiConfig).map(([key, value]) => {
-  value.pkgInfo.forEach(i => {
-    spawnSync('npm', [
-      'link',
-      i.name
-    ], {
-      stdio: 'inherit',
-      cwd: path.resolve(root, `demos`),
-    });
-  })
-});
-process.exit();

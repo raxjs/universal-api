@@ -32,18 +32,18 @@ watcher.on('change', filePath => {
     stdio: 'inherit',
     cwd: path.resolve(root, `./`),
   });
-  spawnSync('npm', [
-    'run',
-    'build'
-  ], {
-    stdio: 'inherit',
-    cwd: path.resolve(root, `demos`),
-  });
+  // spawnSync('npm', [
+  //   'run',
+  //   'build'
+  // ], {
+  //   stdio: 'inherit',
+  //   cwd: path.resolve(root, `demos`),
+  // });
   // shelljs.exec(`npm run build ${apiName} && cd demos && npm run build && cd ..`);
 })
 spawn('npm', [
   'run',
-  'build'
+  'start'
 ], {
   stdio: 'inherit',
   cwd: path.resolve(root, `demos`),
