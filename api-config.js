@@ -192,6 +192,15 @@ module.exports = {
         name: '@uni/loading',
       },
     ],
+  },  
+  pullDownRefresh: {
+    path: 'src/packages/interactive/pullDownRefresh/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: '@uni/pull-down-refresh',
+      },
+    ],
   },
   // 'keyboard': {
   //   path: 'packages/interactive/keyboard/src/index.ts',
