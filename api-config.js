@@ -253,7 +253,7 @@ module.exports = {
     path: 'src/packages/navigate/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.5',
         name: '@uni/navigate',
       },
     ],
@@ -263,7 +263,7 @@ module.exports = {
     path: 'src/packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.6',
+        version: '1.0.7',
         name: '@uni/request',
       },
     ],
