@@ -15,7 +15,7 @@ export const show = (options: ShowToastOption | string) => {
   } else if (isWeb) {
     return webModule.show(options);
   } else {
-    throw new Error('@uni/apis：Toast暂不支持');
+    throw new Error('Uni API：Toast暂不支持');
   }
 };
 export const hide = (options?: HideToastOption) => {
@@ -28,7 +28,7 @@ export const hide = (options?: HideToastOption) => {
   } else if (isWeb) {
     return webModule.hide(options);
   } else {
-    throw new Error('@uni/apis：Toast暂不支持');
+    throw new Error('Uni API：Toast暂不支持');
   }
 };
 export const showToast = (options: ShowToastOption | string) => {
@@ -41,7 +41,7 @@ export const showToast = (options: ShowToastOption | string) => {
   } else if (isWeb) {
     return webModule.showToast(options);
   } else {
-    throw new Error('@uni/apis：Toast暂不支持');
+    throw new Error('Uni API：Toast暂不支持');
   }
 };
 export const hideToast = (options?: HideToastOption) => {
@@ -54,7 +54,7 @@ export const hideToast = (options?: HideToastOption) => {
   } else if (isWeb) {
     return webModule.hideToast(options);
   } else {
-    throw new Error('@uni/apis：Toast暂不支持');
+    throw new Error('Uni API：Toast暂不支持');
   }
 };
 export default {

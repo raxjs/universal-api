@@ -3,9 +3,9 @@ import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
-import { ShowActionSheetOptions } from './types';
+import { ScanCodeOptions } from './types';
 
-export const showActionSheet = (args: ShowActionSheetOptions) => {
+export const scanCode = (args?: ScanCodeOptions) => {
   if (isWeChatMiniProgram) {
     return weChatModule(args);
   } else if (isByteDanceMicroApp) {
@@ -13,10 +13,10 @@ export const showActionSheet = (args: ShowActionSheetOptions) => {
   } else if (isMiniApp) {
     return aliMiniAppModule(args);
   } else if (isWeb) {
-    return webModule(args);
+    return webModule();
   } else {
-    throw new Error('Uni API：showActionSheet暂不支持');
+    throw new Error('Uni API：scanCode暂不支持');
   }
 };
 
-export default showActionSheet;
+export default scanCode;

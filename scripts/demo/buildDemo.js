@@ -1,10 +1,10 @@
 const path = require('path');
 const rm = require('rimraf');
 // import filesize from 'rollup-plugin-filesize';
-const sourceMap = require('../api-config');
+const sourceMap = require('../../api-config');
 const chalk = require('chalk');
 const fs = require('fs-extra');
-
+const { spawnSync } = require('child_process');
 const root = process.cwd();
 const outputDir = 'dist/lib/';
 const demoOutputDir = 'demos/';
@@ -40,8 +40,8 @@ const buildDemo = async () => {
     fs.mkdirSync(path.resolve(demoPath, 'src'));
   }
   
-  const appJsonContent = require(path.resolve(root, 'scripts/demosSource/src/app.json'));
-  const packageContent = require(path.resolve(root, 'scripts/demosSource/demo-package-tpl.js'));
+  const appJsonContent = require(path.resolve(root, 'scripts/demo/demosSource/src/app.json'));
+  const packageContent = require(path.resolve(root, 'scripts/demo/demosSource/demo-package-tpl.js'));
   if (!fs.pathExistsSync(path.resolve(demoPath, 'src/pages'))) {
     fs.mkdirSync(path.resolve(demoPath, 'src/pages'));
   }
@@ -69,7 +69,14 @@ const buildDemo = async () => {
           }
         });
       }
-      packageContent.dependencies[i.name] = path.resolve(root, outputDir, i.name);
+      // packageContent.dependencies[i.name] = path.resolve(root, outputDir, i.name);
+      // shelljs.exec(`cd dist/lib/${i.name} && npm link`);
+      spawnSync('npm', [
+        'link'
+      ], {
+        stdio: 'inherit',
+        cwd: path.resolve(root, `dist/lib/${i.name}`),
+      });
     });
     
     // res.push(`npm run build ${key}`);
@@ -78,19 +85,17 @@ const buildDemo = async () => {
   // fs.mkdirSync(path.resolve(demoPath, 'src/pages'));
   await fs.outputJSON(path.resolve(root, demoPath, 'package.json'), packageContent);
   await fs.outputJSON(path.resolve(root, demoPath, 'src/app.json'), appJsonContent);
-  fs.copyFileSync(path.resolve(root, 'scripts/demosSource/src/app.js'), path.resolve(demoPath, 'src/app.js'));
+  fs.copyFileSync(path.resolve(root, 'scripts/demo/demosSource/src/app.js'), path.resolve(demoPath, 'src/app.js'));
   // fs.copyFileSync(path.resolve(root, 'scripts/demos/src/app.json'), path.resolve(demoPath, 'src/app.js'));
   if (!fs.pathExistsSync(path.resolve(demoPath, 'src/pages/Home'))) {
     fs.mkdirSync(path.resolve(demoPath, 'src/pages/Home'));
   }
-  fs.copyFileSync(path.resolve(root, 'scripts/demosSource/src/pages/index.tsx'), path.resolve(demoPath, 'src/pages/Home/index.tsx'));
-  fs.copyFileSync(path.resolve(root, 'scripts/demosSource/build.json'), path.resolve(demoPath, 'build.json'));
-  fs.copyFileSync(path.resolve(root, 'scripts/demosSource/herbox.json'), path.resolve(demoPath, 'herbox.json'));
-  fs.copyFileSync(path.resolve(root, 'scripts/demosSource/herbox.js'), path.resolve(demoPath, 'herbox.js'));
+  fs.copyFileSync(path.resolve(root, 'scripts/demo/demosSource/src/pages/index.tsx'), path.resolve(demoPath, 'src/pages/Home/index.tsx'));
+  fs.copyFileSync(path.resolve(root, 'scripts/demo/demosSource/build.json'), path.resolve(demoPath, 'build.json'));
+  fs.copyFileSync(path.resolve(root, 'scripts/demo/demosSource/herbox.json'), path.resolve(demoPath, 'herbox.json'));
+  fs.copyFileSync(path.resolve(root, 'scripts/demo/demosSource/herbox.js'), path.resolve(demoPath, 'herbox.js'));
   // shellResList.push(...res);
   // shellRes = res.join(' && ');
   logger('END', {status: 'SUCCESS'});
 };
-
-
-buildDemo();
+module.exports = buildDemo;

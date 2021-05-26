@@ -15,7 +15,7 @@ export const getLocation = (args: OptionStruct) => {
   } else if (isWeb) {
     return webModule.getLocation(args);
   } else {
-    throw new Error('@uni/apis：getLocation暂不支持');
+    throw new Error('Uni API：getLocation暂不支持');
   }
 };
 
@@ -27,7 +27,7 @@ export const openLocation = (args: OpenOptionStruct) => {
   } else if (isMiniApp) {
     return aliMiniAppModule.openLocation(args);
   } else {
-    throw new Error('@uni/apis：openLocation暂不支持');
+    throw new Error('Uni API：openLocation暂不支持');
   }
 };
 

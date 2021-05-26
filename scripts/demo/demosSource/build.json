@@ -11,10 +11,5 @@
   },
   "web": {
     "doctype": "<!DOCTYPE html>"
-  },
-  "plugins" : [
-    [
-      "@uni/build-plugin-rax-api-import"
-    ]
-  ]
+  }
 }

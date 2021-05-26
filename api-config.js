@@ -97,6 +97,15 @@ module.exports = {
       },
     ],
   },
+  scan: {
+    path: 'src/packages/device/scan/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: '@uni/scan',
+      },
+    ],
+  },
   // 'networkInfo': {
   //   path: 'packages/device/network-info/src/index.ts',
   //   pkgInfo: [

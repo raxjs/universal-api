@@ -1,5 +1,5 @@
 const previewImage = () => {
-  throw new Error('@uni/apis: previewImage不支持');
+  throw new Error('Uni API: previewImage不支持');
 };
 
 export default previewImage;

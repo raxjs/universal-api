@@ -15,7 +15,7 @@ export const getInfoSync = () => {
   } else if (isWeb) {
     return webModule.getInfoSync();
   } else {
-    throw new Error('@uni/apis：getInfoSync暂不支持');
+    throw new Error('Uni API：getInfoSync暂不支持');
   }
 };
 
@@ -29,7 +29,7 @@ export const getInfo = (options?: AsyncOptions) => {
   } else if (isWeb) {
     return webModule.getInfo(options);
   } else {
-    throw new Error('@uni/apis：getInfo暂不支持');
+    throw new Error('Uni API：getInfo暂不支持');
   }
 };
 export default {

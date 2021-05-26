@@ -21,7 +21,7 @@ export const chooseImage = (args: ChooseImageOptions) => {
   } else if (isWeb) {
     return webModule.chooseImage(args);
   } else {
-    throw new Error('@uni/apis：chooseImage暂不支持');
+    throw new Error('Uni API：chooseImage暂不支持');
   }
 };
 
@@ -35,7 +35,7 @@ export const compressImage = (args: CompressImageOptions) => {
   } else if (isWeb) {
     return webModule.compressImage();
   } else {
-    throw new Error('@uni/apis：compressImage暂不支持');
+    throw new Error('Uni API：compressImage暂不支持');
   }
 };
 
@@ -49,7 +49,7 @@ export const getImageInfo = (args: GetImageInfoOptions) => {
   } else if (isWeb) {
     return webModule.getImageInfo(args);
   } else {
-    throw new Error('@uni/apis：getImageInfo暂不支持');
+    throw new Error('Uni API：getImageInfo暂不支持');
   }
 };
 
@@ -63,7 +63,7 @@ export const previewImage = (args: PreviewImageOptions) => {
   } else if (isWeb) {
     return webModule.previewImage();
   } else {
-    throw new Error('@uni/apis：previewImage暂不支持');
+    throw new Error('Uni API：previewImage暂不支持');
   }
 };
 
@@ -77,7 +77,7 @@ export const saveImage = (args: SaveImageOptions) => {
   } else if (isWeb) {
     return webModule.saveImage();
   } else {
-    throw new Error('@uni/apis：saveImage暂不支持');
+    throw new Error('Uni API：saveImage暂不支持');
   }
 };
 
