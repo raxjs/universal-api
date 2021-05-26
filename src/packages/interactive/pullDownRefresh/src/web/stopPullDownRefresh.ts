@@ -1,10 +1,9 @@
 import { normalizeStop } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
-const clsPrefix = '__universal_pulldownrefresh';
-
 const _stopPullDownRefresh = () => {
   // console.log("_stopPullDownRefresh  start");
+  const clsPrefix = '__universal_pulldownrefresh';
   const refresh = document.getElementById(`${clsPrefix}_refresh`);
   if (refresh) {
     document.body.removeChild(refresh);
