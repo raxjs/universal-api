@@ -4,14 +4,6 @@ import { ShowToastOption, WebQueueOption } from '../types';
 
 declare let window: any;
 
-window._uni_toast_status = window._uni_toast_status || {
-  queue: [],
-  isProcessing: false,
-  toastWin: '',
-  toastContent: '',
-  toastIcon: '',
-};
-
 const styles = {
   container: {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
@@ -135,8 +127,16 @@ const innerToast = {
     }
   },
 };
-window._uni_toast_inner_toast = innerToast;
+
 const show = normalize((options: ShowToastOption): void => {
+  window._uni_toast_inner_toast = innerToast;
+  window._uni_toast_status = window._uni_toast_status || {
+    queue: [],
+    isProcessing: false,
+    toastWin: '',
+    toastContent: '',
+    toastIcon: '',
+  };
   const { type, content, duration, success, fail, complete } = options;
   const iconMap = {
     success: 'https://gw.alicdn.com/imgextra/i1/O1CN01h684sE1Td4mwYyChK_!!6000000002404-2-tps-200-200.png',
