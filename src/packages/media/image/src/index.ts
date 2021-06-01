@@ -61,7 +61,7 @@ export const previewImage = (args: PreviewImageOptions) => {
   } else if (isMiniApp) {
     return aliMiniAppModule.previewImage(args);
   } else if (isWeb) {
-    return webModule.previewImage();
+    return webModule.previewImage(args);
   } else {
     throw new Error('Uni API：previewImage暂不支持');
   }

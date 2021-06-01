@@ -15,7 +15,7 @@ Views location using the built-in map. The GCJ-02 coordinate system of the State
 ## Install
 
 ```bash
-$ npm install @uni/openLocation --save
+$ npm install @uni/location --save
 ```
 or
 ```bash
