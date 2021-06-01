@@ -2,42 +2,40 @@ import { normalizeStart } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 import Events from '@utils/event';
 
-declare let window: any;
-if (!window.events) {
-  window.events = new Events();
-}
-
-const clsPrefix = '__universal_pulldownrefresh';
-
-const styles = {
-  refresh: {
-    position: 'relative',
-    width: '100%',
-    height: '50px',
-    textAlign: 'center',
-    display: 'flex',
-    flexWrap: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 9999,
-  },
-  refreshLoadingStyle: {
-    height: '16px',
-    width: '16px',
-    marginRight: '10px',
-    color: '#999',
-  },
-  refreshText: {
-    fontSize: '14px',
-    color: '#999',
-  },
-};
-
-let refresh: HTMLElement | null = null;
-let refreshText: HTMLElement | null = null;
-let refreshLoadingImg: HTMLElement | null = null;
-
 const _startPullDownRefresh = () => {
+  if (!(window as any).events) {
+    (window as any).events = new Events();
+  }
+  const clsPrefix = '__universal_pulldownrefresh';
+
+  const styles = {
+    refresh: {
+      position: 'relative',
+      width: '100%',
+      height: '50px',
+      textAlign: 'center',
+      display: 'flex',
+      flexWrap: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      zIndex: 9999,
+    },
+    refreshLoadingStyle: {
+      height: '16px',
+      width: '16px',
+      marginRight: '10px',
+      color: '#999',
+    },
+    refreshText: {
+      fontSize: '14px',
+      color: '#999',
+    },
+  };
+
+  let refresh: HTMLElement | null = null;
+  let refreshText: HTMLElement | null = null;
+  let refreshLoadingImg: HTMLElement | null = null;
+
   // console.log("_startPullDownRefresh start");
   refresh = document.getElementById(`${clsPrefix}_refresh`);
   refreshText = document.getElementById(`${clsPrefix}_refreshText`);
@@ -85,7 +83,8 @@ const _startPullDownRefresh = () => {
 const startPullDownRefresh = normalizeStart(({ success = () => {}, fail = () => {}, complete = () => {} }) => {
   try {
     _startPullDownRefresh();
-    window.events.emit('pulldownrefresh');
+
+    (window as any).events.emit('pulldownrefresh');
 
     success();
     complete();
