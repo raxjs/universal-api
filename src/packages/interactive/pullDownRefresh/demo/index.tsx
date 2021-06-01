@@ -31,13 +31,12 @@ const Index = () => {
   
   useEffect(() => {
 
-    window.events.register('pulldownrefresh', () => {
-      // alert("pulldownrefresh触发了")}
-      console.log("pulldownrefresh触发了");
-      setPullRefresh(!pullRefresh);
-    });
-  
     if (isWeb) {
+      window.events.register('pulldownrefresh', () => {
+        // alert("pulldownrefresh触发了")}
+        console.log("pulldownrefresh触发了");
+        setPullRefresh(!pullRefresh);
+      });
       //运行以下命令打开web端h5界面的手动刷新
       pullDownRefresh.onPullDownRefresh({pullRefresh: true, triggerDistance: 100});
     }
