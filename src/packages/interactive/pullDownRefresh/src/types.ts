@@ -46,6 +46,10 @@ export interface SwitchOptions extends Uni.COptions {
    */
   triggerDistance?: number;
   /**
+   * Interface to set a Callback function when the event is triggered.
+   */
+  eventCallback?: Callback;
+  /**
    * Interface to invoke a successful callback function.
    */
   success?: Callback;
