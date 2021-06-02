@@ -20,7 +20,7 @@ const styles = {
   },
   text: {
     marginTop: '100rpx',
-    paddign: '20rpx',
+    padding: '20rpx',
     fontSize: '26rpx',
     textAlign: 'center',
     color: 'green',
@@ -31,15 +31,11 @@ const Index = () => {
   
   useEffect(() => {
 
-    if (isWeb) {
-      window.events.register('pulldownrefresh', () => {
-        // alert("pulldownrefresh触发了")}
-        console.log("pulldownrefresh触发了");
-        setPullRefresh(!pullRefresh);
-      });
-      //运行以下命令打开web端h5界面的手动刷新
-      pullDownRefresh.onPullDownRefresh({pullRefresh: true, triggerDistance: 100});
-    }
+    //运行以下命令打开web端h5界面的手动刷新
+    pullDownRefresh.onPullDownRefresh({pullRefresh: true, triggerDistance: 100, eventCallback: () => {
+      console.log("pulldownrefresh触发了");
+      setPullRefresh(!pullRefresh);
+    }});
   }, []);
 
   const handleClickStart = () => {
