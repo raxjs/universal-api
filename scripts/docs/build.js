@@ -2,7 +2,7 @@ const chokidar = require('chokidar');
 const md5 = require('md5');
 const fs = require('fs');
 const path = require('path');
-const initDocs = require('./buildDocs');
+const { initDocs } = require('./buildDocs');
 const { spawnSync, spawn } = require('child_process');
 
 const root = process.cwd();
