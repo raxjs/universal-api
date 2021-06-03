@@ -1,3 +1,10 @@
+---
+  group:
+    path: /packages/media
+    title: 多媒体
+---
+
+
 # createVideoContext 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis) [![npm](https://img.shields.io/npm/v/@uni/video.svg)](https://www.npmjs.com/package/@uni/video)
@@ -5,7 +12,7 @@
 创建 video 上下文 VideoContext 对象。
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
-<div style="margin-right: 20px;">
+<div style="margin-right: 20px;max-width: 50%;">
 
 ## 支持
 
@@ -98,7 +105,7 @@ export default () => (
 
 <div style="display: flex;margin-top: 50px;">
   <div>
-    <img src="https://img.alicdn.com/imgextra/i4/O1CN01ZAWX1f1ok2kTcnO30_!!6000000005262-0-tps-666-650.jpg" width="200" height="200" />
+    <img src="https://img.alicdn.com/imgextra/i4/O1CN01ZAWX1f1ok2kTcnO30_!!6000000005262-0-tps-666-650.jpg" width="220" height="200" />
     <div style="text-align: center;">微信小程序</div>
   </div>
 </div>

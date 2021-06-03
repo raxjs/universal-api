@@ -15,7 +15,7 @@ export const startPullDownRefresh = (args?: StartOptions) => {
   } else if (isWeb) {
     return webModule.startPullDownRefresh(args);
   } else {
-    throw new Error('@uni/apis：startPullDownRefresh暂不支持');
+    throw new Error('Uni API：startPullDownRefresh暂不支持');
   }
 };
 
@@ -29,7 +29,7 @@ export const stopPullDownRefresh = (args?: StopOptions) => {
   } else if (isWeb) {
     return webModule.stopPullDownRefresh(args);
   } else {
-    throw new Error('@uni/apis：stopPullDownRefresh暂不支持');
+    throw new Error('Uni API：stopPullDownRefresh暂不支持');
   }
 };
 
@@ -37,7 +37,7 @@ export const onPullDownRefresh = (args?: SwitchOptions) => {
   if (isWeb) {
     return webModule.onPullDownRefresh(args);
   } else {
-    console.warn('@uni/apis：onPullDownRefresh暂不支持,只支持web端h5页面');
+    console.warn('Uni API：onPullDownRefresh暂不支持,只支持web端h5页面');
   }
 };
 

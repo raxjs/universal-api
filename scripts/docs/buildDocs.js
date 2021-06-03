@@ -1,6 +1,6 @@
 const path = require('path');
 const rm = require('rimraf');
-const sourceMap = require('../api-config');
+const sourceMap = require('../../api-config');
 const chalk = require('chalk');
 const fs = require('fs-extra');
 const root = process.cwd();
@@ -76,8 +76,8 @@ const injectFile = (dir, done = () => {}) => {
 const buildDocs = async () => {
   const docsPath = path.resolve(root, docsOutputDir);
   const packageDocsPath = path.resolve(root, docsOutputDir, 'packages');
-  const homePath = path.resolve(root, 'scripts/docsSource/home');
-  const quickStartPath = path.resolve(root, 'scripts/docsSource/quickStart');
+  const homePath = path.resolve(root, 'scripts/docs/docsSource/home');
+  const quickStartPath = path.resolve(root, 'scripts/docs/docsSource/quickStart');
   if (!fs.pathExistsSync(docsPath)) {
     fs.mkdirSync(docsPath);
     fs.mkdirSync(path.resolve(docsPath, 'packages'));
@@ -102,5 +102,8 @@ const buildDocs = async () => {
   logger('END', {status: 'SUCCESS'});
 };
 
-
-buildDocs();
+module.exports = {
+  initDocs: buildDocs,
+  injectFile: injectFile
+};
+// buildDocs();
