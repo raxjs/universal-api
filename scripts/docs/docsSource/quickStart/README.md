@@ -41,6 +41,10 @@ import {
   image,
   navigate,
   request,
+  recorder,
+  video,
+  scan,
+  pullDownRefresh,
   storage } from '@uni/apis';
 
 confirm({content: '显示模态框'});

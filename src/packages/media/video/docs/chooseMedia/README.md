@@ -1,6 +1,7 @@
 ---
-group:
-  title: 多媒体
+  group:
+    path: /packages/media
+    title: 多媒体
 ---
 
 # chooseMedia 
@@ -10,7 +11,7 @@ group:
 拍摄或从手机相册中选择图片或视频。（h5支持任意文件类型、字节跳动小程序和阿里小程序仅支持选择图片）
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
-<div style="margin-right: 20px;">
+<div style="margin-right: 20px;max-width: 50%;">
 
 ## 支持
 
@@ -123,13 +124,13 @@ export default () => (
       boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
       width: '375px',
       height: '700px'
-    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/image/index&topSlider=false'></iframe>
+    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/video/index&topSlider=false'></iframe>
 );
 ```
 
 <div style="display: flex;margin-top: 50px;">
   <div>
-    <img src="https://img.alicdn.com/imgextra/i4/O1CN01glSUyh1FfucijRlur_!!6000000000515-0-tps-608-622.jpg" width="200" height="200" />
+    <img src="https://img.alicdn.com/imgextra/i4/O1CN01glSUyh1FfucijRlur_!!6000000000515-0-tps-608-622.jpg" width="220" height="200" />
     <div style="text-align: center;">微信小程序</div>
   </div>
 </div>

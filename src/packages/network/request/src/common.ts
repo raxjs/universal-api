@@ -104,7 +104,7 @@ export function styleOptions(options, containerName) {
   const isJsonp = options?.method?.toUpperCase() === 'JSONP';
   const jsonpCallback = options.jsonpCallback || DEFAULT_REQUEST_OPTIONS.jsonpCallback;
   const adapterResponse = (res) => {
-    if (res.errMsg.indexOf('request:fail') !== -1 || res.error) {
+    if ((res.errMsg && res?.errMsg?.indexOf('request:fail') !== -1) || res.error) {
       return {
         ...res,
         error: res.error || res.status || res.statusCode,

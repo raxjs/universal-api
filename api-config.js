@@ -101,7 +101,7 @@ module.exports = {
     path: 'src/packages/device/scan/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0',
+        version: '1.0.0-beta',
         name: '@uni/scan',
       },
     ],
@@ -179,7 +179,7 @@ module.exports = {
     path: 'src/packages/interactive/toast/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.6',
+        version: '1.0.7',
         name: '@uni/toast',
       },
     ],
@@ -192,12 +192,12 @@ module.exports = {
         name: '@uni/loading',
       },
     ],
-  },  
+  },
   pullDownRefresh: {
     path: 'src/packages/interactive/pullDownRefresh/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0',
+        version: '1.0.0-beta',
         name: '@uni/pull-down-refresh',
       },
     ],
@@ -251,7 +251,7 @@ module.exports = {
     path: 'src/packages/location/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.5-beta',
         name: '@uni/location',
       },
     ],
@@ -261,7 +261,7 @@ module.exports = {
     path: 'src/packages/media/image/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.5-beta',
         name: '@uni/image',
       },
     ],
@@ -271,7 +271,7 @@ module.exports = {
     path: 'src/packages/navigate/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.5',
         name: '@uni/navigate',
       },
     ],
@@ -281,7 +281,7 @@ module.exports = {
     path: 'src/packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.6',
+        version: '1.0.7',
         name: '@uni/request',
       },
     ],
@@ -301,7 +301,7 @@ module.exports = {
     path: 'src/packages/media/recorder/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.0-beta',
         name: '@uni/recorder',
       },
     ],
@@ -311,7 +311,7 @@ module.exports = {
     path: 'src/packages/media/video/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.0-beta',
         name: '@uni/video',
       },
     ],

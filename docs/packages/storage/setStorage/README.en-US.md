@@ -9,7 +9,7 @@ Stores data in the specified key in the local cache. This operation will overwri
 > The maximum size of data stored in a single key is 1 MB, and the total size for data storage is limited to 10 MB.
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
-<div style="margin-right: 20px;">
+<div style="margin-right: 20px;max-width: 50%;">
 
 ## Supported
 
@@ -104,7 +104,7 @@ export default () => (
 
 <div style="display: flex;margin-top: 50px;">
   <div>
-    <img src="https://img.alicdn.com/imgextra/i2/O1CN01uDGumH1UwbI5mxYOZ_!!6000000002582-0-tps-646-638.jpg" width="200" height="200" />
+    <img src="https://img.alicdn.com/imgextra/i2/O1CN01uDGumH1UwbI5mxYOZ_!!6000000002582-0-tps-646-638.jpg" width="220" height="200" />
     <div style="text-align: center;">wechat miniprogram</div>
   </div>
 </div>

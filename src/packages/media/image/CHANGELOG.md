@@ -1,3 +1,10 @@
+## 1.0.5 (2021-06-03)
+
+### Features
+
+* 新增 saveImage API
+* 新增 previewImage 的 Web 支持
+
 ## 1.0.4 (2021-05-17)
 
 ### Features
