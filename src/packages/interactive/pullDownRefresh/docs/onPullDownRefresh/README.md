@@ -42,7 +42,7 @@ pullDownRefresh.onPullDownRefresh();
 
 监听事件
 ```js
-window.events.register("pulldownrefresh", cb);
+pullDownRefresh.onPullDownRefresh({eventCallback: cb});
 ```
 
 ## 方法
