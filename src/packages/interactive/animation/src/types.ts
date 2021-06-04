@@ -12,28 +12,37 @@ export interface AnimationOptions extends Uni.COptions {
   transformOrigin?: string;
 }
 
-interface AnimationData {
-  actions: Array<{
-    animates: Array<{
-      type: 'style' | 'rotate' | 'scale' | 'translate' | 'skew' | 'matrix';
-      args: any[];
-    }>;
-    option: {
-      transformOrigin: string;
-      transition: {
-        delay: number;
-        duration: number;
-        timingFunction: TimingFunction;
-      };
+export interface AnimationActionAnimate {
+  type: 'style'
+  | 'rotate' | 'rotate3d' | 'rotateX' | 'rotateY' | 'rotateZ'
+  | 'scale' | 'scale3d' | 'scaleX' | 'scaleY' | 'scaleZ'
+  | 'translate' | 'translate3d' | 'translateX' | 'translateY' | 'translateZ'
+  | 'skew' | 'skewX' | 'skewY'
+  | 'matrix' | 'matrix3d';
+  args: any[];
+}
+
+export interface AnimationAction {
+  animates: AnimationActionAnimate[];
+  option: {
+    transformOrigin: string;
+    transition: {
+      delay: number;
+      duration: number;
+      timingFunction: TimingFunction;
     };
-  }>;
+  };
+}
+
+export interface AnimationData {
+  actions: AnimationAction[];
 }
 
 export interface Animation {
   /* ************* util ************* */
   export: () => AnimationData;
 
-  step: (options: AnimationOptions) => Animation;
+  step: (options?: AnimationOptions) => Animation;
 
   /* ************* style ************* */
   opacity: (value: number) => Animation;
@@ -93,12 +102,12 @@ export interface Animation {
   skewY: (angle: number) => Animation;
 
   /* ************* matrix ************* */
-  matrix: () => (
+  matrix: (
     a: number, b: number, c: number, d: number,
     tx: number, ty: number
   ) => Animation;
 
-  matrix3d: () => (
+  matrix3d: (
     a1: number, b1: number, c1: number, d1: number,
     a2: number, b2: number, c2: number, d2: number,
     a3: number, b3: number, c3: number, d3: number,

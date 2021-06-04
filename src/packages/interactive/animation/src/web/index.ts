@@ -1,8 +1,8 @@
 import { Animation, AnimationOptions } from '../types';
+import { AnimationImpl } from './AnimationImpl';
 
 export function createAnimation(options?: AnimationOptions): Animation {
-  // TODO
-  return wx.createAnimation(options);
+  return new AnimationImpl(options);
 }
 
 export default {
