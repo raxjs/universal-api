@@ -1,7 +1,7 @@
 import { Animation, AnimationAction, AnimationActionAnimate, AnimationData, AnimationOptions } from '../types';
-import { getDefaultOptions, normalizePxUnit } from '../common';
+import { getDefaultOptions, normalizeUnit } from '../common';
 
-export class AnimationImpl implements Animation {
+export default class AnimationImpl implements Animation {
   private options: AnimationOptions;
   private actions: AnimationAction[];
   private currentTransform: Record<string, AnimationActionAnimate>;
@@ -15,8 +15,10 @@ export class AnimationImpl implements Animation {
   }
 
   export(): AnimationData {
+    const actions = this.actions.slice();
+    this.actions = [];
     return {
-      actions: this.actions,
+      actions,
     };
   }
 
@@ -71,7 +73,7 @@ export class AnimationImpl implements Animation {
   width(value: number | string): Animation {
     this.currentStepAnimates.push({
       type: 'style',
-      args: ['width', normalizePxUnit(value)],
+      args: ['width', normalizeUnit(value)],
     });
     return this;
   }
@@ -79,7 +81,7 @@ export class AnimationImpl implements Animation {
   height(value: number | string): Animation {
     this.currentStepAnimates.push({
       type: 'style',
-      args: ['height', normalizePxUnit(value)],
+      args: ['height', normalizeUnit(value)],
     });
     return this;
   }
@@ -87,7 +89,7 @@ export class AnimationImpl implements Animation {
   left(value: number | string): Animation {
     this.currentStepAnimates.push({
       type: 'style',
-      args: ['left', normalizePxUnit(value)],
+      args: ['left', normalizeUnit(value)],
     });
     return this;
   }
@@ -95,7 +97,7 @@ export class AnimationImpl implements Animation {
   right(value: number | string): Animation {
     this.currentStepAnimates.push({
       type: 'style',
-      args: ['right', normalizePxUnit(value)],
+      args: ['right', normalizeUnit(value)],
     });
     return this;
   }
@@ -103,7 +105,7 @@ export class AnimationImpl implements Animation {
   top(value: number | string): Animation {
     this.currentStepAnimates.push({
       type: 'style',
-      args: ['top', normalizePxUnit(value)],
+      args: ['top', normalizeUnit(value)],
     });
     return this;
   }
@@ -111,7 +113,7 @@ export class AnimationImpl implements Animation {
   bottom(value: number | string): Animation {
     this.currentStepAnimates.push({
       type: 'style',
-      args: ['bottom', normalizePxUnit(value)],
+      args: ['bottom', normalizeUnit(value)],
     });
     return this;
   }

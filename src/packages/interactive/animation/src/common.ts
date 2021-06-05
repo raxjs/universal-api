@@ -11,10 +11,10 @@ export function normalizeOptions(options, containerName) {
 }
 
 /**
- * normalize px unit
+ * normalize unit
  * @param value
  */
-export function normalizePxUnit(value: number | string) {
+export function normalizeUnit(value: number | string) {
   if (typeof value === 'number') {
     return `${value}px`;
   }
@@ -22,7 +22,7 @@ export function normalizePxUnit(value: number | string) {
 }
 
 /**
- * merged by default options
+ * merge default options
  * @param options
  */
 export function getDefaultOptions(options?: AnimationOptions): AnimationOptions {

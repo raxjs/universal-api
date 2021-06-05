@@ -3,7 +3,7 @@ import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
-import { AnimationOptions } from './types';
+import { Animation, AnimationData, AnimationOptions } from './types';
 import { normalizeOptions } from './common';
 import { CONTAINER_NAME } from '@utils/constant';
 
@@ -29,6 +29,15 @@ export function createAnimation(options?: AnimationOptions) {
   }
 }
 
+export function applyAnimation(animation: Animation, dom?: HTMLElement): AnimationData {
+  const data = animation.export();
+  if (isWeb) {
+    webModule.applyAnimation(data, dom);
+  }
+  return data;
+}
+
 export default {
   createAnimation,
+  applyAnimation,
 };
