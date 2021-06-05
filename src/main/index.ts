@@ -9,6 +9,7 @@ import systemInfo from '../packages/device/systemInfo/src/index';
 import file from '../packages/file/src/index';
 import actionSheet from '../packages/interactive/actionSheet/src/index';
 import alert from '../packages/interactive/alert/src/index';
+import animation from '../packages/interactive/animation/src/index';
 import toast from '../packages/interactive/toast/src/index';
 import loading from '../packages/interactive/loading/src/index';
 import element from '../packages/interactive/element/src/index';
@@ -32,6 +33,7 @@ export {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   element,
@@ -57,6 +59,7 @@ export default {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   element,

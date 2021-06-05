@@ -9,6 +9,7 @@ import systemInfo from '../../packages/device/systemInfo/src/wechat-miniprogram/
 import file from '../../packages/file/src/wechat-miniprogram/index';
 import actionSheet from '../../packages/interactive/actionSheet/src/wechat-miniprogram/index';
 import alert from '../../packages/interactive/alert/src/wechat-miniprogram/index';
+import animation from '../../packages/interactive/animation/src/wechat-miniprogram/index';
 import toast from '../../packages/interactive/toast/src/wechat-miniprogram/index';
 import loading from '../../packages/interactive/loading/src/wechat-miniprogram/index';
 import element from '../../packages/interactive/element/src/wechat-miniprogram/index';
@@ -32,6 +33,7 @@ export {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   element,
@@ -57,6 +59,7 @@ export default {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   element,
