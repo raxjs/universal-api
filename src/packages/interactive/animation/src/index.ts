@@ -3,11 +3,11 @@ import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
-import { Animation, AnimationData, AnimationOptions } from './types';
-import { normalizeOptions } from './common';
+import { AnimationOptions } from './types';
+import { normalizeOptions, applyAnimation } from './common';
 import { CONTAINER_NAME } from '@utils/constant';
 
-export function createAnimation(options?: AnimationOptions) {
+function createAnimation(options?: AnimationOptions) {
   if (isWeChatMiniProgram) {
     return weChatModule.createAnimation(
       normalizeOptions(options, CONTAINER_NAME.WECHAT),
@@ -29,13 +29,10 @@ export function createAnimation(options?: AnimationOptions) {
   }
 }
 
-export function applyAnimation(animation: Animation, dom?: HTMLElement): AnimationData {
-  const data = animation.export();
-  if (isWeb) {
-    webModule.applyAnimation(data, dom);
-  }
-  return data;
-}
+export {
+  createAnimation,
+  applyAnimation,
+};
 
 export default {
   createAnimation,

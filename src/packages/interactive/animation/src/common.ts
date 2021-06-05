@@ -1,5 +1,7 @@
 import { styleIn } from '@utils/styleOptions';
-import { AnimationOptions } from './types';
+import { Animation, AnimationData, AnimationOptions } from './types';
+import applyWebAnimation from './web/apply';
+import { isWeb } from '@uni/env';
 
 /**
  * normalize options
@@ -33,4 +35,17 @@ export function getDefaultOptions(options?: AnimationOptions): AnimationOptions 
     transformOrigin: '50% 50% 0',
     ...options,
   };
+}
+
+/**
+ * apply animation for HTML Node
+ * @param animation
+ * @param dom
+ */
+export function applyAnimation(animation: Animation, dom?: HTMLElement): AnimationData {
+  const data = animation.export();
+  if (isWeb) {
+    applyWebAnimation(data, dom);
+  }
+  return data;
 }
