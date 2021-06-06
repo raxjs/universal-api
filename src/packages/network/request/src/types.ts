@@ -3,16 +3,13 @@
 /**
  *  Common
  */
-export enum DATA_TYPE {
-  json = 'json',
-  text = 'text'
-}
+export type DATA_TYPE = 'json' | 'text';
 export const DEFAULT_TIMEOUT = 20000;
 export const DEFAULT_JSON_CALLBACK = 'callback';
 export const DEFAULT_JSONP_OPTIONS = {
   timeout: DEFAULT_TIMEOUT,
   jsonpCallback: DEFAULT_JSON_CALLBACK,
-  dataType: DATA_TYPE.json,
+  dataType: 'json',
 };
 export interface AsObject { [key: string]: string | number }
 

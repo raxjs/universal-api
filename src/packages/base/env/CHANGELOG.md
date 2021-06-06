@@ -1,3 +1,21 @@
+## 1.0.6 (2021-05-17)
+
+### Features
+
+* exports 规则更新
+
+## 1.0.5 (2021-05-07)
+
+### Bug Fixes
+
+* 移动 node exports 在 default 之后
+
+## 1.0.4 (2021-05-07)
+
+### Features
+
+* 增加 node exports 支持
+
 ## 1.0.3 (2021-04-28)
 
 ### Features
