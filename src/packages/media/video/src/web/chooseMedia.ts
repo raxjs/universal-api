@@ -2,14 +2,14 @@ import { ChooseMediaOptions } from '../types';
 import { CONTAINER_NAME } from '@utils/constant';
 import { normalize } from '../common';
 
-function inputCreateAndAppend(multiple: boolean) {
+function inputCreateAndAppend(multiple: boolean, accept) {
   const inputElement: any = document.createElement('INPUT');
   inputElement.name = 'file';
   inputElement.id = `input-${ Math.random() * 1e8}`;
   inputElement.type = 'file';
   multiple && inputElement.setAttribute('multiple', 'multiple');
   inputElement.style.display = 'none';
-  // inputElement.setAttribute('accept', 'image/*');
+  accept && inputElement.setAttribute('accept', accept);
   document.body.appendChild(inputElement);
   return inputElement;
 }
@@ -17,7 +17,7 @@ function inputCreateAndAppend(multiple: boolean) {
 const chooseMedia = normalize.chooseMedia((args: ChooseMediaOptions = {}) => {
   const { count = 9, success = () => {}, fail = () => {}, complete = () => {} } = args;
   try {
-    const inputElement = inputCreateAndAppend(count > 1);
+    const inputElement = inputCreateAndAppend(count > 1, args.accept);
     let files: any[] = [];
     inputElement.addEventListener(
       'change',
