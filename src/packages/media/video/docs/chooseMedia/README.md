@@ -99,7 +99,9 @@ video.chooseMedia({
 | 成员 | 类型 | 描述 | 支持度 |
 | --- | --- | --- | --- |
 | tempFiles | `Array<Object>` | 本地临时文件列表 |  |
-| type | `string` | 文件类型，有效值有 image 、video | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序">  |
+| type | `string` | 文件类型，有效值有 image 、video | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"><img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> |
+
+针对阿里小程序，若type为image，则tempFiles为chooseImage的格式，若type为video，则tempFiles为chooseVideo的格式
 
 ##### tempFiles 的结构
 

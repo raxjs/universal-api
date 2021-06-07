@@ -13,17 +13,17 @@ buildDemo().then(() => {
     stdio: 'inherit',
     cwd: path.resolve(root, `demos`),
   });
-  // Object.entries(apiConfig).map(([key, value]) => {
-  //   value.pkgInfo.forEach(i => {
-  //     spawnSync('npm', [
-  //       'link',
-  //       i.name
-  //     ], {
-  //       stdio: 'inherit',
-  //       cwd: path.resolve(root, `demos`),
-  //     });
-  //   })
-  // });
+  Object.entries(apiConfig).map(([key, value]) => {
+    value.pkgInfo.forEach(i => {
+      spawnSync('npm', [
+        'link',
+        i.name
+      ], {
+        stdio: 'inherit',
+        cwd: path.resolve(root, `demos`),
+      });
+    })
+  });
   process.exit();
 });
 // spawnSync('npm', [
