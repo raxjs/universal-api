@@ -25,7 +25,7 @@ module.exports = {
   },
   "devDependencies": {
     "@uni/build-plugin-rax-api-import": "^1.0.0",
-    "@alipay/herbox-cli": "^0.10.1",
+    // "@alipay/herbox-cli": "^0.10.1",
     "@types/rax": "^1.0.0"
   },
   'license': 'BSD-3-Clause',
