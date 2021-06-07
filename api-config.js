@@ -83,7 +83,7 @@ module.exports = {
     path: 'src/packages/device/clipboard/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.5-beta',
         name: '@uni/clipboard',
       },
     ],
@@ -261,10 +261,10 @@ module.exports = {
     path: 'src/packages/media/image/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.5-beta',
+        version: '1.0.5-beta1',
         name: '@uni/image',
         dependencies: {
-          '@uni/video': '^1.0.0-beta',
+          '@uni/video': '^1.0.0-beta1',
         },
       },
     ],
@@ -314,11 +314,10 @@ module.exports = {
     path: 'src/packages/media/video/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0-beta1',
         name: '@uni/video',
         dependencies: {
-          '@uni/confirm': '^1.0.3',
-          '@uni/image': '^1.0.5-beta',
+          '@uni/action-sheet': '^1.0.4',
         },
       },
     ],

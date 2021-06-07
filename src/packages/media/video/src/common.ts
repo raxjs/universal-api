@@ -40,13 +40,20 @@ export const normalize = {
     };
     return (args: ChooseMediaOptions = {}) => {
       args = styleIn({
-        count: args.count || 9,
+        count: 9,
+        sizeType: ['original', 'compressed'],
+        sourceType: ['camera', 'album'],
+        mediaType: ['image', 'video'],
+        maxDuration: 60,
         ...args,
       }, containerName);
       return promisify(api)({
         ...args,
         success: (res) => {
           args.success && args.success(formatResponse(res));
+        },
+        fail: (res) => {
+          args.fail && args.fail(res);
         },
         complete: (res) => {
           args.complete && args.complete(res);

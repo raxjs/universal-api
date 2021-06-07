@@ -1,37 +1,37 @@
 import { CONTAINER_NAME } from '@utils/constant';
 import { normalize } from '../common';
 import showActionSheet from '@uni/action-sheet/lib/ali-miniapp';
-import chooseImage from '@uni/image/lib/ali-miniapp/chooseImage';
-import chooseVideo from '@uni/video/lib/ali-miniapp/chooseVideo';
 
 const chooseMedia = normalize.chooseMedia((args) => {
-  const { mediaType = ['image', 'video'], success = () => {} } = args || {};
-
+  const { mediaType } = args;
   const imageFn = () => {
-    return chooseImage({
+    return my.chooseImage({
       ...args,
       success: (res) => {
         const result = {
           type: 'image',
-          tempFiles: res.tempFiles,
-        }
-        success(result);
+          tempFiles: res.tempFiles.map((i) => ({
+            ...i,
+            tempFilePath: i.path,
+          })),
+        };
+        args.success(result);
       },
     });
-  }
+  };
 
   const videoFn = () => {
-    return chooseVideo({
+    return my.chooseVideo({
       ...args,
       success: (res) => {
         const result = {
           type: 'video',
           tempFiles: [res],
-        }
-        success(result);
-      }
+        };
+        args.success(result);
+      },
     });
-  }
+  };
 
   if (mediaType.length === 1 && mediaType[0] === 'image') {
     imageFn();

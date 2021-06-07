@@ -4,9 +4,9 @@ import { normalize } from '../common';
 import chooseMedia from '@uni/video/lib/web/chooseMedia';
 
 const chooseImage = normalize.chooseImage((args: ChooseImageOptions = {}) => {
-  const { count = 1, sourceType = ['album', 'camera'], success = () => {}, fail = () => {}, complete = () => {} } = args;
+  const { count = 1, success = () => {}, fail = () => {}, complete = () => {} } = args;
   chooseMedia({
-    count: 1,
+    count,
     accept: 'image/*',
   }).then((res) => {
     const result = {
