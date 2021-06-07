@@ -1,5 +1,5 @@
-import { AnimationOptions } from '../types';
-import { normalizeOptions } from '@/packages/interactive/animation/src/common';
+import { AnimationAction, AnimationOptions } from '../types';
+import { normalizeOptions } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
 /**
@@ -31,3 +31,20 @@ export function getDefaultOptions(options?: AnimationOptions): AnimationOptions 
   );
 }
 
+/**
+ * handle animation actions queue
+ * @param actions
+ * @param fn
+ */
+export function handleActionsQueue(
+  actions: AnimationAction[],
+  fn: (action: AnimationAction, callback: () => void) => any,
+) {
+  actions = actions.slice();
+  const action = actions.shift();
+  if (action) {
+    fn(action, () => {
+      handleActionsQueue(actions, fn);
+    });
+  }
+}

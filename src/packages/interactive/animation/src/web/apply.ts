@@ -1,4 +1,5 @@
 import { AnimationAction } from '../types';
+import { handleActionsQueue } from './util';
 
 export default function applyWebAnimation(actions: AnimationAction[], dom?: HTMLElement) {
   // If `dom` is not HTML Node, ignore
@@ -37,9 +38,10 @@ export default function applyWebAnimation(actions: AnimationAction[], dom?: HTML
   };
 
   let delay = 0;
-  actions.forEach((action) => {
+  handleActionsQueue(actions, (action, callback) => {
     setTimeout(() => {
-      delay += applyAction(action);
+      delay = applyAction(action);
+      callback();
     }, delay);
   });
 }
