@@ -40,7 +40,7 @@ export interface AnimationData {
 
 export interface Animation {
   /* ************* util ************* */
-  export: () => AnimationData;
+  export: (dom?: HTMLElement) => AnimationData;
 
   step: (options?: AnimationOptions) => Animation;
 

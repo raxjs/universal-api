@@ -1,7 +1,11 @@
 import { Animation, AnimationOptions } from '../types';
+import { CONTAINER_NAME } from '@utils/constant';
+import { normalizeOptions } from '../common';
 
 export function createAnimation(options?: AnimationOptions): Animation {
-  return wx.createAnimation(options);
+  return wx.createAnimation(
+    normalizeOptions(options, CONTAINER_NAME.WECHAT),
+  );
 }
 
 export default {

@@ -4,37 +4,21 @@ import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 import { AnimationOptions } from './types';
-import { normalizeOptions, applyAnimation } from './common';
-import { CONTAINER_NAME } from '@utils/constant';
 
-function createAnimation(options?: AnimationOptions) {
+export function createAnimation(options?: AnimationOptions) {
   if (isWeChatMiniProgram) {
-    return weChatModule.createAnimation(
-      normalizeOptions(options, CONTAINER_NAME.WECHAT),
-    );
+    return weChatModule.createAnimation(options);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.createAnimation(
-      normalizeOptions(options, CONTAINER_NAME.BYTE),
-    );
+    return bytedanceModule.createAnimation(options);
   } else if (isMiniApp) {
-    return aliMiniAppModule.createAnimation(
-      normalizeOptions(options, CONTAINER_NAME.ALIPAY),
-    );
+    return aliMiniAppModule.createAnimation(options);
   } else if (isWeb) {
-    return webModule.createAnimation(
-      normalizeOptions(options, CONTAINER_NAME.WEB),
-    );
+    return webModule.createAnimation(options);
   } else {
     throw new Error('@uni/apis：createAnimation 暂不支持');
   }
 }
 
-export {
-  createAnimation,
-  applyAnimation,
-};
-
 export default {
   createAnimation,
-  applyAnimation,
 };

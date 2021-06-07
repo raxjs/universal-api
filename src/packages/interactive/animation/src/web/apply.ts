@@ -1,6 +1,6 @@
-import { AnimationData } from '../types';
+import { AnimationAction } from '../types';
 
-export default function applyWebAnimation(data: AnimationData, dom?: HTMLElement) {
+export default function applyWebAnimation(actions: AnimationAction[], dom?: HTMLElement) {
   // If `dom` is not HTML Node, ignore
   if (!(dom && dom.nodeType === 1)) {
     return;
@@ -37,13 +37,9 @@ export default function applyWebAnimation(data: AnimationData, dom?: HTMLElement
   };
 
   let delay = 0;
-  data.actions.forEach((action) => {
-    if (delay > 0) {
-      setTimeout(() => {
-        delay += applyAction(action);
-      }, delay);
-    } else {
+  actions.forEach((action) => {
+    setTimeout(() => {
       delay += applyAction(action);
-    }
+    }, delay);
   });
 }

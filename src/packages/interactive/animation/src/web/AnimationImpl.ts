@@ -1,5 +1,6 @@
 import { Animation, AnimationAction, AnimationActionAnimate, AnimationData, AnimationOptions } from '../types';
-import { getDefaultOptions, normalizeUnit } from '../common';
+import { getDefaultOptions, normalizeUnit } from './util';
+import applyWebAnimation from './apply';
 
 export default class AnimationImpl implements Animation {
   private options: AnimationOptions;
@@ -14,8 +15,10 @@ export default class AnimationImpl implements Animation {
     this.currentStepAnimates = [];
   }
 
-  export(): AnimationData {
+  export(dom?: HTMLElement): AnimationData {
     const actions = this.actions.slice();
+    applyWebAnimation(actions, dom);
+
     this.actions = [];
     return {
       actions,
