@@ -2,7 +2,7 @@
 export interface IPushOptions extends Uni.COptions {
   url: string;
   isHash?: boolean;
-  refresh? : boolean;
+  refresh?: boolean;
   success?: () => void;
   fail?: (res: any) => void;
   complete?: (res?: any) => void;
@@ -24,7 +24,7 @@ export interface IGoOptions extends Uni.COptions {
 export interface IReplaceOptions extends Uni.COptions {
   url: string;
   isHash?: boolean;
-  refresh? : boolean;
+  refresh?: boolean;
   success?: () => void;
   fail?: (res: any) => void;
   complete?: (res?: any) => void;
@@ -33,7 +33,7 @@ export interface IReplaceOptions extends Uni.COptions {
 export interface IReLaunchOptions extends Uni.COptions {
   url: string;
   isHash?: boolean;
-  refresh? : boolean;
+  refresh?: boolean;
   success?: () => void;
   fail?: (res: any) => void;
   complete?: (res?: any) => void;

@@ -7,13 +7,13 @@ import { styleIn } from '@utils/styleOptions';
 import { CONTAINER_NAME } from '@utils/constant';
 
 export function getDataWithType(data: any, type: DATA_TYPE) {
-  if (type === DATA_TYPE.json) {
+  if (type === 'json') {
     try {
       return JSON.parse(data);
     } catch (e) { }
   }
 
-  if (type === DATA_TYPE.text) {
+  if (type === 'text') {
     try {
       return JSON.stringify(data);
     } catch (e) { }
@@ -91,10 +91,7 @@ export function isPlainObject(obj) {
 }
 export function styleOptions(options, containerName) {
   const DEFAULT_TIMEOUT = 20000;
-  enum DATA_TYPE {
-    json = 'json',
-    text = 'text'
-  }
+
   const DEFAULT_REQUEST_OPTIONS: RequestOptions = {
     url: '',
     headers: { 'Content-Type': 'application/json' },
@@ -102,26 +99,29 @@ export function styleOptions(options, containerName) {
     jsonpCallbackProp: 'callback',
     jsonpCallback: '__uni_jsonp_handler',
     timeout: DEFAULT_TIMEOUT,
-    dataType: DATA_TYPE.json,
+    dataType: 'json',
   };
   const isJsonp = options?.method?.toUpperCase() === 'JSONP';
   const jsonpCallback = options.jsonpCallback || DEFAULT_REQUEST_OPTIONS.jsonpCallback;
   const adapterResponse = (res) => {
-    if (res.errMsg || res.error || res.errorMessage) {
+    if ((res.errMsg && res?.errMsg?.indexOf('request:fail') !== -1) || res.error) {
       return {
         ...res,
-        error: res.error || res.statusCode,
+        error: res.error || res.status || res.statusCode,
         errorMessage: res.errorMessage || res.errMsg || '',
+        status: res.statusCode || res.status,
+        headers: res.header || res.headers || {},
       };
     }
     const afterRes = {
       ...res,
+      errorMessage: res.errorMessage || res.errMsg || '',
       status: res.statusCode || res.status,
       headers: res.header || res.headers || {},
     };
     if (isJsonp && containerName !== CONTAINER_NAME.WEB) {
       try {
-        const content = res.data.replace(`${jsonpCallback}(`, '').replace(')', '');
+        const content = res?.data?.replace(`${jsonpCallback}(`, '').replace(')', '');
         const data = content ? JSON.parse(content) : '';
         return {
           ...afterRes,
@@ -143,11 +143,7 @@ export function styleOptions(options, containerName) {
     headers: normalizeHeaders(options.headers || {}),
     success: (res) => {
       const _res = adapterResponse(res);
-      if (_res.error) {
-        options.fail && options.fail(_res);
-      } else {
-        options.success && options.success(_res);
-      }
+      options.success && options.success(_res);
     },
     fail: (res) => {
       options.fail && options.fail(adapterResponse(res));
@@ -162,7 +158,7 @@ export function styleOptions(options, containerName) {
       ...afterOptions,
       method: 'GET',
       isJsonp,
-      dataType: DATA_TYPE.text,
+      dataType: 'text',
       data:
         { ...options.data,
           [options.jsonpCallbackProp || DEFAULT_REQUEST_OPTIONS.jsonpCallbackProp]:
