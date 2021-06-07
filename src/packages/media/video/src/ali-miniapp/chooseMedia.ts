@@ -1,29 +1,40 @@
-import { isDingdingMiniapp } from '@utils/miniappEnvApp';
 import { CONTAINER_NAME } from '@utils/constant';
 import { normalize } from '../common';
 import showActionSheet from '@uni/action-sheet/lib/ali-miniapp';
+import chooseImage from '@uni/image/lib/ali-miniapp/chooseImage';
+import chooseVideo from '@uni/video/lib/ali-miniapp/chooseVideo';
 
 const chooseMedia = normalize.chooseMedia((args) => {
   const { mediaType = ['image', 'video'] } = args || {};
-  const imageFn = isDingdingMiniapp ? dd.chooseImage : my.chooseImage;
-  const videoFn = isDingdingMiniapp ? dd.chooseVideo : my.chooseVideo;
 
   if (mediaType.length === 1 && mediaType[0] === 'image') {
-    return imageFn(args);
+    return {
+      type: 'image',
+      tempFiles: chooseImage(args).tempFiles,
+    };
   }
   if (mediaType.length === 1 && mediaType[0] === 'image') {
-    return videoFn(args);
+    return {
+      type: 'video',
+      tempFiles: chooseVideo(args),
+    };
   }
   return showActionSheet({
     itemList: ['图片', '视频'],
   }).then((res) => {
     if (res.tapIndex === 0) {
-      return imageFn(args);
+      return {
+        type: 'image',
+        tempFiles: chooseImage(args).tempFiles,
+      };
     }
     if (res.tapIndex === 1) {
-      return videoFn(args);
+      return {
+        type: 'video',
+        tempFiles: chooseVideo(args),
+      };
     }
-    return Promise.resolve({ errMsg: '用户取消选择' });
+    return Promise.reject({ errMsg: '用户取消选择' });
   });
 }, CONTAINER_NAME.ALIPAY);
 

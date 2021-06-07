@@ -264,7 +264,7 @@ module.exports = {
         version: '1.0.5-beta',
         name: '@uni/image',
         dependencies: {
-          '@uni/video': '^1.0.4',
+          '@uni/video': '^1.0.0-beta',
         },
       },
     ],
@@ -318,6 +318,7 @@ module.exports = {
         name: '@uni/video',
         dependencies: {
           '@uni/confirm': '^1.0.3',
+          '@uni/image': '^1.0.5-beta',
         },
       },
     ],
