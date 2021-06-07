@@ -5,10 +5,11 @@ import { CONTAINER_NAME } from '@utils/constant';
 /**
  * normalize unit
  * @param value
+ * @param unit
  */
-export function normalizeUnit(value: number | string) {
+export function normalizeUnit(value: number | string, unit: string) {
   if (typeof value === 'number') {
-    return `${value}px`;
+    return `${value}${unit}`;
   }
   return value;
 }

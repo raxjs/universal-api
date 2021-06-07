@@ -76,7 +76,7 @@ export default class AnimationImpl implements Animation {
   width(value: number | string): Animation {
     this.currentStepAnimates.push({
       type: 'style',
-      args: ['width', normalizeUnit(value)],
+      args: ['width', normalizeUnit(value, 'px')],
     });
     return this;
   }
@@ -84,7 +84,7 @@ export default class AnimationImpl implements Animation {
   height(value: number | string): Animation {
     this.currentStepAnimates.push({
       type: 'style',
-      args: ['height', normalizeUnit(value)],
+      args: ['height', normalizeUnit(value, 'px')],
     });
     return this;
   }
@@ -92,7 +92,7 @@ export default class AnimationImpl implements Animation {
   left(value: number | string): Animation {
     this.currentStepAnimates.push({
       type: 'style',
-      args: ['left', normalizeUnit(value)],
+      args: ['left', normalizeUnit(value, 'px')],
     });
     return this;
   }
@@ -100,7 +100,7 @@ export default class AnimationImpl implements Animation {
   right(value: number | string): Animation {
     this.currentStepAnimates.push({
       type: 'style',
-      args: ['right', normalizeUnit(value)],
+      args: ['right', normalizeUnit(value, 'px')],
     });
     return this;
   }
@@ -108,7 +108,7 @@ export default class AnimationImpl implements Animation {
   top(value: number | string): Animation {
     this.currentStepAnimates.push({
       type: 'style',
-      args: ['top', normalizeUnit(value)],
+      args: ['top', normalizeUnit(value, 'px')],
     });
     return this;
   }
@@ -116,7 +116,7 @@ export default class AnimationImpl implements Animation {
   bottom(value: number | string): Animation {
     this.currentStepAnimates.push({
       type: 'style',
-      args: ['bottom', normalizeUnit(value)],
+      args: ['bottom', normalizeUnit(value, 'px')],
     });
     return this;
   }
@@ -124,7 +124,7 @@ export default class AnimationImpl implements Animation {
   rotate(angle = 0): Animation {
     this.currentStepAnimates.push({
       type: 'rotate',
-      args: [angle],
+      args: [normalizeUnit(angle, 'deg')],
     });
     return this;
   }
@@ -132,7 +132,7 @@ export default class AnimationImpl implements Animation {
   rotate3d(x = 0, y = 0, z = 0, angle = 0): Animation {
     this.currentStepAnimates.push({
       type: 'rotate3d',
-      args: [x, y, z, angle],
+      args: [x, y, z, normalizeUnit(angle, 'deg')],
     });
     return this;
   }
@@ -140,7 +140,7 @@ export default class AnimationImpl implements Animation {
   rotateX(angle = 0): Animation {
     this.currentStepAnimates.push({
       type: 'rotateX',
-      args: [angle],
+      args: [normalizeUnit(angle, 'deg')],
     });
     return this;
   }
@@ -148,7 +148,7 @@ export default class AnimationImpl implements Animation {
   rotateY(angle = 0): Animation {
     this.currentStepAnimates.push({
       type: 'rotateY',
-      args: [angle],
+      args: [normalizeUnit(angle, 'deg')],
     });
     return this;
   }
@@ -156,7 +156,7 @@ export default class AnimationImpl implements Animation {
   rotateZ(angle = 0): Animation {
     this.currentStepAnimates.push({
       type: 'rotateZ',
-      args: [angle],
+      args: [normalizeUnit(angle, 'deg')],
     });
     return this;
   }
@@ -207,7 +207,7 @@ export default class AnimationImpl implements Animation {
   translate(tx = 0, ty = 0): Animation {
     this.currentStepAnimates.push({
       type: 'translate',
-      args: [tx, ty],
+      args: [normalizeUnit(tx, 'px'), normalizeUnit(ty, 'px')],
     });
     return this;
   }
@@ -215,7 +215,11 @@ export default class AnimationImpl implements Animation {
   translate3d(tx = 0, ty = 0, tz = 0): Animation {
     this.currentStepAnimates.push({
       type: 'translate3d',
-      args: [tx, ty, tz],
+      args: [
+        normalizeUnit(tx, 'px'),
+        normalizeUnit(ty, 'px'),
+        normalizeUnit(tz, 'px'),
+      ],
     });
     return this;
   }
@@ -223,7 +227,7 @@ export default class AnimationImpl implements Animation {
   translateX(translation = 0): Animation {
     this.currentStepAnimates.push({
       type: 'translateX',
-      args: [translation],
+      args: [normalizeUnit(translation, 'px')],
     });
     return this;
   }
@@ -231,7 +235,7 @@ export default class AnimationImpl implements Animation {
   translateY(translation = 0): Animation {
     this.currentStepAnimates.push({
       type: 'translateY',
-      args: [translation],
+      args: [normalizeUnit(translation, 'px')],
     });
     return this;
   }
@@ -239,7 +243,7 @@ export default class AnimationImpl implements Animation {
   translateZ(translation = 0): Animation {
     this.currentStepAnimates.push({
       type: 'translateZ',
-      args: [translation],
+      args: [normalizeUnit(translation, 'px')],
     });
     return this;
   }
@@ -247,7 +251,7 @@ export default class AnimationImpl implements Animation {
   skew(ax = 0, ay = 0): Animation {
     this.currentStepAnimates.push({
       type: 'skew',
-      args: [ax, ay],
+      args: [normalizeUnit(ax, 'deg'), normalizeUnit(ay, 'deg')],
     });
     return this;
   }
@@ -255,7 +259,7 @@ export default class AnimationImpl implements Animation {
   skewX(angle = 0): Animation {
     this.currentStepAnimates.push({
       type: 'skewX',
-      args: [angle],
+      args: [normalizeUnit(angle, 'deg')],
     });
     return this;
   }
@@ -263,7 +267,7 @@ export default class AnimationImpl implements Animation {
   skewY(angle = 0): Animation {
     this.currentStepAnimates.push({
       type: 'skewY',
-      args: [angle],
+      args: [normalizeUnit(angle, 'deg')],
     });
     return this;
   }
