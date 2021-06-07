@@ -82,7 +82,8 @@ video.chooseMedia({
 | --- | --- | --- | --- | --- | -- |
 | options | `object`  |  | ✘ | - |  |
 | opthons.count | `number`  | 最多可以选择的文件个数 | ✘ | 9 |  |
-| opthons.mediaType | `Array<string>` | 文件类型 | ✘ | ['image', 'video'] | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| opthons.mediaType | `Array<string>` | 文件类型 | ✘ | ['image', 'video'] | web不支持 |
+| opthons.accept | `string` | 文件类型 | ✘ | all | 仅web支持，如：'image/*' |
 | opthons.sourceType | `Array<string>` | 图片和视频选择的来源 | ✘ | ['album', 'camera'] | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序"> |
 | opthons.sizeType | `Array<string>` | 仅对 mediaType 为 image 时有效，是否压缩所选文件 | ✘ | ['original', 'compressed'] |  <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
 | opthons.maxDuration | `number` | 拍摄视频最长拍摄时间，单位秒。时间范围为 3s 至 30s 之间 | ✘ | 10 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序">  |

@@ -45,6 +45,7 @@ export interface ChooseMediaOptions extends Uni.COptions {
   maxDuration?: number;
   sizeType?: Array<keyof typeof SIZE_TYPE>;
   camera?: keyof typeof CAMERA_TYPE;
+  accept?: string;
   success?: (res: ChooseMediaRes) => any;
   fail?: (e: Error) => any;
   complete?: (res: ChooseMediaRes | Error) => any;

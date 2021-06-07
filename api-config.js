@@ -245,6 +245,9 @@ module.exports = {
       {
         version: '1.0.4',
         name: '@uni/image',
+        dependencies: {
+          '@uni/video': '^1.0.4',
+        },
       },
     ],
   },
@@ -295,6 +298,9 @@ module.exports = {
       {
         version: '1.0.4',
         name: '@uni/video',
+        dependencies: {
+          '@uni/confirm': '^1.0.3',
+        },
       },
     ],
   },
