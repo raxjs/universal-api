@@ -317,7 +317,7 @@ module.exports = {
         version: '1.0.0-beta',
         name: '@uni/video',
         dependencies: {
-          '@uni/confirm': '^1.0.3',
+          '@uni/action-sheet': '^1.0.4',
           '@uni/image': '^1.0.5-beta',
         },
       },
