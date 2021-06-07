@@ -72,7 +72,8 @@ const buildDemo = async () => {
       // packageContent.dependencies[i.name] = path.resolve(root, outputDir, i.name);
       // shelljs.exec(`cd dist/lib/${i.name} && npm link`);
       spawnSync('npm', [
-        'link'
+        'link',
+        '--no-audit'
       ], {
         stdio: 'inherit',
         cwd: path.resolve(root, `dist/lib/${i.name}`),
