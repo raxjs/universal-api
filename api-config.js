@@ -261,10 +261,10 @@ module.exports = {
     path: 'src/packages/media/image/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.6',
+        version: '1.0.7',
         name: '@uni/image',
         dependencies: {
-          '@uni/video': '^1.0.1',
+          '@uni/video': '^1.0.2',
         },
       },
     ],
@@ -314,7 +314,7 @@ module.exports = {
     path: 'src/packages/media/video/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/video',
         dependencies: {
           '@uni/action-sheet': '^1.0.4',
