@@ -314,7 +314,7 @@ module.exports = {
     path: 'src/packages/media/video/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0',
+        version: '1.0.1',
         name: '@uni/video',
         dependencies: {
           '@uni/action-sheet': '^1.0.4',
