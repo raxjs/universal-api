@@ -15,7 +15,7 @@ export const onChange = (cb: Callback) => {
   } else if (isWeb) {
     return webModule.onChange(cb);
   } else {
-    throw new Error('@uni/apis：Accelerometer暂不支持');
+    throw new Error('Uni API：Accelerometer暂不支持');
   }
 };
 export const offChange = (cb?: Callback) => {
@@ -28,7 +28,7 @@ export const offChange = (cb?: Callback) => {
   } else if (isWeb) {
     return webModule.onChange(cb);
   } else {
-    throw new Error('@uni/apis：Accelerometer暂不支持');
+    throw new Error('Uni API：Accelerometer暂不支持');
   }
 };
 export default {

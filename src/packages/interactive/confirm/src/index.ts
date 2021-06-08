@@ -15,7 +15,7 @@ export const confirm = (args: ConfirmOptions) => {
   } else if (isWeb) {
     return webModule(args);
   } else {
-    throw new Error('@uni/apis：confirm暂不支持');
+    throw new Error('Uni API：confirm暂不支持');
   }
 };
 

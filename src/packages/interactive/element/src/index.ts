@@ -14,7 +14,7 @@ export const getScrollOffset = (selector, context?) => {
   } else if (isWeb) {
     return webModule.getScrollOffset(selector);
   } else {
-    throw new Error('@uni/apis：element暂不支持');
+    throw new Error('Uni API：element暂不支持');
   }
 };
 export const getBoundingClientRect = (selector, context?) => {
@@ -27,7 +27,7 @@ export const getBoundingClientRect = (selector, context?) => {
   } else if (isWeb) {
     return webModule.getBoundingClientRect(selector);
   } else {
-    throw new Error('@uni/apis：element暂不支持');
+    throw new Error('Uni API：element暂不支持');
   }
 };
 

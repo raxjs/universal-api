@@ -1,6 +1,6 @@
 import { promisify } from '@utils/promisify';
 import { styleIn } from '@utils/styleOptions';
-import { OptionStruct, ResponseStruct, OpenOptionStruct } from './types';
+import { OptionStruct, ResponseStruct, OpenOptionStruct, ChooseLocationOptions } from './types';
 
 /**
  * getLocation返回值格式化
@@ -41,6 +41,15 @@ export function normalizeGetLocation(api, containerName) {
  */
 export function normalizeOpenLocation(api, containerName) {
   return (args: OpenOptionStruct) => {
+    return promisify(api)(styleIn(args, containerName));
+  };
+}
+
+/**
+ * chooseLocation
+ */
+export function normalizeChooseLocation(api, containerName) {
+  return (args: ChooseLocationOptions) => {
     return promisify(api)(styleIn(args, containerName));
   };
 }
