@@ -51,6 +51,7 @@ const random = (min, max, digit = 0) => {
 const Index = () => {
   const [visible, setVisible] = useState(true);
   const [selected, setSelected] = useState([]);
+  const [animationData, setAnimationData] = useState();
   const boxRef = useRef<any>();
   const ani = useRef<any>();
   if (!ani.current) {
@@ -115,7 +116,9 @@ const Index = () => {
       });
       inst.step();
     });
-    inst.export(boxRef.current);
+    const data = inst.export(boxRef.current);
+    console.log('animationData', data);
+    setAnimationData(data);
   };
 
   const addGroup = () => {
@@ -133,7 +136,7 @@ const Index = () => {
 
   return (
     <View>
-      {visible && <View style={styles.box} ref={boxRef} />}
+      {visible && <View style={styles.box} ref={boxRef} animation={animationData} />}
 
       <View style={styles.buttonWrapper}>
         <View style={styles.buttonGroup}>
