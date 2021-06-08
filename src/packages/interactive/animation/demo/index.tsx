@@ -72,6 +72,7 @@ const Index = () => {
     ani.current = animation.createAnimation();
     setVisible(false);
     setSelected([]);
+    setAnimationData({});
     setTimeout(() => {
       setVisible(true);
     }, 0);
