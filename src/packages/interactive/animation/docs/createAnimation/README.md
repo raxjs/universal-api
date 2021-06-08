@@ -310,8 +310,14 @@ interface Animation {
 ```
 
 
-## 注意
+## 常见问题
 
+### 在运行时小程序框架中使用时，首次动画变换不生效
+一些运行时的小程序框架，为了提升性能，会舍弃“空值”的属性，但是这对 `animation` 属性来说会有问题。
+所以，建议给绑定 `animation` 属性的数据设置空对象作为默认值: `{}`.
+
+
+### web 端使用
 由于在 web 端无法通过绑定动画队列数据到 `animation` 属性来实现动画效果，所以在 web 端使用场景下，`export` 方法需要传入一个 HTML 节点。
 
 **Tips**:
@@ -328,7 +334,7 @@ import { createAnimation } from '@uni/animation';
 
 export default function App() {
   const domRef = useRef();
-  const [animation, setAnimation] = useState();
+  const [animation, setAnimation] = useState({}); // 默认值设置为一个空对象
 
   useEffect(() => {
     const ani = createAnimation();

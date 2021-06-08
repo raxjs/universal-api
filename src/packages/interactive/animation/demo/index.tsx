@@ -51,7 +51,7 @@ const random = (min, max, digit = 0) => {
 const Index = () => {
   const [visible, setVisible] = useState(true);
   const [selected, setSelected] = useState([]);
-  const [animationData, setAnimationData] = useState();
+  const [animationData, setAnimationData] = useState({});
   const boxRef = useRef<any>();
   const ani = useRef<any>();
   if (!ani.current) {

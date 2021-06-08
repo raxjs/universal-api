@@ -34,7 +34,7 @@ animation
   .translate(100, 50)
   .step();
 
-// In the mini program, you need to pass `data` to the `animation` property of the component
+// In the mini-program, you need to pass `data` to the `animation` property of the component
 const data = animation.export();
 
 // If you need to support web-side scenarios, the `export` method needs to pass in additional binding HTML node
@@ -313,14 +313,20 @@ interface Animation {
 ```
 
 
-## 注意
+## Frequently Asked Questions
 
+### When used in the runtime mini-program framework, the animation does not take effect the first time
+Some runtime mini-program frameworks, in order to improve performance, will discard the "null value" attribute, which has problems for the `animation` property.
+Therefore, it is recommended to set an empty object as the default value for the data bound to the `animation` property: `{}`.
+
+
+### Web-side Usage
 Since it is not possible to bind the animation queue data to the `animation` property on the web side to achieve the animation effect,
 in the web side use scenario, the `export` method needs to pass in an HTML node.
 
 **Tips**:
 
-- If the current scene is a mini program, the incoming parameters will be ignored
+- If the current scene is a mini-program, the incoming parameters will be ignored
 - If the parameter passed in from the web is not an HTML node, it will be ignored
 
 **One-code multi-side animation example based on Rax (including web-side)**：
@@ -332,7 +338,7 @@ import { createAnimation } from '@uni/animation';
 
 export default function App() {
   const domRef = useRef();
-  const [animation, setAnimation] = useState();
+  const [animation, setAnimation] = useState({}); // The default value is set to an empty object
 
   useEffect(() => {
     const ani = createAnimation();
