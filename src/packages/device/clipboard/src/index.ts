@@ -13,7 +13,7 @@ export const getClipboard = (args) => {
   } else if (isMiniApp) {
     return aliMiniAppModule.getClipboard(args);
   } else {
-    throw new Error('@uni/apis：getClipboard暂不支持');
+    throw new Error('Uni API：getClipboard暂不支持');
   }
 };
 
@@ -27,7 +27,7 @@ export const setClipboard = (args) => {
   } else if (isWeb) {
     return webModule.setClipboard(args);
   } else {
-    throw new Error('@uni/apis：setClipboard暂不支持');
+    throw new Error('Uni API：setClipboard暂不支持');
   }
 };
 

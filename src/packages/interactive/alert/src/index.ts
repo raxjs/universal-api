@@ -15,7 +15,7 @@ export const alert: Alert = (args: Options) => {
   } else if (isWeb) {
     return webModule(args);
   } else {
-    throw new Error('@uni/apis：alert暂不支持');
+    throw new Error('Uni API：alert暂不支持');
   }
 };
 

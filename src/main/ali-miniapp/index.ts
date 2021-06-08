@@ -19,6 +19,8 @@ import image from '../../packages/media/image/src/ali-miniapp/index';
 import navigate from '../../packages/navigate/src/ali-miniapp/index';
 import request from '../../packages/network/request/src/ali-miniapp/index';
 import storage from '../../packages/storage/src/ali-miniapp/index';
+import recorder from '../../packages/media/recorder/src/ali-miniapp/index';
+import video from '../../packages/media/video/src/ali-miniapp/index';
 
 export {
   application,
@@ -42,6 +44,8 @@ export {
   navigate,
   request,
   storage,
+  recorder,
+  video,
 };
 
 
@@ -67,4 +71,6 @@ export default {
   navigate,
   request,
   storage,
+  recorder,
+  video,
 };

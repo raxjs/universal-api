@@ -19,6 +19,8 @@ import image from '../../packages/media/image/src/bytedance-microapp/index';
 import navigate from '../../packages/navigate/src/bytedance-microapp/index';
 import request from '../../packages/network/request/src/bytedance-microapp/index';
 import storage from '../../packages/storage/src/bytedance-microapp/index';
+import recorder from '../../packages/media/recorder/src/bytedance-microapp/index';
+import video from '../../packages/media/video/src/bytedance-microapp/index';
 
 export {
   application,
@@ -42,6 +44,8 @@ export {
   navigate,
   request,
   storage,
+  recorder,
+  video,
 };
 
 
@@ -67,4 +71,6 @@ export default {
   navigate,
   request,
   storage,
+  recorder,
+  video,
 };
