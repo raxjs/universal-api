@@ -91,7 +91,7 @@ const Index = () => {
             inst.scale(random(0.5, 1.5, 2));
             break;
           case '移动':
-            inst.translate(random(50, 50), random(50, 50));
+            inst.translate(random(-50, 50), random(-50, 50));
             break;
           case '倾斜':
             inst.skew(random(-30, 30), random(-30, 30));

@@ -124,7 +124,7 @@ export default class AnimationImpl implements Animation {
   rotate(angle = 0): Animation {
     this.currentStepAnimates.push({
       type: 'rotate',
-      args: [normalizeUnit(angle, 'deg')],
+      args: [normalizeUnit(angle, 'deg', true)],
     });
     return this;
   }
@@ -132,7 +132,7 @@ export default class AnimationImpl implements Animation {
   rotate3d(x = 0, y = 0, z = 0, angle = 0): Animation {
     this.currentStepAnimates.push({
       type: 'rotate3d',
-      args: [x, y, z, normalizeUnit(angle, 'deg')],
+      args: [x, y, z, normalizeUnit(angle, 'deg', true)],
     });
     return this;
   }
@@ -140,7 +140,7 @@ export default class AnimationImpl implements Animation {
   rotateX(angle = 0): Animation {
     this.currentStepAnimates.push({
       type: 'rotateX',
-      args: [normalizeUnit(angle, 'deg')],
+      args: [normalizeUnit(angle, 'deg', true)],
     });
     return this;
   }
@@ -148,7 +148,7 @@ export default class AnimationImpl implements Animation {
   rotateY(angle = 0): Animation {
     this.currentStepAnimates.push({
       type: 'rotateY',
-      args: [normalizeUnit(angle, 'deg')],
+      args: [normalizeUnit(angle, 'deg', true)],
     });
     return this;
   }
@@ -156,7 +156,7 @@ export default class AnimationImpl implements Animation {
   rotateZ(angle = 0): Animation {
     this.currentStepAnimates.push({
       type: 'rotateZ',
-      args: [normalizeUnit(angle, 'deg')],
+      args: [normalizeUnit(angle, 'deg', true)],
     });
     return this;
   }
@@ -207,7 +207,7 @@ export default class AnimationImpl implements Animation {
   translate(tx = 0, ty = 0): Animation {
     this.currentStepAnimates.push({
       type: 'translate',
-      args: [normalizeUnit(tx, 'px'), normalizeUnit(ty, 'px')],
+      args: [normalizeUnit(tx, 'px', true), normalizeUnit(ty, 'px', true)],
     });
     return this;
   }
@@ -216,9 +216,9 @@ export default class AnimationImpl implements Animation {
     this.currentStepAnimates.push({
       type: 'translate3d',
       args: [
-        normalizeUnit(tx, 'px'),
-        normalizeUnit(ty, 'px'),
-        normalizeUnit(tz, 'px'),
+        normalizeUnit(tx, 'px', true),
+        normalizeUnit(ty, 'px', true),
+        normalizeUnit(tz, 'px', true),
       ],
     });
     return this;
@@ -227,7 +227,7 @@ export default class AnimationImpl implements Animation {
   translateX(translation = 0): Animation {
     this.currentStepAnimates.push({
       type: 'translateX',
-      args: [normalizeUnit(translation, 'px')],
+      args: [normalizeUnit(translation, 'px', true)],
     });
     return this;
   }
@@ -235,7 +235,7 @@ export default class AnimationImpl implements Animation {
   translateY(translation = 0): Animation {
     this.currentStepAnimates.push({
       type: 'translateY',
-      args: [normalizeUnit(translation, 'px')],
+      args: [normalizeUnit(translation, 'px', true)],
     });
     return this;
   }
@@ -243,7 +243,7 @@ export default class AnimationImpl implements Animation {
   translateZ(translation = 0): Animation {
     this.currentStepAnimates.push({
       type: 'translateZ',
-      args: [normalizeUnit(translation, 'px')],
+      args: [normalizeUnit(translation, 'px', true)],
     });
     return this;
   }
@@ -251,7 +251,7 @@ export default class AnimationImpl implements Animation {
   skew(ax = 0, ay = 0): Animation {
     this.currentStepAnimates.push({
       type: 'skew',
-      args: [normalizeUnit(ax, 'deg'), normalizeUnit(ay, 'deg')],
+      args: [normalizeUnit(ax, 'deg', true), normalizeUnit(ay, 'deg', true)],
     });
     return this;
   }
@@ -259,7 +259,7 @@ export default class AnimationImpl implements Animation {
   skewX(angle = 0): Animation {
     this.currentStepAnimates.push({
       type: 'skewX',
-      args: [normalizeUnit(angle, 'deg')],
+      args: [normalizeUnit(angle, 'deg', true)],
     });
     return this;
   }
@@ -267,7 +267,7 @@ export default class AnimationImpl implements Animation {
   skewY(angle = 0): Animation {
     this.currentStepAnimates.push({
       type: 'skewY',
-      args: [normalizeUnit(angle, 'deg')],
+      args: [normalizeUnit(angle, 'deg', true)],
     });
     return this;
   }

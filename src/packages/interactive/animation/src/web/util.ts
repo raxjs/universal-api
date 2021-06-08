@@ -6,9 +6,10 @@ import { CONTAINER_NAME } from '@utils/constant';
  * normalize unit
  * @param value
  * @param unit
+ * @param force
  */
-export function normalizeUnit(value: number | string, unit: string) {
-  if (typeof value === 'number') {
+export function normalizeUnit(value: number | string, unit: string, force = false): string {
+  if (force || typeof value === 'number') {
     return `${value}${unit}`;
   }
   return value;
