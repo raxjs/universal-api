@@ -83,7 +83,7 @@ module.exports = {
     path: 'src/packages/device/clipboard/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.5-beta',
+        version: '1.0.5',
         name: '@uni/clipboard',
       },
     ],
@@ -101,7 +101,7 @@ module.exports = {
     path: 'src/packages/device/scan/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0',
         name: '@uni/scan',
       },
     ],
@@ -197,7 +197,7 @@ module.exports = {
     path: 'src/packages/interactive/pullDownRefresh/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0',
         name: '@uni/pull-down-refresh',
       },
     ],
@@ -251,7 +251,7 @@ module.exports = {
     path: 'src/packages/location/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.5-beta',
+        version: '1.0.5',
         name: '@uni/location',
       },
     ],
@@ -261,7 +261,7 @@ module.exports = {
     path: 'src/packages/media/image/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.5-beta1',
+        version: '1.0.5',
         name: '@uni/image',
         dependencies: {
           '@uni/video': '^1.0.0-beta1',
@@ -304,7 +304,7 @@ module.exports = {
     path: 'src/packages/media/recorder/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta',
+        version: '1.0.0',
         name: '@uni/recorder',
       },
     ],
@@ -314,7 +314,7 @@ module.exports = {
     path: 'src/packages/media/video/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0-beta1',
+        version: '1.0.0',
         name: '@uni/video',
         dependencies: {
           '@uni/action-sheet': '^1.0.4',
