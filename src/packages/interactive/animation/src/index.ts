@@ -5,20 +5,18 @@ import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 import { AnimationOptions } from './types';
 
-export function createAnimation(options?: AnimationOptions) {
+function createAnimation(options?: AnimationOptions) {
   if (isWeChatMiniProgram) {
-    return weChatModule.createAnimation(options);
+    return weChatModule(options);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.createAnimation(options);
+    return bytedanceModule(options);
   } else if (isMiniApp) {
-    return aliMiniAppModule.createAnimation(options);
+    return aliMiniAppModule(options);
   } else if (isWeb) {
-    return webModule.createAnimation(options);
+    return webModule(options);
   } else {
     throw new Error('@uni/apis：createAnimation 暂不支持');
   }
 }
 
-export default {
-  createAnimation,
-};
+export default createAnimation;

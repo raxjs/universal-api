@@ -1,6 +1,6 @@
 import { createElement, useRef, useState } from 'rax';
 import View from 'rax-view';
-import animation from '@uni/animation';
+import createAnimation from '@uni/animation';
 
 const styles = {
   box: {
@@ -51,7 +51,7 @@ const Index = () => {
   const boxRef = useRef<any>();
   const ani = useRef<any>();
   if (!ani.current) {
-    ani.current = animation.createAnimation();
+    ani.current = createAnimation();
   }
 
   const put = (name) => {
@@ -65,7 +65,7 @@ const Index = () => {
   };
 
   const reset = () => {
-    ani.current = animation.createAnimation();
+    ani.current = createAnimation();
     setVisible(false);
     setSelected([]);
     setAnimationData({});

@@ -1,6 +1,117 @@
 import { Animation, AnimationAction, AnimationActionAnimate, AnimationData, AnimationOptions } from '../types';
-import { getDefaultOptions, normalizeUnit } from './util';
-import applyWebAnimation from './apply';
+import { normalizeOptions } from '@/packages/interactive/animation/src/common';
+import { CONTAINER_NAME } from '@utils/constant';
+
+/**
+ * normalize unit
+ * @param value
+ * @param unit
+ * @param force
+ */
+function normalizeUnit(value: number | string, unit: string, force = false): string {
+  if (force || typeof value === 'number') {
+    return `${value}${unit}`;
+  }
+  return value;
+}
+
+/**
+ * merge default options
+ * @param options
+ */
+function getDefaultOptions(options?: AnimationOptions): AnimationOptions {
+  return normalizeOptions(
+    {
+      duration: 400,
+      timingFunction: 'linear',
+      delay: 0,
+      transformOrigin: '50% 50% 0',
+      ...options,
+    },
+    CONTAINER_NAME.WEB,
+  );
+}
+
+/**
+ * handle animation actions queue
+ * @param actions
+ * @param fn
+ * @param onFinish
+ */
+function handleActionsQueue(
+  actions: AnimationAction[],
+  fn: (action: AnimationAction, callback: () => void) => any,
+  onFinish?: () => any,
+) {
+  actions = actions.slice();
+  const action = actions.shift();
+  if (action) {
+    fn(action, () => handleActionsQueue(actions, fn, onFinish));
+  } else if (onFinish) {
+    onFinish();
+  }
+}
+
+
+function applyWebAnimation(actions: AnimationAction[], dom?: HTMLElement) {
+  // If `dom` is not HTML Node, ignore
+  if (!(dom && dom.nodeType === 1)) {
+    return;
+  }
+
+  // cache original style
+  const original = {
+    transitionProperty: dom.style.transitionProperty,
+    transitionDuration: dom.style.transitionDuration,
+    transitionDelay: dom.style.transitionDelay,
+    transitionTimingFunction: dom.style.transitionTimingFunction,
+    transformOrigin: dom.style.transformOrigin,
+  };
+
+  /**
+   * Apply animation action, return the current cost time
+   * @param action
+   */
+  const applyAction = (action): number => {
+    const { transition, transformOrigin } = action.option;
+
+    let transform = '';
+    action.animates.forEach((animate) => {
+      if (animate.type === 'style') {
+        const [property, value] = animate.args;
+        dom.style[property] = value;
+      } else {
+        transform += ` ${animate.type}(${animate.args.join(',')})`;
+      }
+    });
+    if (transform) {
+      dom.style.transform = transform;
+    }
+
+    dom.style.transitionProperty = 'all';
+    dom.style.transitionDuration = `${transition.duration}ms`;
+    dom.style.transitionDelay = `${transition.delay}ms`;
+    dom.style.transitionTimingFunction = transition.timingFunction;
+    dom.style.transformOrigin = transformOrigin;
+
+    const cost = transition.delay + transition.duration;
+    return isNaN(cost) ? 0 : cost;
+  };
+
+  let delay = 0;
+  handleActionsQueue(actions, (action, callback) => {
+    setTimeout(() => {
+      delay = applyAction(action);
+      callback();
+    }, delay);
+  }, () => {
+    // Restore the style at the end of the animation
+    setTimeout(() => {
+      Object.assign(dom.style, original);
+    }, delay);
+  });
+}
+
 
 export default class AnimationImpl implements Animation {
   private options: AnimationOptions;
@@ -298,3 +409,4 @@ export default class AnimationImpl implements Animation {
     return this;
   }
 }
+
