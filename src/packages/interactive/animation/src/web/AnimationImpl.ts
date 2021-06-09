@@ -1,5 +1,5 @@
 import { Animation, AnimationAction, AnimationActionAnimate, AnimationData, AnimationOptions } from '../types';
-import { normalizeOptions } from '@/packages/interactive/animation/src/common';
+import { normalizeOptions } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
 /**
