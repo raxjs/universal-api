@@ -21,7 +21,7 @@ $ npm install @uni/animation --save
 ## 示例
 
 ```js
-import createAnimation from '@uni/animation';
+import { createAnimation } from '@uni/animation';
 
 const animation = createAnimation();
 

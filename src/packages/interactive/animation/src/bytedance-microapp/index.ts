@@ -1,11 +1,9 @@
-import { Animation, AnimationOptions } from '../types';
-import { CONTAINER_NAME } from '@utils/constant';
-import { normalizeOptions } from '../common';
+import createAnimation from './createAnimation';
 
-function createAnimation(options?: AnimationOptions): Animation {
-  return tt.createAnimation(
-    normalizeOptions(options, CONTAINER_NAME.BYTE),
-  );
-}
+export {
+  createAnimation,
+};
 
-export default createAnimation;
+export default {
+  createAnimation,
+};

@@ -25,7 +25,7 @@ $ npm install @uni/animation --save
 ## Usage
 
 ```js
-import createAnimation from '@uni/animation';
+import { createAnimation } from '@uni/animation';
 
 const animation = createAnimation();
 
@@ -334,7 +334,7 @@ in the web side use scenario, the `export` method needs to pass in an HTML node.
 ```js
 import { createElement, useRef, useEffect, useState } from 'rax';
 import View from 'rax-view';
-import createAnimation from '@uni/animation';
+import { createAnimation } from '@uni/animation';
 
 export default function App() {
   const domRef = useRef();

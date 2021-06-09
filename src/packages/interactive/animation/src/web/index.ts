@@ -1,8 +1,9 @@
-import { Animation, AnimationOptions } from '../types';
-import AnimationImpl from './AnimationImpl';
+import createAnimation from './createAnimation';
 
-function createAnimation(options?: AnimationOptions): Animation {
-  return new AnimationImpl(options);
-}
+export {
+  createAnimation,
+};
 
-export default createAnimation;
+export default {
+  createAnimation,
+};

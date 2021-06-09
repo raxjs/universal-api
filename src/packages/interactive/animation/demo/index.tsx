@@ -1,6 +1,6 @@
 import { createElement, useRef, useState } from 'rax';
 import View from 'rax-view';
-import createAnimation from '@uni/animation';
+import { createAnimation } from '@uni/animation';
 
 const styles = {
   box: {

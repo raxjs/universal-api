@@ -24,7 +24,7 @@ $ npm install @uni/animation --save
 ## 示例
 
 ```js
-import createAnimation from '@uni/animation';
+import { createAnimation } from '@uni/animation';
 
 const animation = createAnimation();
 
@@ -330,7 +330,7 @@ interface Animation {
 ```js
 import { createElement, useRef, useEffect, useState } from 'rax';
 import View from 'rax-view';
-import createAnimation from '@uni/animation';
+import { createAnimation } from '@uni/animation';
 
 export default function App() {
   const domRef = useRef();
