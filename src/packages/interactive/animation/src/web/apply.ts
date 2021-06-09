@@ -7,6 +7,15 @@ export default function applyWebAnimation(actions: AnimationAction[], dom?: HTML
     return;
   }
 
+  // cache original style
+  const original = {
+    transitionProperty: dom.style.transitionProperty,
+    transitionDuration: dom.style.transitionDuration,
+    transitionDelay: dom.style.transitionDelay,
+    transitionTimingFunction: dom.style.transitionTimingFunction,
+    transformOrigin: dom.style.transformOrigin,
+  };
+
   /**
    * Apply animation action, return the current cost time
    * @param action
@@ -42,6 +51,11 @@ export default function applyWebAnimation(actions: AnimationAction[], dom?: HTML
     setTimeout(() => {
       delay = applyAction(action);
       callback();
+    }, delay);
+  }, () => {
+    // Restore the style at the end of the animation
+    setTimeout(() => {
+      Object.assign(dom.style, original);
     }, delay);
   });
 }

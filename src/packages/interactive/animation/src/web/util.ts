@@ -36,16 +36,18 @@ export function getDefaultOptions(options?: AnimationOptions): AnimationOptions 
  * handle animation actions queue
  * @param actions
  * @param fn
+ * @param onFinish
  */
 export function handleActionsQueue(
   actions: AnimationAction[],
   fn: (action: AnimationAction, callback: () => void) => any,
+  onFinish?: () => any,
 ) {
   actions = actions.slice();
   const action = actions.shift();
   if (action) {
-    fn(action, () => {
-      handleActionsQueue(actions, fn);
-    });
+    fn(action, () => handleActionsQueue(actions, fn, onFinish));
+  } else if (onFinish) {
+    onFinish();
   }
 }

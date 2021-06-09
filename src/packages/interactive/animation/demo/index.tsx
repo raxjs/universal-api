@@ -1,9 +1,5 @@
-/* eslint-disable import/no-extraneous-dependencies */
-// @ts-ignore
 import { createElement, useRef, useState } from 'rax';
-// @ts-ignore
 import View from 'rax-view';
-// @ts-ignore
 import animation from '@uni/animation';
 
 const styles = {
