@@ -1,5 +1,5 @@
 import { isWeChatMiniProgram, isByteDanceMicroApp } from '@uni/env';
-import { StartOptions, StopOptions } from './types';
+import { StartOptions, StopOptions, SwitchOptions } from './types';
 import { promisify } from '@utils/promisify';
 import { styleIn } from '@utils/styleOptions';
 
@@ -34,7 +34,7 @@ export function normalizeStop(api: (args) => any, containerName: string) {
  * @returns
  */
 export function normalizeSwitch(api: (args) => any, containerName: string) {
-  return (args?: StopOptions) => {
+  return (args?: SwitchOptions) => {
     return promisify(api)(styleIn(args, containerName));
   };
 }

@@ -37,7 +37,7 @@ pullDownRefresh.onPullDownRefresh();
 
 You can add event listener:
 ```js
-window.events.register("pulldownrefresh", cb);
+pullDownRefresh.onPullDownRefresh({eventCallback: cb});
 ```
 ## Methods
 
@@ -50,6 +50,7 @@ window.events.register("pulldownrefresh", cb);
 | options | `object`  |  | ✔️ | - |
 | options.pullRefresh | `boolean`  | The switch of manual pulldownRefresh | ✘ | true |
 | options.triggerDistance | `number`  | The pull-down distance required when the pull-down refresh is triggered | ✘ | 90 |
+| options.eventCallback | `Function`  | The callback function when the event is triggered | ✘ | - |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
@@ -64,6 +65,8 @@ Starts swipe-down-to-refresh.
 ## Supported
 
 <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp">
+
+Note: DingTalk applet does not support startPullDownRefresh
 
 ## Install
 

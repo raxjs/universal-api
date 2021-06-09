@@ -5,13 +5,6 @@ import {
   CONTAINER_NAME,
 } from '@utils/constant';
 import Events from '@utils/event';
-import { isWeb } from '@uni/env';
-
-if (isWeb) {
-  if (!(window as any).events) {
-    (window as any).events = new Events();
-  }
-}
 
 class PullDownRefresh {
   enablePullDownRefresh: (params) => void;
@@ -142,13 +135,13 @@ class PullDownRefresh {
         this.cb3 = function (e) {
           if (_transitionHeight > triggerDistance) {
             _getRefresh(2);
-            // console.log("触发更新")
+            // console.log("触发更新", 'on');
             (window as any).events.emit('pulldownrefresh');
           }
           setTimeout(() => {
             _startPos = 0;
             _transitionHeight = 0;
-          }, 2000);
+          }, 20);
         };
         _element.addEventListener('touchend', this.cb3, true);
       }
@@ -181,9 +174,14 @@ class PullDownRefresh {
  * 开启手动下拉刷新
  */
 const onPullDownRefresh = normalizeSwitch(({
-  pullRefresh = true, triggerDistance = 90, success = () => {}, fail = () => {}, complete = () => {},
+  pullRefresh = true, triggerDistance = 90, eventCallback = () => {}, success = () => {}, fail = () => {}, complete = () => {},
 }) => {
   try {
+    if (!(window as any).events) {
+      (window as any).events = new Events();
+    }
+
+    (window as any).events.register('pulldownrefresh', eventCallback);
     const pullDownRefresh = new PullDownRefresh();
     if (pullRefresh) {
       pullDownRefresh.enablePullDownRefresh(triggerDistance);

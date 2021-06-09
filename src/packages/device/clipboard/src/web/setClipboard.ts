@@ -4,30 +4,49 @@ import { CONTAINER_NAME } from '@utils/constant';
 
 const setClipboard = normalizeSet((args: PARAMS) => {
   const { text = '', success = () => {}, fail = () => {}, complete = () => {} } = args || {};
-  const input = document.createElement('input');
-  input.setAttribute('readonly', 'readonly');
-  input.setAttribute('value', text);
-  input.style.position = 'fixed';
-  input.style.height = '0px';
-  document.body.appendChild(input);
-  input.focus();
-  input.setSelectionRange(0, -1);
-  const removeInput = (): void => {
-    document.body.removeChild(input);
+  let textArea;
+
+  const isOS = () => {
+    return navigator.userAgent.match(/ipad|iphone/i);
   };
-  try {
-    if (document.execCommand('copy')) {
-      removeInput();
-      success(text);
-      complete(text);
-      return text;
+
+  const createTextArea = () => {
+    textArea = document.createElement('textArea');
+    textArea.value = text;
+    document.body.appendChild(textArea);
+  };
+
+  const selectText = () => {
+    let range;
+    let selection;
+
+    if (isOS()) {
+      range = document.createRange();
+      range.selectNodeContents(textArea);
+      selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      textArea.setSelectionRange(0, 999999);
     } else {
-      removeInput();
-      fail();
+      textArea.select();
     }
+  };
+
+  const copyToClipboard = () => {
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+  };
+
+  try {
+    createTextArea();
+    selectText();
+    copyToClipboard();
+    success(text);
+    complete(text);
+    return text;
   } catch (error) {
-    removeInput();
-    fail();
+    fail(error);
+    complete(text);
   }
 }, CONTAINER_NAME.WEB);
 

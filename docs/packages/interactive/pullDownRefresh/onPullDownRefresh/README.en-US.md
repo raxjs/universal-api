@@ -11,7 +11,7 @@
 Turn on drop-down refresh. The drop-down refresh triggers the "pulldownrefresh" event.
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
-<div style="margin-right: 20px;">
+<div style="margin-right: 20px;max-width: 50%;">
 
 ## Supported
 
@@ -56,7 +56,13 @@ window.events.register("pulldownrefresh", cb);
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| options.pullRefresh | `boolean`  | The switch of manual pulldownRefresh | ✘ | - |
+| options.pullRefresh | `boolean`  | The switch of manual pulldownRefresh | ✘ | true |
+| options.triggerDistance | `number`  | The pull-down distance required when the pull-down refresh is triggered | ✘ | 90 |
+| options.eventCallback | `Function`  | The callback function when the event is triggered | ✘ | - |
+| options.success | `Function`  | The callback function for a successful API call | ✘ | - |
+| options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
+| options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
+
 
 </div>
 <div>
@@ -77,7 +83,7 @@ export default () => (
 
 <!-- <div style="display: flex;margin-top: 50px;">
   <div>
-    <img src="https://img.alicdn.com/imgextra/i2/O1CN01iI0BJv1EyrORuBMUh_!!6000000000421-0-tps-690-662.jpg" width="200" height="200" />
+    <img src="https://img.alicdn.com/imgextra/i2/O1CN01iI0BJv1EyrORuBMUh_!!6000000000421-0-tps-690-662.jpg" width="220" height="200" />
     <div style="text-align: center;">wechat miniprogram</div>
   </div>
 </div> -->

@@ -1,15 +1,11 @@
 import { normalizeStart } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 import Events from '@utils/event';
-import { isWeb } from '@uni/env';
 
-if (isWeb) {
+const _startPullDownRefresh = () => {
   if (!(window as any).events) {
     (window as any).events = new Events();
   }
-}
-
-const _startPullDownRefresh = () => {
   const clsPrefix = '__universal_pulldownrefresh';
 
   const styles = {

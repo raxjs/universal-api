@@ -1,3 +1,9 @@
+## 1.0.5 (2021-06-03)
+
+### Features
+
+* 新增 chooseLocation API
+
 ## 1.0.4 (2021-05-17)
 
 ### Features
