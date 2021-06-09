@@ -15,7 +15,7 @@ const createIntersectionObserver: CreateIntersectionObserver = (...args) => {
   } else if (isWeb) {
     return webModule(...args);
   } else {
-    throw new Error('@uni/apis：IntersectionObserver暂不支持');
+    throw new Error('Uni API：IntersectionObserver暂不支持');
   }
 };
 

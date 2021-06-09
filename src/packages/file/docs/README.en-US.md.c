@@ -104,7 +104,7 @@ Upload local resources to the developer server.
 | timeout | `Number` |  | x    | Upload timeout  | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
 
 #### Return
-Notice: Notice: Alipay applet only supports client 10.1.35 and above. Please use it with caution because it will destroy one code with multiple platforms. When using it, please make sure that it is not empty, and the `upload` will return empty under containers that do not support UploadTask.. Please use it with caution because it will destroy one code with multiple platforms. When using it, please make sure that it is not empty, and the `upload` will return empty under containers that do not support UploadTask.
+Notice: Alipay applet only supports client 10.1.35 and above. Please use it with caution because it will destroy one code with multiple platforms. When using it, please make sure that it is not empty, and the `upload` will return empty under containers that do not support UploadTask.
 
 **UploadTask**
 

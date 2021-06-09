@@ -19,6 +19,8 @@ import image from '../../packages/media/image/src/web/index';
 import navigate from '../../packages/navigate/src/web/index';
 import request from '../../packages/network/request/src/web/index';
 import storage from '../../packages/storage/src/web/index';
+import recorder from '../../packages/media/recorder/src/web/index';
+import video from '../../packages/media/video/src/web/index';
 
 export {
   application,
@@ -42,6 +44,8 @@ export {
   navigate,
   request,
   storage,
+  recorder,
+  video,
 };
 
 
@@ -67,4 +71,6 @@ export default {
   navigate,
   request,
   storage,
+  recorder,
+  video,
 };

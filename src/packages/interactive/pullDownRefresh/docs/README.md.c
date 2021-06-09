@@ -35,7 +35,7 @@ pullDownRefresh.onPullDownRefresh();
 
 监听事件
 ```js
-window.events.register("pulldownrefresh", cb);
+pullDownRefresh.onPullDownRefresh({eventCallback: cb});
 ```
 
 ## 方法
@@ -49,6 +49,7 @@ window.events.register("pulldownrefresh", cb);
 | options | `object`  |  | ✔️ | - |
 | options.pullRefresh | `boolean`  | 下拉刷新开关 | ✘ | true |
 | options.triggerDistance | `number`  | 下拉刷新触发时所需的下拉距离 | ✘ | 90 |
+| options.eventCallback | `Function`  | 事件触发时的回调函数 | ✘ | - |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
@@ -63,6 +64,8 @@ window.events.register("pulldownrefresh", cb);
 ## 支持
 
 <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序">
+
+注意：钉钉小程序不支持 startPullDownRefresh
 
 ## 安装
 

@@ -15,7 +15,7 @@ export const showLoading = (args?: ShowOptions) => {
   } else if (isWeb) {
     return webModule.showLoading(args);
   } else {
-    throw new Error('@uni/apis：showLoading暂不支持');
+    throw new Error('Uni API：showLoading暂不支持');
   }
 };
 
@@ -29,7 +29,7 @@ export const hideLoading = (args?: HideOptions) => {
   } else if (isWeb) {
     return webModule.hideLoading(args);
   } else {
-    throw new Error('@uni/apis：hideLoading暂不支持');
+    throw new Error('Uni API：hideLoading暂不支持');
   }
 };
 
