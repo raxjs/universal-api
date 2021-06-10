@@ -86,6 +86,6 @@ module.exports = (api ,options = {}) => {
     await initPkg(entry, pkgInfo, output, sourceMap, apiInfo, isMain);
   });
   onHook('after.build.compile', () => {
-    gulpRelease(api, { entry, output, isMain, apiInfo });
+    gulpRelease(api, { sourceMap, entry, output, isMain, apiInfo });
   });
 }
