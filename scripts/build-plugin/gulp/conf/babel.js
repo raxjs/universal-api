@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-module.exports = (isEs, isMain) => {
+module.exports = (isEs, isMain, aliasEntries) => {
   let res = {
     presets: [
       [
@@ -53,6 +53,22 @@ module.exports = (isEs, isMain) => {
             
               return sourcePath.replace(oriUtilsPath, pointRelative + '/' + newUtilsPath);
             }
+            let res = sourcePath;
+            const oriPackagesPath = '@uni/';
+            if (isMain && sourcePath.indexOf(oriPackagesPath) !== -1) {
+              const pathLv = currentFile.replace(/.*?\/src\/packages\//).split('/').length - 1;
+              const pointRelative = pathLv === 0 ? '.' : Array.from({length: pathLv}).map(i => '..').join('/');
+              
+              aliasEntries.some(item => {
+                if (sourcePath.indexOf(item.find) !== -1) {
+                  res = sourcePath.replace(item.find, pointRelative + '/' + item.replacement);
+                  return true;
+                }
+                return false;
+              });
+              
+            }
+            return res;
           }
         }
       ],

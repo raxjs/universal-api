@@ -294,7 +294,7 @@ module.exports = {
     path: 'src/packages/storage/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.5',
+        version: '1.0.6',
         name: '@uni/storage',
       },
     ],

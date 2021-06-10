@@ -1,7 +1,6 @@
 import { promisify } from '@utils/promisify';
 import { styleIn } from '@utils/styleOptions';
-import { GetOrRemoveOptionStruct, SetOptionStruct } from './types';
-
+import { GetOrRemoveOptionStruct, SetOptionStruct, GetStorageRes } from './types';
 /**
  * @param params
  */
@@ -22,7 +21,7 @@ function formatGetStorageRes(params: GetOrRemoveOptionStruct) {
 
 export const normalize = {
   getStorage: (api, containerName) => {
-    return (args: GetOrRemoveOptionStruct) => {
+    return (args: GetOrRemoveOptionStruct): GetStorageRes => {
       args = styleIn(args, containerName);
       return promisify(api)(formatGetStorageRes(args)).catch((e) => {
         if (e.errMsg === 'getStorage:fail data not found') {
