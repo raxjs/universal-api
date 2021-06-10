@@ -1,0 +1,15 @@
+{
+  "targets": [
+    "web",
+    "miniapp",
+    "wechat-miniprogram"
+  ],
+  "wechat-miniprogram": {
+    "nativeConfig": {
+      "appId": "wxd2baa67ef3251bd9"
+    }
+  },
+  "web": {
+    "doctype": "<!DOCTYPE html>"
+  }
+}

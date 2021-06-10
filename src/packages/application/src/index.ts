@@ -20,6 +20,7 @@ export const getApp = () => {
     throw new Error('@uni：application.getApp 暂不支持');
   }
 };
+
 export const getCurrentPages = () => {
   if (isWeChatMiniProgram) {
     return weChatModule.getCurrentPages();

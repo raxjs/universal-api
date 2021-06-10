@@ -6,7 +6,7 @@
 显示模态对话框。
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
-<div style="margin-right: 20px;">
+<div style="margin-right: 20px;max-width: 50%;">
 
 ## 支持
 
@@ -108,7 +108,7 @@ export default () => (
 
 <div style="display: flex;margin-top: 50px;">
   <div>
-    <img src="https://img.alicdn.com/imgextra/i4/O1CN01RnrL8i1MP9RAdNEXP_!!6000000001426-0-tps-738-662.jpg" width="200" height="200" />
+    <img src="https://img.alicdn.com/imgextra/i4/O1CN01RnrL8i1MP9RAdNEXP_!!6000000001426-0-tps-738-662.jpg" width="220" height="200" />
     <div style="text-align: center;">微信小程序</div>
   </div>
 </div>

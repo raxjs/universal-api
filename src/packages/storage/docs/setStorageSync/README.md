@@ -10,7 +10,7 @@
 > 同步数据IO操作可能会影响小程序流畅度，建议使用异步接口，或谨慎处理调用异常。
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
-<div style="margin-right: 20px;">
+<div style="margin-right: 20px;max-width: 50%;">
 
 ## 支持
 
@@ -81,7 +81,7 @@ export default () => (
 
 <div style="display: flex;margin-top: 50px;">
   <div>
-    <img src="https://img.alicdn.com/imgextra/i2/O1CN01uDGumH1UwbI5mxYOZ_!!6000000002582-0-tps-646-638.jpg" width="200" height="200" />
+    <img src="https://img.alicdn.com/imgextra/i2/O1CN01uDGumH1UwbI5mxYOZ_!!6000000002582-0-tps-646-638.jpg" width="220" height="200" />
     <div style="text-align: center;">微信小程序</div>
   </div>
 </div>

@@ -4,7 +4,7 @@
 Route navigation capability implementation.
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
-<div style="margin-right: 20px;">
+<div style="margin-right: 20px;max-width: 50%;">
 
 ## Support
 
@@ -60,6 +60,11 @@ export default () => (
     }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/navigate/index&topSlider=false'></iframe>
 );
 ```
-
+<div style="display: flex;margin-top: 50px;">
+  <div>
+    <img src="https://img.alicdn.com/imgextra/i1/O1CN01Ky8HXS23ytpewgaAV_!!6000000007325-0-tps-688-630.jpg" width="220" height="200" />
+    <div style="text-align: center;">wechat miniprogram</div>
+  </div>
+</div>
 </div>
 </div>
