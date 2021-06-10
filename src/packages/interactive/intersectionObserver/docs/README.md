@@ -6,7 +6,7 @@
 用于推断某些节点是否可以被用户看见、有多大比例可以被用户看见。
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
-<div style="margin-right: 20px;">
+<div style="margin-right: 20px;max-width: 50%;">
 
 ## 支持
 
@@ -209,7 +209,7 @@ export default () => (
 
 <div style="display: flex;margin-top: 50px;">
   <div>
-    <img src="https://img.alicdn.com/imgextra/i1/O1CN01sbwluA1elHfCzI6Y1_!!6000000003911-0-tps-712-632.jpg" width="200" height="200" />
+    <img src="https://img.alicdn.com/imgextra/i1/O1CN01sbwluA1elHfCzI6Y1_!!6000000003911-0-tps-712-632.jpg" width="220" height="200" />
     <div style="text-align: center;">微信小程序</div>
   </div>
 </div>

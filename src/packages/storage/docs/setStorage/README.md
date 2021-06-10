@@ -9,7 +9,7 @@
 > 各平台对数据存储大小的限制不同，不建议存储过大的数据，其中支付宝和钉钉小程序单个key允许存储的最大数据大小为 `200KB`，微信和字节跳动小程序单个 key 允许存储的最大数据长度为 `1MB`，所有小程序平台总体缓存数据上限均为 `10M`
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
-<div style="margin-right: 20px;">
+<div style="margin-right: 20px;max-width: 50%;">
 
 ## 支持
 
@@ -104,7 +104,7 @@ export default () => (
 
 <div style="display: flex;margin-top: 50px;">
   <div>
-    <img src="https://img.alicdn.com/imgextra/i2/O1CN01uDGumH1UwbI5mxYOZ_!!6000000002582-0-tps-646-638.jpg" width="200" height="200" />
+    <img src="https://img.alicdn.com/imgextra/i2/O1CN01uDGumH1UwbI5mxYOZ_!!6000000002582-0-tps-646-638.jpg" width="220" height="200" />
     <div style="text-align: center;">微信小程序</div>
   </div>
 </div>

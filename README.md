@@ -20,7 +20,7 @@ Uni API 是一套支持小程序和 Web 容器的跨端 API 解决方案。
 
 🚀 **极致体积** 支持按需加载，按环境剔除无用代码
 
-👍🏻 **简易使用，快速接入** 提供完善的 Typescripts 声明，让你可以摆脱文档，沉浸编程
+👍🏻 **简易使用，快速接入** 提供完善的 TypeScript 声明，让你可以摆脱文档，沉浸编程
 
 ## 快速使用
 
@@ -53,6 +53,7 @@ showToast({
 ```
 
 ## 文档
+
 官方站点：[https://universal-api.js.org/](https://universal-api.js.org/)
 
 ## 示例
@@ -62,6 +63,7 @@ showToast({
 |<img src="https://img.alicdn.com/imgextra/i1/O1CN01upA1bP1CxpGb8qLPp_!!6000000000148-0-tps-662-662.jpg" width="200" height="200" />|<img src="https://gw.alicdn.com/imgextra/i3/O1CN01Ca6t2Q2AEpIXh4r0u_!!6000000008172-0-tps-1540-1906.jpg" width="200" height="250" />|
 
 ## 贡献代码
+
 请首先阅读 [Rax 贡献代码指南](https://github.com/alibaba/rax/wiki/CONTRIBUTING)，了解基础的规范。
 
 ### 起步
@@ -73,14 +75,10 @@ $ npm run build
 ```
 
 ### 调试 API
-以 @uni/toast 为例：
 
 ```bash
-$ npm run build toast
-$ npm run build:demo
-$ cd demos
-$ npm i
-$ npm run start # 启动项目，打开小程序 IDE 进行调试
+$ npm run demo:init
+$ npm run demo:dev
 ```
 
 然后使用小程序 IDE 即可开始调试:
@@ -88,6 +86,7 @@ $ npm run start # 启动项目，打开小程序 IDE 进行调试
 <img height="400" src="https://gw.alicdn.com/imgextra/i3/O1CN01qDANFg1QRDiWoHzHr_!!6000000001972-0-tps-2048-1418.jpg">
 
 ### 更新版本
+
 API package 版本统一维护在根目录下的api-config.js，以 @uni/toast 为例：
 
 ```js
@@ -111,8 +110,8 @@ module.exports = {
 |needCommonUtil|	是否需要公共utils|	true|
 |unNeedSplit|	是否需要安环境分包|	false|
 
-
 大包版本需要更新根目录下的 package.json 的 version
+
 ## 协议
 
 [BSD License](https://github.com/raxjs/miniapp/blob/master/LICENSE)

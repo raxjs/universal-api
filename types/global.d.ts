@@ -8,3 +8,4 @@ declare const getApp: any;
 declare const getCurrentPages: any;
 declare const getLaunchOptionsSync: any;
 declare const __weex_require__: any;
+declare const MediaRecorder: any;

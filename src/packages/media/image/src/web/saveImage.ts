@@ -1,5 +1,5 @@
 const saveImage = () => {
-  throw new Error('@uni/apis: saveImage不支持');
+  throw new Error('Uni API: saveImage不支持');
 };
 
 export default saveImage;

@@ -12,7 +12,7 @@ title: getCurrentPages
 Gets the current page stack. In the array, the first element is the homepage and the last element is the current page.
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
-<div style="margin-right: 20px;">
+<div style="margin-right: 20px;max-width: 50%;">
 
 ## Support
 
@@ -70,7 +70,7 @@ export default () => (
 
 <div style="display: flex;margin-top: 50px;">
   <div>
-    <img src="https://img.alicdn.com/imgextra/i2/O1CN01s3EQfw20xZqFHXpBM_!!6000000006916-0-tps-706-636.jpg" width="200" height="200" />
+    <img src="https://img.alicdn.com/imgextra/i2/O1CN01s3EQfw20xZqFHXpBM_!!6000000006916-0-tps-706-636.jpg" width="220" height="200" />
     <div style="text-align: center;">wechat miniprogram</div>
   </div>
 </div>
