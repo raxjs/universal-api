@@ -1,5 +1,5 @@
 import { Animation, AnimationAction, AnimationActionAnimate, AnimationData, AnimationOptions } from '../types';
-import { normalizeOptions } from '../common';
+import { getDefaultOptions } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
 /**
@@ -13,23 +13,6 @@ function normalizeUnit(value: number | string, unit: string, force = false): str
     return `${value}${unit}`;
   }
   return value;
-}
-
-/**
- * merge default options
- * @param options
- */
-function getDefaultOptions(options?: AnimationOptions): AnimationOptions {
-  return normalizeOptions(
-    {
-      duration: 400,
-      timingFunction: 'linear',
-      delay: 0,
-      transformOrigin: '50% 50% 0',
-      ...options,
-    },
-    CONTAINER_NAME.WEB,
-  );
 }
 
 /**
@@ -120,7 +103,7 @@ export default class AnimationImpl implements Animation {
   private currentStepAnimates: AnimationActionAnimate[];
 
   constructor(options?: AnimationOptions) {
-    this.options = getDefaultOptions(options);
+    this.options = getDefaultOptions(CONTAINER_NAME.WEB, options);
     this.actions = [];
     this.currentTransform = {};
     this.currentStepAnimates = [];
@@ -137,7 +120,7 @@ export default class AnimationImpl implements Animation {
   }
 
   step(options?: AnimationOptions): Animation {
-    options = options ? getDefaultOptions(options) : this.options;
+    options = options ? getDefaultOptions(CONTAINER_NAME.WEB, options) : this.options;
 
     this.currentStepAnimates.forEach((animate) => {
       let key = animate.type;
