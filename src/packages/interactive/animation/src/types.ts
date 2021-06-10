@@ -283,3 +283,21 @@ export interface Animation {
     a4: number, b4: number, c4: number, d4: number
   ) => Animation;
 }
+
+interface TransitionStyleOptions {
+  opacity?: number;
+  backgroundColor?: string;
+  width?: number | string;
+  height?: number | string;
+  left?: number | string;
+  right?: number | string;
+  top?: number | string;
+  bottom?: number | string;
+  transform?: string;
+}
+
+export interface TransitionOptions {
+  from?: TransitionStyleOptions;
+  to?: TransitionStyleOptions;
+  options?: AnimationOptions;
+}
