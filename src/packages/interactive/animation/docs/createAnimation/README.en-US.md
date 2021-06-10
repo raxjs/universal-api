@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
 [![npm](https://img.shields.io/npm/v/@uni/animation.svg)](https://www.npmjs.com/package/@uni/animation)
 
-Create an animation instance `Animation`.
+Create an animation instance [`Animation`](#toc-animation-interface).
 
 You can use the **chain call** instance method to describe the animation, and finally export the animation data by the `export` method, and then bind the animation data to the component or HTML node.
 
@@ -65,7 +65,7 @@ createAnimation(options): Animation
 
 Returns an instance of an `Animation` class
 
-### Animation
+### <span id="toc-animation-interface">Animation</span>
 
 ```ts
 interface Animation {

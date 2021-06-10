@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
 [![npm](https://img.shields.io/npm/v/@uni/animation.svg)](https://www.npmjs.com/package/@uni/animation)
 
-创建一个动画实例 `Animation`。
+创建一个动画实例 [`Animation`](#toc-animation-interface)。
 
 可以通过 **链式调用** 实例方法来描述动画，最后通过 `export` 方法导出动画数据，然后将动画数据与组件或 HTML 节点绑定。
 
@@ -64,7 +64,7 @@ createAnimation(options): Animation
 
 返回一个 `Animation` 对象
 
-### Animation
+### <span id="toc-animation-interface">Animation</span>
 
 ```ts
 interface Animation {

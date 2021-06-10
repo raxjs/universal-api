@@ -59,11 +59,11 @@ createTransition(options): Animation
 
 | 属性名 | 类型 | 描述 | 必填 | 默认值 |
 | --- | --- | --- | --- | --- |
-| from | `TransitionStyleOptions` | 配置起始状态下的样式 | 否 | - |
-| to | `TransitionStyleOptions` | 配置结束状态下的样式 | 否 | -  |
-| options | `AnimationOptions` | 配置过渡动画选项 | 否 | - |
+| from | [`TransitionStyleOptions`](#toc-transition-style-options) | 配置起始状态下的样式 | 否 | - |
+| to | [`TransitionStyleOptions`](#toc-transition-style-options) | 配置结束状态下的样式 | 否 | -  |
+| options | [`AnimationOptions`](#toc-animation-options) | 配置过渡动画选项 | 否 | - |
 
-### `TransitionStyleOptions`
+### <span id="toc-transition-style-options">`TransitionStyleOptions`</span>
 
 | 属性名 | 类型 | 描述 | 必填 | 默认值 |
 | --- | --- | --- | --- | --- |
@@ -86,7 +86,7 @@ createTransition(options): Animation
 | scale / scale3d / scaleX / scaleY / scaleZ / matrix / matrix3d | - | `scale(1.5)` |
 | rotate3d | -, -, -, `deg` | `rotate3d(1, 2, 3, 10deg)` |
 
-### `AnimationOptions`
+### <span id="toc-animation-options">`AnimationOptions`</span>
 
 | 属性名 | 类型 | 描述 | 必填 | 默认值 |
 | --- | --- | --- | --- | --- |

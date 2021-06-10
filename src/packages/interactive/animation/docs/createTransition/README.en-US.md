@@ -58,11 +58,11 @@ createTransition(options): Animation
 
 | Property | Type | Description | Required | Default |
 | --- | --- | --- | --- | --- |
-| from | `TransitionStyleOptions` | Configure the style of the start state | No | - |
-| to | `TransitionStyleOptions` | Configure the style of the end state | No | -  |
-| options | `AnimationOptions` | Configure transition animation options | No | - |
+| from | [`TransitionStyleOptions`](#toc-transition-style-options) | Configure the style of the start state | No | - |
+| to | [`TransitionStyleOptions`](#toc-transition-style-options) | Configure the style of the end state | No | -  |
+| options | [`AnimationOptions`](#toc-animation-options) | Configure transition animation options | No | - |
 
-### `TransitionStyleOptions`
+### <span id="toc-transition-style-options">`TransitionStyleOptions`</span>
 
 | Property | Type | Description | Required | Default |
 | --- | --- | --- | --- | --- |
@@ -85,7 +85,7 @@ createTransition(options): Animation
 | scale / scale3d / scaleX / scaleY / scaleZ / matrix / matrix3d | - | `scale(1.5)` |
 | rotate3d | -, -, -, `deg` | `rotate3d(1, 2, 3, 10deg)` |
 
-### `AnimationOptions`
+### <span id="toc-animation-options">`AnimationOptions`</span>
 
 | Property | Type | Description | Required | Default |
 | --- | --- | --- | --- | --- |
