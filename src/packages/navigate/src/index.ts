@@ -15,7 +15,7 @@ export const push = (options: IPushOptions) => {
   } else if (isWeb) {
     return webModule.push(options);
   } else {
-    throw new Error('@uni/apis：navigate.push暂不支持');
+    throw new Error('Uni API：navigate.push暂不支持');
   }
 };
 export const go = (options: IGoOptions) => {
@@ -28,7 +28,7 @@ export const go = (options: IGoOptions) => {
   } else if (isWeb) {
     return webModule.go(options);
   } else {
-    throw new Error('@uni/apis：navigate.go暂不支持');
+    throw new Error('Uni API：navigate.go暂不支持');
   }
 };
 export const back = (options?: IPopOptions) => {
@@ -41,7 +41,7 @@ export const back = (options?: IPopOptions) => {
   } else if (isWeb) {
     return webModule.back(options);
   } else {
-    throw new Error('@uni/apis：navigate.back暂不支持');
+    throw new Error('Uni API：navigate.back暂不支持');
   }
 };
 export const replace = (options: IReplaceOptions) => {
@@ -54,7 +54,7 @@ export const replace = (options: IReplaceOptions) => {
   } else if (isWeb) {
     return webModule.replace(options);
   } else {
-    throw new Error('@uni/apis：navigate.replace暂不支持');
+    throw new Error('Uni API：navigate.replace暂不支持');
   }
 };
 export const reLaunch = (options: IReLaunchOptions) => {
@@ -67,7 +67,7 @@ export const reLaunch = (options: IReLaunchOptions) => {
   } else if (isWeb) {
     return webModule.reLaunch(options);
   } else {
-    throw new Error('@uni/apis：navigate.reLaunch暂不支持');
+    throw new Error('Uni API：navigate.reLaunch暂不支持');
   }
 };
 

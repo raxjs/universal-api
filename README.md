@@ -76,14 +76,9 @@ $ npm run build
 
 ### 调试 API
 
-以 `@uni/toast` 为例：
-
 ```bash
-$ npm run build toast
-$ npm run build:demo
-$ cd demos
-$ npm i
-$ npm run start # 启动项目，打开小程序 IDE 进行调试
+$ npm run demo:init
+$ npm run demo:dev
 ```
 
 然后使用小程序 IDE 即可开始调试:

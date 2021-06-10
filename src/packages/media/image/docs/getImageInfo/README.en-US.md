@@ -1,3 +1,9 @@
+---
+  group:
+    path: /en-US/packages/media
+    title: media
+---
+
 # getImageInfo 
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis) [![npm](https://img.shields.io/npm/v/@uni/image.svg)](https://www.npmjs.com/package/@uni/image)
@@ -5,7 +11,7 @@
 Obtains image information. For network images, it only takes effect when the download domain name is configured.
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
-<div style="margin-right: 20px;">
+<div style="margin-right: 20px;max-width: 50%;">
 
 ## Supported
 
@@ -134,7 +140,7 @@ export default () => (
 
 <div style="display: flex;margin-top: 50px;">
   <div>
-    <img src="https://img.alicdn.com/imgextra/i4/O1CN018P0jBN1Spc1Asc3d4_!!6000000002296-0-tps-690-618.jpg" width="200" height="200" />
+    <img src="https://img.alicdn.com/imgextra/i4/O1CN018P0jBN1Spc1Asc3d4_!!6000000002296-0-tps-690-618.jpg" width="220" height="200" />
     <div style="text-align: center;">wechat miniprogram</div>
   </div>
 </div>

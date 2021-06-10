@@ -17,7 +17,7 @@ export default (options: RequestOptions) => {
   } else if (isWeb) {
     return webModule(options);
   } else {
-    throw new Error('@uni/apis：request暂不支持');
+    throw new Error('Uni API：request暂不支持');
   }
 };
 

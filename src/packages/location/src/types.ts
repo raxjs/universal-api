@@ -26,3 +26,22 @@ export interface OpenOptionStruct extends Uni.COptions {
   fail?: (res) => any;
   complete?: (res) => any;
 }
+
+// chooseLocation options
+export interface ChooseLocationOptions extends Uni.COptions {
+  latitude?: number;
+  longtitude?: number;
+  success?: (res) => any;
+  fail?: (res) => any;
+  complete?: (res) => any;
+}
+
+// chooseLocation response
+export interface ChooseLocationResponse {
+  name: string;
+  address: string;
+  latitude: number;
+  longtitude: number;
+  provinceName?: string;
+  cityName?: string;
+}

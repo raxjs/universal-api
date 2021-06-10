@@ -4,9 +4,9 @@ import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 
-import { GetOrRemoveOptionStruct, GetOrRemoveSyncOptionStruct, SetOptionStruct, SetSyncOptionStruct } from './types';
+import { GetOrRemoveOptionStruct, GetOrRemoveSyncOptionStruct, SetOptionStruct, SetSyncOptionStruct, GetStorageRes, GetStorageSyncRes } from './types';
 
-export const getStorage = (args: GetOrRemoveOptionStruct) => {
+export const getStorage = (args: GetOrRemoveOptionStruct): GetStorageRes => {
   if (isWeChatMiniProgram) {
     return weChatModule.getStorage(args);
   } else if (isByteDanceMicroApp) {
@@ -16,11 +16,11 @@ export const getStorage = (args: GetOrRemoveOptionStruct) => {
   } else if (isWeb) {
     return webModule.getStorage(args);
   } else {
-    throw new Error('@uni/apis：getStorage暂不支持');
+    throw new Error('Uni API：getStorage暂不支持');
   }
 };
 
-export const getStorageSync = (args: GetOrRemoveSyncOptionStruct) => {
+export const getStorageSync = (args: GetOrRemoveSyncOptionStruct): GetStorageSyncRes => {
   if (isWeChatMiniProgram) {
     return weChatModule.getStorageSync(args);
   } else if (isByteDanceMicroApp) {
@@ -30,7 +30,7 @@ export const getStorageSync = (args: GetOrRemoveSyncOptionStruct) => {
   } else if (isWeb) {
     return webModule.getStorageSync(args);
   } else {
-    throw new Error('@uni/apis：getStorageSync暂不支持');
+    throw new Error('Uni API：getStorageSync暂不支持');
   }
 };
 
@@ -44,7 +44,7 @@ export const setStorage = (args: SetOptionStruct) => {
   } else if (isWeb) {
     return webModule.setStorage(args);
   } else {
-    throw new Error('@uni/apis：setStorage暂不支持');
+    throw new Error('Uni API：setStorage暂不支持');
   }
 };
 
@@ -58,7 +58,7 @@ export const setStorageSync = (args: SetSyncOptionStruct) => {
   } else if (isWeb) {
     return webModule.setStorageSync(args);
   } else {
-    throw new Error('@uni/apis：setStorageSync暂不支持');
+    throw new Error('Uni API：setStorageSync暂不支持');
   }
 };
 
@@ -72,7 +72,7 @@ export const removeStorage = (args: GetOrRemoveOptionStruct) => {
   } else if (isWeb) {
     return webModule.removeStorage(args);
   } else {
-    throw new Error('@uni/apis：removeStorage暂不支持');
+    throw new Error('Uni API：removeStorage暂不支持');
   }
 };
 
@@ -86,7 +86,7 @@ export const removeStorageSync = (args: GetOrRemoveSyncOptionStruct) => {
   } else if (isWeb) {
     return webModule.removeStorageSync(args);
   } else {
-    throw new Error('@uni/apis：removeStorageSync暂不支持');
+    throw new Error('Uni API：removeStorageSync暂不支持');
   }
 };
 
