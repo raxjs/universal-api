@@ -1,17 +1,17 @@
 import { Animation, AnimationOptions } from '../types';
 import { CONTAINER_NAME } from '@utils/constant';
-import { getDefaultOptions } from '../common';
+import { getMergedOptions } from '../common';
 
 function createAnimation(options?: AnimationOptions): Animation {
   const animation = tt.createAnimation(
-    getDefaultOptions(CONTAINER_NAME.BYTE, options),
+    getMergedOptions(CONTAINER_NAME.BYTE, options),
   );
 
   // override
   const _step = animation.step.bind(animation);
   const _export = animation.export.bind(animation);
   animation.step = (opts) => {
-    opts = getDefaultOptions(CONTAINER_NAME.BYTE, options);
+    opts = getMergedOptions(CONTAINER_NAME.BYTE, opts);
     return _step(opts);
   };
   animation.export = () => {

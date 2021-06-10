@@ -6,8 +6,8 @@ import { Animation, AnimationOptions, TransitionOptions } from './types';
  * @param containerName
  * @param options
  */
-export function getDefaultOptions(containerName: string, options?: AnimationOptions): AnimationOptions {
-  return styleIn(
+export function getMergedOptions(containerName: string, options?: AnimationOptions): AnimationOptions {
+  const mergedOptions = styleIn(
     {
       duration: 400,
       timingFunction: 'linear',
@@ -17,6 +17,12 @@ export function getDefaultOptions(containerName: string, options?: AnimationOpti
     },
     containerName,
   );
+
+  // set the min duration to 16ms to avoid some problems
+  if (mergedOptions.duration < 16) {
+    mergedOptions.duration = 16;
+  }
+  return mergedOptions;
 }
 
 /**
@@ -70,7 +76,7 @@ function parseTransform(value: string): Record<string, any[]> {
 
   const parseAtom = () => {
     let name = '';
-    const args = [];
+    const args: string[] = [];
     let isReadArgs = false;
     let isExpectWord = true;
 
@@ -78,14 +84,14 @@ function parseTransform(value: string): Record<string, any[]> {
       skipSpace();
       let code = value.charCodeAt(pos);
       const chunkStart = pos;
-      if (isWord(code)) {
-        isExpectWord = false;
+      if (isExpectWord && isWord(code)) {
         while (pos < value.length && isWord(code)) {
           code = value.charCodeAt(++pos);
         }
         const str = value.slice(chunkStart, pos);
         if (isReadArgs) {
           args.push(str);
+          isExpectWord = false;
         } else {
           name = str;
           skipSpace();
@@ -112,6 +118,7 @@ function parseTransform(value: string): Record<string, any[]> {
 
   while (pos < value.length) {
     const res = parseAtom();
+    skipSpace();
     if (res && validMethods.includes(res.name)) {
       result[res.name] = res.args;
     } else {
@@ -149,7 +156,7 @@ export function normalizeCreateTransition(animation: Animation, options: Transit
   applyTransform(from);
   animation.step({
     ...animationOptions,
-    duration: 0,
+    duration: 16,
     delay: 0,
   });
 

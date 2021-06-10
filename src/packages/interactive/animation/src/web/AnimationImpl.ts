@@ -1,5 +1,5 @@
 import { Animation, AnimationAction, AnimationActionAnimate, AnimationData, AnimationOptions } from '../types';
-import { getDefaultOptions } from '../common';
+import { getMergedOptions } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
 /**
@@ -103,7 +103,7 @@ export default class AnimationImpl implements Animation {
   private currentStepAnimates: AnimationActionAnimate[];
 
   constructor(options?: AnimationOptions) {
-    this.options = getDefaultOptions(CONTAINER_NAME.WEB, options);
+    this.options = getMergedOptions(CONTAINER_NAME.WEB, options);
     this.actions = [];
     this.currentTransform = {};
     this.currentStepAnimates = [];
@@ -120,7 +120,7 @@ export default class AnimationImpl implements Animation {
   }
 
   step(options?: AnimationOptions): Animation {
-    options = options ? getDefaultOptions(CONTAINER_NAME.WEB, options) : this.options;
+    options = options ? getMergedOptions(CONTAINER_NAME.WEB, options) : this.options;
 
     this.currentStepAnimates.forEach((animate) => {
       let key = animate.type;
