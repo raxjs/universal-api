@@ -2,6 +2,10 @@ import { Animation, AnimationAction, AnimationActionAnimate, AnimationData, Anim
 import { getMergedOptions } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
+const ANIMATION_RUNNING = '__UNI_API_ANIMATION_RUNNING__';
+const ANIMATION_CANCEL = '__UNI_API_ANIMATION_CANCEL__';
+const ANIMATION_ORIGINAL_STYLE = '__UNI_API_ANIMATION_ORIGINAL_STYLE__';
+
 /**
  * normalize unit
  * @param value
@@ -42,14 +46,21 @@ function applyWebAnimation(actions: AnimationAction[], dom?: HTMLElement) {
     return;
   }
 
-  // cache original style
-  const original = {
-    transitionProperty: dom.style.transitionProperty,
-    transitionDuration: dom.style.transitionDuration,
-    transitionDelay: dom.style.transitionDelay,
-    transitionTimingFunction: dom.style.transitionTimingFunction,
-    transformOrigin: dom.style.transformOrigin,
-  };
+  // clear the last animation
+  if (dom[ANIMATION_RUNNING]) {
+    (dom[ANIMATION_CANCEL] || []).forEach((t) => clearTimeout(t));
+  } else {
+    // cache original style
+    dom[ANIMATION_ORIGINAL_STYLE] = {
+      transitionProperty: dom.style.transitionProperty,
+      transitionDuration: dom.style.transitionDuration,
+      transitionDelay: dom.style.transitionDelay,
+      transitionTimingFunction: dom.style.transitionTimingFunction,
+      transformOrigin: dom.style.transformOrigin,
+    };
+  }
+  dom[ANIMATION_RUNNING] = true;
+  dom[ANIMATION_CANCEL] = [];
 
   /**
    * Apply animation action, return the current cost time
@@ -81,17 +92,29 @@ function applyWebAnimation(actions: AnimationAction[], dom?: HTMLElement) {
     return isNaN(cost) ? 0 : cost;
   };
 
+  const saveCancel = (timer: any) => {
+    dom[ANIMATION_CANCEL] = dom[ANIMATION_CANCEL] || [];
+    dom[ANIMATION_CANCEL].push(timer);
+  };
+
   let delay = 0;
   handleActionsQueue(actions, (action, callback) => {
-    setTimeout(() => {
-      delay = applyAction(action);
-      callback();
-    }, delay);
+    saveCancel(
+      setTimeout(() => {
+        delay = applyAction(action);
+        callback();
+      }, delay),
+    );
   }, () => {
-    // Restore the style at the end of the animation
-    setTimeout(() => {
-      Object.assign(dom.style, original);
-    }, delay);
+    saveCancel(
+      // Restore the style at the end of the animation
+      setTimeout(() => {
+        Object.assign(dom.style, dom[ANIMATION_ORIGINAL_STYLE] || {});
+        dom[ANIMATION_RUNNING] = null;
+        dom[ANIMATION_CANCEL] = null;
+        dom[ANIMATION_ORIGINAL_STYLE] = null;
+      }, delay),
+    );
   });
 }
 
