@@ -6,11 +6,13 @@ import canvas from '../../packages/canvas/src/wechat-miniprogram/index';
 import accelerometer from '../../packages/device/accelerometer/src/wechat-miniprogram/index';
 import clipboard from '../../packages/device/clipboard/src/wechat-miniprogram/index';
 import systemInfo from '../../packages/device/systemInfo/src/wechat-miniprogram/index';
+import scan from '../../packages/device/scan/src/wechat-miniprogram/index';
 import file from '../../packages/file/src/wechat-miniprogram/index';
 import actionSheet from '../../packages/interactive/actionSheet/src/wechat-miniprogram/index';
 import alert from '../../packages/interactive/alert/src/wechat-miniprogram/index';
 import toast from '../../packages/interactive/toast/src/wechat-miniprogram/index';
 import loading from '../../packages/interactive/loading/src/wechat-miniprogram/index';
+import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/wechat-miniprogram/index';
 import element from '../../packages/interactive/element/src/wechat-miniprogram/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/wechat-miniprogram/index';
 import confirm from '../../packages/interactive/confirm/src/wechat-miniprogram/index';
@@ -31,11 +33,13 @@ export {
   accelerometer,
   clipboard,
   systemInfo,
+  scan,
   file,
   actionSheet,
   alert,
   toast,
   loading,
+  pullDownRefresh,
   element,
   intersectionObserver,
   confirm,
@@ -58,11 +62,13 @@ export default {
   accelerometer,
   clipboard,
   systemInfo,
+  scan,
   file,
   actionSheet,
   alert,
   toast,
   loading,
+  pullDownRefresh,
   element,
   intersectionObserver,
   confirm,

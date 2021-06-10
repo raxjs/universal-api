@@ -6,11 +6,13 @@ import canvas from '../../packages/canvas/src/ali-miniapp/index';
 import accelerometer from '../../packages/device/accelerometer/src/ali-miniapp/index';
 import clipboard from '../../packages/device/clipboard/src/ali-miniapp/index';
 import systemInfo from '../../packages/device/systemInfo/src/ali-miniapp/index';
+import scan from '../../packages/device/scan/src/ali-miniapp/index';
 import file from '../../packages/file/src/ali-miniapp/index';
 import actionSheet from '../../packages/interactive/actionSheet/src/ali-miniapp/index';
 import alert from '../../packages/interactive/alert/src/ali-miniapp/index';
 import toast from '../../packages/interactive/toast/src/ali-miniapp/index';
 import loading from '../../packages/interactive/loading/src/ali-miniapp/index';
+import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/ali-miniapp/index';
 import element from '../../packages/interactive/element/src/ali-miniapp/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/ali-miniapp/index';
 import confirm from '../../packages/interactive/confirm/src/ali-miniapp/index';
@@ -31,11 +33,13 @@ export {
   accelerometer,
   clipboard,
   systemInfo,
+  scan,
   file,
   actionSheet,
   alert,
   toast,
   loading,
+  pullDownRefresh,
   element,
   intersectionObserver,
   confirm,
@@ -58,11 +62,13 @@ export default {
   accelerometer,
   clipboard,
   systemInfo,
+  scan,
   file,
   actionSheet,
   alert,
   toast,
   loading,
+  pullDownRefresh,
   element,
   intersectionObserver,
   confirm,
