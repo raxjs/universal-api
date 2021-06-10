@@ -30,21 +30,14 @@ export function getMergedOptions(containerName: string, options?: AnimationOptio
  * @param value
  */
 function parseTransform(value: string): Record<string, any[]> {
-  const validMethods = [
-    'rotate', 'rotate3d', 'rotateX', 'rotateY', 'rotateZ',
-    'scale', 'scale3d', 'scaleX', 'scaleY', 'scaleZ',
-    'translate', 'translate3d', 'translateX', 'translateY', 'translateZ',
-    'skew', 'skewX', 'skewY',
-    'matrix', 'matrix3d',
-  ];
-
   value = String(value || '');
   let pos = 0;
 
-  const isWord = (code: number) => {
+  const isValidStr = (code: number) => {
     if (code >= 65 && code <= 90) return true; // A-Z
     if (code >= 97 && code <= 122) return true; // a-z
     if (code >= 48 && code <= 57) return true; // 0-9
+    if (code === 45 || code === 46) return true; // `-` or `.`
     return false;
   };
 
@@ -76,7 +69,7 @@ function parseTransform(value: string): Record<string, any[]> {
 
   const parseAtom = () => {
     let name = '';
-    const args: string[] = [];
+    const args: any[] = [];
     let isReadArgs = false;
     let isExpectWord = true;
 
@@ -84,8 +77,8 @@ function parseTransform(value: string): Record<string, any[]> {
       skipSpace();
       let code = value.charCodeAt(pos);
       const chunkStart = pos;
-      if (isExpectWord && isWord(code)) {
-        while (pos < value.length && isWord(code)) {
+      if (isExpectWord && isValidStr(code)) {
+        while (pos < value.length && isValidStr(code)) {
           code = value.charCodeAt(++pos);
         }
         const str = value.slice(chunkStart, pos);
@@ -114,16 +107,37 @@ function parseTransform(value: string): Record<string, any[]> {
     return { name, args };
   };
 
+  const getValidArg = (val: string, unit = '') => {
+    const match = new RegExp(`^(-?\\d*(\\.\\d+)?)${unit}$`, 'i').exec(val);
+    if (match) {
+      return Number(match[1]);
+    }
+  };
+
   const result = {};
 
   while (pos < value.length) {
     const res = parseAtom();
     skipSpace();
-    if (res && validMethods.includes(res.name)) {
-      result[res.name] = res.args;
+    if (!res) return {};
+
+    let { args } = res;
+    if (['rotate', 'rotateX', 'rotateY', 'rotateZ', 'skew', 'skewX', 'skewY'].includes(res.name)) {
+      args = args.map((arg) => getValidArg(arg, 'deg'));
+    } else if (['translate', 'translateX', 'translateY', 'translateZ', 'translate3d'].includes(res.name)) {
+      args = args.map((arg) => getValidArg(arg, 'px'));
+    } else if (['scale', 'scale3d', 'scaleX', 'scaleY', 'scaleZ', 'matrix', 'matrix3d'].includes(res.name)) {
+      args = args.map((arg) => getValidArg(arg, ''));
+    } else if (res.name === 'rotate3d') {
+      args = [].concat(
+        args.slice(0, 3).map((arg) => getValidArg(arg, '')),
+        args.slice(3, 4).map((arg) => getValidArg(arg, 'deg')),
+      );
     } else {
       return {};
     }
+
+    result[res.name] = args;
   }
 
   return result;
@@ -139,15 +153,15 @@ export function normalizeCreateTransition(animation: Animation, options: Transit
 
   const applyTransform = (opts) => {
     Object.keys(opts).forEach((key) => {
-      if (typeof animation[key] !== 'function') return;
-
       const value = opts[key];
       if (key === 'transform') {
         applyTransform(parseTransform(value));
-      } else if (Array.isArray(value)) {
-        animation[key](...value);
-      } else {
-        animation[key](value);
+      } else if (typeof animation[key] === 'function') {
+        if (Array.isArray(value)) {
+          animation[key](...value);
+        } else {
+          animation[key](value);
+        }
       }
     });
   };

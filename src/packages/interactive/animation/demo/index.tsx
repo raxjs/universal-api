@@ -1,6 +1,6 @@
 import { createElement, useRef, useState } from 'rax';
 import View from 'rax-view';
-import { createAnimation } from '@uni/animation';
+import { createAnimation, createTransition } from '@uni/animation';
 
 const styles = {
   box: {
@@ -86,7 +86,7 @@ const Index = () => {
           case '缩放':
             inst.scale(random(0.5, 1.5, 2));
             break;
-          case '移动':
+          case '平移':
             inst.translate(random(-50, 50), random(-50, 50));
             break;
           case '倾斜':
@@ -131,6 +131,20 @@ const Index = () => {
     setSelected(newSelected);
   };
 
+  const playTransition = () => {
+    const transition = createTransition({
+      from: {
+        transform: 'translate(10px, 10px) scale(1)'
+      },
+      to: {
+        transform: 'translate(100px, 50px) scale(1.4, 1.2)'
+      }
+    });
+    const data = transition.export(boxRef.current);
+    console.log('transitionData', data);
+    setAnimationData(data);
+  }
+
   return (
     <View>
       {visible && <View style={styles.box} ref={boxRef} animation={animationData} />}
@@ -139,7 +153,7 @@ const Index = () => {
         <View style={styles.buttonGroup}>
           <View style={styles.button} onClick={() => put('旋转')}>旋转</View>
           <View style={styles.button} onClick={() => put('缩放')}>缩放</View>
-          <View style={styles.button} onClick={() => put('移动')}>移动</View>
+          <View style={styles.button} onClick={() => put('平移')}>平移</View>
           <View style={styles.button} onClick={() => put('倾斜')}>倾斜</View>
           <View style={styles.button} onClick={() => put('3D变换')}>3D变换</View>
           <View style={styles.button} onClick={() => put('改变大小')}>改变大小</View>
@@ -149,8 +163,8 @@ const Index = () => {
         </View>
         <View style={styles.desc}>
           已添加的动画效果：
-          <View style={{ ...styles.button, padding: '4rpx', background: '#35b0ce' }} onClick={addGroup}>添加分组</View>
-          <View style={{ ...styles.button, padding: '4rpx', background: '#35b0ce' }} onClick={copyGroup}>拷贝分组</View>
+          <View style={{ ...styles.button, padding: '4rpx', background: '#35b0ce' }} onClick={addGroup}>添加动画组</View>
+          <View style={{ ...styles.button, padding: '4rpx', background: '#35b0ce' }} onClick={copyGroup}>拷贝当前动画组</View>
         </View>
         <View style={{ color: '#17BD88', margin: '20rpx 0' }}>
           {selected.map((item, index) => (
@@ -159,6 +173,7 @@ const Index = () => {
         </View>
         <View style={{ ...styles.button, marginTop: '30rpx' }} onClick={play}>播放动画</View>
         <View style={{ ...styles.button, marginTop: '10rpx' }} onClick={reset}>重置</View>
+        <View style={{ ...styles.button, marginTop: '30rpx' }} onClick={playTransition}>createTransition 演示（平移+缩放）</View>
       </View>
 
     </View>
