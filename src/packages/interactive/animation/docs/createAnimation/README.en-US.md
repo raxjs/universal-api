@@ -51,16 +51,19 @@ createAnimation(options): Animation
 
 ### `options`
 
-| property | type | description | required | default |
+| Property | Type | Description | Required | Default |
 | --- | --- | --- | --- | --- |
 | duration | `number` | Specify the duration of the animation cycle, in milliseconds | No | 400 |
 | timingFunction | `string` | Set how the animation progresses in the duration of each cycle, [See also documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function) | No | "linear"  |
 | delay | `number` | Specify the waiting time to apply the animation to the element before starting the animation, in milliseconds | No | 0 |
 | transformOrigin | `string` | Set the origin of element transformation | No | "50% 50% 0" |
 
+**Note**: In order to avoid some problems caused by the rendering mechanism, the minimum value of the parameter `duration` is **16ms**.
+
+
 ## Returns
 
-Returns an instance of an `Animation` object
+Returns an instance of an `Animation` class
 
 ### Animation
 

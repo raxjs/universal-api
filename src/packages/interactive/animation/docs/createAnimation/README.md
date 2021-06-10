@@ -57,6 +57,9 @@ createAnimation(options): Animation
 | delay | `number` | 动画延迟时间，单位 ms | 否 | 0 |
 | transformOrigin | `string` | 指定元素变形的原点 | 否 | "50% 50% 0" |
 
+**Note**: 为了避免渲染机制带来的一些问题，参数 `duration` 的最小值为 **16ms**
+
+
 ## 返回值
 
 返回一个 `Animation` 对象
@@ -85,7 +88,7 @@ interface Animation {
   /* ******************* 样式 ******************* */
 
   /**
-   * 设置透明度
+   * 设置不透明度
    * @param value
    */
   opacity: (value: number) => Animation;
@@ -109,25 +112,25 @@ interface Animation {
   height: (value: number | string) => Animation;
 
   /**
-   * 设置 left 值
+   * 设置 `left` 值
    * @param value
    */
   left: (value: number | string) => Animation;
 
   /**
-   * 设置 right 值
+   * 设置 `right` 值
    * @param value
    */
   right: (value: number | string) => Animation;
 
   /**
-   * 设置 top 值
+   * 设置 `top` 值
    * @param value
    */
   top: (value: number | string) => Animation;
 
   /**
-   * 设置 bottom 值
+   * 设置 `bottom` 值
    * @param value
    */
   bottom: (value: number | string) => Animation;
@@ -233,7 +236,7 @@ interface Animation {
   translateZ: (translation: number) => Animation;
 
   /**
-   * 对 xyz 坐标进行平移变换
+   * 对 XYZ 坐标进行平移变换
    * @param tx
    * @param ty
    * @param tz
