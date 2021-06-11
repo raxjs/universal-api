@@ -23,6 +23,7 @@ import request from '../packages/network/request/src/index';
 import storage from '../packages/storage/src/index';
 import recorder from '../packages/media/recorder/src/index';
 import video from '../packages/media/video/src/index';
+import animation from '../packages/interactive/animation/src/index';
 
 export {
   application,
@@ -50,6 +51,7 @@ export {
   storage,
   recorder,
   video,
+  animation,
 };
 
 
@@ -79,4 +81,5 @@ export default {
   storage,
   recorder,
   video,
+  animation,
 };

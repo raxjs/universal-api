@@ -15,6 +15,7 @@ import loading from '../../packages/interactive/loading/src/wechat-miniprogram/i
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/wechat-miniprogram/index';
 import element from '../../packages/interactive/element/src/wechat-miniprogram/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/wechat-miniprogram/index';
+import animation from '../../packages/interactive/animation/src/wechat-miniprogram/index';
 import confirm from '../../packages/interactive/confirm/src/wechat-miniprogram/index';
 import location from '../../packages/location/src/wechat-miniprogram/index';
 import image from '../../packages/media/image/src/wechat-miniprogram/index';
@@ -50,6 +51,7 @@ export {
   storage,
   recorder,
   video,
+  animation,
 };
 
 
@@ -79,4 +81,5 @@ export default {
   storage,
   recorder,
   video,
+  animation,
 };

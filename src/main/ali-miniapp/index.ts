@@ -12,6 +12,7 @@ import actionSheet from '../../packages/interactive/actionSheet/src/ali-miniapp/
 import alert from '../../packages/interactive/alert/src/ali-miniapp/index';
 import toast from '../../packages/interactive/toast/src/ali-miniapp/index';
 import loading from '../../packages/interactive/loading/src/ali-miniapp/index';
+import animation from '../../packages/interactive/animation/src/ali-miniapp/index';
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/ali-miniapp/index';
 import element from '../../packages/interactive/element/src/ali-miniapp/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/ali-miniapp/index';
@@ -50,6 +51,7 @@ export {
   storage,
   recorder,
   video,
+  animation,
 };
 
 
@@ -79,4 +81,5 @@ export default {
   storage,
   recorder,
   video,
+  animation,
 };
