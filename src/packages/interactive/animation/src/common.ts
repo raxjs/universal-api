@@ -29,11 +29,11 @@ export function getMergedOptions(containerName: string, options?: AnimationOptio
  * parse value of transform
  * @param value
  */
-function parseTransform(value: string): Record<string, any[]> {
+export function parseTransform(value: string): Record<string, any[]> {
   value = String(value || '');
   let pos = 0;
 
-  const isValidStr = (code: number) => {
+  const isValidWord = (code: number) => {
     if (code >= 65 && code <= 90) return true; // A-Z
     if (code >= 97 && code <= 122) return true; // a-z
     if (code >= 48 && code <= 57) return true; // 0-9
@@ -76,9 +76,11 @@ function parseTransform(value: string): Record<string, any[]> {
     while (pos < value.length) {
       skipSpace();
       let code = value.charCodeAt(pos);
-      const chunkStart = pos;
-      if (isExpectWord && isValidStr(code)) {
-        while (pos < value.length && isValidStr(code)) {
+      if (isExpectWord) {
+        if (!isValidWord(code)) break;
+
+        const chunkStart = pos;
+        while (pos < value.length && isValidWord(code)) {
           code = value.charCodeAt(++pos);
         }
         const str = value.slice(chunkStart, pos);
@@ -92,8 +94,6 @@ function parseTransform(value: string): Record<string, any[]> {
           isReadArgs = true;
           isExpectWord = true;
         }
-      } else if (isExpectWord) {
-        break;
       } else if (code === 44) { // `,`
         isExpectWord = true;
         pos++;
@@ -107,10 +107,13 @@ function parseTransform(value: string): Record<string, any[]> {
     return { name, args };
   };
 
+  let hasInvalid = false;
   const getValidArg = (val: string, unit = '') => {
     const match = new RegExp(`^(-?\\d*(\\.\\d+)?)${unit}$`, 'i').exec(val);
-    if (match) {
+    if (match && match[1]) {
       return Number(match[1]);
+    } else {
+      hasInvalid = true;
     }
   };
 
@@ -136,6 +139,8 @@ function parseTransform(value: string): Record<string, any[]> {
     } else {
       return {};
     }
+
+    if (hasInvalid) return {};
 
     result[res.name] = args;
   }
