@@ -1,3 +1,9 @@
+---
+  group:
+    path: /en-US/packages/interactive
+---
+
+
 # createTransition
 
 [![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
