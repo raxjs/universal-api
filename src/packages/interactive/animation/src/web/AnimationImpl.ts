@@ -39,7 +39,11 @@ function handleActionsQueue(
   }
 }
 
-
+/**
+ * apply animation for web-side
+ * @param actions
+ * @param dom
+ */
 function applyWebAnimation(actions: AnimationAction[], dom?: HTMLElement) {
   // If `dom` is not HTML Node, ignore
   if (!(dom && dom.nodeType === 1)) {
@@ -66,20 +70,20 @@ function applyWebAnimation(actions: AnimationAction[], dom?: HTMLElement) {
    * Apply animation action, return the current cost time
    * @param action
    */
-  const applyAction = (action): number => {
+  const applyAction = (action: AnimationAction): number => {
     const { transition, transformOrigin } = action.option;
 
-    let transform = '';
+    const transform: string[] = [];
     action.animates.forEach((animate) => {
       if (animate.type === 'style') {
         const [property, value] = animate.args;
         dom.style[property] = value;
       } else {
-        transform += ` ${animate.type}(${animate.args.join(',')})`;
+        transform.push(`${animate.type}(${animate.args.join(',')})`);
       }
     });
-    if (transform) {
-      dom.style.transform = transform;
+    if (transform.length > 0) {
+      dom.style.transform = transform.join(' ');
     }
 
     dom.style.transitionProperty = 'all';
@@ -92,7 +96,7 @@ function applyWebAnimation(actions: AnimationAction[], dom?: HTMLElement) {
     return isNaN(cost) ? 0 : cost;
   };
 
-  const saveCancel = (timer: any) => {
+  const saveCancel = (timer) => {
     dom[ANIMATION_CANCEL] = dom[ANIMATION_CANCEL] || [];
     dom[ANIMATION_CANCEL].push(timer);
   };
