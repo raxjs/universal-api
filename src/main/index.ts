@@ -10,6 +10,7 @@ import scan from '../packages/device/scan/src/index';
 import file from '../packages/file/src/index';
 import actionSheet from '../packages/interactive/actionSheet/src/index';
 import alert from '../packages/interactive/alert/src/index';
+import animation from '../packages/interactive/animation/src/index';
 import toast from '../packages/interactive/toast/src/index';
 import loading from '../packages/interactive/loading/src/index';
 import pullDownRefresh from '../packages/interactive/pullDownRefresh/src/index';
@@ -23,7 +24,6 @@ import request from '../packages/network/request/src/index';
 import storage from '../packages/storage/src/index';
 import recorder from '../packages/media/recorder/src/index';
 import video from '../packages/media/video/src/index';
-import animation from '../packages/interactive/animation/src/index';
 
 export {
   application,
@@ -38,6 +38,7 @@ export {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   pullDownRefresh,
@@ -51,7 +52,6 @@ export {
   storage,
   recorder,
   video,
-  animation,
 };
 
 
@@ -68,6 +68,7 @@ export default {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   pullDownRefresh,
@@ -81,5 +82,4 @@ export default {
   storage,
   recorder,
   video,
-  animation,
 };

@@ -10,12 +10,12 @@ import scan from '../../packages/device/scan/src/wechat-miniprogram/index';
 import file from '../../packages/file/src/wechat-miniprogram/index';
 import actionSheet from '../../packages/interactive/actionSheet/src/wechat-miniprogram/index';
 import alert from '../../packages/interactive/alert/src/wechat-miniprogram/index';
+import animation from '../../packages/interactive/animation/src/wechat-miniprogram/index';
 import toast from '../../packages/interactive/toast/src/wechat-miniprogram/index';
 import loading from '../../packages/interactive/loading/src/wechat-miniprogram/index';
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/wechat-miniprogram/index';
 import element from '../../packages/interactive/element/src/wechat-miniprogram/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/wechat-miniprogram/index';
-import animation from '../../packages/interactive/animation/src/wechat-miniprogram/index';
 import confirm from '../../packages/interactive/confirm/src/wechat-miniprogram/index';
 import location from '../../packages/location/src/wechat-miniprogram/index';
 import image from '../../packages/media/image/src/wechat-miniprogram/index';
@@ -38,6 +38,7 @@ export {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   pullDownRefresh,
@@ -51,7 +52,6 @@ export {
   storage,
   recorder,
   video,
-  animation,
 };
 
 
@@ -68,6 +68,7 @@ export default {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   pullDownRefresh,
@@ -81,5 +82,4 @@ export default {
   storage,
   recorder,
   video,
-  animation,
 };

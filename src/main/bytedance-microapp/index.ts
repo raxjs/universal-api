@@ -10,11 +10,11 @@ import scan from '../../packages/device/scan/src/bytedance-microapp/index';
 import file from '../../packages/file/src/bytedance-microapp/index';
 import actionSheet from '../../packages/interactive/actionSheet/src/bytedance-microapp/index';
 import alert from '../../packages/interactive/alert/src/bytedance-microapp/index';
+import animation from '../../packages/interactive/animation/src/bytedance-microapp/index';
 import toast from '../../packages/interactive/toast/src/bytedance-microapp/index';
 import loading from '../../packages/interactive/loading/src/bytedance-microapp/index';
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/bytedance-microapp/index';
 import element from '../../packages/interactive/element/src/bytedance-microapp/index';
-import animation from '../../packages/interactive/animation/src/bytedance-microapp/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/bytedance-microapp/index';
 import confirm from '../../packages/interactive/confirm/src/bytedance-microapp/index';
 import location from '../../packages/location/src/bytedance-microapp/index';
@@ -38,6 +38,7 @@ export {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   pullDownRefresh,
@@ -51,7 +52,6 @@ export {
   storage,
   recorder,
   video,
-  animation,
 };
 
 
@@ -68,6 +68,7 @@ export default {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   pullDownRefresh,
@@ -81,5 +82,4 @@ export default {
   storage,
   recorder,
   video,
-  animation,
 };
