@@ -161,20 +161,16 @@ module.exports = {
   //     }
   //   ]
   // },
-  // 'animation': {
-  //   path: 'packages/interactive/animation/src/index.ts',
-  //   pkgInfo: [
-  //     {
-  //       version: '1.2.0',
-  //       name: '@uni/animation',
-  //       dependencies: {
-  //         '@uni/transition': '^1.0.1',
-  //         'weex-bindingx': '^0.0.49'
-  //       },
-  //     }
-  //   ]
-  // },
 
+  animation: {
+    path: 'src/packages/interactive/animation/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: '@uni/animation',
+      },
+    ],
+  },
   toast: {
     path: 'src/packages/interactive/toast/src/index.ts',
     pkgInfo: [
@@ -284,7 +280,7 @@ module.exports = {
     path: 'src/packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.7',
+        version: '1.0.8',
         name: '@uni/request',
       },
     ],

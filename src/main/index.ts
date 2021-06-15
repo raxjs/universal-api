@@ -10,6 +10,7 @@ import scan from '../packages/device/scan/src/index';
 import file from '../packages/file/src/index';
 import actionSheet from '../packages/interactive/actionSheet/src/index';
 import alert from '../packages/interactive/alert/src/index';
+import animation from '../packages/interactive/animation/src/index';
 import toast from '../packages/interactive/toast/src/index';
 import loading from '../packages/interactive/loading/src/index';
 import pullDownRefresh from '../packages/interactive/pullDownRefresh/src/index';
@@ -37,6 +38,7 @@ export {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   pullDownRefresh,
@@ -66,6 +68,7 @@ export default {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   pullDownRefresh,

@@ -1,7 +1,7 @@
 {
   "name": "@uni/apis",
   "private": true,
-  "version": "1.0.13",
+  "version": "1.0.14",
   "scripts": {
     "setup": "rm -rf node_modules && yarn install --no-lockfile",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src/packages/*/src --fix",
@@ -15,7 +15,8 @@
     "docs:build": "cross-env node ./scripts/docs/build.js",
     "docs:deploy": "npm run docs:build && gh-pages -ad docs-dist",
     "check-and-publish": "node ./scripts/check-and-publish.js",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
+    "test": "jest"
   },
   "husky": {
     "hooks": {
@@ -42,6 +43,7 @@
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
+    "@types/jest": "^26.0.23",
     "axios": ">=0.21.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.2.2",
@@ -67,6 +69,7 @@
     "gulp-replace": "^1.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "husky": "^4.2.5",
+    "jest": "^27.0.4",
     "koa-compose": "^4.1.0",
     "listr2": "^3.9.0",
     "md5": "^2.3.0",
@@ -84,6 +87,7 @@
     "rollup-plugin-visualizer": "^4.1.2",
     "semver": "^6.3.0",
     "shelljs": "^0.8.4",
+    "ts-jest": "^27.0.3",
     "typescript": "^3.9.6",
     "webpack": "^4.46.0",
     "webpack-node-externals": "^2.5.2"

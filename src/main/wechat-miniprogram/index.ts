@@ -10,6 +10,7 @@ import scan from '../../packages/device/scan/src/wechat-miniprogram/index';
 import file from '../../packages/file/src/wechat-miniprogram/index';
 import actionSheet from '../../packages/interactive/actionSheet/src/wechat-miniprogram/index';
 import alert from '../../packages/interactive/alert/src/wechat-miniprogram/index';
+import animation from '../../packages/interactive/animation/src/wechat-miniprogram/index';
 import toast from '../../packages/interactive/toast/src/wechat-miniprogram/index';
 import loading from '../../packages/interactive/loading/src/wechat-miniprogram/index';
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/wechat-miniprogram/index';
@@ -37,6 +38,7 @@ export {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   pullDownRefresh,
@@ -66,6 +68,7 @@ export default {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   pullDownRefresh,

@@ -10,6 +10,7 @@ import scan from '../../packages/device/scan/src/bytedance-microapp/index';
 import file from '../../packages/file/src/bytedance-microapp/index';
 import actionSheet from '../../packages/interactive/actionSheet/src/bytedance-microapp/index';
 import alert from '../../packages/interactive/alert/src/bytedance-microapp/index';
+import animation from '../../packages/interactive/animation/src/bytedance-microapp/index';
 import toast from '../../packages/interactive/toast/src/bytedance-microapp/index';
 import loading from '../../packages/interactive/loading/src/bytedance-microapp/index';
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/bytedance-microapp/index';
@@ -37,6 +38,7 @@ export {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   pullDownRefresh,
@@ -66,6 +68,7 @@ export default {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   pullDownRefresh,

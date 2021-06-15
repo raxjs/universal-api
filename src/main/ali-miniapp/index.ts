@@ -10,6 +10,7 @@ import scan from '../../packages/device/scan/src/ali-miniapp/index';
 import file from '../../packages/file/src/ali-miniapp/index';
 import actionSheet from '../../packages/interactive/actionSheet/src/ali-miniapp/index';
 import alert from '../../packages/interactive/alert/src/ali-miniapp/index';
+import animation from '../../packages/interactive/animation/src/ali-miniapp/index';
 import toast from '../../packages/interactive/toast/src/ali-miniapp/index';
 import loading from '../../packages/interactive/loading/src/ali-miniapp/index';
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/ali-miniapp/index';
@@ -37,6 +38,7 @@ export {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   pullDownRefresh,
@@ -66,6 +68,7 @@ export default {
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
   pullDownRefresh,
