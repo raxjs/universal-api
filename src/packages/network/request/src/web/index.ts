@@ -104,6 +104,7 @@ function requestXHR(options) {
           status: xhr.status,
         })}`,
       });
+      return;
     }
     const headers = xhr.getAllResponseHeaders();
     const arr = headers.trim().split(/[\r\n]+/);
