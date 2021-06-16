@@ -28,6 +28,7 @@ export interface JsonpOptions {
 export interface RequestOptions extends Uni.COptions {
   url: string;
   headers?: AsObject;
+  validateStatus?: (status: string | number) => boolean;
   method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'HEAD' | 'JSONP';
   data?: AsObject;
   timeout?: number;
@@ -42,7 +43,6 @@ export interface RequestOptions extends Uni.COptions {
 export interface WebRequestOptions extends RequestOptions {
   isJsonp: boolean;
   withCredentials: boolean;
-  validateStatus: (status: number) => boolean;
 }
 
 /**

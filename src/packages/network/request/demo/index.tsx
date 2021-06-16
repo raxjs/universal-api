@@ -87,8 +87,8 @@ export default () => {
       {data ? <View style={styles.bg}>
         <p><text>{`url: ${JSON.stringify(data.url)}`}</text></p>
         <p><text>{`data: ${JSON.stringify(data.data)}`}</text></p>
-        <p><text>{`headers: ${JSON.stringify(data.headers)}`}</text></p>
-        <p><text>{`status: ${JSON.stringify(data.status)}`}</text></p>
+        <p><text>{`headers: ${JSON.stringify(data.data?.headers)}`}</text></p>
+        <p><text>{`status: ${JSON.stringify(data.data?.status)}`}</text></p>
       </View> : null}
       {error ? <View style={styles.bg}>{JSON.stringify(error)}</View> : null}
     </View>

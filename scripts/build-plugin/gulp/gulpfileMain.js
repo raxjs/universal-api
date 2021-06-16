@@ -23,8 +23,7 @@ const srcDir = [
   '!' + path.resolve(rootDir, 'src/**/network-info/**/*.ts'),
   '!' + path.resolve(rootDir, 'src/**/background/**/*.ts'),
   '!' + path.resolve(rootDir, 'src/**/keyboard/**/*.ts'),
-  '!' + path.resolve(rootDir, 'src/**/animation/**/*.ts'),
-  '!' + path.resolve(rootDir, 'src/**/transition/**/*.ts'),
+  '!' + path.resolve(rootDir, 'src/**/animation/__test__/*.ts'),
   '!' + path.resolve(rootDir, 'src/**/docs/*.ts'),
   '!' + path.resolve(rootDir, 'src/**/demo/*.ts'),
 ];
