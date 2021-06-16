@@ -7,8 +7,8 @@ const root = process.cwd();
 console.log(`开始构建demo`);
 
 buildDemo().then(() => {
-  spawnSync('npm', [
-    'i',
+  spawnSync('yarn', [
+    'install',
     '--registry https://registry.npm.taobao.org'
   ], {
     stdio: 'inherit',
@@ -16,9 +16,8 @@ buildDemo().then(() => {
   });
   Object.entries(apiConfig).map(([key, value]) => {
     value.pkgInfo.forEach(i => {
-      spawnSync('npm', [
+      spawnSync('yarn', [
         'link',
-        '--no-audit',
         i.name
       ], {
         stdio: 'inherit',
