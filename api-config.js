@@ -147,20 +147,6 @@ module.exports = {
       },
     ],
   },
-  // 'transition': {
-  //   path: 'packages/interactive/transition/src/index.ts',
-  //   pkgInfo: [
-  //     {
-  //       version: '1.1.1',
-  //       name: '@uni/transition',
-  //       dependencies: {
-  //         '@uni/unit-tool': '^1.0.0',
-  //         'style-unit': '^2.0.0',
-  //         '@uni/device': '^1.0.3',
-  //       },
-  //     }
-  //   ]
-  // },
 
   animation: {
     path: 'src/packages/interactive/animation/src/index.ts',
@@ -280,7 +266,7 @@ module.exports = {
     path: 'src/packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.8',
+        version: '1.0.9',
         name: '@uni/request',
       },
     ],
