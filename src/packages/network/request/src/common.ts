@@ -146,7 +146,7 @@ export function styleOptions(options, containerName) {
     success: (res) => {
       const _validateStatus = options.validateStatus || validateStatus;
       const _res = adapterResponse(res);
-      if (!_validateStatus(res.status)) {
+      if (!_validateStatus(_res.status)) {
         options.fail && options.fail(_res);
       } else {
         options.success && options.success(_res);
