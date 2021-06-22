@@ -6,11 +6,14 @@ import canvas from '../packages/canvas/src/index';
 import accelerometer from '../packages/device/accelerometer/src/index';
 import clipboard from '../packages/device/clipboard/src/index';
 import systemInfo from '../packages/device/systemInfo/src/index';
+import scan from '../packages/device/scan/src/index';
 import file from '../packages/file/src/index';
 import actionSheet from '../packages/interactive/actionSheet/src/index';
 import alert from '../packages/interactive/alert/src/index';
+import animation from '../packages/interactive/animation/src/index';
 import toast from '../packages/interactive/toast/src/index';
 import loading from '../packages/interactive/loading/src/index';
+import pullDownRefresh from '../packages/interactive/pullDownRefresh/src/index';
 import element from '../packages/interactive/element/src/index';
 import intersectionObserver from '../packages/interactive/intersectionObserver/src/index';
 import confirm from '../packages/interactive/confirm/src/index';
@@ -31,11 +34,14 @@ export {
   accelerometer,
   clipboard,
   systemInfo,
+  scan,
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
+  pullDownRefresh,
   element,
   intersectionObserver,
   confirm,
@@ -58,11 +64,14 @@ export default {
   accelerometer,
   clipboard,
   systemInfo,
+  scan,
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
+  pullDownRefresh,
   element,
   intersectionObserver,
   confirm,

@@ -45,7 +45,7 @@ pullDownRefresh.onPullDownRefresh();
 
 You can add event listener:
 ```js
-window.events.register("pulldownrefresh", cb);
+pullDownRefresh.onPullDownRefresh({eventCallback: cb});
 ```
 ## Methods
 

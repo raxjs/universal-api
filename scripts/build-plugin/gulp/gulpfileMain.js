@@ -10,7 +10,8 @@ const getBabelConfig = require('./conf/babel');
 const { series } = gulp;
 
 const {
-  output
+  output,
+  sourceMap
 } = gulpParams.gulpInfo;
 const { context } = gulpParams.api;
 const { rootDir } = context;
@@ -22,8 +23,7 @@ const srcDir = [
   '!' + path.resolve(rootDir, 'src/**/network-info/**/*.ts'),
   '!' + path.resolve(rootDir, 'src/**/background/**/*.ts'),
   '!' + path.resolve(rootDir, 'src/**/keyboard/**/*.ts'),
-  '!' + path.resolve(rootDir, 'src/**/animation/**/*.ts'),
-  '!' + path.resolve(rootDir, 'src/**/transition/**/*.ts'),
+  '!' + path.resolve(rootDir, 'src/**/animation/__test__/*.ts'),
   '!' + path.resolve(rootDir, 'src/**/docs/*.ts'),
   '!' + path.resolve(rootDir, 'src/**/demo/*.ts'),
 ];
@@ -52,6 +52,19 @@ const tsProject = ts.createProject({
     "@utils/*": ["src/utils/*"],
   }  
 });
+let aliasEntries = [];
+Object.values(sourceMap).forEach(item => {
+  item.pkgInfo.forEach(i => {
+    aliasEntries.push({
+      find: i.name + '/lib',
+      replacement: item.path.replace(/src\/packages\//, '').replace(/\/index\.ts/, '')
+    });
+    aliasEntries.push({
+      find: i.name,
+      replacement: item.path.replace(/src\/packages\//, '').replace(/\/index\.ts/, '/index.js')
+    });
+  });
+});
 const generateTypes = () => {
   const tsResult = gulp
     .src(typesDir)
@@ -65,7 +78,7 @@ const generateLibJs = () => {
     .pipe(
       babel({
         babelrc: false,
-        ...getBabelConfig(false, true),
+        ...getBabelConfig(false, true, aliasEntries),
       })
     )
     .pipe(gulp.dest(libDir));
@@ -77,7 +90,7 @@ const generateEsJs = () => {
     .pipe(
       babel({
         babelrc: false,
-        ...getBabelConfig(true, true),
+        ...getBabelConfig(true, true, aliasEntries),
       })
     )
     .pipe(gulp.dest(esDir));

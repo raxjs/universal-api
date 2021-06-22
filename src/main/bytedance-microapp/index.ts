@@ -6,11 +6,14 @@ import canvas from '../../packages/canvas/src/bytedance-microapp/index';
 import accelerometer from '../../packages/device/accelerometer/src/bytedance-microapp/index';
 import clipboard from '../../packages/device/clipboard/src/bytedance-microapp/index';
 import systemInfo from '../../packages/device/systemInfo/src/bytedance-microapp/index';
+import scan from '../../packages/device/scan/src/bytedance-microapp/index';
 import file from '../../packages/file/src/bytedance-microapp/index';
 import actionSheet from '../../packages/interactive/actionSheet/src/bytedance-microapp/index';
 import alert from '../../packages/interactive/alert/src/bytedance-microapp/index';
+import animation from '../../packages/interactive/animation/src/bytedance-microapp/index';
 import toast from '../../packages/interactive/toast/src/bytedance-microapp/index';
 import loading from '../../packages/interactive/loading/src/bytedance-microapp/index';
+import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/bytedance-microapp/index';
 import element from '../../packages/interactive/element/src/bytedance-microapp/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/bytedance-microapp/index';
 import confirm from '../../packages/interactive/confirm/src/bytedance-microapp/index';
@@ -31,11 +34,14 @@ export {
   accelerometer,
   clipboard,
   systemInfo,
+  scan,
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
+  pullDownRefresh,
   element,
   intersectionObserver,
   confirm,
@@ -58,11 +64,14 @@ export default {
   accelerometer,
   clipboard,
   systemInfo,
+  scan,
   file,
   actionSheet,
   alert,
+  animation,
   toast,
   loading,
+  pullDownRefresh,
   element,
   intersectionObserver,
   confirm,

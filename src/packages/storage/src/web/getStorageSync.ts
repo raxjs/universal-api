@@ -1,8 +1,8 @@
-import { GetOrRemoveSyncOptionStruct } from '../types';
+import { GetOrRemoveSyncOptionStruct, GetStorageSyncRes } from '../types';
 import { styleIn } from '@utils/styleOptions';
 import { CONTAINER_NAME } from '@utils/constant';
 
-const getStorageSync = (args: GetOrRemoveSyncOptionStruct) => {
+const getStorageSync = (args: GetOrRemoveSyncOptionStruct): GetStorageSyncRes => {
   if (Object.prototype.toString.call(args) !== '[object Object]') {
     throw new Error('the Function need a param of Object type');
   }

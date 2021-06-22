@@ -6,9 +6,9 @@ import bytedanceModule from './bytedance-microapp/index';
 import kuaiShouModule from './kuaishou-miniprogram/index';
 import baiDuModule from './baidu-smartprogram/index';
 
-import { GetOrRemoveOptionStruct, GetOrRemoveSyncOptionStruct, SetOptionStruct, SetSyncOptionStruct } from './types';
+import { GetOrRemoveOptionStruct, GetOrRemoveSyncOptionStruct, SetOptionStruct, SetSyncOptionStruct, GetStorageRes, GetStorageSyncRes } from './types';
 
-export const getStorage = (args: GetOrRemoveOptionStruct) => {
+export const getStorage = (args: GetOrRemoveOptionStruct): GetStorageRes => {
   if (isWeChatMiniProgram) {
     return weChatModule.getStorage(args);
   } else if (isByteDanceMicroApp) {
@@ -26,7 +26,7 @@ export const getStorage = (args: GetOrRemoveOptionStruct) => {
   }
 };
 
-export const getStorageSync = (args: GetOrRemoveSyncOptionStruct) => {
+export const getStorageSync = (args: GetOrRemoveSyncOptionStruct): GetStorageSyncRes => {
   if (isWeChatMiniProgram) {
     return weChatModule.getStorageSync(args);
   } else if (isByteDanceMicroApp) {

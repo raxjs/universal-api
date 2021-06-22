@@ -76,7 +76,9 @@ export function normalizeHeaders(obj: AsObject) {
   });
   return obj;
 }
-
+export const validateStatus = (status: number | string) => {
+  return (status >= 200 && status < 300) || status === 304;
+};
 export function checkIsApplyDataToURL(headers: AsObject | undefined) {
   if (!headers || !headers['Content-Type']) {
     return false;
@@ -142,8 +144,13 @@ export function styleOptions(options, containerName) {
     method: (options.method || 'GET').toUpperCase(),
     headers: normalizeHeaders(options.headers || {}),
     success: (res) => {
+      const _validateStatus = options.validateStatus || validateStatus;
       const _res = adapterResponse(res);
-      options.success && options.success(_res);
+      if (!_validateStatus(_res.status)) {
+        options.fail && options.fail(_res);
+      } else {
+        options.success && options.success(_res);
+      }
     },
     fail: (res) => {
       options.fail && options.fail(adapterResponse(res));
