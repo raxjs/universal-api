@@ -1,4 +1,5 @@
 import { Uni } from '../../../../types/interface';
+
 export interface UploadOptions extends Uni.COptions {
   url: string;
   filePath: string | File;
