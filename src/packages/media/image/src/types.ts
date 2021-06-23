@@ -1,5 +1,4 @@
-/// <reference path='../../../../../types/interface.d.ts'/>
-
+import { Uni } from '../../../../../types/interface';
 
 // chooseImage
 enum SOURCE_TYPE {

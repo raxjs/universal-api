@@ -1,4 +1,5 @@
-/// <reference path='../../../../types/interface.d.ts'/>
+import { Uni } from '../../../../types/interface';
+
 export interface IPushOptions extends Uni.COptions {
   url: string;
   isHash?: boolean;
