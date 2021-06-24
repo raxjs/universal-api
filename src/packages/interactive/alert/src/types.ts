@@ -1,4 +1,4 @@
-/// <reference path='../../../../../types/interface.d.ts'/>
+import { Uni } from '../../../../../types/interface';
 
 export interface Options extends Uni.COptions {
   title?: string;

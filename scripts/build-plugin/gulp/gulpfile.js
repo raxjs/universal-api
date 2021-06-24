@@ -61,7 +61,7 @@ const generateTypes = () => {
     .src(typesDir)
     .pipe(tsProject());
   return tsResult.dts
-  .pipe(replace('types/interface', './interface'))
+  .pipe(replace(/(\.\.\/)*?types\/interface/, './interface'))
   .pipe(gulp.dest(typesOutDir));
 };
 const generateLibJs = () => {
