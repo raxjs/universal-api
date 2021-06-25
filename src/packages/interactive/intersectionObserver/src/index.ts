@@ -9,7 +9,8 @@ import { CreateIntersectionObserver } from './types';
 
 const createIntersectionObserver: CreateIntersectionObserver = (...args) => {
   if (isKuaiShouMiniProgram) {
-    return kuaiShouModule(...args);
+    console.warn('Uni API: IntersectionObserver暂不支持');
+    // return kuaiShouModule(...args);
   } else if (isWeChatMiniProgram) {
     return weChatModule(...args);
   } else if (isByteDanceMicroApp) {
@@ -18,8 +19,6 @@ const createIntersectionObserver: CreateIntersectionObserver = (...args) => {
     return aliMiniAppModule(...args);
   } else if (isWeb) {
     return webModule(...args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule(...args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule(...args);
   } else {
