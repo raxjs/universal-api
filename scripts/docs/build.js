@@ -7,11 +7,12 @@ const { spawnSync, spawn } = require('child_process');
 
 const root = process.cwd();
 console.log(`开始构建docs`);
-initDocs();
-
-spawnSync('dumi', [
-  'build',
-], {
-  stdio: 'inherit',
-  cwd: path.resolve(root, `./`),
+initDocs().then(() => {
+  console.log(`开始执行dumi构建文档`);
+  spawnSync('dumi', [
+    'build',
+  ], {
+    stdio: 'inherit',
+    cwd: path.resolve(root, `./`),
+  });
 });
