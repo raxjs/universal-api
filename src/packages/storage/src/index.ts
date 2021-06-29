@@ -1,4 +1,4 @@
-import {isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp} from '@uni/env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
 import webModule from './web/index';
 import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniprogram/index';
