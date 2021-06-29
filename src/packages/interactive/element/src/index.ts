@@ -5,27 +5,27 @@ import bytedanceModule from './bytedance-microapp/index';
 import webModule from './web/index';
 
 export const getScrollOffset = (selector, context?) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.getScrollOffset(selector);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.getScrollOffset(selector, context);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getScrollOffset(selector);
   } else if (isMiniApp) {
     return aliMiniAppModule.getScrollOffset(selector);
-  } else if (isWeb) {
-    return webModule.getScrollOffset(selector);
   } else {
     throw new Error('Uni API：element暂不支持');
   }
 };
 export const getBoundingClientRect = (selector, context?) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.getBoundingClientRect(selector);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.getBoundingClientRect(selector, context);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getBoundingClientRect(selector);
   } else if (isMiniApp) {
     return aliMiniAppModule.getBoundingClientRect(selector);
-  } else if (isWeb) {
-    return webModule.getBoundingClientRect(selector);
   } else {
     throw new Error('Uni API：element暂不支持');
   }

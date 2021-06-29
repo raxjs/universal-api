@@ -6,28 +6,28 @@ import * as bytedanceModule from './bytedance-microapp/index';
 import { AsyncOptions } from './types';
 
 export const getInfoSync = () => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.getInfoSync();
+  } else if (isWeChatMiniProgram) {
     return weChatModule.getInfoSync();
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getInfoSync();
   } else if (isMiniApp) {
     return aliMiniAppModule.getInfoSync();
-  } else if (isWeb) {
-    return webModule.getInfoSync();
   } else {
     throw new Error('Uni API：getInfoSync暂不支持');
   }
 };
 
 export const getInfo = (options?: AsyncOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.getInfo(options);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.getInfo(options);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getInfo(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.getInfo(options);
-  } else if (isWeb) {
-    return webModule.getInfo(options);
   } else {
     throw new Error('Uni API：getInfo暂不支持');
   }
