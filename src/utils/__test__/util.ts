@@ -1,5 +1,5 @@
 type Container = 'web' | 'wechat' | 'alipay' | 'bytedance' | 'kuaishou' | 'baidu';
-type ENV = Record<'window' | 'wx' | 'my' | 'tt' | 'ks' | 'swan' | string, any>;
+type Globals = Record<'window' | 'wx' | 'my' | 'tt' | 'ks' | 'swan' | string, any>;
 
 export const noop = () => {
 };
@@ -12,7 +12,7 @@ export const noop = () => {
  */
 export function testContainerAPI(
   container: Container,
-  callback: (env: ENV) => any,
+  callback: (globals: Globals) => any,
 ) {
   const map = {
     web: { window: { onload: noop } },
@@ -22,17 +22,17 @@ export function testContainerAPI(
     kuaishou: { ks: { showToast: noop } },
     baidu: { swan: { showToast: noop } },
   };
-  const env = map[container] || {};
+  const globals = map[container] || {};
 
   test(`Test container: ${container}`, async () => {
-    // set env
-    Object.assign(global, env);
+    // set
+    Object.assign(global, globals);
 
     // callback
-    await callback(env);
+    await callback(globals);
 
-    // clear env
-    Object.keys(env).forEach((k) => {
+    // clear
+    Object.keys(globals).forEach((k) => {
       delete global[k];
     });
   });
@@ -40,13 +40,14 @@ export function testContainerAPI(
 
 /**
  * batch run test in multiple mock container environment for special api
+ * @param name
  * @param containers
  * @param callback
  */
 export function testPlatformAPI(
   name: string,
   containers: Container[],
-  callback: (container: Container, env: ENV) => any,
+  callback: (container: Container, globals: Globals) => any,
 ) {
   describe(`Test Platform API: ${name}`, () => {
     beforeEach(() => {
@@ -54,8 +55,8 @@ export function testPlatformAPI(
     });
 
     for (const container of containers) {
-      testContainerAPI(container, async (env) => {
-        await callback(container, env);
+      testContainerAPI(container, async (globals) => {
+        await callback(container, globals);
       });
     }
   });
