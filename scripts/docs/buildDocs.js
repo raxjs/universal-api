@@ -90,14 +90,15 @@ const buildDocs = async () => {
   fs.copySync(quickStartPath, path.resolve(packageDocsPath, 'quickStart'));
   
 
-  Object.entries(sourceMap).map(([key, value]) => {
+  Object.entries(sourceMap).map(async ([key, value]) => {
     const fromPath = path.resolve(root, value.path.replace(/src\/index\.(t|j)s/, 'docs'));
     const toPath = path.resolve(root, docsOutputDir, value.path.replace(/src\/packages/, 'packages').replace(/src\/index\.(t|j)s/, ''));
     if (fs.pathExistsSync(fromPath)) {
       fs.copySync(fromPath, toPath);
-      injectFile(toPath);
+      await new Promise(resolve => {
+        injectFile(toPath, resolve);
+      });
     }
-    
   });
   logger('END', {status: 'SUCCESS'});
 };
