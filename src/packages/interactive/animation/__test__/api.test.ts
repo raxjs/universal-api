@@ -1,12 +1,12 @@
 import { testPlatformAPI, noop } from '@utils/__test__/util';
 
-testPlatformAPI('animation', ['wechat', 'alipay', 'bytedance'], (container, globals) => {
+testPlatformAPI('animation', ['wechat', 'ali', 'bytedance'], (container, globals) => {
   const mockAnimationStep = jest.fn();
   const mockCreateAnimation = jest.fn(() => ({ step: mockAnimationStep, export: noop }));
 
   if (container === 'wechat') {
     globals.wx.createAnimation = mockCreateAnimation;
-  } else if (container === 'alipay') {
+  } else if (container === 'ali') {
     globals.my.createAnimation = mockCreateAnimation;
   } else if (container === 'bytedance') {
     globals.tt.createAnimation = mockCreateAnimation;
