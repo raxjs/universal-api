@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.3.3] - 2021-06-30
+
+### Chore
+
+- Update a patch version for sync without any change
+
 ## [3.3.2] - 2021-06-11
 
 ### Chore
