@@ -1,36 +1,21 @@
-import {createPromisifyImpl, testPlatformAPI} from '@utils/__test__/util';
+import { createPromisifyImpl, isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('image', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
+testPlatformAPI('image', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
   const mockChooseImage = jest.fn(createPromisifyImpl());
   const mockCompressImage = jest.fn(createPromisifyImpl());
   const mockGetImageInfo = jest.fn(createPromisifyImpl());
   const mockPreviewImage = jest.fn(createPromisifyImpl());
   const mockSaveImage = jest.fn(createPromisifyImpl());
+  configAPI('chooseImage', mockChooseImage);
+  configAPI('compressImage', mockCompressImage);
+  configAPI('getImageInfo', mockGetImageInfo);
+  configAPI('previewImage', mockPreviewImage);
+  configAPI('previewImage', mockPreviewImage);
 
-  if (container === 'wechat') {
-    globals.wx.chooseImage = mockChooseImage;
-    globals.wx.compressImage = mockCompressImage;
-    globals.wx.getImageInfo = mockGetImageInfo;
-    globals.wx.previewImage = mockPreviewImage;
-    globals.wx.saveImageToPhotosAlbum = mockSaveImage;
-  } else if (container === 'dingtalk') {
-    globals.dd.chooseImage = mockChooseImage;
-    globals.dd.compressImage = mockCompressImage;
-    globals.dd.getImageInfo = mockGetImageInfo;
-    globals.dd.previewImage = mockPreviewImage;
-    globals.dd.saveImage = mockSaveImage;
-  } else if (container === 'ali') {
-    globals.my.chooseImage = mockChooseImage;
-    globals.my.compressImage = mockCompressImage;
-    globals.my.getImageInfo = mockGetImageInfo;
-    globals.my.previewImage = mockPreviewImage;
-    globals.my.saveImage = mockSaveImage;
-  } else if (container === 'bytedance') {
-    globals.tt.chooseImage = mockChooseImage;
-    globals.tt.compressImage = mockCompressImage;
-    globals.tt.getImageInfo = mockGetImageInfo;
-    globals.tt.previewImage = mockPreviewImage;
-    globals.tt.saveImageToPhotosAlbum = mockSaveImage;
+  if (isAliContainer(container)) {
+    configAPI('saveImage', mockSaveImage);
+  } else {
+    configAPI('saveImageToPhotosAlbum', mockSaveImage);
   }
 
   const { chooseImage, compressImage, getImageInfo, previewImage, saveImage } = require('../src/index');

@@ -1,27 +1,12 @@
-import {createPromisifyImpl, isAliContainer, testPlatformAPI} from '@utils/__test__/util';
+import { createPromisifyImpl, isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('location', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
+testPlatformAPI('location', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
   const mockGetLocation = jest.fn(createPromisifyImpl());
   const mockOpenLocation = jest.fn(createPromisifyImpl());
   const mockChooseLocation = jest.fn(createPromisifyImpl());
-
-  if (container === 'wechat') {
-    globals.wx.getLocation = mockGetLocation;
-    globals.wx.openLocation = mockOpenLocation;
-    globals.wx.chooseLocation = mockChooseLocation;
-  } else if (container === 'dingtalk') {
-    globals.dd.getLocation = mockGetLocation;
-    globals.dd.openLocation = mockOpenLocation;
-    globals.dd.chooseLocation = mockChooseLocation;
-  } else if (container === 'ali') {
-    globals.my.getLocation = mockGetLocation;
-    globals.my.openLocation = mockOpenLocation;
-    globals.my.chooseLocation = mockChooseLocation;
-  } else if (container === 'bytedance') {
-    globals.tt.getLocation = mockGetLocation;
-    globals.tt.openLocation = mockOpenLocation;
-    globals.tt.chooseLocation = mockChooseLocation;
-  }
+  configAPI('getLocation', mockGetLocation);
+  configAPI('openLocation', mockOpenLocation);
+  configAPI('chooseLocation', mockChooseLocation);
 
   const { getLocation, openLocation, chooseLocation } = require('../src/index');
 

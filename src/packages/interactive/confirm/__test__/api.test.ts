@@ -1,4 +1,4 @@
-import {createPromisifyImpl, testPlatformAPI} from '@utils/__test__/util';
+import { createPromisifyImpl, testPlatformAPI } from '@utils/__test__/util';
 
 testPlatformAPI('confirm', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
   const mockShowConfirm = jest.fn(createPromisifyImpl());

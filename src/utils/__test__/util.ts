@@ -1,6 +1,16 @@
 // Note: `ali` includes: `dingtalk`
-type Container = 'web' | 'wechat' | 'ali' | 'bytedance' | 'kuaishou' | 'baidu' | 'dingtalk';
+type Container = 'web' | 'wechat' | 'ali' | 'dingtalk' | 'bytedance' | 'kuaishou' | 'baidu';
 type Globals = Record<'window' | 'wx' | 'my' | 'dd' | 'tt' | 'ks' | 'swan' | string, any>;
+
+export const mapContainerToGlobalsKey: Record<Container, keyof Globals> = {
+  web: 'window',
+  wechat: 'wx',
+  ali: 'my',
+  dingtalk: 'dd',
+  bytedance: 'tt',
+  kuaishou: 'ks',
+  baidu: 'swan',
+};
 
 export function createNoop() {
   return () => {
@@ -27,7 +37,7 @@ export function isAliContainer(container: Container) {
  */
 export function testContainerAPI(
   container: Container,
-  callback: (globals: Globals) => any,
+  callback: (globals: Partial<Globals>) => any,
 ) {
   const map: Record<Container, Globals> = {
     web: { window: { onload: noop } },
@@ -70,6 +80,8 @@ export function testContainerAPI(
   });
 }
 
+type ConfigAPI = (api: string, mockImpl: jest.Mock) => void;
+
 /**
  * batch run test in multiple mock container environment for special api
  * @param name
@@ -79,7 +91,7 @@ export function testContainerAPI(
 export function testPlatformAPI(
   name: string,
   containers: Container[],
-  callback: (container: Container, globals: Globals) => any,
+  callback: (container: Container, globals: Partial<Globals>, configAPI: ConfigAPI) => any,
 ) {
   describe(`Test Platform API: ${name}`, () => {
     beforeEach(() => {
@@ -88,7 +100,13 @@ export function testPlatformAPI(
 
     for (const container of containers) {
       testContainerAPI(container, async (globals) => {
-        await callback(container, globals);
+        const configAPI = (api: string, mockImpl: jest.Mock) => {
+          const key = mapContainerToGlobalsKey[container];
+          if (globals[key]) {
+            globals[key][api] = mockImpl;
+          }
+        };
+        await callback(container, globals, configAPI);
       });
     }
   });

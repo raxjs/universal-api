@@ -1,17 +1,8 @@
-import {isAliContainer, testPlatformAPI} from '@utils/__test__/util';
+import { isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('intersectionObserver', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
+testPlatformAPI('intersectionObserver', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
   const mockCreateIntersectionObserver = jest.fn();
-
-  if (container === 'wechat') {
-    globals.wx.createIntersectionObserver = mockCreateIntersectionObserver;
-  } else if (container === 'dingtalk') {
-    globals.dd.createIntersectionObserver = mockCreateIntersectionObserver;
-  } else if (container === 'ali') {
-    globals.my.createIntersectionObserver = mockCreateIntersectionObserver;
-  } else if (container === 'bytedance') {
-    globals.tt.createIntersectionObserver = mockCreateIntersectionObserver;
-  }
+  configAPI('createIntersectionObserver', mockCreateIntersectionObserver);
 
   const { default: createIntersectionObserver } = require('../src/index');
   createIntersectionObserver({

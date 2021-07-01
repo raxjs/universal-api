@@ -1,42 +1,18 @@
 import { createPromisifyImpl, isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('storage', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
+testPlatformAPI('storage', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
   const mockGetStorage = jest.fn(createPromisifyImpl());
   const mockGetStorageSync = jest.fn();
   const mockSetStorage = jest.fn(createPromisifyImpl());
   const mockSetStorageSync = jest.fn();
   const mockRemoveStorage = jest.fn(createPromisifyImpl());
   const mockRemoveStorageSync = jest.fn();
-
-  if (container === 'wechat') {
-    globals.wx.getStorage = mockGetStorage;
-    globals.wx.getStorageSync = mockGetStorageSync;
-    globals.wx.setStorage = mockSetStorage;
-    globals.wx.setStorageSync = mockSetStorageSync;
-    globals.wx.removeStorage = mockRemoveStorage;
-    globals.wx.removeStorageSync = mockRemoveStorageSync;
-  } else if (container === 'dingtalk') {
-    globals.dd.getStorage = mockGetStorage;
-    globals.dd.getStorageSync = mockGetStorageSync;
-    globals.dd.setStorage = mockSetStorage;
-    globals.dd.setStorageSync = mockSetStorageSync;
-    globals.dd.removeStorage = mockRemoveStorage;
-    globals.dd.removeStorageSync = mockRemoveStorageSync;
-  } else if (container === 'ali') {
-    globals.my.getStorage = mockGetStorage;
-    globals.my.getStorageSync = mockGetStorageSync;
-    globals.my.setStorage = mockSetStorage;
-    globals.my.setStorageSync = mockSetStorageSync;
-    globals.my.removeStorage = mockRemoveStorage;
-    globals.my.removeStorageSync = mockRemoveStorageSync;
-  } else if (container === 'bytedance') {
-    globals.tt.getStorage = mockGetStorage;
-    globals.tt.getStorageSync = mockGetStorageSync;
-    globals.tt.setStorage = mockSetStorage;
-    globals.tt.setStorageSync = mockSetStorageSync;
-    globals.tt.removeStorage = mockRemoveStorage;
-    globals.tt.removeStorageSync = mockRemoveStorageSync;
-  }
+  configAPI('getStorage', mockGetStorage);
+  configAPI('getStorageSync', mockGetStorageSync);
+  configAPI('setStorage', mockSetStorage);
+  configAPI('setStorageSync', mockSetStorageSync);
+  configAPI('removeStorage', mockRemoveStorage);
+  configAPI('removeStorageSync', mockRemoveStorageSync);
 
   const {
     getStorage,

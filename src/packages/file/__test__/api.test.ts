@@ -1,6 +1,6 @@
-import {isAliContainer, testPlatformAPI} from '@utils/__test__/util';
+import { isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('file', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
+testPlatformAPI('file', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
   const mockUpload = jest.fn();
   const mockDownload = jest.fn();
   const mockGetInfo = jest.fn();
@@ -10,40 +10,18 @@ testPlatformAPI('file', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (conta
   const mockRemoveSaved = jest.fn();
   const mockOpenDocument = jest.fn();
 
-  if (container === 'wechat') {
-    globals.wx.uploadFile = mockUpload;
-    globals.wx.downloadFile = mockDownload;
-    globals.wx.getFileInfo = mockGetInfo;
-    globals.wx.getSavedFileList = mockGetSavedList;
-    globals.wx.saveFile = mockSave;
-    globals.wx.removeSavedFile = mockRemoveSaved;
-    globals.wx.openDocument = mockOpenDocument;
-  } else if (container === 'dingtalk') {
-    globals.dd.uploadFile = mockUpload;
-    globals.dd.downloadFile = mockDownload;
-    globals.dd.getFileInfo = mockGetInfo;
+  configAPI('uploadFile', mockUpload);
+  configAPI('downloadFile', mockDownload);
+  configAPI('getFileInfo', mockGetInfo);
+  configAPI('getSavedFileList', mockGetSavedList);
+  configAPI('saveFile', mockSave);
+  configAPI('removeSavedFile', mockRemoveSaved);
+  configAPI('openDocument', mockOpenDocument);
+
+  if (container === 'dingtalk') {
     globals.dd.getSavedFileInfo = mockGetSavedInfo;
-    globals.dd.getSavedFileList = mockGetSavedList;
-    globals.dd.saveFile = mockSave;
-    globals.dd.removeSavedFile = mockRemoveSaved;
-    globals.dd.openDocument = mockOpenDocument;
   } else if (container === 'ali') {
-    globals.my.uploadFile = mockUpload;
-    globals.my.downloadFile = mockDownload;
-    globals.my.getFileInfo = mockGetInfo;
     globals.my.getSavedFileInfo = mockGetSavedInfo;
-    globals.my.getSavedFileList = mockGetSavedList;
-    globals.my.saveFile = mockSave;
-    globals.my.removeSavedFile = mockRemoveSaved;
-    globals.my.openDocument = mockOpenDocument;
-  } else if (container === 'bytedance') {
-    globals.tt.uploadFile = mockUpload;
-    globals.tt.downloadFile = mockDownload;
-    globals.tt.getFileInfo = mockGetInfo;
-    globals.tt.getSavedFileList = mockGetSavedList;
-    globals.tt.saveFile = mockSave;
-    globals.tt.removeSavedFile = mockRemoveSaved;
-    globals.tt.openDocument = mockOpenDocument;
   }
 
   const {

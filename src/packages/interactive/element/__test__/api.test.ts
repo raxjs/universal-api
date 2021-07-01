@@ -1,19 +1,12 @@
 import { testPlatformAPI } from '@utils/__test__/util';
 import { MockSelectorQueryImpl } from '@utils/__test__/createSelectorQuery';
 
-testPlatformAPI('element', ['wechat', 'ali', 'bytedance'], async (container, globals) => {
+testPlatformAPI('element', ['wechat', 'ali', 'bytedance'], async (container, globals, configAPI) => {
   const mockSelectorQuery = new MockSelectorQueryImpl([[{
     scrollLeft: 1,
     scrollTop: 2,
   }]]);
-
-  if (container === 'wechat') {
-    globals.wx.createSelectorQuery = mockSelectorQuery.getMock('createSelectorQuery');
-  } else if (container === 'ali') {
-    globals.my.createSelectorQuery = mockSelectorQuery.getMock('createSelectorQuery');
-  } else if (container === 'bytedance') {
-    globals.tt.createSelectorQuery = mockSelectorQuery.getMock('createSelectorQuery');
-  }
+  configAPI('createSelectorQuery', mockSelectorQuery.getMock('createSelectorQuery'));
 
   const { getScrollOffset, getBoundingClientRect } = require('../src/index');
 

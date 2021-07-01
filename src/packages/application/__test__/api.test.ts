@@ -1,6 +1,6 @@
 import { createNoop, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('application', ['wechat', 'ali', 'dingtalk', 'bytedance'], (container, globals) => {
+testPlatformAPI('application', ['wechat', 'ali', 'dingtalk', 'bytedance'], (container, globals, configAPI) => {
   const mockGetApp = jest.fn();
   const mockGetCurrentPages = jest.fn();
   const mockGetLaunchOptionsSync = jest.fn();
@@ -12,30 +12,15 @@ testPlatformAPI('application', ['wechat', 'ali', 'dingtalk', 'bytedance'], (cont
   globals.getApp = mockGetApp;
   globals.getCurrentPages = mockGetCurrentPages;
 
-  if (container === 'wechat') {
-    globals.wx.getLaunchOptionsSync = mockGetLaunchOptionsSync;
-    globals.wx.onError = mockOnError;
-    globals.wx.offError = mockOffError;
-    globals.wx.onUnhandledRejection = mockOnUnhandledRejection;
-    globals.wx.offUnhandledRejection = mockOffUnhandledRejection;
-  } else if (container === 'dingtalk') {
+  configAPI('onError', mockOnError);
+  configAPI('offError', mockOffError);
+  configAPI('onUnhandledRejection', mockOnUnhandledRejection);
+  configAPI('offUnhandledRejection', mockOffUnhandledRejection);
+
+  if (container === 'dingtalk') {
     globals.my.getLaunchOptionsSync = mockGetLaunchOptionsSync;
-    globals.dd.onError = mockOnError;
-    globals.dd.offError = mockOffError;
-    globals.dd.onUnhandledRejection = mockOnUnhandledRejection;
-    globals.dd.offUnhandledRejection = mockOffUnhandledRejection;
-  } else if (container === 'ali') {
-    globals.my.getLaunchOptionsSync = mockGetLaunchOptionsSync;
-    globals.my.onError = mockOnError;
-    globals.my.offError = mockOffError;
-    globals.my.onUnhandledRejection = mockOnUnhandledRejection;
-    globals.my.offUnhandledRejection = mockOffUnhandledRejection;
-  } else if (container === 'bytedance') {
-    globals.tt.getLaunchOptionsSync = mockGetLaunchOptionsSync;
-    globals.tt.onError = mockOnError;
-    globals.tt.offError = mockOffError;
-    globals.tt.onUnhandledRejection = mockOnUnhandledRejection;
-    globals.tt.offUnhandledRejection = mockOffUnhandledRejection;
+  } else {
+    configAPI('getLaunchOptionsSync', mockGetLaunchOptionsSync);
   }
 
   const {

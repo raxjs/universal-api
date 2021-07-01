@@ -1,27 +1,14 @@
 import { createPromisifyImpl, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('navigate', ['wechat', 'ali', 'bytedance'], async (container, globals) => {
+testPlatformAPI('navigate', ['wechat', 'ali', 'bytedance'], async (container, globals, configAPI) => {
   const mockPush = jest.fn(createPromisifyImpl());
   const mockBack = jest.fn(createPromisifyImpl());
   const mockReLaunch = jest.fn(createPromisifyImpl());
   const mockReplace = jest.fn(createPromisifyImpl());
-
-  if (container === 'wechat') {
-    globals.wx.navigateTo = mockPush;
-    globals.wx.navigateBack = mockBack;
-    globals.wx.reLaunch = mockReLaunch;
-    globals.wx.redirectTo = mockReplace;
-  } else if (container === 'ali') {
-    globals.my.navigateTo = mockPush;
-    globals.my.navigateBack = mockBack;
-    globals.my.reLaunch = mockReLaunch;
-    globals.my.redirectTo = mockReplace;
-  } else if (container === 'bytedance') {
-    globals.tt.navigateTo = mockPush;
-    globals.tt.navigateBack = mockBack;
-    globals.tt.reLaunch = mockReLaunch;
-    globals.tt.redirectTo = mockReplace;
-  }
+  configAPI('navigateTo', mockPush);
+  configAPI('navigateBack', mockBack);
+  configAPI('reLaunch', mockReLaunch);
+  configAPI('redirectTo', mockReplace);
 
   const { push, back, reLaunch, replace } = require('../src/index');
 

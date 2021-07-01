@@ -1,22 +1,10 @@
-import {createPromisifyImpl, isAliContainer, testPlatformAPI} from '@utils/__test__/util';
+import { createPromisifyImpl, isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('toast', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
+testPlatformAPI('toast', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
   const mockShowToast = jest.fn(createPromisifyImpl());
   const mockHideToast = jest.fn(createPromisifyImpl());
-
-  if (container === 'wechat') {
-    globals.wx.showToast = mockShowToast;
-    globals.wx.hideToast = mockHideToast;
-  } else if (container === 'dingtalk') {
-    globals.dd.showToast = mockShowToast;
-    globals.dd.hideToast = mockHideToast;
-  } else if (container === 'ali') {
-    globals.my.showToast = mockShowToast;
-    globals.my.hideToast = mockHideToast;
-  } else if (container === 'bytedance') {
-    globals.tt.showToast = mockShowToast;
-    globals.tt.hideToast = mockHideToast;
-  }
+  configAPI('showToast', mockShowToast);
+  configAPI('hideToast', mockHideToast);
 
   const { show, hide, showToast, hideToast } = require('../src/index');
 
