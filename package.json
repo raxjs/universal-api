@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.16",
   "scripts": {
-    "setup": "rm -rf node_modules && yarn install --no-lockfile",
+    "setup": "rm -rf node_modules && npm install",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src/packages/*/src --fix",
     "build": "cross-env node ./scripts/build.js",
     "build:all": "cross-env BUILD_TYPE=all node ./scripts/build.js",
@@ -28,7 +28,6 @@
     "@babel/runtime-corejs3": "^7.12.5"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.4",
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/plugin-syntax-dynamic-import": "^7.7.4",
