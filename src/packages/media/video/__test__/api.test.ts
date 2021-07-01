@@ -1,9 +1,7 @@
-import { testPlatformAPI } from '@utils/__test__/util';
+import { createPromisifyImpl, testPlatformAPI } from '@utils/__test__/util';
 
 testPlatformAPI('video', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
-  const mockChooseVideo = jest.fn((args) => {
-    args?.success({});
-  });
+  const mockChooseVideo = jest.fn(createPromisifyImpl());
   const mockCreateVideoContext = jest.fn();
 
   if (container === 'wechat') {

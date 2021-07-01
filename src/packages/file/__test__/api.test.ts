@@ -1,4 +1,4 @@
-import { testPlatformAPI } from '@utils/__test__/util';
+import {isAliContainer, testPlatformAPI} from '@utils/__test__/util';
 
 testPlatformAPI('file', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
   const mockUpload = jest.fn();
@@ -68,7 +68,7 @@ testPlatformAPI('file', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (conta
 
   mockGetInfo.mockClear();
   getSavedInfo();
-  if (container === 'ali' || container === 'dingtalk') {
+  if (isAliContainer(container)) {
     expect(mockGetSavedInfo.mock.calls.length).toBe(1);
   } else {
     expect(mockGetInfo.mock.calls.length).toBe(1);

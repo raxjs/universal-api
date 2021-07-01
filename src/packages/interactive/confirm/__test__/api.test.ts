@@ -1,10 +1,7 @@
-import { testPlatformAPI } from '@utils/__test__/util';
-import confirm from "../src";
+import {createPromisifyImpl, testPlatformAPI} from '@utils/__test__/util';
 
 testPlatformAPI('confirm', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
-  const mockShowConfirm = jest.fn((args) => {
-    args?.success({});
-  });
+  const mockShowConfirm = jest.fn(createPromisifyImpl());
 
   if (container === 'wechat') {
     globals.wx.showModal = mockShowConfirm;

@@ -1,21 +1,11 @@
-import { testPlatformAPI } from '@utils/__test__/util';
+import {createPromisifyImpl, testPlatformAPI} from '@utils/__test__/util';
 
 testPlatformAPI('image', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
-  const mockChooseImage = jest.fn((args) => {
-    args?.success({});
-  });
-  const mockCompressImage = jest.fn((args) => {
-    args?.success({});
-  });
-  const mockGetImageInfo = jest.fn((args) => {
-    args?.success({});
-  });
-  const mockPreviewImage = jest.fn((args) => {
-    args?.success({});
-  });
-  const mockSaveImage = jest.fn((args) => {
-    args?.success({});
-  });
+  const mockChooseImage = jest.fn(createPromisifyImpl());
+  const mockCompressImage = jest.fn(createPromisifyImpl());
+  const mockGetImageInfo = jest.fn(createPromisifyImpl());
+  const mockPreviewImage = jest.fn(createPromisifyImpl());
+  const mockSaveImage = jest.fn(createPromisifyImpl());
 
   if (container === 'wechat') {
     globals.wx.chooseImage = mockChooseImage;

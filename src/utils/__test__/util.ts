@@ -1,4 +1,4 @@
-// Note: `ali` 包含: dingtalk
+// Note: `ali` includes: `dingtalk`
 type Container = 'web' | 'wechat' | 'ali' | 'bytedance' | 'kuaishou' | 'baidu' | 'dingtalk';
 type Globals = Record<'window' | 'wx' | 'my' | 'dd' | 'tt' | 'ks' | 'swan' | string, any>;
 
@@ -8,6 +8,16 @@ export function createNoop() {
 }
 
 export const noop = createNoop();
+
+export function createPromisifyImpl(value: any = {}) {
+  return (args) => {
+    args?.success(value);
+  };
+}
+
+export function isAliContainer(container: Container) {
+  return container === 'ali' || container === 'dingtalk';
+}
 
 /**
  * run test in mock container environment for special api

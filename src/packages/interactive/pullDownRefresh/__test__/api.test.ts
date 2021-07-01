@@ -1,12 +1,8 @@
-import { testPlatformAPI } from '@utils/__test__/util';
+import {createPromisifyImpl, testPlatformAPI} from '@utils/__test__/util';
 
 testPlatformAPI('pullDownRefresh', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
-  const mockStartPullDownRefresh = jest.fn((args) => {
-    args?.success({});
-  });
-  const mockStopPullDownRefresh = jest.fn((args) => {
-    args?.success({});
-  });
+  const mockStartPullDownRefresh = jest.fn(createPromisifyImpl());
+  const mockStopPullDownRefresh = jest.fn(createPromisifyImpl());
 
   if (container === 'wechat') {
     globals.wx.startPullDownRefresh = mockStartPullDownRefresh;

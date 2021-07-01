@@ -1,12 +1,8 @@
-import { testPlatformAPI } from '@utils/__test__/util';
+import {createPromisifyImpl, isAliContainer, testPlatformAPI} from '@utils/__test__/util';
 
 testPlatformAPI('toast', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
-  const mockShowToast = jest.fn((args) => {
-    args?.success({});
-  });
-  const mockHideToast = jest.fn((args) => {
-    args?.success({});
-  });
+  const mockShowToast = jest.fn(createPromisifyImpl());
+  const mockHideToast = jest.fn(createPromisifyImpl());
 
   if (container === 'wechat') {
     globals.wx.showToast = mockShowToast;
@@ -26,7 +22,7 @@ testPlatformAPI('toast', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (cont
 
   await show({ content: 'abc' });
   expect(mockShowToast.mock.calls.length).toBe(1);
-  if (container === 'ali' || container === 'dingtalk') {
+  if (isAliContainer(container)) {
     expect(mockShowToast.mock.calls[0][0].content).toBe('abc');
   } else {
     expect(mockShowToast.mock.calls[0][0].title).toBe('abc');
@@ -35,7 +31,7 @@ testPlatformAPI('toast', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (cont
   mockShowToast.mockClear();
   await showToast({ content: 'abc' });
   expect(mockShowToast.mock.calls.length).toBe(1);
-  if (container === 'ali' || container === 'dingtalk') {
+  if (isAliContainer(container)) {
     expect(mockShowToast.mock.calls[0][0].content).toBe('abc');
   } else {
     expect(mockShowToast.mock.calls[0][0].title).toBe('abc');

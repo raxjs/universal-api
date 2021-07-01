@@ -1,4 +1,4 @@
-import { testPlatformAPI } from '@utils/__test__/util';
+import {isAliContainer, testPlatformAPI} from '@utils/__test__/util';
 
 testPlatformAPI('intersectionObserver', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
   const mockCreateIntersectionObserver = jest.fn();
@@ -19,7 +19,7 @@ testPlatformAPI('intersectionObserver', ['wechat', 'ali', 'dingtalk', 'bytedance
     selectAll: false,
   });
 
-  if (container === 'ali' || container === 'dingtalk') {
+  if (isAliContainer(container)) {
     expect(mockCreateIntersectionObserver.mock.calls).toEqual([[{ thresholds: [1], selectAll: false }]]);
   } else {
     expect(mockCreateIntersectionObserver.mock.calls).toEqual([[null, { thresholds: [1], selectAll: false, observeAll: false }]]);

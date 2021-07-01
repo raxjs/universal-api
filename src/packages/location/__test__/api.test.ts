@@ -1,15 +1,9 @@
-import { testPlatformAPI } from '@utils/__test__/util';
+import {createPromisifyImpl, isAliContainer, testPlatformAPI} from '@utils/__test__/util';
 
 testPlatformAPI('location', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
-  const mockGetLocation = jest.fn((args) => {
-    args?.success({});
-  });
-  const mockOpenLocation = jest.fn((args) => {
-    args?.success({});
-  });
-  const mockChooseLocation = jest.fn((args) => {
-    args?.success({});
-  });
+  const mockGetLocation = jest.fn(createPromisifyImpl());
+  const mockOpenLocation = jest.fn(createPromisifyImpl());
+  const mockChooseLocation = jest.fn(createPromisifyImpl());
 
   if (container === 'wechat') {
     globals.wx.getLocation = mockGetLocation;
@@ -39,7 +33,7 @@ testPlatformAPI('location', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (c
     longitude: 2,
   });
   expect(mockOpenLocation.mock.calls.length).toBe(1);
-  if (container === 'ali' || container === 'dingtalk') {
+  if (isAliContainer(container)) {
     expect(mockOpenLocation.mock.calls[0][0]).toMatchObject({
       latitude: '1',
       longitude: '2',

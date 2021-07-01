@@ -1,9 +1,7 @@
-import { testPlatformAPI } from '@utils/__test__/util';
+import {createPromisifyImpl, testPlatformAPI} from '@utils/__test__/util';
 
 testPlatformAPI('actionSheet', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
-  const mockShowActionSheet = jest.fn((args) => {
-    args?.success({});
-  });
+  const mockShowActionSheet = jest.fn(createPromisifyImpl());
 
   if (container === 'wechat') {
     globals.wx.showActionSheet = mockShowActionSheet;
