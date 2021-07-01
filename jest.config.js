@@ -19,7 +19,7 @@ const genNpmAliasMapper = () => {
 };
 
 module.exports = {
-  verbose: true,
+  verbose: false,
   rootDir: path.join(__dirname),
   preset: 'ts-jest',
   globals: {
