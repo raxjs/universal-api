@@ -38,9 +38,13 @@ module.exports = {
   testMatch: [
     '**/__test__/**/*.test.{ts,tsx}',
   ],
-  collectCoverage: false,
-  // coverageDirectory: '<rootDir>/coverage',
-  // collectCoverageFrom: [
-  //   'src/**/*.{ts,tsx}',
-  // ],
+  collectCoverage: true,
+  coverageDirectory: '<rootDir>/coverage',
+  collectCoverageFrom: [
+    'src/packages/**/src/**/*.{ts,tsx}',
+    '!src/packages/**/src/types.{ts,tsx}',
+    '!src/packages/base/**/*.{ts,tsx}',
+    '!src/packages/device/network-info/**/*.{ts,tsx}',
+    '!src/packages/interactive/{background,keyboard}/**/*.{ts,tsx}',
+  ],
 };

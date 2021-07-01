@@ -4,7 +4,7 @@
   "version": "1.0.16",
   "scripts": {
     "setup": "rm -rf node_modules && yarn install --no-lockfile",
-    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src/packages/*/src --fix",
+    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src/packages/**/src --fix",
     "build": "cross-env node ./scripts/build.js",
     "build:all": "cross-env BUILD_TYPE=all node ./scripts/build.js",
     "build:main": "cross-env BUILD_TYPE=main node ./scripts/build.js",
