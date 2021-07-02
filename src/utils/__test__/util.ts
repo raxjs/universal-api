@@ -1,3 +1,5 @@
+import { JSDOM } from 'jsdom';
+
 // Note: `ali` includes: `dingtalk`
 type Container = 'web' | 'wechat' | 'ali' | 'dingtalk' | 'bytedance' | 'kuaishou' | 'baidu';
 type Globals = Record<'window' | 'wx' | 'my' | 'dd' | 'tt' | 'ks' | 'swan' | string, any>;
@@ -48,6 +50,12 @@ export function testContainerAPI(
     kuaishou: { ks: { showToast: noop } },
     baidu: { swan: { showToast: noop } },
   };
+
+  if (container === 'web') {
+    const { window } = new JSDOM('<!doctype html><html><head></head><body></body></html>');
+    map.web.window = window;
+    map.web.document = window.document;
+  }
 
   const globals = map[container] || {};
 

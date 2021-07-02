@@ -1,22 +1,10 @@
 import { createNoop, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('accelerometer', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
+testPlatformAPI('accelerometer', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
   const mockOnAccelerometerChange = jest.fn();
   const mockOffAccelerometerChange = jest.fn();
-
-  if (container === 'wechat') {
-    globals.wx.onAccelerometerChange = mockOnAccelerometerChange;
-    globals.wx.offAccelerometerChange = mockOffAccelerometerChange;
-  } else if (container === 'dingtalk') {
-    globals.dd.onAccelerometerChange = mockOnAccelerometerChange;
-    globals.dd.offAccelerometerChange = mockOffAccelerometerChange;
-  } else if (container === 'ali') {
-    globals.my.onAccelerometerChange = mockOnAccelerometerChange;
-    globals.my.offAccelerometerChange = mockOffAccelerometerChange;
-  } else if (container === 'bytedance') {
-    globals.tt.onAccelerometerChange = mockOnAccelerometerChange;
-    globals.tt.offAccelerometerChange = mockOffAccelerometerChange;
-  }
+  configAPI('onAccelerometerChange', mockOnAccelerometerChange);
+  configAPI('offAccelerometerChange', mockOffAccelerometerChange);
 
   const { onChange, offChange } = require('../src/index');
 
