@@ -1,10 +1,16 @@
-import { testPlatformAPI } from '@utils/__test__/util';
+import { isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
 testPlatformAPI('clipboard', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
   const mockGetClipboard = jest.fn();
   const mockSetClipboard = jest.fn();
-  configAPI('getClipboardData', mockGetClipboard);
-  configAPI('setClipboardData', mockSetClipboard);
+
+  if (isAliContainer(container)) {
+    configAPI('getClipboard', mockGetClipboard);
+    configAPI('setClipboard', mockSetClipboard);
+  } else {
+    configAPI('getClipboardData', mockGetClipboard);
+    configAPI('setClipboardData', mockSetClipboard);
+  }
 
   const { getClipboard, setClipboard } = require('../src/index');
 
@@ -13,7 +19,7 @@ testPlatformAPI('clipboard', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (
 
   setClipboard({ text: 'abc' });
   expect(mockSetClipboard.mock.calls[0][0]).toMatchObject(
-    container === 'ali' || container === 'dingtalk'
+    isAliContainer(container)
       ? { text: 'abc' }
       : { data: 'abc' },
   );
