@@ -175,6 +175,15 @@ module.exports = {
       },
     ],
   },
+  navigationBar: {
+    path: 'src/packages/interactive/navigationBar/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: '@uni/navigation-bar',
+      },
+    ],
+  },
   pullDownRefresh: {
     path: 'src/packages/interactive/pullDownRefresh/src/index.ts',
     pkgInfo: [
