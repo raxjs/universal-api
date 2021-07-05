@@ -17,7 +17,7 @@ import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/byte
 import element from '../../packages/interactive/element/src/bytedance-microapp/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/bytedance-microapp/index';
 import confirm from '../../packages/interactive/confirm/src/bytedance-microapp/index';
-import location from '../../packages/location/src/bytedance-microapp/index';
+import _location from '../../packages/location/src/bytedance-microapp/index';
 import image from '../../packages/media/image/src/bytedance-microapp/index';
 import navigate from '../../packages/navigate/src/bytedance-microapp/index';
 import request from '../../packages/network/request/src/bytedance-microapp/index';
@@ -45,7 +45,7 @@ export {
   element,
   intersectionObserver,
   confirm,
-  location,
+  _location as location,
   image,
   navigate,
   request,
@@ -75,7 +75,7 @@ export default {
   element,
   intersectionObserver,
   confirm,
-  location,
+  location: _location,
   image,
   navigate,
   request,
