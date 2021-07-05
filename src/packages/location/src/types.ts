@@ -1,4 +1,4 @@
-/// <reference path='../../../../types/interface.d.ts'/>
+import { Uni } from '../../../../types/interface';
 
 // getLocation params
 export interface OptionStruct extends Uni.COptions {
