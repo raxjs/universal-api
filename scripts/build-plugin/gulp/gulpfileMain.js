@@ -43,7 +43,7 @@ const tsProject = ts.createProject({
   rootDir: rootDir,
   baseUrl: rootDir,
   declaration: true,
-  declarationDir: output,
+  declarationDir: typesOutDir,
   skipLibCheck: true,
   target: 'ES6',
   "paths": {
@@ -65,11 +65,21 @@ Object.values(sourceMap).forEach(item => {
     });
   });
 });
+const copyTypes = () => {
+  return gulp
+    .src([path.resolve(rootDir, './types/interface.d.ts'),
+    // path.resolve(rootDir, 'node_modules/@types/**/*.ts'),
+    // path.resolve(rootDir, './types/**/*.ts')
+  ])
+    .pipe(gulp.dest(typesOutDir));
+};
 const generateTypes = () => {
   const tsResult = gulp
     .src(typesDir)
     .pipe(tsProject());
-  return tsResult.dts.pipe(gulp.dest(typesOutDir));
+  return tsResult.dts
+  // .pipe(replace('types/interface', './interface'))
+  .pipe(gulp.dest(typesOutDir));
 };
 const generateLibJs = () => {
   return gulp
@@ -111,5 +121,6 @@ exports.default = series(
   clean,
   generateEsJs,
   generateLibJs,
-  generateTypes
+  generateTypes,
+  copyTypes
 );

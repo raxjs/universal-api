@@ -1,4 +1,4 @@
-/// <reference path='../../../../../types/interface.d.ts'/>
+import { Uni } from '../../../../../types/interface';
 
 // chooseVideo
 enum SOURCE_TYPE {
@@ -60,7 +60,7 @@ interface TempFileType {
   thumbTempFilePath?: string;
 }
 export interface ChooseMediaRes {
-  tempFiles: Array<TempFileType>;
+  tempFiles: TempFileType[];
   type?: keyof typeof MEDIA_TYPE;
   files?: any;
 }
