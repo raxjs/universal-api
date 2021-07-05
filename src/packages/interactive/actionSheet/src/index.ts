@@ -1,8 +1,10 @@
-import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp, isKuaiShouMiniProgram, isBaiduSmartProgram } from '@uni/env';
 import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
+import kuaiShouModule from './kuaishou-miniprogram/index';
+import baiDuModule from './baidu-smartprogram/index';
 import { ShowActionSheetOptions } from './types';
 
 export const showActionSheet = (args: ShowActionSheetOptions) => {
@@ -14,6 +16,10 @@ export const showActionSheet = (args: ShowActionSheetOptions) => {
     return aliMiniAppModule(args);
   } else if (isWeb) {
     return webModule(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule(args);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule(args);
   } else {
     throw new Error('Uni API：showActionSheet暂不支持');
   }

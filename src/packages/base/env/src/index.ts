@@ -23,7 +23,8 @@ export const isKuaiShouMiniProgram = !isUndef(typeof ks) && ks !== null && !isUn
 // In wechat mini program, wx.login is a function
 // In wechat mini propgram webview, there is no wx.login, but exist wx.miniProgram
 // In bytedance maicro app, there is wx variable.
-export const isWeChatMiniProgram = !isByteDanceMicroApp && !isUndef(typeof wx) && wx !== null && (!isUndef(typeof wx.login) || !isUndef(typeof wx.miniProgram));
+// In kuaishou mini program. there is a wx variable.
+export const isWeChatMiniProgram = !isByteDanceMicroApp && !isKuaiShouMiniProgram && !isUndef(typeof wx) && wx !== null && (!isUndef(typeof wx.login) || !isUndef(typeof wx.miniProgram));
 export const isQuickApp = !isUndef(typeof global) && global !== null && !isUndef(typeof global.callNative) && !isWeex;
 
 export default {

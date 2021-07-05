@@ -1,8 +1,10 @@
-import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp, isKuaiShouMiniProgram, isBaiduSmartProgram } from '@uni/env';
 import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 import webModule from './web/index';
+import kuaiShouModule from './kuaishou-miniprogram/index';
+import baiDuModule from './baidu-smartprogram/index';
 import {
   Callback, RejectCallback,
 } from './types';
@@ -16,6 +18,10 @@ export const getApp = () => {
     return aliMiniAppModule.getApp();
   } else if (isWeb) {
     return webModule.getApp();
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getApp();
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.getApp();
   } else {
     throw new Error('@uni：application.getApp 暂不支持');
   }
@@ -30,6 +36,10 @@ export const getCurrentPages = () => {
     return aliMiniAppModule.getCurrentPages();
   } else if (isWeb) {
     return webModule.getCurrentPages();
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getCurrentPages();
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.getCurrentPages();
   } else {
     throw new Error('@uni：application.getCurrentPages 暂不支持');
   }
@@ -43,6 +53,10 @@ export const getLaunchOptionsSync = () => {
     return aliMiniAppModule.getLaunchOptionsSync();
   } else if (isWeb) {
     return webModule.getLaunchOptionsSync();
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getLaunchOptionsSync();
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.getLaunchOptionsSync();
   } else {
     throw new Error('@uni：application.getLaunchOptionsSync 暂不支持');
   }
@@ -56,6 +70,10 @@ export const onError = (options: Callback) => {
     return aliMiniAppModule.onError(options);
   } else if (isWeb) {
     return webModule.onError(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.onError(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.onError(options);
   } else {
     throw new Error('@uni：onError 暂不支持');
   }
@@ -69,6 +87,10 @@ export const offError = (options: Callback) => {
     return aliMiniAppModule.offError(options);
   } else if (isWeb) {
     return webModule.offError(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.offError(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.offError(options);
   } else {
     throw new Error('@uni：offError暂不支持');
   }
@@ -82,6 +104,10 @@ export const onUnhandledRejection = (options: RejectCallback) => {
     return aliMiniAppModule.onUnhandledRejection(options);
   } else if (isWeb) {
     return webModule.onUnhandledRejection(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.onUnhandledRejection(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.onUnhandledRejection(options);
   } else {
     throw new Error('@uni：onUnhandledRejection 暂不支持');
   }
@@ -95,6 +121,10 @@ export const offUnhandledRejection = (options: RejectCallback) => {
     return aliMiniAppModule.offUnhandledRejection(options);
   } else if (isWeb) {
     return webModule.offUnhandledRejection(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.offUnhandledRejection(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.offUnhandledRejection(options);
   } else {
     throw new Error('@uni：Application.offUnhandledRejection 暂不支持');
   }
