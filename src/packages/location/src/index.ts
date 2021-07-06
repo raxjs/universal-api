@@ -6,14 +6,14 @@ import bytedanceModule from './bytedance-microapp/index';
 import { OptionStruct, OpenOptionStruct, ChooseLocationOptions } from './types';
 
 export const getLocation = (args: OptionStruct) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.getLocation(args);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.getLocation(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getLocation(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.getLocation(args);
-  } else if (isWeb) {
-    return webModule.getLocation(args);
   } else {
     throw new Error('Uni API：getLocation暂不支持');
   }
