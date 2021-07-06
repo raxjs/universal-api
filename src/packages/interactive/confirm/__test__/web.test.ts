@@ -1,7 +1,7 @@
 import { sleep, testWebAPI } from '@/utils/__test__/util';
 import { DOMUtil } from '@/utils/__test__/web';
 
-testWebAPI('toast', async (globals) => {
+testWebAPI('confirm', async () => {
   const { default: confirm } = require('../src/index');
   const res = confirm({
     title: 'abc',

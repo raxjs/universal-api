@@ -1,5 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Test Platform API: confirm Test container: web 1`] = `
+<body>
+  <style>
+    .__universal_confirm {  position: fixed;  left: 50%;  top: 50%;  transform: translate(-50%, -50%);  -webkit-transform: translate(-50%, -50%);  background: #fff;  color: #000;  box-sizing: border-box;  border-radius: 12px;  z-index: 9999;  outline: none;  text-align: center;  width: 280px;  opacity: 0;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_confirm_mask {  content: "";  position: fixed;  left: 0;  right: 0;  bottom: 0;  top: 0;  margin: auto;  display: block;  z-index: 9999;  background: #000;  opacity: 0;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_confirm_title {  padding: 28px 16px 16px;  font-weight: bold;}.__universal_confirm_content {  color: #666;  padding: 0 16px;  margin-bottom: 28px;  word-break: break-all;  max-height: 200px;  overflow: scroll;}.__universal_confirm_cancel {  display: inline-block;  font-weight: bold;  padding: 14px 0;  width: 50%;  box-sizing: border-box;  border-top: 1px solid #eee;  border-right: 1px solid #eee;}.__universal_confirm_confirm {  display: inline-block;  font-weight: bold;  color: #576B95;  padding: 14px 0;  width: 50%;  box-sizing: border-box;  border-top: 1px solid #eee;}@keyframes __universal_confirm_in {  0% {    opacity: 0;  }  100% {    opacity: 1;  }}@keyframes __universal_confirm_out {  0% {    opacity: 0;  }  100% {    opacity: 1;  }}@keyframes __universal_confirm_fadeIn {  0% {    opacity: 0;  }  100% {    opacity: .6;  }}@keyframes __universal_confirm_fadeOut {  0% {    opacity: .6;  }  100% {    opacity: 0;  }}
+  </style>
+  <div>
+    <div
+      class="__universal_confirm_mask"
+      style="animation-name: __universal_confirm_fadeIn;"
+    />
+    <div
+      class="__universal_confirm"
+      style="animation-name: __universal_confirm_in;"
+    >
+      <div
+        class="__universal_confirm_title"
+      >
+        abc
+      </div>
+      <div
+        class="__universal_confirm_content"
+      >
+        def
+      </div>
+      <div>
+        <div
+          class="__universal_confirm_cancel"
+          tabindex="-1"
+        >
+          取消
+        </div>
+        <div
+          class="__universal_confirm_confirm"
+          tabindex="-1"
+        >
+          确定
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Test Platform API: confirm Test container: web 2`] = `
+<body>
+  <style>
+    .__universal_confirm {  position: fixed;  left: 50%;  top: 50%;  transform: translate(-50%, -50%);  -webkit-transform: translate(-50%, -50%);  background: #fff;  color: #000;  box-sizing: border-box;  border-radius: 12px;  z-index: 9999;  outline: none;  text-align: center;  width: 280px;  opacity: 0;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_confirm_mask {  content: "";  position: fixed;  left: 0;  right: 0;  bottom: 0;  top: 0;  margin: auto;  display: block;  z-index: 9999;  background: #000;  opacity: 0;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_confirm_title {  padding: 28px 16px 16px;  font-weight: bold;}.__universal_confirm_content {  color: #666;  padding: 0 16px;  margin-bottom: 28px;  word-break: break-all;  max-height: 200px;  overflow: scroll;}.__universal_confirm_cancel {  display: inline-block;  font-weight: bold;  padding: 14px 0;  width: 50%;  box-sizing: border-box;  border-top: 1px solid #eee;  border-right: 1px solid #eee;}.__universal_confirm_confirm {  display: inline-block;  font-weight: bold;  color: #576B95;  padding: 14px 0;  width: 50%;  box-sizing: border-box;  border-top: 1px solid #eee;}@keyframes __universal_confirm_in {  0% {    opacity: 0;  }  100% {    opacity: 1;  }}@keyframes __universal_confirm_out {  0% {    opacity: 0;  }  100% {    opacity: 1;  }}@keyframes __universal_confirm_fadeIn {  0% {    opacity: 0;  }  100% {    opacity: .6;  }}@keyframes __universal_confirm_fadeOut {  0% {    opacity: .6;  }  100% {    opacity: 0;  }}
+  </style>
+</body>
+`;
+
 exports[`Test Platform API: toast Test container: web 1`] = `
 <body>
   <style>
