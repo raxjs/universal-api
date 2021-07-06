@@ -2,7 +2,10 @@
   "targets": [
     "web",
     "miniapp",
-    "wechat-miniprogram"
+    "wechat-miniprogram",
+    "bytedance-microapp", 
+    "baidu-smartprogram", 
+    "kuaishou-miniprogram"
   ],
   "wechat-miniprogram": {
     "nativeConfig": {
