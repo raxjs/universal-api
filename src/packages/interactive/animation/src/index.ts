@@ -3,9 +3,9 @@ import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
-import { AnimationOptions, TransitionOptions } from './types';
+import { Animation, AnimationOptions, TransitionOptions } from './types';
 
-export function createAnimation(options?: AnimationOptions) {
+export function createAnimation(options?: AnimationOptions): Animation {
   if (isWeb) {
     return webModule.createAnimation(options);
   } else if (isWeChatMiniProgram) {
@@ -19,7 +19,7 @@ export function createAnimation(options?: AnimationOptions) {
   }
 }
 
-export function createTransition(options: TransitionOptions) {
+export function createTransition(options: TransitionOptions): Animation {
   if (isWeb) {
     return webModule.createTransition(options);
   } else if (isWeChatMiniProgram) {

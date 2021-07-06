@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Platform API: animation Test container: web 1`] = `
+<div
+  style="top: 500px; opacity: 0.5; background-color: rgb(170, 170, 170); width: 100px; height: 200px; left: 300px; right: 400px; bottom: 600px; transition-property: all; transition-duration: 50ms; transition-delay: 0ms; transition-timing-function: linear; transform-origin: 50% 50% 0;"
+/>
+`;
+
+exports[`Test Platform API: animation Test container: web 2`] = `
+<div
+  style="top: 500px; opacity: 0.5; background-color: rgb(170, 170, 170); width: 100px; height: 200px; left: 300px; right: 400px; bottom: 600px; transition-property: all; transition-duration: 50ms; transition-delay: 0ms; transition-timing-function: linear; transform-origin: 50% 50% 0; transform: rotate(1deg) rotateX(2deg) rotateY(3deg) rotateZ(4deg) rotate3d(1,2,3,4deg);"
+/>
+`;
+
+exports[`Test Platform API: animation Test container: web 3`] = `
+<div
+  style="top: 500px; opacity: 0.5; background-color: rgb(170, 170, 170); width: 100px; height: 200px; left: 300px; right: 400px; bottom: 600px; transition-property: all; transition-duration: 50ms; transition-delay: 0ms; transition-timing-function: linear; transform-origin: 50% 50% 0; transform: rotate(1deg) rotateX(2deg) rotateY(3deg) rotateZ(4deg) rotate3d(1,2,3,4deg) scale(1,2) scaleX(2) scaleY(3) scaleZ(4) scale3d(1,2,3);"
+/>
+`;
+
+exports[`Test Platform API: animation Test container: web 4`] = `
+<div
+  style="top: 500px; opacity: 0.5; background-color: rgb(170, 170, 170); width: 100px; height: 200px; left: 300px; right: 400px; bottom: 600px; transition-property: all; transition-duration: 50ms; transition-delay: 0ms; transition-timing-function: linear; transform-origin: 50% 50% 0; transform: rotate(1deg) rotateX(2deg) rotateY(3deg) rotateZ(4deg) rotate3d(1,2,3,4deg) scale(1,2) scaleX(2) scaleY(3) scaleZ(4) scale3d(1,2,3) translate(1px,2px) translateX(2px) translateY(3px) translateZ(4px) translate3d(1px,2px,3px);"
+/>
+`;
+
+exports[`Test Platform API: animation Test container: web 5`] = `
+<div
+  style="top: 500px; opacity: 0.5; background-color: rgb(170, 170, 170); width: 100px; height: 200px; left: 300px; right: 400px; bottom: 600px; transition-property: all; transition-duration: 50ms; transition-delay: 0ms; transition-timing-function: linear; transform-origin: 50% 50% 0; transform: rotate(1deg) rotateX(2deg) rotateY(3deg) rotateZ(4deg) rotate3d(1,2,3,4deg) scale(1,2) scaleX(2) scaleY(3) scaleZ(4) scale3d(1,2,3) translate(1px,2px) translateX(2px) translateY(3px) translateZ(4px) translate3d(1px,2px,3px) skew(1deg,2deg) skewX(2deg) skewY(3deg);"
+/>
+`;
+
+exports[`Test Platform API: animation Test container: web 6`] = `
+<div
+  style="top: 500px; opacity: 0.5; background-color: rgb(170, 170, 170); width: 100px; height: 200px; left: 300px; right: 400px; bottom: 600px; transition-property: all; transition-duration: 50ms; transition-delay: 0ms; transition-timing-function: linear; transform-origin: 50% 50% 0; transform: rotate(1deg) rotateX(2deg) rotateY(3deg) rotateZ(4deg) rotate3d(1,2,3,4deg) scale(1,2) scaleX(2) scaleY(3) scaleZ(4) scale3d(1,2,3) translate(1px,2px) translateX(2px) translateY(3px) translateZ(4px) translate3d(1px,2px,3px) skew(1deg,2deg) skewX(2deg) skewY(3deg) matrix(1,2,3,4,5,6) matrix3d(1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4);"
+/>
+`;
+
+exports[`Test Platform API: animation Test container: web 7`] = `
+<div
+  style="transition-timing-function: linear; top: 100px; transform: scale(2,4); transition-property: all; transition-duration: 50ms; transition-delay: 0ms; transform-origin: 50% 50% 0;"
+/>
+`;
+
+exports[`Test Platform API: animation Test container: web 8`] = `
+<div
+  style="transition-timing-function: linear; top: 100px; transform: skew(3deg,6deg); transition-property: all; transition-duration: 50ms; transition-delay: 0ms; transform-origin: 50% 50% 0; bottom: 200px;"
+/>
+`;
+
+exports[`Test Platform API: animation Test container: web 9`] = `
+<div
+  style="transition-timing-function: ease; top: 100px; transform: skew(3deg,6deg); bottom: 200px;"
+/>
+`;
+
+exports[`Test Platform API: animation Test container: web 10`] = `
+<div
+  style="opacity: 0.5; transform: rotate(10deg) translateX(10px); transition-property: all; transition-duration: 16ms; transition-delay: 0ms; transition-timing-function: linear; transform-origin: 50% 50% 0;"
+/>
+`;
+
+exports[`Test Platform API: animation Test container: web 11`] = `
+<div
+  style="opacity: 1; transform: rotate(20deg) translateX(20px); transition-property: all; transition-duration: 50ms; transition-delay: 0ms; transition-timing-function: linear; transform-origin: 50% 50% 0;"
+/>
+`;
