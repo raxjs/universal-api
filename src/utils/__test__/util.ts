@@ -21,6 +21,12 @@ export function createNoop() {
 
 export const noop = createNoop();
 
+export function sleep(ms: number) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
 export function createPromisifyImpl(value: any = {}) {
   return (args) => {
     args?.success(value);
@@ -42,7 +48,7 @@ export function testContainerAPI(
   callback: (globals: Partial<Globals>) => any,
 ) {
   const map: Record<Container, Globals> = {
-    web: { window: { onload: noop } },
+    web: {},
     wechat: { wx: { login: noop } },
     ali: { my: { alert: noop } },
     dingtalk: { my: { alert: noop }, dd: { alert: noop } },
@@ -52,9 +58,19 @@ export function testContainerAPI(
   };
 
   if (container === 'web') {
-    const { window } = new JSDOM('<!doctype html><html><head></head><body></body></html>');
+    const { window } = new JSDOM();
     map.web.window = window;
     map.web.document = window.document;
+    // innerText implementation
+    // @see https://github.com/jsdom/jsdom/issues/1245
+    Object.defineProperty(window.HTMLElement.prototype, 'innerText', {
+      get() {
+        return this.textContent;
+      },
+      set(val: string) {
+        this.innerHTML = val.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      },
+    });
   }
 
   const globals = map[container] || {};
@@ -117,5 +133,21 @@ export function testPlatformAPI(
         await callback(container, globals, configAPI);
       });
     }
+  });
+}
+
+
+export function testWebAPI(
+  name: string,
+  callback: (globals: Partial<Globals>) => any,
+) {
+  describe(`Test Platform API: ${name}`, () => {
+    beforeEach(() => {
+      jest.resetModules();
+    });
+
+    testContainerAPI('web', async (globals) => {
+      await callback(globals);
+    });
   });
 }

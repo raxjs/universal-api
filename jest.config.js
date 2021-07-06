@@ -38,7 +38,7 @@ module.exports = {
   testMatch: [
     '**/__test__/**/*.test.{ts,tsx}',
   ],
-  collectCoverage: true,
+  collectCoverage: false,
   coverageDirectory: '<rootDir>/coverage',
   collectCoverageFrom: [
     'src/packages/**/src/**/*.{ts,tsx}',
