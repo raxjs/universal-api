@@ -22,7 +22,7 @@ const styles = {
 
 const Index = ({history}) => {
   const clickHandler = (path) => {
-    navitage.push({ url: path });
+    navitage.push({ url: path, isHash: true, refresh: true });
   }
   return (
     <View>
