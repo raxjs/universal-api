@@ -1,11 +1,12 @@
 type TriggerType = 'click' | 'focus' |'blur' | 'change' ;
 
 export class DOMUtil {
-  element: HTMLElement | null;
+  element: Element;
 
-  constructor(ele: string | HTMLElement) {
+  constructor(ele: string | Element, index = 0) {
     if (typeof ele === 'string') {
-      this.element = document.querySelector(ele);
+      const nodeList = document.querySelectorAll(ele);
+      this.element = nodeList[index] ?? null;
     } else {
       this.element = ele;
     }
