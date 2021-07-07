@@ -11,6 +11,7 @@ import View from 'rax-view';
 import Text from 'rax-text';
 import TextInput from 'rax-textinput';
 import navigationBar from '@uni/navigation-bar';
+import { isWeb } from '@uni/env';
 
 const styles = {
   flex: {
@@ -49,7 +50,7 @@ const Index = () => {
   const handleSubmit = () => {
     console.log('title, color: ', opts);
     navigationBar.setNavigationBarTitle({ title: opts.title });
-    navigationBar.setNavigationBarColor({ backgroundColor: opts.backgroundColor });
+    !isWeb && navigationBar.setNavigationBarColor({ backgroundColor: opts.backgroundColor });
     // navigationBar.setNavigationBarColor({ backgroundColor: opts.backgroundColor, frontColor: '#000000' });
   }
   const handleReset = () => setOpts({ title: '标题', backgroundColor: '导航栏背景色'});

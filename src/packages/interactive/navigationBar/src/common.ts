@@ -1,6 +1,15 @@
 import { SetNavigationBarTitleOptions, SetNavigationBarColorOptions } from './types';
 import { promisify } from '@utils/promisify';
 import { styleIn } from '@utils/styleOptions';
+import { CONTAINER_NAME } from '@utils/constant';
+
+const styleOptions = (options, containerName) => {
+  let afterOptions = {...options};
+  if (!afterOptions.frontColor) {
+    afterOptions.frontColor = '#000000';
+  }
+  return afterOptions;
+}
 
 /**
  * setNavigationBarTitle api
@@ -22,6 +31,6 @@ export function normalizeSetNavigationBarTitle(api: (args) => any, containerName
  */
 export function normalizeSetNavigationBarColor(api: (args) => any, containerName: string) {
   return (args?: SetNavigationBarColorOptions) => {
-    return promisify(api)(styleIn(args, containerName));
+    return promisify(api)(styleOptions(styleIn(args, containerName), containerName));
   };
 }

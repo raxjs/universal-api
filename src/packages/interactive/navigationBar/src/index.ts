@@ -13,7 +13,7 @@ export const setNavigationBarColor = (args?: SetNavigationBarColorOptions) => {
   } else if (isMiniApp) {
     return aliMiniAppModule.setNavigationBarColor(args);
   } else if (isWeb) {
-    return webModule.setNavigationBarColor(args);
+    throw new Error('Uni API：setNavigationBarColor暂不支持');
   } else {
     throw new Error('Uni API：setNavigationBarColor暂不支持');
   }
