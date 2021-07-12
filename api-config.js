@@ -179,7 +179,7 @@ module.exports = {
     path: 'src/packages/interactive/navigationBar/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0',
+        version: '1.0.1',
         name: '@uni/navigation-bar',
       },
     ],
