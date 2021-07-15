@@ -43,7 +43,7 @@ export function testContainerAPI(
 ) {
   const map: Record<Container, Globals> = {
     web: { window: { onload: noop } },
-    wechat: { wx: { login: noop } },
+    wechat: { wx: { request: noop } },
     ali: { my: { alert: noop } },
     dingtalk: { my: { alert: noop }, dd: { alert: noop } },
     bytedance: { tt: { showToast: noop } },
