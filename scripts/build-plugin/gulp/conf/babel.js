@@ -81,7 +81,7 @@ module.exports = (isEs, isMain, aliasEntries) => {
       [
         "@babel/plugin-transform-runtime",
         {
-          regenerator: true,
+          regenerator: false,
           useESModules: isEs,
           corejs: false,
           helpers: false,

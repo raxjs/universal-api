@@ -17,7 +17,7 @@ import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/ali-
 import element from '../../packages/interactive/element/src/ali-miniapp/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/ali-miniapp/index';
 import confirm from '../../packages/interactive/confirm/src/ali-miniapp/index';
-import location from '../../packages/location/src/ali-miniapp/index';
+import _location from '../../packages/location/src/ali-miniapp/index';
 import image from '../../packages/media/image/src/ali-miniapp/index';
 import navigate from '../../packages/navigate/src/ali-miniapp/index';
 import request from '../../packages/network/request/src/ali-miniapp/index';
@@ -45,7 +45,7 @@ export {
   element,
   intersectionObserver,
   confirm,
-  location,
+  _location as location,
   image,
   navigate,
   request,
@@ -75,7 +75,7 @@ export default {
   element,
   intersectionObserver,
   confirm,
-  location,
+  location: _location,
   image,
   navigate,
   request,

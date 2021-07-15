@@ -5,14 +5,14 @@ import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 
 export const getRecorderManager = () => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule();
+  } else if (isWeChatMiniProgram) {
     return weChatModule();
   } else if (isByteDanceMicroApp) {
     return bytedanceModule();
   } else if (isMiniApp) {
     return aliMiniAppModule();
-  } else if (isWeb) {
-    return webModule();
   } else {
     throw new Error('@uni/apis：getRecorderManager暂不支持');
   }
