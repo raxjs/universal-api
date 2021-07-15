@@ -1,3 +1,12 @@
+## 1.0.7 (2021-06-28)
+
+### Bug Fixes
+
+* 删除 exports 规则
+* 使用 wx.request 判断微信小程序环境，以支持插件环境
+* 移除冗余判断
+* 绕过 swc 编译报错
+
 ## 1.0.6 (2021-05-17)
 
 ### Features
@@ -26,7 +35,7 @@
 
 ### Features
 
-* 剔除 Babel/runtime-corejs3 
+* 剔除 Babel/runtime-corejs3
 * 新增支持 webpack5 exports ([a113f40](https://github.com/raxjs/universal-api/commit/a113f4034a35c2d5325536026d825175aa889dfd))
 
 ## 1.0.1 (2021-04-07)

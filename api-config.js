@@ -17,19 +17,9 @@ module.exports = {
     needCommonUtil: false,
     pkgInfo: [
       {
-        version: '1.0.6',
+        version: '1.0.7',
         name: '@uni/env',
-        exports: {
-          '.': {
-            web: './es/web/index.js',
-            'wechat-miniprogram': './es/wechat-miniprogram/index.js',
-            'bytedance-microapp': './es/bytedance-microapp/index.js',
-            miniapp: './es/ali-miniapp/index.js',
-            require: './lib/index.js',
-            default: './es/index.js',
-          },
-          './*': './*',
-        },
+        exports: '',
       },
     ],
   },
@@ -38,8 +28,9 @@ module.exports = {
     unNeedSplit: true,
     pkgInfo: [
       {
-        version: '1.0.5',
+        version: '1.0.6',
         name: '@uni/caniuse',
+        exports: '',
       },
     ],
   },
@@ -51,8 +42,9 @@ module.exports = {
     needCommonUtil: false,
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.5',
         name: '@uni/unit-tool',
+        exports: '',
         dependencies: {
           '@uni/system-info': '^1.0.3',
         },
