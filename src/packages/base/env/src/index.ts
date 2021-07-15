@@ -8,23 +8,19 @@ declare const ks: any;
 declare const global: any;
 declare const process: any;
 
-function isUndef(type: string): boolean {
-  return type === 'undefined';
-}
-
-export const isWeb = !isUndef(typeof window) && 'onload' in window;
-export const isNode = !isUndef(typeof process) && !!(process.versions && process.versions.node);
-export const isWeex = !isUndef(typeof WXEnvironment) && WXEnvironment.platform !== 'Web';
-export const isKraken = !isUndef(typeof __kraken__);
-export const isMiniApp = !isUndef(typeof my) && my !== null && !isUndef(typeof my.alert);
-export const isByteDanceMicroApp = !isUndef(typeof tt) && tt !== null && !isUndef(typeof tt) && !isUndef(tt.showToast);
-export const isBaiduSmartProgram = !isUndef(typeof swan) && swan !== null && !isUndef(typeof swan) && !isUndef(swan.showToast);
-export const isKuaiShouMiniProgram = !isUndef(typeof ks) && ks !== null && !isUndef(typeof ks) && !isUndef(ks.showToast);
+export const isWeb = typeof window !== 'undefined' && 'onload' in window;
+export const isNode = typeof process !== 'undefined' && !!(process.versions && process.versions.node);
+export const isWeex = typeof WXEnvironment !== 'undefined' && WXEnvironment.platform !== 'Web';
+export const isKraken = typeof __kraken__ !== 'undefined';
+export const isMiniApp = typeof my !== 'undefined' && my !== null && typeof my.alert !== 'undefined';
+export const isByteDanceMicroApp = typeof tt !== 'undefined' && tt !== null && typeof tt.showToast !== 'undefined';
+export const isBaiduSmartProgram = typeof swan !== 'undefined' && swan !== null && typeof swan.showToast !== 'undefined';
+export const isKuaiShouMiniProgram = typeof ks !== 'undefined' && ks !== null && typeof ks.showToast !== 'undefined';
 // In wechat mini program, wx.login is a function
 // In wechat mini propgram webview, there is no wx.login, but exist wx.miniProgram
 // In bytedance maicro app, there is wx variable.
-export const isWeChatMiniProgram = !isByteDanceMicroApp && !isUndef(typeof wx) && wx !== null && (!isUndef(typeof wx.login) || !isUndef(typeof wx.miniProgram));
-export const isQuickApp = !isUndef(typeof global) && global !== null && !isUndef(typeof global.callNative) && !isWeex;
+export const isWeChatMiniProgram = !isByteDanceMicroApp && typeof wx !== 'undefined' && wx !== null && (typeof wx.request !== 'undefined' || typeof wx.miniProgram !== 'undefined');
+export const isQuickApp = typeof global !== 'undefined' && global !== null && typeof global.callNative !== 'undefined' && !isWeex;
 
 export default {
   isWeb,
