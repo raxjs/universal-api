@@ -6,14 +6,14 @@ import bytedanceModule from './bytedance-microapp/index';
 import { ConfirmOptions } from './types';
 
 export const confirm = (args: ConfirmOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule(args);
+  } else if (isWeChatMiniProgram) {
     return weChatModule(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule(args);
   } else if (isMiniApp) {
     return aliMiniAppModule(args);
-  } else if (isWeb) {
-    return webModule(args);
   } else {
     throw new Error('Uni API：confirm暂不支持');
   }

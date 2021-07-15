@@ -2,7 +2,8 @@
   "targets": [
     "web",
     "miniapp",
-    "wechat-miniprogram"
+    "wechat-miniprogram",
+    "bytedance-microapp"
   ],
   "wechat-miniprogram": {
     "nativeConfig": {

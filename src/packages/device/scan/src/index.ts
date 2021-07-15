@@ -6,14 +6,14 @@ import bytedanceModule from './bytedance-microapp/index';
 import { ScanCodeOptions } from './types';
 
 export const scanCode = (args?: ScanCodeOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule();
+  } else if (isWeChatMiniProgram) {
     return weChatModule(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule(args);
   } else if (isMiniApp) {
     return aliMiniAppModule(args);
-  } else if (isWeb) {
-    return webModule();
   } else {
     throw new Error('Uni API：scanCode暂不支持');
   }
