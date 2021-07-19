@@ -11,7 +11,10 @@ function createAnimation(options?: AnimationOptions): Animation {
   const _step = animation.step.bind(animation);
   const _export = animation.export.bind(animation);
   animation.step = (opts) => {
-    opts = getMergedOptions(CONTAINER_NAME.ALIPAY, opts);
+    opts = getMergedOptions(CONTAINER_NAME.ALIPAY, {
+      ...options,
+      ...opts,
+    });
     return _step(opts);
   };
   animation.export = () => {
