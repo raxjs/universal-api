@@ -144,7 +144,7 @@ module.exports = {
     path: 'src/packages/interactive/animation/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/animation',
       },
     ],

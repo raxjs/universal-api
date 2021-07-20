@@ -1,3 +1,9 @@
+## 1.0.2 (2021-07-20)
+
+### Bug Fixes
+
+* 修复 `Animation.prototype.step(options)` 方法参数合并错误
+
 ## 1.0.1 (2021-07-05)
 
 ### Bug Fixes
