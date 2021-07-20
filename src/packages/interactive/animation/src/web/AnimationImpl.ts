@@ -147,7 +147,10 @@ export default class AnimationImpl implements Animation {
   }
 
   step(options?: AnimationOptions): Animation {
-    options = options ? getMergedOptions(CONTAINER_NAME.WEB, options) : this.options;
+    options = getMergedOptions(CONTAINER_NAME.WEB, {
+      ...this.options,
+      ...options,
+    });
 
     this.currentStepAnimates.forEach((animate) => {
       let key = animate.type;

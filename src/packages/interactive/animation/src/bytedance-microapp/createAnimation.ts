@@ -11,7 +11,10 @@ function createAnimation(options?: AnimationOptions): Animation {
   const _step = animation.step.bind(animation);
   const _export = animation.export.bind(animation);
   animation.step = (opts) => {
-    opts = getMergedOptions(CONTAINER_NAME.BYTE, opts);
+    opts = getMergedOptions(CONTAINER_NAME.BYTE, {
+      ...options,
+      ...opts,
+    });
     return _step(opts);
   };
   animation.export = () => {

@@ -47,17 +47,15 @@ testPlatformAPI('animation', ['wechat', 'ali', 'bytedance'], (container, globals
   ]]);
 
   animation.step({
-    duration: 300,
     timingFunction: 'ease-in-out',
     delay: 400,
-    transformOrigin: '1 1 1',
   });
   expect(mockAnimationStep.mock.calls).toEqual([[
     {
-      duration: 300,
+      duration: 100,
       timingFunction: 'ease-in-out',
       delay: 400,
-      transformOrigin: '1 1 1',
+      transformOrigin: '0 0 0',
     },
   ]]);
 
