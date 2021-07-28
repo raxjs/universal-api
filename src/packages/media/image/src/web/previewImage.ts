@@ -121,9 +121,17 @@ const previewImage = normalize.previewImage((args: PreviewImageOptions) => {
   const { clientWidth } = document.documentElement;
   let startX = 0;
   swiperEle.addEventListener('touchstart', (e) => {
+    if (e.touches.length > 1) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
     startX = e.targetTouches[0].pageX;
   });
   swiperEle.addEventListener('touchmove', (e) => {
+    if (e.touches.length > 1) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
     const moveX = e.targetTouches[0].pageX - startX;
     swiperEle.style.transform = `translateX(${-clientWidth * current + moveX * damp}px)`;
   });
@@ -144,7 +152,7 @@ const previewImage = normalize.previewImage((args: PreviewImageOptions) => {
   containerEle.appendChild(swiperEle);
 
   urls.forEach((url) => {
-    const swiperItemEle = document.createElement('div');
+    const swiperItemEle: any = document.createElement('div');
     swiperItemEle.className = `${clsPrefix}_item`;
     swiperItemEle.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -155,6 +163,51 @@ const previewImage = normalize.previewImage((args: PreviewImageOptions) => {
     imageEle.className = `${clsPrefix}_img`;
     imageEle.src = url;
     swiperItemEle.appendChild(imageEle);
+
+    swiperItemEle.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 1) {
+        e.stopPropagation();
+        e.preventDefault();
+        const point1 = e.touches[0];
+        const point2 = e.touches[1];
+        const xLen = Math.abs(point2.pageX - point1.pageX);
+        const yLen = Math.abs(point2.pageY - point1.pageY);
+        swiperItemEle.touchDistance = Math.sqrt(xLen * xLen + yLen * yLen);
+      } else {
+        swiperItemEle.touched = {
+          x: e.touches[0].pageX,
+          y: e.touches[0].pageY,
+        };
+      }
+    });
+    swiperItemEle.addEventListener('touchmove', (e) => {
+      if (e.touches.length > 1) {
+        e.stopPropagation();
+        e.preventDefault();
+        const xLen = Math.abs(e.touches[0].pageX - e.touches[1].pageX);
+        const yLen = Math.abs(e.touches[1].pageY - e.touches[1].pageY);
+        const touchDistance = Math.sqrt(xLen * xLen + yLen * yLen);
+
+        if (swiperItemEle.touchDistance) {
+          const pinchScale = (swiperItemEle.previousPinchScale || 1) + (touchDistance - swiperItemEle.touchDistance) / swiperItemEle.touchDistance;
+          const imageScale = Math.max(1, pinchScale);
+          imageEle.style.transform = `scale(${imageScale})`;
+          swiperItemEle.previousPinchScale = imageScale;
+        }
+        swiperItemEle.touchDistance = touchDistance;
+      } else if (swiperItemEle.previousPinchScale > 1) {
+        e.stopPropagation();
+        const x = (swiperItemEle.preX || 0) + (e.touches[0].pageX - swiperItemEle.touched.x);
+        const y = (swiperItemEle.preY || 0) + (e.touches[0].pageY - swiperItemEle.touched.y);
+        imageEle.style.transform = `scale(${swiperItemEle.previousPinchScale}) translate(${x}px, ${y}px)`;
+        swiperItemEle.preX = x;
+        swiperItemEle.preY = y;
+        swiperItemEle.touched = {
+          x: e.touches[0].pageX,
+          y: e.touches[0].pageY,
+        };
+      }
+    });
   });
 
   document.body.appendChild(containerEle);
