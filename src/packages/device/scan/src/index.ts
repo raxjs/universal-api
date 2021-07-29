@@ -8,7 +8,9 @@ import kuaiShouModule from './kuaishou-miniprogram';
 import { ScanCodeOptions } from './types';
 
 export const scanCode = (args?: ScanCodeOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule();
+  } else if (isWeChatMiniProgram) {
     return weChatModule(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule(args);
@@ -18,8 +20,6 @@ export const scanCode = (args?: ScanCodeOptions) => {
     return kuaiShouModule(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule(args);
-  } else if (isWeb) {
-    return webModule();
   } else {
     throw new Error('Uni API：scanCode暂不支持');
   }

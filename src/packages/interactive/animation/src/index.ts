@@ -7,14 +7,14 @@ import baiDuModule from './baidu-smartprogram/index';
 import { AnimationOptions, TransitionOptions } from './types';
 
 export function createAnimation(options?: AnimationOptions) {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.createAnimation(options);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.createAnimation(options);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.createAnimation(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.createAnimation(options);
-  } else if (isWeb) {
-    return webModule.createAnimation(options);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.createAnimation(options);
   } else {
@@ -23,14 +23,14 @@ export function createAnimation(options?: AnimationOptions) {
 }
 
 export function createTransition(options: TransitionOptions) {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.createTransition(options);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.createTransition(options);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.createTransition(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.createTransition(options);
-  } else if (isWeb) {
-    return webModule.createTransition(options);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.createTransition(options);
   } else {

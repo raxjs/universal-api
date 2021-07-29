@@ -8,14 +8,14 @@ import baiDuModule from './baidu-smartprogram/index';
 import { ShowOptions, HideOptions } from './types';
 
 export const showLoading = (args?: ShowOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.showLoading(args);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.showLoading(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.showLoading(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.showLoading(args);
-  } else if (isWeb) {
-    return webModule.showLoading(args);
   } else if (isKuaiShouMiniProgram) {
     return kuaiShouModule.showLoading(args);
   } else if (isBaiduSmartProgram) {
@@ -26,14 +26,14 @@ export const showLoading = (args?: ShowOptions) => {
 };
 
 export const hideLoading = (args?: HideOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.hideLoading(args);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.hideLoading(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.hideLoading(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.hideLoading(args);
-  } else if (isWeb) {
-    return webModule.hideLoading(args);
   } else if (isKuaiShouMiniProgram) {
     return kuaiShouModule.hideLoading(args);
   } else if (isBaiduSmartProgram) {

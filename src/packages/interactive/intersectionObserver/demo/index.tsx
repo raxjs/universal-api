@@ -32,14 +32,17 @@ export default function() {
   const [appear, setAppear] = useState(false);
 
   useEffect(() => {
-    const node = document.querySelector('.parent');
-    const intersectionObserver = createIntersectionObserver(null, node._internal);
-    // 由于rax运行时在微信存在shadow dom问题，所以采用深度选择器
-    const clsPre = isWeChatMiniProgram ? '.parent >>> ' : '';
-    intersectionObserver.relativeTo(clsPre + '.block').observe(clsPre + '.circle', res => {
-      console.log(res);
-      setAppear(res.intersectionRatio > 0);
-    });
+    setTimeout(() => {
+      const node = document.querySelector('.parent');
+      const intersectionObserver = createIntersectionObserver(null, node._internal);
+
+      // 由于rax运行时在微信存在shadow dom问题，所以采用深度选择器
+      const clsPre = isWeChatMiniProgram ? '.parent >>> ' : '';
+      intersectionObserver.relativeTo(clsPre + '.block').observe(clsPre + '.circle', res => {
+        console.log(res);
+        setAppear(res.intersectionRatio > 0);
+      });
+    }, 0);
   }, []);
 
 

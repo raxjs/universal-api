@@ -8,7 +8,9 @@ import kuaiShouModule from './kuaishou-miniprogram/index';
 import { OptionStruct, OpenOptionStruct, ChooseLocationOptions } from './types';
 
 export const getLocation = (args: OptionStruct) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.getLocation(args);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.getLocation(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getLocation(args);
@@ -18,8 +20,6 @@ export const getLocation = (args: OptionStruct) => {
     return kuaiShouModule.getLocation(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.getLocation(args);
-  } else if (isWeb) {
-    return webModule.getLocation(args);
   } else {
     throw new Error('Uni API：getLocation暂不支持');
   }

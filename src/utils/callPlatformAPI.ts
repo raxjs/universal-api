@@ -4,7 +4,9 @@
 import { isDingdingMiniapp, isMiniapp, isWeChatMiniProgram, isWeb, isKuaiShouMiniProgram, isBaiduSmartProgram } from '@uni/env';
 
 export default (platformApi: string, ...args: any) => {
-  if (isDingdingMiniapp) {
+  if (isWeb) {
+    return window[platformApi](args);
+  } else if (isDingdingMiniapp) {
     return dd[platformApi](args);
   } else if (isMiniapp) {
     return my[platformApi](args);
@@ -14,7 +16,5 @@ export default (platformApi: string, ...args: any) => {
     return ks[platformApi](args);
   } else if (isBaiduSmartProgram) {
     return swan[platformApi](args);
-  } else if (isWeb) {
-    return window[platformApi](args);
   }
 };

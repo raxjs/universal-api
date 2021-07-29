@@ -24,7 +24,9 @@ export const getClipboard = (args) => {
 };
 
 export const setClipboard = (args) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.setClipboard(args);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.setClipboard(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.setClipboard(args);
@@ -34,8 +36,6 @@ export const setClipboard = (args) => {
     return kuaiShouModule.setClipboard(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.setClipboard(args);
-  } else if (isWeb) {
-    return webModule.setClipboard(args);
   } else {
     throw new Error('Uni API：setClipboard暂不支持');
   }

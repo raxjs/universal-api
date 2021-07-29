@@ -6,7 +6,9 @@ import bytedanceModule from './bytedance-microapp/index';
 import baiDuModule from './baidu-smartprogram/index';
 
 export const getRecorderManager = () => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule();
+  } else if (isWeChatMiniProgram) {
     return weChatModule();
   } else if (isByteDanceMicroApp) {
     return bytedanceModule();
@@ -14,8 +16,6 @@ export const getRecorderManager = () => {
     return aliMiniAppModule();
   } else if (isBaiduSmartProgram) {
     return baiDuModule();
-  } else if (isWeb) {
-    return webModule();
   } else {
     throw new Error('@uni/apis：getRecorderManager暂不支持');
   }

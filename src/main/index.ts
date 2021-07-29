@@ -17,7 +17,7 @@ import pullDownRefresh from '../packages/interactive/pullDownRefresh/src/index';
 import element from '../packages/interactive/element/src/index';
 import intersectionObserver from '../packages/interactive/intersectionObserver/src/index';
 import confirm from '../packages/interactive/confirm/src/index';
-import location from '../packages/location/src/index';
+import _location from '../packages/location/src/index';
 import image from '../packages/media/image/src/index';
 import navigate from '../packages/navigate/src/index';
 import request from '../packages/network/request/src/index';
@@ -45,7 +45,7 @@ export {
   element,
   intersectionObserver,
   confirm,
-  location,
+  _location as location,
   image,
   navigate,
   request,
@@ -75,7 +75,7 @@ export default {
   element,
   intersectionObserver,
   confirm,
-  location,
+  location: _location,
   image,
   navigate,
   request,

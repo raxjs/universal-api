@@ -9,7 +9,9 @@ import * as baiDuModule from './baidu-smartprogram/index';
 import { Options, CanvasContext } from './types';
 
 export const createContext = function (canvasOptions: Options): Promise<CanvasContext> {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.createContext(canvasOptions);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.createContext(canvasOptions);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.createContext(canvasOptions);
@@ -17,8 +19,6 @@ export const createContext = function (canvasOptions: Options): Promise<CanvasCo
     return aliMiniAppModule.createContext(canvasOptions);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.createContext(canvasOptions);
-  } else if (isWeb) {
-    return webModule.createContext(canvasOptions);
   } else {
     throw new Error('@uni：canvas暂不支持');
   }

@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [14.x]
     steps:
     - uses: actions/checkout@v2
     - name: Set branch name
@@ -21,6 +21,7 @@ jobs:
         registry-url: https://registry.npmjs.org/
     - run: npm run setup
     - run: npm run lint
+    - run: npm run test
       env:
         ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
         ACCESS_KEY_SECRET: ${{ secrets.ACCESS_KEY_SECRET }}

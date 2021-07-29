@@ -1,0 +1,17 @@
+## 1.0.2 (2021-07-20)
+
+### Bug Fixes
+
+* 修复 `Animation.prototype.step(options)` 方法参数合并错误
+
+## 1.0.1 (2021-07-05)
+
+### Bug Fixes
+
+* 环境判断顺序修复为 isWeb 优先判断
+
+## 1.0.0 (2021-07-05)
+
+### Features
+
+* 正式发布

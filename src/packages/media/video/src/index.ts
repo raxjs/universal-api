@@ -12,7 +12,9 @@ import {
 } from './types';
 
 export const chooseVideo = (args: ChooseVideoOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.chooseVideo(args);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.chooseVideo(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.chooseVideo(args);
@@ -22,15 +24,15 @@ export const chooseVideo = (args: ChooseVideoOptions) => {
     return kuaiShouModule.chooseVideo(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.chooseVideo(args);
-  } else if (isWeb) {
-    return webModule.chooseVideo(args);
   } else {
     throw new Error('@uni/apis：chooseVideo暂不支持');
   }
 };
 
 export const createVideoContext: CreateVideoContextFn = (id, context) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.createVideoContext();
+  } else if (isWeChatMiniProgram) {
     return weChatModule.createVideoContext(id, context);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.createVideoContext(id, context);
@@ -40,15 +42,15 @@ export const createVideoContext: CreateVideoContextFn = (id, context) => {
     return kuaiShouModule.createVideoContext(id, context);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.createVideoContext(id);
-  } else if (isWeb) {
-    return webModule.createVideoContext();
   } else {
     throw new Error('@uni/apis：createVideoContext暂不支持');
   }
 };
 
 export const chooseMedia = (args: ChooseMediaOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.chooseMedia(args);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.chooseMedia(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.chooseMedia(args);
@@ -58,8 +60,6 @@ export const chooseMedia = (args: ChooseMediaOptions) => {
     return kuaiShouModule.chooseMedia(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.chooseMedia(args);
-  } else if (isWeb) {
-    return webModule.chooseMedia(args);
   } else {
     throw new Error('@uni/apis：chooseMedia暂不支持');
   }

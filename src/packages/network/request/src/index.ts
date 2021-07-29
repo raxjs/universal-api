@@ -10,7 +10,9 @@ import baiDuModule from './baidu-smartprogram/index';
 import kuaiShouModule from './kuaishou-miniprogram/index';
 
 export default (options: RequestOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule(options);
+  } else if (isWeChatMiniProgram) {
     return weChatModule(options);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule(options);
@@ -20,8 +22,6 @@ export default (options: RequestOptions) => {
     return kuaiShouModule(options);
   } else if (isBaiduSmartProgram) {
     return baiDuModule(options);
-  } else if (isWeb) {
-    return webModule(options);
   } else {
     throw new Error('Uni API：request暂不支持');
   }

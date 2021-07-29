@@ -8,14 +8,14 @@ import baiDuModule from './baidu-smartprogram/index';
 import { IPushOptions, IGoOptions, IPopOptions, IReplaceOptions, IReLaunchOptions } from './types';
 
 export const push = (options: IPushOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.push(options);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.push(options);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.push(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.push(options);
-  } else if (isWeb) {
-    return webModule.push(options);
   } else if (isKuaiShouMiniProgram) {
     return kuaiShouModule.push(options);
   } else if (isBaiduSmartProgram) {
@@ -25,14 +25,14 @@ export const push = (options: IPushOptions) => {
   }
 };
 export const go = (options: IGoOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.go(options);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.go(options);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.go(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.go(options);
-  } else if (isWeb) {
-    return webModule.go(options);
   } else if (isKuaiShouMiniProgram) {
     return kuaiShouModule.go(options);
   } else if (isBaiduSmartProgram) {
@@ -42,14 +42,14 @@ export const go = (options: IGoOptions) => {
   }
 };
 export const back = (options?: IPopOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.back(options);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.back(options);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.back(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.back(options);
-  } else if (isWeb) {
-    return webModule.back(options);
   } else if (isKuaiShouMiniProgram) {
     return kuaiShouModule.back(options);
   } else if (isBaiduSmartProgram) {
@@ -59,14 +59,14 @@ export const back = (options?: IPopOptions) => {
   }
 };
 export const replace = (options: IReplaceOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.replace(options);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.replace(options);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.replace(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.replace(options);
-  } else if (isWeb) {
-    return webModule.replace(options);
   } else if (isKuaiShouMiniProgram) {
     return kuaiShouModule.replace(options);
   } else if (isBaiduSmartProgram) {
@@ -76,14 +76,14 @@ export const replace = (options: IReplaceOptions) => {
   }
 };
 export const reLaunch = (options: IReLaunchOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.reLaunch(options);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.reLaunch(options);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.reLaunch(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.reLaunch(options);
-  } else if (isWeb) {
-    return webModule.reLaunch(options);
   } else if (isKuaiShouMiniProgram) {
     return kuaiShouModule.reLaunch(options);
   } else if (isBaiduSmartProgram) {
