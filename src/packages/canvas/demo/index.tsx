@@ -42,7 +42,7 @@ export default function() {
   }
   return (
     <View>
-      <canvas id="canvas" type="2d" width="400" height="400" />
+      <canvas id="canvas" canvas-id="canvas" type="2d" width="400" height="400" />
       <View style={styles.button} onClick={draw}>
        点击生成200*200的矩形
       </View>

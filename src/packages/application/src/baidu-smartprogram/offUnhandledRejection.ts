@@ -3,5 +3,5 @@ import {
 } from '../types';
 
 export default (cb?: RejectCallback) => {
-  return swan.offUnhandledRejection(cb);
+  // return swan.offUnhandledRejection(cb);
 };

@@ -1,8 +1,10 @@
-import { isMiniApp, isWeChatMiniProgram, isByteDanceMicroApp, isWeb } from '@uni/env';
+import { isMiniApp, isWeChatMiniProgram, isByteDanceMicroApp, isWeb, isKuaiShouMiniProgram, isBaiduSmartProgram } from '@uni/env';
 import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 import webModule from './web/index';
+import kuaiShouModule from './kuaishou-miniprogram/index';
+import baiDuModule from './baidu-smartprogram/index';
 import { Callback } from './types';
 
 export const onChange = (cb: Callback) => {
@@ -12,6 +14,10 @@ export const onChange = (cb: Callback) => {
     return bytedanceModule.onChange(cb);
   } else if (isMiniApp) {
     return aliMiniAppModule.onChange(cb);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.onChange(cb);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.onChange(cb);
   } else if (isWeb) {
     return webModule.onChange(cb);
   } else {
@@ -25,6 +31,10 @@ export const offChange = (cb?: Callback) => {
     return bytedanceModule.offChange(cb);
   } else if (isMiniApp) {
     return aliMiniAppModule.offChange(cb);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.offChange(cb);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.offChange(cb);
   } else if (isWeb) {
     return webModule.onChange(cb);
   } else {

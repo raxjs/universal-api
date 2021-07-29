@@ -8,10 +8,7 @@ import baiDuModule from './baidu-smartprogram/index';
 import { CreateIntersectionObserver } from './types';
 
 const createIntersectionObserver: CreateIntersectionObserver = (...args) => {
-  if (isKuaiShouMiniProgram) {
-    console.warn('Uni API: IntersectionObserver暂不支持');
-    // return kuaiShouModule(...args);
-  } else if (isWeChatMiniProgram) {
+  if (isWeChatMiniProgram) {
     return weChatModule(...args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule(...args);

@@ -1,8 +1,10 @@
-import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp, isKuaiShouMiniProgram, isBaiduSmartProgram } from '@uni/env';
 import * as aliMiniAppModule from './ali-miniapp/index';
 import * as weChatModule from './wechat-miniprogram/index';
 import * as bytedanceModule from './bytedance-microapp/index';
 import * as webModule from './web/index';
+import * as kuaiShouModule from './kuaishou-miniprogram/index';
+import * as baiDuModule from './baidu-smartprogram/index';
 import {
   DownloadOptions,
   GetInfoOptions,
@@ -22,6 +24,10 @@ export const upload = (options: UploadOptions): UploadTask | void => {
     return bytedanceModule.upload(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.upload(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.upload(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.upload(options);
   } else if (isWeb) {
     return webModule.upload(options);
   } else {
@@ -35,6 +41,10 @@ export const download = (options: DownloadOptions) => {
     return bytedanceModule.download(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.download(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.download(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.download(options);
   } else if (isWeb) {
     return webModule.download(options);
   } else {
@@ -48,6 +58,10 @@ export const getInfo = (options: GetInfoOptions) => {
     return bytedanceModule.getInfo(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.getInfo(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getInfo(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.getInfo(options);
   } else if (isWeb) {
     return webModule.getInfo(options);
   } else {
@@ -61,6 +75,10 @@ export const getSavedInfo = (options: GetSavedInfoOptions) => {
     return bytedanceModule.getSavedInfo(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.getSavedInfo(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getSavedInfo(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.getSavedInfo(options);
   } else if (isWeb) {
     return webModule.getSavedInfo(options);
   } else {
@@ -74,6 +92,10 @@ export const getSavedList = (options: GetSavedListOptions) => {
     return bytedanceModule.getSavedList(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.getSavedList(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getSavedList(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.getSavedList(options);
   } else if (isWeb) {
     return webModule.getSavedList(options);
   } else {
@@ -87,6 +109,10 @@ export const save = (options: SaveOptions) => {
     return bytedanceModule.save(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.save(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.save(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.save(options);
   } else if (isWeb) {
     return webModule.save(options);
   } else {
@@ -100,6 +126,10 @@ export const removeSaved = (options: RemoveSavedOptions) => {
     return bytedanceModule.removeSaved(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.removeSaved(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.removeSaved(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.removeSaved(options);
   } else if (isWeb) {
     return webModule.removeSaved(options);
   } else {
@@ -113,6 +143,10 @@ export const openDocument = (options: OpenDocumentOptions) => {
     return bytedanceModule.openDocument(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.openDocument(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.openDocument(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.openDocument(options);
   } else if (isWeb) {
     return webModule.openDocument(options);
   } else {

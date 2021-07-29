@@ -1,8 +1,10 @@
-import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp, isBaiduSmartProgram, isKuaiShouMiniProgram } from '@uni/env';
 import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
+import kuaiShouModule from './kuaishou-miniprogram/index';
+import baiDuModule from './baidu-smartprogram/index';
 import {
   ChooseImageOptions,
   CompressImageOptions,
@@ -18,6 +20,10 @@ export const chooseImage = (args: ChooseImageOptions) => {
     return bytedanceModule.chooseImage(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.chooseImage(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.chooseImage(args);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.chooseImage(args);
   } else if (isWeb) {
     return webModule.chooseImage(args);
   } else {
@@ -32,6 +38,10 @@ export const compressImage = (args: CompressImageOptions) => {
     return bytedanceModule.compressImage(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.compressImage(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.compressImage(args);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.compressImage(args);
   } else if (isWeb) {
     return webModule.compressImage();
   } else {
@@ -46,6 +56,10 @@ export const getImageInfo = (args: GetImageInfoOptions) => {
     return bytedanceModule.getImageInfo(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.getImageInfo(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getImageInfo(args);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.getImageInfo(args);
   } else if (isWeb) {
     return webModule.getImageInfo(args);
   } else {
@@ -60,6 +74,10 @@ export const previewImage = (args: PreviewImageOptions) => {
     return bytedanceModule.previewImage(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.previewImage(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.previewImage(args);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.previewImage(args);
   } else if (isWeb) {
     return webModule.previewImage(args);
   } else {
@@ -74,6 +92,10 @@ export const saveImage = (args: SaveImageOptions) => {
     return bytedanceModule.saveImage(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.saveImage(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.saveImage(args);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.saveImage(args);
   } else if (isWeb) {
     return webModule.saveImage();
   } else {

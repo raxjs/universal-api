@@ -5,7 +5,7 @@ export default normalize((args) => {
   ks.showActionSheet({
     ...args,
     fail: (err) => {
-      if (err && err.errMsg === 'showActionSheet:fail cancel') {
+      if (err && err.errMsg === 'showActionSheet: fail cancel') {
         args.success({ tapIndex: -1 });
       } else {
         args.fail(err);

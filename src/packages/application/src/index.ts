@@ -55,8 +55,6 @@ export const getLaunchOptionsSync = () => {
     return webModule.getLaunchOptionsSync();
   } else if (isKuaiShouMiniProgram) {
     return kuaiShouModule.getLaunchOptionsSync();
-  } else if (isBaiduSmartProgram) {
-    return baiDuModule.getLaunchOptionsSync();
   } else {
     throw new Error('@uni：application.getLaunchOptionsSync 暂不支持');
   }
@@ -106,8 +104,6 @@ export const onUnhandledRejection = (options: RejectCallback) => {
     return webModule.onUnhandledRejection(options);
   } else if (isKuaiShouMiniProgram) {
     return kuaiShouModule.onUnhandledRejection(options);
-  } else if (isBaiduSmartProgram) {
-    return baiDuModule.onUnhandledRejection(options);
   } else {
     throw new Error('@uni：onUnhandledRejection 暂不支持');
   }
@@ -123,8 +119,6 @@ export const offUnhandledRejection = (options: RejectCallback) => {
     return webModule.offUnhandledRejection(options);
   } else if (isKuaiShouMiniProgram) {
     return kuaiShouModule.offUnhandledRejection(options);
-  } else if (isBaiduSmartProgram) {
-    return baiDuModule.offUnhandledRejection(options);
   } else {
     throw new Error('@uni：Application.offUnhandledRejection 暂不支持');
   }

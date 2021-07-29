@@ -1,8 +1,10 @@
-import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp, isKuaiShouMiniProgram, isBaiduSmartProgram } from '@uni/env';
 import * as webModule from './web/index';
 import * as aliMiniAppModule from './ali-miniapp/index';
 import * as weChatModule from './wechat-miniprogram/index';
 import * as bytedanceModule from './bytedance-microapp/index';
+import * as kuaiShouModule from './kuaishou-miniprogram/index';
+import * as baiDuModule from './baidu-smartprogram/index';
 import { AsyncOptions } from './types';
 
 export const getInfoSync = () => {
@@ -12,6 +14,10 @@ export const getInfoSync = () => {
     return bytedanceModule.getInfoSync();
   } else if (isMiniApp) {
     return aliMiniAppModule.getInfoSync();
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getInfoSync();
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.getInfoSync();
   } else if (isWeb) {
     return webModule.getInfoSync();
   } else {
@@ -26,6 +32,10 @@ export const getInfo = (options?: AsyncOptions) => {
     return bytedanceModule.getInfo(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.getInfo(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getInfo(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.getInfo(options);
   } else if (isWeb) {
     return webModule.getInfo(options);
   } else {

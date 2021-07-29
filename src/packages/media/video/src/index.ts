@@ -1,8 +1,10 @@
-import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp, isBaiduSmartProgram, isKuaiShouMiniProgram } from '@uni/env';
 import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
+import baiDuModule from './baidu-smartprogram/index';
+import kuaiShouModule from './kuaishou-miniprogram/index';
 import {
   ChooseMediaOptions,
   ChooseVideoOptions,
@@ -16,6 +18,10 @@ export const chooseVideo = (args: ChooseVideoOptions) => {
     return bytedanceModule.chooseVideo(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.chooseVideo(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.chooseVideo(args);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.chooseVideo(args);
   } else if (isWeb) {
     return webModule.chooseVideo(args);
   } else {
@@ -30,6 +36,10 @@ export const createVideoContext: CreateVideoContextFn = (id, context) => {
     return bytedanceModule.createVideoContext(id, context);
   } else if (isMiniApp) {
     return aliMiniAppModule.createVideoContext(id);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.createVideoContext(id, context);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.createVideoContext(id);
   } else if (isWeb) {
     return webModule.createVideoContext();
   } else {
@@ -44,6 +54,10 @@ export const chooseMedia = (args: ChooseMediaOptions) => {
     return bytedanceModule.chooseMedia(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.chooseMedia(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.chooseMedia(args);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.chooseMedia(args);
   } else if (isWeb) {
     return webModule.chooseMedia(args);
   } else {
