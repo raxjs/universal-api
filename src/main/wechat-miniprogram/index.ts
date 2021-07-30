@@ -17,7 +17,7 @@ import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/wech
 import element from '../../packages/interactive/element/src/wechat-miniprogram/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/wechat-miniprogram/index';
 import confirm from '../../packages/interactive/confirm/src/wechat-miniprogram/index';
-import location from '../../packages/location/src/wechat-miniprogram/index';
+import _location from '../../packages/location/src/wechat-miniprogram/index';
 import image from '../../packages/media/image/src/wechat-miniprogram/index';
 import navigate from '../../packages/navigate/src/wechat-miniprogram/index';
 import request from '../../packages/network/request/src/wechat-miniprogram/index';
@@ -45,7 +45,7 @@ export {
   element,
   intersectionObserver,
   confirm,
-  location,
+  _location as location,
   image,
   navigate,
   request,
@@ -75,7 +75,7 @@ export default {
   element,
   intersectionObserver,
   confirm,
-  location,
+  location: _location,
   image,
   navigate,
   request,

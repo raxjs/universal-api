@@ -1,10 +1,10 @@
 {
   "name": "@uni/apis",
   "private": true,
-  "version": "1.0.16",
+  "version": "1.0.21",
   "scripts": {
     "setup": "rm -rf node_modules && yarn install --no-lockfile",
-    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src/packages/*/src --fix",
+    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src/packages/**/src --fix",
     "build": "cross-env node ./scripts/build.js",
     "build:all": "cross-env BUILD_TYPE=all node ./scripts/build.js",
     "build:main": "cross-env BUILD_TYPE=main node ./scripts/build.js",
@@ -21,14 +21,19 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "npm run lint"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "src/packages/**/src/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.12.5"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.4",
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/plugin-syntax-dynamic-import": "^7.7.4",
@@ -42,6 +47,7 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
     "@types/jest": "^26.0.23",
+    "@types/jsdom": "^16.2.12",
     "axios": ">=0.21.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.2.2",
@@ -66,9 +72,11 @@
     "gulp-cli": "^2.3.0",
     "gulp-replace": "^1.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
-    "husky": "^4.2.5",
+    "husky": "^4.3.8",
     "jest": "^27.0.4",
+    "jsdom": "^16.6.0",
     "koa-compose": "^4.1.0",
+    "lint-staged": "^10.5.4",
     "listr2": "^3.9.0",
     "md5": "^2.3.0",
     "minimist": "^1.2.0",

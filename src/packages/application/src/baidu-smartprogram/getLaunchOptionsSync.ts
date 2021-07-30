@@ -1,1 +1,2 @@
-export default () => swan.getLaunchOptionsSync();
+// export default () => swan.getLaunchOptionsSync();
+export default () => {};

@@ -1,6 +1,7 @@
 import {createElement} from 'rax';
 import View from 'rax-view';
 import appJson from '../../app.json';
+import navigate from '@uni/navigate';
 
 const styles = {
   flex: {
@@ -21,7 +22,7 @@ const styles = {
 
 const Index = ({history}) => {
   const clickHandler = (path) => {
-    history.push(path);
+    navigate.push({ url: path, isHash: true, refresh: true })
   }
   return (
     <View>

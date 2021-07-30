@@ -2,7 +2,7 @@ import { normalizeShow } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
 declare let window: any;
-window.__uni_loadingWin = null;
+// window.__uni_loadingWin = null;
 
 const clsPrefix = '__universal_loading';
 

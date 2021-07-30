@@ -1,39 +1,48 @@
 const fs = require('fs-extra');
 const path = require('path');
 
+const needRename = {
+  location: '_location'
+}
 module.exports = (rootDir, sourceMap) => {
   const defaultContent = '\r\n\r\nexport default {\r\n' + Object.entries(sourceMap).map(([key, value]) => {
+    if (needRename[key]) {
+      return `  ${key}: ${needRename[key]},`;
+    }
     return `  ${key},`;
   }).join('\r\n') + '\r\n};\r\n';
   const exportContent = '\r\n\r\nexport {\r\n' + Object.entries(sourceMap).map(([key, value]) => {
+    if (needRename[key]) {
+      return `  ${needRename[key]} as ${key},`;
+    }
     return `  ${key},`;
   }).join('\r\n') + '\r\n};\r\n';
   const indexFileContent = Object.entries(sourceMap).map(([key, value]) => {
-    return `import ${key} from '${value.path.replace('src/packages/', '../packages/').replace(/\.(t|j)s/, '')}';`;
+    return `import ${needRename[key] ? needRename[key] : key} from '${value.path.replace('src/packages/', '../packages/').replace(/\.(t|j)s/, '')}';`;
   }).join('\r\n');
   const wechatFileContent = Object.entries(sourceMap).map(([key, value]) => {
     if (value.unNeedSplit) {
-      return `import ${key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\.(t|j)s/, '')}';`;
+      return `import ${needRename[key] ? needRename[key] : key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\.(t|j)s/, '')}';`;
     }
-    return `import ${key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\/src/, '/src/wechat-miniprogram').replace(/\.(t|j)s/, '')}';`;
+    return `import ${needRename[key] ? needRename[key] : key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\/src/, '/src/wechat-miniprogram').replace(/\.(t|j)s/, '')}';`;
   }).join('\r\n');
   const aliFileContent = Object.entries(sourceMap).map(([key, value]) => {
     if (value.unNeedSplit) {
-      return `import ${key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\.(t|j)s/, '')}';`;
+      return `import ${needRename[key] ? needRename[key] : key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\.(t|j)s/, '')}';`;
     }
-    return `import ${key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\/src/, '/src/ali-miniapp').replace(/\.(t|j)s/, '')}';`;
+    return `import ${needRename[key] ? needRename[key] : key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\/src/, '/src/ali-miniapp').replace(/\.(t|j)s/, '')}';`;
   }).join('\r\n');
   const byteFileContent = Object.entries(sourceMap).map(([key, value]) => {
     if (value.unNeedSplit) {
-      return `import ${key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\.(t|j)s/, '')}';`;
+      return `import ${needRename[key] ? needRename[key] : key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\.(t|j)s/, '')}';`;
     }
-    return `import ${key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\/src/, '/src/bytedance-microapp').replace(/\.(t|j)s/, '')}';`;
+    return `import ${needRename[key] ? needRename[key] : key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\/src/, '/src/bytedance-microapp').replace(/\.(t|j)s/, '')}';`;
   }).join('\r\n');
   const webFileContent = Object.entries(sourceMap).map(([key, value]) => {
     if (value.unNeedSplit) {
-      return `import ${key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\.(t|j)s/, '')}';`;
+      return `import ${needRename[key] ? needRename[key] : key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\.(t|j)s/, '')}';`;
     }
-    return `import ${key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\/src/, '/src/web').replace(/\.(t|j)s/, '')}';`;
+    return `import ${needRename[key] ? needRename[key] : key} from '${value.path.replace('src/packages/', '../../packages/').replace(/\/src/, '/src/web').replace(/\.(t|j)s/, '')}';`;
   }).join('\r\n');
   fs.writeFileSync(path.resolve(rootDir, 'src/main/index.ts'), indexFileContent + exportContent + defaultContent);
   fs.writeFileSync(path.resolve(rootDir, 'src/main/wechat-miniprogram/index.ts'), wechatFileContent + exportContent + defaultContent);

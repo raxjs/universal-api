@@ -7,14 +7,14 @@ import baiDuModule from './baidu-smartprogram/index';
 import webModule from './web/index';
 
 export const getScrollOffset = (selector, context?) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.getScrollOffset(selector);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.getScrollOffset(selector, context);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getScrollOffset(selector);
   } else if (isMiniApp) {
     return aliMiniAppModule.getScrollOffset(selector);
-  } else if (isWeb) {
-    return webModule.getScrollOffset(selector);
   } else if (isKuaiShouMiniProgram) {
     return kuaiShouModule.getScrollOffset(selector);
   } else if (isBaiduSmartProgram) {
@@ -24,14 +24,14 @@ export const getScrollOffset = (selector, context?) => {
   }
 };
 export const getBoundingClientRect = (selector, context?) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return webModule.getBoundingClientRect(selector);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.getBoundingClientRect(selector, context);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getBoundingClientRect(selector);
   } else if (isMiniApp) {
     return aliMiniAppModule.getBoundingClientRect(selector);
-  } else if (isWeb) {
-    return webModule.getBoundingClientRect(selector);
   } else if (isKuaiShouMiniProgram) {
     return kuaiShouModule.getBoundingClientRect(selector);
   } else if (isBaiduSmartProgram) {

@@ -1,8 +1,8 @@
-interface Ob {
+export interface Ob {
   [key: string]: any;
 }
 
-interface Ext {
+export interface Ext {
   wechatMiniProgram?: Ob;
   aliMiniApp?: Ob;
   bytedanceMicroApp?: Ob;
@@ -11,7 +11,7 @@ interface Ext {
   kuaishouMiniProgram?: Ob;
 }
 
-declare namespace Uni {
+export declare namespace Uni {
   interface COptions {
     _ext?: Ext;
   }

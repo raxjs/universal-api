@@ -10,7 +10,7 @@ Return An IntersectionObserver object that infers whether and how likely certain
 
 ## Supported
 
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp" /> <img alt="baiduSmartProgram" src="https://img.alicdn.com/imgextra/i4/O1CN01jngdBb24yGv2Fu34G_!!6000000007459-2-tps-200-200.png" width="25px" height="25px" title="baiduSmartProgram" /> 
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="weex" src="https://gw.alicdn.com/tfs/TB1jM0ebMaH3KVjSZFjXXcFWpXa-200-200.svg" width="25px" height="25px" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram" /> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp" /> <img alt="baiduSmartProgram" src="https://img.alicdn.com/imgextra/i4/O1CN01jngdBb24yGv2Fu34G_!!6000000007459-2-tps-200-200.png" width="25px" height="25px" title="baiduSmartProgram" /> 
 
 ## Install
 
@@ -188,6 +188,26 @@ useEffect(() => {
     setAppear(res.intersectionRatio > 0);
   });
 }, []);
+```
+
+为保证多端可用，可参考demo实现
+
+```js
+  useEffect(() => {
+    // 阿里小程序需在 ​page.onReady​ 之后执行 ​createIntersectionObserver()，setTimeout 可延迟执行时机
+    setTimeout(() => {
+      // node必须为block元素和circle元素的共同父元素
+      const node = document.querySelector('.parent');
+      const intersectionObserver = createIntersectionObserver(null, node._internal);
+
+      // 由于rax运行时在微信存在shadow dom问题，所以采用深度选择器
+      const clsPre = isWeChatMiniProgram ? '.parent >>> ' : '';
+      intersectionObserver.relativeTo(clsPre + '.block').observe(clsPre + '.circle', res => {
+        console.log(res);
+        setAppear(res.intersectionRatio > 0);
+      });
+    }, 0);
+  }, []);
 ```
 
 </div>

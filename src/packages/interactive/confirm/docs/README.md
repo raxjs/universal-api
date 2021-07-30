@@ -78,9 +78,9 @@ import { confirm } from '@uni/apis';
 
 | 成员 | 类型 | 描述 | 必选 | 默认值 | 支持度 |
 | --- | --- | --- | --- | --- | -- |
-| options.showCancel | `boolean` | 是否显示取消按钮 | ✘ | true | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序"> |
-| options.cancelColor | `string` | 取消按钮的文字颜色，必须是 16 进制格式的颜色字符串 | ✘ | #000000 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
-| options.confirmColor | `string` | 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串 | ✘ | #576B95	 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> |
+| options.showCancel | `boolean` | 是否显示取消按钮 | ✘ | true | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序" /> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序" /> |
+| options.cancelColor | `string` | 取消按钮的文字颜色，必须是 16 进制格式的颜色字符串 | ✘ | #000000 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序" /> |
+| options.confirmColor | `string` | 确认按钮的文字颜色，必须是 16 进制格式的颜色字符串 | ✘ | #576B95	 | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序" /> |
 
 #### 返回
 
