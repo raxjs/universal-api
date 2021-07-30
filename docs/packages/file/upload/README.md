@@ -7,7 +7,7 @@
 <div style="margin-right: 20px;max-width: 50%;">
 
 ## 支持
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序" /> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序" />
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序" /> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序" /> <img alt="baiduSmartProgram" src="https://img.alicdn.com/imgextra/i4/O1CN01jngdBb24yGv2Fu34G_!!6000000007459-2-tps-200-200.png" width="25px" height="25px" title="百度小程序" /> <img alt="kuaiShouMiniProgram" src="https://gw.alicdn.com/imgextra/i4/O1CN01kzmJMM24jcFEzp5Wv_!!6000000007427-2-tps-200-200.png" width="25px" height="25px" title="快手小程序" />
 
 ## 安装
 
@@ -33,7 +33,7 @@ $ npm install @uni/file --save
 | fileType | `String` | `image` | x    | 文件类型支持图片、视频、音频（ image / video / audio），Web下无需传入            | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" />  |
 | withCredentials | `Boolean` |   | x    | 自定义 withCredentials 选项（默认根据域名判断）  | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" />  |
 | hideLoading | `Boolean` |   false  | x    | 是否隐藏 loading 图（默认值为 false）  | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" />  |
-| timeout | `Number` |  | x    | 上传超时时间  | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" /> |
+| timeout | `Number` |  | x    | 上传超时时间  | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" /> <img alt="kuaiShouMiniProgram" src="https://gw.alicdn.com/imgextra/i4/O1CN01kzmJMM24jcFEzp5Wv_!!6000000007427-2-tps-200-200.png" width="25px" height="25px" title="快手小程序" /> |
 
 ## 返回
 注意：支付宝小程序只有客户端 10.1.35 及以上支持，由于破坏了一码多端请谨慎使用。使用时请务必判断返回不为空，`upload`在不支持 UploadTask 的容器下返回结果为空。
@@ -42,6 +42,8 @@ $ npm install @uni/file --save
 一个可以监听上传进度变化事件，以及取消上传任务的对象。具体文档可以查看：
 * 微信：[链接](https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/UploadTask.html)
 * 字节跳动：[链接](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/api/network/http/upload-task/)
+* 百度：[链接](https://smartprogram.baidu.com/docs/develop/api/net/uploadTask/)
+* 快手：[链接](https://mp.kuaishou.com/docs/develop/api/network/upload/UploadTask/UploadTask.html)
 * 支付宝：已对齐微信，但缺少`onHeadersReceived`和`offHeadersReceived`
 * Web：与微信相同
 
@@ -77,7 +79,7 @@ if (task && task.onHeadersReceived) {
 
 ### Promise 调用：
 
-由于微信容器和字节跳动容器 upload api 会返回 UploadTask 对象，所以此处不在支持 Promise 调用，请业务自行封装。
+由于微信容器和字节跳动容器、百度容器、快手容器 upload api 会返回 UploadTask 对象，所以此处不在支持 Promise 调用，请业务自行封装。
 
 你也可以从大包引入：
 ```js
