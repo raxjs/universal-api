@@ -1,6 +1,6 @@
 import { createNoop, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('application', ['wechat', 'ali', 'dingtalk', 'bytedance'], (container, globals, configAPI) => {
+testPlatformAPI('application', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou'], (container, globals, configAPI) => {
   const mockGetApp = jest.fn();
   const mockGetCurrentPages = jest.fn();
   const mockGetLaunchOptionsSync = jest.fn();

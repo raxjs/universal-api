@@ -1,6 +1,6 @@
 import { testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('recorder', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
+testPlatformAPI('recorder', ['wechat', 'ali', 'dingtalk', 'bytedance', 'baidu'], async (container, globals, configAPI) => {
   const mockGetRecorderManager = jest.fn();
   configAPI('getRecorderManager', mockGetRecorderManager);
 

@@ -1,6 +1,6 @@
 import { createPromisifyImpl, isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('toast', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
+testPlatformAPI('toast', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
   const mockShowToast = jest.fn(createPromisifyImpl());
   const mockHideToast = jest.fn(createPromisifyImpl());
   configAPI('showToast', mockShowToast);

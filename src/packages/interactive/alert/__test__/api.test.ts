@@ -1,6 +1,6 @@
 import { createPromisifyImpl, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('alert', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
+testPlatformAPI('alert', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou', 'baidu'], async (container, globals) => {
   const mockShowAlert = jest.fn(createPromisifyImpl());
 
   if (container === 'wechat') {
@@ -11,6 +11,10 @@ testPlatformAPI('alert', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (cont
     globals.my.alert = mockShowAlert;
   } else if (container === 'bytedance') {
     globals.tt.showModal = mockShowAlert;
+  } else if (container === 'kuaishou') {
+    globals.ks.showModal = mockShowAlert;
+  } else if (container === 'baidu') {
+    globals.swan.showModal = mockShowAlert;
   }
 
   const { alert } = require('../src/index');
