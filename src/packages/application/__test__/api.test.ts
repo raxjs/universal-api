@@ -12,8 +12,10 @@ testPlatformAPI('application', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuais
   globals.getApp = mockGetApp;
   globals.getCurrentPages = mockGetCurrentPages;
 
-  configAPI('onError', mockOnError);
-  configAPI('offError', mockOffError);
+  if (container !== 'kuaishou') {
+    configAPI('onError', mockOnError);
+    configAPI('offError', mockOffError);
+  }
   configAPI('onUnhandledRejection', mockOnUnhandledRejection);
   configAPI('offUnhandledRejection', mockOffUnhandledRejection);
 
@@ -43,12 +45,16 @@ testPlatformAPI('application', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuais
   expect(mockGetLaunchOptionsSync.mock.calls.length).toBe(1);
 
   let cb = createNoop();
-  onError(cb);
-  expect(mockOnError.mock.calls).toEqual([[cb]]);
+  if (container !== 'kuaishou') {
+    onError(cb);
+    expect(mockOnError.mock.calls).toEqual([[cb]]);
+  }
 
   cb = createNoop();
-  offError(cb);
-  expect(mockOffError.mock.calls).toEqual([[cb]]);
+  if (container !== 'kuaishou') {
+    offError(cb);
+    expect(mockOffError.mock.calls).toEqual([[cb]]);
+  }
 
   cb = createNoop();
   onUnhandledRejection(cb);

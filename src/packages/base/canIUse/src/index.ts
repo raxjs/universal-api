@@ -15,10 +15,10 @@ const supportInfo = {
       support: 1111110,
     },
     onError: {
-      support: 1111111,
+      support: 1111101,
     },
     offError: {
-      support: 1111111,
+      support: 1111101,
     },
     onUnhandledRejection: {
       support: 1111110,
@@ -213,7 +213,11 @@ const canIUse = (platform, api, supportInfo) => {
 };
 
 export default (apiName) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return canIUse(4, apiName, supportInfo);
+  } else if (isKuaiShouMiniProgram) {
+    return canIUse(5, apiName, supportInfo);
+  } else if (isWeChatMiniProgram) {
     return canIUse(0, apiName, supportInfo);
   } else if (isByteDanceMicroApp) {
     return canIUse(1, apiName, supportInfo);
@@ -221,10 +225,6 @@ export default (apiName) => {
     return canIUse(2, apiName, supportInfo);
   } else if (isMiniApp) {
     return canIUse(3, apiName, supportInfo);
-  } else if (isWeb) {
-    return canIUse(4, apiName, supportInfo);
-  } else if (isKuaiShouMiniProgram) {
-    return canIUse(5, apiName, supportInfo);
   } else if (isBaiduSmartProgram) {
     return canIUse(6, apiName, supportInfo);
   } else {

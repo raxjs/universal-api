@@ -10,14 +10,14 @@ import { ScanCodeOptions } from './types';
 export const scanCode = (args?: ScanCodeOptions) => {
   if (isWeb) {
     return webModule();
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule(args);
   } else if (isWeChatMiniProgram) {
     return weChatModule(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule(args);
   } else if (isMiniApp) {
     return aliMiniAppModule(args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule(args);
   } else {

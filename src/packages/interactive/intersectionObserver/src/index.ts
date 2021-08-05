@@ -10,6 +10,8 @@ import { CreateIntersectionObserver } from './types';
 const createIntersectionObserver: CreateIntersectionObserver = (...args) => {
   if (isWeb) {
     return webModule(...args);
+  } else if (isKuaiShouMiniProgram) {
+    throw new Error('Uni API：IntersectionObserver暂不支持');
   } else if (isWeChatMiniProgram) {
     return weChatModule(...args);
   } else if (isByteDanceMicroApp) {

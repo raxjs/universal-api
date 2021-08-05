@@ -10,14 +10,14 @@ import { OptionStruct, OpenOptionStruct, ChooseLocationOptions } from './types';
 export const getLocation = (args: OptionStruct) => {
   if (isWeb) {
     return webModule.getLocation(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getLocation(args);
   } else if (isWeChatMiniProgram) {
     return weChatModule.getLocation(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getLocation(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.getLocation(args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.getLocation(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.getLocation(args);
   } else {
@@ -26,14 +26,14 @@ export const getLocation = (args: OptionStruct) => {
 };
 
 export const openLocation = (args: OpenOptionStruct) => {
-  if (isWeChatMiniProgram) {
+  if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.openLocation(args);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.openLocation(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.openLocation(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.openLocation(args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.openLocation(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.openLocation(args);
   } else {
@@ -42,14 +42,14 @@ export const openLocation = (args: OpenOptionStruct) => {
 };
 
 export const chooseLocation = (args: ChooseLocationOptions) => {
-  if (isWeChatMiniProgram) {
+  if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.chooseLocation(args);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.chooseLocation(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.chooseLocation(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.chooseLocation(args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.chooseLocation(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.chooseLocation(args);
   } else {

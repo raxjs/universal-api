@@ -8,14 +8,14 @@ import baiDuModule from './baidu-smartprogram/index';
 
 // web 暂不支持这个功能
 export const getClipboard = (args) => {
-  if (isWeChatMiniProgram) {
+  if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getClipboard(args);
+  } else if (isWeChatMiniProgram) {
     return weChatModule.getClipboard(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getClipboard(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.getClipboard(args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.getClipboard(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.getClipboard(args);
   } else {
@@ -26,14 +26,14 @@ export const getClipboard = (args) => {
 export const setClipboard = (args) => {
   if (isWeb) {
     return webModule.setClipboard(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.setClipboard(args);
   } else if (isWeChatMiniProgram) {
     return weChatModule.setClipboard(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.setClipboard(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.setClipboard(args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.setClipboard(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.setClipboard(args);
   } else {

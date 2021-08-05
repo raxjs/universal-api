@@ -11,6 +11,8 @@ import { Options, CanvasContext } from './types';
 export const createContext = function (canvasOptions: Options): Promise<CanvasContext> {
   if (isWeb) {
     return webModule.createContext(canvasOptions);
+  } else if (isKuaiShouMiniProgram) {
+    throw new Error('@uni：canvas暂不支持');
   } else if (isWeChatMiniProgram) {
     return weChatModule.createContext(canvasOptions);
   } else if (isByteDanceMicroApp) {

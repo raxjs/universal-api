@@ -16,14 +16,14 @@ import {
 export const chooseImage = (args: ChooseImageOptions) => {
   if (isWeb) {
     return webModule.chooseImage(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.chooseImage(args);
   } else if (isWeChatMiniProgram) {
     return weChatModule.chooseImage(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.chooseImage(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.chooseImage(args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.chooseImage(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.chooseImage(args);
   } else {
@@ -34,14 +34,14 @@ export const chooseImage = (args: ChooseImageOptions) => {
 export const compressImage = (args: CompressImageOptions) => {
   if (isWeb) {
     return webModule.compressImage();
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.compressImage(args);
   } else if (isWeChatMiniProgram) {
     return weChatModule.compressImage(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.compressImage(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.compressImage(args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.compressImage(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.compressImage(args);
   } else {
@@ -52,14 +52,14 @@ export const compressImage = (args: CompressImageOptions) => {
 export const getImageInfo = (args: GetImageInfoOptions) => {
   if (isWeb) {
     return webModule.getImageInfo(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getImageInfo(args);
   } else if (isWeChatMiniProgram) {
     return weChatModule.getImageInfo(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getImageInfo(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.getImageInfo(args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.getImageInfo(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.getImageInfo(args);
   } else {
@@ -70,14 +70,14 @@ export const getImageInfo = (args: GetImageInfoOptions) => {
 export const previewImage = (args: PreviewImageOptions) => {
   if (isWeb) {
     return webModule.previewImage(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.previewImage(args);
   } else if (isWeChatMiniProgram) {
     return weChatModule.previewImage(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.previewImage(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.previewImage(args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.previewImage(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.previewImage(args);
   } else {
@@ -88,14 +88,14 @@ export const previewImage = (args: PreviewImageOptions) => {
 export const saveImage = (args: SaveImageOptions) => {
   if (isWeb) {
     return webModule.saveImage();
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.saveImage(args);
   } else if (isWeChatMiniProgram) {
     return weChatModule.saveImage(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.saveImage(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.saveImage(args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.saveImage(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.saveImage(args);
   } else {

@@ -10,14 +10,14 @@ import { AsyncOptions } from './types';
 export const getInfoSync = () => {
   if (isWeb) {
     return webModule.getInfoSync();
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getInfoSync();
   } else if (isWeChatMiniProgram) {
     return weChatModule.getInfoSync();
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getInfoSync();
   } else if (isMiniApp) {
     return aliMiniAppModule.getInfoSync();
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.getInfoSync();
   } else if (isBaiduSmartProgram) {
     return baiDuModule.getInfoSync();
   } else {
@@ -28,14 +28,14 @@ export const getInfoSync = () => {
 export const getInfo = (options?: AsyncOptions) => {
   if (isWeb) {
     return webModule.getInfo(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getInfo(options);
   } else if (isWeChatMiniProgram) {
     return weChatModule.getInfo(options);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getInfo(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.getInfo(options);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.getInfo(options);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.getInfo(options);
   } else {

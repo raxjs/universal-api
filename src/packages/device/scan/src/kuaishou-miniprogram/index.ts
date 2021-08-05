@@ -9,6 +9,7 @@ const SCANTYPEMAP = {
 };
 export default normalized((options) => {
   const { hideAlbum, scanType, success, fail, complete } = options;
+  console.log('scan');
   ks.scanCode({
     onlyFromCamera: hideAlbum,
     scanType: SCANTYPEMAP[scanType],

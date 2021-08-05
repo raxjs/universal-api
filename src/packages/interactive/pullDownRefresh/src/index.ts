@@ -10,14 +10,14 @@ import { StartOptions, StopOptions, SwitchOptions } from './types';
 export const startPullDownRefresh = (args?: StartOptions) => {
   if (isWeb) {
     return webModule.startPullDownRefresh(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.startPullDownRefresh(args);
   } else if (isWeChatMiniProgram) {
     return weChatModule.startPullDownRefresh(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.startPullDownRefresh(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.startPullDownRefresh(args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.startPullDownRefresh(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.startPullDownRefresh(args);
   } else {
@@ -28,14 +28,14 @@ export const startPullDownRefresh = (args?: StartOptions) => {
 export const stopPullDownRefresh = (args?: StopOptions) => {
   if (isWeb) {
     return webModule.stopPullDownRefresh(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.stopPullDownRefresh(args);
   } else if (isWeChatMiniProgram) {
     return weChatModule.stopPullDownRefresh(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.stopPullDownRefresh(args);
   } else if (isMiniApp) {
     return aliMiniAppModule.stopPullDownRefresh(args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.stopPullDownRefresh(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule.stopPullDownRefresh(args);
   } else {

@@ -1,4 +1,4 @@
-import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp, isBaiduSmartProgram } from '@uni/env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp, isBaiduSmartProgram, isKuaiShouMiniProgram } from '@uni/env';
 import aliMiniAppModule from './ali-miniapp/index';
 import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
@@ -9,6 +9,8 @@ import { AnimationOptions, TransitionOptions } from './types';
 export function createAnimation(options?: AnimationOptions) {
   if (isWeb) {
     return webModule.createAnimation(options);
+  } else if (isKuaiShouMiniProgram) {
+    throw new Error('@uni/apis：createAnimation 暂不支持');
   } else if (isWeChatMiniProgram) {
     return weChatModule.createAnimation(options);
   } else if (isByteDanceMicroApp) {
@@ -25,6 +27,8 @@ export function createAnimation(options?: AnimationOptions) {
 export function createTransition(options: TransitionOptions) {
   if (isWeb) {
     return webModule.createTransition(options);
+  } else if (isKuaiShouMiniProgram) {
+    throw new Error('@uni/apis：createAnimation 暂不支持');
   } else if (isWeChatMiniProgram) {
     return weChatModule.createTransition(options);
   } else if (isByteDanceMicroApp) {

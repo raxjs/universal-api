@@ -12,14 +12,14 @@ import kuaiShouModule from './kuaishou-miniprogram/index';
 export default (options: RequestOptions) => {
   if (isWeb) {
     return webModule(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule(options);
   } else if (isWeChatMiniProgram) {
     return weChatModule(options);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule(options);
   } else if (isMiniApp) {
     return aliMiniAppModule(options);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule(options);
   } else if (isBaiduSmartProgram) {
     return baiDuModule(options);
   } else {

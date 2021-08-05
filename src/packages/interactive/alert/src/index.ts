@@ -10,14 +10,14 @@ import { Options, Alert } from './types';
 export const alert: Alert = (args: Options) => {
   if (isWeb) {
     return webModule(args);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule(args);
   } else if (isWeChatMiniProgram) {
     return weChatModule(args);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule(args);
   } else if (isMiniApp) {
     return aliMiniAppModule(args);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule(args);
   } else if (isBaiduSmartProgram) {
     return baiDuModule(args);
   } else {
