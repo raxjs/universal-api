@@ -49,7 +49,7 @@ let res = storage.getStorageSync({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.key | `string`  | The specified key in the local cache | ✔️ |  - |
+| options.key | `string`  | The specified key in the local cache | ✔️ |  - |
 
 #### Return
 

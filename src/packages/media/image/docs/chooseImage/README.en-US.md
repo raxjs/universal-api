@@ -79,8 +79,8 @@ image.chooseImage({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✘ | - |
-| opthons.count | `number` | The maximum number of images allowed | ✘ | 1 |
-| opthons.sourceType | `Array<string>`  | The source of the image | ✘ | ['album', 'camera'] |
+| options.count | `number` | The maximum number of images allowed | ✘ | 1 |
+| options.sourceType | `Array<string>`  | The source of the image | ✘ | ['album', 'camera'] |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |

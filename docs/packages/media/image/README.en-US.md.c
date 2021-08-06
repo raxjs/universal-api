@@ -73,8 +73,8 @@ image.chooseImage({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✘ | - |
-| opthons.count | `number` | The maximum number of images allowed | ✘ | 1 |
-| opthons.sourceType | `Array<string>`  | The source of the image | ✘ | ['album', 'camera'] |
+| options.count | `number` | The maximum number of images allowed | ✘ | 1 |
+| options.sourceType | `Array<string>`  | The source of the image | ✘ | ['album', 'camera'] |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
@@ -174,7 +174,7 @@ image.compressImage({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.src | `string`  | The path to the image. It can be a relative path, a temporary file path, or a file compress-image path | ✔️ |  - |
+| options.src | `string`  | The path to the image. It can be a relative path, a temporary file path, or a file compress-image path | ✔️ |  - |
 | options.quality | `number`  | Compression quality. The value range is 0-3. | ✘ | - |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
@@ -256,7 +256,7 @@ image.getImageInfo({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.src | `string`  | The path to the image. It can be a relative path or a path to a network image. | ✔️ |  - |
+| options.src | `string`  | The path to the image. It can be a relative path or a path to a network image. | ✔️ |  - |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
@@ -329,8 +329,8 @@ image.previewImage({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✘ | - |
-| opthons.urls | `Array<string>` | The URLs of images to preview | ✘ |  |
-| opthons.current | `number`  | The index of the current image in urls list | ✘ | 0 |
+| options.urls | `Array<string>` | The URLs of images to preview | ✘ |  |
+| options.current | `number`  | The index of the current image in urls list | ✘ | 0 |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
@@ -379,7 +379,7 @@ image.saveImage({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.url | `string`  | The path to the image file. It can be a temporary or permanent file path. The path to a network image is not supported | ✔️ |  - |
+| options.url | `string`  | The path to the image file. It can be a temporary or permanent file path. The path to a network image is not supported | ✔️ |  - |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |

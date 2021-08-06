@@ -88,7 +88,7 @@ image.getImageInfo({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.src | `string`  | The path to the image. It can be a relative path or a path to a network image. | ✔️ |  - |
+| options.src | `string`  | The path to the image. It can be a relative path or a path to a network image. | ✔️ |  - |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |

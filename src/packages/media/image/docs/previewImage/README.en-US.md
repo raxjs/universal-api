@@ -58,8 +58,8 @@ image.previewImage({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✘ | - |
-| opthons.urls | `Array<string>` | The URLs of images to preview | ✘ |  |
-| opthons.current | `number`  | The index of the current image in urls list | ✘ | 0 |
+| options.urls | `Array<string>` | The URLs of images to preview | ✘ |  |
+| options.current | `number`  | The index of the current image in urls list | ✘ | 0 |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |

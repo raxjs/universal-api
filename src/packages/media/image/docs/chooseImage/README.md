@@ -80,8 +80,8 @@ image.chooseImage({
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✘ | - |
-| opthons.count | `number` | 最大可选照片数，默认1张 | ✘ | 1 |
-| opthons.sourceType | `Array<string>`  | 相册选取或者拍照，默认 ['camera','album']，`h5不支持拍照` | ✘ | ['album', 'camera'] |
+| options.count | `number` | 最大可选照片数，默认1张 | ✘ | 1 |
+| options.sourceType | `Array<string>`  | 相册选取或者拍照，默认 ['camera','album']，`h5不支持拍照` | ✘ | ['album', 'camera'] |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |

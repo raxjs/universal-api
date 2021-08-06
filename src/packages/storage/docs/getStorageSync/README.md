@@ -49,7 +49,7 @@ let res = storage.getStorageSync({
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.key | `string`  | 本地缓存中指定的 key | ✔️ |  - |
+| options.key | `string`  | 本地缓存中指定的 key | ✔️ |  - |
 
 #### 返回
 

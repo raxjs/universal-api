@@ -83,8 +83,8 @@ import { request } from '@uni/apis';
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | 是 | - |
-| opthons.url | `string`  | 请求的URL地址 | 是 |  - |
-| opthons.headers | `object`  | 设置请求的头部 | 否 | {<br />  'Content-Type': 'application/json'<br />} |
+| options.url | `string`  | 请求的URL地址 | 是 |  - |
+| options.headers | `object`  | 设置请求的头部 | 否 | {<br />  'Content-Type': 'application/json'<br />} |
 | options.method | `string`  | 可用的值有：GET/POST/PUT/DELETE/PATCH/HEAD/JSONP，小程序中仅支持GET/POST/JSONP | 否 |  `GET`  |
 | options.data | `object`  | <br />- GET请求或POST请求设置headers['content-Type'] 为 `application/x-www-form-urlencoded`时会拼接到URL中<br />- 其他情况请求会转换为JSON字符串以请求体的形式给服务端<br /> | 否 | - |
 | options.timeout | `number`  | 超时时间 | 否 | 20000 (ms) |

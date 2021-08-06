@@ -74,7 +74,7 @@ storage.getStorage({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.key | `string`  | The specified key in the local cache | ✔️ |  - |
+| options.key | `string`  | The specified key in the local cache | ✔️ |  - |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |

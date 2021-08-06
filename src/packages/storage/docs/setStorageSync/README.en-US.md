@@ -57,8 +57,8 @@ storage.setStorageSync({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.key | `string`  | The specified key in the local cache | ✔️ |  - |
-| opthons.data | `object`  | Contents to be stored can only be native types, dates, and objects that can be serialized via JSON.stringify. | ✔️ | - |
+| options.key | `string`  | The specified key in the local cache | ✔️ |  - |
+| options.data | `object`  | Contents to be stored can only be native types, dates, and objects that can be serialized via JSON.stringify. | ✔️ | - |
 
 </div>
 <div>

@@ -89,7 +89,7 @@ image.getImageInfo({
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.src | `string`  | 图片的路径，支持网络路径、相对路径 | ✔️ |  - |
+| options.src | `string`  | 图片的路径，支持网络路径、相对路径 | ✔️ |  - |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |

@@ -59,8 +59,8 @@ storage.setStorageSync({
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.key | `string`  | 本地缓存中指定的 key | ✔️ |  - |
-| opthons.data | `object`  | 需要存储的内容。只支持原生类型、Date、及能够通过JSON.stringify序列化的对象。 | ✔️ | - |
+| options.key | `string`  | 本地缓存中指定的 key | ✔️ |  - |
+| options.data | `object`  | 需要存储的内容。只支持原生类型、Date、及能够通过JSON.stringify序列化的对象。 | ✔️ | - |
 
 </div>
 <div>

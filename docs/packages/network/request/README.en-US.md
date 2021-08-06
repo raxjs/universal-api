@@ -77,8 +77,8 @@ import { request } from '@uni/apis';
 | Property | Type | Description | Required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | true | - |
-| opthons.url | `string`  | Required，the request url | true | - |
-| opthons.headers | `object`  | The request headers | false | {<br />  'Content-Type': 'application/json'<br />} |
+| options.url | `string`  | Required，the request url | true | - |
+| options.headers | `object`  | The request headers | false | {<br />  'Content-Type': 'application/json'<br />} |
 | options.method | `string`  | Values：GET/POST/PUT/DELETE/PATCH/HEAD/JSONP,mini app only support GET/POST/JSONP | false | `GET`  |
 | options.data | `object`  | <br />- GET or POST set headers['content-Type'] is equal to `application/x-www-form-urlencoded` data will apply to URL<br />- In other cases, the data will be converted to a JSON string as request body to the server.<br /> | false | - |
 | options.timeout | `number`  | timeout | false| 20000 (ms) |

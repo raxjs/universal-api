@@ -92,7 +92,7 @@ image.compressImage({
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.src | `string`  | 图片路径，可以本地路径、代码包相对路径，不支持网络图片 | ✔️ |  - |
+| options.src | `string`  | 图片路径，可以本地路径、代码包相对路径，不支持网络图片 | ✔️ |  - |
 | options.quality | `number`  | 压缩质量，范围0～3，1-低，2-中，3-高 | ✘ | - |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |

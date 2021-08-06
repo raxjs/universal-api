@@ -93,7 +93,7 @@ image.compressImage({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.src | `string`  | The path to the image. It can be a relative path, a temporary file path, or a file compress-image path | ✔️ |  - |
+| options.src | `string`  | The path to the image. It can be a relative path, a temporary file path, or a file compress-image path | ✔️ |  - |
 | options.quality | `number`  | Compression quality. The value range is 0-3. | ✘ | - |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |

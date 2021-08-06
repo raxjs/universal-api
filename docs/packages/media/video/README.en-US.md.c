@@ -79,7 +79,7 @@ video.chooseVideo({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✘ | - |
-| opthons.sourceType | `Array<string>`  | The source of the video | ✘ | ['album', 'camera'] |
+| options.sourceType | `Array<string>`  | The source of the video | ✘ | ['album', 'camera'] |
 | options.maxDuration | `number` | The maximum duration of a recorded video | ✘ | 60 |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
