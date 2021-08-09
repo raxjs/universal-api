@@ -56,7 +56,7 @@ image.saveImage({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.url | `string`  | The path to the image file. It can be a temporary or permanent file path. The path to a network image is not supported | ✔️ |  - |
+| options.url | `string`  | The path to the image file. It can be a temporary or permanent file path. The path to a network image is not supported | ✔️ |  - |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |

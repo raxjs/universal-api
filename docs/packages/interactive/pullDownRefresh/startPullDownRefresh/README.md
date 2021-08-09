@@ -18,6 +18,8 @@
 
 注意：钉钉小程序不支持 startPullDownRefresh
 
+说明：需要在app.json的window选项中开启 enablePullDownRefresh；
+
 ## 安装
 
 ```bash

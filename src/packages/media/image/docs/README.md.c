@@ -74,8 +74,8 @@ image.chooseImage({
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✘ | - |
-| opthons.count | `number` | 最大可选照片数，默认1张 | ✘ | 1 |
-| opthons.sourceType | `Array<string>`  | 相册选取或者拍照，默认 ['camera','album']，`h5不支持拍照` | ✘ | ['album', 'camera'] |
+| options.count | `number` | 最大可选照片数，默认1张 | ✘ | 1 |
+| options.sourceType | `Array<string>`  | 相册选取或者拍照，默认 ['camera','album']，`h5不支持拍照` | ✘ | ['album', 'camera'] |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
@@ -174,7 +174,7 @@ image.compressImage({
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.src | `string`  | 图片路径，可以本地路径、代码包相对路径，不支持网络图片 | ✔️ |  - |
+| options.src | `string`  | 图片路径，可以本地路径、代码包相对路径，不支持网络图片 | ✔️ |  - |
 | options.quality | `number`  | 压缩质量，范围0～3，1-低，2-中，3-高 | ✘ | - |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
@@ -257,7 +257,7 @@ image.getImageInfo({
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.src | `string`  | 图片的路径，支持网络路径、相对路径 | ✔️ |  - |
+| options.src | `string`  | 图片的路径，支持网络路径、相对路径 | ✔️ |  - |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
@@ -330,8 +330,8 @@ image.previewImage({
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.urls | `Array<string>` | 需要预览的图片链接列表 | ✔️ |  |
-| opthons.current | `number`  | 当前显示图片索引 | ✘ | 0 |
+| options.urls | `Array<string>` | 需要预览的图片链接列表 | ✔️ |  |
+| options.current | `number`  | 当前显示图片索引 | ✘ | 0 |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |
@@ -382,7 +382,7 @@ image.saveImage({
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.url | `string`  | 图片文件路径，可以是临时文件路径或永久文件路径 (本地路径) ，不支持网络路径 | ✔️ |  - |
+| options.url | `string`  | 图片文件路径，可以是临时文件路径或永久文件路径 (本地路径) ，不支持网络路径 | ✔️ |  - |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |

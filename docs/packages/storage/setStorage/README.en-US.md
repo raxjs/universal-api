@@ -79,8 +79,8 @@ storage.setStorage({
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
-| opthons.key | `string`  | The specified key in the local cache | ✔️ |  - |
-| opthons.data | `object`  | Contents to be stored can only be native types, dates, and objects that can be serialized via JSON.stringify. | ✔️ | - |
+| options.key | `string`  | The specified key in the local cache | ✔️ |  - |
+| options.data | `object`  | Contents to be stored can only be native types, dates, and objects that can be serialized via JSON.stringify. | ✔️ | - |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |

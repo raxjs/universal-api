@@ -88,7 +88,7 @@ video.chooseVideo({
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✘ | - |
-| opthons.sourceType | `Array<string>`  | 视频选择的来源 | ✘ | ['album', 'camera'] |
+| options.sourceType | `Array<string>`  | 视频选择的来源 | ✘ | ['album', 'camera'] |
 | options.maxDuration | `number` | 视频最大时长，阿里取值范围[5, 60]，字节取值范围(0, 180]，maxDuration <= 0 时取值 60, maxDuration > 180 时取值 180，在取值范围内为传入值 | ✘ | 60 |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |

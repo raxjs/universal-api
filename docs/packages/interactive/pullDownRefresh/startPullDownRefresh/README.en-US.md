@@ -19,6 +19,8 @@ Starts swipe-down-to-refresh.
 
 Note: DingTalk miniApp does not support startPullDownRefresh
 
+You need to enable enablePullDownRefresh in the window option of app.json;
+
 ## Install
 
 ```bash
