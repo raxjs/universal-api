@@ -12,7 +12,7 @@ export const createContext = function (canvasOptions: Options): Promise<CanvasCo
   if (isWeb) {
     return webModule.createContext(canvasOptions);
   } else if (isKuaiShouMiniProgram) {
-    throw new Error('@uni：canvas暂不支持');
+    return kuaiShouModule.createContext(canvasOptions);
   } else if (isWeChatMiniProgram) {
     return weChatModule.createContext(canvasOptions);
   } else if (isByteDanceMicroApp) {

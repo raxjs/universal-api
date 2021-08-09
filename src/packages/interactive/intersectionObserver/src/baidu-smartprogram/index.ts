@@ -5,4 +5,4 @@
 //   return context === swan ? context.createIntersectionObserver(null, options) : context.createIntersectionObserver(options);
 // };
 
-export default (...args) => swan.createIntersectionObserver(...args);
+export default (args) => swan.createIntersectionObserver(...args);

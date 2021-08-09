@@ -1,7 +1,7 @@
 import { isAliContainer, noop, testPlatformAPI } from '@utils/__test__/util';
 import { MockSelectorQueryImpl } from '@utils/__test__/createSelectorQuery';
 
-testPlatformAPI('canvas', ['wechat', 'ali', 'bytedance', 'baidu'], async (container, globals, configAPI) => {
+testPlatformAPI('canvas', ['wechat', 'ali', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
   const mockSelectorQuery = new MockSelectorQueryImpl();
   const mockNodeRef = new MockSelectorQueryImpl();
   mockSelectorQuery.setExecResult([{ node: mockNodeRef.nodesRefContext }]);

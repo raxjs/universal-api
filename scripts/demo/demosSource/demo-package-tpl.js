@@ -22,7 +22,8 @@ module.exports = {
     "rax-slider": "^2.3.2",
     "rax-textinput": "^1.2.1",
     "rax-video": "^1.4.0",
-    "miniapp-history": "0.1.5-1"
+    "miniapp-history": "0.1.5-1",
+    "rax-miniapp-runtime-webpack-plugin": "^4.9.0"
   },
   "resolutions": {
     "miniapp-history": "0.1.5-1"

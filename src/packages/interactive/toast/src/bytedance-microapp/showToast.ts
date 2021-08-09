@@ -9,7 +9,7 @@ export const show = normalize((options: ShowToastOption): void => {
     none: 'none',
   };
   tt.showToast({
-    icon: iconMap[type] || '',
+    icon: iconMap[type] || 'none',
     title: content,
     duration,
     success() {

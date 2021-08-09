@@ -28,9 +28,9 @@ const supportInfo = {
     },
   },
   canvas: {
-    support: 1111101,
+    support: 1111111,
     createContext: {
-      support: 1111101,
+      support: 1111111,
     },
   },
   accelerometer: {
