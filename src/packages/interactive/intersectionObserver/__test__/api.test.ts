@@ -10,8 +10,10 @@ testPlatformAPI('intersectionObserver', ['wechat', 'ali', 'dingtalk', 'bytedance
     selectAll: false,
   });
 
-  if (isAliContainer(container) || container === 'baidu') {
+  if (isAliContainer(container)) {
     expect(mockCreateIntersectionObserver.mock.calls).toEqual([[{ thresholds: [1], selectAll: false }]]);
+  } else if (container === 'baidu') {
+    expect(mockCreateIntersectionObserver.mock.calls).toEqual([[null, { thresholds: [1], selectAll: false }]]);
   } else {
     expect(mockCreateIntersectionObserver.mock.calls).toEqual([[null, { thresholds: [1], selectAll: false, observeAll: false }]]);
   }

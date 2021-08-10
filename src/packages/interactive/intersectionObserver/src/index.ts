@@ -19,7 +19,7 @@ const createIntersectionObserver: CreateIntersectionObserver = (...args) => {
   } else if (isMiniApp) {
     return aliMiniAppModule(...args);
   } else if (isBaiduSmartProgram) {
-    return baiDuModule(args);
+    return baiDuModule(...args);
   } else {
     throw new Error('Uni API：IntersectionObserver暂不支持');
   }

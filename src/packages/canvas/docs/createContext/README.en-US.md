@@ -51,8 +51,6 @@ export default function() {
     }).then((canvasContext) => {
       canvasContext.fillStyle = 'red';
       canvasContext.fillRect(0, 0, 100, 100);
-      // Only valid in miniapp
-      canvasContext.draw();
     });
   }, []);
   return (
@@ -80,8 +78,6 @@ export default function() {
     }).then((canvasContext) => {
       canvasContext.fillStyle = 'red';
       canvasContext.fillRect(0, 0, 100, 100);
-      // Only valid in miniapp
-      canvasContext.draw();
     });
   }, []);
   return (
