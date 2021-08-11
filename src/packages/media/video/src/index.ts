@@ -52,6 +52,7 @@ export const chooseMedia = (args: ChooseMediaOptions) => {
 };
 
 export default {
+  chooseMedia,
   chooseVideo,
   createVideoContext,
 };

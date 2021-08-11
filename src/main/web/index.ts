@@ -13,6 +13,7 @@ import alert from '../../packages/interactive/alert/src/web/index';
 import animation from '../../packages/interactive/animation/src/web/index';
 import toast from '../../packages/interactive/toast/src/web/index';
 import loading from '../../packages/interactive/loading/src/web/index';
+import navigationBar from '../../packages/interactive/navigationBar/src/web/index';
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/web/index';
 import element from '../../packages/interactive/element/src/web/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/web/index';
@@ -41,6 +42,7 @@ export {
   animation,
   toast,
   loading,
+  navigationBar,
   pullDownRefresh,
   element,
   intersectionObserver,
@@ -71,6 +73,7 @@ export default {
   animation,
   toast,
   loading,
+  navigationBar,
   pullDownRefresh,
   element,
   intersectionObserver,
