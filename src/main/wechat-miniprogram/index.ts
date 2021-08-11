@@ -13,6 +13,7 @@ import alert from '../../packages/interactive/alert/src/wechat-miniprogram/index
 import animation from '../../packages/interactive/animation/src/wechat-miniprogram/index';
 import toast from '../../packages/interactive/toast/src/wechat-miniprogram/index';
 import loading from '../../packages/interactive/loading/src/wechat-miniprogram/index';
+import navigationBar from '../../packages/interactive/navigationBar/src/wechat-miniprogram/index';
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/wechat-miniprogram/index';
 import element from '../../packages/interactive/element/src/wechat-miniprogram/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/wechat-miniprogram/index';
@@ -41,6 +42,7 @@ export {
   animation,
   toast,
   loading,
+  navigationBar,
   pullDownRefresh,
   element,
   intersectionObserver,
@@ -71,6 +73,7 @@ export default {
   animation,
   toast,
   loading,
+  navigationBar,
   pullDownRefresh,
   element,
   intersectionObserver,

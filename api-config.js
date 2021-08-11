@@ -247,7 +247,7 @@ module.exports = {
         version: '1.0.10',
         name: '@uni/image',
         dependencies: {
-          '@uni/video': '^1.0.2',
+          '@uni/video': '^1.0.4',
         },
       },
     ],

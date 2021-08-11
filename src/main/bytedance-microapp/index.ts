@@ -13,6 +13,7 @@ import alert from '../../packages/interactive/alert/src/bytedance-microapp/index
 import animation from '../../packages/interactive/animation/src/bytedance-microapp/index';
 import toast from '../../packages/interactive/toast/src/bytedance-microapp/index';
 import loading from '../../packages/interactive/loading/src/bytedance-microapp/index';
+import navigationBar from '../../packages/interactive/navigationBar/src/bytedance-microapp/index';
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/bytedance-microapp/index';
 import element from '../../packages/interactive/element/src/bytedance-microapp/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/bytedance-microapp/index';
@@ -41,6 +42,7 @@ export {
   animation,
   toast,
   loading,
+  navigationBar,
   pullDownRefresh,
   element,
   intersectionObserver,
@@ -71,6 +73,7 @@ export default {
   animation,
   toast,
   loading,
+  navigationBar,
   pullDownRefresh,
   element,
   intersectionObserver,

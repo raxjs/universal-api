@@ -13,6 +13,7 @@ import alert from '../../packages/interactive/alert/src/ali-miniapp/index';
 import animation from '../../packages/interactive/animation/src/ali-miniapp/index';
 import toast from '../../packages/interactive/toast/src/ali-miniapp/index';
 import loading from '../../packages/interactive/loading/src/ali-miniapp/index';
+import navigationBar from '../../packages/interactive/navigationBar/src/ali-miniapp/index';
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/ali-miniapp/index';
 import element from '../../packages/interactive/element/src/ali-miniapp/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/ali-miniapp/index';
@@ -41,6 +42,7 @@ export {
   animation,
   toast,
   loading,
+  navigationBar,
   pullDownRefresh,
   element,
   intersectionObserver,
@@ -71,6 +73,7 @@ export default {
   animation,
   toast,
   loading,
+  navigationBar,
   pullDownRefresh,
   element,
   intersectionObserver,
