@@ -9,8 +9,8 @@ function formatGetStorageRes(params: GetOrRemoveOptionStruct) {
     const failFn = params.fail;
     params.fail = (err) => {
       if (err.errMsg === 'getStorage:fail data not found') {
-        typeof params.success === 'function' && params.success({ data: '' });
-        typeof params.complete === 'function' && params.complete({ data: '' });
+        typeof params.success === 'function' && params.success({ data: null });
+        typeof params.complete === 'function' && params.complete({ data: null });
         return;
       }
       failFn(err);
@@ -25,7 +25,7 @@ export const normalize = {
       args = styleIn(args, containerName);
       return promisify(api)(formatGetStorageRes(args)).catch((e) => {
         if (e.errMsg === 'getStorage:fail data not found') {
-          return { data: '' };
+          return { data: null };
         }
       });
     };

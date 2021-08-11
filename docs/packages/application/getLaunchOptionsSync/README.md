@@ -47,12 +47,12 @@ import { application } from '@uni/apis';
 ```
 ## 返回值
 
-| 成员 | 类型     | 描述  | 默认值 |
-| ---- | -------- | ----- | :----: |
-| query  | `Object` | 当前小程序的 query，从启动参数的 query 字段解析而来。（注意：若没有启动参数，则不会返回 query 参数） |   -    |
-| scene  | `Number` | 启动小程序的场景值 [微信场景值](https://developers.weixin.qq.com/miniprogram/dev/api/base/app/life-cycle/wx.getLaunchOptionsSync.html) [支付宝场景值](https://opendocs.alipay.com/mini/framework/scene) [头条场景值](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/framework/scene-value/) |   -    |
-| path  | `String` | 当前小程序的页面地址，从启动参数 page 字段解析而来，page 忽略时默认为首页。 |   -    |
-| referrerInfo  | `Object` | 来源消息。 |   -    |
+| 成员 | 类型     | 描述  | 默认值 |  不支持 |
+| ---- | -------- | ----- | :----: | ------|
+| query  | `Object` | 当前小程序的 query，从启动参数的 query 字段解析而来。（注意：若没有启动参数，则不会返回 query 参数） |   -    |    -    |
+| scene  | `Number` | 启动小程序的场景值 [微信场景值](https://developers.weixin.qq.com/miniprogram/dev/api/base/app/life-cycle/wx.getLaunchOptionsSync.html) [支付宝场景值](https://opendocs.alipay.com/mini/framework/scene) [头条场景值](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/framework/scene-value/) |   -    |   -    |
+| path  | `String` | 当前小程序的页面地址，从启动参数 page 字段解析而来，page 忽略时默认为首页。 |   -    |   -    |
+| referrerInfo  | `Object` | 来源消息。 |   -    | <img alt="kuaiShouMiniProgram" src="https://gw.alicdn.com/imgextra/i4/O1CN01kzmJMM24jcFEzp5Wv_!!6000000007427-2-tps-200-200.png" width="25px" height="25px" title="快手小程序" /> |
 
 ### referrerInfo
 

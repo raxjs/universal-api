@@ -172,7 +172,7 @@ Stops listening, and the callback function will no longer be triggered.
 
 ## 注意
 
-所有方法在微信小程序的自定义组件中使用的时候，都需要添加第二个参数来指定自定义组件实例：
+所有方法在微信小程序、百度小程序的自定义组件中使用的时候，都需要添加第二个参数来指定自定义组件实例：
 
 ```js
 // 在 Rax 小程序编译时链路参数为 this._internal

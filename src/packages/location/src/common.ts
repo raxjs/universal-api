@@ -31,9 +31,6 @@ function styleOptions(options: OptionStruct = {}): OptionStruct {
 
 export function normalizeGetLocation(api, containerName) {
   return (args: OptionStruct) => {
-    if (args?.resultType && typeof args.resultType === 'number' && !isNaN(args.resultType)) {
-      args.type = `${args.resultType }`;
-    }
     return promisify(api)(styleOptions(styleIn(args, containerName))).then(formatResponse);
   };
 }

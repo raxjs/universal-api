@@ -7,6 +7,7 @@ export const show = normalize((options: ShowToastOption): void => {
     success: 'success',
     fail: 'fail',
     none: 'none',
+    loading: 'loading',
   };
   tt.showToast({
     icon: iconMap[type] || 'none',

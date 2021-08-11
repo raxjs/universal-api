@@ -1,8 +1,9 @@
 import { normalize } from '../common';
 
-const getBoundingClientRect = normalize.getBoundingClientRect((selector: string): Promise<any[]> => {
+const getBoundingClientRect = normalize.getBoundingClientRect((selector: string, context = ks): Promise<any[]> => {
   return new Promise((resolve) => {
-    ks.createSelectorQuery().selectAll(selector).boundingClientRect().exec((ret) => {
+    context.createSelectorQuery = context.createSelectorQuery || ks.createSelectorQuery;
+    context.createSelectorQuery().selectAll(selector).boundingClientRect().exec((ret) => {
       resolve(ret[0]);
     });
   });
