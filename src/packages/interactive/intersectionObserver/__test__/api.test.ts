@@ -1,6 +1,6 @@
 import { isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('intersectionObserver', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
+testPlatformAPI('intersectionObserver', ['wechat', 'ali', 'dingtalk', 'bytedance', 'baidu'], async (container, globals, configAPI) => {
   const mockCreateIntersectionObserver = jest.fn();
   configAPI('createIntersectionObserver', mockCreateIntersectionObserver);
 
@@ -12,6 +12,8 @@ testPlatformAPI('intersectionObserver', ['wechat', 'ali', 'dingtalk', 'bytedance
 
   if (isAliContainer(container)) {
     expect(mockCreateIntersectionObserver.mock.calls).toEqual([[{ thresholds: [1], selectAll: false }]]);
+  } else if (container === 'baidu') {
+    expect(mockCreateIntersectionObserver.mock.calls).toEqual([[null, { thresholds: [1], selectAll: false }]]);
   } else {
     expect(mockCreateIntersectionObserver.mock.calls).toEqual([[null, { thresholds: [1], selectAll: false, observeAll: false }]]);
   }

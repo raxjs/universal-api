@@ -1,6 +1,6 @@
 import { isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('file', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
+testPlatformAPI('file', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
   const mockUpload = jest.fn();
   const mockDownload = jest.fn();
   const mockGetInfo = jest.fn();

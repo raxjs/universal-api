@@ -1,6 +1,6 @@
 import { createPromisifyImpl, isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('storage', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
+testPlatformAPI('storage', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
   const mockGetStorage = jest.fn(createPromisifyImpl());
   const mockGetStorageSync = jest.fn();
   const mockSetStorage = jest.fn(createPromisifyImpl());

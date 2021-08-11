@@ -1,6 +1,6 @@
 import { createPromisifyImpl, isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('location', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
+testPlatformAPI('location', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
   const mockGetLocation = jest.fn(createPromisifyImpl());
   const mockOpenLocation = jest.fn(createPromisifyImpl());
   const mockChooseLocation = jest.fn(createPromisifyImpl());

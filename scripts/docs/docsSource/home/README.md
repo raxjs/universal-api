@@ -9,7 +9,7 @@ hero:
 features:
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/b3e102cd-5dad-4046-a02a-be33241d1cc7/kj9t8oji_w144_h144.png
     title: 多端统一
-    desc: 支持`web、微信小程序、头条小程序、阿里小程序`应用
+    desc: 支持`web、微信小程序、头条小程序、阿里小程序、百度小程序、快手小程序`应用
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/881dc458-f20b-407b-947a-95104b5ec82b/k79dm8ih_w144_h144.png
     title: 开箱即用
     desc: 简易使用，快速接入
@@ -26,7 +26,7 @@ features:
 
 # Uni API
 
-提供一系列跨端 API 帮助用户快速开发多端应用，目前支持微信小程序、字节小程序、阿里小程序、Web。
+提供一系列跨端 API 帮助用户快速开发多端应用，目前支持Web、微信小程序、字节小程序、阿里小程序、百度小程序、快手小程序。
 
 ```jsx | inline
 /**

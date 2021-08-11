@@ -21,28 +21,36 @@ const styles = {
 };
 export default function() {
   const canvasContextRef = useRef(null);
-  useEffect(() => {
+  const queryNode = (color) => {
     const node = document.querySelector('#canvas');
-    canvas.createContext({
-      canvasId: 'canvas',
-      context: node._internal
-    }).then((canvasContext) => {
-      canvasContextRef.current = canvasContext;
-      canvasContext.fillStyle = 'red';
-      canvasContext.fillRect(0, 0, 100, 100);
-    });
-  }, []);
+      canvas.createContext({
+        canvasId: 'canvas',
+        context: node._internal
+      }).then((canvasContext) => {
+        canvasContextRef.current = canvasContext;
+        canvasContext.fillStyle = color;
+        canvasContext.fillRect(0, 0, 200, 200);
+      });
+  }
   const draw = () => {
-    canvasContextRef.current.fillStyle = 'red';
-    canvasContextRef.current.fillRect(0, 0, 200, 200);
+    if (!canvasContextRef.current) {
+      queryNode('red');
+    } else {
+      canvasContextRef.current.fillStyle = 'red';
+      canvasContextRef.current.fillRect(0, 0, 200, 200);
+    }
   }
   const draw2 = () => {
-    canvasContextRef.current.fillStyle = 'yellow';
-    canvasContextRef.current.fillRect(0, 0, 200, 200);
+    if (!canvasContextRef.current) {
+      queryNode('yellow');
+    } else if (canvasContextRef.current) {
+      canvasContextRef.current.fillStyle = 'yellow';
+      canvasContextRef.current.fillRect(0, 0, 200, 200);
+    }
   }
   return (
     <View>
-      <canvas id="canvas" type="2d" width="400" height="400" />
+      <canvas id="canvas" canvas-id="canvas" type="2d" width="400" height="400" />
       <View style={styles.button} onClick={draw}>
        点击生成200*200的矩形
       </View>

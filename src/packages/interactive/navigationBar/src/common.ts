@@ -4,12 +4,12 @@ import { styleIn } from '@utils/styleOptions';
 import { CONTAINER_NAME } from '@utils/constant';
 
 const styleOptions = (options, containerName) => {
-  let afterOptions = {...options};
+  const afterOptions = { ...options };
   if (!afterOptions.frontColor) {
     afterOptions.frontColor = '#000000';
   }
   return afterOptions;
-}
+};
 
 /**
  * setNavigationBarTitle api

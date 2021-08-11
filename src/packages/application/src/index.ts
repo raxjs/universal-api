@@ -1,8 +1,10 @@
-import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp, isKuaiShouMiniProgram, isBaiduSmartProgram } from '@uni/env';
 import aliMiniAppModule from './ali-miniapp/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 import webModule from './web/index';
+import kuaiShouModule from './kuaishou-miniprogram/index';
+import baiDuModule from './baidu-smartprogram/index';
 import {
   Callback, RejectCallback,
 } from './types';
@@ -10,12 +12,16 @@ import {
 export const getApp = () => {
   if (isWeb) {
     return webModule.getApp();
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getApp();
   } else if (isWeChatMiniProgram) {
     return weChatModule.getApp();
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getApp();
   } else if (isMiniApp) {
     return aliMiniAppModule.getApp();
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.getApp();
   } else {
     throw new Error('@uni：application.getApp 暂不支持');
   }
@@ -24,12 +30,16 @@ export const getApp = () => {
 export const getCurrentPages = () => {
   if (isWeb) {
     return webModule.getCurrentPages();
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getCurrentPages();
   } else if (isWeChatMiniProgram) {
     return weChatModule.getCurrentPages();
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.getCurrentPages();
   } else if (isMiniApp) {
     return aliMiniAppModule.getCurrentPages();
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.getCurrentPages();
   } else {
     throw new Error('@uni：application.getCurrentPages 暂不支持');
   }
@@ -37,6 +47,8 @@ export const getCurrentPages = () => {
 export const getLaunchOptionsSync = () => {
   if (isWeb) {
     return webModule.getLaunchOptionsSync();
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getLaunchOptionsSync();
   } else if (isWeChatMiniProgram) {
     return weChatModule.getLaunchOptionsSync();
   } else if (isByteDanceMicroApp) {
@@ -50,12 +62,16 @@ export const getLaunchOptionsSync = () => {
 export const onError = (options: Callback) => {
   if (isWeb) {
     return webModule.onError(options);
+  } else if (isKuaiShouMiniProgram) {
+    throw new Error('@uni：onError 暂不支持');
   } else if (isWeChatMiniProgram) {
     return weChatModule.onError(options);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.onError(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.onError(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.onError(options);
   } else {
     throw new Error('@uni：onError 暂不支持');
   }
@@ -63,12 +79,16 @@ export const onError = (options: Callback) => {
 export const offError = (options: Callback) => {
   if (isWeb) {
     return webModule.offError(options);
+  } else if (isKuaiShouMiniProgram) {
+    throw new Error('@uni：offError 暂不支持');
   } else if (isWeChatMiniProgram) {
     return weChatModule.offError(options);
   } else if (isByteDanceMicroApp) {
     return bytedanceModule.offError(options);
   } else if (isMiniApp) {
     return aliMiniAppModule.offError(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.offError(options);
   } else {
     throw new Error('@uni：offError暂不支持');
   }
@@ -76,6 +96,8 @@ export const offError = (options: Callback) => {
 export const onUnhandledRejection = (options: RejectCallback) => {
   if (isWeb) {
     return webModule.onUnhandledRejection(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.onUnhandledRejection(options);
   } else if (isWeChatMiniProgram) {
     return weChatModule.onUnhandledRejection(options);
   } else if (isByteDanceMicroApp) {
@@ -89,6 +111,8 @@ export const onUnhandledRejection = (options: RejectCallback) => {
 export const offUnhandledRejection = (options: RejectCallback) => {
   if (isWeb) {
     return webModule.offUnhandledRejection(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.offUnhandledRejection(options);
   } else if (isWeChatMiniProgram) {
     return weChatModule.offUnhandledRejection(options);
   } else if (isByteDanceMicroApp) {

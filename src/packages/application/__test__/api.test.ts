@@ -1,6 +1,6 @@
 import { createNoop, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('application', ['wechat', 'ali', 'dingtalk', 'bytedance'], (container, globals, configAPI) => {
+testPlatformAPI('application', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou'], (container, globals, configAPI) => {
   const mockGetApp = jest.fn();
   const mockGetCurrentPages = jest.fn();
   const mockGetLaunchOptionsSync = jest.fn();
@@ -12,8 +12,10 @@ testPlatformAPI('application', ['wechat', 'ali', 'dingtalk', 'bytedance'], (cont
   globals.getApp = mockGetApp;
   globals.getCurrentPages = mockGetCurrentPages;
 
-  configAPI('onError', mockOnError);
-  configAPI('offError', mockOffError);
+  if (container !== 'kuaishou') {
+    configAPI('onError', mockOnError);
+    configAPI('offError', mockOffError);
+  }
   configAPI('onUnhandledRejection', mockOnUnhandledRejection);
   configAPI('offUnhandledRejection', mockOffUnhandledRejection);
 
@@ -43,12 +45,16 @@ testPlatformAPI('application', ['wechat', 'ali', 'dingtalk', 'bytedance'], (cont
   expect(mockGetLaunchOptionsSync.mock.calls.length).toBe(1);
 
   let cb = createNoop();
-  onError(cb);
-  expect(mockOnError.mock.calls).toEqual([[cb]]);
+  if (container !== 'kuaishou') {
+    onError(cb);
+    expect(mockOnError.mock.calls).toEqual([[cb]]);
+  }
 
   cb = createNoop();
-  offError(cb);
-  expect(mockOffError.mock.calls).toEqual([[cb]]);
+  if (container !== 'kuaishou') {
+    offError(cb);
+    expect(mockOffError.mock.calls).toEqual([[cb]]);
+  }
 
   cb = createNoop();
   onUnhandledRejection(cb);

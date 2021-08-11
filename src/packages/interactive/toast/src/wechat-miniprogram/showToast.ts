@@ -7,6 +7,7 @@ export const show = normalize((options: ShowToastOption): void => {
     success: 'success',
     fail: 'error',
     none: 'none',
+    loading: 'loading',
   };
   wx.showToast({
     icon: iconMap[type] || '',

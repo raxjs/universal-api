@@ -21,7 +21,12 @@ module.exports = {
     "rax-scrollview": "^3.2.3",
     "rax-slider": "^2.3.2",
     "rax-textinput": "^1.2.1",
-    "rax-video": "^1.4.0"
+    "rax-video": "^1.4.0",
+    "miniapp-history": "0.1.5-1",
+    "rax-miniapp-runtime-webpack-plugin": "^4.9.0"
+  },
+  "resolutions": {
+    "miniapp-history": "0.1.5-1"
   },
   "devDependencies": {
     "@uni/build-plugin-rax-api-import": "^1.0.0",

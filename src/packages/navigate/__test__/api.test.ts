@@ -1,6 +1,6 @@
 import { createPromisifyImpl, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('navigate', ['wechat', 'ali', 'bytedance'], async (container, globals, configAPI) => {
+testPlatformAPI('navigate', ['wechat', 'ali', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
   const mockPush = jest.fn(createPromisifyImpl());
   const mockBack = jest.fn(createPromisifyImpl());
   const mockReLaunch = jest.fn(createPromisifyImpl());

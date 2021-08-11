@@ -1,6 +1,6 @@
 import { createPromisifyImpl, isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('loading', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
+testPlatformAPI('loading', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
   const mockShowLoading = jest.fn(createPromisifyImpl());
   const mockHideLoading = jest.fn(createPromisifyImpl());
 
