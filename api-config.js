@@ -112,7 +112,7 @@ module.exports = {
     path: 'src/packages/file/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.10',
+        version: '1.1.0',
         name: '@uni/file',
       },
     ],
@@ -244,7 +244,7 @@ module.exports = {
     path: 'src/packages/media/image/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.10',
+        version: '1.1.0',
         name: '@uni/image',
         dependencies: {
           '@uni/video': '^1.0.4',
@@ -267,7 +267,7 @@ module.exports = {
     path: 'src/packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.12',
+        version: '1.1.0',
         name: '@uni/request',
       },
     ],
