@@ -1,6 +1,6 @@
 import { createPromisifyImpl, isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('image', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
+testPlatformAPI('image', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
   const mockChooseImage = jest.fn(createPromisifyImpl());
   const mockCompressImage = jest.fn(createPromisifyImpl());
   const mockGetImageInfo = jest.fn(createPromisifyImpl());

@@ -3,7 +3,9 @@
     "web",
     "miniapp",
     "wechat-miniprogram",
-    "bytedance-microapp"
+    "bytedance-microapp", 
+    "baidu-smartprogram", 
+    "kuaishou-miniprogram"
   ],
   "wechat-miniprogram": {
     "nativeConfig": {

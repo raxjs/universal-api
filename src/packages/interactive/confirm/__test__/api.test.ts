@@ -1,6 +1,6 @@
 import { createPromisifyImpl, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('confirm', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals) => {
+testPlatformAPI('confirm', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou', 'baidu'], async (container, globals) => {
   const mockShowConfirm = jest.fn(createPromisifyImpl());
 
   if (container === 'wechat') {
@@ -11,6 +11,10 @@ testPlatformAPI('confirm', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (co
     globals.my.confirm = mockShowConfirm;
   } else if (container === 'bytedance') {
     globals.tt.showModal = mockShowConfirm;
+  } else if (container === 'kuaishou') {
+    globals.ks.showModal = mockShowConfirm;
+  } else if (container === 'baidu') {
+    globals.swan.showModal = mockShowConfirm;
   }
 
   const { confirm } = require('../src/index');

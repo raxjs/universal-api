@@ -2,7 +2,7 @@ import { createElement, useState, useEffect } from 'rax';
 import View from 'rax-view';
 import Text from 'rax-text';
 import ScrollView from 'rax-scrollview';
-import { isWeChatMiniProgram } from '@uni/env';
+import { isWeChatMiniProgram, isKuaiShouMiniProgram } from '@uni/env';
 import createIntersectionObserver from '@uni/intersection-observer';
 
 const styles = {
@@ -34,7 +34,12 @@ export default function() {
   useEffect(() => {
     setTimeout(() => {
       const node = document.querySelector('.parent');
-      const intersectionObserver = createIntersectionObserver(null, node._internal);
+      let intersectionObserver;
+      if (isWeChatMiniProgram) {
+        intersectionObserver = createIntersectionObserver(null, node._internal);
+      } else {
+        intersectionObserver = createIntersectionObserver();
+      }
 
       // 由于rax运行时在微信存在shadow dom问题，所以采用深度选择器
       const clsPre = isWeChatMiniProgram ? '.parent >>> ' : '';

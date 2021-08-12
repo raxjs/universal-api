@@ -1,6 +1,6 @@
 import { testPlatformAPI, noop } from '@utils/__test__/util';
 
-testPlatformAPI('animation', ['wechat', 'ali', 'bytedance'], (container, globals, configAPI) => {
+testPlatformAPI('animation', ['wechat', 'ali', 'bytedance', 'baidu'], (container, globals, configAPI) => {
   const mockAnimationStep = jest.fn();
   const mockCreateAnimation = jest.fn(() => ({ step: mockAnimationStep, export: noop }));
   configAPI('createAnimation', mockCreateAnimation);

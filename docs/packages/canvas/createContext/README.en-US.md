@@ -12,7 +12,7 @@ group:
 <div style="margin-right: 20px;max-width: 50%;">
 
 ## 支持
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序">
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram" /> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp" /> <img alt="baiduSmartProgram" src="https://img.alicdn.com/imgextra/i4/O1CN01jngdBb24yGv2Fu34G_!!6000000007459-2-tps-200-200.png" width="25px" height="25px" title="baiduSmartProgram" /> <img alt="kuaiShouMiniProgram" src="https://gw.alicdn.com/imgextra/i4/O1CN01kzmJMM24jcFEzp5Wv_!!6000000007427-2-tps-200-200.png" width="25px" height="25px" title="KuaiShouMiniProgram" />
 
 ## 安装
 
@@ -51,8 +51,6 @@ export default function() {
     }).then((canvasContext) => {
       canvasContext.fillStyle = 'red';
       canvasContext.fillRect(0, 0, 100, 100);
-      // Only valid in miniapp
-      canvasContext.draw();
     });
   }, []);
   return (
@@ -64,7 +62,8 @@ export default function() {
 
 ```
 注意：在微信小程序的自定义组件中使用的时候，都需要传递 context 属性来指定自定义组件实例：
-（context 在rax中如下示例中获取，在原生小程序中直接使用 this）
+（context 在rax中如下示例中获取，在原生小程序中直接使用 this）;
+百度小程序使用canvas组件时需要传入canvas-id属性 ```<canvas canvas-id="canvas" />```
 ```js
 import { createElement, useEffect } from 'rax';
 import View from 'rax-view';
@@ -79,8 +78,6 @@ export default function() {
     }).then((canvasContext) => {
       canvasContext.fillStyle = 'red';
       canvasContext.fillRect(0, 0, 100, 100);
-      // Only valid in miniapp
-      canvasContext.draw();
     });
   }, []);
   return (

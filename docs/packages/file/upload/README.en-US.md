@@ -7,7 +7,7 @@ Upload local resources to the developer server.
 <div style="margin-right: 20px;max-width: 50%;">
 
 ## Support
-<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram"> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp">
+<img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="ali miniprogram" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="wechatMiniprogram" /> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="bytedanceMicroApp" /> <img alt="baiduSmartProgram" src="https://img.alicdn.com/imgextra/i4/O1CN01jngdBb24yGv2Fu34G_!!6000000007459-2-tps-200-200.png" width="25px" height="25px" title="baiduSmartProgram" /> <img alt="kuaiShouMiniProgram" src="https://gw.alicdn.com/imgextra/i4/O1CN01kzmJMM24jcFEzp5Wv_!!6000000007427-2-tps-200-200.png" width="25px" height="25px" title="KuaiShouMiniProgram" />
 
 ## Install
 
@@ -32,7 +32,7 @@ $ npm install @uni/file --save
 | fileType | `String` | `image` | x | 文件类型支持图片、视频、音频（ image / video / audio），Web下无需传入            | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" />  |
 | withCredentials | `Boolean` |   | x    | Custom `withCredentials` option  | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" />  |
 | hideLoading | `Boolean` |   false  | x    | 是否隐藏 loading 图（默认值为 false）  | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" />  |
-| timeout | `Number` |  | x    | Upload timeout  | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px"> |
+| timeout | `Number` |  | x    | Upload timeout  | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" /> <img alt="kuaiShouMiniProgram" src="https://gw.alicdn.com/imgextra/i4/O1CN01kzmJMM24jcFEzp5Wv_!!6000000007427-2-tps-200-200.png" width="25px" height="25px" title="KuaiShouMiniProgram" /> |
 
 ## Return
 Notice: Alipay miniapp only supports client 10.1.35 and above. Please use it with caution because it will destroy one code with multiple platforms. When using it, please make sure that it is not empty, and the `upload` will return empty under containers that do not support UploadTask.
@@ -41,6 +41,8 @@ Notice: Alipay miniapp only supports client 10.1.35 and above. Please use it wit
 An object that can monitor upload progress change events and cancel upload tasks. Specific documents can be viewed:
 * WeChat: [Link](https://developers.weixin.qq.com/miniprogram/dev/api/network/upload/UploadTask.html)
 * ByteDance: [Link](https://microapp.bytedance.com/docs/zh-CN/mini-app/develop/api/network/http/upload-task/)
+* BaiDu: [Link](https://smartprogram.baidu.com/docs/develop/api/net/uploadTask/)
+* KuaiShou: [Link](https://mp.kuaishou.com/docs/develop/api/network/upload/UploadTask/UploadTask.html)
 * Alipay: Same as WeChat, but missing `onHeadersReceived` and `offHeadersReceived`.
 * Web: Same as WeChat
 
@@ -76,7 +78,7 @@ if (task && task.onHeadersReceived) {
 ```
 
 ### Promise 调用：
-注意：由于微信容器和字节跳动容器 upload api 会返回 UploadTask 对象，所以此处不在支持Promise 调用，请业务自行封装。
+注意：由于微信容器和字节跳动容器、百度容器、快手容器 upload api 会返回 UploadTask 对象，所以此处不在支持Promise 调用，请业务自行封装。
 
 You can also import from the big package:
 

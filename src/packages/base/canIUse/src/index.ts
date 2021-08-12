@@ -1,186 +1,198 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp } from '@uni/env';
+import { isMiniApp, isWeChatMiniProgram, isWeb, isByteDanceMicroApp, isKuaiShouMiniProgram, isBaiduSmartProgram } from '@uni/env';
 import { isDingdingMiniapp } from '@utils/miniappEnvApp';
-// 按wechat、bytedance、dd、支付宝、web的方式，不支持的端相应位数置0即可
+// 按wechat、bytedance、dd、支付宝、web、kuaishou、baidu的方式，不支持的端相应位数置0即可
 const supportInfo = {
   application: {
-    support: 11111,
+    support: 1111111,
     getApp: {
-      support: 11111,
+      support: 1111111,
     },
     getCurrentPages: {
-      support: 11111,
+      support: 1111111,
     },
     getLaunchOptionsSync: {
-      support: 11111,
+      support: 1111110,
     },
     onError: {
-      support: 11111,
+      support: 1111101,
     },
     offError: {
-      support: 11111,
+      support: 1111101,
     },
     onUnhandledRejection: {
-      support: 11111,
+      support: 1111110,
     },
     offUnhandledRejection: {
-      support: 11111,
+      support: 1111110,
     },
   },
   canvas: {
-    support: 11111,
+    support: 1111111,
     createContext: {
-      support: 11111,
+      support: 1111111,
     },
   },
   accelerometer: {
-    support: 11110,
+    support: 1111011,
     onChange: {
-      support: 11110,
+      support: 1111011,
     },
     offChange: {
-      support: 11110,
+      support: 1111011,
     },
   },
   clipboard: {
-    support: 11111,
+    support: 1111111,
     getClipboard: {
-      support: 11110,
+      support: 1111011,
     },
     setClipboard: {
-      support: 11111,
+      support: 1111111,
     },
   },
   'system-info': {
-    support: 11111,
+    support: 1111111,
     getInfo: {
-      support: 11111,
+      support: 1111111,
     },
     getInfoSync: {
-      support: 11111,
+      support: 1111111,
     },
   },
   file: {
-    support: 11111,
+    support: 1111111,
     getInfo: {
-      support: 11110,
+      support: 1111011,
     },
     getSavedInfo: {
-      support: 11110,
+      support: 1111011,
     },
     getSavedList: {
-      support: 11110,
+      support: 1111011,
     },
     openDocument: {
-      support: 11110,
+      support: 1111011,
     },
     removeSaved: {
-      support: 11110,
+      support: 1111011,
     },
     save: {
-      support: 11110,
+      support: 1111011,
     },
     download: {
-      support: 11110,
+      support: 1111011,
     },
     upload: {
-      support: 11111,
+      support: 1111111,
     },
   },
   'action-sheet': {
-    support: 11111,
+    support: 1111111,
   },
   alert: {
-    support: 11111,
+    support: 1111111,
+  },
+  animation: {
+    support: 1111101,
   },
   toast: {
-    support: 11111,
+    support: 1111111,
   },
   loading: {
-    support: 11111,
+    support: 1111111,
     showLoading: {
-      support: 11111,
+      support: 1111111,
     },
     hideLoading: {
-      support: 11111,
+      support: 1111111,
+    },
+  },
+  'pull-down-refresh': {
+    support: 1111111,
+    startPullDownRefresh: {
+      support: 1111111,
+    },
+    stopPullDownRefresh: {
+      support: 1111111,
     },
   },
   element: {
-    support: 11111,
+    support: 1111111,
   },
   'insection-observer': {
-    support: 11111,
+    support: 1111101,
   },
   confirm: {
-    support: 11111,
+    support: 1111111,
   },
   location: {
-    support: 11111,
+    support: 1111111,
     getLocation: {
-      support: 11111,
+      support: 1111111,
     },
     openLocation: {
-      support: 11110,
+      support: 1111011,
     },
   },
   image: {
-    support: 11111,
+    support: 1111111,
     chooseImage: {
-      support: 11111,
+      support: 1111111,
     },
     compressImage: {
-      support: 11110,
+      support: 1111011,
     },
     getImageInfo: {
-      support: 11111,
+      support: 1111111,
     },
     previewImage: {
-      support: 11110,
+      support: 1111011,
     },
     saveImage: {
-      support: 11110,
+      support: 1111011,
     },
   },
   navigate: {
-    support: 11111,
+    support: 1111111,
     push: {
-      support: 11111,
+      support: 1111111,
     },
     back: {
-      support: 11111,
+      support: 1111111,
     },
     replace: {
-      support: 11111,
+      support: 1111111,
     },
     reLaunch: {
-      support: 11111,
+      support: 1111111,
     },
     go: {
-      support: 11111,
+      support: 1111111,
     },
   },
   request: {
-    support: 11111,
+    support: 1111111,
   },
   storage: {
-    support: 11111,
+    support: 1111111,
     getStorage: {
-      support: 11111,
+      support: 1111111,
     },
     setStorage: {
-      support: 11111,
+      support: 1111111,
     },
     removeStorage: {
-      support: 11111,
+      support: 1111111,
     },
     getStorageSync: {
-      support: 11111,
+      support: 1111111,
     },
     setStorageSync: {
-      support: 11111,
+      support: 1111111,
     },
     removeStorageSync: {
-      support: 11111,
+      support: 1111111,
     },
   },
 };
@@ -201,7 +213,11 @@ const canIUse = (platform, api, supportInfo) => {
 };
 
 export default (apiName) => {
-  if (isWeChatMiniProgram) {
+  if (isWeb) {
+    return canIUse(4, apiName, supportInfo);
+  } else if (isKuaiShouMiniProgram) {
+    return canIUse(5, apiName, supportInfo);
+  } else if (isWeChatMiniProgram) {
     return canIUse(0, apiName, supportInfo);
   } else if (isByteDanceMicroApp) {
     return canIUse(1, apiName, supportInfo);
@@ -209,8 +225,8 @@ export default (apiName) => {
     return canIUse(2, apiName, supportInfo);
   } else if (isMiniApp) {
     return canIUse(3, apiName, supportInfo);
-  } else if (isWeb) {
-    return canIUse(4, apiName, supportInfo);
+  } else if (isBaiduSmartProgram) {
+    return canIUse(6, apiName, supportInfo);
   } else {
     return false;
   }

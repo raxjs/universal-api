@@ -26,7 +26,7 @@ features:
 
 # Uni API
 
-Provides a series of cross-terminal APIs to help users quickly develop multi-terminal applications. Currently, it supports WeChat applet, byte applet, Ali applet, and Web.
+Provides a series of cross-terminal APIs to help users quickly develop multi-terminal applications. Currently, it supports Web, WeChat applet, byte applet, Ali applet, Baidu applet and KuaiShou applet.
 
 
 ```jsx | inline

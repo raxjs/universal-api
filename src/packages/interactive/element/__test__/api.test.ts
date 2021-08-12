@@ -1,7 +1,7 @@
 import { testPlatformAPI } from '@utils/__test__/util';
 import { MockSelectorQueryImpl } from '@utils/__test__/createSelectorQuery';
 
-testPlatformAPI('element', ['wechat', 'ali', 'bytedance'], async (container, globals, configAPI) => {
+testPlatformAPI('element', ['wechat', 'ali', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
   const mockSelectorQuery = new MockSelectorQueryImpl([[{
     scrollLeft: 1,
     scrollTop: 2,

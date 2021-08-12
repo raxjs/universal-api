@@ -1,6 +1,6 @@
 import { isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('clipboard', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
+testPlatformAPI('clipboard', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
   const mockGetClipboard = jest.fn();
   const mockSetClipboard = jest.fn();
 

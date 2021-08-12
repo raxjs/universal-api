@@ -1,6 +1,6 @@
 import { createPromisifyImpl, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('request', ['wechat', 'ali', 'dingtalk', 'bytedance'], async (container, globals, configAPI) => {
+testPlatformAPI('request', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
   const mockRequest = jest.fn(createPromisifyImpl());
   if (container === 'dingtalk') {
     globals.dd.httpRequest = mockRequest;
