@@ -5,7 +5,7 @@
 
 # startPullDownRefresh 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/pull-down-refresh.svg)](https://www.npmjs.com/package/@uni/pull-down-refresh)
 
 Starts swipe-down-to-refresh.

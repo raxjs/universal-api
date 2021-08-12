@@ -1,6 +1,6 @@
 # setStorageSync 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/storage.svg)](https://www.npmjs.com/package/@uni/storage)
 
 Stores data in the specified key in the local cache. This operation will overwrite the original content of the key. The data storage lifecycle is consistent with the Mini Program, that is, data is always available unless manually deleted by the user or automatically deleted after a certain period of time.

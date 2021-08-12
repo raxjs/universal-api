@@ -6,7 +6,7 @@ group:
 
 # previewImage 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis) [![npm](https://img.shields.io/npm/v/@uni/image.svg)](https://www.npmjs.com/package/@uni/image)
+ [![npm](https://img.shields.io/npm/v/@uni/image.svg)](https://www.npmjs.com/package/@uni/image)
 
 在新页面中全屏预览图片。预览的过程中用户可以进行保存图片、发送给朋友等操作。
 

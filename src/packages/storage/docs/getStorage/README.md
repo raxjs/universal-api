@@ -5,7 +5,7 @@ group:
 
 # getStorage 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/storage.svg)](https://www.npmjs.com/package/@uni/storage)
 
 从本地缓存中异步获取指定 key 的内容。

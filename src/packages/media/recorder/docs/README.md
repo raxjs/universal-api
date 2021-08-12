@@ -6,7 +6,7 @@
 
 # RecorderManager
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/recorder.svg)](https://www.npmjs.com/package/@uni/recorder)
 
 获取全局唯一的录音管理器 RecorderManager

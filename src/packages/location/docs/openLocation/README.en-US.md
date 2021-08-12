@@ -1,6 +1,6 @@
 # openLocation 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uniopenLocation.svg)](https://www.npmjs.com/package/@uniopenLocation)
 
 Views location using the built-in map. The GCJ-02 coordinate system of the State Bureau of Surveying and Mapping is used.

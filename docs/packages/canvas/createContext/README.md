@@ -4,7 +4,7 @@ group:
 ---
 
 # createContext
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis) [![npm](https://img.shields.io/npm/v/@uni/canvas.svg)](https://www.npmjs.com/package/@uni/canvas)
+ [![npm](https://img.shields.io/npm/v/@uni/canvas.svg)](https://www.npmjs.com/package/@uni/canvas)
 
 获取 canvas 绘图上下文
 

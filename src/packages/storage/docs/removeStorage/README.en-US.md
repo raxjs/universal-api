@@ -1,6 +1,6 @@
 # removeStorage 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/storage.svg)](https://www.npmjs.com/package/@uni/storage)
 
 Asynchronously removes the specified key from the local cache.

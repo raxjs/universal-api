@@ -1,7 +1,7 @@
 # request 
 
 [![npm](https://img.shields.io/npm/v/@uni/request.svg)](https://www.npmjs.com/package/@uni/request)
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 
 Used to initiate a network request
 Note: This API does not support promise calls

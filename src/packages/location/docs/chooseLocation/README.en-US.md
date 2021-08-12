@@ -1,6 +1,6 @@
 # openLocation 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 
 Opens the map to select a location.
 

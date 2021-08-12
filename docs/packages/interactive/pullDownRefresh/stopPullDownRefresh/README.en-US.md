@@ -5,7 +5,7 @@
 
 # stopPullDownRefresh 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/pull-down-refresh.svg)](https://www.npmjs.com/package/@uni/pull-down-refresh)
 
 Disables swipe-down-to-refresh for the current page.

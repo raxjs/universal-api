@@ -5,7 +5,7 @@
 
 # setNavigationBarTitle 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/navigation-bar.svg)](https://www.npmjs.com/package/@uni/navigation-bar)
 
 Dynamically set the title of the current page。

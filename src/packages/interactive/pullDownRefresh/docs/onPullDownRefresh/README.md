@@ -4,7 +4,7 @@
 ---
 # onPullDownRefresh 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/pull-down-refresh.svg)](https://www.npmjs.com/package/@uni/pull-down-refresh)
 
 开启下拉刷新。下拉刷新触发"pulldownrefresh"事件。

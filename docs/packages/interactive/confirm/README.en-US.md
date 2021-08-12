@@ -1,6 +1,6 @@
 # confirm 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/confirm.svg)](https://www.npmjs.com/package/@uni/confirm)
 
 Displays the modal dialog box.

@@ -1,6 +1,6 @@
 # storage 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/storage.svg)](https://www.npmjs.com/package/@uni/storage)
 
 将数据异步存储在本地缓存中指定的 key 中。会覆盖掉原来该 key 对应的内容。除非用户主动删除或因存储空间原因被系统清理，否则数据都一直可用。
@@ -69,7 +69,7 @@ setStorage({
 
 # setStorageSync 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@unisetStorageSync.svg)](https://www.npmjs.com/package/@unisetStorageSync)
 
 将数据同步存储在本地缓存中指定的 key 中。会覆盖掉原来该 key 对应的内容。除非用户主动删除或因存储空间原因被系统清理，否则数据都一直可用。
@@ -119,7 +119,7 @@ setStorageSync({
 
 # getStorage 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@unigetStorage.svg)](https://www.npmjs.com/package/@unigetStorage)
 
 从本地缓存中异步获取指定 key 的内容。
@@ -185,7 +185,7 @@ getStorage({
 
 # getStorageSync 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@unigetStorageSync.svg)](https://www.npmjs.com/package/@unigetStorageSync)
 
 从本地缓存中同步获取指定 key 的内容。
@@ -232,7 +232,7 @@ let res = getStorageSync({
 
 # removeStorage 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uniremoveStorage.svg)](https://www.npmjs.com/package/@uniremoveStorage)
 
 从本地缓存中异步移除指定 key。
@@ -292,7 +292,7 @@ removeStorage({
 
 # removeStorageSync 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uniremoveStorageSync.svg)](https://www.npmjs.com/package/@uniremoveStorageSync)
 
 从本地缓存中同步移除指定 key。

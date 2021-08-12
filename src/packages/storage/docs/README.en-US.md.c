@@ -1,6 +1,6 @@
 # storage 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/storage.svg)](https://www.npmjs.com/package/@uni/storage)
 
 Stores data in the specified key in the local cache. This operation will overwrite the original content of the key. The data storage lifecycle is consistent with the Mini Program, that is, data is always available unless manually deleted by the user or automatically deleted after a certain period of time.
@@ -70,7 +70,7 @@ setStorage({
 
 # setStorageSync 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@unisetStorageSync.svg)](https://www.npmjs.com/package/@unisetStorageSync)
 
 Stores data in the specified key in the local cache. This operation will overwrite the original content of the key. The data storage lifecycle is consistent with the Mini Program, that is, data is always available unless manually deleted by the user or automatically deleted after a certain period of time.
@@ -118,7 +118,7 @@ setStorageSync({
 
 # getStorage 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@unigetStorage.svg)](https://www.npmjs.com/package/@unigetStorage)
 
 Asynchronously gets the content of the specified key from the local cache.
@@ -184,7 +184,7 @@ getStorage({
 
 # getStorageSync 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@unigetStorageSync.svg)](https://www.npmjs.com/package/@unigetStorageSync)
 
 Gets the content of the specified key from the local cache.
@@ -231,7 +231,7 @@ let res = getStorageSync({
 
 # removeStorage 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uniremoveStorage.svg)](https://www.npmjs.com/package/@uniremoveStorage)
 
 Asynchronously removes the specified key from the local cache.
@@ -291,7 +291,7 @@ removeStorage({
 
 # removeStorageSync 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uniremoveStorageSync.svg)](https://www.npmjs.com/package/@uniremoveStorageSync)
 
 Removes the specified key from the local cache.

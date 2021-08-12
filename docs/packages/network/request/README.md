@@ -7,7 +7,7 @@ title: request
 # request 
 
 [![npm](https://img.shields.io/npm/v/@uni/request.svg)](https://www.npmjs.com/package/@uni/request)
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 
 用于发起网络请求
 注意：此 API 不支持 promise 调用

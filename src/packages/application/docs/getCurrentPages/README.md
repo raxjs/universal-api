@@ -6,7 +6,7 @@ title: getCurrentPages
 
 # getCurrentPages 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/application.svg)](https://www.npmjs.com/package/@uni/application)
 
 获取当前页面栈。数组中第一个元素为首页，最后一个元素为当前页面。

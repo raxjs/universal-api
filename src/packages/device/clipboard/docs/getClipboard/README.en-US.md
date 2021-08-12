@@ -5,7 +5,7 @@
 
 # getClipboard 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@unigetClipboard.svg)](https://www.npmjs.com/package/@unigetClipboard)
 
 Gets the content on the system clipboard.

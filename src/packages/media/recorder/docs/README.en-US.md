@@ -6,7 +6,7 @@
 
 # RecorderManager
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/recorder.svg)](https://www.npmjs.com/package/@uni/recorder)
 
 Obtains the globally unique recording manager RecorderManager.

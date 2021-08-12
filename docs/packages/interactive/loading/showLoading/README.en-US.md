@@ -5,7 +5,7 @@
 
 # showLoading 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/loading.svg)](https://www.npmjs.com/package/@uni/loading)
 
 Displays the loading prompt box.

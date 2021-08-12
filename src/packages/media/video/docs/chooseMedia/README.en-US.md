@@ -6,7 +6,7 @@
 
 # chooseMedia 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis) [![npm](https://img.shields.io/npm/v/@uni/video.svg)](https://www.npmjs.com/package/@uni/video)
+ [![npm](https://img.shields.io/npm/v/@uni/video.svg)](https://www.npmjs.com/package/@uni/video)
 
 (H5 supports any file program type; ByteDance applet, Ali applet, Baidu applet, and Kuaishou applet only support selecting pictures)
 

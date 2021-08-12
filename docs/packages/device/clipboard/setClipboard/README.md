@@ -5,7 +5,7 @@
 
 # setClipboard 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/clipboard.svg)](https://www.npmjs.com/package/@uni/clipboard)
 
 设置系统剪贴板的内容。

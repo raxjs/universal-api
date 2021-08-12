@@ -5,7 +5,7 @@ title: scan
 ---
 # scan 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/scan.svg)](https://www.npmjs.com/package/@uni/scan)
 
 Opens the code scanning interface in the app to scan the code.

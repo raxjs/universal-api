@@ -6,7 +6,7 @@
 
 # chooseMedia 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis) [![npm](https://img.shields.io/npm/v/@uni/video.svg)](https://www.npmjs.com/package/@uni/video)
+ [![npm](https://img.shields.io/npm/v/@uni/video.svg)](https://www.npmjs.com/package/@uni/video)
 
 拍摄或从手机相册中选择图片或视频。（h5支持任意文件类型;字节跳动小程序、阿里小程序、百度小程序、快手小程序仅支持选择图片）
 

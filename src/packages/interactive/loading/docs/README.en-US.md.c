@@ -1,6 +1,6 @@
 # showLoading 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@unishowLoading.svg)](https://www.npmjs.com/package/@unishowLoading)
 
 Displays the loading prompt box.
@@ -46,7 +46,7 @@ showLoading({
 
 # hideLoading 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@unihideLoading.svg)](https://www.npmjs.com/package/@unihideLoading)
 
 Hides the loading prompt box.

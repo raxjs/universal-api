@@ -1,6 +1,6 @@
 # intersectionObserver 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uniintersectionObserver.svg)](https://www.npmjs.com/package/@uni/intersection-observer)
 
 用于推断某些节点是否可以被用户看见、有多大比例可以被用户看见。

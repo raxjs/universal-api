@@ -6,7 +6,7 @@ title: getCurrentPages
 
 # getCurrentPages 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/current-pages.svg)](https://www.npmjs.com/package/@uni/current-pages)
 
 Gets the current page stack. In the array, the first element is the homepage and the last element is the current page.

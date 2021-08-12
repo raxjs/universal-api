@@ -5,7 +5,7 @@
 
 # setNavigationBarColor
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/navigation-bar.svg)](https://www.npmjs.com/package/@uni/navigation-bar)
 
 Set the color of the page navigation bar。

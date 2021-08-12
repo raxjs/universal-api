@@ -1,6 +1,6 @@
 # actionSheet 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/action-sheet.svg)](https://www.npmjs.com/package/@uni/action-sheet)
 
 Displays the operation menu.

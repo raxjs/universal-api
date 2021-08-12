@@ -1,6 +1,6 @@
 # onPullDownRefresh 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/pull-down-refresh.svg)](https://www.npmjs.com/package/@uni/pull-down-refresh)
 
 Turn on drop-down refresh. The drop-down refresh triggers the "pulldownrefresh" event.
@@ -57,7 +57,7 @@ pullDownRefresh.onPullDownRefresh({eventCallback: cb});
 
 # startPullDownRefresh 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/pull-down-refresh.svg)](https://www.npmjs.com/package/@uni/pull-down-refresh)
 
 Starts swipe-down-to-refresh.
@@ -110,7 +110,7 @@ pullDownRefresh.startPullDownRefresh();
 
 # stopPullDownRefresh 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/pull-down-refresh.svg)](https://www.npmjs.com/package/@uni/pull-down-refresh)
 
 Disables swipe-down-to-refresh for the current page.

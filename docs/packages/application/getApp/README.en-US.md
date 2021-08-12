@@ -6,7 +6,7 @@ title: getApp
 
 # getApp 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/application.svg)](https://www.npmjs.com/package/@uni/application)
 
 Gets the globally unique App instance of the Mini Program.

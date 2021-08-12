@@ -7,7 +7,7 @@ title: getLaunchOptionsSync
 # getLaunchOptionsSync 
 
 [![npm](https://img.shields.io/npm/v/@uni/application.svg)](https://www.npmjs.com/package/@uni/application)
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 
 Obtains the parameters upon Mini Program startup.
 

@@ -1,6 +1,6 @@
 # onPullDownRefresh 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/pull-down-refresh.svg)](https://www.npmjs.com/package/@uni/pull-down-refresh)
 
 开启下拉刷新。下拉刷新触发"pulldownrefresh"事件。
@@ -56,7 +56,7 @@ pullDownRefresh.onPullDownRefresh({eventCallback: cb});
 
 # startPullDownRefresh 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/pull-down-refresh.svg)](https://www.npmjs.com/package/@uni/pull-down-refresh)
 
 开始下拉刷新。
@@ -107,7 +107,7 @@ pullDownRefresh.startPullDownRefresh();
 
 # stopPullDownRefresh 
 
-[![npm](https://img.shields.io/npm/v/@uni/apis.svg)](https://www.npmjs.com/package/@uni/apis)
+
 [![npm](https://img.shields.io/npm/v/@uni/pull-down-refresh.svg)](https://www.npmjs.com/package/@uni/pull-down-refresh)
 
 停止当前页面下拉刷新。
