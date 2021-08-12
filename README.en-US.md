@@ -10,7 +10,7 @@ Uni API is a cross-terminal API solution that supports applets and web container
 
 ---
 
-🎉 **Multi-container support** Currently supports Web, WeChat Mini Programs, Toutiao Mini Programs, and Ali Mini Programs
+🎉 **Multi-container support** Currently supports Web, WeChat Mini Programs, Toutiao Mini Programs, Ali Mini Programs, Baidu Smart Programs and Kuaishou Mini Programs
 🐂 **Rich API** Cover 90+ API implementations
 😯 **Complete documentation** Provide bilingual documents and rich samples
 0️⃣ **No framework dependency** No framework dependency, pure native implementation, compatible with any framework
