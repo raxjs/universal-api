@@ -22,6 +22,13 @@ testWebAPI('element', async () => {
   ]);
 
   await expect(getBoundingClientRect()).resolves.toEqual(
-    nodes.map((node) => node.getBoundingClientRect()),
+    nodes.map(() => ({
+      width: expect.any(Number),
+      height: expect.any(Number),
+      top: expect.any(Number),
+      bottom: expect.any(Number),
+      left: expect.any(Number),
+      right: expect.any(Number),
+    })),
   );
 });
