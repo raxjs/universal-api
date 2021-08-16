@@ -305,4 +305,32 @@ module.exports = {
       },
     ],
   },
+  // open
+  authorize: {
+    path: 'src/packages/open/authorize/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: '@uni/authorize',
+      },
+    ],
+  },
+  subscribeMessage: {
+    path: 'src/packages/open/subscribeMessage/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: '@uni/subscribeMessage',
+      },
+    ],
+  },
+  share: {
+    path: 'src/packages/share/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: '@uni/share',
+      },
+    ],
+  },
 };
