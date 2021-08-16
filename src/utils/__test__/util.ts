@@ -91,6 +91,9 @@ export function testContainerAPI(
   });
 
   test(`Test container: ${container}`, async () => {
+    // 执行测试前清除 require 模块缓存
+    jest.resetModules();
+
     // set
     Object.assign(proxyGlobals, globals);
 
@@ -118,10 +121,6 @@ export function testPlatformAPI(
   callback: (container: Container, globals: Partial<Globals>, configAPI: ConfigAPI) => any,
 ) {
   describe(`Test Platform API: ${name}`, () => {
-    beforeEach(() => {
-      jest.resetModules();
-    });
-
     for (const container of containers) {
       testContainerAPI(container, async (globals) => {
         const configAPI = (api: string, mockImpl: jest.Mock) => {
@@ -142,10 +141,6 @@ export function testWebAPI(
   callback: (globals: Partial<Globals>) => any,
 ) {
   describe(`Test Platform API: ${name}`, () => {
-    beforeEach(() => {
-      jest.resetModules();
-    });
-
     testContainerAPI('web', async (globals) => {
       await callback(globals);
     });
