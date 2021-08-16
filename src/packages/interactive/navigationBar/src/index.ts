@@ -41,7 +41,22 @@ export const setNavigationBarTitle = (args?: SetNavigationBarTitleOptions) => {
   }
 };
 
+export const getMenuButtonBoundingClientRect = () => {
+  if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.getMenuButtonBoundingClientRect();
+  } else if (isWeChatMiniProgram) {
+    return weChatModule.getMenuButtonBoundingClientRect();
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.getMenuButtonBoundingClientRect();
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.getMenuButtonBoundingClientRect();
+  } else {
+    throw new Error('Uni API：setNavigationBarTitle暂不支持');
+  }
+};
+
 export default {
   setNavigationBarColor,
   setNavigationBarTitle,
+  getMenuButtonBoundingClientRect,
 };

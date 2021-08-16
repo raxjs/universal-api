@@ -46,6 +46,7 @@ const Index = () => {
     title: '标题',
     backgroundColor: '导航栏背景色',
   });
+  const [menuButtonBoundingClientRect, setMenuButtonBoundingClientRect] = useState({});
 
   const handleSubmit = () => {
     console.log('title, color: ', opts);
@@ -54,6 +55,11 @@ const Index = () => {
     // navigationBar.setNavigationBarColor({ backgroundColor: opts.backgroundColor, frontColor: '#000000' });
   }
   const handleReset = () => setOpts({ title: '标题', backgroundColor: '导航栏背景色'});
+
+  const handleGetMenuButtonBoundingClientRect = () => {
+    const menuButtonBoundingClientRect = navigationBar.getMenuButtonBoundingClientRect();
+    setMenuButtonBoundingClientRect(menuButtonBoundingClientRect);
+  }
 
   return (
     <View style={styles.container}>
@@ -73,6 +79,16 @@ const Index = () => {
           <View style={styles.button} onClick={handleReset}>
             <Text>Reset</Text>
           </View>
+          <View style={styles.button} onClick={handleGetMenuButtonBoundingClientRect}>
+            <Text>获取胶囊按钮信息</Text>
+          </View>
+        </View>
+        <View>
+          <Text>
+            {`胶囊信息\n` + Object.entries(menuButtonBoundingClientRect).map((array) => 
+              `${array?.[0]}`
+            )}
+          </Text>
         </View>
       </View>
     </View>

@@ -185,6 +185,15 @@ module.exports = {
       },
     ],
   },
+  tabBar: {
+    path: 'src/packages/interactive/tabBar/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: '@uni/tab-bar',
+      },
+    ],
+  },
   // 'keyboard': {
   //   path: 'packages/interactive/keyboard/src/index.ts',
   //   pkgInfo: [
