@@ -305,4 +305,14 @@ module.exports = {
       },
     ],
   },
+  // video
+  makePhoneCall: {
+    path: 'src/packages/device/makePhoneCall/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: '@uni/makePhoneCall',
+      },
+    ],
+  },
 };
