@@ -29,7 +29,9 @@ export function sleep(ms: number) {
 
 export function createPromisifyImpl(value: any = {}) {
   return (args) => {
-    args?.success?.(value);
+    setTimeout(() => {
+      args?.success?.(value);
+    }, 0);
   };
 }
 
