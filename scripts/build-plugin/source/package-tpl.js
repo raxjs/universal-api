@@ -13,6 +13,8 @@ module.exports = {
       "wechat-miniprogram": "./es/wechat-miniprogram/index.js",
       "bytedance-microapp": "./es/bytedance-microapp/index.js",
       "miniapp": "./es/ali-miniapp/index.js",
+      "baidu-smartprogram": "./es/baidu-smartprogram/index.js",
+      "kuaishou-miniprogram": "./es/kuaishou-miniprogram/index.js",
       "default": "./es/index.js",
     },
     "./*": "./*"
