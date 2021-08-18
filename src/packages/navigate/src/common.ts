@@ -1,5 +1,5 @@
 import { promisify } from '@utils/promisify';
-import { IPushOptions, IPopOptions, IGoOptions, IReplaceOptions, IReLaunchOptions } from './types';
+import { IPushOptions, IPopOptions, IGoOptions, IReplaceOptions, IReLaunchOptions, ISwitchTabOptions } from './types';
 import { styleIn } from '@utils/styleOptions';
 
 export const normalize = {
@@ -25,6 +25,11 @@ export const normalize = {
   },
   reLaunch: (api, containerName) => {
     return (options: IReLaunchOptions) => {
+      return promisify(api)(styleIn(options, containerName));
+    };
+  },
+  switchTab: (api, containerName) => {
+    return (options: ISwitchTabOptions) => {
       return promisify(api)(styleIn(options, containerName));
     };
   },
