@@ -297,10 +297,23 @@ module.exports = {
     path: 'src/packages/media/video/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.4',
+        version: '1.0.5',
         name: '@uni/video',
         dependencies: {
           '@uni/action-sheet': '^1.0.5',
+        },
+        exports: {
+          '.': {
+            web: './es/web/index.js',
+            'wechat-miniprogram': './es/wechat-miniprogram/index.js',
+            'bytedance-microapp': './es/bytedance-microapp/index.js',
+            miniapp: './es/ali-miniapp/index.js',
+            'baidu-smartprogram': './es/baidu-smartprogram/index.js',
+            'kuaishou-miniprogram': './es/kuaishou-miniprogram/index.js',
+            default: './es/index.js',
+          },
+          './lib/': './lib/',
+          './*': './*',
         },
       },
     ],
