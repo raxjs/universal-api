@@ -122,7 +122,7 @@ module.exports = {
     path: 'src/packages/interactive/actionSheet/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.6',
+        version: '1.0.7',
         name: '@uni/action-sheet',
       },
     ],
@@ -300,7 +300,7 @@ module.exports = {
         version: '1.0.5',
         name: '@uni/video',
         dependencies: {
-          '@uni/action-sheet': '^1.0.5',
+          '@uni/action-sheet': '^1.0.7',
         },
         exports: {
           '.': {
