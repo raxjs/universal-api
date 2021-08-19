@@ -50,7 +50,7 @@ const Index = () => {
         content: 'IDE 模拟器暂不支持调试，请以真机调试结果为准',
       });
     }
-    const innerAudioContext = Audio.createInnerAudioContext();
+    const innerAudioContext = Audio.createAudioContext();
     // 注意 xhr 获取src时http跨域问题
     // innerAudioContext.src = 'https://b.bdstatic.com/miniapp/images/yanyuan.mp3';
     // innerAudioContext.src = 'http://music.163.com/song/media/outer/url?id=28815250.mp3';

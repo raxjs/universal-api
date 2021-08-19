@@ -1,9 +1,9 @@
-import createInnerAudioContext from './createInnerAudioContext';
+import createAudioContext from './createAudioContext';
 
 export {
-  createInnerAudioContext,
+  createAudioContext,
 };
 
 export default {
-  createInnerAudioContext,
+  createAudioContext,
 };

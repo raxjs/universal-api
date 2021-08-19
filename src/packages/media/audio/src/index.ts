@@ -6,28 +6,28 @@ import bytedanceModule from './bytedance-microapp/index';
 import baiDuModule from './baidu-smartprogram/index';
 import kuaiShouModule from './kuaishou-miniprogram/index';
 import {
-  InnerAudioContextOptions,
-  CreateInnerAudioContextFn,
+  AudioContextOptions,
+  CreateAudioContextFn,
 } from './types';
 
-export const createInnerAudioContext: CreateInnerAudioContextFn = (args?: InnerAudioContextOptions) => {
+export const createAudioContext: CreateAudioContextFn = (args?: AudioContextOptions) => {
   if (isWeb) {
-    return webModule.createInnerAudioContext();
+    return webModule.createAudioContext();
   } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.createInnerAudioContext();
+    return kuaiShouModule.createAudioContext();
   } else if (isWeChatMiniProgram) {
-    return weChatModule.createInnerAudioContext(args);
+    return weChatModule.createAudioContext(args);
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.createInnerAudioContext();
+    return bytedanceModule.createAudioContext();
   } else if (isMiniApp) {
-    return aliMiniAppModule.createInnerAudioContext();
+    return aliMiniAppModule.createAudioContext();
   } else if (isBaiduSmartProgram) {
-    return baiDuModule.createInnerAudioContext();
+    return baiDuModule.createAudioContext();
   } else {
     throw new Error('@uni/apis：createInnerAudioContext暂不支持');
   }
 };
 
 export default {
-  createInnerAudioContext,
+  createAudioContext,
 };

@@ -3,12 +3,12 @@
     path: /packages/interactive
 ---
 
-# hideTabBar
+# showTabBar
 
 
 [![npm](https://img.shields.io/npm/v/@uni/navigation-bar.svg)](https://www.npmjs.com/package/@uni/tab-bar)
 
-隐藏 tabBar 。
+显示 tabBar 。
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
 <div style="margin-right: 20px;max-width: 50%;">
@@ -29,21 +29,21 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import { hideTabBar } from '@uni/tab-bar';
+import { showTabBar } from '@uni/tab-bar';
 
-hideTabBar();
+showTabBar();
 ```
 
 你也可以从大包引入：
 ```js
 import { tabBar } from '@uni/apis';
 
-tabBar.hideTabBar();
+tabBar.showTabBar();
 ```
 
 ## 方法
 
-### `hideTabBar()`
+### `showTabBar()`
 
 ### 参数
 
@@ -81,3 +81,25 @@ export default () => (
 
 </div>
 </div>
+
+
+```jsx | inline
+  import React from 'react';
+  export default class Home extends React.Component {
+    componentDidMount() {
+      document.querySelector('.__dumi-default-menu').style.background = '#fff';
+      if (location.search.split(/[?&]/).some(i => i === 'clear=1')) {
+        document.querySelector('.__dumi-default-navbar').style.display = 'none';
+        document.querySelector('.__dumi-default-layout').classList = [];
+        document.querySelector('.__dumi-default-menu').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-toc').style.display = 'none';
+        document.querySelector('.__dumi-default-layout-content').querySelector('.markdown').querySelector('h1').style.marginTop = 0;
+        parent.postMessage && parent.postMessage(parent.postMessage({ event: 'syncIframeHeight', height: document.querySelector('.__dumi-default-layout-content').offsetHeight }, '*'));
+      }
+    }
+
+    render() {
+      return null;
+    }
+  }
+```
