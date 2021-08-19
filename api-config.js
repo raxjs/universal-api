@@ -257,7 +257,7 @@ module.exports = {
     path: 'src/packages/navigate/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.7',
+        version: '1.0.8',
         name: '@uni/navigate',
       },
     ],
@@ -305,13 +305,23 @@ module.exports = {
       },
     ],
   },
-  // video
+  // makePhoneCall
   makePhoneCall: {
     path: 'src/packages/device/makePhoneCall/src/index.ts',
     pkgInfo: [
       {
         version: '1.0.0',
         name: '@uni/makePhoneCall',
+      },
+    ],
+  },
+  // pageScrollTo
+  pageScrollTo: {
+    path: 'src/packages/interactive/pageScrollTo/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: '@uni/pageScrollTo',
       },
     ],
   },
