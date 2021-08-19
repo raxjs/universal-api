@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Platform API: confirm Test container: web 1`] = `<body />`;
+
+exports[`Test Platform API: confirm Test container: web 2`] = `<body />`;
