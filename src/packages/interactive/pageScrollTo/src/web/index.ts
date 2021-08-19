@@ -5,7 +5,8 @@ import { CONTAINER_NAME } from '@utils/constant';
 export default normalize((options: Options) => {
   const { selector, duration, success, fail, complete } = options;
   let { scrollTop } = options;
-  let top = document.documentElement.scrollTop;
+  const rootElement = document.documentElement;
+  let top = rootElement.scrollTop;
 
   if (scrollTop == null) {
     if (!selector) {
@@ -34,10 +35,17 @@ export default normalize((options: Options) => {
 
   // Scroll immediately
   if (Number(duration) === 0) {
-    document.documentElement.scrollTop = scrollTop;
+    rootElement.scrollTop = scrollTop;
     success('OK');
     complete('OK');
     return;
+  }
+
+  const maxScrollTop = rootElement.scrollHeight - rootElement.clientHeight;
+  if (scrollTop < 0) {
+    scrollTop = 0;
+  } else if (scrollTop > maxScrollTop) {
+    scrollTop = maxScrollTop;
   }
 
   // Scroll distance per 1ms
@@ -51,15 +59,14 @@ export default normalize((options: Options) => {
         return;
       }
 
-      top = document.documentElement.scrollTop;
+      top = rootElement.scrollTop;
       let nextTop = top + cost * speed;
-      let isFinish = false;
       if ((speed > 0 && nextTop > scrollTop) || (speed < 0 && nextTop < scrollTop)) {
         nextTop = scrollTop;
-        isFinish = true;
       }
-      document.documentElement.scrollTop = nextTop;
-      if (isFinish) {
+
+      rootElement.scrollTop = nextTop;
+      if (nextTop === scrollTop) {
         success('OK');
         complete('OK');
       } else {

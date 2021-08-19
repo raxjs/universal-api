@@ -311,7 +311,7 @@ module.exports = {
     pkgInfo: [
       {
         version: '1.0.0',
-        name: '@uni/makePhoneCall',
+        name: '@uni/make-phone-call',
       },
     ],
   },
@@ -321,7 +321,7 @@ module.exports = {
     pkgInfo: [
       {
         version: '1.0.0',
-        name: '@uni/pageScrollTo',
+        name: '@uni/page-scroll-to',
       },
     ],
   },

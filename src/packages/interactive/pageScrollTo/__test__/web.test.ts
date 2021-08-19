@@ -16,6 +16,14 @@ testWebAPI('pageScrollTo', async (globals) => {
     records.push(document.documentElement.scrollTop);
     cb();
   };
+  Object.defineProperties(document.documentElement, {
+    scrollHeight: {
+      get: () => 1000,
+    },
+    clientHeight: {
+      get: () => 400,
+    },
+  });
 
   const { default: pageScrollTo } = require('../src/index');
 
@@ -41,6 +49,8 @@ testWebAPI('pageScrollTo', async (globals) => {
   arrayToBeCloseTo(records, []);
   expect(document.documentElement.scrollTop).toBe(400);
 
+
+  // selector
   records = [];
   const div = document.createElement('div');
   div.className = 'abc';
@@ -65,6 +75,28 @@ testWebAPI('pageScrollTo', async (globals) => {
   });
   arrayToBeCloseTo(records, [600, 552, 504, 456, 408, 360, 312]);
   expect(document.documentElement.scrollTop).toBe(300);
+
+
+  // position boundary
+  records = [];
+  await pageScrollTo({
+    scrollTop: -200,
+  });
+  arrayToBeCloseTo(records, [
+    300, 284, 268, 252, 236, 220, 204, 188, 172,
+    156, 140, 124, 108, 92, 76, 60, 44, 28, 12,
+  ]);
+  expect(document.documentElement.scrollTop).toBe(0);
+
+  records = [];
+  await pageScrollTo({
+    scrollTop: 800,
+  });
+  arrayToBeCloseTo(records, [
+    0, 32, 64, 96, 128, 160, 192, 224, 256, 288,
+    320, 352, 384, 416, 448, 480, 512, 544, 576,
+  ]);
+  expect(document.documentElement.scrollTop).toBe(600);
 
   jest.useRealTimers();
   /* eslint-enable require-atomic-updates */
