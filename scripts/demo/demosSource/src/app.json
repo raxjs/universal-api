@@ -22,10 +22,14 @@
     "backgroundColor": "#f8f8f8",
     "items": [{
       "pagePath": "pages/Home/index",
-      "name": "home"
+      "name": "home",
+      "icon": "https://gw.alicdn.com/imgextra/i2/O1CN01R4VAGp28dtnSLAKM7_!!6000000007956-2-tps-50-50.png",
+      "activeIcon": "https://gw.alicdn.com/imgextra/i2/O1CN01JFSxTt1xz0HB4jO0L_!!6000000006513-2-tps-50-50.png"
     }, {
       "pagePath": "pages/tab-bar/index",
-      "name": "tabBar"
+      "name": "tabBar",
+      "icon": "https://gw.alicdn.com/imgextra/i4/O1CN01TJQjGB1JOkHwRoGVa_!!6000000001019-2-tps-30-30.png",
+      "activeIcon": "https://gw.alicdn.com/imgextra/i2/O1CN01IADkfG20L6cgxIC5j_!!6000000006832-2-tps-50-50.png"
     }],
     "list": [
       {
