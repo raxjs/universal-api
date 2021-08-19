@@ -2,8 +2,6 @@
 // import { AudioContext } from '../types';
 import Events from '@utils/event';
 
-declare var AudioContext;
-
 class InnerAudioContext {
   private _singleAudioContext: AudioContext;
   private _source: AudioBufferSourceNode;
@@ -14,6 +12,8 @@ class InnerAudioContext {
   private _buffer: AudioBuffer;
   private _events: any = new Events();
   private _isPlaying = false;
+  private _currentTime = 0;
+  private _timeStamp = 0;
   constructor() {
     // super();
 
@@ -26,9 +26,6 @@ class InnerAudioContext {
     this._source = this._singleAudioContext.createBufferSource();
     // 创建音量节点(如果你需要用调整音量大小的话)
     this._gainNode = this._singleAudioContext.createGain();
-    // this.addEventListener('ended', () => {
-    //   this._events.emit('onEnded');
-    // });
   }
   get src() {
     return this._src;
@@ -67,7 +64,7 @@ class InnerAudioContext {
   }
 
   get currentTime() {
-    return this._singleAudioContext.currentTime;
+    return this._currentTime + this._singleAudioContext.currentTime - this._timeStamp;
   }
 
   get paused() {
@@ -98,20 +95,20 @@ class InnerAudioContext {
     this._gainNode = this._singleAudioContext.createGain();
     // this.addEventListener('onPaly', this.onPaly);
     this._source.buffer = this._buffer;
-    console.log('buffer', this._buffer);
+    // console.log('buffer', this._buffer);
     this._source.loop = this.loop;
     this._source.playbackRate.value = this.playbackRate;
     this._gainNode.gain.value = this.volume;
+    this._source.onended = () => this._events.emit('onEnded');
     // 连接节点对象
     this._source.connect(this._gainNode);
     this._gainNode.connect(this._singleAudioContext.destination);
-
-    // this._source.onended();
     this._source.start(0, startTime);
+
   };
 
   _getData = () => {
-    console.log('get data start', this);
+    // console.log('get data start', this);
     this._events.emit('onWaiting');
     const xhr = new XMLHttpRequest();
     xhr.open('GET', this._src, true);
@@ -127,9 +124,11 @@ class InnerAudioContext {
   };
 
   play = () => {
+    this._currentTime = this._currentTime + this._singleAudioContext.currentTime - this._timeStamp;
+    this._timeStamp = this._singleAudioContext.currentTime;
+
     if (!this._isPlaying) {
       this._start(this._startTime);
-      console.log('currentTime', this.currentTime);
       this._isPlaying = true;
     }
 
@@ -140,27 +139,38 @@ class InnerAudioContext {
           this._events.emit('onError', 'cannot resume a closed AudioContext');
           return;
         }
-        console.log(e);
+        // console.log(e);
         this._events.emit('onError', e);
       });
+
+    console.log('currentTime', this.currentTime);
   };
 
   pause = () => {
-    console.log('currentTime', this.currentTime);
     this._singleAudioContext.suspend()
       .then(() => this._events.emit('onPause'))
       .catch((e) => {
-        console.log(e);
+        // console.log(e);
         this._events.emit('onError', e);
       });
+
+    this._currentTime = this._currentTime + this._singleAudioContext.currentTime - this._timeStamp;
+    this._timeStamp = this._singleAudioContext.currentTime;
+    console.log('currentTime', this.currentTime);
   };
 
   stop = () => {
     try {
       this._source.stop(0);
-      console.log('currentTime', this.currentTime);
+      this._currentTime = this._currentTime + this._singleAudioContext.currentTime - this._timeStamp;
+      this._timeStamp = this._singleAudioContext.currentTime;
       this._isPlaying = false;
       this._events.emit('onStop');
+
+      this._currentTime = this.startTime;
+      this._timeStamp = this._singleAudioContext.currentTime;
+
+      console.log('currentTime', this.currentTime);
     } catch (e) {
       this._events.emit('onError', e);
     }
@@ -171,9 +181,13 @@ class InnerAudioContext {
       this._events.emit('onSeeking');
       value = value < 0 ? 0 : value;
       value = value > this.duration ? this.duration : value;
-      this._source.stop(0);
+      this._isPlaying && this._source.stop(0);
       this._start(value);
       this._events.emit('onSeeked');
+      this._currentTime = value;
+      this._timeStamp = this._singleAudioContext.currentTime;
+
+      console.log('currentTime', this.currentTime);
     } catch (e) {
       this._events.emit('onError', e);
     }
@@ -183,14 +197,14 @@ class InnerAudioContext {
     this._singleAudioContext.close()
       .then(() => this._events.emit('onDestroy'))
       .catch((e) => {
-        console.log(e);
+        // console.log(e);
         this._events.emit('onError', e);
       });
   };
 
   onCanplay = (callback = (e) => {}) => {
     this._events.register('onCanplay', (e) => {
-      console.log('onCanplay');
+      // console.log('onCanplay');
       callback(e);
     });
   };
@@ -202,7 +216,7 @@ class InnerAudioContext {
 
   onPlay = (callback = (e) => {}) => {
     this._events.register('onPlay', (e) => {
-      console.log('onPlay');
+      // console.log('onPlay');
       callback(e);
     });
   };
@@ -214,7 +228,7 @@ class InnerAudioContext {
 
   onPause = (callback = (e) => {}) => {
     this._events.register('onPause', (e) => {
-      console.log('onPause');
+      // console.log('onPause');
       callback(e);
     });
   };
@@ -226,7 +240,7 @@ class InnerAudioContext {
 
   onStop = (callback = (e) => {}) => {
     this._events.register('onStop', (e) => {
-      console.log('onStop');
+      // console.log('onStop');
       callback(e);
     });
   };
@@ -238,7 +252,7 @@ class InnerAudioContext {
 
   onEnded = (callback = (e) => {}) => {
     this._events.register('onEnded', (e) => {
-      console.log('onEnded');
+      // console.log('onEnded');
       callback(e);
     });
   };
@@ -250,7 +264,7 @@ class InnerAudioContext {
 
   onError = (callback = (e) => {}) => {
     this._events.register('onError', (e) => {
-      console.log('onError222');
+      // console.log('onError222');
       callback(e);
     });
   };
@@ -262,7 +276,7 @@ class InnerAudioContext {
 
   onWaiting = (callback = (e) => {}) => {
     this._events.register('onWaiting', (e) => {
-      console.log('onWaiting');
+      // console.log('onWaiting');
       callback(e);
     });
   };
@@ -274,7 +288,7 @@ class InnerAudioContext {
 
   onSeeking = (callback = (e) => {}) => {
     this._events.register('onSeeking', (e) => {
-      console.log('onSeeking');
+      // console.log('onSeeking');
       callback(e);
     });
   };
@@ -286,7 +300,7 @@ class InnerAudioContext {
 
   onSeeked = (callback = (e) => {}) => {
     this._events.register('onSeeked', (e) => {
-      console.log('onSeeked');
+      // console.log('onSeeked');
       callback(e);
     });
   };
