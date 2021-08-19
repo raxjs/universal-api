@@ -111,6 +111,12 @@ video.chooseVideo({
 | width | `number` | 返回选定视频的高度 |
 | height | `number` | 返回选定视频的宽度 |
 
+#### 不通用返回参数
+
+| 成员 | 类型 | 描述 | 支持 |
+| --- | --- | --- | --- |
+| files | `Array<Object>` | 视频的 File 对象 | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> |
+
 </div>
 <div>
 
