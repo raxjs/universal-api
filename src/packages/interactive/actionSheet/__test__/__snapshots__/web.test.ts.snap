@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Platform API: actionSheet Test container: web 1`] = `
+<body>
+  <style>
+    .__universal_actionsheet {  position: fixed;  left: 0;  right: 0;  bottom: 0;  background: #fff;  color: #000;  box-sizing: border-box;  border-radius: 12px 12px 0 0;  transform: translateY(100%);  -webkit-transform: translateY(100%);  z-index: 9999;  outline: none;  text-align: center;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_actionsheet_mask {  content: "";  position: fixed;  left: 0;  right: 0;  bottom: 0;  top: 0;  margin: auto;  display: block;  z-index: 9999;  background: #000;  opacity: 0;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_actionsheet_item {  padding: 16px 0;  border-bottom: 1px solid #eee;}.__universal_actionsheet_cancel {  padding: 16px 0;  border-top: 10px solid #eee;}@keyframes __universal_actionsheet_slideIn {  0% {    transform: translateY(100%);    -webkit-transform: translateY(100%);  }  100% {    transform: translateY(0);    -webkit-transform: translateY(0);  }}@keyframes __universal_actionsheet_slideOut {  0% {    transform: translateY(0);    -webkit-transform: translateY(0);  }  100% {    transform: translateY(100%);    -webkit-transform: translateY(100%);  }}@keyframes __universal_actionsheet_fadeIn {  0% {    opacity: 0;  }  100% {    opacity: .6;  }}@keyframes __universal_actionsheet_fadeOut {  0% {    opacity: .6;  }  100% {    opacity: 0;  }}
+  </style>
+  <div>
+    <div
+      class="__universal_actionsheet_mask"
+      style="animation-name: __universal_actionsheet_fadeIn;"
+    />
+    <div
+      class="__universal_actionsheet"
+      style="animation-name: __universal_actionsheet_slideIn;"
+    >
+      <div
+        class="__universal_actionsheet_item"
+        tabindex="0"
+      >
+        aaa
+      </div>
+      <div
+        class="__universal_actionsheet_item"
+        tabindex="1"
+      >
+        bbb
+      </div>
+      <div
+        class="__universal_actionsheet_cancel"
+        tabindex="-1"
+      >
+        取消
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Test Platform API: actionSheet Test container: web 2`] = `
+<body>
+  <style>
+    .__universal_actionsheet {  position: fixed;  left: 0;  right: 0;  bottom: 0;  background: #fff;  color: #000;  box-sizing: border-box;  border-radius: 12px 12px 0 0;  transform: translateY(100%);  -webkit-transform: translateY(100%);  z-index: 9999;  outline: none;  text-align: center;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_actionsheet_mask {  content: "";  position: fixed;  left: 0;  right: 0;  bottom: 0;  top: 0;  margin: auto;  display: block;  z-index: 9999;  background: #000;  opacity: 0;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_actionsheet_item {  padding: 16px 0;  border-bottom: 1px solid #eee;}.__universal_actionsheet_cancel {  padding: 16px 0;  border-top: 10px solid #eee;}@keyframes __universal_actionsheet_slideIn {  0% {    transform: translateY(100%);    -webkit-transform: translateY(100%);  }  100% {    transform: translateY(0);    -webkit-transform: translateY(0);  }}@keyframes __universal_actionsheet_slideOut {  0% {    transform: translateY(0);    -webkit-transform: translateY(0);  }  100% {    transform: translateY(100%);    -webkit-transform: translateY(100%);  }}@keyframes __universal_actionsheet_fadeIn {  0% {    opacity: 0;  }  100% {    opacity: .6;  }}@keyframes __universal_actionsheet_fadeOut {  0% {    opacity: .6;  }  100% {    opacity: 0;  }}
+  </style>
+</body>
+`;
+
+exports[`Test Platform API: actionSheet Test container: web 3`] = `
+<body>
+  <style>
+    .__universal_actionsheet {  position: fixed;  left: 0;  right: 0;  bottom: 0;  background: #fff;  color: #000;  box-sizing: border-box;  border-radius: 12px 12px 0 0;  transform: translateY(100%);  -webkit-transform: translateY(100%);  z-index: 9999;  outline: none;  text-align: center;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_actionsheet_mask {  content: "";  position: fixed;  left: 0;  right: 0;  bottom: 0;  top: 0;  margin: auto;  display: block;  z-index: 9999;  background: #000;  opacity: 0;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_actionsheet_item {  padding: 16px 0;  border-bottom: 1px solid #eee;}.__universal_actionsheet_cancel {  padding: 16px 0;  border-top: 10px solid #eee;}@keyframes __universal_actionsheet_slideIn {  0% {    transform: translateY(100%);    -webkit-transform: translateY(100%);  }  100% {    transform: translateY(0);    -webkit-transform: translateY(0);  }}@keyframes __universal_actionsheet_slideOut {  0% {    transform: translateY(0);    -webkit-transform: translateY(0);  }  100% {    transform: translateY(100%);    -webkit-transform: translateY(100%);  }}@keyframes __universal_actionsheet_fadeIn {  0% {    opacity: 0;  }  100% {    opacity: .6;  }}@keyframes __universal_actionsheet_fadeOut {  0% {    opacity: .6;  }  100% {    opacity: 0;  }}
+  </style>
+  <div>
+    <div
+      class="__universal_actionsheet_mask"
+      style="animation-name: __universal_actionsheet_fadeIn;"
+    />
+    <div
+      class="__universal_actionsheet"
+      style="animation-name: __universal_actionsheet_slideIn;"
+    >
+      <div
+        class="__universal_actionsheet_item"
+        tabindex="0"
+      >
+        ccc
+      </div>
+      <div
+        class="__universal_actionsheet_item"
+        tabindex="1"
+      >
+        ddd
+      </div>
+      <div
+        class="__universal_actionsheet_cancel"
+        tabindex="-1"
+      >
+        取消
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Test Platform API: actionSheet Test container: web 4`] = `
+<body>
+  <style>
+    .__universal_actionsheet {  position: fixed;  left: 0;  right: 0;  bottom: 0;  background: #fff;  color: #000;  box-sizing: border-box;  border-radius: 12px 12px 0 0;  transform: translateY(100%);  -webkit-transform: translateY(100%);  z-index: 9999;  outline: none;  text-align: center;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_actionsheet_mask {  content: "";  position: fixed;  left: 0;  right: 0;  bottom: 0;  top: 0;  margin: auto;  display: block;  z-index: 9999;  background: #000;  opacity: 0;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_actionsheet_item {  padding: 16px 0;  border-bottom: 1px solid #eee;}.__universal_actionsheet_cancel {  padding: 16px 0;  border-top: 10px solid #eee;}@keyframes __universal_actionsheet_slideIn {  0% {    transform: translateY(100%);    -webkit-transform: translateY(100%);  }  100% {    transform: translateY(0);    -webkit-transform: translateY(0);  }}@keyframes __universal_actionsheet_slideOut {  0% {    transform: translateY(0);    -webkit-transform: translateY(0);  }  100% {    transform: translateY(100%);    -webkit-transform: translateY(100%);  }}@keyframes __universal_actionsheet_fadeIn {  0% {    opacity: 0;  }  100% {    opacity: .6;  }}@keyframes __universal_actionsheet_fadeOut {  0% {    opacity: .6;  }  100% {    opacity: 0;  }}
+  </style>
+</body>
+`;
+
+exports[`Test Platform API: actionSheet Test container: web 5`] = `
+<body>
+  <style>
+    .__universal_actionsheet {  position: fixed;  left: 0;  right: 0;  bottom: 0;  background: #fff;  color: #000;  box-sizing: border-box;  border-radius: 12px 12px 0 0;  transform: translateY(100%);  -webkit-transform: translateY(100%);  z-index: 9999;  outline: none;  text-align: center;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_actionsheet_mask {  content: "";  position: fixed;  left: 0;  right: 0;  bottom: 0;  top: 0;  margin: auto;  display: block;  z-index: 9999;  background: #000;  opacity: 0;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_actionsheet_item {  padding: 16px 0;  border-bottom: 1px solid #eee;}.__universal_actionsheet_cancel {  padding: 16px 0;  border-top: 10px solid #eee;}@keyframes __universal_actionsheet_slideIn {  0% {    transform: translateY(100%);    -webkit-transform: translateY(100%);  }  100% {    transform: translateY(0);    -webkit-transform: translateY(0);  }}@keyframes __universal_actionsheet_slideOut {  0% {    transform: translateY(0);    -webkit-transform: translateY(0);  }  100% {    transform: translateY(100%);    -webkit-transform: translateY(100%);  }}@keyframes __universal_actionsheet_fadeIn {  0% {    opacity: 0;  }  100% {    opacity: .6;  }}@keyframes __universal_actionsheet_fadeOut {  0% {    opacity: .6;  }  100% {    opacity: 0;  }}
+  </style>
+  <div>
+    <div
+      class="__universal_actionsheet_mask"
+      style="animation-name: __universal_actionsheet_fadeIn;"
+    />
+    <div
+      class="__universal_actionsheet"
+      style="animation-name: __universal_actionsheet_slideIn;"
+    >
+      <div
+        class="__universal_actionsheet_item"
+        tabindex="0"
+      >
+        eee
+      </div>
+      <div
+        class="__universal_actionsheet_item"
+        tabindex="1"
+      >
+        fff
+      </div>
+      <div
+        class="__universal_actionsheet_cancel"
+        tabindex="-1"
+      >
+        取消
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Test Platform API: actionSheet Test container: web 6`] = `
+<body>
+  <style>
+    .__universal_actionsheet {  position: fixed;  left: 0;  right: 0;  bottom: 0;  background: #fff;  color: #000;  box-sizing: border-box;  border-radius: 12px 12px 0 0;  transform: translateY(100%);  -webkit-transform: translateY(100%);  z-index: 9999;  outline: none;  text-align: center;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_actionsheet_mask {  content: "";  position: fixed;  left: 0;  right: 0;  bottom: 0;  top: 0;  margin: auto;  display: block;  z-index: 9999;  background: #000;  opacity: 0;  animation-duration: .3s;  animation-fill-mode: both;}.__universal_actionsheet_item {  padding: 16px 0;  border-bottom: 1px solid #eee;}.__universal_actionsheet_cancel {  padding: 16px 0;  border-top: 10px solid #eee;}@keyframes __universal_actionsheet_slideIn {  0% {    transform: translateY(100%);    -webkit-transform: translateY(100%);  }  100% {    transform: translateY(0);    -webkit-transform: translateY(0);  }}@keyframes __universal_actionsheet_slideOut {  0% {    transform: translateY(0);    -webkit-transform: translateY(0);  }  100% {    transform: translateY(100%);    -webkit-transform: translateY(100%);  }}@keyframes __universal_actionsheet_fadeIn {  0% {    opacity: 0;  }  100% {    opacity: .6;  }}@keyframes __universal_actionsheet_fadeOut {  0% {    opacity: .6;  }  100% {    opacity: 0;  }}
+  </style>
+</body>
+`;
