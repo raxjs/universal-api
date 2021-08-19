@@ -1,7 +1,7 @@
 import { createPromisifyImpl, testPlatformAPI } from '@utils/__test__/util';
 
 testPlatformAPI('makePhoneCall', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
-  const mockMakePhoneCall = jest.fn(container === 'ali' ? undefined : createPromisifyImpl());
+  const mockMakePhoneCall = jest.fn(createPromisifyImpl());
 
   if (container === 'dingtalk') {
     globals.dd.showCallMenu = mockMakePhoneCall;
