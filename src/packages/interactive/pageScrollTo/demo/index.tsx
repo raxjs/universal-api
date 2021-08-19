@@ -22,10 +22,10 @@ const Index = () => {
   const positions = [300, 600, 900, 1200, 1500, 1800, 2100];
 
   return (
-    <View>
+    <View style={{ position: 'relative' }}>
       <View style={{ position: 'relative' }}>
         {positions.map(item => (
-          <View style={{ position: 'absolute', top: `${item}px`, fontSize: '13px', color: '#999' }}>{item}</View>
+          <View key={item} style={{ position: 'absolute', top: `${item}px`, fontSize: '13px', color: '#999' }}>{item}</View>
         ))}
       </View>
 
@@ -51,7 +51,7 @@ const Index = () => {
         });
         console.log('滚动完成');
       }}>
-        <Text>滚动到 .box 元素位置</Text>
+        <Text>滚动到 .box 元素位置 (需平台支持)</Text>
       </View>
       <View style={{
         ...styles.button,
