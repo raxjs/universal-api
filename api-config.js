@@ -171,7 +171,7 @@ module.exports = {
     path: 'src/packages/interactive/navigationBar/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.2',
+        version: '1.0.3',
         name: '@uni/navigation-bar',
       },
     ],
@@ -265,7 +265,7 @@ module.exports = {
     path: 'src/packages/media/audio/src/index.ts',
     pkgInfo: [
       {
-        version: '1.1.0',
+        version: '1.0.0',
         name: '@uni/audio',
       },
     ],
