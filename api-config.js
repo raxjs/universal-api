@@ -42,7 +42,7 @@ module.exports = {
     needCommonUtil: false,
     pkgInfo: [
       {
-        version: '1.0.5',
+        version: '1.0.6',
         name: '@uni/unit-tool',
         exports: '',
         dependencies: {
@@ -122,20 +122,8 @@ module.exports = {
     path: 'src/packages/interactive/actionSheet/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.7-beta',
+        version: '1.0.7',
         name: '@uni/action-sheet',
-        exports: {
-          '.': {
-            web: './es/web/index.js',
-            'wechat-miniprogram': './es/wechat-miniprogram/index.js',
-            'bytedance-microapp': './es/bytedance-microapp/index.js',
-            miniapp: './es/ali-miniapp/index.js',
-            'baidu-smartprogram': './es/baidu-smartprogram/index.js',
-            'kuaishou-miniprogram': './es/kuaishou-miniprogram/index.js',
-            default: './es/index.js',
-          },
-          './': './',
-        },
       },
     ],
   },
@@ -309,22 +297,10 @@ module.exports = {
     path: 'src/packages/media/video/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.5-beta1',
+        version: '1.0.6',
         name: '@uni/video',
         dependencies: {
-          '@uni/action-sheet': '^1.0.7-beta',
-        },
-        exports: {
-          '.': {
-            web: './es/web/index.js',
-            'wechat-miniprogram': './es/wechat-miniprogram/index.js',
-            'bytedance-microapp': './es/bytedance-microapp/index.js',
-            miniapp: './es/ali-miniapp/index.js',
-            'baidu-smartprogram': './es/baidu-smartprogram/index.js',
-            'kuaishou-miniprogram': './es/kuaishou-miniprogram/index.js',
-            default: './es/index.js',
-          },
-          './': './',
+          '@uni/action-sheet': '^1.0.7',
         },
       },
     ],

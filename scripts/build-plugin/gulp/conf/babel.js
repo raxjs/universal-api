@@ -53,6 +53,14 @@ module.exports = (isEs, isMain, aliasEntries) => {
             
               return sourcePath.replace(oriUtilsPath, pointRelative + '/' + newUtilsPath);
             }
+
+            // 替换内部依赖，加入index.js
+            const _oriPackagesPath = /@uni\/.*?\/lib\/.*/;
+            if (!isMain && sourcePath.match(_oriPackagesPath)) {
+              return sourcePath + '/index.js';
+            }
+
+            // 替换主包依赖为内联
             let res = sourcePath;
             const oriPackagesPath = '@uni/';
             if (isMain && sourcePath.indexOf(oriPackagesPath) !== -1) {
