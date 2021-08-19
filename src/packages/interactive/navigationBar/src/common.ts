@@ -34,3 +34,9 @@ export function normalizeSetNavigationBarColor(api: (args) => any, containerName
     return promisify(api)(styleOptions(styleIn(args, containerName), containerName));
   };
 }
+
+// export function normalizeGetMenuButtonBoundingClientRect(api: (args) => any, containerName: string) {
+//   return (args?) => {
+//     return promisify(api)(args);
+//   };
+// }

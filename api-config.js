@@ -185,6 +185,15 @@ module.exports = {
       },
     ],
   },
+  tabBar: {
+    path: 'src/packages/interactive/tabBar/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: '@uni/tab-bar',
+      },
+    ],
+  },
   // 'keyboard': {
   //   path: 'packages/interactive/keyboard/src/index.ts',
   //   pkgInfo: [
@@ -249,6 +258,15 @@ module.exports = {
         dependencies: {
           '@uni/video': '^1.0.5',
         },
+      },
+    ],
+  },
+  audio: {
+    path: 'src/packages/media/audio/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: '@uni/audio',
       },
     ],
   },
