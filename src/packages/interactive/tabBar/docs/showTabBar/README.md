@@ -67,7 +67,7 @@ export default () => (
   <iframe style={{
       boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
       width: '375px',
-      height: '700px'
+      height: '730px'
     }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/Home/index&topSlider=false'></iframe>
 );
 ```
