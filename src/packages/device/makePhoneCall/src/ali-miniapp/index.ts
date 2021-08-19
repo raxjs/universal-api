@@ -7,14 +7,10 @@ const makePhoneCall = (options: Options): void => {
   if (isDingdingMiniapp) {
     dd.showCallMenu(options);
   } else {
+    const { phoneNumber, ...ext } = options;
     my.makePhoneCall({
-      number: options?.phoneNumber,
-    });
-
-    // auto trigger success callback
-    setTimeout(() => {
-      // eslint-disable-next-line @typescript-eslint/dot-notation
-      options?.['success'](); // set resolved
+      ...ext,
+      number: phoneNumber,
     });
   }
 };
