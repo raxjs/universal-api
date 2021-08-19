@@ -5,7 +5,7 @@ testPlatformAPI('tabBar', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou',
 
   // TODO 临时模拟 window，待删除
   globals.window = {};
-  configAPI('createAudioContext', mockCreateAudioContext);
+  configAPI('createInnerAudioContext', mockCreateAudioContext);
 
   const { createAudioContext } = require('../src/index');
   await createAudioContext({
