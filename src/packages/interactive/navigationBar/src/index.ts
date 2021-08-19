@@ -51,7 +51,7 @@ export const getMenuButtonBoundingClientRect = () => {
   } else if (isBaiduSmartProgram) {
     return baiDuModule.getMenuButtonBoundingClientRect();
   } else {
-    throw new Error('Uni API：setNavigationBarTitle暂不支持');
+    throw new Error('Uni API：getMenuButtonBoundingClientRect暂不支持');
   }
 };
 

@@ -15,5 +15,27 @@
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
+  },
+  "tabBar": {
+    "textColor": "#999",
+    "selectedColor": "#666",
+    "backgroundColor": "#f8f8f8",
+    "items": [{
+      "pagePath": "pages/Home/index",
+      "name": "home"
+    }, {
+      "pagePath": "pages/tab-bar/index",
+      "name": "tabBar"
+    }],
+    "list": [
+      {
+        "pagePath": "pages/Home/index",
+        "text": "home"
+      },
+      {
+        "pagePath": "pages/tab-bar/index",
+        "text": "tabBar"
+      }
+    ]
   }
 }

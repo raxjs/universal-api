@@ -261,6 +261,15 @@ module.exports = {
       },
     ],
   },
+  audio: {
+    path: 'src/packages/media/audio/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.1.0',
+        name: '@uni/audio',
+      },
+    ],
+  },
   // navigate
   navigate: {
     path: 'src/packages/navigate/src/index.ts',

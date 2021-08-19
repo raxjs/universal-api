@@ -83,10 +83,10 @@ const Index = () => {
             <Text>获取胶囊按钮信息</Text>
           </View>
         </View>
-        <View>
+        <View style={{margin: '20rpx'}}>
           <Text>
-            {`胶囊信息\n` + Object.entries(menuButtonBoundingClientRect).map((array) => 
-              `${array?.[0]}`
+            {Object.entries(menuButtonBoundingClientRect).map((array) => 
+              `\n${array?.[0]}: ${array?.[1]}`
             )}
           </Text>
         </View>

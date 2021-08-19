@@ -15,7 +15,7 @@ export function normalizeShowTabBarOptions(api: (args) => any, containerName: st
 }
 
 /**
- * showTabBar api
+ * hideTabBar api
  * @param api
  * @param containerName
  * @returns
