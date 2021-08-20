@@ -88,6 +88,7 @@ class InnerAudioContext {
   }
 
   _start = (startTime) => {
+
     // 填充音频buffer数据
     // 创建播放对象节点
     this._source = this._singleAudioContext.createBufferSource();
@@ -143,7 +144,7 @@ class InnerAudioContext {
         this._events.emit('onError', e);
       });
 
-    console.log('currentTime', this.currentTime);
+    // console.log('currentTime', this.currentTime);
   };
 
   pause = () => {
@@ -156,7 +157,7 @@ class InnerAudioContext {
 
     this._currentTime = this._currentTime + this._singleAudioContext.currentTime - this._timeStamp;
     this._timeStamp = this._singleAudioContext.currentTime;
-    console.log('currentTime', this.currentTime);
+    // console.log('currentTime', this.currentTime);
   };
 
   stop = () => {
@@ -170,7 +171,7 @@ class InnerAudioContext {
       this._currentTime = this.startTime;
       this._timeStamp = this._singleAudioContext.currentTime;
 
-      console.log('currentTime', this.currentTime);
+      // console.log('currentTime', this.currentTime);
     } catch (e) {
       this._events.emit('onError', e);
     }
@@ -187,7 +188,7 @@ class InnerAudioContext {
       this._currentTime = value;
       this._timeStamp = this._singleAudioContext.currentTime;
 
-      console.log('currentTime', this.currentTime);
+      // console.log('currentTime', this.currentTime);
     } catch (e) {
       this._events.emit('onError', e);
     }
@@ -311,14 +312,9 @@ class InnerAudioContext {
   };
 }
 
-let singleInnerAudioContext: InnerAudioContext;
-
-// 使用单例返回全局唯一的录音管理器
+// 创建audio
 const createInnerAudioContext = (): any => {
-  if (singleInnerAudioContext) {
-    return singleInnerAudioContext;
-  }
-  singleInnerAudioContext = new InnerAudioContext();
+  let singleInnerAudioContext = new InnerAudioContext();
   return singleInnerAudioContext;
 };
 
