@@ -1,7 +1,7 @@
 import { sleep, testWebAPI } from '@/utils/__test__/util';
 import { DOMUtil } from '@/utils/__test__/web';
 
-testWebAPI('confirm', async () => {
+testWebAPI('crateAudioContext', async () => {
   window.AudioContext = jest.fn().mockImplementation(() => {
     return {
       createBufferSource: () => {},
@@ -11,7 +11,6 @@ testWebAPI('confirm', async () => {
 
   const { createAudioContext } = require('../src/index');
   const res = createAudioContext();
+  await sleep(300);
   expect(document.body).toMatchSnapshot();
-
-  await sleep(300); // await hide
 });
