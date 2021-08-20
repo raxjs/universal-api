@@ -1,5 +1,7 @@
-## 1.0.8 (2021-08-17)
+## 1.0.8 (2021-08-19)
+
 ### Features
+* 增加 `switchTab` API
 * exports 规则增加对百度和快手小程序的支持
 
 ## 1.0.7 (2021-08-11)
@@ -38,7 +40,7 @@
 
 ### Features
 
-* 剔除 Babel/runtime-corejs3 
+* 剔除 Babel/runtime-corejs3
 * 新增支持 webpack5 exports ([a113f40](https://github.com/raxjs/universal-api/commit/a113f4034a35c2d5325536026d825175aa889dfd))
 
 ## 1.0.1 (2021-04-07)

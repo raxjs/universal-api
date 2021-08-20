@@ -275,7 +275,7 @@ module.exports = {
     path: 'src/packages/navigate/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.8',
+        version: '1.0.8-beta',
         name: '@uni/navigate',
       },
     ],
@@ -320,6 +320,26 @@ module.exports = {
         dependencies: {
           '@uni/action-sheet': '^1.0.7',
         },
+      },
+    ],
+  },
+  // makePhoneCall
+  makePhoneCall: {
+    path: 'src/packages/device/makePhoneCall/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0-beta.0',
+        name: '@uni/make-phone-call',
+      },
+    ],
+  },
+  // pageScrollTo
+  pageScrollTo: {
+    path: 'src/packages/interactive/pageScrollTo/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0-beta.0',
+        name: '@uni/page-scroll-to',
       },
     ],
   },

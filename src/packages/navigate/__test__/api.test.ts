@@ -5,12 +5,14 @@ testPlatformAPI('navigate', ['wechat', 'ali', 'bytedance', 'kuaishou', 'baidu'],
   const mockBack = jest.fn(createPromisifyImpl());
   const mockReLaunch = jest.fn(createPromisifyImpl());
   const mockReplace = jest.fn(createPromisifyImpl());
+  const mockSwitchTab = jest.fn(createPromisifyImpl());
   configAPI('navigateTo', mockPush);
   configAPI('navigateBack', mockBack);
   configAPI('reLaunch', mockReLaunch);
   configAPI('redirectTo', mockReplace);
+  configAPI('switchTab', mockSwitchTab);
 
-  const { push, back, reLaunch, replace } = require('../src/index');
+  const { push, back, reLaunch, replace, switchTab } = require('../src/index');
 
   await push({ url: 'abc' });
   expect(mockPush.mock.calls.length).toBe(1);
@@ -26,4 +28,8 @@ testPlatformAPI('navigate', ['wechat', 'ali', 'bytedance', 'kuaishou', 'baidu'],
   await replace({ url: 'ghi' });
   expect(mockReplace.mock.calls.length).toBe(1);
   expect(mockReplace.mock.calls[0][0].url).toBe('ghi');
+
+  await switchTab({ url: 'jkl' });
+  expect(mockSwitchTab.mock.calls.length).toBe(1);
+  expect(mockSwitchTab.mock.calls[0][0].url).toBe('jkl');
 });
