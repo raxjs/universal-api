@@ -1,7 +1,7 @@
 import { ChooseVideoOptions } from '../types';
 import { CONTAINER_NAME } from '@utils/constant';
 import { normalize } from '../common';
-import chooseMedia from '@uni/video/lib/web/chooseMedia';
+import chooseMedia from './chooseMedia';
 
 const chooseVideo = normalize.chooseVideo((args: ChooseVideoOptions = {}) => {
   const { success = () => {}, fail = () => {}, complete = () => {} } = args;

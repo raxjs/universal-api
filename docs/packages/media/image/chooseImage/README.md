@@ -99,6 +99,12 @@ image.chooseImage({
 | tempFilePaths | `Array<string>`  | 图片的本地临时文件路径列表，h5为base64图片数据列表 |
 | tempFiles | `Array<Object>` | 图片的本地临时文件列表 |
 
+#### 不通用返回参数
+
+| 成员 | 类型 | 描述 | 支持 |
+| --- | --- | --- | --- |
+| files | `Array<Object>` | 图片的 File 对象 | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> |
+
 ##### res.tempFiles 的结构
 
 | 成员 | 类型 | 描述 |

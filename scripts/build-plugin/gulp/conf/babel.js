@@ -55,10 +55,18 @@ module.exports = (isEs, isMain, aliasEntries) => {
             }
 
             // 替换内部依赖，加入index.js
-            const _oriPackagesPath = /@uni\/.*?\/lib\/.*/;
-            if (!isMain && sourcePath.match(_oriPackagesPath)) {
-              return sourcePath + '/index.js';
+            
+            if (!isMain && sourcePath.indexOf('.js') == -1) {
+              const _oriPackagesPath = /@uni\/.*?\/(lib|es|dist)\/.*?\/.+/;
+              if (sourcePath.match(_oriPackagesPath)) {
+                return sourcePath + '.js';
+              }
+              const _oriPackagesPath2 = /^@uni\/.*?\/(lib|es|dist)\/[^\/]+$/;
+              if (sourcePath.match(_oriPackagesPath2)) {
+                return sourcePath + '/index.js';
+              }
             }
+            
 
             // 替换主包依赖为内联
             let res = sourcePath;
