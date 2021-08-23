@@ -6,7 +6,7 @@
 # showTabBar
 
 
-[![npm](https://img.shields.io/npm/v/@uni/navigation-bar.svg)](https://www.npmjs.com/package/@uni/tab-bar)
+[![npm](https://img.shields.io/npm/v/@uni/tab-bar.svg)](https://www.npmjs.com/package/@uni/tab-bar)
 
 显示 tabBar 。
 

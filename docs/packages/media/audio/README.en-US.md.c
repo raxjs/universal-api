@@ -7,7 +7,7 @@
 # createAudioContext
 
 
-[![npm](https://img.shields.io/npm/v/@uni/recorder.svg)](https://www.npmjs.com/package/@uni/recorder)
+[![npm](https://img.shields.io/npm/v/@uni/audio.svg)](https://www.npmjs.com/package/@uni/audio)
 
 API to create and return audio (corresponding to background audio) AudioContext object in the applet. Also known as "foreground audio", the playback stops when the user leaves the page.
 

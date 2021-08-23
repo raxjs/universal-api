@@ -7,7 +7,7 @@
 # createAudioContext
 
 
-[![npm](https://img.shields.io/npm/v/@uni/recorder.svg)](https://www.npmjs.com/package/@uni/recorder)
+[![npm](https://img.shields.io/npm/v/@uni/audio.svg)](https://www.npmjs.com/package/@uni/audio)
 
 在小程序内创建并返回内部音频（与背景音频相对应） audioContext 对象的 API。又称“前景音频”，用户离开页面即停止播放。
 
