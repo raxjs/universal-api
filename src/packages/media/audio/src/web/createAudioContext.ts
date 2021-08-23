@@ -14,6 +14,9 @@ class InnerAudioContext {
   private _isPlaying = false;
   private _currentTime = 0;
   private _timeStamp = 0;
+  private _loop = false;
+  private _volume = 1;
+  private _playbackRate = 1;
   constructor() {
     // super();
 
@@ -57,6 +60,7 @@ class InnerAudioContext {
 
   set loop(value) {
     this._source.loop = value;
+    this._loop = value;
   }
 
   get duration() {
@@ -77,6 +81,7 @@ class InnerAudioContext {
 
   set volume(value) {
     this._gainNode.gain.value = value;
+    this._volume = value;
   }
 
   get playbackRate() {
@@ -85,10 +90,10 @@ class InnerAudioContext {
 
   set playbackRate(value) {
     this._source.playbackRate.value = value;
+    this._playbackRate = value;
   }
 
   _start = (startTime) => {
-
     // 填充音频buffer数据
     // 创建播放对象节点
     this._source = this._singleAudioContext.createBufferSource();
@@ -97,9 +102,9 @@ class InnerAudioContext {
     // this.addEventListener('onPaly', this.onPaly);
     this._source.buffer = this._buffer;
     // console.log('buffer', this._buffer);
-    this._source.loop = this.loop;
-    this._source.playbackRate.value = this.playbackRate;
-    this._gainNode.gain.value = this.volume;
+    this._source.loop = this._loop;
+    this._source.playbackRate.value = this._playbackRate;
+    this._gainNode.gain.value = this._volume;
     this._source.onended = () => this._events.emit('onEnded');
     // 连接节点对象
     this._source.connect(this._gainNode);
