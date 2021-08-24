@@ -6,7 +6,7 @@ title: subscribeMessage
 
 # subscribeMessage 
 
-[![npm](https://img.shields.io/npm/v/@uni/subscribeMessage.svg)](https://www.npmjs.com/package/@uni/subscribeMessage)
+[![npm](https://img.shields.io/npm/v/@uni/subscribe-message.svg)](https://www.npmjs.com/package/@uni/subscribe-message)
 
 
 Bring up the client applet subscription message interface, and return the user's operation result of subscribing to the message. When the user selects "Always keep the above selections and do not ask again" in the subscription panel, the template message will be added to the user's applet settings page, and the user's subscription status to the relevant template message can be obtained through the wx.getSetting interface .
@@ -103,7 +103,7 @@ export default () => (
       boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
       width: '375px',
       height: '700px'
-    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/subscribeMessage/index&topSlider=false'></iframe>
+    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/subscribe-message/index&topSlider=false'></iframe>
 );
 ```
 
