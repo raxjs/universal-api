@@ -35,8 +35,8 @@ makePhoneCall({
 | ------------------ | -------- | ------------ | ------- | ------- |
 | options            | `object` |  函数参数  |     -     | - |
 | options.phoneNumber    | `string` | 电话号码 | - | 是 |
-| options.code (**仅钉钉可用**) | `string` | 国家代号，中国是+86 | - | 否 |
-| options.showDingCall (**仅钉钉可用**) | `boolean` | 是否显示钉钉电话 | - | 否 |
+| options.code (**仅支持钉钉小程序**) | `string` | 国家代号，中国是+86 | - | 否 |
+| options.showDingCall (**仅支持钉钉小程序**) | `boolean` | 是否显示钉钉电话 | - | 否 |
 
 
 </div>

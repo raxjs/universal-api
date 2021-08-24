@@ -1,4 +1,4 @@
-# navigate 
+# navigate
 [![npm](https://img.shields.io/npm/v/@uni/navigate.svg)](https://www.npmjs.com/package/@uni/navigate)
 
 Route navigation capability implementation.
@@ -63,7 +63,7 @@ navigate.reLaunch({
 #### Arguments
 | Property         | Type      | Description                                                                        | required | Default |
 | ---------------- | --------- | ---------------------------------------------------------------------------------- | :------: | :-----: |
-| options          | `object`  | Pop function arguments                                                             |  false   |    -    | 
+| options          | `object`  | Pop function arguments                                                             |  false   |    -    |
 | options.success | `Function`  | The callback function for a successful API call | false | - |
 | options.fail | `Function`  | The callback function for a failed API call | false | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | 否 | - |
@@ -100,6 +100,18 @@ navigate.reLaunch({
 | options.success | `Function`  | The callback function for a successful API call | false | - |
 | options.fail | `Function`  | The callback function for a failed API call | false | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | 否 | - |
+
+### `switchTab(options)`
+Does not support web
+
+### Arguments
+| Property         | Type      | Description  | required | Default |
+| ---------------- | --------- | ------ | :---: | :----: |
+| options          | `object`  | Function options    |  Yes   |   -    |
+| options.url      | `string`  | Page url  |  Yes   |   -    |
+| options.success | `Function`  | Callback on success | No | - |
+| options.fail | `Function`  | Callback on fail | No | - |
+| options.complete | `Function`  | Callback on complete | No | - |
 
 
 ```jsx | inline
