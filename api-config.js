@@ -358,7 +358,7 @@ module.exports = {
     pkgInfo: [
       {
         version: '1.0.0',
-        name: '@uni/subscribeMessage',
+        name: '@uni/subscribe-message',
       },
     ],
   },

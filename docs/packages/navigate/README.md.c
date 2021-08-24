@@ -99,6 +99,19 @@ navigate.reLaunch({
 | options.complete | `Function`  | 结束的回调 | 否 | - |
 
 
+### `switchTab(options)`
+不支持 web 端
+
+## 参数
+| 成员             | 类型      | 描述    | 必选  | 默认值 |
+| ---------------- | --------- | ------ | :---: | :----: |
+| options          | `object`  | 函数参数    |  是   |   -    |
+| options.url      | `string`  | 页面 URL.  |  是   |   -    |
+| options.success | `Function`  | 成功的回调 | 否 | - |
+| options.fail | `Function`  | 失败的回调 | 否 | - |
+| options.complete | `Function`  | 结束的回调 | 否 | - |
+
+
 ```jsx | inline
   import React from 'react';
   export default class Home extends React.Component {

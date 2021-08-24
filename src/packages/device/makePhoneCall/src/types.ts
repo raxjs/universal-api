@@ -4,4 +4,7 @@ export interface Options extends Uni.COptions {
   phoneNumber: string;
   code?: string; // (Only dingtalk) International telephone code, china is `+86`
   showDingCall?: boolean; // (Only dingtalk) Whether to show the ding call
+  success?: (res?: any) => void;
+  fail?: (err?: any) => void;
+  complete?: (res?: any) => void;
 }

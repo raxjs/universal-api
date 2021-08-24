@@ -6,7 +6,7 @@ title: subscribeMessage
 
 # subscribeMessage 
 
-[![npm](https://img.shields.io/npm/v/@uni/subscribeMessage.svg)](https://www.npmjs.com/package/@uni/subscribeMessage)
+[![npm](https://img.shields.io/npm/v/@uni/subscribe-message.svg)](https://www.npmjs.com/package/@uni/subscribe-message)
 
 
 调起客户端小程序订阅消息界面，返回用户订阅消息的操作结果。当用户勾选了订阅面板中的“总是保持以上选择，不再询问”时，模板消息会被添加到用户的小程序设置页，通过 wx.getSetting 接口可获取用户对相关模板消息的订阅状态。
@@ -103,7 +103,7 @@ export default () => (
       boxShadow: '0 2px 15px rgba(0,0,0,0.1)',
       width: '375px',
       height: '700px'
-    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/subscribeMessage/index&topSlider=false'></iframe>
+    }} src='https://herbox-embed.alipay.com/p/uni/uni?previewZoom=100&view=preview&defaultPage=pages/subscribe-message/index&topSlider=false'></iframe>
 );
 ```
 

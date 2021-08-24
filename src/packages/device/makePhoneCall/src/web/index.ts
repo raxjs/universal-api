@@ -20,8 +20,7 @@ const makePhoneCall = (options: Options): void => {
       } catch (e) {
         // ignore
       } finally {
-        // eslint-disable-next-line @typescript-eslint/dot-notation
-        options?.['success'](); // set resolved
+        options?.success(); // set resolved
       }
     }, 0);
   }, 0);
