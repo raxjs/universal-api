@@ -31,13 +31,12 @@ testWebAPI('file', async (globals) => {
     this.onload?.();
   });
   const mockSetRequestHeader = jest.fn();
-  const mockGetAllResponseHeaders = jest.fn(() => 'x-aa: 1\r\nx-bb: 2');
   globals.FormData = window.FormData;
   globals.XMLHttpRequest = class {
     open = mockOpen;
     send = mockSend;
     setRequestHeader = mockSetRequestHeader;
-    getAllResponseHeaders = mockGetAllResponseHeaders;
+    getAllResponseHeaders = () => ('x-aa: 1\r\nx-bb: 2');
   };
 
   const file = Buffer.alloc(100);

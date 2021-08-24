@@ -101,6 +101,12 @@ video.chooseMedia({
 | tempFiles | `Array<Object>` | 本地临时文件列表 |  |
 | type | `string` | 文件类型，有效值有 image 、video | <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序" />  |
 
+#### 不通用返回参数
+
+| 成员 | 类型 | 描述 | 支持 |
+| --- | --- | --- | --- |
+| files | `Array<Object>` | File 对象 | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> |
+
 ##### tempFiles' structure
 
 | 成员 | 类型 | 描述 | 支持度 |

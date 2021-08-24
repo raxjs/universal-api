@@ -18,7 +18,7 @@ const watcher = chokidar.watch([filePath, filePath2, filePath3], {
   persistent: true
 });
 watcher.on('change', filePath => {
-  let currentMd5 = md5(fs.readFileSync(filePath))
+  let currentMd5 = md5(fs.readFileSync(filePath, 'utf-8'))
   if (currentMd5 == preveMd5[filePath]){
       return;
   }

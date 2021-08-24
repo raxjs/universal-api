@@ -40,6 +40,13 @@ export interface IReLaunchOptions extends Uni.COptions {
   complete?: (res?: any) => void;
 }
 
+export interface ISwitchTabOptions extends Uni.COptions {
+  url: string;
+  success?: () => void;
+  fail?: (res: any) => void;
+  complete?: (res?: any) => void;
+}
+
 export interface INavigate extends Uni.COptions {
   push: (options: IPushOptions) => Promise<null>;
   go: (options: IGoOptions) => Promise<null>;

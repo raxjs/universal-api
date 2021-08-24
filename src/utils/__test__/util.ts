@@ -29,7 +29,9 @@ export function sleep(ms: number) {
 
 export function createPromisifyImpl(value: any = {}) {
   return (args) => {
-    args?.success(value);
+    setTimeout(() => {
+      args?.success?.(value);
+    }, 0);
   };
 }
 
@@ -61,6 +63,7 @@ export function testContainerAPI(
     const { window } = new JSDOM();
     map.web.window = window;
     map.web.document = window.document;
+
     // innerText implementation
     // @see https://github.com/jsdom/jsdom/issues/1245
     Object.defineProperty(window.HTMLElement.prototype, 'innerText', {
@@ -97,13 +100,15 @@ export function testContainerAPI(
     // set
     Object.assign(proxyGlobals, globals);
 
-    // callback
-    await callback(proxyGlobals);
-
-    // clear
-    Object.keys(proxyGlobals).forEach((k) => {
-      delete global[k];
-    });
+    try {
+      // callback
+      await callback(proxyGlobals);
+    } finally {
+      // clear
+      Object.keys(proxyGlobals).forEach((k) => {
+        delete global[k];
+      });
+    }
   });
 }
 

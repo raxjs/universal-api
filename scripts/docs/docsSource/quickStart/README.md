@@ -12,7 +12,23 @@ title: 快速开始
 
 ## 使用
 
-我们提供三种引用模式：
+我们提供两种引用模式：
+
+### 小包（推荐）
+精确引入，指哪打哪
+
+示例：
+```bash
+$ npm i @uni/storage
+```
+
+```js
+import { getStorageSync } from '@uni/storage';
+
+getStorageSync({key: 'key'});
+
+```
+
 ### 大包
 方便快捷，一次安装，多次使用
 
@@ -49,19 +65,5 @@ import {
 
 confirm({content: '显示模态框'});
 storage.getStorageSync({key: 'key'});
-
-```
-### 小包
-精确引入，指哪打哪
-
-示例：
-```bash
-$ npm i @uni/storage
-```
-
-```js
-import { getStorageSync } from '@uni/storage';
-
-getStorageSync({key: 'key'});
 
 ```

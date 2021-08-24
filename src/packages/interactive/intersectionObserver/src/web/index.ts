@@ -1,7 +1,7 @@
 import { CreateIntersectionObserver, OPTIONS, RECT, CallbackOptions } from '../types';
 
 function buildMarginStr(margins: RECT): string {
-  return `${margins.top }px ${ margins.right }px ${ margins.bottom }px ${ margins.left }px`;
+  return `${Number(margins.top) || 0 }px ${ Number(margins.right) || 0 }px ${ Number(margins.bottom) || 0 }px ${ Number(margins.left) || 0 }px`;
 }
 
 function IntersectionObservers(options?: OPTIONS) {

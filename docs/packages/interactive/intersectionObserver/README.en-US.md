@@ -1,7 +1,7 @@
 # intersectionObserver 
 
 
-[![npm](https://img.shields.io/npm/v/@uniintersectionObserver.svg)](https://www.npmjs.com/package/@uni/intersection-observer)
+[![npm](https://img.shields.io/npm/v/@uni/intersection-observer.svg)](https://www.npmjs.com/package/@uni/intersection-observer)
 
 Return An IntersectionObserver object that infers whether and how likely certain nodes are visible to users.
 
@@ -27,10 +27,7 @@ $ npm install @uni/apis --save
 import createIntersectionObserver from '@uni/intersection-observer';
 
 const intersectionObserver = createIntersectionObserver({
-  component: null,
-  options: {
-    thresholds: [0]
-  }
+  thresholds: [0]
 });
 
 intersectionObserver.relativeTo('.box').observe('.circle', res => {
@@ -44,9 +41,7 @@ You can also import from the big package：
 import { intersectionObserver } from '@uni/apis';
 
 const observer = intersectionObserver({
-  options: {
-    thresholds: [0]
-  }
+  thresholds: [0]
 });
 
 observer.relativeTo('.box').observe('.circle', res => {
@@ -56,7 +51,7 @@ observer.relativeTo('.box').observe('.circle', res => {
 
 ## Methods
 
-### `createIntersectionObserver(component, options)`
+### `createIntersectionObserver(options, context?)`
 
 #### Arguments
 
@@ -85,10 +80,10 @@ Uses a selector to specify a node as one of the reference areas.
 | --- | --- | --- | --- | --- |
 | selector | `string` | Selector | ✔️ | - |
 | margins | `object`  | Expands/Contracts the border of the layout area of the reference node. | ✘ | - |
-| margins.left | `number` | Left border of the node layout area | ✘ | - |
-| margins.top | `number` | Upper border of the node layout area | ✘ | - |
-| margins.right | `number` |  Right border of the node layout area | ✘ | - |
-| margins.bottom | `number` | Lower border of the node layout area | ✘ | - |
+| margins.left | `number` | Left border of the node layout area | ✘ | 0 |
+| margins.top | `number` | Upper border of the node layout area | ✘ | 0 |
+| margins.right | `number` |  Right border of the node layout area | ✘ | 0 |
+| margins.bottom | `number` | Lower border of the node layout area | ✘ | 0 |
 
 #### Return
 
@@ -106,10 +101,10 @@ Specifies the page display area as one of the reference areas.
 | Property | Type | Description | required | Default |
 | --- | --- | --- | --- | --- |
 | margins | `object`  | Expands/Contracts the border of the layout area of the reference node. | ✘ | - |
-| margins.left | `number` | Left border of the node layout area | ✘ | - |
-| margins.top | `number` | Upper border of the node layout area | ✘ | - |
-| margins.right | `number` |  Right border of the node layout area | ✘ | - |
-| margins.bottom | `number` | Lower border of the node layout area | ✘ | - |
+| margins.left | `number` | Left border of the node layout area | ✘ | 0 |
+| margins.top | `number` | Upper border of the node layout area | ✘ | 0 |
+| margins.right | `number` |  Right border of the node layout area | ✘ | 0 |
+| margins.bottom | `number` | Lower border of the node layout area | ✘ | 0 |
 
 #### Return
 

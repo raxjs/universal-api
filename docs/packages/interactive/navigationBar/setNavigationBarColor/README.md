@@ -11,7 +11,7 @@
 设置页面导航条颜色。
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
-<div style="margin-right: 20px;max-width: 50%;">
+<div style="margin-right: 20px;">
 
 ## 支持
 
