@@ -17,6 +17,7 @@ module.exports = {
       'kuaishou-miniprogram': './es/kuaishou-miniprogram/index.js',
       "default": "./es/index.js",
     },
+    './lib/': './lib/',
     "./*": "./*"
   },
   'dependencies': {
