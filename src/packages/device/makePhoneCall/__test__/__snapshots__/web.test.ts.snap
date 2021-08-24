@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Platform API: makePhoneCall Test container: web 1`] = `
+<body>
+  <a
+    href="tel:123"
+    style="display: none;"
+  >
+    tel:123
+  </a>
+</body>
+`;
+
+exports[`Test Platform API: makePhoneCall Test container: web 2`] = `<body />`;

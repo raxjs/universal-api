@@ -1,7 +1,7 @@
 # intersectionObserver 
 
 
-[![npm](https://img.shields.io/npm/v/@uniintersectionObserver.svg)](https://www.npmjs.com/package/@uni/intersection-observer)
+[![npm](https://img.shields.io/npm/v/@uni/intersection-observer.svg)](https://www.npmjs.com/package/@uni/intersection-observer)
 
 用于推断某些节点是否可以被用户看见、有多大比例可以被用户看见。
 
@@ -27,9 +27,7 @@ $ npm install @uni/apis --save
 import createIntersectionObserver from '@uni/intersection-observer';
 
 const intersectionObserver = createIntersectionObserver({
-  options: {
-    thresholds: [0]
-  }
+  thresholds: [0]
 });
 
 intersectionObserver.relativeTo('.box').observe('.circle', res => {
@@ -43,9 +41,7 @@ intersectionObserver.relativeTo('.box').observe('.circle', res => {
 import { intersectionObserver } from '@uni/apis';
 
 const observer = intersectionObserver({
-  options: {
-    thresholds: [0]
-  }
+  thresholds: [0]
 });
 
 observer.relativeTo('.box').observe('.circle', res => {
@@ -55,7 +51,7 @@ observer.relativeTo('.box').observe('.circle', res => {
 
 ## 方法
 
-### `createIntersectionObserver(component, options)`
+### `createIntersectionObserver(options, context?)`
 
 #### 参数
 
@@ -83,11 +79,11 @@ observer.relativeTo('.box').observe('.circle', res => {
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | selector | `string` | 选择器 | ✔️ | - |
-| margins | `object`  | 用来扩展（或收缩）参照节点布局区域的边界 | ✘ | - |
-| margins.left | `number` | 节点布局区域的左边界 | ✘ | - |
-| margins.top | `number` | 节点布局区域的上边界 | ✘ | - |
-| margins.right | `number` |  节点布局区域的右边界 | ✘ | - |
-| margins.bottom | `number` | 节点布局区域的下边界 | ✘ | - |
+| margins | `object`  | 用来扩展（或收缩）参照节点布局区域的边界 | ✘ | 0 |
+| margins.left | `number` | 节点布局区域的左边界 | ✘ | 0 |
+| margins.top | `number` | 节点布局区域的上边界 | ✘ | 0 |
+| margins.right | `number` |  节点布局区域的右边界 | ✘ | 0 |
+| margins.bottom | `number` | 节点布局区域的下边界 | ✘ | 0 |
 
 #### 返回
 
@@ -105,10 +101,10 @@ observer.relativeTo('.box').observe('.circle', res => {
 | 成员 | 类型 | 描述 | 必选 | 默认值 |
 | --- | --- | --- | --- | --- |
 | margins | `object`  | 用来扩展（或收缩）参照节点布局区域的边界 | ✘ | - |
-| margins.left | `number` | 节点布局区域的左边界 | ✘ | - |
-| margins.top | `number` | 节点布局区域的上边界 | ✘ | - |
-| margins.right | `number` |  节点布局区域的右边界 | ✘ | - |
-| margins.bottom | `number` | 节点布局区域的下边界 | ✘ | - |
+| margins.left | `number` | 节点布局区域的左边界 | ✘ | 0 |
+| margins.top | `number` | 节点布局区域的上边界 | ✘ | 0 |
+| margins.right | `number` |  节点布局区域的右边界 | ✘ | 0 |
+| margins.bottom | `number` | 节点布局区域的下边界 | ✘ | 0 |
 
 #### 返回
 

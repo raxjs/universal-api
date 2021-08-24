@@ -5,6 +5,8 @@ testPlatformAPI('navigationBar', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kua
   const mockSetNavigationBarColor = jest.fn(createPromisifyImpl());
   const mockSetNavigationBarTitle = jest.fn(createPromisifyImpl());
 
+  const mockGetMenuButtonBoundingClientRect = jest.fn();
+
   // TODO 临时模拟 window，待删除
   globals.window = {};
   if (isAliContainer(container)) {
@@ -12,9 +14,10 @@ testPlatformAPI('navigationBar', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kua
   } else {
     configAPI('setNavigationBarColor', mockSetNavigationBarColor);
     configAPI('setNavigationBarTitle', mockSetNavigationBarTitle);
+    configAPI('getMenuButtonBoundingClientRect', mockGetMenuButtonBoundingClientRect);
   }
 
-  const { setNavigationBarColor, setNavigationBarTitle } = require('../src/index');
+  const { setNavigationBarColor, setNavigationBarTitle, getMenuButtonBoundingClientRect } = require('../src/index');
   await setNavigationBarColor({
     backgroundColor: '#ff0000',
   });
@@ -33,5 +36,10 @@ testPlatformAPI('navigationBar', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kua
   } else {
     expect(mockSetNavigationBarTitle.mock.calls.length).toBe(1);
     expect(mockSetNavigationBarTitle.mock.calls[0][0].title).toBe('abc');
+  }
+
+  if (!isAliContainer(container)) {
+    await getMenuButtonBoundingClientRect();
+    expect(mockGetMenuButtonBoundingClientRect.mock.calls.length).toBe(1);
   }
 });

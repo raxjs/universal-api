@@ -106,6 +106,12 @@ video.chooseMedia({
 
 针对阿里小程序，若type为image，则tempFiles为chooseImage的格式，若type为video，则tempFiles为chooseVideo的格式
 
+#### 不通用返回参数
+
+| 成员 | 类型 | 描述 | 支持 |
+| --- | --- | --- | --- |
+| files | `Array<Object>` | File 对象 | <img alt="browser" src="https://gw.alicdn.com/tfs/TB1uYFobGSs3KVjSZPiXXcsiVXa-200-200.svg" width="25px" height="25px" title="h5" /> |
+
 ##### tempFiles 的结构
 
 | 成员 | 类型 | 描述 | 支持度 |

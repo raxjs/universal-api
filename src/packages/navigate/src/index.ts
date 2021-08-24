@@ -5,7 +5,7 @@ import bytedanceModule from './bytedance-microapp/index';
 import webModule from './web/index';
 import kuaiShouModule from './kuaishou-miniprogram/index';
 import baiDuModule from './baidu-smartprogram/index';
-import { IPushOptions, IGoOptions, IPopOptions, IReplaceOptions, IReLaunchOptions } from './types';
+import { IPushOptions, IGoOptions, IPopOptions, IReplaceOptions, IReLaunchOptions, ISwitchTabOptions } from './types';
 
 export const push = (options: IPushOptions) => {
   if (isWeb) {
@@ -21,9 +21,10 @@ export const push = (options: IPushOptions) => {
   } else if (isBaiduSmartProgram) {
     return baiDuModule.push(options);
   } else {
-    throw new Error('Uni API：navigate.push暂不支持');
+    throw new Error('Uni API：navigate.push 暂不支持');
   }
 };
+
 export const go = (options: IGoOptions) => {
   if (isWeb) {
     return webModule.go(options);
@@ -38,9 +39,10 @@ export const go = (options: IGoOptions) => {
   } else if (isBaiduSmartProgram) {
     return baiDuModule.go(options);
   } else {
-    throw new Error('Uni API：navigate.go暂不支持');
+    throw new Error('Uni API：navigate.go 暂不支持');
   }
 };
+
 export const back = (options?: IPopOptions) => {
   if (isWeb) {
     return webModule.back(options);
@@ -55,9 +57,10 @@ export const back = (options?: IPopOptions) => {
   } else if (isBaiduSmartProgram) {
     return baiDuModule.back(options);
   } else {
-    throw new Error('Uni API：navigate.back暂不支持');
+    throw new Error('Uni API：navigate.back 暂不支持');
   }
 };
+
 export const replace = (options: IReplaceOptions) => {
   if (isWeb) {
     return webModule.replace(options);
@@ -72,9 +75,10 @@ export const replace = (options: IReplaceOptions) => {
   } else if (isBaiduSmartProgram) {
     return baiDuModule.replace(options);
   } else {
-    throw new Error('Uni API：navigate.replace暂不支持');
+    throw new Error('Uni API：navigate.replace 暂不支持');
   }
 };
+
 export const reLaunch = (options: IReLaunchOptions) => {
   if (isWeb) {
     return webModule.reLaunch(options);
@@ -89,7 +93,25 @@ export const reLaunch = (options: IReLaunchOptions) => {
   } else if (isBaiduSmartProgram) {
     return baiDuModule.reLaunch(options);
   } else {
-    throw new Error('Uni API：navigate.reLaunch暂不支持');
+    throw new Error('Uni API：navigate.reLaunch 暂不支持');
+  }
+};
+
+export const switchTab = (options: ISwitchTabOptions) => {
+  if (isWeb) {
+    return webModule.switchTab(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.switchTab(options);
+  } else if (isWeChatMiniProgram) {
+    return weChatModule.switchTab(options);
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.switchTab(options);
+  } else if (isMiniApp) {
+    return aliMiniAppModule.switchTab(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.switchTab(options);
+  } else {
+    throw new Error('Uni API：navigate.switchTab 暂不支持');
   }
 };
 
@@ -97,6 +119,7 @@ export default {
   push,
   back,
   reLaunch,
+  switchTab,
   replace,
   go,
 };

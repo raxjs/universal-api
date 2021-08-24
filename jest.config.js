@@ -1,5 +1,8 @@
 const path = require('path');
 
+// only run tests for someone API that config from environment
+const { TEST_API } = process.env;
+
 const genNpmAliasMapper = () => {
   const config = require('./api-config');
   const mapper = {};
@@ -36,9 +39,9 @@ module.exports = {
     ...genNpmAliasMapper(),
   },
   testMatch: [
-    '**/__test__/**/*.test.{ts,tsx}',
+    TEST_API ? `**/${TEST_API}/__test__/**/*.test.{ts,tsx}` : '**/__test__/**/*.test.{ts,tsx}',
   ],
-  collectCoverage: true,
+  collectCoverage: false,
   coverageDirectory: '<rootDir>/coverage',
   collectCoverageFrom: [
     'src/packages/**/src/**/*.{ts,tsx}',
