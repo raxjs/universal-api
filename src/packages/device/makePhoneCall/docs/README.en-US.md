@@ -31,12 +31,12 @@ makePhoneCall({
 
 
 ## Arguments
-| Property       | Type     | Description       |  Default  |
-| ------------------ | -------- | ------------ | :-------: |
-| options            | `object` |  Function options  |     -     |
-| options.phoneNumber    | `string` | Phone number | - |
-| options.code (**Only dingtalk**) | `string` | International telephone code, china is `+86` | - |
-| options.showDingCall (**Only dingtalk**) | `boolean` | Whether to show the \`ding\` call | - |
+| Property       | Type     | Description       |  Default  | Required  |
+| ------------------ | -------- | ------------ | ------- | ------- |
+| options            | `object` |  Function options  |     -     | - |
+| options.phoneNumber    | `string` | Phone number | - | Yes |
+| options.code (**Only dingtalk**) | `string` | International telephone code, china is `+86` | - | No  |
+| options.showDingCall (**Only dingtalk**) | `boolean` | Whether to show the \`ding\` call | - |  No  |
 
 
 </div>

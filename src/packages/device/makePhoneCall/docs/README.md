@@ -31,12 +31,12 @@ makePhoneCall({
 
 
 ## 参数
-| 成员               | 类型     | 描述        |  默认值   |
-| ------------------ | -------- | ------------ | :-------: |
-| options            | `object` |  参数  |     -     |
-| options.phoneNumber    | `string` | 电话号码 | - |
-| options.code (**仅钉钉可用**) | `string` | 国家代号，中国是+86 | - |
-| options.showDingCall (**仅钉钉可用**) | `boolean` | 是否显示钉钉电话 | - |
+| 成员               | 类型     | 描述        |  默认值   |  必填 |
+| ------------------ | -------- | ------------ | ------- | ------- |
+| options            | `object` |  函数参数  |     -     | - |
+| options.phoneNumber    | `string` | 电话号码 | - | 是 |
+| options.code (**仅钉钉可用**) | `string` | 国家代号，中国是+86 | - | 否 |
+| options.showDingCall (**仅钉钉可用**) | `boolean` | 是否显示钉钉电话 | - | 否 |
 
 
 </div>
