@@ -59,7 +59,7 @@ export default () => (
 <div style="display: flex;margin-top: 50px;">
   <div>
     <img src="https://img.alicdn.com/imgextra/i3/O1CN015JYNlN1Nhl9FwpRcA_!!6000000001602-0-tps-644-618.jpg" width="220" height="200" />
-    <div style="text-align: center;">wechat miniprogram</div>
+    <div style="text-align: center;">微信小程序</div>
   </div>
 </div>
 
