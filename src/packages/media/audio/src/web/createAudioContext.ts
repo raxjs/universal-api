@@ -17,6 +17,7 @@ class InnerAudioContext {
   private _loop = false;
   private _volume = 1;
   private _playbackRate = 1;
+  private _eventDeleteCallback = {};
   constructor() {
     // super();
 
@@ -55,7 +56,7 @@ class InnerAudioContext {
   }
 
   get loop() {
-    return this._source.loop;
+    return this._source?.loop || this._loop;
   }
 
   set loop(value) {
@@ -64,11 +65,17 @@ class InnerAudioContext {
   }
 
   get duration() {
-    return this._buffer.duration;
+    return this._buffer?.duration || 0;
   }
 
   get currentTime() {
-    return this._currentTime + this._singleAudioContext.currentTime - this._timeStamp;
+    let res = this._currentTime + this._singleAudioContext.currentTime - this._timeStamp;
+    while (res > this.duration) {
+      res = res - this.duration;
+    }
+    this._currentTime = res;
+    this._timeStamp = this._singleAudioContext.currentTime;
+    return this._currentTime;
   }
 
   get paused() {
@@ -76,7 +83,7 @@ class InnerAudioContext {
   }
 
   get volume() {
-    return this._gainNode.gain.value;
+    return this._gainNode?.gain?.value || this._volume;
   }
 
   set volume(value) {
@@ -85,7 +92,7 @@ class InnerAudioContext {
   }
 
   get playbackRate() {
-    return this._source.playbackRate.value;
+    return this._source?.playbackRate?.value || this._playbackRate;
   }
 
   set playbackRate(value) {
@@ -172,6 +179,7 @@ class InnerAudioContext {
       this._timeStamp = this._singleAudioContext.currentTime;
       this._isPlaying = false;
       this._events.emit('onStop');
+      this._events.emit('onCanplay');
 
       this._currentTime = this.startTime;
       this._timeStamp = this._singleAudioContext.currentTime;
@@ -187,8 +195,10 @@ class InnerAudioContext {
       this._events.emit('onSeeking');
       value = value < 0 ? 0 : value;
       value = value > this.duration ? this.duration : value;
-      this._isPlaying && this._source.stop(0);
+      this._isPlaying = false;
+      this._source.stop(0);
       this._start(value);
+      this._isPlaying = true;
       this._events.emit('onSeeked');
       this._currentTime = value;
       this._timeStamp = this._singleAudioContext.currentTime;
@@ -209,111 +219,138 @@ class InnerAudioContext {
   };
 
   onCanplay = (callback = (e) => {}) => {
-    this._events.register('onCanplay', (e) => {
+    this._eventDeleteCallback[callback.toString()] = this._events.register('onCanplay', (e) => {
       // console.log('onCanplay');
       callback(e);
     });
   };
 
-  offCanplay = (callback = () => {}) => {
-    this._events.events.onCanplay.clear();
-    callback();
+  offCanplay = (callback?: (args?: any) => {}) => {
+    if (!callback) {
+      this._events.events?.onCanplay?.clear();
+      return;
+    }
+    this._eventDeleteCallback[callback.toString()] && this._eventDeleteCallback[callback.toString()]();
   };
 
   onPlay = (callback = (e) => {}) => {
-    this._events.register('onPlay', (e) => {
+    this._eventDeleteCallback[callback.toString()] = this._events.register('onPlay', (e) => {
       // console.log('onPlay');
       callback(e);
     });
   };
 
-  offPlay = (callback = () => {}) => {
-    this._events.events.onPlay.clear();
-    callback();
+  offPlay = (callback?: (args?: any) => {}) => {
+    if (!callback) {
+      this._events.events?.onPlay?.clear();
+      return;
+    }
+    this._eventDeleteCallback[callback.toString()] && this._eventDeleteCallback[callback.toString()]();
   };
 
   onPause = (callback = (e) => {}) => {
-    this._events.register('onPause', (e) => {
+    this._eventDeleteCallback[callback.toString()] = this._events.register('onPause', (e) => {
       // console.log('onPause');
       callback(e);
     });
   };
 
-  offPause = (callback = () => {}) => {
-    this._events.events.onPause.clear();
-    callback();
+  offPause = (callback?: (args?: any) => {}) => {
+    if (!callback) {
+      this._events.events?.onPause?.clear();
+      return;
+    }
+    this._eventDeleteCallback[callback.toString()] && this._eventDeleteCallback[callback.toString()]();
   };
 
   onStop = (callback = (e) => {}) => {
-    this._events.register('onStop', (e) => {
+    this._eventDeleteCallback[callback.toString()] = this._events.register('onStop', (e) => {
       // console.log('onStop');
       callback(e);
     });
   };
 
-  offStop = (callback = () => {}) => {
-    this._events.events.onStop.clear();
-    callback();
+  offStop = (callback?: (args?: any) => {}) => {
+    if (!callback) {
+      this._events.events?.onStop?.clear();
+      return;
+    }
+    this._eventDeleteCallback[callback.toString()] && this._eventDeleteCallback[callback.toString()]();
   };
 
   onEnded = (callback = (e) => {}) => {
-    this._events.register('onEnded', (e) => {
+    this._eventDeleteCallback[callback.toString()] = this._events.register('onEnded', (e) => {
       // console.log('onEnded');
       callback(e);
     });
   };
 
-  offEnded = (callback = () => {}) => {
-    this._events.events.onEnded.clear();
-    callback();
+  offEnded = (callback?: (args?: any) => {}) => {
+    if (!callback) {
+      this._events.events?.onEnded?.clear();
+      return;
+    }
+    this._eventDeleteCallback[callback.toString()] && this._eventDeleteCallback[callback.toString()]();
   };
 
   onError = (callback = (e) => {}) => {
-    this._events.register('onError', (e) => {
+    this._eventDeleteCallback[callback.toString()] = this._events.register('onError', (e) => {
       // console.log('onError222');
       callback(e);
     });
   };
 
-  offError = (callback = () => {}) => {
-    this._events.events.onError.clear();
-    callback();
+  offError = (callback?: (args?: any) => {}) => {
+    if (!callback) {
+      this._events.events?.onError?.clear();
+      return;
+    }
+    this._eventDeleteCallback[callback.toString()] && this._eventDeleteCallback[callback.toString()]();
   };
 
   onWaiting = (callback = (e) => {}) => {
-    this._events.register('onWaiting', (e) => {
+    this._eventDeleteCallback[callback.toString()] = this._events.register('onWaiting', (e) => {
       // console.log('onWaiting');
       callback(e);
     });
   };
 
-  offWaiting = (callback = () => {}) => {
-    this._events.events.onWaiting.clear();
-    callback();
+  offWaiting = (callback?: (args?: any) => {}) => {
+    if (!callback) {
+      this._events.events?.onWaiting?.clear();
+      return;
+    }
+    this._eventDeleteCallback[callback.toString()] && this._eventDeleteCallback[callback.toString()]();
   };
 
   onSeeking = (callback = (e) => {}) => {
-    this._events.register('onSeeking', (e) => {
+    this._eventDeleteCallback[callback.toString()] = this._events.register('onSeeking', (e) => {
       // console.log('onSeeking');
       callback(e);
     });
   };
 
-  offSeeking = (callback = () => {}) => {
-    this._events.events.onSeeking.clear();
-    callback();
+  offSeeking = (callback?: (args?: any) => {}) => {
+    if (!callback) {
+      this._events.events?.onSeeking?.clear();
+      return;
+    }
+    this._eventDeleteCallback[callback.toString()] && this._eventDeleteCallback[callback.toString()]();
   };
 
   onSeeked = (callback = (e) => {}) => {
-    this._events.register('onSeeked', (e) => {
+    this._eventDeleteCallback[callback.toString()] = this._events.register('onSeeked', (e) => {
       // console.log('onSeeked');
       callback(e);
     });
   };
 
-  offSeeked = (callback = () => {}) => {
-    this._events.events.onSeeked.clear();
-    callback();
+  offSeeked = (callback?: (args?: any) => {}) => {
+    if (!callback) {
+      this._events.events?.onSeeked?.clear();
+      return;
+    }
+    this._eventDeleteCallback[callback.toString()] && this._eventDeleteCallback[callback.toString()]();
   };
 }
 
