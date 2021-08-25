@@ -6,6 +6,7 @@ testWebAPI('systemInfo', async (globals) => {
   const { getInfoSync, getInfo } = require('../src/index');
 
   let info = getInfoSync();
+
   expect(info).toEqual(expect.objectContaining({
     pixelRatio: expect.any(Number),
     screenWidth: expect.any(Number),
