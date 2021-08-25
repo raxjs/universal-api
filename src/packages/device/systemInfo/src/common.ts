@@ -26,25 +26,20 @@ export const formatSystemInfo = (api) => {
   };
 };
 export const formatResult = (data: any) => {
-  const {
-    pixelRatio = 1,
-    screenWidth = 0,
-    screenHeight = 0,
-    windowWidth = 0,
-    windowHeight = 0,
-    language = '',
-    version = '',
-    platform = '',
-  } = data;
+  const defaultData = {
+    pixelRatio: 1,
+    screenWidth: 0,
+    screenHeight: 0,
+    windowWidth: 0,
+    windowHeight: 0,
+    language: '',
+    version: '',
+    platform: '',
+  };
   return {
-    pixelRatio,
-    screenWidth,
-    screenHeight,
-    windowWidth,
-    windowHeight,
-    language: formatLanguage(language),
-    version,
-    platform,
+    ...defaultData,
+    ...data,
+    language: data.language ? formatLanguage(data.language) : '',
   };
 };
 export const formatSystemInfoAsync = (api, containerName) => {
