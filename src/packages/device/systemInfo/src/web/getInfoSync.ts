@@ -9,6 +9,7 @@ function getPlatform() {
     if (/android/.test(navigator.userAgent.toLowerCase())) return 'Android';
     return platform;
   }
+  return '';
 }
 
 const getInfoSync = formatSystemInfo(() => {
