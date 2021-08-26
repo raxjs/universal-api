@@ -18,6 +18,7 @@ class InnerAudioContext {
   private _volume = 1;
   private _playbackRate = 1;
   private _eventDeleteCallback = {};
+  private _isWaiting = true;
   constructor() {
     // super();
 
@@ -122,6 +123,7 @@ class InnerAudioContext {
 
   _getData = () => {
     // console.log('get data start', this);
+    this._isWaiting = true;
     this._events.emit('onWaiting');
     const xhr = new XMLHttpRequest();
     xhr.open('GET', this._src, true);
@@ -130,6 +132,7 @@ class InnerAudioContext {
       this._singleAudioContext.decodeAudioData(xhr.response, (buffer) => {
         this._buffer = buffer;
         this._events.emit('onCanplay');
+        this._isWaiting = false;
         this.autoplay && this.play();
       });
     };
@@ -179,7 +182,7 @@ class InnerAudioContext {
       this._timeStamp = this._singleAudioContext.currentTime;
       this._isPlaying = false;
       this._events.emit('onStop');
-      this._events.emit('onCanplay');
+      !this._isWaiting && this._events.emit('onCanplay');
 
       this._currentTime = this.startTime;
       this._timeStamp = this._singleAudioContext.currentTime;
