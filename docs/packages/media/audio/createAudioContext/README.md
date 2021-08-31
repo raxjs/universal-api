@@ -30,9 +30,82 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
+//  基于rax
+import { createElement, useEffect, useState } from 'rax';
+import View from 'rax-view';
+import Text from 'rax-text';
 import { createAudioContext } from '@uni/audio';
 
-const audioContext = createAudioContext();
+export default () => {
+  const [audioContext, setAudioContext] = useState();
+  useEffect(()=> {
+    const audioContext = createAudioContext();
+  
+    audioContext.src = 'https://static.yximgs.com/udata/pkg/miniprogram-outer/test.m4a';
+    // 由于某些游览器的一些限制策略 Autoplay policy，h5可能并不会自动播放
+    audioContext.autoplay = true; 
+    
+    audioContext.onPlay(res => {
+      console.log('onPlay', res);
+    });
+  
+    audioContext.onPause(res => {
+      console.log('onPause', res);
+    });
+  
+    audioContext.onStop(res => {
+      console.log('onStop', res);
+    });
+  
+    audioContext.onEnded(res => {
+      console.log('onEnded', res);
+    });
+  
+    audioContext.onError(err => {
+      console.log('onError', err);
+    });
+  
+    audioContext.onWaiting(res => {
+      console.log('onWaiting', res);
+    });
+    setAudioContext(audioContext);
+  }, [])
+
+  const play = () => {
+    audioContext.play();
+  };
+  const pause = () => {
+    audioContext.pause();
+  };
+  const stop = () => {
+    audioContext.stop();
+  };
+  const seek = () => {
+    audioContext.seek(30);
+  };
+  const destroy = () => {
+    audioContext.destroy();
+  };
+  return (
+    <View>
+      <View onClick={play}>
+        <Text>play</Text>
+      </View>
+      <View onClick={pause}>
+        <Text>pause</Text>
+      </View>
+      <View onClick={stop}>
+        <Text>stop</Text>
+      </View>
+      <View onClick={seek}>
+        <Text>seek</Text>
+      </View>
+      <View onClick={destroy}>
+        <Text>destroy</Text>
+      </View>
+    </View>
+  )
+}
 
 ```
 
@@ -82,8 +155,8 @@ const audioContext = audio.createAudioContext();
 | 方法 | 参数 |  说明 |
 | -- | --- | --- | 
 | play | 无 | 播放。 | 
-| pause | 无 | 暂停。 | 
-| stop | 无 | 停止。 | 
+| pause | 无 | 暂停。暂停后的音频再播放会从暂停处开始播放。 | 
+| stop | 无 | 停止。停止后的音频再播放会从头开始播放。 | 
 | seek | position | 跳转到指定位置，单位为秒（s）。精确到小数点后 3 位，即支持 毫秒（ms） 级别精确度。 | 
 | destroy | 无 | 销毁当前实例。 | 
 | onCanplay |	Function callback | 监听前景音频进入可以播放状态，但不保证后面可以流畅播放。 | 
@@ -111,6 +184,37 @@ const audioContext = audio.createAudioContext();
 | 方法 | 参数 |  说明 | 支持 |
 | -- | --- | --- | --- |
 | onTimeUpdate |	Function callback | 监听前景音频播放进度更新事件。 | <img alt="miniApp" src="https://gw.alicdn.com/tfs/TB1bBpmbRCw3KVjSZFuXXcAOpXa-200-200.svg" width="25px" height="25px" title="阿里小程序" /> <img alt="wechatMiniprogram" src="https://img.alicdn.com/tfs/TB1slcYdxv1gK0jSZFFXXb0sXXa-200-200.svg" width="25px" height="25px" title="微信小程序" /> <img alt="bytedanceMicroApp" src="https://gw.alicdn.com/tfs/TB1jFtVzO_1gK0jSZFqXXcpaXXa-200-200.svg" width="25px" height="25px" title="字节跳动小程序" /> <img alt="baiduSmartProgram" src="https://img.alicdn.com/imgextra/i4/O1CN01jngdBb24yGv2Fu34G_!!6000000007459-2-tps-200-200.png" width="25px" height="25px" title="百度小程序" /> <img alt="kuaiShouMiniProgram" src="https://gw.alicdn.com/imgextra/i4/O1CN01kzmJMM24jcFEzp5Wv_!!6000000007427-2-tps-200-200.png" width="25px" height="25px" title="快手小程序" /> |
+
+
+## FQA
+
+* 同时播放时是不是只要create 2个AudioContext就可以?
+
+  是的
+
+* 多种特效音需要穿插播放时，是不是create 1个Audio，并且在播放时切换音乐就可以？
+
+  是的,参考demo
+
+```js
+
+  audioContext.src = 'https://static.yximgs.com/udata/pkg/miniprogram-outer/test.m4a';
+  
+  const change = () => {
+    // 新的src
+    audioContext.src = 'https://b.bdstatic.com/miniapp/images/yanyuan.mp3';
+    audioContext.onCanplay(res => {
+      console.log('onCanplay');
+      audioContext.play();
+      audioContext.offCanplay();
+    })
+  };
+
+```
+
+* 生命周期的钩子触发顺序是一致的吗？
+
+  onEnd事件：stop 时 h5 也会触发 onEnd 事件，小程序端不会。
 
 
 ```jsx | inline
