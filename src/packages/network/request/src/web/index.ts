@@ -3,6 +3,7 @@
 import {
   ERROR_REQUEST_TIMEOUT,
   ERROR_REQUEST_ABORT,
+  ERROR_REQUEST_JSONP,
   WebRequestOptions,
 } from '../types';
 import {
@@ -42,39 +43,58 @@ function requestXHR(options) {
     },
     ...options,
   };
+  let timer;
+  function noop() {}
+
   if (isJsonp) {
-    try {
-      (window[jsonpCallback] as any) = (data) => {
-        success && success({
-          data,
-          status: 200,
-          headers: {},
-        });
-        complete && complete({
-          data,
-          status: 200,
-          headers: {},
-        });
-      };
-      const scriptUrl = `${applyParamToURL(data, url)}`;
-      const script = document.createElement('script');
-      script.setAttribute('src', scriptUrl);
-      document.getElementsByTagName('head')[0].appendChild(script);
-    } catch (e) {
-      fail && fail(ERROR_REQUEST_TIMEOUT);
-      complete && complete(ERROR_REQUEST_TIMEOUT);
+    let script;
+    const target = document.getElementsByTagName('script')[0] || document.head;
+    const clean = () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+      window[jsonpCallback] = noop;
+      timer && clearTimeout(timer);
+    };
+    if (timeout) {
+      timer = setTimeout(() => {
+        clean();
+        fail && fail(ERROR_REQUEST_TIMEOUT);
+        complete && complete(ERROR_REQUEST_TIMEOUT);
+      }, timeout);
     }
+    window[jsonpCallback] = (data) => {
+      clean();
+      success && success({
+        data,
+        status: 200,
+        headers: {},
+      });
+      complete && complete({
+        data,
+        status: 200,
+        headers: {},
+      });
+    };
+    const scriptUrl = `${applyParamToURL(data, url)}`;
+    script = document.createElement('script');
+    script.setAttribute('src', scriptUrl);
+    script.parentNode.insertBefore(script, target);
+    script.onerror = () => {
+      fail && fail(ERROR_REQUEST_JSONP);
+      clean();
+    };
     return {
       abort: () => {},
     };
   }
-  let timer: number;
+
   let requestData: any;
   const xhr = new XMLHttpRequest();
+
   const clean = () => {
     clearTimeout(timer);
   };
-
   timer = window.setTimeout(
     () => {
       clean();
