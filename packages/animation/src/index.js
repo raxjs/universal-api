@@ -7,7 +7,7 @@ import transformEasing from './transformEasing';
 import formatBezier from './formatBezier';
 import { find, map, forEach } from './utils';
 
-const inMiniApp = isMiniApp || isWeChatMiniProgram || isByteDanceMicroApp;
+const inMiniApp = !isWeb && (isMiniApp || isWeChatMiniProgram || isByteDanceMicroApp);
 
 function getSupportBinding() {
   if (inMiniApp) {
