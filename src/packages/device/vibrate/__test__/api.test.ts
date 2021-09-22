@@ -1,26 +1,31 @@
-import { isAliContainer, testPlatformAPI } from '@utils/__test__/util';
+import { createPromisifyImpl, isAliContainer, testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('clipboard', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
-  const mockGetClipboard = jest.fn();
-  const mockSetClipboard = jest.fn();
+testPlatformAPI('vibrate', ['wechat', 'ali', 'dingtalk', 'bytedance', 'baidu'], async (container, globals, configAPI) => {
+  const mockVibrateShort = jest.fn(createPromisifyImpl());
+  const mockVibrateLong = jest.fn(createPromisifyImpl());
+  const mockAliVibrateLong = jest.fn();
+  const mockAliVibrateShort = jest.fn();
+  if (isAliContainer(container)) {
+    configAPI('vibrateShort', mockAliVibrateShort);
+    configAPI('vibrateLong', mockAliVibrateLong);
+  } else {
+    configAPI('vibrateShort', mockVibrateShort);
+    configAPI('vibrateLong', mockVibrateLong);
+  }
+  
+
+  const { vibrateShort, vibrateLong } = require('../src/index');
 
   if (isAliContainer(container)) {
-    configAPI('getClipboard', mockGetClipboard);
-    configAPI('setClipboard', mockSetClipboard);
+    vibrateShort({ success: () => {} });
+    expect(mockAliVibrateShort.mock.calls.length).toBe(1);
+    vibrateLong({ success: () => {} });
+    expect(mockAliVibrateLong.mock.calls.length).toBe(1);
   } else {
-    configAPI('getClipboardData', mockGetClipboard);
-    configAPI('setClipboardData', mockSetClipboard);
+    await vibrateShort({ success: () => {} });
+    expect(mockVibrateShort.mock.calls.length).toBe(1);
+  
+    await vibrateLong({ success: () => {} });
+    expect(mockVibrateLong.mock.calls.length).toBe(1);
   }
-
-  const { getClipboard, setClipboard } = require('../src/index');
-
-  getClipboard();
-  expect(mockGetClipboard.mock.calls.length).toBe(1);
-
-  setClipboard({ text: 'abc' });
-  expect(mockSetClipboard.mock.calls[0][0]).toMatchObject(
-    isAliContainer(container)
-      ? { text: 'abc' }
-      : { data: 'abc' },
-  );
 });

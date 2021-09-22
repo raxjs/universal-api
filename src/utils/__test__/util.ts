@@ -92,7 +92,6 @@ export function testContainerAPI(
       return Reflect.deleteProperty(target, p);
     },
   });
-
   test(`Test container: ${container}`, async () => {
     // 执行测试前清除 require 模块缓存
     jest.resetModules();

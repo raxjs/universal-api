@@ -11,7 +11,7 @@ export const vibrateLong = (args) => {
   if (isWeb) {
     return webModule.vibrateLong(args);
   } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.vibrateLong();
+    return kuaiShouModule.vibrateLong(args);
   } else if (isWeChatMiniProgram) {
     return weChatModule.vibrateLong(args);
   } else if (isByteDanceMicroApp) {
@@ -29,7 +29,7 @@ export const vibrateShort = (args) => {
   if (isWeb) {
     return webModule.vibrateShort(args);
   } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.vibrateShort();
+    return kuaiShouModule.vibrateShort(args);
   } else if (isWeChatMiniProgram) {
     return weChatModule.vibrateShort(args);
   } else if (isByteDanceMicroApp) {
