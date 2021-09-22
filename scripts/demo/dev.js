@@ -7,13 +7,16 @@ let preveMd5 = {};
 
 const root = process.cwd();
 const filePath = path.resolve(root, './src/packages/**/src/**');
-const filePath2 = path.resolve(root, './src/packages/**/**/src/*'); 
+const filePath2 = path.resolve(root, './src/packages/**/**/src/**/*');  
 console.log(`开始构建demo`);
+
 const watcher = chokidar.watch([filePath, filePath2], {
   ignored: /demo\/.*/, // ignore dotfiles
-  persistent: true
+  persistent: true,
+  // cwd: root,
 });
 console.log(`demo 执行中`);
+
 watcher.on('change', filePath => {
   let currentMd5 = md5(fs.readFileSync(filePath))
   if (currentMd5 == preveMd5[filePath]){
@@ -40,7 +43,8 @@ watcher.on('change', filePath => {
   //   cwd: path.resolve(root, `demos`),
   // });
   // shelljs.exec(`npm run build ${apiName} && cd demos && npm run build && cd ..`);
-})
+});
+
 spawn('npm', [
   'run',
   'start'

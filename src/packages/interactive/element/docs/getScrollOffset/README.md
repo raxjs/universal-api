@@ -12,6 +12,7 @@
 
 - 进入页面时获取节点对象实例，在 Page.onReady 中使用
 - 通过 setData 切换组件状态后获取节点实例，在 setData 回调中使用
+- 在 Rax 运行时场景下，可通过`window.addEventListener('setDataFinished', () => {});`的回调中调用，确保节点可以获取到
 
 <div style="display: flex;flex-direction: row;justify-content: space-between;">
 <div style="margin-right: 20px;max-width: 50%;">
@@ -33,9 +34,11 @@ import { getScrollOffset, getBoundingClientRect } from '@uni/element';
 
 function App() {
   useEffect(() => {
-    getScrollOffset('#container').then((ret) => {
-      const { scrollTop, scrollLeft } = ret[0];
-      console.log(scrollTop, scrollLeft);
+    window.addEventListener('setDataFinished', () => {
+      getBoundingClientRect('#container').then((ret) => {
+        const { width, height, top, left, right, bottom } = ret[0];
+        console.log(width, height, top, left, right, bottom);
+      });
     });
   }, []);
 

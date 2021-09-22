@@ -333,6 +333,16 @@ module.exports = {
       },
     ],
   },
+  // vibrate
+  vibrate: {
+    path: 'src/packages/device/vibrate/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: '@uni/vibrate',
+      },
+    ],
+  },
   // pageScrollTo
   pageScrollTo: {
     path: 'src/packages/interactive/pageScrollTo/src/index.ts',

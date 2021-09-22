@@ -33,10 +33,12 @@ import { createElement, useEffect, Fragment } from 'rax';
 import { getScrollOffset, getBoundingClientRect } from '@uni/element';
 
 function App() {
-  useEffect(() => {
-    getScrollOffset('#container').then((ret) => {
-      const { scrollTop, scrollLeft } = ret[0];
-      console.log(scrollTop, scrollLeft);
+    useEffect(() => {
+    window.addEventListener('setDataFinished', () => {
+      getScrollOffset('#container').then((ret) => {
+        const { scrollTop, scrollLeft } = ret[0];
+        console.log(scrollTop, scrollLeft);
+      });
     });
   }, []);
 
