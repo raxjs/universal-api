@@ -5,9 +5,9 @@ import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 import kuaiShouModule from './kuaishou-miniprogram/index';
 import baiDuModule from './baidu-smartprogram/index';
-
+import { Params, ShortPARAMS } from './types';
 // web 暂不支持这个功能
-export const vibrateLong = (args) => {
+export const vibrateLong = (args?: Params) => {
   if (isWeb) {
     return webModule.vibrateLong(args);
   } else if (isKuaiShouMiniProgram) {
@@ -25,7 +25,7 @@ export const vibrateLong = (args) => {
   }
 };
 
-export const vibrateShort = (args) => {
+export const vibrateShort = (args?: ShortPARAMS) => {
   if (isWeb) {
     return webModule.vibrateShort(args);
   } else if (isKuaiShouMiniProgram) {
