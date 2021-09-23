@@ -25,14 +25,16 @@ import { getScrollOffset, getBoundingClientRect } from '@uni/element';
 
 function App() {
   useEffect(() => {
-    getScrollOffset('#container').then((ret) => {
-      const { scrollTop, scrollLeft } = ret[0];
-      console.log(scrollTop, scrollLeft);
-    });
+    window.addEventListener('setDataFinished', () => {
+      getScrollOffset('#container').then((ret) => {
+        const { scrollTop, scrollLeft } = ret[0];
+        console.log(scrollTop, scrollLeft);
+      });
 
-    getBoundingClientRect('#container').then((ret) => {
-      const { width, height, top, left, right, bottom } = ret[0];
-      console.log(width, height, top, left, right, bottom);
+      getBoundingClientRect('#container').then((ret) => {
+        const { width, height, top, left, right, bottom } = ret[0];
+        console.log(width, height, top, left, right, bottom);
+      });
     });
   }, []);
 
