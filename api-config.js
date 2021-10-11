@@ -253,7 +253,7 @@ module.exports = {
     path: 'src/packages/media/image/src/index.ts',
     pkgInfo: [
       {
-        version: '1.1.1',
+        version: '1.1.2',
         name: '@uni/image',
         dependencies: {
           '@uni/video': '^1.0.5',
