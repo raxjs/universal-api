@@ -185,7 +185,7 @@ class InnerAudioContext {
     }
   };
 
-  seek = async (playbackTime) => {
+  seek = (playbackTime) => {
     try {
       if (playbackTime === undefined) return;
       if (playbackTime > this.duration) {
