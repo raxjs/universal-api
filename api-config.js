@@ -265,7 +265,7 @@ module.exports = {
     path: 'src/packages/media/audio/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/audio',
       },
     ],
