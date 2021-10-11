@@ -120,13 +120,7 @@ const previewImage = normalize.previewImage((args: PreviewImageOptions) => {
   const damp = 1;
   const { clientWidth } = document.documentElement;
   let startX = 0;
-  // swiperEle.addEventListener('click', () => {
-  //   containerEle && (containerEle.style.animationName = `${clsPrefix}_fadeOut`);
-  //   setTimeout(() => {
-  //     containerEle && document.body.removeChild(containerEle);
-  //     containerEle = null;
-  //   }, 300);
-  // });
+
   swiperEle.addEventListener('touchstart', (e) => {
     if (e.touches.length > 1) {
       e.stopPropagation();
