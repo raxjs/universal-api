@@ -102,9 +102,9 @@ const previewImage = normalize.previewImage((args: PreviewImageOptions) => {
   containerEle.style.animationName = `${clsPrefix}_fadeIn`;
 
   containerEle.addEventListener('click', () => {
-    containerEle.style.animationName = `${clsPrefix}_fadeOut`;
+    containerEle && (containerEle.style.animationName = `${clsPrefix}_fadeOut`);
     setTimeout(() => {
-      document.body.removeChild(containerEle);
+      containerEle && document.body.removeChild(containerEle);
       containerEle = null;
     }, 300);
   });
@@ -120,6 +120,13 @@ const previewImage = normalize.previewImage((args: PreviewImageOptions) => {
   const damp = 1;
   const { clientWidth } = document.documentElement;
   let startX = 0;
+  // swiperEle.addEventListener('click', () => {
+  //   containerEle && (containerEle.style.animationName = `${clsPrefix}_fadeOut`);
+  //   setTimeout(() => {
+  //     containerEle && document.body.removeChild(containerEle);
+  //     containerEle = null;
+  //   }, 300);
+  // });
   swiperEle.addEventListener('touchstart', (e) => {
     if (e.touches.length > 1) {
       e.stopPropagation();
@@ -137,7 +144,7 @@ const previewImage = normalize.previewImage((args: PreviewImageOptions) => {
   });
   swiperEle.addEventListener('touchend', (e) => {
     const endX = e.changedTouches[0].pageX - startX;
-    if (Math.abs(endX * damp) > clientWidth / 2) {
+    if (Math.abs(endX * damp) > clientWidth / 5) {
       current = endX < 0 ? Math.min(current + 1, urls.length - 1) : Math.max(current - 1, 0);
     }
     pageIndexEle.innerText = `${current + 1}/${urls.length}`;
@@ -156,6 +163,11 @@ const previewImage = normalize.previewImage((args: PreviewImageOptions) => {
     swiperItemEle.className = `${clsPrefix}_item`;
     swiperItemEle.addEventListener('click', (e) => {
       e.stopPropagation();
+      containerEle && (containerEle.style.animationName = `${clsPrefix}_fadeOut`);
+      setTimeout(() => {
+        containerEle && document.body.removeChild(containerEle);
+        containerEle = null;
+      }, 300);
     });
     swiperEle.appendChild(swiperItemEle);
 
