@@ -79,7 +79,7 @@ function requestXHR(options) {
     const scriptUrl = `${applyParamToURL(data, url)}`;
     script = document.createElement('script');
     script.setAttribute('src', scriptUrl);
-    script.parentNode.insertBefore(script, target);
+    target.parentNode.insertBefore(script, target);
     script.onerror = () => {
       fail && fail(ERROR_REQUEST_JSONP);
       clean();
