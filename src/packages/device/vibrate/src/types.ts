@@ -1,13 +1,9 @@
-export interface CallBack {
+export interface Params {
   success?: (res?) => any;
   fail?: (res?) => any;
   complete?: (res?) => any;
 }
 
-export interface PARAMS extends CallBack {
-  text: string;
-}
-
-export interface RESPONES {
-  text: string;
+export interface ShortPARAMS extends Params {
+  type?: 'heavy' | 'medium' | 'light';
 }
