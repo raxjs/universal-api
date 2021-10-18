@@ -285,7 +285,7 @@ module.exports = {
     path: 'src/packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '1.1.3',
+        version: '1.1.4',
         name: '@uni/request',
       },
     ],
