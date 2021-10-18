@@ -1,3 +1,10 @@
+## 1.1.4 (2021-10-18)
+### Bug Fixes
+* 钉钉小程序容器中post模式下，data 需要传入JSON
+
+### Features
+* content type 默认为 application/json
+
 ## 1.1.3 (2021-10-12)
 ### Bug Fixes
 * fix JSONP 模式下的报错

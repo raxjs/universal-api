@@ -142,7 +142,7 @@ export function styleOptions(options, containerName) {
   let afterOptions = { ...DEFAULT_REQUEST_OPTIONS,
     ...options,
     method: (options.method || 'GET').toUpperCase(),
-    headers: normalizeHeaders(options.headers || {}),
+    headers: { ...DEFAULT_REQUEST_OPTIONS.headers, ...normalizeHeaders(options.headers || {}) },
     success: (res) => {
       const _validateStatus = options.validateStatus || validateStatus;
       const _res = adapterResponse(res);
