@@ -56,7 +56,7 @@ module.exports = {
     path: 'src/packages/canvas/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.7',
+        version: '1.0.8',
         name: '@uni/canvas',
       },
     ],
