@@ -1,5 +1,4 @@
-import { sleep, testWebAPI } from '@/utils/__test__/util';
-import { DOMUtil } from '@/utils/__test__/web';
+import { testWebAPI } from '@/utils/__test__/util';
 
 testWebAPI('storage', async (globals) => {
   const localStorage = {
@@ -8,7 +7,7 @@ testWebAPI('storage', async (globals) => {
       localStorage._data.set(key, String(value));
     },
     getItem: (key: string): string => {
-      return localStorage._data.get(key);
+      return localStorage._data.get(key) ?? null;
     },
     removeItem: (key: string) => {
       localStorage._data.delete(key);
@@ -34,7 +33,7 @@ testWebAPI('storage', async (globals) => {
     data: { x: 1 },
   });
   await removeStorage({ key: 'a' });
-  await expect(getStorage({ key: 'a' })).resolves.toBe(undefined);
+  await expect(getStorage({ key: 'a' })).resolves.toEqual({ data: null });
 
   setStorageSync({
     key: 'b',
@@ -44,7 +43,5 @@ testWebAPI('storage', async (globals) => {
     data: { y: 2 },
   });
   removeStorageSync({ key: 'b' });
-
-  // TODO getStorageSync 在值为 null 时会报错，暂时不测
-  // expect(getStorageSync({ key: 'b' })).toBe(undefined);
+  expect(getStorageSync({ key: 'b' })).toEqual({ data: null });
 });
