@@ -1,16 +1,8 @@
 import { sleep, testWebAPI } from '@/utils/__test__/util';
+import { mockXHR } from '../../../utils/__test__/bom';
 
 testWebAPI('file', async (globals) => {
-  const {
-    openDocument,
-    removeSaved,
-    upload,
-    save,
-    getSavedList,
-    getSavedInfo,
-    getInfo,
-    download,
-  } = require('../src/index');
+  const { openDocument, removeSaved, upload, save, getSavedList, getSavedInfo, getInfo, download } = require('../src/index');
 
   await expect(openDocument()).rejects.toThrowError(/暂不支持/);
   await expect(removeSaved()).rejects.toThrowError(/暂不支持/);
@@ -21,23 +13,7 @@ testWebAPI('file', async (globals) => {
   await expect(getInfo()).rejects.toThrowError(/暂不支持/);
   await expect(download()).rejects.toThrowError(/暂不支持/);
 
-
-  const mockOpen = jest.fn();
-  const mockSend = jest.fn(async function (data) {
-    await sleep(10);
-    this.readyState = 2;
-    this.onreadystatechange?.();
-    await sleep(10);
-    this.onload?.();
-  });
-  const mockSetRequestHeader = jest.fn();
-  globals.FormData = window.FormData;
-  globals.XMLHttpRequest = class {
-    open = mockOpen;
-    send = mockSend;
-    setRequestHeader = mockSetRequestHeader;
-    getAllResponseHeaders = () => ('x-aa: 1\r\nx-bb: 2');
-  };
+  const { mockOpen, mockSend, mockSetRequestHeader } = mockXHR(globals);
 
   const file = Buffer.alloc(100);
   await upload({
