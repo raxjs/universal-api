@@ -32,6 +32,6 @@ testWebAPI('navigate', async (globals) => {
   expect(mockReplaceState.mock.calls).toEqual([['', '', '/d']]);
 
   mockGo.mockClear();
-  await go(-2);
+  await go({ step: -2 });
   expect(mockGo.mock.calls).toEqual([[-2]]);
 });
