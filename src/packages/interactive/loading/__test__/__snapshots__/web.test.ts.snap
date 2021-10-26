@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Platform API: loading Test container: web 1`] = `
+<body>
+  <style>
+    .__universal_loading {  background-color: rgba(0, 0, 0, 0.6);  box-sizing: border-box;  max-width: 80%;  color: #ffffff;  padding: 15px;  position: fixed;  left: 50%;  bottom: 50%;  border-radius: 4px;  text-align: center;  transform: translateX(-50%);  -webkit-transform: translateX(-50%);  z-index: 9999;  outline: none;}.__universal_loading_circle {  border: 2px solid rgba(200, 200, 200, 0.5);  border-radius: 50%;  position: relative;  height: 40px;  width: 40px;  margin: auto;}.__universal_loading_circle:after {  content: "";  display: block;  border-radius: 50%;  width: 100%;  height: 100%;  position: absolute;  top: -2px;  left: -2px;  border: 2px solid;  border-color: transparent;  border-left-color: #fff;  box-sizing: content-box;  animation: __universal_loading_roller 1s infinite linear;}.__universal_loading_text {  margin-top: 6px;  color: #fff;  line-height: 1.5;  font-size: 14px;  text-align: center;  font-weight: normal;}@keyframes __universal_loading_roller {  0% {    transform: rotateZ(0);  }  100% {    transform: rotateZ(360deg);  }}
+  </style>
+  <div
+    class="__universal_loading"
+    role="alert"
+    tabindex="-1"
+  >
+    <div
+      class="__universal_loading_circle"
+    />
+    <div
+      class="__universal_loading_text"
+      style="display: block;"
+    >
+      abc
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Test Platform API: loading Test container: web 2`] = `
+<body>
+  <style>
+    .__universal_loading {  background-color: rgba(0, 0, 0, 0.6);  box-sizing: border-box;  max-width: 80%;  color: #ffffff;  padding: 15px;  position: fixed;  left: 50%;  bottom: 50%;  border-radius: 4px;  text-align: center;  transform: translateX(-50%);  -webkit-transform: translateX(-50%);  z-index: 9999;  outline: none;}.__universal_loading_circle {  border: 2px solid rgba(200, 200, 200, 0.5);  border-radius: 50%;  position: relative;  height: 40px;  width: 40px;  margin: auto;}.__universal_loading_circle:after {  content: "";  display: block;  border-radius: 50%;  width: 100%;  height: 100%;  position: absolute;  top: -2px;  left: -2px;  border: 2px solid;  border-color: transparent;  border-left-color: #fff;  box-sizing: content-box;  animation: __universal_loading_roller 1s infinite linear;}.__universal_loading_text {  margin-top: 6px;  color: #fff;  line-height: 1.5;  font-size: 14px;  text-align: center;  font-weight: normal;}@keyframes __universal_loading_roller {  0% {    transform: rotateZ(0);  }  100% {    transform: rotateZ(360deg);  }}
+  </style>
+</body>
+`;
