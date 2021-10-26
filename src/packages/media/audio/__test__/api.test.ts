@@ -1,6 +1,6 @@
 import { testPlatformAPI } from '@utils/__test__/util';
 
-testPlatformAPI('tabBar', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
+testPlatformAPI('crateAudioContext', ['wechat', 'ali', 'dingtalk', 'bytedance', 'kuaishou', 'baidu'], async (container, globals, configAPI) => {
   const mockCreateAudioContext = jest.fn();
 
   // TODO 临时模拟 window，待删除

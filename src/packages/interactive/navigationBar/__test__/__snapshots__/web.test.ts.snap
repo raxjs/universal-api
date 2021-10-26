@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Platform API: confirm Test container: web 1`] = `
+Document {
+  "location": Location {
+    "assign": [Function],
+    "hash": "",
+    "host": "",
+    "hostname": "",
+    "href": "about:blank",
+    "origin": "null",
+    "pathname": "blank",
+    "port": "",
+    "protocol": "about:",
+    "reload": [Function],
+    "replace": [Function],
+    "search": "",
+    "toString": [Function],
+  },
+}
+`;
