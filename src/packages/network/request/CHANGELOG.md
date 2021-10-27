@@ -1,3 +1,22 @@
+## 1.1.5 (2021-10-19)
+### Bug Fixes
+* 钉钉小程序容器中post模式下，data 需要传入JSON
+
+## 1.1.4 (2021-10-18)
+### Bug Fixes
+* 钉钉小程序容器中post模式下，data 需要传入JSON
+
+### Features
+* content type 默认为 application/json
+
+## 1.1.3 (2021-10-12)
+### Bug Fixes
+* fix JSONP 模式下的报错
+
+## 1.1.2 (2021-10-10)
+### Features
+* 优化 JSONP 模式下的错误响应，增加 timeout 支持
+
 ## 1.1.1 (2021-08-17)
 ### Features
 * exports 规则增加对百度和快手小程序的支持

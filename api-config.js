@@ -265,7 +265,7 @@ module.exports = {
     path: 'src/packages/media/audio/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.1',
+        version: '1.0.2',
         name: '@uni/audio',
       },
     ],
@@ -285,7 +285,7 @@ module.exports = {
     path: 'src/packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '1.1.1',
+        version: '1.1.5',
         name: '@uni/request',
       },
     ],
@@ -330,6 +330,16 @@ module.exports = {
       {
         version: '1.0.0',
         name: '@uni/make-phone-call',
+      },
+    ],
+  },
+  // vibrate
+  vibrate: {
+    path: 'src/packages/device/vibrate/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.1',
+        name: '@uni/vibrate',
       },
     ],
   },

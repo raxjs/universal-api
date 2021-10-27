@@ -1,7 +1,7 @@
 {
   "name": "@uni/apis",
   "private": true,
-  "version": "1.1.3",
+  "version": "1.1.7",
   "scripts": {
     "setup": "rm -rf node_modules && yarn install --no-lockfile",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src/packages/**/src --fix",
@@ -55,7 +55,7 @@
     "build-scripts": "^0.1.25",
     "case-sensitive-paths-webpack-plugin": "^2.3.0",
     "chalk": "^4.1.0",
-    "chokidar": "^3.1.0",
+    "chokidar": "3.5.1",
     "commitizen": "^4.2.3",
     "console-clear": "^1.1.1",
     "conventional-changelog-cli": "^2.1.1",

@@ -81,6 +81,10 @@ export const ERROR_REQUEST_TIMEOUT: ErrorData = {
   code: 1,
   message: 'Request timeout',
 };
+export const ERROR_REQUEST_JSONP = (url) => ({
+  code: 1,
+  message: `JSONP error : request ${url} error`,
+});
 
 export const ERROR_REQUEST_NOT_SUPPORT: ErrorData = {
   code: 2,

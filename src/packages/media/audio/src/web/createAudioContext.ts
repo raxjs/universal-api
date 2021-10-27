@@ -3,34 +3,35 @@
 import Events from '@utils/event';
 
 class InnerAudioContext {
-  private _singleAudioContext: AudioContext;
+  private _audioContext: AudioContext;
   private _source: AudioBufferSourceNode;
   private _gainNode: GainNode;
   private _src = '';
-  private _startTime = 0;
+  private _startTime = 0; // time of the audio playback, seconds, user set
+  private _playbackTime = 0; // time of the audio playback, seconds
   private _autoplay = false;
   private _buffer: AudioBuffer;
   private _events: any = new Events();
-  private _isPlaying = false;
   private _currentTime = 0;
-  private _timeStamp = 0;
   private _loop = false;
   private _volume = 1;
   private _playbackRate = 1;
   private _eventDeleteCallback = {};
   private _isWaiting = true;
+  private _isSeeking = false; // 记录是否正在Seeking
+  private _isPlaying = false;
+  private _startTimestamp = 0; // timestamp of last playback start, milliseconds
   constructor() {
     // super();
 
     const AudioContext = window.AudioContext || (window as any).webkitAudioContext;
 
-    const singleAudioContext = new AudioContext();
-    this._singleAudioContext = singleAudioContext;
+    this._audioContext = new AudioContext();
 
     // 创建播放对象节点
-    this._source = this._singleAudioContext.createBufferSource();
+    this._source = this._audioContext.createBufferSource();
     // 创建音量节点(如果你需要用调整音量大小的话)
-    this._gainNode = this._singleAudioContext.createGain();
+    this._gainNode = this._audioContext.createGain();
   }
   get src() {
     return this._src;
@@ -46,6 +47,7 @@ class InnerAudioContext {
 
   set startTime(value) {
     this._startTime = value;
+    this._playbackTime = value;
   }
 
   get autoplay() {
@@ -70,17 +72,14 @@ class InnerAudioContext {
   }
 
   get currentTime() {
-    let res = this._currentTime + this._singleAudioContext.currentTime - this._timeStamp;
-    while (res > this.duration) {
-      res = res - this.duration;
+    if (this._isPlaying) {
+      this._currentTime = (Date.now() - this._startTimestamp)/1000 + this._playbackTime;
     }
-    this._currentTime = res;
-    this._timeStamp = this._singleAudioContext.currentTime;
     return this._currentTime;
   }
 
   get paused() {
-    return this._singleAudioContext.state === 'suspended';
+    return !this._isPlaying;
   }
 
   get volume() {
@@ -104,21 +103,32 @@ class InnerAudioContext {
   _start = (startTime) => {
     // 填充音频buffer数据
     // 创建播放对象节点
-    this._source = this._singleAudioContext.createBufferSource();
+    this._source = this._audioContext.createBufferSource();
     // 创建音量节点(如果你需要用调整音量大小的话)
-    this._gainNode = this._singleAudioContext.createGain();
+    this._gainNode = this._audioContext.createGain();
     // this.addEventListener('onPaly', this.onPaly);
     this._source.buffer = this._buffer;
     // console.log('buffer', this._buffer);
     this._source.loop = this._loop;
     this._source.playbackRate.value = this._playbackRate;
     this._gainNode.gain.value = this._volume;
-    this._source.onended = () => this._events.emit('onEnded');
+    this._source.onended = () => { 
+      // console.log('this._isSeeking', this._isSeeking);
+      // seek 调用了 source.stop, 会触发onended 事件
+      // 此处避开 seek 引发的onended
+      if (this._isSeeking) {
+        this._isSeeking = false;
+        this.currentTime;
+        return;
+      }
+      if (this._isPlaying) this._playbackTime = 0;
+      this._isPlaying = false;
+      this._events.emit('onEnded');
+    }
     // 连接节点对象
     this._source.connect(this._gainNode);
-    this._gainNode.connect(this._singleAudioContext.destination);
+    this._gainNode.connect(this._audioContext.destination);
     this._source.start(0, startTime);
-
   };
 
   _getData = () => {
@@ -129,7 +139,7 @@ class InnerAudioContext {
     xhr.open('GET', this._src, true);
     xhr.responseType = 'arraybuffer';
     xhr.onload = () => {
-      this._singleAudioContext.decodeAudioData(xhr.response, (buffer) => {
+      this._audioContext.decodeAudioData(xhr.response, (buffer) => {
         this._buffer = buffer;
         this._events.emit('onCanplay');
         this._isWaiting = false;
@@ -140,80 +150,70 @@ class InnerAudioContext {
   };
 
   play = () => {
-    this._currentTime = this._currentTime + this._singleAudioContext.currentTime - this._timeStamp;
-    this._timeStamp = this._singleAudioContext.currentTime;
-
-    if (!this._isPlaying) {
-      this._start(this._startTime);
-      this._isPlaying = true;
-    }
-
-    this._singleAudioContext.resume()
-      .then(() => this._events.emit('onPlay'))
-      .catch((e) => {
-        if (JSON.stringify(e).indexOf('cannot resume a closed AudioContext') !== -1) {
-          this._events.emit('onError', 'cannot resume a closed AudioContext');
-          return;
-        }
-        // console.log(e);
-        this._events.emit('onError', e);
-      });
-
-    // console.log('currentTime', this.currentTime);
+    if (this._isPlaying) return;
+    this._start(this._playbackTime);
+    this._currentTime = this._playbackTime;
+    this._startTimestamp = Date.now();
+    this._isPlaying = true;
+    this._events.emit('onPlay')
   };
 
   pause = () => {
-    this._singleAudioContext.suspend()
-      .then(() => this._events.emit('onPause'))
-      .catch((e) => {
-        // console.log(e);
-        this._events.emit('onError', e);
-      });
-
-    this._currentTime = this._currentTime + this._singleAudioContext.currentTime - this._timeStamp;
-    this._timeStamp = this._singleAudioContext.currentTime;
-    // console.log('currentTime', this.currentTime);
+    this.stop(true);
+    this._events.emit('onPause');
   };
 
-  stop = () => {
+  stop = (pause = false) => {
     try {
-      this._source.stop(0);
-      this._currentTime = this._currentTime + this._singleAudioContext.currentTime - this._timeStamp;
-      this._timeStamp = this._singleAudioContext.currentTime;
+      if (!this._isPlaying) {
+        if (!pause) { // 未播放 stop 时 需要设置为 0
+          this._playbackTime = 0;
+          this._currentTime = 0;
+        }
+        return;
+      }
+      // if (this._isPlaying) {
       this._isPlaying = false;
+      this._source.stop(0);
+      // }
+      this._playbackTime = pause ? (Date.now() - this._startTimestamp)/1000 + this._playbackTime : 0;
+      this._currentTime = this._playbackTime;
       this._events.emit('onStop');
       !this._isWaiting && this._events.emit('onCanplay');
-
-      this._currentTime = this.startTime;
-      this._timeStamp = this._singleAudioContext.currentTime;
-
-      // console.log('currentTime', this.currentTime);
     } catch (e) {
       this._events.emit('onError', e);
     }
   };
 
-  seek = (value) => {
+  seek = (playbackTime) => {
     try {
-      this._events.emit('onSeeking');
-      value = value < 0 ? 0 : value;
-      value = value > this.duration ? this.duration : value;
-      this._isPlaying = false;
-      this._source.stop(0);
-      this._start(value);
-      this._isPlaying = true;
-      this._events.emit('onSeeked');
-      this._currentTime = value;
-      this._timeStamp = this._singleAudioContext.currentTime;
+      if (playbackTime === undefined) return;
+      if (playbackTime > this.duration) {
+        this._events.emit('onError', 'Seek time is greater than duration of audio buffer.');
+        return;
+      }
 
-      // console.log('currentTime', this.currentTime);
+      this._events.emit('onSeeking');
+      if (this._isPlaying) {
+        this._isSeeking = true;
+        this.stop();
+        this._playbackTime = playbackTime;
+        this.play();
+      } else {
+        this._playbackTime = playbackTime;
+        this._currentTime = playbackTime;
+      }
+
+      this._events.emit('onSeeked');
     } catch (e) {
       this._events.emit('onError', e);
     }
   };
 
   destroy = () => {
-    this._singleAudioContext.close()
+    this._currentTime = this._playbackTime;
+    this._isPlaying = false;
+    this._audioContext.close()
       .then(() => this._events.emit('onDestroy'))
       .catch((e) => {
         // console.log(e);
@@ -358,9 +358,9 @@ class InnerAudioContext {
 }
 
 // 创建audio
-const createInnerAudioContext = (): any => {
+const createAudioContext = (): any => {
   let singleInnerAudioContext = new InnerAudioContext();
   return singleInnerAudioContext;
 };
 
-export default createInnerAudioContext;
+export default createAudioContext;

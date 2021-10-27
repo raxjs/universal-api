@@ -1,6 +1,7 @@
-## 1.1.2 (2021-10-27)
-### Bug Fixes
-* 修复 web 端 `getImageInfo` API 计时器任务不能结束的问题
+## 1.1.2 (2021-10-11)
+### Features
+* web 容器支持点击图片关闭预览
+* 优化 web 容器实现的滑动效果
 
 ## 1.1.1 (2021-08-17)
 ### Features
@@ -57,7 +58,7 @@
 
 ### Features
 
-* 剔除 Babel/runtime-corejs3
+* 剔除 Babel/runtime-corejs3 
 * 新增支持 webpack5 exports ([a113f40](https://github.com/raxjs/universal-api/commit/a113f4034a35c2d5325536026d825175aa889dfd))
 
 ## 1.0.1 (2021-04-07)

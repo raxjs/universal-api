@@ -70,15 +70,15 @@ showToast({
 
 ```bash
 $ git clone git@github.com:raxjs/universal-api.git
-$ npm install
-$ npm run build
+$ yarn
+$ yarn build
 ```
 
 ### 调试 API
 
 ```bash
-$ npm run demo:init
-$ npm run demo:dev
+$ yarn demo:init
+$ yarn demo:dev
 ```
 
 然后使用小程序 IDE 即可开始调试:

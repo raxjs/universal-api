@@ -45,9 +45,6 @@ const buildDemo = async () => {
   if (!fs.pathExistsSync(path.resolve(demoPath, 'src/pages'))) {
     fs.mkdirSync(path.resolve(demoPath, 'src/pages'));
   }
-  // if (!fs.pathExistsSync(path.resolve(demoPath, 'src/pages'))) {
-  //   fs.mkdirSync(path.resolve(demoPath, 'src/pages'));
-  // }
   
   // copydemo 文件
   Object.entries(sourceMap).map(([key, value]) => {
@@ -61,6 +58,7 @@ const buildDemo = async () => {
         }
         
         fs.copyFileSync(fromPath, path.resolve(root, outputPath, 'index.tsx'));
+        
         appJsonContent.routes.push({
           "path": `/pages/${i.name.replace('@uni/', '')}/index`,
           "source": `pages/${i.name.replace('@uni/', '')}/index`,
