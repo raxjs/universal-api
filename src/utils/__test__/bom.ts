@@ -1,4 +1,5 @@
 import { sleep } from './util';
+import { DOMUtil } from './web';
 
 /**
  * 模拟 localStorage
@@ -80,4 +81,15 @@ export function mockXHR(globals) {
     mockSetRequestHeader,
     setResponse,
   };
+}
+
+/**
+ * 模拟用户选择媒体文件
+ */
+export function mockUserChooseMedia() {
+  const target = new DOMUtil('input[type="file"]');
+  target.trigger('change', '');
+  // eslint-disable-next-line @typescript-eslint/dot-notation
+  target['files'] = [Buffer.alloc(100)];
+  return target;
 }

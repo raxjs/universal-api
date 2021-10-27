@@ -12,7 +12,7 @@ testPlatformAPI('navigate', ['wechat', 'ali', 'bytedance', 'kuaishou', 'baidu'],
   configAPI('redirectTo', mockReplace);
   configAPI('switchTab', mockSwitchTab);
 
-  const { push, back, reLaunch, replace, switchTab } = require('../src/index');
+  const { push, back, go, reLaunch, replace, switchTab } = require('../src/index');
 
   await push({ url: 'abc' });
   expect(mockPush.mock.calls.length).toBe(1);
@@ -20,6 +20,12 @@ testPlatformAPI('navigate', ['wechat', 'ali', 'bytedance', 'kuaishou', 'baidu'],
 
   await back();
   expect(mockBack.mock.calls.length).toBe(1);
+
+  mockBack.mockClear();
+  await go({ step: -2 });
+  expect(mockBack.mock.calls[0][0]).toMatchObject({
+    delta: 2,
+  });
 
   await reLaunch({ url: 'def' });
   expect(mockReLaunch.mock.calls.length).toBe(1);

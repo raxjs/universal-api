@@ -1,5 +1,5 @@
 import { testWebAPI } from '@/utils/__test__/util';
-import { mockLocalStorage } from '../../../utils/__test__/bom';
+import { mockLocalStorage } from '@/utils/__test__/bom';
 
 testWebAPI('storage', async (globals) => {
   mockLocalStorage(globals);

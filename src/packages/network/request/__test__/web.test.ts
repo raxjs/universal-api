@@ -1,5 +1,5 @@
 import { testWebAPI } from '@/utils/__test__/util';
-import { mockXHR } from '../../../../utils/__test__/bom';
+import { mockXHR } from '@/utils/__test__/bom';
 
 testWebAPI('request', async (globals) => {
   const { mockSend, mockOpen, setResponse } = mockXHR(globals);

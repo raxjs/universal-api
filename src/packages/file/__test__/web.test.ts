@@ -1,5 +1,5 @@
 import { sleep, testWebAPI } from '@/utils/__test__/util';
-import { mockXHR } from '../../../utils/__test__/bom';
+import { mockXHR } from '@/utils/__test__/bom';
 
 testWebAPI('file', async (globals) => {
   const { openDocument, removeSaved, upload, save, getSavedList, getSavedInfo, getInfo, download } = require('../src/index');
