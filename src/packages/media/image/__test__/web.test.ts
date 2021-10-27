@@ -14,19 +14,20 @@ testWebAPI('image', async (globals) => {
     expect(document.body).toMatchSnapshot();
 
     globals.Image = class {
-      width = 100;
-      height = 200;
+      width: number;
+      height: number;
       onload: () => any;
 
       constructor() {
         setTimeout(() => {
+          this.width = 100;
+          this.height = 200;
           // 模拟触发 onload
           this.onload?.();
-        }, 10);
+        }, 20);
       }
     };
     const res = await getImageInfo({ src: 'c.png' });
-    await sleep(50);
     expect(res).toEqual({
       width: 100,
       height: 200,
