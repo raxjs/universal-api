@@ -1,4 +1,4 @@
-import { testWebAPI } from '@/utils/__test__/util';
+import { sleep, testWebAPI } from '@/utils/__test__/util';
 import { mockUserChooseMedia, mockRandomWrapper } from '@/utils/__test__/bom';
 
 testWebAPI('image', async (globals) => {
@@ -26,6 +26,7 @@ testWebAPI('image', async (globals) => {
       }
     };
     const res = await getImageInfo({ src: 'c.png' });
+    await sleep(50);
     expect(res).toEqual({
       width: 100,
       height: 200,
