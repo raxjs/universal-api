@@ -3,6 +3,9 @@ import { mockXHR } from '@/utils/__test__/bom';
 
 testWebAPI('request', async (globals) => {
   const { mockSend, mockOpen, setResponse } = mockXHR(globals);
+  Object.defineProperty(window, 'setTimeout', {
+    value: setTimeout,
+  });
 
   const { default: request } = require('../src/index');
 
@@ -25,7 +28,7 @@ testWebAPI('request', async (globals) => {
     JSON.stringify({
       a: 1,
       b: 'abc',
-    })
+    }),
   );
   expect(data).toBe('hello');
 });
