@@ -93,3 +93,18 @@ export function mockUserChooseMedia() {
   target['files'] = [Buffer.alloc(100)];
   return target;
 }
+
+/**
+ * 模拟 Math.random 方法，返回固定的值
+ * @param callback
+ */
+export async function mockRandomWrapper(callback: () => (Promise<void> | void)) {
+  const originalRandom = Math.random;
+
+  let _r = 0;
+  Math.random = () => (++_r) / 1e4; // mock random
+  await callback();
+
+  // eslint-disable-next-line require-atomic-updates
+  Math.random = originalRandom;
+}

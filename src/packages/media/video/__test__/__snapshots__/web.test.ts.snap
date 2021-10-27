@@ -3,7 +3,7 @@
 exports[`Test Platform API: video Test container: web 1`] = `
 <body>
   <input
-    id="input-1"
+    id="input-10000"
     multiple="multiple"
     name="file"
     style="display: none;"
@@ -18,7 +18,7 @@ exports[`Test Platform API: video Test container: web 3`] = `
 <body>
   <input
     accept="video/*"
-    id="input-2"
+    id="input-20000"
     name="file"
     style="display: none;"
     type="file"
