@@ -15,16 +15,24 @@ import toast from '../packages/interactive/toast/src/index';
 import loading from '../packages/interactive/loading/src/index';
 import navigationBar from '../packages/interactive/navigationBar/src/index';
 import pullDownRefresh from '../packages/interactive/pullDownRefresh/src/index';
+import tabBar from '../packages/interactive/tabBar/src/index';
 import element from '../packages/interactive/element/src/index';
 import intersectionObserver from '../packages/interactive/intersectionObserver/src/index';
 import confirm from '../packages/interactive/confirm/src/index';
 import _location from '../packages/location/src/index';
 import image from '../packages/media/image/src/index';
+import audio from '../packages/media/audio/src/index';
 import navigate from '../packages/navigate/src/index';
 import request from '../packages/network/request/src/index';
 import storage from '../packages/storage/src/index';
 import recorder from '../packages/media/recorder/src/index';
 import video from '../packages/media/video/src/index';
+import makePhoneCall from '../packages/device/makePhoneCall/src/index';
+import vibrate from '../packages/device/vibrate/src/index';
+import pageScrollTo from '../packages/interactive/pageScrollTo/src/index';
+import authorize from '../packages/open/authorize/src/index';
+import subscribeMessage from '../packages/open/subscribeMessage/src/index';
+import share from '../packages/share/src/index';
 
 export {
   application,
@@ -44,16 +52,24 @@ export {
   loading,
   navigationBar,
   pullDownRefresh,
+  tabBar,
   element,
   intersectionObserver,
   confirm,
   _location as location,
   image,
+  audio,
   navigate,
   request,
   storage,
   recorder,
   video,
+  makePhoneCall,
+  vibrate,
+  pageScrollTo,
+  authorize,
+  subscribeMessage,
+  share,
 };
 
 
@@ -75,14 +91,22 @@ export default {
   loading,
   navigationBar,
   pullDownRefresh,
+  tabBar,
   element,
   intersectionObserver,
   confirm,
   location: _location,
   image,
+  audio,
   navigate,
   request,
   storage,
   recorder,
   video,
+  makePhoneCall,
+  vibrate,
+  pageScrollTo,
+  authorize,
+  subscribeMessage,
+  share,
 };
