@@ -7,7 +7,7 @@ const vibrateShort = normalize(({ success, fail, complete }) => {
     complete && complete('@uni：vibrateShort 当前环境暂不支持');
     return;
   }
-  const res = window.navigator.vibrate(15);
+  const res = window.navigator.vibrate(40);
   if (res) {
     success && success();
     complete && complete();
