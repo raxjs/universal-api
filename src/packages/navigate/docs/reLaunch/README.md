@@ -50,13 +50,12 @@ import { navigate } from '@uni/apis';
 | options.complete | `Function`  | 结束的回调 | 否 | - |
 
 ## web中使用
-当在h5中使用时，会区分hash路由和普通路由，以及是否需要刷新
-所以这里提供了两个参数：isHash 和 refresh，他们只在web环境下支持
+当在h5中使用时，会区分hash路由和普通路由
+所以这里提供了参数：isHash，他只在web环境下支持
 
 | 成员             | 类型      | 描述   | 必选  | 默认值 |
 | ---------------- | --------- | ----- | :---: | :----: |
 | isHash          | `boolean`  | 是否是hash路由，如果 true，则url前会自动加上# |  否   |   false    |
-| refresh      | `boolean`  | 是否需要刷新. |  否   |   true   |
 
 ```javascript
 import navigate from '@uni/navigate';
