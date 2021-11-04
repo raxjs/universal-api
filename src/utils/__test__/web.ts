@@ -1,4 +1,4 @@
-type TriggerType = 'click' | 'focus' |'blur' | 'change' ;
+type TriggerType = 'click' | 'focus' |'blur' | 'change' | 'touchstart' | 'touchmove' | 'touchend';
 
 export class DOMUtil {
   element: Element;
@@ -37,6 +37,7 @@ export class DOMUtil {
 
   trigger(type: 'click' | 'focus' | 'blur'): void;
   trigger(type: 'change', value: string | number): void;
+  trigger(type: 'touchstart' | 'touchmove' | 'touchend', eventObject?: Record<string, any>): void;
 
   /**
    * trigger dom event
@@ -56,6 +57,12 @@ export class DOMUtil {
       case 'change':
         event = new window.Event(type);
         (this.element as HTMLInputElement).value = String(arg);
+        break;
+      case 'touchstart':
+      case 'touchmove':
+      case 'touchend':
+        event = new window.Event(type);
+        Object.assign(event, arg || {});
         break;
       default:
     }

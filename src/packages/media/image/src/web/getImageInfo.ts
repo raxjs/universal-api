@@ -27,8 +27,8 @@ const getImageInfo = normalize.getImageInfo((args) => {
     } else {
       let checkTimer = null;
       const clear = () => {
-        checkTimer = null;
         clearInterval(checkTimer);
+        checkTimer = null;
       };
       checkTimer = setInterval(() => {
         if (image.width > 0 || image.height > 0) {
