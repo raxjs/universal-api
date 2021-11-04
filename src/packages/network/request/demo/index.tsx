@@ -64,7 +64,7 @@ export default () => {
         code: 'utf-8',
         q: '卫衣'
       },
-      jsonpCallback: 'cb',
+      // jsonpCallback: 'cb',
       jsonpCallbackProp: 'callback',
       timeout: 5000,
       success: (data) => {

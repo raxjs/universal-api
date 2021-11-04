@@ -6,3 +6,4 @@ export const CONTAINER_NAME = {
   BAIDU: 'baiduSmartProgram',
   KWAI: 'kuaishouMiniProgram',
 };
+export const JSONP_SIGN = '__uni_jsonp_handler_sign__';

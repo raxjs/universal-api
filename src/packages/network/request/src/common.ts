@@ -4,7 +4,7 @@
 
 import { DATA_TYPE, AsObject, RequestOptions } from './types';
 import { styleIn } from '@utils/styleOptions';
-import { CONTAINER_NAME } from '@utils/constant';
+import { CONTAINER_NAME, JSONP_SIGN } from '@utils/constant';
 
 export function getDataWithType(data: any, type: DATA_TYPE) {
   if (type === 'json') {
@@ -99,11 +99,16 @@ export function styleOptions(options, containerName) {
     headers: { 'Content-Type': 'application/json' },
     method: 'GET',
     jsonpCallbackProp: 'callback',
-    jsonpCallback: '__uni_jsonp_handler',
+    jsonpCallback: `__uni_jsonp_handler_${ new Date().getTime()}`,
     timeout: DEFAULT_TIMEOUT,
     dataType: 'json',
   };
   const isJsonp = options?.method?.toUpperCase() === 'JSONP';
+  if (isJsonp && containerName === CONTAINER_NAME.WEB) {
+    window[JSONP_SIGN] = typeof (window[JSONP_SIGN]) !== 'undefined' ? (window[JSONP_SIGN] + 1) : 0;
+    DEFAULT_REQUEST_OPTIONS.jsonpCallback = `${DEFAULT_REQUEST_OPTIONS.jsonpCallback}_${window[JSONP_SIGN]}`;
+  }
+
   const jsonpCallback = options.jsonpCallback || DEFAULT_REQUEST_OPTIONS.jsonpCallback;
   const adapterResponse = (res) => {
     if ((res.errMsg && res?.errMsg?.indexOf('request:fail') !== -1) || res.error) {
