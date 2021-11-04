@@ -11,7 +11,7 @@ declare const process: any;
 export const isWeb = typeof window !== 'undefined' && 'onload' in window;
 export const isNode = typeof process !== 'undefined' && !!(process.versions && process.versions.node);
 export const isWeex = typeof WXEnvironment !== 'undefined' && WXEnvironment.platform !== 'Web';
-export const isKraken = typeof __kraken__ !== 'undefined';
+export const isKraken = typeof kraken !== 'undefined';
 export const isMiniApp = typeof my !== 'undefined' && my !== null && typeof my.alert !== 'undefined';
 export const isByteDanceMicroApp = typeof tt !== 'undefined' && tt !== null && typeof tt.showToast !== 'undefined';
 export const isBaiduSmartProgram = typeof swan !== 'undefined' && swan !== null && typeof swan.showToast !== 'undefined';
