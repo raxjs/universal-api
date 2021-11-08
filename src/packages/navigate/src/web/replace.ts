@@ -4,7 +4,7 @@ import { CONTAINER_NAME } from '@utils/constant';
 
 export const replace = normalize.replace((options?: IReplaceOptions) => {
   const { url, isHash = false, success, fail, complete } = options || {};
-  const _url = isHash ? `/#${ url}` : url;
+  const _url = isHash ? `/#${url}` : url;
   setTimeout((): void => {
     try {
       if (isHash) {
