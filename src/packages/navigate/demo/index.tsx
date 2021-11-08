@@ -26,13 +26,13 @@ export default function() {
   return (
     <View>
       <View style={styles.button} onClick={() => {
-        navigate.push({url: '/pages/toast/index', isHash: true, refresh: true});
+        navigate.push({url: '/pages/toast/index', isHash: true});
       }}>push</View>
       <View style={styles.button} onClick={() => {
-        navigate.replace({url: '/pages/toast/index', isHash: true, refresh: true});
+        navigate.replace({url: '/pages/toast/index', isHash: true});
       }}>replace</View>
       <View style={styles.button} onClick={() => {
-        navigate.reLaunch({url: '/pages/toast/index', isHash: true, refresh: true});
+        navigate.reLaunch({url: '/pages/toast/index', isHash: true});
       }}>reLaunch</View>
       <View style={styles.button} onClick={() => {
         navigate.back();

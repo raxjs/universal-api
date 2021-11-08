@@ -1,15 +1,19 @@
 import { IReLaunchOptions } from '../types';
 import { normalize } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
+import replace from './replace';
 
 export const reLaunch = normalize.reLaunch((options: IReLaunchOptions) => {
-  const { url, isHash = false, refresh = true, success, fail, complete } = options;
+  const { url, isHash = false, success, fail, complete } = options;
   const _url = isHash ? `/#${ url}` : url;
   setTimeout((): void => {
     try {
       history.go(-(history.length - 1));
-      history.replaceState('', '', _url);
-      refresh && history.go(0);
+      if (isHash) {
+        replace({ url, isHash: true });
+      } else {
+        window.history.replaceState(null, null, _url);
+      }
       success && success();
       complete && complete();
     } catch (e) {

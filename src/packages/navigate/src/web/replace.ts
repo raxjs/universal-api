@@ -3,12 +3,20 @@ import { normalize } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
 export const replace = normalize.replace((options?: IReplaceOptions) => {
-  const { url, isHash = false, refresh = true, success, fail, complete } = options || {};
+  const { url, isHash = false, success, fail, complete } = options || {};
   const _url = isHash ? `/#${ url}` : url;
   setTimeout((): void => {
     try {
-      history.replaceState('', '', _url);
-      refresh && history.go(0);
+      if (isHash) {
+        const { href } = location;
+        const index = href.indexOf('#');
+        // 域名不变的情况下不会刷新页面
+        window.location.replace(index > 0
+          ? `${href.slice(0, index)}#${url}`
+          : `${href}#${url}`);
+      } else {
+        window.history.replaceState(null, null, _url);
+      }
       success && success();
       complete && complete();
     } catch (e) {
