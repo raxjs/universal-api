@@ -54,6 +54,11 @@ showActionSheet({
 你也可以从大包引入：
 ```js
 import { actionSheet } from '@uni/apis';
+actionSheet({
+  itemList: ['A', 'B', 'C']
+}).then(res => {
+  console.log(res.tapIndex)
+});
 ```
 
 ## 方法

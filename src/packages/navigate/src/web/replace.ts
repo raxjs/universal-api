@@ -3,7 +3,7 @@ import { normalize } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
 export const replace = normalize.replace((options?: IReplaceOptions) => {
-  const { url, isHash = false, success, fail, complete } = options || {};
+  const { url, isHash = false, refresh = true, success, fail, complete } = options || {};
   const _url = isHash ? `/#${ url}` : url;
   setTimeout((): void => {
     try {
@@ -16,6 +16,7 @@ export const replace = normalize.replace((options?: IReplaceOptions) => {
           : `${href}#${url}`);
       } else {
         window.history.replaceState(null, null, _url);
+        refresh && (location.reload());
       }
       success && success();
       complete && complete();

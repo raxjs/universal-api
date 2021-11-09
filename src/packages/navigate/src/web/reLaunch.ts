@@ -4,7 +4,7 @@ import { CONTAINER_NAME } from '@utils/constant';
 import replace from './replace';
 
 export const reLaunch = normalize.reLaunch((options: IReLaunchOptions) => {
-  const { url, isHash = false, success, fail, complete } = options;
+  const { url, isHash = false, refresh = true, success, fail, complete } = options;
   const _url = isHash ? `/#${ url}` : url;
   setTimeout((): void => {
     try {
@@ -13,6 +13,7 @@ export const reLaunch = normalize.reLaunch((options: IReLaunchOptions) => {
         replace({ url, isHash: true });
       } else {
         window.history.replaceState(null, null, _url);
+        refresh && (location.reload());
       }
       success && success();
       complete && complete();
