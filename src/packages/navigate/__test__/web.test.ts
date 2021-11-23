@@ -7,6 +7,7 @@ testWebAPI('navigate', async (globals) => {
   const mockForward = jest.fn();
   const mockPushState = jest.fn();
   const mockReplaceState = jest.fn();
+  const mockReloadState = jest.fn();
 
   globals.history = {
     ...window.history,
@@ -16,20 +17,25 @@ testWebAPI('navigate', async (globals) => {
     pushState: mockPushState,
     replaceState: mockReplaceState,
   };
-  globals.location = Object.defineProperty({}, 'href', {
+  Object.defineProperty(window, 'history', {
+    value: globals.history,
+  });
+  globals.location = Object.defineProperty({reload: mockReloadState}, 'href', {
     set: mockSetLocation,
   });
 
   const { push, back, reLaunch, switchTab, replace, go } = require('../src/index');
 
-  await push({ url: '/a' });
-  expect(mockSetLocation.mock.calls).toEqual([['/a']]);
+  await push({ url: '/a', refresh: false });
+  const state = { page_id: 1 };
+  const title = '';
+  expect(mockPushState.mock.calls).toEqual([[state, title, '/a']]);
 
   await back();
   expect(mockGo.mock.calls).toEqual([[-1]]);
 
-  await replace({ url: '/d' });
-  expect(mockReplaceState.mock.calls).toEqual([['', '', '/d']]);
+  await replace({ url: '/a.html' });
+  expect(mockReplaceState.mock.calls).toEqual([[null, null, '/a.html']]);
 
   mockGo.mockClear();
   await go({ step: -2 });

@@ -5,6 +5,7 @@ import { CONTAINER_NAME } from '@utils/constant';
 export const replace = normalize.replace((options?: IReplaceOptions) => {
   const { url, isHash = false, refresh = true, success, fail, complete } = options || {};
   const _url = isHash ? `/#${ url}` : url;
+
   setTimeout((): void => {
     try {
       if ((url.indexOf('https://') !== -1 || url.indexOf('https://') !== -1) &&
