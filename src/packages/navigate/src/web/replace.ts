@@ -7,6 +7,13 @@ export const replace = normalize.replace((options?: IReplaceOptions) => {
   const _url = isHash ? `/#${ url}` : url;
   setTimeout((): void => {
     try {
+      if ((url.indexOf('https://') !== -1 || url.indexOf('https://') !== -1) &&
+        url.indexOf(location.origin) === -1
+      ) {
+        console.warn('Uni API: Replace does not support cross-domain');
+        location.href = url;
+        return;
+      }
       if (isHash) {
         const { href } = location;
         const index = href.indexOf('#');

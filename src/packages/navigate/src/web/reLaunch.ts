@@ -9,6 +9,13 @@ export const reLaunch = normalize.reLaunch((options: IReLaunchOptions) => {
   setTimeout((): void => {
     try {
       history.go(-(history.length - 1));
+      if ((url.indexOf('https://') !== -1 || url.indexOf('https://') !== -1) &&
+        url.indexOf(location.origin) === -1
+      ) {
+        console.warn('Uni API: Relaunch does not support cross-domain');
+        location.href = url;
+        return;
+      }
       if (isHash) {
         replace({ url, isHash: true });
       } else {
