@@ -49,6 +49,11 @@ You can also import from the big package:
 
 ```js
 import { actionSheet } from '@uni/apis';
+actionSheet({
+  itemList: ['A', 'B', 'C']
+}).then(res => {
+  console.log(res.tapIndex)
+});
 ```
 
 ## Methods

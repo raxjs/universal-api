@@ -275,7 +275,7 @@ module.exports = {
     path: 'src/packages/navigate/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.9',
+        version: '1.0.10',
         name: '@uni/navigate',
       },
     ],
