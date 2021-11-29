@@ -63,14 +63,12 @@ export function normalizeHeaders(obj: AsObject) {
   keyList.forEach((key) => {
     for (const headerKey in obj) {
       if (Object.prototype.hasOwnProperty.call(obj, headerKey)) {
-        if (headerKey.toLowerCase() === key.toLowerCase()
+        if (headerKey.toUpperCase() === key.toUpperCase()
         && headerKey !== key
         ) {
           obj[key] = obj[headerKey];
           delete obj[headerKey];
-          return true;
         }
-        return false;
       }
     }
   });
