@@ -68,9 +68,7 @@ export function normalizeHeaders(obj: AsObject) {
         ) {
           obj[key] = obj[headerKey];
           delete obj[headerKey];
-          return true;
         }
-        return false;
       }
     }
   });
