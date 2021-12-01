@@ -358,7 +358,7 @@ module.exports = {
     path: 'src/packages/open/authorize/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0',
+        version: '1.0.1',
         name: '@uni/authorize',
       },
     ],
