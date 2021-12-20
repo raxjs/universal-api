@@ -1,8 +1,9 @@
 {
   "name": "universal-env",
   "author": "rax",
-  "version": "3.3.3",
+  "version": "3.3.4",
   "description": "",
+  "license": "BSD-3-Clause",
   "main": "lib/index.js",
   "files": [
     "src",

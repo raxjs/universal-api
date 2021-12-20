@@ -1,5 +1,11 @@
 # Changelog
 
+## [3.3.4] - 2021-12-20
+
+### Chore
+
+- Add license in package.json
+
 ## [3.3.3] - 2021-06-30
 
 ### Chore
