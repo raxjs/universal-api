@@ -20,7 +20,7 @@
 ## 安装
 
 ```bash
-$ npm install @uni/pullDownRefresh --save
+$ npm install @uni/pull-down-refresh --save
 ```
 or
 ```bash
@@ -29,7 +29,7 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import { stopPullDownRefresh } from '@uni/pullDownRefresh';
+import { stopPullDownRefresh } from '@uni/pull-down-refresh';
 
 stopPullDownRefresh();
 ```

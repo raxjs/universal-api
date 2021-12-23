@@ -14,5 +14,14 @@
   },
   "web": {
     "doctype": "<!DOCTYPE html>"
+  },
+  "miniapp": {
+    "template": {
+      "canvas": {
+        "add": {
+          "props": [{ "name": "type", "default": "2d" }]
+        }
+      }
+    }
   }
 }

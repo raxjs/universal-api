@@ -4,7 +4,7 @@ import { CONTAINER_NAME } from '@utils/constant';
 import { isLessThanVersion } from '@utils/tools';
 
 const createContext = normalize((canvasOptions: Options): Promise<CanvasContext> => {
-  const { canvasId, type = '2d', context } = canvasOptions;
+  const { canvasId, type = '2d' } = canvasOptions;
   if (isLessThanVersion(my.SDKVersion, '2.7.0')) {
     return new Promise((resolve) => {
       const canvasContext = my.createCanvasContext(canvasId);
@@ -56,21 +56,11 @@ const createContext = normalize((canvasOptions: Options): Promise<CanvasContext>
   } else {
     // 仅 2.7.0+ 基础库版本支持
     return new Promise((resolve, reject) => {
-      console.log(11122, context);
-      // const canvasNode: HTMLCanvasElement = context;
-      // const canvasContext: CanvasContext = canvasNode.getContext(type);
-
-      // resolve(canvasContext);
-      // my.createSelectorQuery().selectAll(`#${canvasId}`).exec((ret) => {
-      //   // resolve(ret[0]);
-      //   console.log(111, ret);
-      // });
-      const query = context.createSelectorQuery();
+      const query = my.createSelectorQuery();
       query
-        .selectAll(`#${canvasId}`)
+        .select(`#${canvasId}`)
         .node()
         .exec((res) => {
-          console.log(res);
           if (!res[0] || !res[0].node) reject(new Error('The canvas node may not exist.'));
           const canvasNode: HTMLCanvasElement = res[0].node;
           const canvasContext: CanvasContext = canvasNode.getContext(type);

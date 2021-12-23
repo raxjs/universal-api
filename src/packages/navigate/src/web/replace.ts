@@ -7,8 +7,25 @@ export const replace = normalize.replace((options?: IReplaceOptions) => {
   const _url = isHash ? `/#${ url}` : url;
   setTimeout((): void => {
     try {
-      history.replaceState('', '', _url);
-      refresh && history.go(0);
+      // eslint-disable-next-line @iceworks/best-practices/no-http-url
+      if ((url.indexOf('http://') !== -1 || url.indexOf('https://') !== -1) &&
+        url.indexOf(location.origin) === -1
+      ) {
+        console.warn('Uni API: Replace does not support cross-domain');
+        location.href = url;
+        return;
+      }
+      if (isHash) {
+        const { href } = location;
+        const index = href.indexOf('#');
+        // 域名不变的情况下不会刷新页面
+        window.location.replace(index > 0
+          ? `${href.slice(0, index)}#${url}`
+          : `${href}#${url}`);
+      } else {
+        window.history.replaceState(null, null, _url);
+        refresh && (location.reload());
+      }
       success && success();
       complete && complete();
     } catch (e) {
