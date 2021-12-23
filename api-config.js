@@ -207,7 +207,7 @@ module.exports = {
     path: 'src/packages/interactive/element/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.8',
+        version: '1.0.9',
         name: '@uni/element',
       },
     ],
@@ -253,7 +253,7 @@ module.exports = {
     path: 'src/packages/media/image/src/index.ts',
     pkgInfo: [
       {
-        version: '1.1.2',
+        version: '1.1.3',
         name: '@uni/image',
         dependencies: {
           '@uni/video': '^1.0.5',
@@ -275,7 +275,7 @@ module.exports = {
     path: 'src/packages/navigate/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.8',
+        version: '1.0.10',
         name: '@uni/navigate',
       },
     ],
@@ -285,7 +285,7 @@ module.exports = {
     path: 'src/packages/network/request/src/index.ts',
     pkgInfo: [
       {
-        version: '1.1.5',
+        version: '1.1.7',
         name: '@uni/request',
       },
     ],
@@ -358,7 +358,7 @@ module.exports = {
     path: 'src/packages/open/authorize/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.0',
+        version: '1.0.1',
         name: '@uni/authorize',
       },
     ],

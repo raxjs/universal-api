@@ -1,3 +1,14 @@
+## 1.0.10 (2021-11-09)
+
+### Bug Fixes
+* web mpa 下 push 无法刷新
+
+## 1.0.9 (2021-11-03)
+
+### Bug Fixes
+* 修复push、replace、relaunch 在spa 下不生效的问题
+* 删除web 下 refresh 参数
+
 ## 1.0.8 (2021-08-19)
 
 ### Features

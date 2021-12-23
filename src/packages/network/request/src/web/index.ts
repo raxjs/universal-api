@@ -35,7 +35,7 @@ function requestXHR(options) {
     success, fail, complete,
   }: WebRequestOptions = {
     jsonpCallbackProp: 'callback',
-    jsonpCallback: '__uni_jsonp_handler',
+    jsonpCallback: `__uni_jsonp_handler_${ new Date().getTime()}`,
     withCredentials: true,
     method: 'GET',
     validateStatus: (status: number) => {

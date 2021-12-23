@@ -5,8 +5,8 @@ const getScrollOffset = (selector: string, context: any = wx): Promise<any[]> =>
     //   console.warn('element not found', selector);
     //   resolve([]);
     // }
-    context.createSelectorQuery = context.createSelectorQuery || wx.createSelectorQuery;
-    context.createSelectorQuery().selectAll(selector).scrollOffset().exec((ret) => {
+    const createSelectorQuery = context.createSelectorQuery || wx.createSelectorQuery;
+    createSelectorQuery().selectAll(selector).scrollOffset().exec((ret) => {
       resolve(ret[0] ? ret[0].map((i) => ({ scrollLeft: i.scrollLeft, scrollTop: i.scrollTop })) : []);
     });
   });

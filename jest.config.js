@@ -41,7 +41,7 @@ module.exports = {
   testMatch: [
     TEST_API ? `**/${TEST_API}/__test__/**/*.test.{ts,tsx}` : '**/__test__/**/*.test.{ts,tsx}',
   ],
-  collectCoverage: false,
+  collectCoverage: !TEST_API,
   coverageDirectory: '<rootDir>/coverage',
   collectCoverageFrom: [
     'src/packages/**/src/**/*.{ts,tsx}',

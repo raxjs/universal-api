@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Platform API: video Test container: web 1`] = `
+<body>
+  <input
+    id="input-10000"
+    multiple="multiple"
+    name="file"
+    style="display: none;"
+    type="file"
+  />
+</body>
+`;
+
+exports[`Test Platform API: video Test container: web 2`] = `<body />`;
+
+exports[`Test Platform API: video Test container: web 3`] = `
+<body>
+  <input
+    accept="video/*"
+    id="input-20000"
+    name="file"
+    style="display: none;"
+    type="file"
+  />
+</body>
+`;
+
+exports[`Test Platform API: video Test container: web 4`] = `<body />`;

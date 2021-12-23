@@ -5,6 +5,7 @@ import { CONTAINER_NAME } from '@utils/constant';
 export const replace = normalize.replace((options?: IReplaceOptions) => {
   const { url, isHash = false, refresh = true, success, fail, complete } = options || {};
   const _url = isHash ? `/#${ url}` : url;
+
   setTimeout((): void => {
     try {
       // eslint-disable-next-line @iceworks/best-practices/no-http-url
