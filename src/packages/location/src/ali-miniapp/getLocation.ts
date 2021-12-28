@@ -8,7 +8,7 @@ const getLocation = normalizeGetLocation((args) => {
     args.type = 0;
   }
   if (args?.resultType && typeof args.resultType === 'number' && !isNaN(args.resultType)) {
-    args.type = `${args.resultType }`;
+    args.type = args.resultType;
   }
   return isDingdingMiniapp ? dd.getLocation(args) : my.getLocation(args);
 }, CONTAINER_NAME.ALIPAY);
