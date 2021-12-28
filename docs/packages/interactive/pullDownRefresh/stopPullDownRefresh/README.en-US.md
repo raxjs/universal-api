@@ -20,7 +20,7 @@ Disables swipe-down-to-refresh for the current page.
 ## Install
 
 ```bash
-$ npm install @uni/pullDownRefresh --save
+$ npm install @uni/pull-down-refresh --save
 ```
 or
 ```bash
@@ -29,7 +29,7 @@ $ npm install @uni/apis --save
 ## Usage
 
 ```javascript
-import {stopPullDownRefresh} from '@uni/pullDownRefresh';
+import {stopPullDownRefresh} from '@uni/pull-down-refresh';
 
 stopPullDownRefresh();
 ```

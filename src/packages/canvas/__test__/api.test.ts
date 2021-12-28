@@ -9,6 +9,7 @@ testPlatformAPI('canvas', ['wechat', 'ali', 'bytedance', 'kuaishou', 'baidu'], a
 
   if (isAliContainer(container)) {
     globals.my.createCanvasContext = mockCreateContext;
+    globals.my.SDKVersion = '2.1.0';
   } else if (container === 'baidu') {
     globals.swan.createCanvasContext = mockCreateContext;
   } else {

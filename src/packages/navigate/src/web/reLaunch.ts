@@ -8,14 +8,15 @@ export const reLaunch = normalize.reLaunch((options: IReLaunchOptions) => {
   const _url = isHash ? `/#${ url}` : url;
   setTimeout((): void => {
     try {
-      history.go(-(history.length - 1));
-      if ((url.indexOf('https://') !== -1 || url.indexOf('https://') !== -1) &&
+      // eslint-disable-next-line @iceworks/best-practices/no-http-url
+      if ((url.indexOf('http://') !== -1 || url.indexOf('https://') !== -1) &&
         url.indexOf(location.origin) === -1
       ) {
         console.warn('Uni API: Relaunch does not support cross-domain');
         location.href = url;
         return;
       }
+      history.go(-(history.length - 1));
       if (isHash) {
         replace({ url, isHash: true });
       } else {

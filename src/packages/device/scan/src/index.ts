@@ -4,7 +4,7 @@ import webModule from './web/index';
 import weChatModule from './wechat-miniprogram/index';
 import bytedanceModule from './bytedance-microapp/index';
 import baiDuModule from './baidu-smartprogram/index';
-import kuaiShouModule from './kuaishou-miniprogram';
+import kuaiShouModule from './kuaishou-miniprogram/index';
 import { ScanCodeOptions } from './types';
 
 export const scanCode = (args?: ScanCodeOptions) => {
