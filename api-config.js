@@ -42,7 +42,7 @@ module.exports = {
     needCommonUtil: false,
     pkgInfo: [
       {
-        version: '1.0.6',
+        version: '1.0.7',
         name: '@uni/unit-tool',
         exports: '',
         dependencies: {
