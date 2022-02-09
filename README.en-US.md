@@ -19,17 +19,35 @@ Uni API is a cross-terminal API solution that supports applets and web container
 
 ## Quick start
 
-```
-$ npm install
-$ npm run build
-$ npm run build:demo
-$ cd demos
-$ npm i
-$ npm run start
+> Take @uni/toast as an example
+
+```bash
+$ npm install @uni/toast
 ```
 
-Then use the applet IDE to start debugging:
-<img height="400" src="https://gw.alicdn.com/imgextra/i3/O1CN01oVy1Sl1iPXLdviD7x_!!6000000004405-2-tps-3584-2240.png">
+```js
+import { showToast } from '@uni/toast';
+
+// string
+showToast('Hi');
+
+// object
+showToast({
+  content: 'hello',
+  type: 'success',
+  duration: 1000,
+  success: () => {
+    console.log('toast')
+  }
+});
+
+// promise
+showToast({
+  content: 'hello',
+  type: 'success',
+  duration: 1000,
+}).then(() => {});
+```
 
 ## Docs
 Official site: [https://universal-api.js.org/](https://universal-api.js.org/)

@@ -1,7 +1,7 @@
 {
   "name": "@uni/apis",
   "private": true,
-  "version": "1.1.9",
+  "version": "1.1.10",
   "scripts": {
     "setup": "rm -rf node_modules && yarn install --no-lockfile",
     "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx ./src/packages/**/src --fix",

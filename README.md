@@ -24,6 +24,8 @@ Uni API 是一套支持小程序和 Web 容器的跨端 API 解决方案。
 
 ## 快速使用
 
+> 以 @uni/toast 为例
+
 ```bash
 $ npm install @uni/toast
 ```
