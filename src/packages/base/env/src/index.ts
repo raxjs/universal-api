@@ -7,6 +7,8 @@ declare const swan: any;
 declare const ks: any;
 declare const global: any;
 declare const process: any;
+declare const pha: any;
+declare const WindVane: any;
 
 export const isWeb = typeof window !== 'undefined' && 'onload' in window;
 export const isNode = typeof process !== 'undefined' && !!(process.versions && process.versions.node);
@@ -22,6 +24,9 @@ export const isKuaiShouMiniProgram = typeof ks !== 'undefined' && ks !== null &&
 // In kuaishou mini program, there is wx variable.
 export const isWeChatMiniProgram = !isByteDanceMicroApp && typeof wx !== 'undefined' && wx !== null && (typeof wx.request !== 'undefined' || typeof wx.miniProgram !== 'undefined');
 export const isQuickApp = typeof global !== 'undefined' && global !== null && typeof global.callNative !== 'undefined' && !isWeex;
+export const isPHA = isWeb && typeof pha === 'object';
+export const isWindVane = isWeb && typeof WindVane !== 'undefined' && typeof WindVane.call !== 'undefined';
+export const isFRM = isMiniApp && isWeb && my.isFRM;
 
 export default {
   isWeb,
@@ -34,4 +39,7 @@ export default {
   isKuaiShouMiniProgram,
   isWeChatMiniProgram,
   isQuickApp,
+  isPHA,
+  isWindVane,
+  isFRM,
 };
