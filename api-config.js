@@ -381,4 +381,16 @@ module.exports = {
       },
     ],
   },
+  utils: {
+    path: 'src/packages/utils/src/index.ts',
+    unNeedSplit: true,
+    needCommonUtil: false,
+    pkgInfo: [
+      {
+        version: '1.0.0',
+        name: '@uni/utils',
+        exports: '',
+      },
+    ],
+  },
 };
