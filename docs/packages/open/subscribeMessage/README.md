@@ -30,7 +30,7 @@ title: subscribeMessage
 ## 安装
 
 ```bash
-$ npm install @uni/subscribeMessage --save
+$ npm install @uni/subscribe-message --save
 ```
 or
 ```bash
@@ -39,7 +39,7 @@ $ npm install @uni/apis --save
 ## 示例
 
 ```javascript
-import subscribeMessage from '@uni/subscribeMessage';
+import subscribeMessage from '@uni/subscribe-message';
 
 subscribeMessage({
   tmplIds: [''],

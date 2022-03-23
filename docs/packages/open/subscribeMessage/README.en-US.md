@@ -30,7 +30,7 @@ Bring up the client applet subscription message interface, and return the user's
 ## Install
 
 ```bash
-$ npm install @uni/subscribeMessage --save
+$ npm install @uni/subscribe-message --save
 ```
 or
 ```bash
@@ -39,7 +39,7 @@ $ npm install @uni/apis --save
 ## Usage
 
 ```javascript
-import subscribeMessage from '@uni/subscribeMessage';
+import subscribeMessage from '@uni/subscribe-message';
 
 subscribeMessage({
   tmplIds: [''],

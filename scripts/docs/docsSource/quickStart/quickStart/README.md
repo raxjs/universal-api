@@ -1,7 +1,6 @@
 ---
 group:
   title: 介绍
-  order: 0
 title: 快速开始
 ---
 

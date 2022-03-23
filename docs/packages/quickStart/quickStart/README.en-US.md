@@ -1,7 +1,6 @@
 ---
 group:
   title: Introduction
-  order: 0
 title: QuickStart
 ---
 
