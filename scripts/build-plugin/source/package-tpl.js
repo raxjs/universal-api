@@ -21,6 +21,7 @@ module.exports = {
   },
   'dependencies': {
     '@uni/env': '^1.0.0',
+    '@uni/utils': "^1.0.0"
   },
   "repository": {
     "type": "git",

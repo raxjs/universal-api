@@ -42,8 +42,8 @@ showToast({
   type: 'success',
   duration: 1000,
   success: () => {
-    console.log('toast')
-  }
+    console.log('toast');
+  },
 });
 
 // promise
@@ -60,9 +60,9 @@ showToast({
 
 ## 示例
 
-|微信小程序|支付宝小程序|
-|--------|----------|
-|<img src="https://img.alicdn.com/imgextra/i1/O1CN01upA1bP1CxpGb8qLPp_!!6000000000148-0-tps-662-662.jpg" width="200" height="200" />|<img src="https://gw.alicdn.com/imgextra/i3/O1CN01Ca6t2Q2AEpIXh4r0u_!!6000000008172-0-tps-1540-1906.jpg" width="200" height="250" />|
+| 微信小程序                                                                                                                          | 支付宝小程序                                                                                                                         |
+| ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| <img src="https://img.alicdn.com/imgextra/i1/O1CN01upA1bP1CxpGb8qLPp_!!6000000000148-0-tps-662-662.jpg" width="200" height="200" /> | <img src="https://gw.alicdn.com/imgextra/i3/O1CN01Ca6t2Q2AEpIXh4r0u_!!6000000008172-0-tps-1540-1906.jpg" width="200" height="250" /> |
 
 ## 贡献代码
 
@@ -89,7 +89,7 @@ $ yarn demo:dev
 
 ### 更新版本
 
-API package 版本统一维护在根目录下的api-config.js，以 @uni/toast 为例：
+API package 版本统一维护在根目录下的 api-config.js，以 @uni/toast 为例：
 
 ```js
 module.exports = {
@@ -102,15 +102,16 @@ module.exports = {
       },
     ],
   },
-}
+};
 ```
 
-| 参数 | 含义 |	默认值 |
-|----|----|----|
-|path|	在源文件的路径|	-|
-|pkgInfo|	npm包的属性（同packagejson写法）|	-|
-|needCommonUtil|	是否需要公共utils|	true|
-|unNeedSplit|	是否需要安环境分包|	false|
+| 参数           | 含义                                | 默认值 |
+| -------------- | ----------------------------------- | ------ |
+| path           | 在源文件的路径                      | -      |
+| pkgInfo        | npm 包的属性（同 packagejson 写法） | -      |
+| needCommonUtil | 是否需要公共 utils                  | true   |
+| unNeedSplit    | 是否需要安环境分包                  | false  |
+| exportMain     | 是否需要导出到大包中                | true   |
 
 大包版本需要更新根目录下的 package.json 的 version
 
