@@ -31,10 +31,7 @@ const buildPkgJson = async (packageInfo, outputPath, isMain = false) => {
   if (!packageJson.exports) {
     delete packageJson.exports;
   }
-  if (isMain) {
-    delete packageJson.dependencies['@uni/env'];
-  }
-  if (packageInfo.name == '@uni/env') {
+  if (isMain || packageInfo.name == '@uni/env') {
     delete packageJson.dependencies['@uni/env'];
     delete packageJson.dependencies['@uni/utils'];
   }
