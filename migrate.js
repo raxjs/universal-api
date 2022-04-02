@@ -40,19 +40,14 @@ function parse(file) {
   let changed = false;
   traverse(ast, {
     Program(path) {
+      // @utils/xxx > @uni/utils/xxx
       const { body } = path.node;
-      let specifiers = [];
       body.forEach((n, index) => {
         if (types.isImportDeclaration(n) && n.source.value.startsWith('@utils')) {
-          specifiers = specifiers.concat(n.specifiers);
-          body.splice(index, 1);
+          changed = true;
+          n.source = types.stringLiteral(n.source.value.replace('@utils', '@uni/utils'));
         }
       });
-
-      if (specifiers.length > 0) {
-        changed = true;
-        body.unshift(types.importDeclaration(specifiers, types.stringLiteral('@uni/utils')));
-      }
     },
   });
   if (changed) {
