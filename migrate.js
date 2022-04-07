@@ -40,14 +40,22 @@ function parse(file) {
   let changed = false;
   traverse(ast, {
     Program(path) {
-      // @utils/xxx > @uni/utils/xxx
       const { body } = path.node;
+      let specifiers = [];
+      const indexs = [];
       body.forEach((n, index) => {
         if (types.isImportDeclaration(n) && n.source.value.startsWith('@utils')) {
-          changed = true;
-          n.source = types.stringLiteral(n.source.value.replace('@utils', '@uni/utils'));
+          specifiers = specifiers.concat(n.specifiers);
+          indexs.push(index);
+          console.log(index);
         }
       });
+
+      if (indexs.length > 0) {
+        indexs.reverse().forEach(i => body.splice(i, 1));
+        changed = true;
+        body.unshift(types.importDeclaration(specifiers, types.stringLiteral('@uni/utils')));
+      }
     },
   });
   if (changed) {
@@ -55,7 +63,7 @@ function parse(file) {
   }
 }
 
-glob('./src/packages/**/src/**/*.ts', function(err, files) {
+glob('./src/packages/canvas/src/ali-miniapp/**/*.ts', function(err, files) {
   files.forEach(file => {
     parse(file);
   });
