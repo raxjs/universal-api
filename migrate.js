@@ -47,7 +47,6 @@ function parse(file) {
         if (types.isImportDeclaration(n) && n.source.value.startsWith('@utils')) {
           specifiers = specifiers.concat(n.specifiers);
           indexs.push(index);
-          console.log(index);
         }
       });
 
@@ -63,7 +62,7 @@ function parse(file) {
   }
 }
 
-glob('./src/packages/canvas/src/ali-miniapp/**/*.ts', function(err, files) {
+glob('./src/packages/**/src/**/*.ts', function(err, files) {
   files.forEach(file => {
     parse(file);
   });
