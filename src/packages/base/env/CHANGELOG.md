@@ -1,3 +1,9 @@
+## 1.1.0 (2022-02-16)
+
+### Features
+
+* 新增 isPHA, isWindVane, isFRM
+
 ## 1.0.7 (2021-06-28)
 
 ### Bug Fixes
