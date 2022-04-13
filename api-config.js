@@ -153,7 +153,7 @@ module.exports = {
     path: 'src/packages/interactive/toast/src/index.ts',
     pkgInfo: [
       {
-        version: '1.1.0',
+        version: '1.1.1',
         name: '@uni/toast',
       },
     ],

@@ -18,6 +18,7 @@ const styles = {
     justifyContent: 'center',
     left: '50%',
     bottom: '50%',
+    whiteSpace: 'pre-line',
     fontSize: '16px',
     lineHeight: '32px',
     fontWeight: '600',
