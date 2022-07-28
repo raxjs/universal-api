@@ -126,7 +126,8 @@ export function styleOptions(options, containerName) {
     };
     if (isJsonp && containerName !== CONTAINER_NAME.WEB) {
       try {
-        const content = res?.data?.replace(`${jsonpCallback}(`, '').replace(')', '');
+        const reg = new RegExp(`(^${jsonpCallback}\\(|(\\)|\\);)$)`, 'gm');
+        const content = res?.data?.replace(reg, '');
         const data = content ? JSON.parse(content) : '';
         return {
           ...afterRes,
