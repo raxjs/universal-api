@@ -97,7 +97,7 @@ export function styleOptions(options, containerName) {
     headers: { 'Content-Type': 'application/json' },
     method: 'GET',
     jsonpCallbackProp: 'callback',
-    jsonpCallback: `__uni_jsonp_handler_${ new Date().getTime()}`,
+    jsonpCallback: `__uni_jsonp_handler_${new Date().getTime()}`,
     timeout: DEFAULT_TIMEOUT,
     dataType: 'json',
   };
@@ -126,8 +126,8 @@ export function styleOptions(options, containerName) {
     };
     if (isJsonp && containerName !== CONTAINER_NAME.WEB) {
       try {
-        const reg = new RegExp(`(^${jsonpCallback}\\(|(\\)|\\);)$)`, 'gm');
-        const content = res?.data?.replace(reg, '');
+        const reg = new RegExp(`${jsonpCallback}\\(([\\s\\S]*)\\);?$`, 'gm');
+        const content = reg.exec(res?.data)?.[1];
         const data = content ? JSON.parse(content) : '';
         return {
           ...afterRes,
