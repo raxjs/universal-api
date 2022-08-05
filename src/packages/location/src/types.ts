@@ -23,7 +23,7 @@ export interface ResponseStruct {
 // openLocation params
 export interface OpenOptionStruct extends Uni.COptions {
   latitude: string;
-  longtitude: string;
+  longitude: string;
   scale: number;
   name: string;
   address: string;
@@ -35,7 +35,7 @@ export interface OpenOptionStruct extends Uni.COptions {
 // chooseLocation options
 export interface ChooseLocationOptions extends Uni.COptions {
   latitude?: number;
-  longtitude?: number;
+  longitude?: number;
   success?: (res) => any;
   fail?: (res) => any;
   complete?: (res) => any;
@@ -46,7 +46,7 @@ export interface ChooseLocationResponse {
   name: string;
   address: string;
   latitude: number;
-  longtitude: number;
+  longitude: number;
   provinceName?: string;
   cityName?: string;
 }
