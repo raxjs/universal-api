@@ -5,36 +5,25 @@ import { CONTAINER_NAME } from '@utils/constant';
 const setClipboard = normalizeSet((args: PARAMS) => {
   const { text = '', success = () => {}, fail = () => {}, complete = () => {} } = args || {};
   let textArea;
-
-  const isOS = () => {
-    return navigator.userAgent.match(/ipad|iphone/i);
-  };
-
   const createTextArea = () => {
     textArea = document.createElement('textArea');
+    textArea.style.position = 'absolute';
+    textArea.style.top = 0;
+    textArea.style.opacity = 0;
+    textArea.style.zIndex = -1;
     textArea.value = text;
     document.body.appendChild(textArea);
   };
 
   const selectText = () => {
-    let range;
-    let selection;
-
-    if (isOS()) {
-      range = document.createRange();
-      range.selectNodeContents(textArea);
-      selection = window.getSelection();
-      selection.removeAllRanges();
-      selection.addRange(range);
-      textArea.setSelectionRange(0, 999999);
-    } else {
-      textArea.select();
-    }
+    textArea.setAttribute('readonly', '');
+    textArea.select();
+    textArea.setSelectionRange(0, textArea.value.length);
   };
 
   const copyToClipboard = () => {
     document.execCommand('copy');
-    document.body.removeChild(textArea);
+    textArea.remove();
   };
 
   try {
