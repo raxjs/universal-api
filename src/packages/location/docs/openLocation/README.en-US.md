@@ -78,7 +78,7 @@ location.openLocation({
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
 | options.latitude | `string` | Latitude | ✔️ | - |
-| options.longtitude | `string` | Longtitude | ✔️ | - |
+| options.longitude | `string` | longitude | ✔️ | - |
 | options.scale | `number` | Scale, ranging from 5 to 18 | ✘ | 18 |
 | options.name | `string`  | Location name | ✔️ | - |
 | options.address | `string`  | Detailed address | ✔️ | - |

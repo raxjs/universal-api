@@ -108,7 +108,7 @@ openLocation({
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✔️ | - |
 | options.latitude | `string` | 纬度 | ✔️ | - |
-| options.longtitude | `string` | 经度 | ✔️ | - |
+| options.longitude | `string` | 经度 | ✔️ | - |
 | options.name | `string`  | 位置名 | ✔️ | - |
 | options.scale | `number` | 缩放比例，范围5~18 | ✘ | 18 |
 | options.address | `string`  | 地址的详细说明 | ✔️ | - |

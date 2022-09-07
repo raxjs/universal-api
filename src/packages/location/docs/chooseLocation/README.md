@@ -71,7 +71,7 @@ location.chooseLocation({
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✘ | - |
 | options.latitude | `number` | 目标位置纬度（阿里模拟器不支持） | ✘ | - |
-| options.longtitude | `number` | 目标位置经度（阿里模拟器不支持） | ✘ | - |
+| options.longitude | `number` | 目标位置经度（阿里模拟器不支持） | ✘ | - |
 | options.success | `Function`  | 成功的回调 | ✘ | - |
 | options.fail | `Function`  | 失败的回调 | ✘ | - |
 | options.complete | `Function`  | 结束的回调 （调用成功、失败都会执行） | ✘ | - |

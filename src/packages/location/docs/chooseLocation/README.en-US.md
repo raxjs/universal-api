@@ -71,7 +71,7 @@ location.chooseLocation({
 | --- | --- | --- | --- | --- |
 | options | `object`  |  | ✘ | - |
 | options.latitude | `number` | Latitude (not for ali develop platform) | ✘ | - |
-| options.longtitude | `number` | Longtitude (not for ali develop platform) | ✘ | - |
+| options.longitude | `number` | longitude (not for ali develop platform) | ✘ | - |
 | options.success | `Function`  | The callback function for a successful API call | ✘ | - |
 | options.fail | `Function`  | The callback function for a failed API call | ✘ | - |
 | options.complete | `Function`  | The callback function used when the API call completed (always executed whether the call succeeds or fails) | ✘ | - |
