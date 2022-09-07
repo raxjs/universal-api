@@ -52,7 +52,7 @@ const tsProject = ts.createProject({
     // "@types/*": ["types/*"],
     // "types/interface": ["./interface"],
     "@/*": ["src/*"],
-    "@utils/*": ["src/utils/*"],
+    // "@utils/*": ["src/utils/*"],
   }  
 });
 

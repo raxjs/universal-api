@@ -33,26 +33,26 @@ module.exports = (isEs, isMain, aliasEntries) => {
              *   resolvePath: ...,
              * }
              */
-            const oriUtilsPath = '@utils';
-            let newUtilsPath = '_utils';
-            let pathLv = 0;
-            if (sourcePath.indexOf(oriUtilsPath) !== -1) {
-              if (isMain) {
-                newUtilsPath = 'utils'
-                pathLv = currentFile
-                  .match(/(src\/packages\/.*\.ts)/)[1]
-                  .split('/').length - 2;
-              } else {
-                pathLv = currentFile
-                .replace('/src/packages', '')
-                .match(/(src\/.*\.ts)/)[1]
-                .split('/').length - 2;
-              }
+            // const oriUtilsPath = '@utils';
+            // let newUtilsPath = '_utils';
+            // let pathLv = 0;
+            // if (sourcePath.indexOf(oriUtilsPath) !== -1) {
+            //   if (isMain) {
+            //     newUtilsPath = 'utils'
+            //     pathLv = currentFile
+            //       .match(/(src\/packages\/.*\.ts)/)[1]
+            //       .split('/').length - 2;
+            //   } else {
+            //     pathLv = currentFile
+            //     .replace('/src/packages', '')
+            //     .match(/(src\/.*\.ts)/)[1]
+            //     .split('/').length - 2;
+            //   }
               
-              const pointRelative = pathLv === 0 ? '.' : Array.from({length: pathLv}).map(i => '..').join('/');
+            //   const pointRelative = pathLv === 0 ? '.' : Array.from({length: pathLv}).map(i => '..').join('/');
             
-              return sourcePath.replace(oriUtilsPath, pointRelative + '/' + newUtilsPath);
-            }
+            //   return sourcePath.replace(oriUtilsPath, pointRelative + '/' + newUtilsPath);
+            // }
 
             // 替换内部依赖，加入index.js
             

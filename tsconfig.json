@@ -68,6 +68,7 @@
 			"@/*": ["src/*"],
 			// "types/*": ["types/*"],
 			"@utils/*": ["src/utils/*"],
+			"@uni/utils": ["src/utils"]
     }
 	},
 	"include": ["src/packages/**/src", "types/*", "types"],

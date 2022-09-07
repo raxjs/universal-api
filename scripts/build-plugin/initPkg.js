@@ -33,6 +33,10 @@ const buildPkgJson = async (packageInfo, outputPath, isMain = false) => {
   }
   if (isMain || packageInfo.name == '@uni/env') {
     delete packageJson.dependencies['@uni/env'];
+    delete packageJson.dependencies['@uni/utils'];
+  }
+  if (packageInfo.name === '@uni/utils') {
+    delete packageJson.dependencies['@uni/utils'];
   }
   if (isMain) {
     packageJson.typings = 'types/main/index.d.ts';

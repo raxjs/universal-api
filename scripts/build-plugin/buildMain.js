@@ -4,7 +4,13 @@ const path = require('path');
 const needRename = {
   location: '_location'
 }
-module.exports = (rootDir, sourceMap) => {
+module.exports = (rootDir, originSourceMap) => {
+  const sourceMap = Object.keys(originSourceMap).reduce((prev, cur) => {
+    if (originSourceMap[cur].exportMain !== false) {
+      prev[cur] = originSourceMap[cur];
+    }
+    return prev;
+  }, {});
   const defaultContent = '\r\n\r\nexport default {\r\n' + Object.entries(sourceMap).map(([key, value]) => {
     if (needRename[key]) {
       return `  ${key}: ${needRename[key]},`;
