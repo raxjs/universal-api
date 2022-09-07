@@ -75,7 +75,7 @@ module.exports = {
     path: 'src/packages/device/clipboard/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.8',
+        version: '1.0.9',
         name: '@uni/clipboard',
       },
     ],
