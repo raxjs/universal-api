@@ -1,3 +1,8 @@
+## 1.1.8 (2022-07-28)
+
+### Bug Fixes
+* 修复 JSONP 解码未考虑 ';' 的情况（ https://github.com/raxjs/universal-api/issues/272 ）
+
 ## 1.1.7 (2021-11-25)
 ### Bug Fixes
 * 修复 headers 参数无法正确覆盖的问题
@@ -93,7 +98,7 @@
 
 ### Features
 
-* 剔除 Babel/runtime-corejs3 
+* 剔除 Babel/runtime-corejs3
 * 新增支持 webpack5 exports ([a113f40](https://github.com/raxjs/universal-api/commit/a113f4034a35c2d5325536026d825175aa889dfd))
 
 ## 1.0.2 (2021-04-07)
