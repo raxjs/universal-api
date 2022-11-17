@@ -5,8 +5,8 @@ import { formatSystemInfo } from '../common';
 function getPlatform() {
   const { platform } = navigator;
   if (platform) {
-    if (/(iphone|ipod|ipad)/.test(navigator.userAgent.toLowerCase())) return 'iOS';
-    if (/android/.test(navigator.userAgent.toLowerCase())) return 'Android';
+    if (/(iphone|ipod|ipad)/.test(navigator?.userAgent?.toLowerCase())) return 'iOS';
+    if (/android/.test(navigator?.userAgent?.toLowerCase())) return 'Android';
     return platform;
   }
   return '';
