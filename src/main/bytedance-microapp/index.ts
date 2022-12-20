@@ -16,10 +16,10 @@ import loading from '../../packages/interactive/loading/src/bytedance-microapp/i
 import navigationBar from '../../packages/interactive/navigationBar/src/bytedance-microapp/index';
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/bytedance-microapp/index';
 import tabBar from '../../packages/interactive/tabBar/src/bytedance-microapp/index';
+import keyboard from '../../packages/interactive/keyboard/src/bytedance-microapp/index';
 import element from '../../packages/interactive/element/src/bytedance-microapp/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/bytedance-microapp/index';
 import confirm from '../../packages/interactive/confirm/src/bytedance-microapp/index';
-import keyboard from '../../packages/interactive/keyboard/src/bytedance-microapp/index';
 import _location from '../../packages/location/src/bytedance-microapp/index';
 import image from '../../packages/media/image/src/bytedance-microapp/index';
 import audio from '../../packages/media/audio/src/bytedance-microapp/index';
@@ -54,10 +54,10 @@ export {
   navigationBar,
   pullDownRefresh,
   tabBar,
+  keyboard,
   element,
   intersectionObserver,
   confirm,
-  keyboard,
   _location as location,
   image,
   audio,
@@ -94,10 +94,10 @@ export default {
   navigationBar,
   pullDownRefresh,
   tabBar,
+  keyboard,
   element,
   intersectionObserver,
   confirm,
-  keyboard,
   location: _location,
   image,
   audio,

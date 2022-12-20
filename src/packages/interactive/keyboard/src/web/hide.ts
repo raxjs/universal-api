@@ -1,7 +1,7 @@
 import { normalizeHide } from '../common';
 import { CONTAINER_NAME } from '@utils/constant';
 
-export const hide = normalizeHide(({ success = () => {}, fail = () => {}, complete = () => {} }) => {
+const hide = normalizeHide(({ success = () => {}, fail = () => {}, complete = () => {} }) => {
   try {
     setTimeout(() => {
       if (window && window.document && window.document.activeElement) {
@@ -15,3 +15,5 @@ export const hide = normalizeHide(({ success = () => {}, fail = () => {}, comple
     complete();
   }
 }, CONTAINER_NAME.WEB);
+
+export default hide;

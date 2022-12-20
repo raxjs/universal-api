@@ -16,10 +16,10 @@ import loading from '../../packages/interactive/loading/src/web/index';
 import navigationBar from '../../packages/interactive/navigationBar/src/web/index';
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/web/index';
 import tabBar from '../../packages/interactive/tabBar/src/web/index';
+import keyboard from '../../packages/interactive/keyboard/src/web/index';
 import element from '../../packages/interactive/element/src/web/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/web/index';
 import confirm from '../../packages/interactive/confirm/src/web/index';
-import keyboard from '../../packages/interactive/keyboard/src/web/index';
 import _location from '../../packages/location/src/web/index';
 import image from '../../packages/media/image/src/web/index';
 import audio from '../../packages/media/audio/src/web/index';
@@ -54,10 +54,10 @@ export {
   navigationBar,
   pullDownRefresh,
   tabBar,
+  keyboard,
   element,
   intersectionObserver,
   confirm,
-  keyboard,
   _location as location,
   image,
   audio,
@@ -94,10 +94,10 @@ export default {
   navigationBar,
   pullDownRefresh,
   tabBar,
+  keyboard,
   element,
   intersectionObserver,
   confirm,
-  keyboard,
   location: _location,
   image,
   audio,

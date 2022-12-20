@@ -194,15 +194,15 @@ module.exports = {
       },
     ],
   },
-  // 'keyboard': {
-  //   path: 'packages/interactive/keyboard/src/index.ts',
-  //   pkgInfo: [
-  //     {
-  //       version: '1.0.1',
-  //       name: '@uni/keyboard',
-  //     }
-  //   ]
-  // },
+  keyboard: {
+    path: 'src/packages/interactive/keyboard/src/index.ts',
+    pkgInfo: [
+      {
+        version: '1.0.1',
+        name: '@uni/keyboard',
+      },
+    ],
+  },
   element: {
     path: 'src/packages/interactive/element/src/index.ts',
     pkgInfo: [

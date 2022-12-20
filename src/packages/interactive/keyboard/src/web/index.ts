@@ -1,9 +1,9 @@
-import { hide } from './hide';
+import hide from './hide';
 
 export {
-  hide
-}
+  hide,
+};
 
 export default {
-  hide
-}
+  hide,
+};

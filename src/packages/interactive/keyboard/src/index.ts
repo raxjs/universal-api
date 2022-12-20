@@ -1,14 +1,14 @@
 import { isWeb, isMiniApp, isWeChatMiniProgram, isByteDanceMicroApp, isBaiduSmartProgram, isKuaiShouMiniProgram } from '@uni/env';
-import * as aliMiniAppModule from './ali-miniapp';
-import * as weChatModule from './wechat-miniprogram';
-import * as bytedanceModule from './bytedance-microapp';
-import * as kuaiShouModule from './kuaishou-miniprogram';
-import * as baiDuModule from './baidu-smartprogram';
-import * as webModule from './web';
+import aliMiniAppModule from './ali-miniapp/index';
+import weChatModule from './wechat-miniprogram/index';
+import bytedanceModule from './bytedance-microapp/index';
+import kuaiShouModule from './kuaishou-miniprogram/index';
+import baiDuModule from './baidu-smartprogram/index';
+import webModule from './web/index';
 
 import { HideOptions } from './types';
 
-const hide = (options: HideOptions) => {
+export const hide = (options?: HideOptions) => {
   if (isMiniApp) {
     return aliMiniAppModule.hide(options);
   } else if (isWeChatMiniProgram) {

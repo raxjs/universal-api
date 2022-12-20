@@ -16,10 +16,10 @@ import loading from '../../packages/interactive/loading/src/ali-miniapp/index';
 import navigationBar from '../../packages/interactive/navigationBar/src/ali-miniapp/index';
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/ali-miniapp/index';
 import tabBar from '../../packages/interactive/tabBar/src/ali-miniapp/index';
+import keyboard from '../../packages/interactive/keyboard/src/ali-miniapp/index';
 import element from '../../packages/interactive/element/src/ali-miniapp/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/ali-miniapp/index';
 import confirm from '../../packages/interactive/confirm/src/ali-miniapp/index';
-import keyboard from '../../packages/interactive/keyboard/src/ali-miniapp/index';
 import _location from '../../packages/location/src/ali-miniapp/index';
 import image from '../../packages/media/image/src/ali-miniapp/index';
 import audio from '../../packages/media/audio/src/ali-miniapp/index';
@@ -54,10 +54,10 @@ export {
   navigationBar,
   pullDownRefresh,
   tabBar,
+  keyboard,
   element,
   intersectionObserver,
   confirm,
-  keyboard,
   _location as location,
   image,
   audio,
@@ -94,10 +94,10 @@ export default {
   navigationBar,
   pullDownRefresh,
   tabBar,
+  keyboard,
   element,
   intersectionObserver,
   confirm,
-  keyboard,
   location: _location,
   image,
   audio,
