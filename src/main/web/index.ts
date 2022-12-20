@@ -19,6 +19,7 @@ import tabBar from '../../packages/interactive/tabBar/src/web/index';
 import element from '../../packages/interactive/element/src/web/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/web/index';
 import confirm from '../../packages/interactive/confirm/src/web/index';
+import keyboard from '../../packages/interactive/keyboard/src/web/index';
 import _location from '../../packages/location/src/web/index';
 import image from '../../packages/media/image/src/web/index';
 import audio from '../../packages/media/audio/src/web/index';
@@ -56,6 +57,7 @@ export {
   element,
   intersectionObserver,
   confirm,
+  keyboard,
   _location as location,
   image,
   audio,
@@ -95,6 +97,7 @@ export default {
   element,
   intersectionObserver,
   confirm,
+  keyboard,
   location: _location,
   image,
   audio,

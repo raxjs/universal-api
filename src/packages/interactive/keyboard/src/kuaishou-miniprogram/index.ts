@@ -1,1 +1,9 @@
-export { default as hide } from './hide';
+import { hide } from './hide';
+
+export {
+  hide
+}
+
+export default {
+  hide
+}

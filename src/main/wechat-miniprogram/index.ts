@@ -19,6 +19,7 @@ import tabBar from '../../packages/interactive/tabBar/src/wechat-miniprogram/ind
 import element from '../../packages/interactive/element/src/wechat-miniprogram/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/wechat-miniprogram/index';
 import confirm from '../../packages/interactive/confirm/src/wechat-miniprogram/index';
+import keyboard from '../../packages/interactive/keyboard/src/wechat-miniprogram/index';
 import _location from '../../packages/location/src/wechat-miniprogram/index';
 import image from '../../packages/media/image/src/wechat-miniprogram/index';
 import audio from '../../packages/media/audio/src/wechat-miniprogram/index';
@@ -56,6 +57,7 @@ export {
   element,
   intersectionObserver,
   confirm,
+  keyboard,
   _location as location,
   image,
   audio,
@@ -95,6 +97,7 @@ export default {
   element,
   intersectionObserver,
   confirm,
+  keyboard,
   location: _location,
   image,
   audio,
