@@ -46,7 +46,7 @@ module.exports = {
         name: '@uni/unit-tool',
         exports: '',
         dependencies: {
-          '@uni/system-info': '^1.0.8',
+          '@uni/system-info': '^1.0.10',
         },
       },
     ],
@@ -84,7 +84,7 @@ module.exports = {
     path: 'src/packages/device/systemInfo/src/index.ts',
     pkgInfo: [
       {
-        version: '1.0.9',
+        version: '1.0.10',
         name: '@uni/system-info',
       },
     ],
