@@ -22,7 +22,7 @@ export const getInfoSync = () => {
   } else if (isBaiduSmartProgram) {
     return baiDuModule.getInfoSync();
   } else if (isNode) {
-    return nodeModule.getInfoSync()
+    return nodeModule.getInfoSync();
   } else {
     throw new Error('Uni API：getInfoSync暂不支持');
   }

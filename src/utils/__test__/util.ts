@@ -12,11 +12,11 @@ export const mapContainerToGlobalsKey: Record<Container, keyof Globals> = {
   bytedance: 'tt',
   kuaishou: 'ks',
   baidu: 'swan',
-  node: 'node'
+  node: 'node',
 };
 
 export function createNoop() {
-  return () => {};
+  return () => { };
 }
 
 export const noop = createNoop();
