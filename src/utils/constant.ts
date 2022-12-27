@@ -5,6 +5,6 @@ export const CONTAINER_NAME = {
   WEB: 'web',
   BAIDU: 'baiduSmartProgram',
   KWAI: 'kuaishouMiniProgram',
-  NODE: 'node'
+  NODE: 'node',
 };
 export const JSONP_SIGN = '__uni_jsonp_handler_sign__';
