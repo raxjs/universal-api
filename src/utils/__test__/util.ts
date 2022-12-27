@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom';
 
 // Note: `ali` includes: `dingtalk`
-type Container = 'web' | 'wechat' | 'ali' | 'dingtalk' | 'bytedance' | 'kuaishou' | 'baidu';
+type Container = 'web' | 'wechat' | 'ali' | 'dingtalk' | 'bytedance' | 'kuaishou' | 'baidu' | 'node';
 type Globals = Record<'window' | 'wx' | 'my' | 'dd' | 'tt' | 'ks' | 'swan' | string, any>;
 
 export const mapContainerToGlobalsKey: Record<Container, keyof Globals> = {
@@ -12,11 +12,11 @@ export const mapContainerToGlobalsKey: Record<Container, keyof Globals> = {
   bytedance: 'tt',
   kuaishou: 'ks',
   baidu: 'swan',
+  node: 'node',
 };
 
 export function createNoop() {
-  return () => {
-  };
+  return () => { };
 }
 
 export const noop = createNoop();
