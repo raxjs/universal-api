@@ -57,6 +57,7 @@ export function testContainerAPI(
     bytedance: { tt: { showToast: noop } },
     kuaishou: { ks: { showToast: noop } },
     baidu: { swan: { showToast: noop } },
+    node: {},
   };
 
   if (container === 'web') {
