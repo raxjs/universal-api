@@ -13,7 +13,7 @@ const buildAll = () => {
       task: () => execa("build-scripts", ["build", '--api', `${key}`]),
     });
   });
-  new Listr(res, { concurrent: true, exitOnError: false }).run().catch((err) => {
+  new Listr(res, { concurrent: 10, exitOnError: false }).run().catch((err) => {
     console.error(err);
   });
 }
