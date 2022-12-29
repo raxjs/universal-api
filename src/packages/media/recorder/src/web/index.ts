@@ -2,7 +2,7 @@
 
 const getUserMedia = (constraints) => {
   const navigate: any = navigator;
-  const rawGetUserMedia = (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) || navigator.getUserMedia || navigate.webkitGetUserMedia || navigate.mozGetUserMedia;
+  const rawGetUserMedia = (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) || navigate.getUserMedia || navigate.webkitGetUserMedia || navigate.mozGetUserMedia;
 
   if (!rawGetUserMedia) {
     return Promise.reject(new Error('getUserMedia is not implemented in this browser'));
