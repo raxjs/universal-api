@@ -77,7 +77,7 @@
     "jsdom": "^16.6.0",
     "koa-compose": "^4.1.0",
     "lint-staged": "^10.5.4",
-    "listr2": "^3.9.0",
+    "listr2": "^5.0.6",
     "md5": "^2.3.0",
     "minimist": "^1.2.0",
     "ora": "^5.1.0",
@@ -94,7 +94,7 @@
     "semver": "^6.3.0",
     "shelljs": "^0.8.4",
     "ts-jest": "^27.0.3",
-    "typescript": "^3.9.6",
+    "typescript": "^4.9.4",
     "webpack": "^4.46.0",
     "webpack-node-externals": "^2.5.2"
   }
