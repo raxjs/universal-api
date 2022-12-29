@@ -9,7 +9,7 @@ testWebAPI('request', async (globals) => {
 
   const { default: request } = require('../src/index');
 
-  const { data } = await new Promise((resolve) => {
+  const { data } = await new Promise<any>((resolve) => {
     setResponse(200, 'hello');
     request({
       url: 'https://xxx-test.com',
