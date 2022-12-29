@@ -16,6 +16,7 @@ import loading from '../packages/interactive/loading/src/index';
 import navigationBar from '../packages/interactive/navigationBar/src/index';
 import pullDownRefresh from '../packages/interactive/pullDownRefresh/src/index';
 import tabBar from '../packages/interactive/tabBar/src/index';
+import keyboard from '../packages/interactive/keyboard/src/index';
 import element from '../packages/interactive/element/src/index';
 import intersectionObserver from '../packages/interactive/intersectionObserver/src/index';
 import confirm from '../packages/interactive/confirm/src/index';
@@ -53,6 +54,7 @@ export {
   navigationBar,
   pullDownRefresh,
   tabBar,
+  keyboard,
   element,
   intersectionObserver,
   confirm,
@@ -92,6 +94,7 @@ export default {
   navigationBar,
   pullDownRefresh,
   tabBar,
+  keyboard,
   element,
   intersectionObserver,
   confirm,

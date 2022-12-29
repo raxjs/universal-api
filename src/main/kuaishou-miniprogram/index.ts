@@ -14,6 +14,7 @@ import loading from '../../packages/interactive/loading/src/kuaishou-miniprogram
 import element from '../../packages/interactive/element/src/kuaishou-miniprogram/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/kuaishou-miniprogram/index';
 import confirm from '../../packages/interactive/confirm/src/kuaishou-miniprogram/index';
+import keyboard from '../../packages/interactive/keyboard/src/kuaishou-miniprogram/index';
 import location from '../../packages/location/src/kuaishou-miniprogram/index';
 import image from '../../packages/media/image/src/kuaishou-miniprogram/index';
 import navigate from '../../packages/navigate/src/kuaishou-miniprogram/index';
@@ -39,6 +40,7 @@ export {
   element,
   intersectionObserver,
   confirm,
+  keyboard,
   location,
   image,
   navigate,
@@ -66,6 +68,7 @@ export default {
   element,
   intersectionObserver,
   confirm,
+  keyboard,
   location,
   image,
   navigate,

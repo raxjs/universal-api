@@ -14,6 +14,7 @@ import loading from '../../packages/interactive/loading/src/baidu-smartprogram/i
 import element from '../../packages/interactive/element/src/baidu-smartprogram/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/baidu-smartprogram/index';
 import confirm from '../../packages/interactive/confirm/src/baidu-smartprogram/index';
+import keyboard from '../../packages/interactive/keyboard/src/baidu-smartprogram/index';
 import location from '../../packages/location/src/baidu-smartprogram/index';
 import image from '../../packages/media/image/src/baidu-smartprogram/index';
 import navigate from '../../packages/navigate/src/baidu-smartprogram/index';
@@ -39,6 +40,7 @@ export {
   element,
   intersectionObserver,
   confirm,
+  keyboard,
   location,
   image,
   navigate,
@@ -66,6 +68,7 @@ export default {
   element,
   intersectionObserver,
   confirm,
+  keyboard,
   location,
   image,
   navigate,

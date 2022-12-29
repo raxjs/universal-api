@@ -1,14 +1,31 @@
-import { isMiniApp, isWeChatMiniProgram } from '@uni/env';
-import * as miniAppModule from './miniapp/ali';
-import * as weChatModule from './miniapp/wechat';
+import { isWeb, isMiniApp, isWeChatMiniProgram, isByteDanceMicroApp, isBaiduSmartProgram, isKuaiShouMiniProgram } from '@uni/env';
+import aliMiniAppModule from './ali-miniapp/index';
+import weChatModule from './wechat-miniprogram/index';
+import bytedanceModule from './bytedance-microapp/index';
+import kuaiShouModule from './kuaishou-miniprogram/index';
+import baiDuModule from './baidu-smartprogram/index';
+import webModule from './web/index';
 
-import { Keyboard } from './types';
+import { HideOptions } from './types';
 
-let keyboard: Keyboard;
-if (isMiniApp) {
-  keyboard = miniAppModule;
-} else if (isWeChatMiniProgram) {
-  keyboard = weChatModule;
-}
+export const hide = (options?: HideOptions) => {
+  if (isMiniApp) {
+    return aliMiniAppModule.hide(options);
+  } else if (isWeChatMiniProgram) {
+    return weChatModule.hide(options);
+  } else if (isByteDanceMicroApp) {
+    return bytedanceModule.hide(options);
+  } else if (isKuaiShouMiniProgram) {
+    return kuaiShouModule.hide(options);
+  } else if (isBaiduSmartProgram) {
+    return baiDuModule.hide(options);
+  } else if (isWeb) {
+    return webModule.hide(options);
+  } else {
+    throw new Error('Uni API：keyboard.hide 暂不支持');
+  }
+};
 
-export default keyboard;
+export default {
+  hide,
+};

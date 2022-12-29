@@ -16,6 +16,7 @@ import loading from '../../packages/interactive/loading/src/wechat-miniprogram/i
 import navigationBar from '../../packages/interactive/navigationBar/src/wechat-miniprogram/index';
 import pullDownRefresh from '../../packages/interactive/pullDownRefresh/src/wechat-miniprogram/index';
 import tabBar from '../../packages/interactive/tabBar/src/wechat-miniprogram/index';
+import keyboard from '../../packages/interactive/keyboard/src/wechat-miniprogram/index';
 import element from '../../packages/interactive/element/src/wechat-miniprogram/index';
 import intersectionObserver from '../../packages/interactive/intersectionObserver/src/wechat-miniprogram/index';
 import confirm from '../../packages/interactive/confirm/src/wechat-miniprogram/index';
@@ -53,6 +54,7 @@ export {
   navigationBar,
   pullDownRefresh,
   tabBar,
+  keyboard,
   element,
   intersectionObserver,
   confirm,
@@ -92,6 +94,7 @@ export default {
   navigationBar,
   pullDownRefresh,
   tabBar,
+  keyboard,
   element,
   intersectionObserver,
   confirm,
