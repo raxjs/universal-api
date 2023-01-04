@@ -22,7 +22,6 @@ const srcDir = [
   '!' + path.resolve(rootDir, 'src/.umi/*.ts'),
   '!' + path.resolve(rootDir, 'src/**/network-info/**/*.ts'),
   '!' + path.resolve(rootDir, 'src/**/background/**/*.ts'),
-  '!' + path.resolve(rootDir, 'src/**/keyboard/**/*.ts'),
   '!' + path.resolve(rootDir, 'src/**/**/__test__/*.ts'),
   '!' + path.resolve(rootDir, 'src/**/docs/*.ts'),
   '!' + path.resolve(rootDir, 'src/**/demo/*.ts'),
@@ -50,7 +49,7 @@ const tsProject = ts.createProject({
     "types/*": ["types/*"],
     "@/*": ["src/*"],
     "@utils/*": ["src/utils/*"],
-  }  
+  }
 });
 let aliasEntries = [];
 Object.values(sourceMap).forEach(item => {
