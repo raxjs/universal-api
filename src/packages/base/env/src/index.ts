@@ -14,9 +14,12 @@ declare const navigator: {
   swuserAgent?: string;
 };
 
-export const isWeb = typeof window !== 'undefined' && 'onload' in window;
+// This requires webpack >= 5 to identify the import.meta object.
+const hasImportMeta = typeof import.meta !== 'undefined';
+
+export const isWeb = hasImportMeta ? import.meta.target === 'web' : (typeof window !== 'undefined' && 'onload' in window);
 export const isNode = typeof process !== 'undefined' && !!(process.versions && process.versions.node);
-export const isWeex = typeof WXEnvironment !== 'undefined' && WXEnvironment.platform !== 'Web';
+export const isWeex = hasImportMeta ? import.meta.target === 'weex' : (typeof WXEnvironment !== 'undefined' && WXEnvironment.platform !== 'Web');
 export const isKraken = typeof __kraken__ !== 'undefined';
 export const isMiniApp = typeof my !== 'undefined' && my !== null && typeof my.alert !== 'undefined';
 export const isByteDanceMicroApp = typeof tt !== 'undefined' && tt !== null && typeof tt.showToast !== 'undefined';
