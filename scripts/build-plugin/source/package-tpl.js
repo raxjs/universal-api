@@ -15,7 +15,11 @@ module.exports = {
       "miniapp": "./es/ali-miniapp/index.js",
       'baidu-smartprogram': './es/baidu-smartprogram/index.js',
       'kuaishou-miniprogram': './es/kuaishou-miniprogram/index.js',
-      "default": "./es/index.js",
+      "default": {
+        "require":  "./lib/index.js",
+        "import":  "./es/index.js",
+        "default": "./es/index.js"
+      }
     },
     "./*": "./*"
   },
