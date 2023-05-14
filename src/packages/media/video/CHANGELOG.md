@@ -1,3 +1,9 @@
+## 1.0.7 (2023-05-14)
+
+### Bug Fixes
+
+* 解决 my.chooseMedia 在钉钉环境缺失 tempFiles 字段导致 map 报错问题
+
 ## 1.0.6 (2021-08-20)
 
 ### Bug Fixes
