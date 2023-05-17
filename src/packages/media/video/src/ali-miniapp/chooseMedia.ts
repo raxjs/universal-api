@@ -10,10 +10,14 @@ const chooseMedia = normalize.chooseMedia((args) => {
       success: (res) => {
         const result = {
           type: 'image',
-          tempFiles: res.tempFiles.map((i) => ({
-            ...i,
-            tempFilePath: i.path,
-          })),
+          tempFiles: res.tempFiles
+            ? res.tempFiles.map((i) => ({
+              ...i,
+              tempFilePath: i.path,
+            }))
+            : res.tempFilePaths.map((i) => ({
+              tempFilePath: i,
+            })),
         };
         args.success(result);
       },
