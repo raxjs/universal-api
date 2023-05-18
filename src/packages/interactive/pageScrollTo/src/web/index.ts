@@ -51,6 +51,8 @@ export default normalize((options: Options) => {
   // Scroll distance per 1ms
   const speed = (scrollTop - top) / duration;
 
+  let nextTop = top;
+
   const handleScroll = (startTime: number) => {
     requestAnimationFrame(() => {
       const cost = Date.now() - startTime;
@@ -59,8 +61,7 @@ export default normalize((options: Options) => {
         return;
       }
 
-      top = rootElement.scrollTop;
-      let nextTop = top + cost * speed;
+      nextTop = nextTop + cost * speed;
       if ((speed > 0 && nextTop > scrollTop) || (speed < 0 && nextTop < scrollTop)) {
         nextTop = scrollTop;
       }
