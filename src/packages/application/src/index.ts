@@ -5,130 +5,23 @@ import bytedanceModule from './bytedance-microapp/index';
 import webModule from './web/index';
 import kuaiShouModule from './kuaishou-miniprogram/index';
 import baiDuModule from './baidu-smartprogram/index';
-import {
-  Callback, RejectCallback,
-} from './types';
 
-export const getApp = () => {
+const getApis = () => {
   if (isWeb) {
-    return webModule.getApp();
+    return webModule;
   } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.getApp();
+    return kuaiShouModule;
   } else if (isWeChatMiniProgram) {
-    return weChatModule.getApp();
+    return weChatModule;
   } else if (isByteDanceMicroApp) {
-    return bytedanceModule.getApp();
+    return bytedanceModule;
   } else if (isMiniApp) {
-    return aliMiniAppModule.getApp();
+    return aliMiniAppModule;
   } else if (isBaiduSmartProgram) {
-    return baiDuModule.getApp();
+    return baiDuModule;
   } else {
-    throw new Error('@uni：application.getApp 暂不支持');
+    throw new Error('@uni：application 暂不支持');
   }
 };
-
-export const getCurrentPages = () => {
-  if (isWeb) {
-    return webModule.getCurrentPages();
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.getCurrentPages();
-  } else if (isWeChatMiniProgram) {
-    return weChatModule.getCurrentPages();
-  } else if (isByteDanceMicroApp) {
-    return bytedanceModule.getCurrentPages();
-  } else if (isMiniApp) {
-    return aliMiniAppModule.getCurrentPages();
-  } else if (isBaiduSmartProgram) {
-    return baiDuModule.getCurrentPages();
-  } else {
-    throw new Error('@uni：application.getCurrentPages 暂不支持');
-  }
-};
-export const getLaunchOptionsSync = () => {
-  if (isWeb) {
-    return webModule.getLaunchOptionsSync();
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.getLaunchOptionsSync();
-  } else if (isWeChatMiniProgram) {
-    return weChatModule.getLaunchOptionsSync();
-  } else if (isByteDanceMicroApp) {
-    return bytedanceModule.getLaunchOptionsSync();
-  } else if (isMiniApp) {
-    return aliMiniAppModule.getLaunchOptionsSync();
-  } else {
-    throw new Error('@uni：application.getLaunchOptionsSync 暂不支持');
-  }
-};
-export const onError = (options: Callback) => {
-  if (isWeb) {
-    return webModule.onError(options);
-  } else if (isKuaiShouMiniProgram) {
-    throw new Error('@uni：onError 暂不支持');
-  } else if (isWeChatMiniProgram) {
-    return weChatModule.onError(options);
-  } else if (isByteDanceMicroApp) {
-    return bytedanceModule.onError(options);
-  } else if (isMiniApp) {
-    return aliMiniAppModule.onError(options);
-  } else if (isBaiduSmartProgram) {
-    return baiDuModule.onError(options);
-  } else {
-    throw new Error('@uni：onError 暂不支持');
-  }
-};
-export const offError = (options: Callback) => {
-  if (isWeb) {
-    return webModule.offError(options);
-  } else if (isKuaiShouMiniProgram) {
-    throw new Error('@uni：offError 暂不支持');
-  } else if (isWeChatMiniProgram) {
-    return weChatModule.offError(options);
-  } else if (isByteDanceMicroApp) {
-    return bytedanceModule.offError(options);
-  } else if (isMiniApp) {
-    return aliMiniAppModule.offError(options);
-  } else if (isBaiduSmartProgram) {
-    return baiDuModule.offError(options);
-  } else {
-    throw new Error('@uni：offError暂不支持');
-  }
-};
-export const onUnhandledRejection = (options: RejectCallback) => {
-  if (isWeb) {
-    return webModule.onUnhandledRejection(options);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.onUnhandledRejection(options);
-  } else if (isWeChatMiniProgram) {
-    return weChatModule.onUnhandledRejection(options);
-  } else if (isByteDanceMicroApp) {
-    return bytedanceModule.onUnhandledRejection(options);
-  } else if (isMiniApp) {
-    return aliMiniAppModule.onUnhandledRejection(options);
-  } else {
-    throw new Error('@uni：onUnhandledRejection 暂不支持');
-  }
-};
-export const offUnhandledRejection = (options: RejectCallback) => {
-  if (isWeb) {
-    return webModule.offUnhandledRejection(options);
-  } else if (isKuaiShouMiniProgram) {
-    return kuaiShouModule.offUnhandledRejection(options);
-  } else if (isWeChatMiniProgram) {
-    return weChatModule.offUnhandledRejection(options);
-  } else if (isByteDanceMicroApp) {
-    return bytedanceModule.offUnhandledRejection(options);
-  } else if (isMiniApp) {
-    return aliMiniAppModule.offUnhandledRejection(options);
-  } else {
-    throw new Error('@uni：Application.offUnhandledRejection 暂不支持');
-  }
-};
-export default {
-  getApp,
-  getCurrentPages,
-  getLaunchOptionsSync,
-  onError,
-  offError,
-  onUnhandledRejection,
-  offUnhandledRejection,
-};
+const apis = getApis();
+export default apis;
